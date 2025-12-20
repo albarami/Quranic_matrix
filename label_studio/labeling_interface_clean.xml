@@ -1,0 +1,421 @@
+<View>
+  <Header value="Quranic Behavior Matrix Annotation" />
+
+  <View style="padding: 10px; background: #f8f9fa; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="Quranic Text (Arabic)" size="4" />
+    <Text name="quran_text" value="$raw_text_ar" granularity="word" />
+    <Header value="Reference" size="5" />
+    <Text name="reference_display" value="Surah $surah, Ayah $ayah" />
+  </View>
+
+  <View style="padding: 10px; background: #e3f2fd; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="1. Span Boundaries" size="4" />
+    <Labels name="span_selection" toName="quran_text">
+      <Label value="BEHAVIOR_SPAN" background="#2196F3" />
+    </Labels>
+    <Choices name="boundary_confidence" toName="quran_text" choice="single">
+      <Choice value="certain" />
+      <Choice value="probable" />
+      <Choice value="uncertain" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #fff3e0; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="2. Behavior Form" size="4" />
+    <Choices name="behavior_form" toName="quran_text" choice="single" required="true">
+      <Choice value="speech_act" />
+      <Choice value="physical_act" />
+      <Choice value="inner_state" />
+      <Choice value="trait_disposition" />
+      <Choice value="relational_act" />
+      <Choice value="omission" />
+      <Choice value="mixed" />
+      <Choice value="unknown" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #e8f5e9; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="3. Agent" size="4" />
+    <Choices name="agent_type" toName="quran_text" choice="single" required="true">
+      <Choice value="AGT_BELIEVER" />
+      <Choice value="AGT_HYPOCRITE" />
+      <Choice value="AGT_DISBELIEVER" />
+      <Choice value="AGT_HUMAN_GENERAL" />
+      <Choice value="AGT_PROPHET_MESSENGER" />
+      <Choice value="AGT_ANGEL" />
+      <Choice value="AGT_JINN" />
+      <Choice value="AGT_ANIMAL" />
+      <Choice value="AGT_COLLECTIVE" />
+      <Choice value="AGT_PEOPLE_OF_BOOK" />
+      <Choice value="AGT_POLYTHEIST" />
+      <Choice value="AGT_WRONGDOER" />
+      <Choice value="AGT_RIGHTEOUS" />
+      <Choice value="AGT_UNKNOWN" />
+    </Choices>
+    <Choices name="agent_explicit" toName="quran_text" choice="single">
+      <Choice value="explicit" />
+      <Choice value="implicit" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #fce4ec; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="4. Organic Axis (Organs)" size="4" />
+    <Choices name="organs" toName="quran_text" choice="multiple">
+      <Choice value="ORG_HEART" />
+      <Choice value="ORG_TONGUE" />
+      <Choice value="ORG_EYE" />
+      <Choice value="ORG_EAR" />
+      <Choice value="ORG_HAND" />
+      <Choice value="ORG_FOOT" />
+      <Choice value="ORG_SKIN" />
+      <Choice value="ORG_FACE" />
+      <Choice value="ORG_MOUTH" />
+      <Choice value="ORG_CHEST" />
+      <Choice value="ORG_BRAIN" />
+      <Choice value="ORG_SOUL" />
+      <Choice value="ORG_UNKNOWN" />
+    </Choices>
+    <View visibleWhen="choice-selected" whenTagName="organs" whenChoiceValue="ORG_HEART">
+      <Header value="Heart Semantic Domains" size="5" />
+      <Choices name="heart_domains" toName="quran_text" choice="multiple">
+        <Choice value="DOM_PHYSIOLOGICAL" />
+        <Choice value="DOM_COGNITIVE" />
+        <Choice value="DOM_SPIRITUAL" />
+        <Choice value="DOM_EMOTIONAL" />
+      </Choices>
+    </View>
+    <Choices name="organ_role" toName="quran_text" choice="single">
+      <Choice value="ROLE_TOOL" />
+      <Choice value="ROLE_PERCEPTION" />
+      <Choice value="ROLE_ACCOUNTABILITY_WITNESS" />
+      <Choice value="ROLE_METAPHOR" />
+      <Choice value="ROLE_UNKNOWN" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #e1f5fe; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="5. Situational Axis" size="4" />
+    <Choices name="situational" toName="quran_text" choice="single" required="true">
+      <Choice value="external" />
+      <Choice value="internal" />
+      <Choice value="mixed" />
+      <Choice value="unknown" />
+    </Choices>
+    <Choices name="situational_domains" toName="quran_text" choice="multiple">
+      <Choice value="emotional" />
+      <Choice value="spiritual" />
+      <Choice value="cognitive" />
+      <Choice value="psychological" />
+      <Choice value="social" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #f3e5f5; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="6. Systemic Axis" size="4" />
+    <Choices name="systemic" toName="quran_text" choice="multiple" required="true">
+      <Choice value="SYS_SELF" />
+      <Choice value="SYS_CREATION" />
+      <Choice value="SYS_GOD" />
+      <Choice value="SYS_COSMOS" />
+      <Choice value="SYS_LIFE" />
+      <Choice value="SYS_FAMILY" />
+      <Choice value="SYS_SOCIETY" />
+      <Choice value="SYS_UNKNOWN" />
+    </Choices>
+    <Choices name="primary_systemic" toName="quran_text" choice="single">
+      <Choice value="SYS_SELF" />
+      <Choice value="SYS_CREATION" />
+      <Choice value="SYS_GOD" />
+      <Choice value="SYS_COSMOS" />
+      <Choice value="SYS_LIFE" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #e0f7fa; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="7. Spatial Axis" size="4" />
+    <Choices name="spatial" toName="quran_text" choice="single">
+      <Choice value="LOC_HOME" />
+      <Choice value="LOC_MASJID" />
+      <Choice value="LOC_MARKET" />
+      <Choice value="LOC_PUBLIC" />
+      <Choice value="LOC_BATTLEFIELD" />
+      <Choice value="LOC_TRAVEL" />
+      <Choice value="LOC_SACRED" />
+      <Choice value="LOC_UNKNOWN" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #fff8e1; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="8. Temporal Axis" size="4" />
+    <Choices name="temporal" toName="quran_text" choice="single">
+      <Choice value="TMP_FAJR" />
+      <Choice value="TMP_MORNING" />
+      <Choice value="TMP_NOON" />
+      <Choice value="TMP_AFTERNOON" />
+      <Choice value="TMP_SUNSET" />
+      <Choice value="TMP_NIGHT" />
+      <Choice value="TMP_FRIDAY" />
+      <Choice value="TMP_RAMADAN" />
+      <Choice value="TMP_HAJJ" />
+      <Choice value="TMP_UNKNOWN" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #ffebee; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="9. Action Classification (Paper-Aligned)" size="4" />
+    <Choices name="action_class" toName="quran_text" choice="single" required="true">
+      <Choice value="ACT_INSTINCTIVE_OR_AUTOMATIC" />
+      <Choice value="ACT_VOLITIONAL" />
+      <Choice value="ACT_UNKNOWN" />
+    </Choices>
+    <Choices name="action_textual_eval" toName="quran_text" choice="single" required="true">
+      <Choice value="EVAL_SALIH" />
+      <Choice value="EVAL_GHAYR_SALIH" />
+      <Choice value="EVAL_NEUTRAL" />
+      <Choice value="EVAL_NOT_APPLICABLE" />
+      <Choice value="EVAL_UNKNOWN" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #e8eaf6; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="10. Behavior Concepts" size="4" />
+    <Taxonomy name="behavior_concepts" toName="quran_text" maxUsages="8">
+      <Choice value="Speech">
+        <Choice value="BEH_SPEECH_TRUTHFULNESS" />
+        <Choice value="BEH_SPEECH_LYING" />
+        <Choice value="BEH_SPEECH_BACKBITING" />
+        <Choice value="BEH_SPEECH_SLANDER" />
+        <Choice value="BEH_SPEECH_GOOD_WORD" />
+        <Choice value="BEH_SPEECH_HARSH_WORD" />
+        <Choice value="BEH_SPEECH_VAIN_TALK" />
+        <Choice value="BEH_SPEECH_REMEMBRANCE" />
+        <Choice value="BEH_SPEECH_SUPPLICATION" />
+        <Choice value="BEH_SPEECH_TESTIMONY" />
+      </Choice>
+      <Choice value="Financial">
+        <Choice value="BEH_FIN_CHARITY" />
+        <Choice value="BEH_FIN_ZAKAT" />
+        <Choice value="BEH_FIN_SPENDING" />
+        <Choice value="BEH_FIN_USURY" />
+        <Choice value="BEH_FIN_HOARDING" />
+        <Choice value="BEH_FIN_FRAUD" />
+        <Choice value="BEH_FIN_BRIBERY" />
+      </Choice>
+      <Choice value="Emotional">
+        <Choice value="BEH_EMO_GRATITUDE" />
+        <Choice value="BEH_EMO_INGRATITUDE" />
+        <Choice value="BEH_EMO_PATIENCE" />
+        <Choice value="BEH_EMO_IMPATIENCE" />
+        <Choice value="BEH_EMO_FEAR_ALLAH" />
+        <Choice value="BEH_EMO_HOPE" />
+        <Choice value="BEH_EMO_LOVE" />
+        <Choice value="BEH_EMO_HATRED" />
+        <Choice value="BEH_EMO_ENVY" />
+        <Choice value="BEH_EMO_ANGER" />
+        <Choice value="BEH_EMO_JOY" />
+        <Choice value="BEH_EMO_GRIEF" />
+      </Choice>
+      <Choice value="Spiritual">
+        <Choice value="BEH_SPI_FAITH" />
+        <Choice value="BEH_SPI_DISBELIEF" />
+        <Choice value="BEH_SPI_HYPOCRISY" />
+        <Choice value="BEH_SPI_SINCERITY" />
+        <Choice value="BEH_SPI_SHOWING_OFF" />
+        <Choice value="BEH_SPI_TAQWA" />
+        <Choice value="BEH_SPI_TAWAKKUL" />
+        <Choice value="BEH_SPI_REPENTANCE" />
+        <Choice value="BEH_SPI_WORSHIP" />
+        <Choice value="BEH_SPI_PRAYER" />
+        <Choice value="BEH_SPI_FASTING" />
+        <Choice value="BEH_SPI_REMEMBRANCE" />
+      </Choice>
+      <Choice value="Social">
+        <Choice value="BEH_SOC_JUSTICE" />
+        <Choice value="BEH_SOC_OPPRESSION" />
+        <Choice value="BEH_SOC_KINDNESS_PARENTS" />
+        <Choice value="BEH_SOC_DISOBEDIENCE_PARENTS" />
+        <Choice value="BEH_SOC_KINSHIP_TIES" />
+        <Choice value="BEH_SOC_SEVERING_TIES" />
+        <Choice value="BEH_SOC_HELPING_NEEDY" />
+        <Choice value="BEH_SOC_ORPHAN_CARE" />
+        <Choice value="BEH_SOC_ORPHAN_HARM" />
+        <Choice value="BEH_SOC_RECONCILIATION" />
+        <Choice value="BEH_SOC_CORRUPTION" />
+      </Choice>
+      <Choice value="Cognitive">
+        <Choice value="BEH_COG_REFLECTION" />
+        <Choice value="BEH_COG_HEEDLESSNESS" />
+        <Choice value="BEH_COG_KNOWLEDGE" />
+        <Choice value="BEH_COG_IGNORANCE" />
+        <Choice value="BEH_COG_UNDERSTANDING" />
+        <Choice value="BEH_COG_ARROGANCE" />
+        <Choice value="BEH_COG_HUMILITY" />
+        <Choice value="BEH_COG_DOUBT" />
+        <Choice value="BEH_COG_CERTAINTY" />
+        <Choice value="BEH_COG_FOLLOWING_DESIRE" />
+        <Choice value="BEH_COG_SUPERFICIAL_KNOWING" />
+      </Choice>
+      <Choice value="Physical">
+        <Choice value="BEH_PHY_EATING" />
+        <Choice value="BEH_PHY_DRINKING" />
+        <Choice value="BEH_PHY_WALKING" />
+        <Choice value="BEH_PHY_SLEEPING" />
+        <Choice value="BEH_PHY_LOOKING" />
+        <Choice value="BEH_PHY_LOWERING_GAZE" />
+        <Choice value="BEH_PHY_PROSTRATION" />
+        <Choice value="BEH_PHY_STANDING" />
+      </Choice>
+    </Taxonomy>
+  </View>
+
+  <View style="padding: 10px; background: #fafafa; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="11. Thematic Constructs" size="4" />
+    <Choices name="thematic_constructs" toName="quran_text" choice="multiple">
+      <Choice value="THM_ACCOUNTABILITY" />
+      <Choice value="THM_TESTIMONY" />
+      <Choice value="THM_REWARD" />
+      <Choice value="THM_PUNISHMENT" />
+      <Choice value="THM_GUIDANCE" />
+      <Choice value="THM_MISGUIDANCE" />
+      <Choice value="THM_COVENANT" />
+      <Choice value="THM_TEST_TRIAL" />
+      <Choice value="THM_CREATION" />
+      <Choice value="THM_RESURRECTION" />
+      <Choice value="THM_PARADISE" />
+      <Choice value="THM_HELLFIRE" />
+      <Choice value="THM_WORLDLY_LIFE" />
+      <Choice value="THM_HEREAFTER" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #efebe9; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="12. Normative/Evaluative Layer" size="4" />
+    <Header value="Speech Mode" size="5" />
+    <Choices name="speech_mode" toName="quran_text" choice="single" required="true">
+      <Choice value="command" />
+      <Choice value="prohibition" />
+      <Choice value="informative" />
+      <Choice value="narrative" />
+      <Choice value="parable" />
+      <Choice value="unknown" />
+    </Choices>
+    <Header value="Evaluation" size="5" />
+    <Choices name="evaluation" toName="quran_text" choice="single" required="true">
+      <Choice value="praise" />
+      <Choice value="blame" />
+      <Choice value="warning" />
+      <Choice value="promise" />
+      <Choice value="neutral" />
+      <Choice value="mixed" />
+      <Choice value="unknown" />
+    </Choices>
+    <Header value="Deontic Signal" size="5" />
+    <Choices name="quran_deontic_signal" toName="quran_text" choice="single" required="true">
+      <Choice value="amr" />
+      <Choice value="nahy" />
+      <Choice value="targhib" />
+      <Choice value="tarhib" />
+      <Choice value="khabar" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #eceff1; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="13. Evidence/Support" size="4" />
+    <Choices name="support_type" toName="quran_text" choice="single" required="true">
+      <Choice value="direct" />
+      <Choice value="indirect" />
+    </Choices>
+    <Choices name="indication_tags" toName="quran_text" choice="multiple">
+      <Choice value="dalalah_mantuq" />
+      <Choice value="dalalah_mafhum" />
+      <Choice value="narrative_inference" />
+      <Choice value="metaphor_metonymy" />
+      <Choice value="sabab_nuzul_used" />
+    </Choices>
+    <Header value="Justification Code" size="5" />
+    <Choices name="justification_code" toName="quran_text" choice="single">
+      <Choice value="JST_EXPLICIT_MENTION" />
+      <Choice value="JST_GRAMMATICAL_FORM" />
+      <Choice value="JST_TAFSIR_CONSENSUS" />
+      <Choice value="JST_NARRATIVE_CONTEXT" />
+      <Choice value="JST_PRONOUN_RESOLVED" />
+      <Choice value="JST_CONTEXT_ONLY" />
+      <Choice value="JST_METAPHOR_RESOLVED" />
+      <Choice value="JST_SABAB_NUZUL" />
+      <Choice value="JST_LINGUISTIC_ANALYSIS" />
+      <Choice value="JST_INTERTEXTUAL" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #fff3e0; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="14. Negation" size="4" />
+    <Choices name="negated" toName="quran_text" choice="single">
+      <Choice value="true" />
+      <Choice value="false" />
+    </Choices>
+    <View visibleWhen="choice-selected" whenTagName="negated" whenChoiceValue="true">
+      <Choices name="negation_type" toName="quran_text" choice="single">
+        <Choice value="absolute" />
+        <Choice value="conditional" />
+        <Choice value="exceptionless_affirmation" />
+        <Choice value="unknown" />
+      </Choices>
+    </View>
+    <Header value="Polarity" size="5" />
+    <Choices name="polarity" toName="quran_text" choice="single">
+      <Choice value="positive" />
+      <Choice value="negative" />
+      <Choice value="neutral" />
+      <Choice value="mixed" />
+      <Choice value="unknown" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #e0f2f1; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="15. Periodicity" size="4" />
+    <Choices name="periodicity" toName="quran_text" choice="single">
+      <Choice value="PER_AUTOMATIC" />
+      <Choice value="PER_HABIT" />
+      <Choice value="PER_ROUTINE_DAILY" />
+      <Choice value="PER_OCCASIONAL" />
+      <Choice value="PER_ONCE" />
+      <Choice value="PER_UNKNOWN" />
+    </Choices>
+    <Choices name="grammatical_indicator" toName="quran_text" choice="single">
+      <Choice value="GRM_KANA_IMPERFECT" />
+      <Choice value="GRM_NOMINAL_SENTENCE_STABILITY" />
+      <Choice value="GRM_EXPLICIT_FREQUENCY_TERM" />
+      <Choice value="GRM_CONDITIONAL_CONTINGENT" />
+      <Choice value="GRM_IMPERFECT_GENERAL" />
+      <Choice value="GRM_MASDAR" />
+      <Choice value="GRM_CONTEXT_ONLY" />
+      <Choice value="GRM_NONE" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #fce4ec; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="16. Tafsir Consultation" size="4" />
+    <Choices name="tafsir_sources" toName="quran_text" choice="multiple">
+      <Choice value="IbnKathir" />
+      <Choice value="Tabari" />
+      <Choice value="Sadi" />
+      <Choice value="Qurtubi" />
+    </Choices>
+    <Choices name="tafsir_agreement" toName="quran_text" choice="single">
+      <Choice value="high" />
+      <Choice value="mixed" />
+      <Choice value="disputed" />
+    </Choices>
+  </View>
+
+  <View style="padding: 10px; background: #f5f5f5; border-radius: 5px; margin-bottom: 15px;">
+    <Header value="17. Confidence" size="4" />
+    <Rating name="confidence" toName="quran_text" maxRating="10" icon="star" size="medium" />
+    <TextArea name="justification_text" toName="quran_text" placeholder="Justification notes..." rows="3" />
+  </View>
+
+  <View style="padding: 10px; background: #fafafa;">
+    <Header value="18. Additional Notes" size="4" />
+    <TextArea name="notes" toName="quran_text" placeholder="Any additional notes..." rows="4" />
+  </View>
+</View>

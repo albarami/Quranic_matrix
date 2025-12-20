@@ -3,7 +3,6 @@
 ## Active
 
 - (none)
-- **2025-12-20**: Place full Qur’an tokenization artifact into `data/quran/` in contract format; keep large artifacts ignored; add converter + tests.
 
 ## Completed
 
@@ -14,9 +13,12 @@
 - **2025-12-20**: Add Label Studio configuration + export converter + tests, and push to GitHub.
 - **2025-12-20**: Add Coding Manual v1.0 (annotator training) + gold standard examples placeholder; push to GitHub.
 - **2025-12-20**: Add Gold Standard Examples v1.0 (20 calibration examples) and push to GitHub.
+- **2025-12-20**: Place full Qur'an tokenization artifact into `data/quran/` in contract format; add converter + tests.
+- **2025-12-20**: Set up Label Studio with pilot_50 tasks; create API annotation script; annotate all 50 pilot ayat programmatically.
 
 ## Discovered During Work
 
-- (none)
+- Label Studio SDK requires enabling legacy API tokens in database (`jwt_auth_jwtsettings.legacy_api_tokens_enabled = 1`)
+- JSONL format not supported for Label Studio import; must convert to JSON array
 
 
