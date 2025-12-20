@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tafsir_record_v1.schema.json",
+  "title": "Tafsir record (v1) - minimal schema",
+  "type": "object",
+  "required": ["tafsir_id", "reference"],
+  "properties": {
+    "tafsir_id": {"type": "string"},
+    "reference": {
+      "type": "object",
+      "required": ["surah", "ayah"],
+      "properties": {
+        "surah": {"type": "integer", "minimum": 1, "maximum": 114},
+        "ayah": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": true
+    },
+    "text_ar": {"type": ["string", "null"]},
+    "text_en": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}
+
+

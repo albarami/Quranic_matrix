@@ -1,0 +1,15 @@
+# TASKS
+
+## Active
+
+- **2025-12-20**: Bootstrap startup requirements (docs + vocabularies + data/schema stubs) and push to GitHub.
+
+## Completed
+
+- **2025-12-20**: Create Qur’anic Human‑Behavior Classification Matrix documentation files (`.md` + `.doc`/RTF) and place under `docs/`.
+
+## Discovered During Work
+
+- (none)
+
+

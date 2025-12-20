@@ -1,0 +1,16 @@
+{
+  "vocabulary_id": "justification_codes_v1",
+  "version": "1.0",
+  "frozen_date": "2025-12-20",
+  "items": [
+    {"id": "JST_EXPLICIT_MENTION", "ar": "ذكر صريح", "notes": "Explicit lexical mention in the span."},
+    {"id": "JST_GRAMMATICAL_FORM", "ar": "صيغة نحوية", "notes": "Imperative/prohibition/negation/contrast forms, etc."},
+    {"id": "JST_TAFSIR_CONSENSUS", "ar": "اتفاق التفسير", "notes": "High-agreement tafsir disambiguation used."},
+    {"id": "JST_NARRATIVE_CONTEXT", "ar": "سياق قصصي", "notes": "Span-level narrative inference; often indirect."},
+    {"id": "JST_PRONOUN_RESOLVED", "ar": "حل الإحالة (الضمير)", "notes": "Pronoun/reference resolution required."},
+    {"id": "JST_CONTEXT_ONLY", "ar": "سياق فقط", "notes": "No token-range anchor; must justify why."},
+    {"id": "JST_METAPHOR_RESOLVED", "ar": "حل مجاز/كناية", "notes": "Metaphor/metonymy resolved (preferably with tafsir support)."}
+  ]
+}
+
+

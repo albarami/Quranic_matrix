@@ -1,0 +1,16 @@
+{
+  "vocabulary_id": "grammatical_indicators_v1",
+  "version": "1.0",
+  "frozen_date": "2025-12-20",
+  "items": [
+    {"id": "GRM_KANA_IMPERFECT", "ar": "كان + مضارع", "notes": "Continuity/ongoing aspect indicator (project-defined)."},
+    {"id": "GRM_NOMINAL_SENTENCE_STABILITY", "ar": "جملة اسمية (ثبات)", "notes": "Stability/constancy cue (project-defined)."},
+    {"id": "GRM_EXPLICIT_FREQUENCY_TERM", "ar": "لفظ تكرار صريح", "notes": "e.g., كل يوم / دائماً / مرات (only if present)."},
+    {"id": "GRM_CONDITIONAL_CONTINGENT", "ar": "شرط/تعليق", "notes": "Conditional structures affecting polarity/negation type."},
+    {"id": "GRM_REPEATED_IMPERATIVE", "ar": "أمر متكرر", "notes": "Repeated imperatives in a short window (project-defined)."},
+    {"id": "GRM_CONTEXT_ONLY", "ar": "سياق فقط", "notes": "Used when grammar is inferred contextually; should be rare."},
+    {"id": "GRM_NONE", "ar": "لا شيء", "notes": "No periodicity-related grammar detected."}
+  ]
+}
+
+

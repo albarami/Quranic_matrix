@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "quran_tokenized_v1.schema.json",
+  "title": "Tokenized Quran Text (uthmani_hafs_v1, tok_v1) - minimal schema",
+  "type": "object",
+  "required": ["quran_text_version", "tokenization_id", "surahs"],
+  "properties": {
+    "quran_text_version": {"type": "string"},
+    "tokenization_id": {"type": "string"},
+    "surahs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["surah", "ayat"],
+        "properties": {
+          "surah": {"type": "integer", "minimum": 1, "maximum": 114},
+          "ayat": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["ayah", "text", "tokens"],
+              "properties": {
+                "ayah": {"type": "integer", "minimum": 1},
+                "text": {"type": "string"},
+                "tokens": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["index", "text", "start_char", "end_char"],
+                    "properties": {
+                      "index": {"type": "integer", "minimum": 0},
+                      "text": {"type": "string"},
+                      "start_char": {"type": "integer", "minimum": 0},
+                      "end_char": {"type": "integer", "minimum": 0}
+                    },
+                    "additionalProperties": true
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
+
+
