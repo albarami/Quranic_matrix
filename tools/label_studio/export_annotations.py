@@ -77,8 +77,15 @@ def convert_to_qbm(task_data, annotation_result):
     if not span_info:
         return None
     
+    # Handle span_id - avoid double prefix if id already starts with QBM_
+    task_id = task_data.get('id', 'UNKNOWN')
+    if str(task_id).startswith('QBM_'):
+        span_id = task_id
+    else:
+        span_id = f"QBM_{task_id:05d}" if isinstance(task_id, int) else f"QBM_{task_id}"
+    
     qbm_record = {
-        "span_id": f"QBM_{task_data.get('id', 'UNKNOWN')}",
+        "span_id": span_id,
         "reference": {
             "surah": task_data.get("surah"),
             "ayah": task_data.get("ayah"),
