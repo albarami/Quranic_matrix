@@ -1,93 +1,104 @@
 {
   "summary": {
     "total_fields": 9,
-    "avg_cohens_kappa": NaN,
+    "fields_with_variance": 8,
+    "avg_cohens_kappa": 0.696,
     "avg_krippendorffs_alpha": null,
-    "fields_meeting_threshold": 5,
+    "fields_meeting_threshold": 6,
+    "fields_evaluated": 8,
     "target_threshold": 0.7,
     "krippendorff_available": false
   },
   "fields": [
     {
       "field": "agent.type",
-      "n_common": 48,
-      "agreements": 48,
-      "percent_agreement": 100.0,
-      "cohens_kappa": 1.0,
+      "n_common": 100,
+      "agreements": 97,
+      "percent_agreement": 97.0,
+      "cohens_kappa": 0.955,
       "krippendorffs_alpha": null,
-      "meets_threshold": true
+      "meets_threshold": true,
+      "no_variance": false
     },
     {
       "field": "behavior_form",
-      "n_common": 48,
-      "agreements": 37,
-      "percent_agreement": 77.1,
-      "cohens_kappa": 0.719,
+      "n_common": 100,
+      "agreements": 77,
+      "percent_agreement": 77.0,
+      "cohens_kappa": 0.703,
       "krippendorffs_alpha": null,
-      "meets_threshold": true
+      "meets_threshold": true,
+      "no_variance": false
     },
     {
       "field": "normative.speech_mode",
-      "n_common": 48,
-      "agreements": 47,
-      "percent_agreement": 97.9,
-      "cohens_kappa": 0.967,
+      "n_common": 100,
+      "agreements": 95,
+      "percent_agreement": 95.0,
+      "cohens_kappa": 0.91,
       "krippendorffs_alpha": null,
-      "meets_threshold": true
+      "meets_threshold": true,
+      "no_variance": false
     },
     {
       "field": "normative.evaluation",
-      "n_common": 48,
-      "agreements": 44,
-      "percent_agreement": 91.7,
-      "cohens_kappa": 0.843,
+      "n_common": 100,
+      "agreements": 93,
+      "percent_agreement": 93.0,
+      "cohens_kappa": 0.87,
       "krippendorffs_alpha": null,
-      "meets_threshold": true
+      "meets_threshold": true,
+      "no_variance": false
     },
     {
       "field": "normative.deontic_signal",
-      "n_common": 48,
-      "agreements": 41,
-      "percent_agreement": 85.4,
-      "cohens_kappa": 0.807,
+      "n_common": 100,
+      "agreements": 89,
+      "percent_agreement": 89.0,
+      "cohens_kappa": 0.856,
       "krippendorffs_alpha": null,
-      "meets_threshold": true
+      "meets_threshold": true,
+      "no_variance": false
     },
     {
       "field": "action.class",
-      "n_common": 48,
-      "agreements": 48,
-      "percent_agreement": 100.0,
-      "cohens_kappa": NaN,
+      "n_common": 100,
+      "agreements": 99,
+      "percent_agreement": 99.0,
+      "cohens_kappa": 0.0,
       "krippendorffs_alpha": null,
-      "meets_threshold": false
+      "meets_threshold": false,
+      "no_variance": false
     },
     {
       "field": "action.textual_eval",
-      "n_common": 48,
-      "agreements": 23,
-      "percent_agreement": 47.9,
-      "cohens_kappa": 0.315,
+      "n_common": 100,
+      "agreements": 72,
+      "percent_agreement": 72.0,
+      "cohens_kappa": 0.571,
       "krippendorffs_alpha": null,
-      "meets_threshold": false
+      "meets_threshold": false,
+      "no_variance": false
     },
     {
       "field": "axes.situational",
-      "n_common": 48,
-      "agreements": 40,
-      "percent_agreement": 83.3,
-      "cohens_kappa": 0.636,
+      "n_common": 100,
+      "agreements": 85,
+      "percent_agreement": 85.0,
+      "cohens_kappa": 0.701,
       "krippendorffs_alpha": null,
-      "meets_threshold": false
+      "meets_threshold": true,
+      "no_variance": false
     },
     {
       "field": "evidence.support_type",
-      "n_common": 48,
-      "agreements": 48,
+      "n_common": 100,
+      "agreements": 100,
       "percent_agreement": 100.0,
-      "cohens_kappa": NaN,
+      "cohens_kappa": null,
       "krippendorffs_alpha": null,
-      "meets_threshold": false
+      "meets_threshold": false,
+      "no_variance": true
     }
   ]
 }

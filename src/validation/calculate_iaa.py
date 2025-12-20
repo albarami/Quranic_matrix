@@ -32,7 +32,7 @@ except ImportError:
 
 
 def load_annotations(filepath: str) -> dict:
-    """Load annotations indexed by reference (surah:ayah)."""
+    """Load annotations indexed by span_id for exact matching."""
     with open(filepath, encoding="utf-8") as f:
         data = json.load(f)
     
@@ -43,9 +43,15 @@ def load_annotations(filepath: str) -> dict:
     
     indexed = {}
     for rec in records:
-        ref = rec.get("reference", {})
-        key = f"{ref.get('surah')}:{ref.get('ayah')}"
-        indexed[key] = rec
+        # Key by span_id for exact span-level matching
+        span_id = rec.get("span_id") or rec.get("id")
+        if span_id:
+            indexed[span_id] = rec
+        else:
+            # Fallback to reference if no span_id
+            ref = rec.get("reference", {})
+            key = f"{ref.get('surah')}:{ref.get('ayah')}"
+            indexed[key] = rec
     
     return indexed
 
@@ -121,6 +127,22 @@ def calculate_agreement_for_field(ann1: dict, ann2: dict, field_path: list) -> d
         except Exception:
             alpha = None
     
+    # Handle NaN values - convert to None for valid JSON
+    if kappa is not None and (np.isnan(kappa) or np.isinf(kappa)):
+        kappa = None
+    if alpha is not None and (np.isnan(alpha) or np.isinf(alpha)):
+        alpha = None
+    
+    # Determine if threshold is met (only if we have valid kappa or alpha)
+    meets_threshold = False
+    if kappa is not None and kappa >= 0.7:
+        meets_threshold = True
+    elif alpha is not None and alpha >= 0.7:
+        meets_threshold = True
+    elif kappa is None and alpha is None and percent_agreement >= 70.0:
+        # No variance case - use percent agreement but mark as N/A
+        meets_threshold = None  # Indicates N/A, not pass/fail
+    
     return {
         "field": ".".join(field_path),
         "n_common": n,
@@ -128,7 +150,8 @@ def calculate_agreement_for_field(ann1: dict, ann2: dict, field_path: list) -> d
         "percent_agreement": round(percent_agreement * 100, 1),
         "cohens_kappa": round(kappa, 3) if kappa is not None else None,
         "krippendorffs_alpha": round(alpha, 3) if alpha is not None else None,
-        "meets_threshold": (alpha or kappa or percent_agreement) >= 0.7 if (alpha or kappa) else percent_agreement >= 0.7
+        "meets_threshold": meets_threshold,
+        "no_variance": kappa is None and alpha is None
     }
 
 
@@ -155,25 +178,36 @@ def calculate_overall_iaa(ann1: dict, ann2: dict) -> dict:
     total_alpha = 0
     valid_kappa_count = 0
     valid_alpha_count = 0
+    fields_with_variance = 0
+    fields_meeting_threshold = 0
     
     for field_path in fields_to_check:
         field_result = calculate_agreement_for_field(ann1, ann2, field_path)
         results["fields"].append(field_result)
         
-        if field_result.get("cohens_kappa") is not None:
-            total_kappa += field_result["cohens_kappa"]
-            valid_kappa_count += 1
-        
-        if field_result.get("krippendorffs_alpha") is not None:
-            total_alpha += field_result["krippendorffs_alpha"]
-            valid_alpha_count += 1
+        # Only count fields with variance for averages
+        if not field_result.get("no_variance", False):
+            fields_with_variance += 1
+            if field_result.get("cohens_kappa") is not None:
+                total_kappa += field_result["cohens_kappa"]
+                valid_kappa_count += 1
+            
+            if field_result.get("krippendorffs_alpha") is not None:
+                total_alpha += field_result["krippendorffs_alpha"]
+                valid_alpha_count += 1
+            
+            # Count threshold only for fields with variance
+            if field_result.get("meets_threshold") is True:
+                fields_meeting_threshold += 1
     
-    # Calculate averages
+    # Calculate averages (excluding no-variance fields)
     results["summary"] = {
         "total_fields": len(fields_to_check),
+        "fields_with_variance": fields_with_variance,
         "avg_cohens_kappa": round(total_kappa / valid_kappa_count, 3) if valid_kappa_count > 0 else None,
         "avg_krippendorffs_alpha": round(total_alpha / valid_alpha_count, 3) if valid_alpha_count > 0 else None,
-        "fields_meeting_threshold": sum(1 for f in results["fields"] if f.get("meets_threshold", False)),
+        "fields_meeting_threshold": fields_meeting_threshold,
+        "fields_evaluated": fields_with_variance,
         "target_threshold": 0.7,
         "krippendorff_available": HAS_KRIPPENDORFF
     }
@@ -203,7 +237,8 @@ def print_results(results: dict):
         print(f"{name:<30} {pct:>8} {kappa:>8} {alpha:>8} {passed:>6}")
     
     print("\n--- Summary ---")
-    print(f"Fields meeting threshold: {results['summary']['fields_meeting_threshold']}/{results['summary']['total_fields']}")
+    evaluated = results['summary'].get('fields_evaluated', results['summary']['total_fields'])
+    print(f"Fields meeting threshold: {results['summary']['fields_meeting_threshold']}/{evaluated} (excluding no-variance fields)")
     if results['summary']['avg_cohens_kappa']:
         print(f"Average Cohen's Kappa: {results['summary']['avg_cohens_kappa']:.3f}")
     if results['summary']['avg_krippendorffs_alpha']:
