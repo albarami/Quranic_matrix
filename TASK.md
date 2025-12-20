@@ -2,7 +2,7 @@
 
 ## Active
 
-- (none)
+- **2025-12-20**: Add Coding Manual v1.0 (annotator training) + gold standard examples placeholder; push to GitHub.
 
 ## Completed
 

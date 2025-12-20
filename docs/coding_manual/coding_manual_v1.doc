@@ -1,0 +1,94 @@
+CODING MANUAL
+Quranic Human-Behavior Classification Matrix
+دليل الترميز لمصفوفة التصنيف القرآني للسلوك البشري
+─────────────────────────────
+Version 1.0
+For Annotator Training and Reference
+December 2025
+
+Table of Contents
+1. Introduction and Overview
+2. Before You Begin: Setup Checklist
+3. Span Segmentation Rules
+4. Agent Identification
+5. Organ Annotation (Organic Axis)
+6. Heart Semantic Domains Playbook
+7. Situational Axis (Internal/External)
+8. Systemic Axis
+9. Spatial and Temporal Axes
+10. Action Classification
+11. Behavior Concepts Taxonomy
+12. Normative/Deontic Classification
+13. Negation Patterns
+14. Periodicity Rules
+15. Evidence and Justification
+16. Tafsir Consultation Protocol
+17. Confidence Scoring
+18. Common Mistakes to Avoid
+19. Decision Flowcharts
+Appendix A: Quick Reference Tables
+Appendix B: Worked Examples (20 Gold Standards)
+
+1. Introduction and Overview
+1.1 Purpose of This Manual
+This coding manual provides step-by-step instructions for annotating Quranic spans with behavioral classifications. It ensures consistency across annotators and institutions.
+1.2 Core Principles
+• NO EVIDENCE → NO LABEL: Never assign a label without textual support
+• DIRECT vs INDIRECT: Always track whether your evidence is explicit or inferred
+• QURAN-ONLY: Separate Quranic signals from juristic derivations
+• CONTROLLED IDs: Use only approved vocabulary IDs (BEH_*, AGT_*, etc.)
+• FAIL-CLOSED: When in doubt, use 'unknown' rather than guess
+1.3 What You Will Annotate
+For each behavioral span, you will annotate:
+• Span boundaries (token_start, token_end)
+• Agent performing the behavior
+• Five axes: Organic, Situational, Systemic, Spatial, Temporal
+• Action classification and textual evaluation
+• Behavior concepts and thematic constructs
+• Normative layer (speech mode, evaluation, deontic signal)
+• Evidence type, justification, and confidence
+
+2. Before You Begin: Setup Checklist
+2.1 Required Materials
+1. Tokenized Quran text (Uthmani Hafs, tok_v1)
+2. Controlled vocabularies (vocab/ in this repo)
+3. This coding manual (printed or digital)
+4. Access to 4 tafsir sources: Ibn Kathir, al-Tabari, al-Sa'di, al-Qurtubi
+5. Annotation tool (Label Studio or equivalent)
+6. Calibration examples (20 gold-standard spans)
+2.2 Training Requirements
+• Complete 8-hour training session
+• Pass calibration test (≥80% agreement with gold standards)
+• Review all 20 worked examples in Appendix B
+• Practice with 10 additional spans under supervision
+
+3. Span Segmentation Rules
+3.1 Definition of a Span
+A span is a contiguous, token-bounded segment within a single ayah that expresses a coherent behavioral unit.
+3.2 Rules for Span Boundaries
+Rule 3.2.1: One Behavior Per Span
+Each span should capture ONE primary behavior or behavioral pattern. If an ayah contains multiple distinct behaviors, create multiple spans.
+Rule 3.2.2: Include Context
+Include sufficient tokens to capture:
+• The agent (who performs the behavior)
+• The action/state (what the behavior is)
+• The object/target (if relevant)
+• Key modifiers (how, when, where - if explicitly stated)
+Rule 3.2.3: Token Boundaries
+• token_start: INCLUSIVE (first token of span)
+• token_end: EXCLUSIVE (one past last token)
+Example: tokens [0,1,2,3,4] → token_start=0, token_end=5
+Rule 3.2.4: Multi-Ayah Behaviors
+If a behavior spans multiple ayat:
+• Create separate spans for each ayah
+• Link them using linked_spans[] with relation='continuation'
+3.3 Examples
+Ayah Text | Span Boundaries | Rationale
+يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ | tokens 0-5 | Complete command with agent and action
+وَالَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ... | tokens 0-4 | Agent + spending behavior
+يَوْمَ تَشْهَدُ عَلَيْهِمْ أَلْسِنَتُهُمْ | tokens 0-4 | Testimony behavior with organ
+⚠️ NEVER split a grammatically connected phrase. Keep subject-verb-object together.
+
+(Full manual content is in the Markdown source: docs/coding_manual/coding_manual_v1.md)
+
+
