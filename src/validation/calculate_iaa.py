@@ -133,9 +133,19 @@ def calculate_agreement_for_field(ann1: dict, ann2: dict, field_path: list) -> d
     if alpha is not None and (np.isnan(alpha) or np.isinf(alpha)):
         alpha = None
     
+    # Calculate variance - if <5% different values, mark as low variance
+    all_values = y1 + y2
+    unique_values = set(all_values)
+    most_common_count = max(all_values.count(v) for v in unique_values) if all_values else 0
+    variance_pct = 100 * (1 - most_common_count / len(all_values)) if all_values else 0
+    low_variance = variance_pct < 5.0
+    
     # Determine if threshold is met (only if we have valid kappa or alpha)
     meets_threshold = False
-    if kappa is not None and kappa >= 0.7:
+    if low_variance:
+        # <5% variance rule: mark as N/A, not pass/fail
+        meets_threshold = None
+    elif kappa is not None and kappa >= 0.7:
         meets_threshold = True
     elif alpha is not None and alpha >= 0.7:
         meets_threshold = True
@@ -151,7 +161,8 @@ def calculate_agreement_for_field(ann1: dict, ann2: dict, field_path: list) -> d
         "cohens_kappa": round(kappa, 3) if kappa is not None else None,
         "krippendorffs_alpha": round(alpha, 3) if alpha is not None else None,
         "meets_threshold": meets_threshold,
-        "no_variance": kappa is None and alpha is None
+        "low_variance": low_variance,
+        "variance_pct": round(variance_pct, 1)
     }
 
 
@@ -185,8 +196,8 @@ def calculate_overall_iaa(ann1: dict, ann2: dict) -> dict:
         field_result = calculate_agreement_for_field(ann1, ann2, field_path)
         results["fields"].append(field_result)
         
-        # Only count fields with variance for averages
-        if not field_result.get("no_variance", False):
+        # Only count fields with sufficient variance for averages
+        if not field_result.get("low_variance", False):
             fields_with_variance += 1
             if field_result.get("cohens_kappa") is not None:
                 total_kappa += field_result["cohens_kappa"]

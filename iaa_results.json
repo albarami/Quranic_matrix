@@ -1,11 +1,11 @@
 {
   "summary": {
     "total_fields": 9,
-    "fields_with_variance": 8,
-    "avg_cohens_kappa": 0.756,
+    "fields_with_variance": 7,
+    "avg_cohens_kappa": 0.864,
     "avg_krippendorffs_alpha": null,
     "fields_meeting_threshold": 7,
-    "fields_evaluated": 8,
+    "fields_evaluated": 7,
     "target_threshold": 0.7,
     "krippendorff_available": false
   },
@@ -18,7 +18,8 @@
       "cohens_kappa": 0.955,
       "krippendorffs_alpha": null,
       "meets_threshold": true,
-      "no_variance": false
+      "low_variance": false,
+      "variance_pct": 47.5
     },
     {
       "field": "behavior_form",
@@ -28,7 +29,8 @@
       "cohens_kappa": 0.884,
       "krippendorffs_alpha": null,
       "meets_threshold": true,
-      "no_variance": false
+      "low_variance": false,
+      "variance_pct": 64.5
     },
     {
       "field": "normative.speech_mode",
@@ -38,7 +40,8 @@
       "cohens_kappa": 0.91,
       "krippendorffs_alpha": null,
       "meets_threshold": true,
-      "no_variance": false
+      "low_variance": false,
+      "variance_pct": 39.5
     },
     {
       "field": "normative.evaluation",
@@ -48,7 +51,8 @@
       "cohens_kappa": 0.87,
       "krippendorffs_alpha": null,
       "meets_threshold": true,
-      "no_variance": false
+      "low_variance": false,
+      "variance_pct": 51.5
     },
     {
       "field": "normative.deontic_signal",
@@ -58,7 +62,8 @@
       "cohens_kappa": 0.856,
       "krippendorffs_alpha": null,
       "meets_threshold": true,
-      "no_variance": false
+      "low_variance": false,
+      "variance_pct": 70.0
     },
     {
       "field": "action.class",
@@ -67,8 +72,9 @@
       "percent_agreement": 99.0,
       "cohens_kappa": 0.0,
       "krippendorffs_alpha": null,
-      "meets_threshold": false,
-      "no_variance": false
+      "meets_threshold": null,
+      "low_variance": true,
+      "variance_pct": 0.5
     },
     {
       "field": "action.textual_eval",
@@ -78,7 +84,8 @@
       "cohens_kappa": 0.87,
       "krippendorffs_alpha": null,
       "meets_threshold": true,
-      "no_variance": false
+      "low_variance": false,
+      "variance_pct": 51.5
     },
     {
       "field": "axes.situational",
@@ -88,7 +95,8 @@
       "cohens_kappa": 0.701,
       "krippendorffs_alpha": null,
       "meets_threshold": true,
-      "no_variance": false
+      "low_variance": false,
+      "variance_pct": 40.5
     },
     {
       "field": "evidence.support_type",
@@ -97,8 +105,9 @@
       "percent_agreement": 100.0,
       "cohens_kappa": null,
       "krippendorffs_alpha": null,
-      "meets_threshold": false,
-      "no_variance": true
+      "meets_threshold": null,
+      "low_variance": true,
+      "variance_pct": 0.0
     }
   ]
 }
