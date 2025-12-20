@@ -1,0 +1,67 @@
+import xml.etree.ElementTree as ET
+
+import pytest
+
+from tools.pilot.build_pilot_50_from_xml import (
+    PilotBuildError,
+    build_selections,
+    load_tanzil_xml_index,
+    parse_refs,
+    whitespace_tokenize_with_offsets,
+)
+from tools.pilot.validate_pilot_selections import PilotValidationError, validate_selection
+
+
+def test_whitespace_tokenize_with_offsets_roundtrip() -> None:
+    text = "A  B C"
+    count, tokens = whitespace_tokenize_with_offsets(text)
+    assert count == 3
+    assert tokens[0]["text"] == "A"
+    assert tokens[1]["text"] == "B"
+    assert tokens[2]["text"] == "C"
+    for t in tokens:
+        assert text[t["start_char"] : t["end_char"]] == t["text"]
+
+
+def test_parse_refs_ok_and_fail() -> None:
+    refs = parse_refs(["2:3", " 4:1 "])
+    assert [(r.surah, r.ayah) for r in refs] == [(2, 3), (4, 1)]
+    with pytest.raises(PilotBuildError):
+        parse_refs(["2-3"])
+
+
+def test_build_selections_from_minimal_xml_and_validate() -> None:
+    xml = """<?xml version="1.0" encoding="utf-8"?>
+    <quran>
+      <sura index="2" name="البقرة">
+        <aya index="3" text="X Y" />
+      </sura>
+    </quran>"""
+    # Write to a temp file because load_tanzil_xml_index reads a path
+    import tempfile
+    import os
+
+    with tempfile.TemporaryDirectory() as d:
+        p = os.path.join(d, "q.xml")
+        with open(p, "w", encoding="utf-8") as f:
+            f.write(xml)
+        idx = load_tanzil_xml_index(p)
+        refs = parse_refs(["2:3"])
+        selections = build_selections(idx, refs)
+        assert selections[0]["reference"] == "2:3"
+        validate_selection(selections[0])
+
+
+def test_validate_selection_fails_on_bad_offsets() -> None:
+    sel = {
+        "reference": "1:1",
+        "surah_number": 1,
+        "ayah_number": 1,
+        "text_ar": "ABC",
+        "token_count": 1,
+        "tokens": [{"index": 0, "text": "ABC", "start_char": 0, "end_char": 2}],
+    }
+    with pytest.raises(PilotValidationError):
+        validate_selection(sel)
+
+

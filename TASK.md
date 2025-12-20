@@ -3,6 +3,7 @@
 ## Active
 
 - (none)
+- **2025-12-20**: Add pilot_50 tokenized selection dataset + validation/build tooling; push to GitHub.
 
 ## Completed
 

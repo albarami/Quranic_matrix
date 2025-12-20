@@ -11,6 +11,9 @@ data/quran/*.xml
 data/tafsir/*.json
 data/tafsir/*.jsonl
 
+# Generated pilot artifacts (derived from local corpora)
+data/pilot/generated/**
+
 # Python
 __pycache__/
 *.pyc
