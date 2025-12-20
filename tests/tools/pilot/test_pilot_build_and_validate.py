@@ -9,6 +9,7 @@ from tools.pilot.build_pilot_50_from_xml import (
     parse_refs,
     whitespace_tokenize_with_offsets,
 )
+from tools.pilot.build_label_studio_tasks_from_pilot import build_tasks
 from tools.pilot.validate_pilot_selections import PilotValidationError, validate_selection
 
 
@@ -63,5 +64,29 @@ def test_validate_selection_fails_on_bad_offsets() -> None:
     }
     with pytest.raises(PilotValidationError):
         validate_selection(sel)
+
+
+def test_build_label_studio_tasks_wraps_data_and_qbm_id() -> None:
+    selections = [
+        {
+            "reference": "2:3",
+            "surah_number": 2,
+            "surah_name": "البقرة",
+            "ayah_number": 3,
+            "text_ar": "A B",
+            "token_count": 2,
+            "tokens": [
+                {"index": 0, "text": "A", "start_char": 0, "end_char": 1},
+                {"index": 1, "text": "B", "start_char": 2, "end_char": 3},
+            ],
+        }
+    ]
+    tasks = build_tasks(selections, qbm_id_prefix="QBM", qbm_id_width=5, outer_id_start=1)
+    assert tasks[0]["id"] == 1
+    assert tasks[0]["data"]["id"] == "QBM_00001"
+    assert tasks[0]["data"]["surah"] == 2
+    assert tasks[0]["data"]["surah_name"] == "البقرة"
+    assert tasks[0]["data"]["reference"] == "2:3"
+    assert tasks[0]["data"]["token_count"] == 2
 
 

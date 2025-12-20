@@ -4,7 +4,11 @@ Build Label Studio tasks JSONL from pilot selections JSONL.
 Contract:
 - Input: pilot selections JSONL (one selection per line)
 - Output: Label Studio task JSONL where each line is a task dict with:
-  - id, surah, ayah, raw_text_ar, tokens[], quran_text_version, tokenization_id
+  - id (integer, Label Studio task id for import)
+  - data (object) containing the fields used by the labeling interface:
+    - id (string, e.g. QBM_00001)
+    - surah, surah_name, ayah, reference
+    - raw_text_ar, token_count, tokens[]
 """
 
 from __future__ import annotations
@@ -28,22 +32,26 @@ def _read_jsonl(path: str) -> List[Dict]:
 
 def build_tasks(
     selections: List[Dict],
-    quran_text_version: str,
-    tokenization_id: str,
-    id_prefix: str = "PILOT",
+    qbm_id_prefix: str = "QBM",
+    qbm_id_width: int = 5,
+    outer_id_start: int = 1,
 ) -> List[Dict]:
     tasks: List[Dict] = []
-    for i, sel in enumerate(selections, start=1):
-        tid = f"{id_prefix}_{i:04d}"
+    for i, sel in enumerate(selections, start=outer_id_start):
+        qbm_id = f"{qbm_id_prefix}_{i:0{qbm_id_width}d}"
         tasks.append(
             {
-                "id": tid,
-                "surah": sel["surah_number"],
-                "ayah": sel["ayah_number"],
-                "raw_text_ar": sel["text_ar"],
-                "tokens": sel["tokens"],
-                "quran_text_version": quran_text_version,
-                "tokenization_id": tokenization_id,
+                "id": i,
+                "data": {
+                    "id": qbm_id,
+                    "surah": sel["surah_number"],
+                    "surah_name": sel.get("surah_name", ""),
+                    "ayah": sel["ayah_number"],
+                    "reference": sel.get("reference", f'{sel["surah_number"]}:{sel["ayah_number"]}'),
+                    "raw_text_ar": sel["text_ar"],
+                    "token_count": sel["token_count"],
+                    "tokens": sel["tokens"],
+                },
             }
         )
     return tasks
@@ -61,13 +69,18 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--in", dest="in_path", required=True, help="Input pilot selections JSONL path.")
     parser.add_argument("--out", dest="out_path", required=True, help="Output Label Studio tasks JSONL path.")
-    parser.add_argument("--quran-text-version", default="uthmani_hafs_v1")
-    parser.add_argument("--tokenization-id", default="tok_v1")
-    parser.add_argument("--id-prefix", default="PILOT")
+    parser.add_argument("--qbm-id-prefix", default="QBM")
+    parser.add_argument("--qbm-id-width", type=int, default=5)
+    parser.add_argument("--outer-id-start", type=int, default=1)
     args = parser.parse_args()
 
     selections = _read_jsonl(args.in_path)
-    tasks = build_tasks(selections, args.quran_text_version, args.tokenization_id, id_prefix=args.id_prefix)
+    tasks = build_tasks(
+        selections,
+        qbm_id_prefix=args.qbm_id_prefix,
+        qbm_id_width=args.qbm_id_width,
+        outer_id_start=args.outer_id_start,
+    )
     write_tasks_jsonl(args.out_path, tasks)
     print(f"Wrote {len(tasks)} tasks -> {args.out_path}")
     return 0
