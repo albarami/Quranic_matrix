@@ -3,10 +3,11 @@
 ## Active
 
 - (none)
-- **2025-12-20**: Align Label Studio task JSON format to `{"id":..., "data":{...}}` (pilot + sample tasks); add tests; push to GitHub.
+- **2025-12-20**: Place full Qur’an tokenization artifact into `data/quran/` in contract format; keep large artifacts ignored; add converter + tests.
 
 ## Completed
 
+- **2025-12-20**: Align Label Studio task JSON format to `{"id":..., "data":{...}}` (pilot + sample tasks); add tests; push to GitHub.
 - **2025-12-20**: Add pilot_50 tokenized selection dataset + validation/build tooling; push to GitHub.
 - **2025-12-20**: Create Qur’anic Human‑Behavior Classification Matrix documentation files (`.md` + `.doc`/RTF) and place under `docs/`.
 - **2025-12-20**: Bootstrap startup requirements (docs + vocabularies + data/schema stubs) and push to GitHub.

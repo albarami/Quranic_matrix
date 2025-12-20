@@ -11,6 +11,10 @@ data/quran/*.xml
 data/tafsir/*.json
 data/tafsir/*.jsonl
 
+# Local large corpora sometimes land at repo root during processing
+quran_tokenized_full*.json
+quran_index*.json
+
 # Generated pilot artifacts (derived from local corpora)
 data/pilot/generated/**
 
