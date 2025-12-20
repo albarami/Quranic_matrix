@@ -2,9 +2,9 @@
   "summary": {
     "total_fields": 9,
     "fields_with_variance": 8,
-    "avg_cohens_kappa": 0.696,
+    "avg_cohens_kappa": 0.733,
     "avg_krippendorffs_alpha": null,
-    "fields_meeting_threshold": 6,
+    "fields_meeting_threshold": 7,
     "fields_evaluated": 8,
     "target_threshold": 0.7,
     "krippendorff_available": false
@@ -73,11 +73,11 @@
     {
       "field": "action.textual_eval",
       "n_common": 100,
-      "agreements": 72,
-      "percent_agreement": 72.0,
-      "cohens_kappa": 0.571,
+      "agreements": 93,
+      "percent_agreement": 93.0,
+      "cohens_kappa": 0.87,
       "krippendorffs_alpha": null,
-      "meets_threshold": false,
+      "meets_threshold": true,
       "no_variance": false
     },
     {
