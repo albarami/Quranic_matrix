@@ -19,4 +19,11 @@ Once pilot begins, **do not change** tokenization boundaries without bumping `to
 
 - `data/quran/uthmani_hafs_v1.tok_v1.json`
 
+### Optional derived artifacts (not required by the core contract)
+
+- `data/quran/_incoming/quran_index.source.json`
+  - A lightweight per-surah index (name + ayah/token totals) derived during tokenization.
+  - Useful for quick sanity checks and UI dropdowns (surah list), but **not** used as the
+    canonical token stream (use `uthmani_hafs_v1.tok_v1.json` for that).
+
 
