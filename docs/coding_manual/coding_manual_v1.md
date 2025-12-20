@@ -289,7 +289,7 @@ Annotate ONLY when time is explicitly mentioned:
 | ID | When to Use | Textual Cues |
 |---|---|---|
 | EVAL_SALIH | Text EXPLICITLY praises or rewards | مدح صريح، وعد بالجنة |
-| EVAL_GHAYR_SALIH | Text EXPLICITLY blames or threatens | ذم صريح، وعيد بالنار |
+| EVAL_SAYYI | Text EXPLICITLY blames or threatens | ذم صريح، وعيد بالنار |
 | EVAL_NEUTRAL | No evaluation in text | Pure narration without judgment |
 | EVAL_NOT_APPLICABLE | Instinctive acts | Involuntary states not subject to moral eval |
 | EVAL_UNKNOWN | Cannot determine (DEFAULT) | Ambiguous evaluation |
@@ -505,7 +505,7 @@ WRONG: Setting PER_ROUTINE_DAILY for salah because we know 5x daily.
 RIGHT: Use `frequency_prescription` for Sunnah-derived info.
 
 ### 18.3 Confusing Juristic and Textual
-WRONG: EVAL_GHAYR_SALIH because fiqh says haram.  
+WRONG: EVAL_SAYYI because fiqh says haram.  
 RIGHT: Only mark if the TEXT blames/threatens.
 
 ### 18.4 Over-Annotating Organs

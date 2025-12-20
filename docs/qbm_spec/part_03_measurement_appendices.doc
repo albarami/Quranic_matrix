@@ -257,7 +257,7 @@ A comprehensive hierarchical taxonomy (speech/financial/emotional/spiritual/soci
 
 ### A.11.2 Action textual evaluation (paper-aligned)
 - EVAL_SALIH
-- EVAL_GHAYR_SALIH
+- EVAL_SAYYI
 - EVAL_NEUTRAL
 - EVAL_NOT_APPLICABLE
 - EVAL_UNKNOWN

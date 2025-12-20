@@ -130,10 +130,10 @@ To align with the updated paper’s “غريزة/عمل صالح/عمل غير 
   - `ACT_UNKNOWN`
 
 - **Action moral evaluation (textual)** (`AX_ACTION_TEXTUAL_EVAL`):
-  - `EVAL_SALIH` | `EVAL_GHAYR_SALIH` | `EVAL_NEUTRAL` | `EVAL_NOT_APPLICABLE` | `EVAL_UNKNOWN`
+  - `EVAL_SALIH` | `EVAL_SAYYI` | `EVAL_NEUTRAL` | `EVAL_NOT_APPLICABLE` | `EVAL_UNKNOWN`
 
 Rules:
-- Only assign `EVAL_SALIH/GHAYR_SALIH` when the span provides **explicit evaluative cues** (praise/blame, promise/threat, etc.) or when tafsir agreement is high and the evaluation is clearly part of the meaning.
+- Only assign `EVAL_SALIH/EVAL_SAYYI` when the span provides **explicit evaluative cues** (praise/blame, promise/threat, etc.) or when tafsir agreement is high and the evaluation is clearly part of the meaning.
 - Do not turn this into juristic status (wajib/haram) unless using the juristic layer.
 - If `ACT_INSTINCTIVE_OR_AUTOMATIC`, default `AX_ACTION_TEXTUAL_EVAL` to `EVAL_NOT_APPLICABLE` unless the text explicitly evaluates the act (rare).
 

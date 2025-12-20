@@ -210,7 +210,7 @@ PILOT_ANNOTATIONS = {
         "deontic_signal": "khabar",
         "support_type": "direct",
         "action_class": "ACT_VOLITIONAL",
-        "action_eval": "EVAL_GHAYR_SALIH",
+        "action_eval": "EVAL_SAYYI",
         "systemic": ["SYS_GOD", "SYS_SOCIETY"],
         "situational": "external"
     },
@@ -224,7 +224,7 @@ PILOT_ANNOTATIONS = {
         "deontic_signal": "khabar",
         "support_type": "direct",
         "action_class": "ACT_VOLITIONAL",
-        "action_eval": "EVAL_GHAYR_SALIH",
+        "action_eval": "EVAL_SAYYI",
         "systemic": ["SYS_GOD", "SYS_SELF"],
         "situational": "external"
     },
@@ -238,7 +238,7 @@ PILOT_ANNOTATIONS = {
         "deontic_signal": "tarhib",
         "support_type": "direct",
         "action_class": "ACT_VOLITIONAL",
-        "action_eval": "EVAL_GHAYR_SALIH",
+        "action_eval": "EVAL_SAYYI",
         "systemic": ["SYS_SELF"],
         "situational": "internal"
     },

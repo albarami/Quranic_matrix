@@ -8,13 +8,13 @@ comparing annotations from multiple annotators.
 Usage:
     python calculate_iaa.py <annotator1_file> <annotator2_file>
 
-Target: Krippendorff's α ≥ 0.7 for Phase 2 Micro-Pilot
+Target: Krippendorff's alpha >= 0.7 for Phase 2 Micro-Pilot
 """
 
 import json
 import sys
 from pathlib import Path
-from collections import defaultdict
+from collections import Counter
 
 try:
     import numpy as np
@@ -29,6 +29,8 @@ try:
     HAS_KRIPPENDORFF = True
 except ImportError:
     HAS_KRIPPENDORFF = False
+
+LOW_VARIANCE_THRESHOLD = 5.0
 
 
 def load_annotations(filepath: str) -> dict:
@@ -133,12 +135,15 @@ def calculate_agreement_for_field(ann1: dict, ann2: dict, field_path: list) -> d
     if alpha is not None and (np.isnan(alpha) or np.isinf(alpha)):
         alpha = None
     
-    # Calculate variance - if <5% different values, mark as low variance
+    # Calculate variance across both annotators (combined label distribution)
     all_values = y1 + y2
-    unique_values = set(all_values)
-    most_common_count = max(all_values.count(v) for v in unique_values) if all_values else 0
-    variance_pct = 100 * (1 - most_common_count / len(all_values)) if all_values else 0
-    low_variance = variance_pct < 5.0
+    variance_pct = 0.0
+    if all_values:
+        counts = Counter(all_values)
+        most_common_count = counts.most_common(1)[0][1]
+        variance_pct = (1 - most_common_count / len(all_values)) * 100
+    variance_pct = round(variance_pct, 1)
+    low_variance = variance_pct < LOW_VARIANCE_THRESHOLD
     
     # Determine if threshold is met (only if we have valid kappa or alpha)
     meets_threshold = False
@@ -162,7 +167,7 @@ def calculate_agreement_for_field(ann1: dict, ann2: dict, field_path: list) -> d
         "krippendorffs_alpha": round(alpha, 3) if alpha is not None else None,
         "meets_threshold": meets_threshold,
         "low_variance": low_variance,
-        "variance_pct": round(variance_pct, 1)
+        "variance_pct": variance_pct
     }
 
 
@@ -211,7 +216,7 @@ def calculate_overall_iaa(ann1: dict, ann2: dict) -> dict:
             if field_result.get("meets_threshold") is True:
                 fields_meeting_threshold += 1
     
-    # Calculate averages (excluding no-variance fields)
+    # Calculate averages (excluding low-variance fields)
     results["summary"] = {
         "total_fields": len(fields_to_check),
         "fields_with_variance": fields_with_variance,
@@ -220,6 +225,7 @@ def calculate_overall_iaa(ann1: dict, ann2: dict) -> dict:
         "fields_meeting_threshold": fields_meeting_threshold,
         "fields_evaluated": fields_with_variance,
         "target_threshold": 0.7,
+        "variance_threshold": LOW_VARIANCE_THRESHOLD,
         "krippendorff_available": HAS_KRIPPENDORFF
     }
     
@@ -228,31 +234,37 @@ def calculate_overall_iaa(ann1: dict, ann2: dict) -> dict:
 
 def print_results(results: dict):
     """Print IAA results in a readable format."""
-    print("\n" + "="*60)
+    print("\n" + "=" * 60)
     print("INTER-ANNOTATOR AGREEMENT (IAA) RESULTS")
-    print("="*60)
-    
-    print(f"\nTarget: Krippendorff's α ≥ {results['summary']['target_threshold']}")
+    print("=" * 60)
+
+    print(f"\nTarget: Krippendorff's alpha >= {results['summary']['target_threshold']}")
     print(f"Krippendorff package available: {results['summary']['krippendorff_available']}")
-    
+    if results['summary'].get('variance_threshold') is not None:
+        print(f"Low-variance cutoff: < {results['summary']['variance_threshold']}% => N/A")
+
     print("\n--- Field-Level Agreement ---")
-    print(f"{'Field':<30} {'%Agree':>8} {'Kappa':>8} {'Alpha':>8} {'Pass':>6}")
-    print("-" * 62)
-    
-    for field in results["fields"]:
-        name = field.get("field", "unknown")[:28]
+    print(f"{'Field':<30} {'%Agree':>8} {'Kappa':>8} {'Alpha':>8} {'Var%':>8} {'Status':>8}")
+    print("-" * 72)
+
+    for field in results['fields']:
+        name = field.get('field', 'unknown')[:28]
         pct = f"{field.get('percent_agreement', 0):.1f}%"
         kappa = f"{field.get('cohens_kappa', 0):.3f}" if field.get('cohens_kappa') is not None else "N/A"
         alpha = f"{field.get('krippendorffs_alpha', 0):.3f}" if field.get('krippendorffs_alpha') is not None else "N/A"
-        passed = "✓" if field.get("meets_threshold") else "✗"
-        print(f"{name:<30} {pct:>8} {kappa:>8} {alpha:>8} {passed:>6}")
-    
+        variance = f"{field.get('variance_pct', 0):.1f}%"
+        if field.get('meets_threshold') is None:
+            status = "N/A"
+        else:
+            status = "PASS" if field.get('meets_threshold') else "FAIL"
+        print(f"{name:<30} {pct:>8} {kappa:>8} {alpha:>8} {variance:>8} {status:>8}")
+
     print("\n--- Summary ---")
     evaluated = results['summary'].get('fields_evaluated', results['summary']['total_fields'])
-    print(f"Fields meeting threshold: {results['summary']['fields_meeting_threshold']}/{evaluated} (excluding no-variance fields)")
-    if results['summary']['avg_cohens_kappa']:
+    print(f"Fields meeting threshold: {results['summary']['fields_meeting_threshold']}/{evaluated} (excluding low-variance fields)")
+    if results['summary']['avg_cohens_kappa'] is not None:
         print(f"Average Cohen's Kappa: {results['summary']['avg_cohens_kappa']:.3f}")
-    if results['summary']['avg_krippendorffs_alpha']:
+    if results['summary']['avg_krippendorffs_alpha'] is not None:
         print(f"Average Krippendorff's Alpha: {results['summary']['avg_krippendorffs_alpha']:.3f}")
 
 
