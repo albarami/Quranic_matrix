@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(git add:*)",
+      "Bash(cat:*)",
+      "Bash(git check-ignore:*)",
+      "Bash(git reset:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\ndocs\\(training\\): add annotator quick-start guide and decision flowchart\n\nPhase 2 preparation:\n- ANNOTATOR_QUICKSTART.md: 5-field annotation guide with examples\n- DECISION_FLOWCHART.md: Visual decision trees for edge cases\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)"
     ]
   }
 }

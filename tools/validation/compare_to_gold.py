@@ -1,26 +1,26 @@
 """
 Compare pilot annotations against gold standard examples.
 
-FIXES from v1:
-1. Handle multiple gold spans per verse (key by gold_id, not just surah:ayah)
-2. ASCII-safe output for Windows compatibility
-3. Coverage reporting for gold examples not in pilot
-4. Verse-level comparison (pilot is verse-level, gold is span-level)
+This script compares verse-level pilot annotations against span-level
+gold examples. When a verse has multiple gold spans, the gold spans are
+aggregated to verse-level for comparison.
 
-Since pilot annotations are verse-level (full ayah) and gold examples are
-span-level (sub-ayah), we compare by finding the FIRST gold span for each
-verse and note when multiple gold spans exist.
+Fixes in this version:
+1. Preserve multiple gold spans per verse (no overwrites).
+2. Aggregate multi-span gold verses for verse-level comparison.
+3. ASCII-safe output for Windows compatibility.
+4. Coverage reporting for missing gold examples.
 """
 
 import json
-import sys
+from collections import Counter
 from pathlib import Path
 
 
 def load_gold_examples():
     """Load all gold standard examples, preserving all spans."""
     base_path = Path(__file__).parent.parent.parent / "docs" / "coding_manual" / "examples"
-    
+
     all_examples = []
     for part_file in ["gold_standard_examples_part_01_10.json", "gold_standard_examples_part_11_20.json"]:
         filepath = base_path / part_file
@@ -28,23 +28,19 @@ def load_gold_examples():
             with open(filepath, encoding="utf-8") as f:
                 data = json.load(f)
                 all_examples.extend(data.get("examples", []))
-    
-    # Index by surah:ayah -> list of gold examples (to handle multiple spans per verse)
+
+    # Index by surah:ayah -> list of gold examples (multi-span friendly)
     by_verse = {}
     by_gold_id = {}
-    
     for ex in all_examples:
         gold_id = ex.get("id", "UNKNOWN")
         ref = ex.get("reference", {})
         key = "{}:{}".format(ref.get("surah"), ref.get("ayah"))
-        
+
         by_gold_id[gold_id] = ex
-        
-        if key not in by_verse:
-            by_verse[key] = []
-        by_verse[key].append(ex)
-    
-    return by_verse, by_gold_id, all_examples
+        by_verse.setdefault(key, []).append(ex)
+
+    return by_verse, by_gold_id
 
 
 def load_pilot_annotations():
@@ -59,102 +55,160 @@ def safe_print(text):
     try:
         print(text)
     except UnicodeEncodeError:
-        # Replace non-ASCII with ?
-        print(text.encode('ascii', 'replace').decode('ascii'))
+        print(text.encode("ascii", "replace").decode("ascii"))
+
+def sort_ref_key(ref):
+    """Sort references by numeric surah/ayah when possible."""
+    try:
+        surah, ayah = ref.split(":")
+        return int(surah), int(ayah)
+    except ValueError:
+        return 9999, 9999
+
+
+def aggregate_values(values, field, mixed_value=None, ignore_values=None):
+    """Aggregate a list of values into a single representative value."""
+    cleaned = [v for v in values if v]
+    counts = Counter(cleaned)
+
+    note = {
+        "field": field,
+        "values": sorted(set(cleaned)),
+        "ignored": [],
+        "mode": "missing",
+        "chosen": None,
+    }
+
+    if ignore_values and len(counts) > 1:
+        for val in list(counts.keys()):
+            if val in ignore_values:
+                note["ignored"].append(val)
+                counts.pop(val, None)
+
+    if not counts:
+        return None, note
+
+    if len(counts) == 1:
+        chosen = next(iter(counts))
+        note["chosen"] = chosen
+        note["mode"] = "single" if not note["ignored"] else "single_after_ignore"
+        return chosen, note
+
+    if mixed_value:
+        note["chosen"] = mixed_value
+        note["mode"] = "mixed"
+        return mixed_value, note
+
+    chosen = sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))[0][0]
+    note["chosen"] = chosen
+    note["mode"] = "majority"
+    return chosen, note
 
 
 def aggregate_gold_spans(gold_list):
     """Aggregate multiple gold spans into verse-level expected values."""
-    if len(gold_list) == 1:
-        return gold_list[0]
-    
-    # For multiple spans, aggregate:
-    # - behavior_form: 'mixed' if different forms
-    # - evaluation: 'mixed' if different, or most positive
-    # - Other fields: use first span (should be consistent)
-    
-    forms = set(g.get("behavior", {}).get("form") for g in gold_list)
-    evals = set(g.get("normative_textual", {}).get("evaluation") for g in gold_list)
-    
-    aggregated = dict(gold_list[0])  # Start with first
-    aggregated["_aggregated"] = True
-    aggregated["_source_ids"] = [g.get("id") for g in gold_list]
-    
-    # Aggregate behavior form
-    if len(forms) > 1:
-        if "behavior" not in aggregated:
-            aggregated["behavior"] = {}
-        aggregated["behavior"]["form"] = "mixed"
-        aggregated["_form_note"] = "aggregated from: {}".format(forms)
-    
-    # Aggregate evaluation - if mixed, use 'mixed' or dominant positive
-    if len(evals) > 1:
-        if "normative_textual" not in aggregated:
-            aggregated["normative_textual"] = {}
-        # If contains praise, use praise; otherwise mixed
-        if "praise" in evals:
-            aggregated["normative_textual"]["evaluation"] = "praise"
-        else:
-            aggregated["normative_textual"]["evaluation"] = "mixed"
-        aggregated["_eval_note"] = "aggregated from: {}".format(evals)
-    
-    return aggregated
+    if not gold_list:
+        return {}, {"source_ids": [], "notes": [], "is_aggregated": False}
+
+    agent_types = [g.get("agent", {}).get("type") for g in gold_list]
+    behavior_forms = [g.get("behavior", {}).get("form") for g in gold_list]
+    speech_modes = [g.get("normative_textual", {}).get("speech_mode") for g in gold_list]
+    evaluations = [g.get("normative_textual", {}).get("evaluation") for g in gold_list]
+    deontic_signals = [g.get("normative_textual", {}).get("quran_deontic_signal") for g in gold_list]
+
+    agent_type, agent_note = aggregate_values(
+        agent_types, "agent_type", ignore_values={"AGT_UNKNOWN"}
+    )
+    behavior_form, behavior_note = aggregate_values(
+        behavior_forms, "behavior_form", mixed_value="mixed"
+    )
+    speech_mode, speech_note = aggregate_values(
+        speech_modes, "speech_mode", ignore_values={"unknown"}
+    )
+    evaluation, evaluation_note = aggregate_values(
+        evaluations, "evaluation", mixed_value="mixed", ignore_values={"neutral"}
+    )
+    deontic_signal, deontic_note = aggregate_values(
+        deontic_signals, "deontic_signal"
+    )
+
+    aggregated = {
+        "id": "AGGREGATED",
+        "reference": gold_list[0].get("reference", {}),
+        "agent": {"type": agent_type},
+        "behavior": {"form": behavior_form},
+        "normative_textual": {
+            "speech_mode": speech_mode,
+            "evaluation": evaluation,
+            "quran_deontic_signal": deontic_signal,
+        },
+    }
+
+    notes = []
+    for note in [agent_note, behavior_note, speech_note, evaluation_note, deontic_note]:
+        if note["mode"] != "single" or note["ignored"]:
+            notes.append(note)
+
+    meta = {
+        "source_ids": [g.get("id") for g in gold_list],
+        "notes": notes,
+        "is_aggregated": len(gold_list) > 1,
+    }
+    return aggregated, meta
 
 
-def compare_annotation(pilot, gold, is_aggregated=False):
+def format_aggregation_notes(notes):
+    """Format aggregation notes for display."""
+    lines = []
+    for note in notes:
+        values = ", ".join(note["values"]) if note["values"] else "none"
+        line = "{}: {{{}}} -> {}".format(note["field"], values, note["chosen"])
+        if note["ignored"]:
+            line += " (ignored: {})".format(", ".join(note["ignored"]))
+        if note["mode"] == "majority":
+            line += " [majority]"
+        elif note["mode"] == "single_after_ignore":
+            line += " [ignored]"
+        elif note["mode"] == "missing":
+            line += " [missing]"
+        lines.append(line)
+    return lines
+
+
+def compare_annotation(pilot, gold):
     """Compare a pilot annotation to gold standard."""
     results = {
         "reference": "{}:{}".format(pilot["reference"]["surah"], pilot["reference"]["ayah"]),
-        "gold_id": gold.get("id", "UNKNOWN"),
-        "aggregated": is_aggregated,
         "matches": [],
         "mismatches": [],
+        "skipped": [],
         "score": 0.0
     }
     
     total_checks = 0
     correct = 0
-    
-    # Compare agent type
-    pilot_agent = pilot.get("agent", {}).get("type")
-    gold_agent = gold.get("agent", {}).get("type")
-    total_checks += 1
-    if pilot_agent == gold_agent:
-        results["matches"].append("agent_type: {}".format(pilot_agent))
-        correct += 1
-    else:
-        results["mismatches"].append("agent_type: pilot={}, gold={}".format(pilot_agent, gold_agent))
-    
-    # Compare behavior form
-    pilot_form = pilot.get("behavior_form")
-    gold_form = gold.get("behavior", {}).get("form")
-    total_checks += 1
-    if pilot_form == gold_form:
-        results["matches"].append("behavior_form: {}".format(pilot_form))
-        correct += 1
-    else:
-        results["mismatches"].append("behavior_form: pilot={}, gold={}".format(pilot_form, gold_form))
-    
-    # Compare normative fields
-    for field in ["speech_mode", "evaluation"]:
-        pilot_val = pilot.get("normative", {}).get(field)
-        gold_val = gold.get("normative_textual", {}).get(field)
+
+    def compare_field(field, pilot_val, gold_val):
+        nonlocal total_checks, correct
+        if gold_val is None:
+            results["skipped"].append(field)
+            return
         total_checks += 1
         if pilot_val == gold_val:
             results["matches"].append("{}: {}".format(field, pilot_val))
             correct += 1
         else:
             results["mismatches"].append("{}: pilot={}, gold={}".format(field, pilot_val, gold_val))
-    
-    # Compare deontic signal
-    pilot_deontic = pilot.get("normative", {}).get("deontic_signal")
-    gold_deontic = gold.get("normative_textual", {}).get("quran_deontic_signal")
-    total_checks += 1
-    if pilot_deontic == gold_deontic:
-        results["matches"].append("deontic_signal: {}".format(pilot_deontic))
-        correct += 1
-    else:
-        results["mismatches"].append("deontic_signal: pilot={}, gold={}".format(pilot_deontic, gold_deontic))
+
+    compare_field("agent_type", pilot.get("agent", {}).get("type"), gold.get("agent", {}).get("type"))
+    compare_field("behavior_form", pilot.get("behavior_form"), gold.get("behavior", {}).get("form"))
+    compare_field("speech_mode", pilot.get("normative", {}).get("speech_mode"), gold.get("normative_textual", {}).get("speech_mode"))
+    compare_field("evaluation", pilot.get("normative", {}).get("evaluation"), gold.get("normative_textual", {}).get("evaluation"))
+    compare_field(
+        "deontic_signal",
+        pilot.get("normative", {}).get("deontic_signal"),
+        gold.get("normative_textual", {}).get("quran_deontic_signal"),
+    )
     
     results["score"] = correct / total_checks if total_checks > 0 else 0.0
     results["total_checks"] = total_checks
@@ -165,16 +219,8 @@ def compare_annotation(pilot, gold, is_aggregated=False):
 
 def main():
     safe_print("Loading gold standard examples...")
-    gold_by_verse, gold_by_id, all_gold = load_gold_examples()
-    safe_print("Loaded {} gold examples across {} unique verses".format(len(all_gold), len(gold_by_verse)))
-    
-    # Report verses with multiple spans
-    multi_span_verses = {k: v for k, v in gold_by_verse.items() if len(v) > 1}
-    if multi_span_verses:
-        safe_print("\nWARNING: {} verses have multiple gold spans:".format(len(multi_span_verses)))
-        for verse, spans in multi_span_verses.items():
-            ids = [s.get("id") for s in spans]
-            safe_print("  {} -> {}".format(verse, ids))
+    gold_by_verse, gold_by_id = load_gold_examples()
+    safe_print("Loaded {} gold examples across {} unique verses".format(len(gold_by_id), len(gold_by_verse)))
     
     safe_print("\nLoading pilot annotations...")
     pilot_records = load_pilot_annotations()
@@ -203,38 +249,42 @@ def main():
     safe_print("Overlapping: {}".format(len(overlapping)))
     safe_print("Gold-only (not in pilot): {}".format(len(gold_only)))
     if gold_only:
-        safe_print("  Missing from pilot: {}".format(sorted(gold_only)))
+        missing = ", ".join(sorted(gold_only, key=sort_ref_key))
+        safe_print("  Missing from pilot: {}".format(missing))
+    safe_print("Pilot-only (not in gold): {}".format(len(pilot_only)))
+
+    multi_span_count = sum(1 for verse in overlapping if len(gold_by_verse[verse]) > 1)
     
     # Compare overlapping verses
     safe_print("\n" + "="*60)
     safe_print("COMPARISON RESULTS")
     safe_print("="*60)
-    safe_print("\nNOTE: Pilot annotations are verse-level (full ayah).")
-    safe_print("      Gold examples may have multiple spans per verse.")
-    safe_print("      For multi-span verses, gold spans are AGGREGATED for comparison.\n")
+    if overlapping:
+        safe_print("{} of {} compared verses have multiple gold spans.".format(
+            multi_span_count, len(overlapping)
+        ))
+    safe_print("Pilot annotations are verse-level; gold examples are span-level.")
+    safe_print("Gold spans are aggregated to verse-level for comparison.\n")
     
     comparisons = []
-    for verse in sorted(overlapping):
+    for verse in sorted(overlapping, key=sort_ref_key):
         pilot = pilot_by_verse[verse]
         gold_list = gold_by_verse[verse]
         
-        # Aggregate gold spans for verse-level comparison
-        if len(gold_list) > 1:
-            gold = aggregate_gold_spans(gold_list)
-            is_aggregated = True
-        else:
-            gold = gold_list[0]
-            is_aggregated = False
-        
-        comparison = compare_annotation(pilot, gold, is_aggregated)
-        comparison["multi_span_warning"] = len(gold_list) > 1
-        comparison["all_gold_ids"] = [g.get("id") for g in gold_list]
+        gold, meta = aggregate_gold_spans(gold_list)
+        comparison = compare_annotation(pilot, gold)
+        comparison["multi_span_warning"] = meta["is_aggregated"]
+        comparison["all_gold_ids"] = meta["source_ids"]
+        comparison["aggregation_notes"] = meta["notes"]
         comparisons.append(comparison)
         
-        safe_print("--- {} (vs {}) ---".format(verse, gold.get("id")))
-        if len(gold_list) > 1:
-            safe_print("  [!] WARNING: {} gold spans for this verse: {}".format(
-                len(gold_list), comparison["all_gold_ids"]))
+        safe_print("--- {} (gold ids: {}) ---".format(
+            verse, ", ".join(comparison["all_gold_ids"])
+        ))
+        if comparison["aggregation_notes"]:
+            safe_print("  Aggregated fields:")
+            for note_line in format_aggregation_notes(comparison["aggregation_notes"]):
+                safe_print("    {}".format(note_line))
         safe_print("Score: {:.1%} ({}/{})".format(
             comparison["score"], comparison["correct"], comparison["total_checks"]))
         
@@ -247,6 +297,8 @@ def main():
             safe_print("[X] Mismatches:")
             for m in comparison["mismatches"]:
                 safe_print("    {}".format(m))
+        if comparison["skipped"]:
+            safe_print("Skipped fields: {}".format(", ".join(comparison["skipped"])))
         safe_print("")
     
     # Summary
@@ -259,11 +311,13 @@ def main():
         total_correct = sum(c["correct"] for c in comparisons)
         total_checks = sum(c["total_checks"] for c in comparisons)
         multi_span_count = sum(1 for c in comparisons if c.get("multi_span_warning"))
+        total_skipped = sum(len(c.get("skipped", [])) for c in comparisons)
         
         safe_print("Overlapping verses compared: {}".format(len(comparisons)))
         safe_print("Average score: {:.1%}".format(avg_score))
         safe_print("Total correct: {}/{}".format(total_correct, total_checks))
         safe_print("Verses with multi-span gold (comparison may be incomplete): {}".format(multi_span_count))
+        safe_print("Skipped checks (missing gold fields): {}".format(total_skipped))
         
         # Field-level breakdown
         field_stats = {}
@@ -283,7 +337,6 @@ def main():
             acc = stats["correct"] / stats["total"] if stats["total"] > 0 else 0
             safe_print("  {}: {:.1%} ({}/{})".format(field, acc, stats["correct"], stats["total"]))
         
-        # Reliability warning
         if multi_span_count > 0:
             safe_print("\n[!] RELIABILITY NOTE:")
             safe_print("    {} of {} compared verses have multiple gold spans.".format(
