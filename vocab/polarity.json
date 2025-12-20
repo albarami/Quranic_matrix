@@ -1,0 +1,14 @@
+{
+  "vocabulary_id": "polarity_v1",
+  "version": "1.0",
+  "frozen_date": "2025-01-01",
+  "items": [
+    {"id": "POL_POSITIVE", "en": "positive", "ar": "إيجابي", "notes": "Praiseworthy/good"},
+    {"id": "POL_NEGATIVE", "en": "negative", "ar": "سلبي", "notes": "Blameworthy/bad"},
+    {"id": "POL_NEUTRAL", "en": "neutral", "ar": "محايد", "notes": "No evaluation"},
+    {"id": "POL_MIXED", "en": "mixed", "ar": "مختلط", "notes": "Both positive and negative"},
+    {"id": "POL_UNKNOWN", "en": "unknown", "ar": "غير معروف", "notes": "Cannot determine"}
+  ]
+}
+
+

@@ -1,13 +1,18 @@
 {
   "vocabulary_id": "temporal_v1",
   "version": "1.0",
-  "frozen_date": "2025-12-20",
+  "frozen_date": "2025-01-01",
   "items": [
-    {"id": "TMP_MORNING", "ar": "صباح", "notes": ""},
-    {"id": "TMP_NOON", "ar": "ظهيرة/زوال", "notes": ""},
-    {"id": "TMP_AFTERNOON", "ar": "عصر/بعد الظهر", "notes": ""},
-    {"id": "TMP_NIGHT", "ar": "ليل", "notes": ""},
-    {"id": "TMP_UNKNOWN", "ar": "غير معلوم", "notes": ""}
+    {"id": "TMP_FAJR", "en": "Dawn/Fajr", "ar": "الفجر", "quranic_terms": ["الفجر", "الإسفار"]},
+    {"id": "TMP_MORNING", "en": "Morning", "ar": "الصباح", "quranic_terms": ["الصباح", "الضحى", "البكور"]},
+    {"id": "TMP_NOON", "en": "Noon/Dhuhr", "ar": "الظهر", "quranic_terms": ["الظهيرة", "حين تظهرون"]},
+    {"id": "TMP_AFTERNOON", "en": "Afternoon/Asr", "ar": "العصر", "quranic_terms": ["العصر", "العشي"]},
+    {"id": "TMP_SUNSET", "en": "Sunset/Maghrib", "ar": "المغرب", "quranic_terms": ["غروب الشمس"]},
+    {"id": "TMP_NIGHT", "en": "Night/Isha", "ar": "الليل", "quranic_terms": ["الليل", "العشاء"]},
+    {"id": "TMP_FRIDAY", "en": "Friday", "ar": "الجمعة", "quranic_terms": ["يوم الجمعة"]},
+    {"id": "TMP_RAMADAN", "en": "Ramadan", "ar": "رمضان", "quranic_terms": ["شهر رمضان"]},
+    {"id": "TMP_HAJJ", "en": "Hajj Season", "ar": "موسم الحج", "quranic_terms": ["أشهر الحج", "يوم عرفة"]},
+    {"id": "TMP_UNKNOWN", "en": "Unknown", "ar": "غير معروف", "quranic_terms": []}
   ]
 }
 

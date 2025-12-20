@@ -1,13 +1,16 @@
 {
   "vocabulary_id": "systemic_v1",
   "version": "1.0",
-  "frozen_date": "2025-12-20",
+  "frozen_date": "2025-01-01",
   "items": [
-    {"id": "SYS_SELF", "ar": "النفس", "notes": ""},
-    {"id": "SYS_CREATION", "ar": "الخلق", "notes": ""},
-    {"id": "SYS_GOD", "ar": "الخالق/الله", "notes": ""},
-    {"id": "SYS_COSMOS", "ar": "الكون", "notes": ""},
-    {"id": "SYS_LIFE", "ar": "الحياة", "notes": ""}
+    {"id": "SYS_SELF", "en": "Self", "ar": "النفس", "notes": "Individual/soul focus"},
+    {"id": "SYS_CREATION", "en": "Creation", "ar": "الخلق", "notes": "Other humans/creatures"},
+    {"id": "SYS_GOD", "en": "God", "ar": "الخالق", "notes": "Relationship with Allah"},
+    {"id": "SYS_COSMOS", "en": "Cosmos", "ar": "الكون", "notes": "Universe/nature"},
+    {"id": "SYS_LIFE", "en": "Life", "ar": "الحياة", "notes": "Worldly life/Hereafter"},
+    {"id": "SYS_FAMILY", "en": "Family", "ar": "الأسرة", "notes": "Family relationships"},
+    {"id": "SYS_SOCIETY", "en": "Society", "ar": "المجتمع", "notes": "Social relationships"},
+    {"id": "SYS_UNKNOWN", "en": "Unknown", "ar": "غير معروف", "notes": "Cannot determine"}
   ]
 }
 

@@ -2,6 +2,9 @@
 
 These JSON files define the controlled IDs used across the dataset.
 
+Manifest:
+- `vocabulary_manifest.json`
+
 Each file includes:
 - `vocabulary_id`
 - `version`

@@ -1,15 +1,18 @@
 {
   "vocabulary_id": "justification_codes_v1",
   "version": "1.0",
-  "frozen_date": "2025-12-20",
+  "frozen_date": "2025-01-01",
   "items": [
-    {"id": "JST_EXPLICIT_MENTION", "ar": "ذكر صريح", "notes": "Explicit lexical mention in the span."},
-    {"id": "JST_GRAMMATICAL_FORM", "ar": "صيغة نحوية", "notes": "Imperative/prohibition/negation/contrast forms, etc."},
-    {"id": "JST_TAFSIR_CONSENSUS", "ar": "اتفاق التفسير", "notes": "High-agreement tafsir disambiguation used."},
-    {"id": "JST_NARRATIVE_CONTEXT", "ar": "سياق قصصي", "notes": "Span-level narrative inference; often indirect."},
-    {"id": "JST_PRONOUN_RESOLVED", "ar": "حل الإحالة (الضمير)", "notes": "Pronoun/reference resolution required."},
-    {"id": "JST_CONTEXT_ONLY", "ar": "سياق فقط", "notes": "No token-range anchor; must justify why."},
-    {"id": "JST_METAPHOR_RESOLVED", "ar": "حل مجاز/كناية", "notes": "Metaphor/metonymy resolved (preferably with tafsir support)."}
+    {"id": "JST_EXPLICIT_MENTION", "en": "Explicit Mention", "ar": "ذكر صريح", "notes": "Word/phrase directly appears"},
+    {"id": "JST_GRAMMATICAL_FORM", "en": "Grammatical Form", "ar": "الصيغة النحوية", "notes": "Grammar indicates meaning"},
+    {"id": "JST_TAFSIR_CONSENSUS", "en": "Tafsir Consensus", "ar": "إجماع التفسير", "notes": "Multiple tafsirs agree"},
+    {"id": "JST_NARRATIVE_CONTEXT", "en": "Narrative Context", "ar": "السياق السردي", "notes": "Story context implies meaning"},
+    {"id": "JST_PRONOUN_RESOLVED", "en": "Pronoun Resolved", "ar": "حل الضمير", "notes": "Pronoun reference identified"},
+    {"id": "JST_CONTEXT_ONLY", "en": "Context Only", "ar": "سياق فقط", "notes": "Inferred from broader context"},
+    {"id": "JST_METAPHOR_RESOLVED", "en": "Metaphor Resolved", "ar": "حل الاستعارة", "notes": "Metaphor meaning clarified"},
+    {"id": "JST_SABAB_NUZUL", "en": "Sabab al-Nuzul", "ar": "سبب النزول", "notes": "Occasion of revelation used"},
+    {"id": "JST_LINGUISTIC_ANALYSIS", "en": "Linguistic Analysis", "ar": "تحليل لغوي", "notes": "Arabic linguistic reasoning"},
+    {"id": "JST_INTERTEXTUAL", "en": "Intertextual", "ar": "بين النصوص", "notes": "Other Quranic verses clarify"}
   ]
 }
 

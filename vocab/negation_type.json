@@ -1,0 +1,13 @@
+{
+  "vocabulary_id": "negation_type_v1",
+  "version": "1.0",
+  "frozen_date": "2025-01-01",
+  "items": [
+    {"id": "NEG_ABSOLUTE", "en": "Absolute", "ar": "مطلق", "notes": "Complete negation (لا، ليس، ما)"},
+    {"id": "NEG_CONDITIONAL", "en": "Conditional", "ar": "شرطي", "notes": "Negation with conditions/exceptions"},
+    {"id": "NEG_EXCEPTIONLESS_AFFIRMATION", "en": "Exceptionless Affirmation", "ar": "إثبات بلا استثناء", "notes": "Affirmation via double negation"},
+    {"id": "NEG_UNKNOWN", "en": "Unknown", "ar": "غير معروف", "notes": "Cannot determine type"}
+  ]
+}
+
+

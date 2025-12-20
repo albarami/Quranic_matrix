@@ -1,0 +1,19 @@
+# Editors / OS
+.DS_Store
+Thumbs.db
+
+# Word documents (binary) - keep docs in Markdown and/or plain-text .doc parts
+*.docx
+
+# Data (avoid committing large or copyrighted corpora)
+data/quran/*.json
+data/tafsir/*.json
+data/tafsir/*.jsonl
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+

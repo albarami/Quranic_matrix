@@ -1,15 +1,17 @@
 {
   "vocabulary_id": "grammatical_indicators_v1",
   "version": "1.0",
-  "frozen_date": "2025-12-20",
+  "frozen_date": "2025-01-01",
   "items": [
-    {"id": "GRM_KANA_IMPERFECT", "ar": "كان + مضارع", "notes": "Continuity/ongoing aspect indicator (project-defined)."},
-    {"id": "GRM_NOMINAL_SENTENCE_STABILITY", "ar": "جملة اسمية (ثبات)", "notes": "Stability/constancy cue (project-defined)."},
-    {"id": "GRM_EXPLICIT_FREQUENCY_TERM", "ar": "لفظ تكرار صريح", "notes": "e.g., كل يوم / دائماً / مرات (only if present)."},
-    {"id": "GRM_CONDITIONAL_CONTINGENT", "ar": "شرط/تعليق", "notes": "Conditional structures affecting polarity/negation type."},
-    {"id": "GRM_REPEATED_IMPERATIVE", "ar": "أمر متكرر", "notes": "Repeated imperatives in a short window (project-defined)."},
-    {"id": "GRM_CONTEXT_ONLY", "ar": "سياق فقط", "notes": "Used when grammar is inferred contextually; should be rare."},
-    {"id": "GRM_NONE", "ar": "لا شيء", "notes": "No periodicity-related grammar detected."}
+    {"id": "GRM_KANA_IMPERFECT", "en": "كان + Imperfect", "ar": "كان + مضارع", "notes": "Past habitual", "examples": ["كانوا يعملون"]},
+    {"id": "GRM_NOMINAL_SENTENCE_STABILITY", "en": "Nominal Sentence", "ar": "جملة اسمية", "notes": "Stable trait", "examples": ["هم المؤمنون"]},
+    {"id": "GRM_EXPLICIT_FREQUENCY_TERM", "en": "Explicit Frequency", "ar": "مصطلح تكرار صريح", "notes": "كل، دائماً، أبداً", "examples": ["كل يوم"]},
+    {"id": "GRM_CONDITIONAL_CONTINGENT", "en": "Conditional", "ar": "شرطي", "notes": "إذا، إن، لو", "examples": ["إذا فعلوا"]},
+    {"id": "GRM_REPEATED_IMPERATIVE", "en": "Repeated Imperative", "ar": "أمر مكرر", "notes": "Command pattern", "examples": []},
+    {"id": "GRM_IMPERFECT_GENERAL", "en": "General Imperfect", "ar": "مضارع عام", "notes": "يفعلون (general)", "examples": ["يؤمنون"]},
+    {"id": "GRM_MASDAR", "en": "Masdar/Verbal Noun", "ar": "مصدر", "notes": "Action nominalized", "examples": ["إيمانهم"]},
+    {"id": "GRM_CONTEXT_ONLY", "en": "Context Only", "ar": "سياق فقط", "notes": "No grammatical marker", "examples": []},
+    {"id": "GRM_NONE", "en": "None", "ar": "لا شيء", "notes": "No indicator found", "examples": []}
   ]
 }
 

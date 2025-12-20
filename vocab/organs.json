@@ -1,20 +1,39 @@
 {
   "vocabulary_id": "organs_v1",
   "version": "1.0",
-  "frozen_date": "2025-12-20",
+  "frozen_date": "2025-01-01",
   "items": [
     {
       "id": "ORG_HEART",
       "ar": "قلب",
+      "ar_plural": "قلوب",
       "semantic_domains": ["physiological", "cognitive", "spiritual", "emotional"],
-      "notes": "When ORG_HEART is used, populate organ_semantic_domains[] in assertions."
+      "notes": "Requires organ_semantic_domains annotation"
     },
-    {"id": "ORG_TONGUE", "ar": "لسان", "semantic_domains": [], "notes": ""},
-    {"id": "ORG_EYE", "ar": "عين/بصر", "semantic_domains": [], "notes": ""},
-    {"id": "ORG_EAR", "ar": "أذن/سمع", "semantic_domains": [], "notes": ""},
-    {"id": "ORG_HAND", "ar": "يد", "semantic_domains": [], "notes": ""},
-    {"id": "ORG_FOOT", "ar": "قدم/أرجل", "semantic_domains": [], "notes": ""},
-    {"id": "ORG_SKIN", "ar": "جلد", "semantic_domains": [], "notes": ""}
+    {"id": "ORG_TONGUE", "ar": "لسان", "ar_plural": "ألسنة", "semantic_domains": [], "notes": "Speech organ"},
+    {"id": "ORG_EYE", "ar": "عين/بصر", "ar_plural": "أعين/أبصار", "semantic_domains": [], "notes": "Vision organ"},
+    {"id": "ORG_EAR", "ar": "أذن/سمع", "ar_plural": "آذان", "semantic_domains": [], "notes": "Hearing organ"},
+    {"id": "ORG_HAND", "ar": "يد", "ar_plural": "أيدي", "semantic_domains": [], "notes": "Action organ"},
+    {"id": "ORG_FOOT", "ar": "رجل/قدم", "ar_plural": "أرجل/أقدام", "semantic_domains": [], "notes": "Movement organ"},
+    {"id": "ORG_SKIN", "ar": "جلد", "ar_plural": "جلود", "semantic_domains": [], "notes": "Covering/witness"},
+    {"id": "ORG_FACE", "ar": "وجه", "ar_plural": "وجوه", "semantic_domains": [], "notes": "Expression/direction"},
+    {"id": "ORG_MOUTH", "ar": "فم", "ar_plural": "أفواه", "semantic_domains": [], "notes": "Speech/eating"},
+    {"id": "ORG_LIP", "ar": "شفة", "ar_plural": "شفاه", "semantic_domains": [], "notes": "Speech"},
+    {"id": "ORG_CHEST", "ar": "صدر", "ar_plural": "صدور", "semantic_domains": ["emotional", "spiritual"], "notes": "Often metaphorical"},
+    {"id": "ORG_BELLY", "ar": "بطن", "ar_plural": "بطون", "semantic_domains": [], "notes": "Consumption/desire"},
+    {"id": "ORG_BACK", "ar": "ظهر", "ar_plural": "ظهور", "semantic_domains": [], "notes": "Burden/support"},
+    {"id": "ORG_NECK", "ar": "عنق/رقبة", "ar_plural": "أعناق", "semantic_domains": [], "notes": "Responsibility"},
+    {"id": "ORG_HEAD", "ar": "رأس", "ar_plural": "رؤوس", "semantic_domains": [], "notes": "Leadership/humility"},
+    {"id": "ORG_FOREHEAD", "ar": "جبهة/ناصية", "ar_plural": "جباه/نواصي", "semantic_domains": [], "notes": "Prostration/lying"},
+    {"id": "ORG_FINGER", "ar": "إصبع/أنملة", "ar_plural": "أصابع/أنامل", "semantic_domains": [], "notes": "Precision"},
+    {"id": "ORG_KNEE", "ar": "ركبة", "ar_plural": "ركب", "semantic_domains": [], "notes": "Submission"},
+    {"id": "ORG_BRAIN", "ar": "عقل/لب", "ar_plural": "عقول/ألباب", "semantic_domains": ["cognitive"], "notes": "Cognition"},
+    {"id": "ORG_SOUL", "ar": "نفس/روح", "ar_plural": "أنفس/أرواح", "semantic_domains": ["spiritual"], "notes": "Soul/self"},
+    {"id": "ORG_BLOOD", "ar": "دم", "ar_plural": "دماء", "semantic_domains": [], "notes": "Life/kinship"},
+    {"id": "ORG_BONE", "ar": "عظم", "ar_plural": "عظام", "semantic_domains": [], "notes": "Structure/resurrection"},
+    {"id": "ORG_FLESH", "ar": "لحم", "ar_plural": "لحوم", "semantic_domains": [], "notes": "Bodily"},
+    {"id": "ORG_HAIR", "ar": "شعر", "ar_plural": "شعور", "semantic_domains": [], "notes": "Appearance"},
+    {"id": "ORG_UNKNOWN", "ar": "غير معروف", "ar_plural": "", "semantic_domains": [], "notes": "Fallback"}
   ]
 }
 

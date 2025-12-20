@@ -1,18 +1,70 @@
 {
   "vocabulary_id": "agents_v1",
   "version": "1.0",
-  "frozen_date": "2025-12-20",
+  "frozen_date": "2025-01-01",
   "items": [
-    {"id": "AGT_BELIEVER", "ar": "مؤمن", "notes": ""},
-    {"id": "AGT_HYPOCRITE", "ar": "منافق", "notes": ""},
-    {"id": "AGT_DISBELIEVER", "ar": "كافر", "notes": ""},
-    {"id": "AGT_HUMAN_GENERAL", "ar": "الناس/الإنسان (عام)", "notes": ""},
-    {"id": "AGT_PROPHET_MESSENGER", "ar": "نبي/رسول", "notes": ""},
-    {"id": "AGT_ANGEL", "ar": "ملك/ملائكة", "notes": ""},
-    {"id": "AGT_JINN", "ar": "جن", "notes": ""},
-    {"id": "AGT_ANIMAL", "ar": "دابة/أنعام (حيوان)", "notes": ""},
-    {"id": "AGT_COLLECTIVE", "ar": "جماعة/قوم", "notes": ""},
-    {"id": "AGT_UNKNOWN", "ar": "غير معلوم", "notes": ""}
+    {
+      "id": "AGT_BELIEVER",
+      "en": "Believer",
+      "ar": "مؤمن",
+      "ar_plural": "مؤمنون",
+      "quranic_terms": ["الذين آمنوا", "المؤمنين", "المؤمنات"]
+    },
+    {
+      "id": "AGT_HYPOCRITE",
+      "en": "Hypocrite",
+      "ar": "منافق",
+      "ar_plural": "منافقون",
+      "quranic_terms": ["المنافقين", "المنافقات"]
+    },
+    {
+      "id": "AGT_DISBELIEVER",
+      "en": "Disbeliever",
+      "ar": "كافر",
+      "ar_plural": "كافرون/كفار",
+      "quranic_terms": ["الذين كفروا", "الكافرين"]
+    },
+    {
+      "id": "AGT_HUMAN_GENERAL",
+      "en": "Human (General)",
+      "ar": "إنسان عام",
+      "ar_plural": "ناس",
+      "quranic_terms": ["الإنسان", "الناس", "بني آدم"]
+    },
+    {
+      "id": "AGT_PROPHET_MESSENGER",
+      "en": "Prophet/Messenger",
+      "ar": "نبي/رسول",
+      "ar_plural": "أنبياء/رسل",
+      "quranic_terms": ["النبي", "الرسول", "المرسلين"]
+    },
+    {
+      "id": "AGT_ANGEL",
+      "en": "Angel",
+      "ar": "ملك",
+      "ar_plural": "ملائكة",
+      "quranic_terms": ["الملائكة", "جبريل", "ميكائيل"]
+    },
+    {
+      "id": "AGT_JINN",
+      "en": "Jinn",
+      "ar": "جن",
+      "ar_plural": "جن",
+      "quranic_terms": ["الجن", "الجان", "إبليس", "الشياطين"]
+    },
+    {
+      "id": "AGT_ANIMAL",
+      "en": "Animal",
+      "ar": "حيوان",
+      "ar_plural": "حيوانات/دواب",
+      "quranic_terms": ["الدواب", "الأنعام", "الطير"]
+    },
+    {"id": "AGT_COLLECTIVE", "en": "Collective", "ar": "جماعي", "ar_plural": "", "quranic_terms": ["قوم", "أمة", "حزب"]},
+    {"id": "AGT_PEOPLE_OF_BOOK", "en": "People of the Book", "ar": "أهل الكتاب", "ar_plural": "", "quranic_terms": ["أهل الكتاب", "اليهود", "النصارى"]},
+    {"id": "AGT_POLYTHEIST", "en": "Polytheist", "ar": "مشرك", "ar_plural": "مشركون", "quranic_terms": ["المشركين", "الذين أشركوا"]},
+    {"id": "AGT_WRONGDOER", "en": "Wrongdoer", "ar": "ظالم", "ar_plural": "ظالمون", "quranic_terms": ["الظالمين", "الذين ظلموا"]},
+    {"id": "AGT_RIGHTEOUS", "en": "Righteous", "ar": "صالح", "ar_plural": "صالحون", "quranic_terms": ["الصالحين", "المتقين", "المحسنين"]},
+    {"id": "AGT_UNKNOWN", "en": "Unknown", "ar": "غير معروف", "ar_plural": "", "quranic_terms": []}
   ]
 }
 

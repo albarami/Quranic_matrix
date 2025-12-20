@@ -1,0 +1,18 @@
+{
+  "vocabulary_id": "intention_presence_v1",
+  "version": "1.0",
+  "frozen_date": "2025-01-01",
+  "optional": true,
+  "items": [
+    {
+      "id": "INT_PRESENT",
+      "en": "Present",
+      "ar": "حاضرة",
+      "notes": "Only when textually foregrounded (يريدون، قصد، ابتغاء)"
+    },
+    {"id": "INT_ABSENT", "en": "Absent", "ar": "غائبة", "notes": "Explicitly stated as unintentional"},
+    {"id": "INT_UNKNOWN", "en": "Unknown", "ar": "غير معروفة", "notes": "Default - do not infer from mere existence of act"}
+  ]
+}
+
+

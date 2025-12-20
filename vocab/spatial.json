@@ -1,12 +1,16 @@
 {
   "vocabulary_id": "spatial_v1",
   "version": "1.0",
-  "frozen_date": "2025-12-20",
+  "frozen_date": "2025-01-01",
   "items": [
-    {"id": "LOC_HOME", "ar": "البيت/الدار", "notes": ""},
-    {"id": "LOC_WORK", "ar": "العمل", "notes": "Operational label; only when text supports a work-context."},
-    {"id": "LOC_PUBLIC", "ar": "مكان عام", "notes": ""},
-    {"id": "LOC_UNKNOWN", "ar": "غير معلوم", "notes": ""}
+    {"id": "LOC_HOME", "en": "Home", "ar": "البيت", "quranic_terms": ["بيوتكم", "البيت", "المسكن"]},
+    {"id": "LOC_MASJID", "en": "Mosque", "ar": "المسجد", "quranic_terms": ["المسجد", "المساجد", "بيوت الله"]},
+    {"id": "LOC_MARKET", "en": "Market/Trade", "ar": "السوق/التجارة", "quranic_terms": ["الأسواق", "التجارة"]},
+    {"id": "LOC_PUBLIC", "en": "Public Space", "ar": "المكان العام", "quranic_terms": []},
+    {"id": "LOC_BATTLEFIELD", "en": "Battlefield", "ar": "ساحة المعركة", "quranic_terms": ["سبيل الله", "الجهاد"]},
+    {"id": "LOC_TRAVEL", "en": "Travel/Journey", "ar": "السفر", "quranic_terms": ["السفر", "الضرب في الأرض"]},
+    {"id": "LOC_SACRED", "en": "Sacred Place", "ar": "المكان المقدس", "quranic_terms": ["الحرم", "مكة", "البيت الحرام"]},
+    {"id": "LOC_UNKNOWN", "en": "Unknown", "ar": "غير معروف", "quranic_terms": []}
   ]
 }
 
