@@ -1,9 +1,31 @@
 {
-  "dataset_id": "qbm_gold_standard_examples_v1",
-  "manual_version": "1.0",
-  "created_at": "2025-12-20",
-  "notes": "Fill this file with 20 fully annotated, schema-consistent span records for calibration. Keep evidence anchors token-based and fail-closed.",
-  "examples": []
+  "gold_standard_examples": {
+    "version": "1.0",
+    "created_date": "2025-01-01",
+    "purpose": "Calibration and training examples for annotators",
+    "total_examples": 20,
+    "notes": "Examples are split into two part files to comply with the repo 500-line/file rule."
+  },
+  "parts": [
+    {"file": "docs/coding_manual/examples/gold_standard_examples_part_01_10.json", "range": "GOLD_001..GOLD_010"},
+    {"file": "docs/coding_manual/examples/gold_standard_examples_part_11_20.json", "range": "GOLD_011..GOLD_020"}
+  ],
+  "summary_statistics": {
+    "total_examples": 20,
+    "by_agent": {"AGT_BELIEVER": 10, "AGT_HYPOCRITE": 6, "AGT_HUMAN_GENERAL": 4},
+    "by_behavior_form": {"speech_act": 4, "physical_act": 5, "inner_state": 6, "relational_act": 3, "mixed": 2},
+    "by_speech_mode": {"command": 5, "prohibition": 2, "informative": 13},
+    "by_evaluation": {"praise": 9, "blame": 9, "neutral": 2},
+    "organs_annotated": 8,
+    "heart_examples": 3,
+    "negation_examples": 4,
+    "instinctive_examples": 1
+  },
+  "usage_instructions": {
+    "calibration": "Use examples 1-10 for initial training. Have annotators annotate these without seeing answers first, then compare.",
+    "edge_cases": "Examples 10, 15-17, 19 are edge cases (instinctive, negation patterns, intention). Review these carefully.",
+    "iaa_testing": "Use examples 11-20 for IAA testing after initial calibration."
+  }
 }
 
 

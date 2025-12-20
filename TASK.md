@@ -2,7 +2,7 @@
 
 ## Active
 
-- (none)
+- **2025-12-20**: Add Gold Standard Examples v1.0 (20 calibration examples) and push to GitHub.
 
 ## Completed
 

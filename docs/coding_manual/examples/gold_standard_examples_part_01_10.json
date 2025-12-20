@@ -1,0 +1,468 @@
+{
+  "gold_standard_examples": {
+    "version": "1.0",
+    "created_date": "2025-01-01",
+    "purpose": "Calibration and training examples for annotators",
+    "total_examples_in_part": 10,
+    "part": "01_10",
+    "notes": "This file contains GOLD_001..GOLD_010."
+  },
+  "examples": [
+    {
+      "id": "GOLD_001",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 24, "ayah": 24},
+      "span": {
+        "token_start": 0,
+        "token_end": 9,
+        "raw_text_ar": "يَوْمَ تَشْهَدُ عَلَيْهِمْ أَلْسِنَتُهُمْ وَأَيْدِيهِمْ وَأَرْجُلُهُمْ بِمَا كَانُوا يَعْمَلُونَ",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": [], "form": "mixed"},
+      "thematic_constructs": ["THM_ACCOUNTABILITY", "THM_TESTIMONY"],
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false,
+        "support_type": "indirect",
+        "note": "عليهم refers to wrongdoers from context"
+      },
+      "assertions": [
+        {
+          "assertion_id": "GOLD_001_A001",
+          "axis": "AX_ORGAN",
+          "value": "ORG_TONGUE",
+          "organ_role": "accountability_witness",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "evidence_anchor": {"token_start": 3, "token_end": 4},
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "ألسنتهم explicitly mentioned as witnessing",
+          "confidence": 0.95,
+          "polarity": "neutral",
+          "negated": false,
+          "ess": {"directness": 1.0, "clarity": 0.95, "specificity": 0.95, "tafsir_agreement": 1.0, "final": 0.9}
+        },
+        {
+          "assertion_id": "GOLD_001_A002",
+          "axis": "AX_ORGAN",
+          "value": "ORG_HAND",
+          "organ_role": "accountability_witness",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "evidence_anchor": {"token_start": 4, "token_end": 5},
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "أيديهم explicitly mentioned as witnessing",
+          "confidence": 0.95,
+          "polarity": "neutral",
+          "negated": false
+        },
+        {
+          "assertion_id": "GOLD_001_A003",
+          "axis": "AX_ORGAN",
+          "value": "ORG_FOOT",
+          "organ_role": "accountability_witness",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "evidence_anchor": {"token_start": 5, "token_end": 6},
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "أرجلهم explicitly mentioned as witnessing",
+          "confidence": 0.95,
+          "polarity": "neutral",
+          "negated": false
+        },
+        {
+          "assertion_id": "GOLD_001_A004",
+          "axis": "AX_THEMATIC_CONSTRUCT",
+          "value": "THM_ACCOUNTABILITY",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_NARRATIVE_CONTEXT",
+          "justification": "Day of Judgment testimony context",
+          "confidence": 0.9
+        }
+      ],
+      "periodicity": {"category": "PER_UNKNOWN", "grammatical_indicator": "GRM_NONE"},
+      "normative_textual": {"speech_mode": "informative", "evaluation": "warning", "quran_deontic_signal": "tarhib"},
+      "tafsir": {
+        "sources_used": ["IbnKathir", "Tabari"],
+        "agreement_level": "high",
+        "notes": "Clear reference to Day of Judgment when body parts testify"
+      },
+      "training_notes": "Classic example of organ-as-witness. Note multiple organs in one span."
+    },
+    {
+      "id": "GOLD_002",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 2, "ayah": 3},
+      "span": {
+        "token_start": 0,
+        "token_end": 5,
+        "raw_text_ar": "الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": ["BEH_SPI_FAITH", "BEH_SPI_PRAYER"], "form": "mixed"},
+      "thematic_constructs": [],
+      "agent": {"type": "AGT_BELIEVER", "explicit": true, "support_type": "direct", "note": "الذين يؤمنون = those who believe"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_002_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SPI_FAITH",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "evidence_anchor": {"token_start": 1, "token_end": 3},
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "يؤمنون بالغيب - explicit faith in unseen",
+          "confidence": 0.95
+        },
+        {
+          "assertion_id": "GOLD_002_A002",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SPI_PRAYER",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "evidence_anchor": {"token_start": 3, "token_end": 5},
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "يقيمون الصلاة - establishing prayer",
+          "confidence": 0.95
+        },
+        {
+          "assertion_id": "GOLD_002_A003",
+          "axis": "AX_SITUATIONAL",
+          "value": "internal",
+          "support_type": "direct",
+          "justification": "Faith is internal; prayer has external component",
+          "confidence": 0.8
+        },
+        {
+          "assertion_id": "GOLD_002_A004",
+          "axis": "AX_ACTION_CLASS",
+          "value": "ACT_VOLITIONAL",
+          "support_type": "direct",
+          "justification": "Believing and praying are volitional acts",
+          "confidence": 0.9
+        },
+        {
+          "assertion_id": "GOLD_002_A005",
+          "axis": "AX_ACTION_TEXTUAL_EVAL",
+          "value": "EVAL_SALIH",
+          "support_type": "indirect",
+          "indication_tags": ["dalalah_mafhum"],
+          "justification": "Context describes المتقين praised; these are their attributes",
+          "confidence": 0.85
+        }
+      ],
+      "periodicity": {"category": "PER_HABIT", "grammatical_indicator": "GRM_IMPERFECT_GENERAL"},
+      "normative_textual": {"speech_mode": "informative", "evaluation": "praise", "quran_deontic_signal": "targhib"},
+      "tafsir": {"sources_used": ["IbnKathir", "Sadi"], "agreement_level": "high"},
+      "training_notes": "Shows multiple behaviors in one span. Note imperfect verbs indicating habitual action."
+    },
+    {
+      "id": "GOLD_003",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 2, "ayah": 10},
+      "span": {
+        "token_start": 0,
+        "token_end": 5,
+        "raw_text_ar": "فِي قُلُوبِهِم مَّرَضٌ فَزَادَهُمُ اللَّهُ مَرَضًا",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": ["BEH_SPI_HYPOCRISY"], "form": "inner_state"},
+      "agent": {"type": "AGT_HYPOCRITE", "explicit": false, "support_type": "indirect", "note": "Context of previous ayat describes hypocrites"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_003_A001",
+          "axis": "AX_ORGAN",
+          "value": "ORG_HEART",
+          "organ_role": "metaphor",
+          "organ_semantic_domains": ["spiritual"],
+          "primary_organ_semantic_domain": "spiritual",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq", "metaphor_metonymy"],
+          "evidence_anchor": {"token_start": 1, "token_end": 2},
+          "justification_code": "JST_METAPHOR_RESOLVED",
+          "justification": "مرض القلب = disease of heart is metaphor for hypocrisy/doubt per tafsir consensus",
+          "confidence": 0.9
+        },
+        {
+          "assertion_id": "GOLD_003_A002",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SPI_HYPOCRISY",
+          "support_type": "indirect",
+          "indication_tags": ["metaphor_metonymy"],
+          "justification_code": "JST_TAFSIR_CONSENSUS",
+          "justification": "Heart disease = nifaq in this context per all major tafsirs",
+          "confidence": 0.85
+        },
+        {
+          "assertion_id": "GOLD_003_A003",
+          "axis": "AX_SITUATIONAL",
+          "value": "internal",
+          "situational_domains": ["spiritual"],
+          "support_type": "direct",
+          "confidence": 0.95
+        },
+        {
+          "assertion_id": "GOLD_003_A004",
+          "axis": "AX_ACTION_TEXTUAL_EVAL",
+          "value": "EVAL_GHAYR_SALIH",
+          "support_type": "direct",
+          "justification": "فزادهم الله مرضا - Allah increased their disease (punishment)",
+          "confidence": 0.9
+        }
+      ],
+      "normative_textual": {"speech_mode": "informative", "evaluation": "blame", "quran_deontic_signal": "tarhib"},
+      "tafsir": {"sources_used": ["IbnKathir", "Tabari", "Qurtubi"], "agreement_level": "high", "notes": "All agree مرض = نفاق أو شك"},
+      "training_notes": "CRITICAL: Heart with SPIRITUAL domain. مرض is metaphor for hypocrisy, not literal disease."
+    },
+    {
+      "id": "GOLD_004",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 4, "ayah": 36},
+      "span": {
+        "token_start": 0,
+        "token_end": 4,
+        "raw_text_ar": "وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": ["BEH_SPI_WORSHIP"], "form": "physical_act"},
+      "agent": {"type": "AGT_BELIEVER", "explicit": false, "support_type": "indirect", "note": "Command addressed to believers"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_004_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SPI_WORSHIP",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "evidence_anchor": {"token_start": 0, "token_end": 2},
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "اعبدوا الله - explicit command to worship",
+          "confidence": 0.95
+        },
+        {"assertion_id": "GOLD_004_A002", "axis": "AX_SYSTEMIC", "value": "SYS_GOD", "support_type": "direct", "justification": "Worship oriented toward Allah", "confidence": 0.95},
+        {"assertion_id": "GOLD_004_A003", "axis": "AX_ACTION_CLASS", "value": "ACT_VOLITIONAL", "support_type": "direct", "confidence": 0.95},
+        {
+          "assertion_id": "GOLD_004_A004",
+          "axis": "AX_ACTION_TEXTUAL_EVAL",
+          "value": "EVAL_SALIH",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification": "Commanded act = praiseworthy",
+          "confidence": 0.9
+        }
+      ],
+      "normative_textual": {"speech_mode": "command", "evaluation": "neutral", "quran_deontic_signal": "amr"},
+      "tafsir": {"sources_used": ["IbnKathir"], "agreement_level": "high"},
+      "training_notes": "Classic amr (command) form. Note speech_mode=command but evaluation can still be coded."
+    },
+    {
+      "id": "GOLD_005",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 4, "ayah": 36},
+      "span": {"token_start": 4, "token_end": 8, "raw_text_ar": "وَبِالْوَالِدَيْنِ إِحْسَانًا", "boundary_confidence": "certain"},
+      "behavior": {"concepts": ["BEH_SOC_KINDNESS_PARENTS"], "form": "relational_act"},
+      "agent": {"type": "AGT_BELIEVER", "explicit": false, "support_type": "indirect"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_005_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SOC_KINDNESS_PARENTS",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "بالوالدين إحسانا - explicit kindness to parents",
+          "confidence": 0.95
+        },
+        {"assertion_id": "GOLD_005_A002", "axis": "AX_SYSTEMIC", "value": "SYS_CREATION", "support_type": "direct", "confidence": 0.95},
+        {"assertion_id": "GOLD_005_A003", "axis": "AX_SYSTEMIC", "value": "SYS_FAMILY", "support_type": "direct", "confidence": 0.95}
+      ],
+      "normative_textual": {"speech_mode": "command", "evaluation": "praise", "quran_deontic_signal": "amr"},
+      "training_notes": "Continuation of 4:36 commands. Shows multi-systemic (CREATION + FAMILY)."
+    },
+    {
+      "id": "GOLD_006",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 17, "ayah": 23},
+      "span": {
+        "token_start": 5,
+        "token_end": 10,
+        "raw_text_ar": "فَلَا تَقُل لَّهُمَا أُفٍّ وَلَا تَنْهَرْهُمَا",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": ["BEH_SOC_KINDNESS_PARENTS"], "form": "speech_act"},
+      "agent": {"type": "AGT_BELIEVER", "explicit": false, "support_type": "indirect"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_006_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SPEECH_HARSH_WORD",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "أف and نهر = harsh speech prohibited",
+          "confidence": 0.95,
+          "negated": true,
+          "negation_type": "absolute"
+        }
+      ],
+      "normative_textual": {"speech_mode": "prohibition", "evaluation": "blame", "quran_deontic_signal": "nahy"},
+      "training_notes": "Prohibition (nahy) form. The behavior (harsh speech) is NEGATED = prohibited."
+    },
+    {
+      "id": "GOLD_007",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 2, "ayah": 177},
+      "span": {
+        "token_start": 10,
+        "token_end": 15,
+        "raw_text_ar": "وَآتَى الْمَالَ عَلَىٰ حُبِّهِ ذَوِي الْقُرْبَىٰ",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": ["BEH_FIN_CHARITY", "BEH_SOC_KINSHIP_TIES"], "form": "relational_act"},
+      "agent": {"type": "AGT_BELIEVER", "explicit": false, "support_type": "indirect", "note": "Context of البر describes righteous people"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_007_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_FIN_CHARITY",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "آتى المال = giving wealth",
+          "confidence": 0.95
+        },
+        {
+          "assertion_id": "GOLD_007_A002",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SOC_KINSHIP_TIES",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification": "ذوي القربى = relatives",
+          "confidence": 0.9
+        },
+        {
+          "assertion_id": "GOLD_007_A003",
+          "axis": "AX_ACTION_TEXTUAL_EVAL",
+          "value": "EVAL_SALIH",
+          "support_type": "indirect",
+          "indication_tags": ["dalalah_mafhum"],
+          "justification": "Part of البر definition = praiseworthy",
+          "confidence": 0.9
+        }
+      ],
+      "normative_textual": {"speech_mode": "informative", "evaluation": "praise", "quran_deontic_signal": "targhib"},
+      "training_notes": "Spending on relatives combines financial and social behavior concepts."
+    },
+    {
+      "id": "GOLD_008",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 3, "ayah": 134},
+      "span": {
+        "token_start": 0,
+        "token_end": 4,
+        "raw_text_ar": "الَّذِينَ يُنفِقُونَ فِي السَّرَّاءِ وَالضَّرَّاءِ",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": ["BEH_FIN_SPENDING"], "form": "physical_act"},
+      "agent": {"type": "AGT_BELIEVER", "explicit": false, "support_type": "indirect", "note": "Describes المتقين from previous ayah"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_008_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_FIN_SPENDING",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "ينفقون = spending",
+          "confidence": 0.95
+        }
+      ],
+      "periodicity": {"category": "PER_HABIT", "grammatical_indicator": "GRM_IMPERFECT_GENERAL"},
+      "normative_textual": {"speech_mode": "informative", "evaluation": "praise", "quran_deontic_signal": "targhib"},
+      "training_notes": "Note السراء والضراء = in ease and hardship, indicating consistent habit."
+    },
+    {
+      "id": "GOLD_009",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 3, "ayah": 134},
+      "span": {"token_start": 4, "token_end": 7, "raw_text_ar": "وَالْكَاظِمِينَ الْغَيْظَ", "boundary_confidence": "certain"},
+      "behavior": {"concepts": ["BEH_EMO_PATIENCE"], "form": "inner_state"},
+      "agent": {"type": "AGT_BELIEVER", "explicit": false, "support_type": "indirect"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_009_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_EMO_PATIENCE",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "كظم الغيظ = suppressing anger = form of patience",
+          "confidence": 0.9
+        },
+        {
+          "assertion_id": "GOLD_009_A002",
+          "axis": "AX_SITUATIONAL",
+          "value": "internal",
+          "situational_domains": ["emotional"],
+          "support_type": "direct",
+          "confidence": 0.9
+        }
+      ],
+      "normative_textual": {"speech_mode": "informative", "evaluation": "praise", "quran_deontic_signal": "targhib"},
+      "training_notes": "Emotional self-control. Internal behavior, emotional domain."
+    },
+    {
+      "id": "GOLD_010",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 30, "ayah": 54},
+      "span": {
+        "token_start": 0,
+        "token_end": 6,
+        "raw_text_ar": "اللَّهُ الَّذِي خَلَقَكُم مِّن ضَعْفٍ",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": [], "form": "inner_state"},
+      "agent": {"type": "AGT_HUMAN_GENERAL", "explicit": true, "support_type": "direct", "note": "خلقكم = created you (humans)"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_010_A001",
+          "axis": "AX_ACTION_CLASS",
+          "value": "ACT_INSTINCTIVE_OR_AUTOMATIC",
+          "support_type": "indirect",
+          "indication_tags": ["dalalah_mafhum"],
+          "justification_code": "JST_TAFSIR_CONSENSUS",
+          "justification": "ضعف = weakness at birth is involuntary biological state",
+          "confidence": 0.7
+        },
+        {
+          "assertion_id": "GOLD_010_A002",
+          "axis": "AX_ACTION_TEXTUAL_EVAL",
+          "value": "EVAL_NOT_APPLICABLE",
+          "support_type": "direct",
+          "justification_code": "JST_GRAMMATICAL_FORM",
+          "justification": "Involuntary state not subject to moral evaluation",
+          "confidence": 0.9
+        }
+      ],
+      "normative_textual": {"speech_mode": "informative", "evaluation": "neutral", "quran_deontic_signal": "khabar"},
+      "tafsir": {
+        "sources_used": ["IbnKathir", "Sadi"],
+        "agreement_level": "high",
+        "notes": "Describes human lifecycle - weakness at birth, then strength, then weakness again"
+      },
+      "training_notes": "RARE example of ACT_INSTINCTIVE + EVAL_NOT_APPLICABLE. Human weakness at birth is not volitional."
+    }
+  ]
+}
+
+

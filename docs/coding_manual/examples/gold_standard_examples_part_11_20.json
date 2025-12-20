@@ -1,0 +1,355 @@
+{
+  "gold_standard_examples": {
+    "version": "1.0",
+    "created_date": "2025-01-01",
+    "purpose": "Calibration and training examples for annotators",
+    "total_examples_in_part": 10,
+    "part": "11_20",
+    "notes": "This file contains GOLD_011..GOLD_020."
+  },
+  "examples": [
+    {
+      "id": "GOLD_011",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 2, "ayah": 275},
+      "span": {
+        "token_start": 0,
+        "token_end": 6,
+        "raw_text_ar": "الَّذِينَ يَأْكُلُونَ الرِّبَا لَا يَقُومُونَ إِلَّا كَمَا يَقُومُ الَّذِي يَتَخَبَّطُهُ الشَّيْطَانُ",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": ["BEH_FIN_USURY"], "form": "physical_act"},
+      "agent": {"type": "AGT_HUMAN_GENERAL", "explicit": true, "support_type": "direct"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_011_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_FIN_USURY",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "يأكلون الربا = consuming usury",
+          "confidence": 0.95
+        },
+        {
+          "assertion_id": "GOLD_011_A002",
+          "axis": "AX_ACTION_TEXTUAL_EVAL",
+          "value": "EVAL_GHAYR_SALIH",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification": "Comparison to one struck by Satan = severe blame",
+          "confidence": 0.95
+        }
+      ],
+      "normative_textual": {"speech_mode": "informative", "evaluation": "blame", "quran_deontic_signal": "tarhib"},
+      "training_notes": "Financial transgression. Strong evaluative language (يتخبطه الشيطان)."
+    },
+    {
+      "id": "GOLD_012",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 63, "ayah": 4},
+      "span": {
+        "token_start": 5,
+        "token_end": 10,
+        "raw_text_ar": "يَحْسَبُونَ كُلَّ صَيْحَةٍ عَلَيْهِمْ هُمُ الْعَدُوُّ",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": ["BEH_EMO_FEAR", "BEH_SPI_HYPOCRISY"], "form": "inner_state"},
+      "agent": {"type": "AGT_HYPOCRITE", "explicit": true, "support_type": "direct", "note": "Surah Al-Munafiqun explicitly about hypocrites"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_012_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SPI_HYPOCRISY",
+          "support_type": "indirect",
+          "indication_tags": ["narrative_inference"],
+          "justification_code": "JST_NARRATIVE_CONTEXT",
+          "justification": "Surah context is describing hypocrites",
+          "confidence": 0.9
+        },
+        {
+          "assertion_id": "GOLD_012_A002",
+          "axis": "AX_SITUATIONAL",
+          "value": "internal",
+          "situational_domains": ["psychological", "emotional"],
+          "support_type": "direct",
+          "confidence": 0.9
+        }
+      ],
+      "normative_textual": {"speech_mode": "informative", "evaluation": "blame", "quran_deontic_signal": "tarhib"},
+      "training_notes": "Psychological state of hypocrites - paranoia/fear. Context-dependent agent identification."
+    },
+    {
+      "id": "GOLD_013",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 24, "ayah": 30},
+      "span": {"token_start": 0, "token_end": 5, "raw_text_ar": "قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ", "boundary_confidence": "certain"},
+      "behavior": {"concepts": ["BEH_PHY_LOWERING_GAZE"], "form": "physical_act"},
+      "agent": {"type": "AGT_BELIEVER", "explicit": true, "support_type": "direct", "note": "للمؤمنين = to the believers"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_013_A001",
+          "axis": "AX_ORGAN",
+          "value": "ORG_EYE",
+          "organ_role": "tool",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "أبصارهم = their gazes/sight",
+          "confidence": 0.95
+        },
+        {
+          "assertion_id": "GOLD_013_A002",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_PHY_LOWERING_GAZE",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "يغضوا من أبصارهم = lower from their gazes",
+          "confidence": 0.95
+        }
+      ],
+      "normative_textual": {"speech_mode": "command", "evaluation": "neutral", "quran_deontic_signal": "amr"},
+      "training_notes": "Physical behavior involving organ (eye). Command form."
+    },
+    {
+      "id": "GOLD_014",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 49, "ayah": 12},
+      "span": {"token_start": 5, "token_end": 10, "raw_text_ar": "وَلَا يَغْتَب بَّعْضُكُم بَعْضًا", "boundary_confidence": "certain"},
+      "behavior": {"concepts": ["BEH_SPEECH_BACKBITING"], "form": "speech_act"},
+      "agent": {"type": "AGT_BELIEVER", "explicit": false, "support_type": "indirect", "note": "يا أيها الذين آمنوا in verse start"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_014_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SPEECH_BACKBITING",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "يغتب = backbiting",
+          "confidence": 0.95,
+          "negated": true,
+          "negation_type": "absolute"
+        }
+      ],
+      "normative_textual": {"speech_mode": "prohibition", "evaluation": "blame", "quran_deontic_signal": "nahy"},
+      "training_notes": "Prohibition of backbiting. Behavior is negated (prohibited)."
+    },
+    {
+      "id": "GOLD_015",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 107, "ayah": 4},
+      "span": {"token_start": 0, "token_end": 3, "raw_text_ar": "فَوَيْلٌ لِّلْمُصَلِّينَ", "boundary_confidence": "certain"},
+      "behavior": {"concepts": ["BEH_SPI_PRAYER"], "form": "physical_act"},
+      "agent": {"type": "AGT_HYPOCRITE", "explicit": false, "support_type": "indirect", "note": "Context shows these are insincere prayers"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_015_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SPI_PRAYER",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "المصلين = those who pray",
+          "confidence": 0.9
+        }
+      ],
+      "normative_textual": {"speech_mode": "informative", "evaluation": "blame", "quran_deontic_signal": "tarhib"},
+      "training_notes": "Prayer being BLAMED - unusual. Context (next ayah) clarifies they are heedless of prayer."
+    },
+    {
+      "id": "GOLD_016",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 107, "ayah": 5},
+      "span": {"token_start": 0, "token_end": 4, "raw_text_ar": "الَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ", "boundary_confidence": "certain"},
+      "behavior": {"concepts": ["BEH_COG_HEEDLESSNESS"], "form": "inner_state"},
+      "agent": {"type": "AGT_HYPOCRITE", "explicit": false, "support_type": "indirect"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_016_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_COG_HEEDLESSNESS",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "ساهون = heedless/neglectful",
+          "confidence": 0.95
+        },
+        {
+          "assertion_id": "GOLD_016_A002",
+          "axis": "AX_ACTION_TEXTUAL_EVAL",
+          "value": "EVAL_GHAYR_SALIH",
+          "support_type": "indirect",
+          "justification": "Linked to ويل (woe) in previous ayah",
+          "confidence": 0.9
+        }
+      ],
+      "linked_spans": [{"span_id": "GOLD_015", "relation": "continuation"}],
+      "normative_textual": {"speech_mode": "informative", "evaluation": "blame", "quran_deontic_signal": "tarhib"},
+      "training_notes": "Prayer + heedlessness = blameworthy; linked to previous span."
+    },
+    {
+      "id": "GOLD_017",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 2, "ayah": 8},
+      "span": {
+        "token_start": 0,
+        "token_end": 8,
+        "raw_text_ar": "وَمِنَ النَّاسِ مَن يَقُولُ آمَنَّا بِاللَّهِ وَبِالْيَوْمِ الْآخِرِ وَمَا هُم بِمُؤْمِنِينَ",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": ["BEH_SPI_HYPOCRISY", "BEH_SPEECH_LYING"], "form": "speech_act"},
+      "agent": {"type": "AGT_HYPOCRITE", "explicit": true, "support_type": "direct", "note": "Explicitly describes false claimants of faith"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_017_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SPI_FAITH",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification": "They CLAIM faith (آمنا)",
+          "confidence": 0.95,
+          "negated": true,
+          "negation_type": "absolute"
+        },
+        {
+          "assertion_id": "GOLD_017_A002",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SPEECH_LYING",
+          "support_type": "indirect",
+          "indication_tags": ["dalalah_mafhum"],
+          "justification": "Claiming faith while not believing = lying",
+          "confidence": 0.85
+        }
+      ],
+      "normative_textual": {"speech_mode": "informative", "evaluation": "blame", "quran_deontic_signal": "tarhib"},
+      "training_notes": "Claim (آمنا) negated by reality (ما هم بمؤمنين)."
+    },
+    {
+      "id": "GOLD_018",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 13, "ayah": 28},
+      "span": {"token_start": 3, "token_end": 7, "raw_text_ar": "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ", "boundary_confidence": "certain"},
+      "behavior": {"concepts": ["BEH_SPI_REMEMBRANCE"], "form": "inner_state"},
+      "agent": {"type": "AGT_BELIEVER", "explicit": false, "support_type": "indirect"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_018_A001",
+          "axis": "AX_ORGAN",
+          "value": "ORG_HEART",
+          "organ_role": "metaphor",
+          "organ_semantic_domains": ["emotional", "spiritual"],
+          "primary_organ_semantic_domain": "emotional",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "القلوب explicitly mentioned with طمأنينة",
+          "confidence": 0.95
+        },
+        {
+          "assertion_id": "GOLD_018_A002",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SPI_REMEMBRANCE",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "ذكر الله = remembrance of Allah",
+          "confidence": 0.95
+        }
+      ],
+      "normative_textual": {"speech_mode": "informative", "evaluation": "praise", "quran_deontic_signal": "targhib"},
+      "training_notes": "Heart with EMOTIONAL + SPIRITUAL domains."
+    },
+    {
+      "id": "GOLD_019",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 4, "ayah": 142},
+      "span": {
+        "token_start": 5,
+        "token_end": 10,
+        "raw_text_ar": "وَإِذَا قَامُوا إِلَى الصَّلَاةِ قَامُوا كُسَالَىٰ يُرَاءُونَ النَّاسَ",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": ["BEH_SPI_SHOWING_OFF", "BEH_SPI_PRAYER"], "form": "mixed"},
+      "agent": {"type": "AGT_HYPOCRITE", "explicit": true, "support_type": "direct", "note": "إن المنافقين earlier in verse"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_019_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SPI_SHOWING_OFF",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "يراءون الناس = showing off to people",
+          "confidence": 0.95
+        },
+        {
+          "assertion_id": "GOLD_019_A002",
+          "axis": "AX_INTENTION_PRESENCE",
+          "value": "INT_PRESENT",
+          "support_type": "direct",
+          "justification": "يراءون indicates intention to be seen",
+          "confidence": 0.85
+        },
+        {
+          "assertion_id": "GOLD_019_A003",
+          "axis": "AX_ACTION_TEXTUAL_EVAL",
+          "value": "EVAL_GHAYR_SALIH",
+          "support_type": "direct",
+          "justification": "Context of blaming hypocrites",
+          "confidence": 0.9
+        }
+      ],
+      "normative_textual": {"speech_mode": "informative", "evaluation": "blame", "quran_deontic_signal": "tarhib"},
+      "training_notes": "Rare case where INT_PRESENT is justified - يراءون explicitly indicates intention."
+    },
+    {
+      "id": "GOLD_020",
+      "quran_text_version": "uthmani_hafs_v1",
+      "tokenization_id": "tok_v1",
+      "reference": {"surah": 5, "ayah": 8},
+      "span": {
+        "token_start": 8,
+        "token_end": 15,
+        "raw_text_ar": "وَلَا يَجْرِمَنَّكُمْ شَنَآنُ قَوْمٍ عَلَىٰ أَلَّا تَعْدِلُوا اعْدِلُوا",
+        "boundary_confidence": "certain"
+      },
+      "behavior": {"concepts": ["BEH_SOC_JUSTICE"], "form": "relational_act"},
+      "agent": {"type": "AGT_BELIEVER", "explicit": false, "support_type": "indirect", "note": "يا أيها الذين آمنوا at verse start"},
+      "assertions": [
+        {
+          "assertion_id": "GOLD_020_A001",
+          "axis": "AX_BEHAVIOR_CONCEPT",
+          "value": "BEH_SOC_JUSTICE",
+          "support_type": "direct",
+          "indication_tags": ["dalalah_mantuq"],
+          "justification_code": "JST_EXPLICIT_MENTION",
+          "justification": "اعدلوا = be just (command)",
+          "confidence": 0.95
+        },
+        {
+          "assertion_id": "GOLD_020_A002",
+          "axis": "AX_SYSTEMIC",
+          "value": "SYS_CREATION",
+          "support_type": "direct",
+          "justification": "Justice toward قوم = other people",
+          "confidence": 0.9
+        }
+      ],
+      "normative_textual": {"speech_mode": "command", "evaluation": "praise", "quran_deontic_signal": "amr"},
+      "training_notes": "Justice commanded even toward enemies (شنآن قوم = hatred of a people)."
+    }
+  ]
+}
+
+
