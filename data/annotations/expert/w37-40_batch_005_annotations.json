@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_005",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T09:43:14.350674",
+  "annotated_at": "2025-12-21T09:54:17.204677",
   "ayat_count": 50,
   "annotations": [
     {
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.341986"
+      "annotated_at": "2025-12-21T09:54:17.196854"
     },
     {
       "span_id": "QBM_09609",
@@ -44,7 +44,7 @@
         "surah_name": "الأحزاب"
       },
       "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱذْكُرُوا۟ نِعْمَةَ ٱللَّهِ عَلَيْكُمْ إِذْ جَآءَتْكُمْ جُنُودٌ فَأَرْسَلْنَا عَلَيْهِمْ رِيحًا وَجُنُودًا لَّمْ تَرَوْهَا ۚ وَكَانَ ٱللَّهُ بِمَا تَعْمَلُونَ بَصِيرًا",
-      "behavior_form": "inner_state",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_ALLAH",
         "explicit": true
@@ -55,18 +55,18 @@
         "deontic_signal": "amr"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_GOD"
       },
       "evidence": {
         "support_type": "direct"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.341986"
+      "annotated_at": "2025-12-21T09:54:17.196854"
     },
     {
       "span_id": "QBM_09610",
@@ -83,12 +83,12 @@
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "praise",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -98,7 +98,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.342951"
+      "annotated_at": "2025-12-21T09:54:17.196854"
     },
     {
       "span_id": "QBM_09611",
@@ -130,7 +130,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.342951"
+      "annotated_at": "2025-12-21T09:54:17.197852"
     },
     {
       "span_id": "QBM_09612",
@@ -162,7 +162,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.342951"
+      "annotated_at": "2025-12-21T09:54:17.197852"
     },
     {
       "span_id": "QBM_09613",
@@ -194,7 +194,7 @@
         "support_type": "direct"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.342951"
+      "annotated_at": "2025-12-21T09:54:17.197852"
     },
     {
       "span_id": "QBM_09614",
@@ -226,7 +226,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.342951"
+      "annotated_at": "2025-12-21T09:54:17.197852"
     },
     {
       "span_id": "QBM_09615",
@@ -258,7 +258,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.342951"
+      "annotated_at": "2025-12-21T09:54:17.197852"
     },
     {
       "span_id": "QBM_09616",
@@ -274,7 +274,7 @@
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -290,7 +290,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.342951"
+      "annotated_at": "2025-12-21T09:54:17.197852"
     },
     {
       "span_id": "QBM_09617",
@@ -307,12 +307,12 @@
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "blame",
-        "deontic_signal": "tarhib"
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_SAYYI"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.342951"
+      "annotated_at": "2025-12-21T09:54:17.197852"
     },
     {
       "span_id": "QBM_09618",
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.343950"
+      "annotated_at": "2025-12-21T09:54:17.197852"
     },
     {
       "span_id": "QBM_09619",
@@ -386,7 +386,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.343950"
+      "annotated_at": "2025-12-21T09:54:17.198852"
     },
     {
       "span_id": "QBM_09620",
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.343950"
+      "annotated_at": "2025-12-21T09:54:17.198852"
     },
     {
       "span_id": "QBM_09621",
@@ -450,7 +450,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.343950"
+      "annotated_at": "2025-12-21T09:54:17.198852"
     },
     {
       "span_id": "QBM_09622",
@@ -482,7 +482,7 @@
         "support_type": "direct"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.343950"
+      "annotated_at": "2025-12-21T09:54:17.198852"
     },
     {
       "span_id": "QBM_09623",
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.344951"
+      "annotated_at": "2025-12-21T09:54:17.198852"
     },
     {
       "span_id": "QBM_09624",
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.345040"
+      "annotated_at": "2025-12-21T09:54:17.199886"
     },
     {
       "span_id": "QBM_09625",
@@ -578,7 +578,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.345040"
+      "annotated_at": "2025-12-21T09:54:17.199886"
     },
     {
       "span_id": "QBM_09626",
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.345040"
+      "annotated_at": "2025-12-21T09:54:17.199886"
     },
     {
       "span_id": "QBM_09627",
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.345040"
+      "annotated_at": "2025-12-21T09:54:17.199886"
     },
     {
       "span_id": "QBM_09628",
@@ -674,7 +674,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.345040"
+      "annotated_at": "2025-12-21T09:54:17.200440"
     },
     {
       "span_id": "QBM_09629",
@@ -690,13 +690,13 @@
         "explicit": true
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -706,7 +706,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.345040"
+      "annotated_at": "2025-12-21T09:54:17.200495"
     },
     {
       "span_id": "QBM_09630",
@@ -738,7 +738,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.345951"
+      "annotated_at": "2025-12-21T09:54:17.200495"
     },
     {
       "span_id": "QBM_09631",
@@ -755,12 +755,12 @@
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "praise",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -770,7 +770,7 @@
         "support_type": "direct"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.345951"
+      "annotated_at": "2025-12-21T09:54:17.200495"
     },
     {
       "span_id": "QBM_09632",
@@ -786,7 +786,7 @@
         "explicit": true
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -802,7 +802,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.345951"
+      "annotated_at": "2025-12-21T09:54:17.201020"
     },
     {
       "span_id": "QBM_09633",
@@ -834,7 +834,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.345951"
+      "annotated_at": "2025-12-21T09:54:17.201099"
     },
     {
       "span_id": "QBM_09634",
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.345951"
+      "annotated_at": "2025-12-21T09:54:17.201099"
     },
     {
       "span_id": "QBM_09635",
@@ -883,12 +883,12 @@
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -898,7 +898,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.346983"
+      "annotated_at": "2025-12-21T09:54:17.201649"
     },
     {
       "span_id": "QBM_09636",
@@ -908,7 +908,7 @@
         "surah_name": "الأحزاب"
       },
       "text_ar": "وَمَا كَانَ لِمُؤْمِنٍ وَلَا مُؤْمِنَةٍ إِذَا قَضَى ٱللَّهُ وَرَسُولُهُۥٓ أَمْرًا أَن يَكُونَ لَهُمُ ٱلْخِيَرَةُ مِنْ أَمْرِهِمْ ۗ وَمَن يَعْصِ ٱللَّهَ وَرَسُولَهُۥ فَقَدْ ضَلَّ ضَلَـٰلًا مُّبِينًا",
-      "behavior_form": "inner_state",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_ALLAH",
         "explicit": true
@@ -919,7 +919,7 @@
         "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_SALIH"
       },
       "axes": {
@@ -930,7 +930,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.346983"
+      "annotated_at": "2025-12-21T09:54:17.201649"
     },
     {
       "span_id": "QBM_09637",
@@ -962,7 +962,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.346983"
+      "annotated_at": "2025-12-21T09:54:17.201649"
     },
     {
       "span_id": "QBM_09638",
@@ -972,7 +972,7 @@
         "surah_name": "الأحزاب"
       },
       "text_ar": "مَّا كَانَ عَلَى ٱلنَّبِىِّ مِنْ حَرَجٍ فِيمَا فَرَضَ ٱللَّهُ لَهُۥ ۖ سُنَّةَ ٱللَّهِ فِى ٱلَّذِينَ خَلَوْا۟ مِن قَبْلُ ۚ وَكَانَ أَمْرُ ٱللَّهِ قَدَرًا مَّقْدُورًا",
-      "behavior_form": "inner_state",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_ALLAH",
         "explicit": true
@@ -983,7 +983,7 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.346983"
+      "annotated_at": "2025-12-21T09:54:17.201649"
     },
     {
       "span_id": "QBM_09639",
@@ -1026,7 +1026,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.346983"
+      "annotated_at": "2025-12-21T09:54:17.201649"
     },
     {
       "span_id": "QBM_09640",
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.346983"
+      "annotated_at": "2025-12-21T09:54:17.202648"
     },
     {
       "span_id": "QBM_09641",
@@ -1090,7 +1090,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.347982"
+      "annotated_at": "2025-12-21T09:54:17.202648"
     },
     {
       "span_id": "QBM_09642",
@@ -1106,7 +1106,7 @@
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "interrogative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.347982"
+      "annotated_at": "2025-12-21T09:54:17.202648"
     },
     {
       "span_id": "QBM_09643",
@@ -1154,7 +1154,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.347982"
+      "annotated_at": "2025-12-21T09:54:17.202648"
     },
     {
       "span_id": "QBM_09644",
@@ -1171,12 +1171,12 @@
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.347982"
+      "annotated_at": "2025-12-21T09:54:17.202648"
     },
     {
       "span_id": "QBM_09645",
@@ -1198,7 +1198,7 @@
       "text_ar": "يَـٰٓأَيُّهَا ٱلنَّبِىُّ إِنَّآ أَرْسَلْنَـٰكَ شَـٰهِدًا وَمُبَشِّرًا وَنَذِيرًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_PROPHET",
+        "type": "AGT_ALLAH",
         "explicit": true
       },
       "normative": {
@@ -1218,7 +1218,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.347982"
+      "annotated_at": "2025-12-21T09:54:17.202648"
     },
     {
       "span_id": "QBM_09646",
@@ -1228,7 +1228,7 @@
         "surah_name": "الأحزاب"
       },
       "text_ar": "وَدَاعِيًا إِلَى ٱللَّهِ بِإِذْنِهِۦ وَسِرَاجًا مُّنِيرًا",
-      "behavior_form": "inner_state",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_ALLAH",
         "explicit": true
@@ -1239,7 +1239,7 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -1250,7 +1250,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.347982"
+      "annotated_at": "2025-12-21T09:54:17.202648"
     },
     {
       "span_id": "QBM_09647",
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.347982"
+      "annotated_at": "2025-12-21T09:54:17.202648"
     },
     {
       "span_id": "QBM_09648",
@@ -1314,7 +1314,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.347982"
+      "annotated_at": "2025-12-21T09:54:17.202648"
     },
     {
       "span_id": "QBM_09649",
@@ -1330,9 +1330,9 @@
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "command",
         "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "deontic_signal": "amr"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.347982"
+      "annotated_at": "2025-12-21T09:54:17.202648"
     },
     {
       "span_id": "QBM_09650",
@@ -1363,12 +1363,12 @@
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1378,7 +1378,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.348981"
+      "annotated_at": "2025-12-21T09:54:17.203648"
     },
     {
       "span_id": "QBM_09651",
@@ -1410,7 +1410,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.348981"
+      "annotated_at": "2025-12-21T09:54:17.203648"
     },
     {
       "span_id": "QBM_09652",
@@ -1442,7 +1442,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.348981"
+      "annotated_at": "2025-12-21T09:54:17.203648"
     },
     {
       "span_id": "QBM_09653",
@@ -1458,9 +1458,9 @@
         "explicit": true
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "command",
         "evaluation": "blame",
-        "deontic_signal": "tarhib"
+        "deontic_signal": "amr"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.349981"
+      "annotated_at": "2025-12-21T09:54:17.204677"
     },
     {
       "span_id": "QBM_09654",
@@ -1506,7 +1506,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.349981"
+      "annotated_at": "2025-12-21T09:54:17.204677"
     },
     {
       "span_id": "QBM_09655",
@@ -1538,7 +1538,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.350674"
+      "annotated_at": "2025-12-21T09:54:17.204677"
     },
     {
       "span_id": "QBM_09656",
@@ -1554,9 +1554,9 @@
         "explicit": true
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "command",
         "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "deontic_signal": "amr"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
@@ -1570,7 +1570,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.350674"
+      "annotated_at": "2025-12-21T09:54:17.204677"
     },
     {
       "span_id": "QBM_09657",
@@ -1602,7 +1602,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:43:14.350674"
+      "annotated_at": "2025-12-21T09:54:17.204677"
     }
   ]
 }

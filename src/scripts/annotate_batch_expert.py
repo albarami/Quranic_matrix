@@ -79,7 +79,7 @@ def get_text_hash(text: str) -> str:
     return hashlib.md5(text.encode()).hexdigest()[:8]
 
 
-def normalize_arabic(text: str) -> str:
+def _normalize_arabic_impl(text: str) -> str:
     """Normalize Arabic text for pattern matching.
     
     - Removes diacritics (tashkeel)
@@ -119,19 +119,44 @@ def normalize_arabic(text: str) -> str:
     return ''.join(result)
 
 
+def normalize_arabic(text: str) -> str:
+    """Public wrapper for Arabic normalization."""
+    return _normalize_arabic_impl(text)
+
+
 def strip_diacritics(text: str) -> str:
     """Alias for normalize_arabic for backward compatibility."""
-    return normalize_arabic(text)
+    return _normalize_arabic_impl(text)
+
+
+def _normalize_pattern_dict(patterns: dict) -> dict:
+    """Normalize all patterns in a dictionary at load time."""
+    return {
+        key: [_normalize_arabic_impl(p) for p in values]
+        for key, values in patterns.items()
+    }
+
+
+def _normalize_pattern_list(patterns: list) -> list:
+    """Normalize all patterns in a list at load time."""
+    return [_normalize_arabic_impl(p) for p in patterns]
+
+
+# Normalize all pattern dictionaries at module load time
+BEHAVIOR_PATTERNS_NORM = _normalize_pattern_dict(BEHAVIOR_PATTERNS)
+AGENT_PATTERNS_NORM = _normalize_pattern_dict(AGENT_PATTERNS)
+EVALUATION_PATTERNS_NORM = _normalize_pattern_dict(EVALUATION_PATTERNS)
+SPEECH_MODE_PATTERNS_NORM = _normalize_pattern_dict(SPEECH_MODE_PATTERNS)
 
 
 def detect_behavior_form(text: str, surah: int, ayah: int) -> str:
     """Detect behavior form from verse text using expert patterns."""
-    text_normalized = strip_diacritics(text)
+    text_normalized = normalize_arabic(text)
     
-    # Check patterns in priority order
-    scores = {form: 0 for form in BEHAVIOR_PATTERNS}
+    # Check patterns in priority order (use normalized patterns)
+    scores = {form: 0 for form in BEHAVIOR_PATTERNS_NORM}
     
-    for form, keywords in BEHAVIOR_PATTERNS.items():
+    for form, keywords in BEHAVIOR_PATTERNS_NORM.items():
         for kw in keywords:
             if kw in text_normalized:
                 scores[form] += 1
@@ -158,7 +183,7 @@ def detect_behavior_form(text: str, surah: int, ayah: int) -> str:
 def detect_agent_type(text: str, surah: int, ayah: int) -> str:
     """Detect agent type from verse text."""
     text_normalized = normalize_arabic(text)
-    for agent, patterns in AGENT_PATTERNS.items():
+    for agent, patterns in AGENT_PATTERNS_NORM.items():
         for pattern in patterns:
             if pattern in text_normalized:
                 return agent
@@ -175,9 +200,9 @@ def detect_agent_type(text: str, surah: int, ayah: int) -> str:
 
 def detect_evaluation(text: str) -> str:
     """Detect normative evaluation from verse text."""
-    text_normalized = strip_diacritics(text)
-    praise_score = sum(1 for kw in EVALUATION_PATTERNS["praise"] if kw in text_normalized)
-    blame_score = sum(1 for kw in EVALUATION_PATTERNS["blame"] if kw in text_normalized)
+    text_normalized = normalize_arabic(text)
+    praise_score = sum(1 for kw in EVALUATION_PATTERNS_NORM["praise"] if kw in text_normalized)
+    blame_score = sum(1 for kw in EVALUATION_PATTERNS_NORM["blame"] if kw in text_normalized)
     
     if praise_score > blame_score:
         return "praise"
@@ -188,8 +213,8 @@ def detect_evaluation(text: str) -> str:
 
 def detect_speech_mode(text: str) -> str:
     """Detect speech mode from verse text."""
-    text_normalized = strip_diacritics(text)
-    for mode, patterns in SPEECH_MODE_PATTERNS.items():
+    text_normalized = normalize_arabic(text)
+    for mode, patterns in SPEECH_MODE_PATTERNS_NORM.items():
         for pattern in patterns:
             if pattern in text_normalized:
                 return mode
