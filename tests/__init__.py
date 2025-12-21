@@ -1,1 +1,1 @@
-"""QBM Test Suite."""
+"""QBM test suite."""

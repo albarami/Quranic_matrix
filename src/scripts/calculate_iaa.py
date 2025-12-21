@@ -50,11 +50,15 @@ def load_annotations(path: Path) -> Dict[str, List[Dict]]:
     return dict(annotations_by_annotator)
 
 
+# Track spans missing proper identifiers for warnings
+_spans_missing_id = []
+
+
 def get_span_key(span: Dict) -> str:
     """Generate unique key for a span at span-level (not just ayah-level).
     
     Uses span_id if available, otherwise falls back to reference + token positions.
-    This ensures multiple spans per verse are handled correctly.
+    Warns if span lacks both span_id and token bounds (may collapse spans).
     """
     span_id = span.get("span_id") or span.get("id")
     if span_id:
@@ -63,10 +67,15 @@ def get_span_key(span: Dict) -> str:
     ref = span.get("reference", {})
     surah = ref.get("surah", 0)
     ayah = ref.get("ayah", 0)
-    token_start = span.get("token_start", span.get("span", {}).get("token_start", 0))
-    token_end = span.get("token_end", span.get("span", {}).get("token_end", 0))
+    token_start = span.get("token_start", span.get("span", {}).get("token_start"))
+    token_end = span.get("token_end", span.get("span", {}).get("token_end"))
     
-    return f"{surah}:{ayah}:{token_start}-{token_end}"
+    # Warn if no token bounds - may collapse multiple spans in same ayah
+    if token_start is None and token_end is None:
+        _spans_missing_id.append(f"{surah}:{ayah}")
+        return f"{surah}:{ayah}:0-0"  # Fallback, but tracked
+    
+    return f"{surah}:{ayah}:{token_start or 0}-{token_end or 0}"
 
 
 def get_nested(d: Dict, path: str) -> Any:
@@ -417,6 +426,21 @@ def main():
             print("\nKrippendorff's Alpha:")
             for field, alpha in results["krippendorff_alpha"].items():
                 print(f"  {field}: {alpha:.4f}")
+    
+    # Warn about spans missing proper identifiers
+    if _spans_missing_id:
+        unique_missing = set(_spans_missing_id)
+        print(f"\nWARNING: {len(unique_missing)} spans lack span_id and token bounds.")
+        print("  These may collapse multiple spans in the same ayah.")
+        if args.verbose:
+            for ref in sorted(unique_missing)[:10]:
+                print(f"    - {ref}")
+            if len(unique_missing) > 10:
+                print(f"    ... and {len(unique_missing) - 10} more")
+        results["warnings"] = {
+            "spans_missing_id": len(unique_missing),
+            "affected_ayat": sorted(unique_missing)[:100]
+        }
     
     if args.output:
         output_dir = Path(args.output)

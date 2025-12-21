@@ -9,7 +9,9 @@
       "Bash(git commit -m \"$\\(cat <<''EOF''\ndocs\\(training\\): add annotator quick-start guide and decision flowchart\n\nPhase 2 preparation:\n- ANNOTATOR_QUICKSTART.md: 5-field annotation guide with examples\n- DECISION_FLOWCHART.md: Visual decision trees for edge cases\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git push:*)",
       "Bash(dir:*)",
-      "Bash(powershell -Command \"\\(Get-ChildItem -Path data/annotations -Filter *.json -Recurse\\).Count\")"
+      "Bash(powershell -Command \"\\(Get-ChildItem -Path data/annotations -Filter *.json -Recurse\\).Count\")",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat\\(phase7\\): add FastAPI dependencies to requirements\n\nPhase 7 API stack:\n- fastapi>=0.109.0\n- uvicorn>=0.27.0\n- httpx>=0.26.0\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git tag:*)"
     ]
   }
 }

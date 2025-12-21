@@ -1,192 +1,149 @@
-#!/usr/bin/env python3
-"""
-Test suite for QBM REST API.
-
-Run with: pytest tests/test_api.py -v
-"""
+"""Tests for QBM REST API."""
 
 import pytest
 from fastapi.testclient import TestClient
-import sys
-from pathlib import Path
 
-# Add src to path for imports
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
-
-from api.main import app
+from src.api.main import app
 
 client = TestClient(app)
 
 
-class TestHealthEndpoints:
-    """Test health check endpoints."""
-
-    def test_root_returns_health(self):
-        """GET / should return health status."""
+class TestHealthCheck:
+    """Test health check endpoint."""
+    
+    def test_health_check(self):
+        """Test GET / returns health status."""
         response = client.get("/")
         assert response.status_code == 200
         data = response.json()
-        assert data["status"] == "healthy"
+        assert data["status"] == "ok"
         assert "version" in data
         assert "dataset_loaded" in data
 
-    def test_health_endpoint(self):
-        """GET /health should return same as root."""
-        response = client.get("/health")
-        assert response.status_code == 200
-        data = response.json()
-        assert data["status"] == "healthy"
 
-
-class TestDatasetEndpoints:
-    """Test dataset retrieval endpoints."""
-
+class TestDatasets:
+    """Test dataset endpoints."""
+    
     def test_get_silver_dataset(self):
-        """GET /datasets/silver should return data."""
-        response = client.get("/datasets/silver?limit=10")
-        # May be 404 if no data, or 200 with data
-        assert response.status_code in [200, 404]
-        if response.status_code == 200:
-            data = response.json()
-            assert "meta" in data
-            assert "spans" in data
-            assert len(data["spans"]) <= 10
-
-    def test_get_invalid_tier(self):
-        """GET /datasets/invalid should fail validation."""
+        """Test GET /datasets/silver returns dataset."""
+        response = client.get("/datasets/silver")
+        assert response.status_code == 200
+        data = response.json()
+        assert "metadata" in data
+        assert "spans" in data
+        assert data["metadata"]["tier"] == "silver"
+    
+    def test_invalid_tier(self):
+        """Test invalid tier returns 400."""
         response = client.get("/datasets/invalid")
-        assert response.status_code == 422  # Validation error
-
-    def test_pagination(self):
-        """Dataset pagination should work."""
-        response = client.get("/datasets/silver?limit=5&offset=0")
-        if response.status_code == 200:
-            data = response.json()
-            assert len(data["spans"]) <= 5
+        assert response.status_code == 400
 
 
-class TestSpanEndpoints:
-    """Test span search and retrieval."""
-
-    def test_search_spans_no_filter(self):
-        """GET /spans should return spans."""
-        response = client.get("/spans?limit=10")
+class TestSpans:
+    """Test spans endpoints."""
+    
+    def test_search_spans(self):
+        """Test GET /spans returns spans."""
+        response = client.get("/spans")
         assert response.status_code == 200
         data = response.json()
-        assert "spans" in data
         assert "total" in data
-
-    def test_search_by_surah(self):
-        """GET /spans?surah=1 should filter by surah."""
-        response = client.get("/spans?surah=1&limit=50")
-        assert response.status_code == 200
-        data = response.json()
         assert "spans" in data
-        # All returned spans should be from surah 1
-        for span in data["spans"]:
-            ref = span.get("reference", {})
-            assert ref.get("surah") == 1
-
-    def test_search_by_agent_type(self):
-        """GET /spans?agent_type=AGT_BELIEVER should filter."""
-        response = client.get("/spans?agent_type=AGT_BELIEVER&limit=10")
+    
+    def test_filter_by_surah(self):
+        """Test filtering by surah."""
+        response = client.get("/spans?surah=1")
         assert response.status_code == 200
         data = response.json()
         for span in data["spans"]:
-            assert "BELIEVER" in span.get("agent", {}).get("type", "").upper()
-
-    def test_search_by_behavior_form(self):
-        """GET /spans?behavior_form=inner_state should filter."""
-        response = client.get("/spans?behavior_form=inner_state&limit=10")
+            assert span["reference"]["surah"] == 1
+    
+    def test_filter_by_agent(self):
+        """Test filtering by agent type."""
+        response = client.get("/spans?agent=AGT_ALLAH")
         assert response.status_code == 200
-
-    def test_search_by_evaluation(self):
-        """GET /spans?evaluation=praise should filter."""
-        response = client.get("/spans?evaluation=praise&limit=10")
+        data = response.json()
+        for span in data["spans"]:
+            assert span["agent"]["type"] == "AGT_ALLAH"
+    
+    def test_pagination(self):
+        """Test pagination with limit and offset."""
+        response = client.get("/spans?limit=10&offset=0")
         assert response.status_code == 200
-
-    def test_search_by_deontic(self):
-        """GET /spans?deontic_signal=amr should filter."""
-        response = client.get("/spans?deontic_signal=amr&limit=10")
-        assert response.status_code == 200
-
-    def test_get_nonexistent_span(self):
-        """GET /spans/INVALID should return 404."""
-        response = client.get("/spans/NONEXISTENT_SPAN_ID")
-        assert response.status_code == 404
+        data = response.json()
+        assert len(data["spans"]) <= 10
 
 
-class TestSurahEndpoints:
-    """Test surah-specific endpoints."""
-
+class TestSurahs:
+    """Test surah endpoints."""
+    
     def test_get_surah_spans(self):
-        """GET /surahs/1 should return Al-Fatiha spans."""
-        response = client.get("/surahs/1?limit=50")
+        """Test GET /surahs/{num} returns spans."""
+        response = client.get("/surahs/1")
         assert response.status_code == 200
         data = response.json()
+        assert "total" in data
         assert "spans" in data
+        for span in data["spans"]:
+            assert span["reference"]["surah"] == 1
+    
+    def test_invalid_surah(self):
+        """Test invalid surah returns 400."""
+        response = client.get("/surahs/0")
+        assert response.status_code == 400
+        
+        response = client.get("/surahs/115")
+        assert response.status_code == 400
 
-    def test_invalid_surah_number(self):
-        """GET /surahs/200 should fail validation."""
-        response = client.get("/surahs/200")
-        assert response.status_code == 422
 
-
-class TestStatsEndpoints:
-    """Test statistics endpoints."""
-
+class TestStats:
+    """Test statistics endpoint."""
+    
     def test_get_stats(self):
-        """GET /stats should return statistics."""
+        """Test GET /stats returns statistics."""
         response = client.get("/stats")
-        # May be 404 if no data
-        assert response.status_code in [200, 404]
-        if response.status_code == 200:
-            data = response.json()
-            assert "total_spans" in data
-            assert "agent_distribution" in data
-            assert "behavior_distribution" in data
-            assert "evaluation_distribution" in data
-
-    def test_stats_by_tier(self):
-        """GET /stats?tier=silver should work."""
-        response = client.get("/stats?tier=silver")
-        assert response.status_code in [200, 404]
+        assert response.status_code == 200
+        data = response.json()
+        assert "total_spans" in data
+        assert "unique_surahs" in data
+        assert "unique_ayat" in data
+        assert "agent_types" in data
+        assert "behavior_forms" in data
+        assert "evaluations" in data
+        assert "deontic_signals" in data
 
 
-class TestVocabularyEndpoints:
-    """Test vocabulary reference endpoints."""
-
+class TestVocabularies:
+    """Test vocabularies endpoint."""
+    
     def test_get_vocabularies(self):
-        """GET /vocabularies should return controlled vocabularies."""
+        """Test GET /vocabularies returns controlled vocabularies."""
         response = client.get("/vocabularies")
         assert response.status_code == 200
         data = response.json()
-        # Should have key vocabulary lists
-        assert "agent_types" in data or "agents" in data
-        assert "behavior_forms" in data or "behaviors" in data
+        assert "agent_types" in data
+        assert "behavior_forms" in data
+        assert "evaluations" in data
+        assert "deontic_signals" in data
+        assert "speech_modes" in data
+        assert "systemic" in data
+        
+        # Check expected values
+        assert "AGT_ALLAH" in data["agent_types"]
+        assert "physical_act" in data["behavior_forms"]
+        assert "praise" in data["evaluations"]
+        assert "amr" in data["deontic_signals"]
 
 
-class TestOpenAPISchema:
-    """Test OpenAPI documentation."""
-
-    def test_openapi_schema(self):
-        """GET /openapi.json should return schema."""
-        response = client.get("/openapi.json")
-        assert response.status_code == 200
-        data = response.json()
-        assert data["info"]["title"] == "Quranic Behavior Matrix API"
-        assert "paths" in data
-
-    def test_docs_available(self):
-        """GET /docs should return Swagger UI."""
+class TestDocs:
+    """Test documentation endpoints."""
+    
+    def test_openapi_docs(self):
+        """Test /docs endpoint exists."""
         response = client.get("/docs")
         assert response.status_code == 200
-
-    def test_redoc_available(self):
-        """GET /redoc should return ReDoc."""
+    
+    def test_redoc(self):
+        """Test /redoc endpoint exists."""
         response = client.get("/redoc")
         assert response.status_code == 200
-
-
-if __name__ == "__main__":
-    pytest.main([__file__, "-v"])

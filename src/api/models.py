@@ -1,103 +1,104 @@
-#!/usr/bin/env python3
-"""Pydantic models for QBM API responses."""
+"""Pydantic models for QBM API."""
 
+from typing import Dict, List, Optional, Any
 from pydantic import BaseModel, Field
-from typing import List, Optional, Dict, Any
-from datetime import datetime
 
 
 class Reference(BaseModel):
-    """Quran reference (surah:ayah or surah:ayah:span)."""
-    surah: int = Field(..., ge=1, le=114, description="Surah number (1-114)")
-    ayah: int = Field(..., ge=1, description="Ayah number")
-    span: Optional[int] = Field(None, ge=1, description="Span number within ayah")
+    """Quran reference (surah:ayah)."""
+    surah: int = Field(..., ge=1, le=114)
+    ayah: int = Field(..., ge=1)
 
 
 class Agent(BaseModel):
-    """Agent performing/experiencing the behavior."""
-    type: str = Field(..., description="Agent type code (e.g., AGT_BELIEVER)")
-    label_en: Optional[str] = Field(None, description="English label")
-    label_ar: Optional[str] = Field(None, description="Arabic label")
-
-
-class Behavior(BaseModel):
-    """Behavioral classification."""
-    form: str = Field(..., description="Behavior form (inner_state, speech_act, etc.)")
-    action_class: Optional[str] = Field(None, description="Action classification")
+    """Agent performing the behavior."""
+    type: str = Field(..., description="Agent type (e.g., AGT_ALLAH, AGT_BELIEVER)")
+    referent: Optional[str] = None
 
 
 class Normative(BaseModel):
-    """Normative/textual analysis."""
-    speech_mode: str = Field(..., description="Speech mode (command, prohibition, informative, narrative)")
-    evaluation: str = Field(..., description="Evaluation (praise, blame, promise, warning, neutral)")
-    deontic_signal: str = Field(..., description="Deontic signal (amr, nahy, targhib, tarhib, khabar)")
-    textual_eval: Optional[str] = Field(None, description="Textual evaluation")
+    """Normative layer annotations."""
+    evaluation: Optional[str] = None
+    deontic_signal: Optional[str] = None
+    speech_mode: Optional[str] = None
 
 
 class Axes(BaseModel):
-    """Situational axes."""
-    situational: str = Field(..., description="Situational axis value")
+    """Behavioral axes."""
+    systemic: Optional[str] = None
 
 
-class Evidence(BaseModel):
-    """Evidence and support."""
-    support_type: str = Field(..., description="Type of textual support")
-    tafsir_consulted: Optional[bool] = Field(None, description="Whether tafsir was consulted")
+class Action(BaseModel):
+    """Action annotations."""
+    textual_eval: Optional[str] = None
 
 
-class SpanAnnotation(BaseModel):
-    """Complete span annotation."""
-    span_id: str = Field(..., description="Unique span identifier (e.g., QBM_00001)")
+class Span(BaseModel):
+    """QBM annotation span."""
+    id: Optional[str] = Field(None, alias="span_id")
     reference: Reference
-    raw_text_ar: str = Field(..., description="Arabic text of the span")
-    translation_en: Optional[str] = Field(None, description="English translation")
-    agent: Agent
-    behavior: Behavior
-    normative: Normative
+    text_ar: Optional[str] = None
+    agent: Optional[Agent] = None
+    behavior_form: Optional[str] = None
+    normative: Optional[Normative] = None
     axes: Optional[Axes] = None
-    evidence: Optional[Evidence] = None
-    metadata: Optional[Dict[str, Any]] = Field(None, description="Additional metadata")
+    action: Optional[Action] = None
+    
+    class Config:
+        populate_by_name = True
 
 
-class DatasetMeta(BaseModel):
+class SpanResponse(BaseModel):
+    """Response containing a single span."""
+    span: Span
+
+
+class SpansResponse(BaseModel):
+    """Response containing multiple spans."""
+    total: int
+    spans: List[Span]
+
+
+class DatasetMetadata(BaseModel):
     """Dataset metadata."""
-    tier: str = Field(..., description="Dataset tier (gold, silver, research)")
-    version: str = Field(..., description="Dataset version")
-    exported_at: datetime
+    tier: str
+    version: str
+    exported_at: str
     total_spans: int
-    total_ayat: int
-    total_surahs: int
-    avg_iaa_kappa: Optional[float] = Field(None, description="Average Cohen's Kappa")
 
 
 class DatasetResponse(BaseModel):
     """Full dataset response."""
-    meta: DatasetMeta
-    spans: List[SpanAnnotation]
-
-
-class SearchQuery(BaseModel):
-    """Search query parameters."""
-    surah: Optional[int] = Field(None, ge=1, le=114, description="Filter by surah")
-    agent_type: Optional[str] = Field(None, description="Filter by agent type")
-    behavior_form: Optional[str] = Field(None, description="Filter by behavior form")
-    evaluation: Optional[str] = Field(None, description="Filter by evaluation")
-    deontic_signal: Optional[str] = Field(None, description="Filter by deontic signal")
-    text_search: Optional[str] = Field(None, description="Search in Arabic text")
-    limit: int = Field(100, ge=1, le=1000, description="Maximum results")
-    offset: int = Field(0, ge=0, description="Result offset for pagination")
+    metadata: DatasetMetadata
+    spans: List[Span]
 
 
 class StatsResponse(BaseModel):
     """Dataset statistics response."""
     total_spans: int
-    total_ayat: int
-    surahs_covered: int
-    agent_distribution: Dict[str, int]
-    behavior_distribution: Dict[str, int]
-    evaluation_distribution: Dict[str, int]
-    deontic_distribution: Dict[str, int]
-    avg_iaa_kappa: Optional[float]
+    unique_surahs: int
+    unique_ayat: int
+    agent_types: Dict[str, int]
+    behavior_forms: Dict[str, int]
+    evaluations: Dict[str, int]
+    deontic_signals: Dict[str, int]
+
+
+class VocabularyItem(BaseModel):
+    """Vocabulary item."""
+    value: str
+    label: Optional[str] = None
+    description: Optional[str] = None
+
+
+class VocabulariesResponse(BaseModel):
+    """Controlled vocabularies response."""
+    agent_types: List[str]
+    behavior_forms: List[str]
+    evaluations: List[str]
+    deontic_signals: List[str]
+    speech_modes: List[str]
+    systemic: List[str]
 
 
 class HealthResponse(BaseModel):
@@ -105,4 +106,3 @@ class HealthResponse(BaseModel):
     status: str
     version: str
     dataset_loaded: bool
-    spans_available: int
