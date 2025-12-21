@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_019",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:52:49.424216",
+  "annotated_at": "2025-12-21T09:11:23.076225",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,10 +11,10 @@
         "ayah": 112,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 112 من سورة الأنعام",
+      "text_ar": "وَكَذَٰلِكَ جَعَلْنَا لِكُلِّ نَبِىٍّ عَدُوًّا شَيَـٰطِينَ ٱلْإِنسِ وَٱلْجِنِّ يُوحِى بَعْضُهُمْ إِلَىٰ بَعْضٍ زُخْرُفَ ٱلْقَوْلِ غُرُورًا ۚ وَلَوْ شَآءَ رَبُّكَ مَا فَعَلُوهُ ۖ فَذَرْهُمْ وَمَا يَفْتَرُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.423096"
+      "annotated_at": "2025-12-21T09:11:23.070228"
     },
     {
       "span_id": "QBM_01613",
@@ -43,8 +43,8 @@
         "ayah": 113,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 113 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَلِتَصْغَىٰٓ إِلَيْهِ أَفْـِٔدَةُ ٱلَّذِينَ لَا يُؤْمِنُونَ بِٱلْـَٔاخِرَةِ وَلِيَرْضَوْهُ وَلِيَقْتَرِفُوا۟ مَا هُم مُّقْتَرِفُونَ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
@@ -55,18 +55,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.423096"
+      "annotated_at": "2025-12-21T09:11:23.070228"
     },
     {
       "span_id": "QBM_01614",
@@ -75,8 +75,8 @@
         "ayah": 114,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 114 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "أَفَغَيْرَ ٱللَّهِ أَبْتَغِى حَكَمًا وَهُوَ ٱلَّذِىٓ أَنزَلَ إِلَيْكُمُ ٱلْكِتَـٰبَ مُفَصَّلًا ۚ وَٱلَّذِينَ ءَاتَيْنَـٰهُمُ ٱلْكِتَـٰبَ يَعْلَمُونَ أَنَّهُۥ مُنَزَّلٌ مِّن رَّبِّكَ بِٱلْحَقِّ ۖ فَلَا تَكُونَنَّ مِنَ ٱلْمُمْتَرِينَ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
@@ -87,18 +87,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.423096"
+      "annotated_at": "2025-12-21T09:11:23.070228"
     },
     {
       "span_id": "QBM_01615",
@@ -107,8 +107,8 @@
         "ayah": 115,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 115 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَتَمَّتْ كَلِمَتُ رَبِّكَ صِدْقًا وَعَدْلًا ۚ لَّا مُبَدِّلَ لِكَلِمَـٰتِهِۦ ۚ وَهُوَ ٱلسَّمِيعُ ٱلْعَلِيمُ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
@@ -130,7 +130,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424096"
+      "annotated_at": "2025-12-21T09:11:23.070228"
     },
     {
       "span_id": "QBM_01616",
@@ -139,10 +139,10 @@
         "ayah": 116,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 116 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَإِن تُطِعْ أَكْثَرَ مَن فِى ٱلْأَرْضِ يُضِلُّوكَ عَن سَبِيلِ ٱللَّهِ ۚ إِن يَتَّبِعُونَ إِلَّا ٱلظَّنَّ وَإِنْ هُمْ إِلَّا يَخْرُصُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -155,14 +155,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424126"
+      "annotated_at": "2025-12-21T09:11:23.070228"
     },
     {
       "span_id": "QBM_01617",
@@ -171,10 +171,10 @@
         "ayah": 117,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 117 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "إِنَّ رَبَّكَ هُوَ أَعْلَمُ مَن يَضِلُّ عَن سَبِيلِهِۦ ۖ وَهُوَ أَعْلَمُ بِٱلْمُهْتَدِينَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -183,18 +183,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424126"
+      "annotated_at": "2025-12-21T09:11:23.070228"
     },
     {
       "span_id": "QBM_01618",
@@ -203,10 +203,10 @@
         "ayah": 118,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 118 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "فَكُلُوا۟ مِمَّا ذُكِرَ ٱسْمُ ٱللَّهِ عَلَيْهِ إِن كُنتُم بِـَٔايَـٰتِهِۦ مُؤْمِنِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -215,18 +215,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424164"
+      "annotated_at": "2025-12-21T09:11:23.070228"
     },
     {
       "span_id": "QBM_01619",
@@ -235,30 +235,30 @@
         "ayah": 119,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 119 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَمَا لَكُمْ أَلَّا تَأْكُلُوا۟ مِمَّا ذُكِرَ ٱسْمُ ٱللَّهِ عَلَيْهِ وَقَدْ فَصَّلَ لَكُم مَّا حَرَّمَ عَلَيْكُمْ إِلَّا مَا ٱضْطُرِرْتُمْ إِلَيْهِ ۗ وَإِنَّ كَثِيرًا لَّيُضِلُّونَ بِأَهْوَآئِهِم بِغَيْرِ عِلْمٍ ۗ إِنَّ رَبَّكَ هُوَ أَعْلَمُ بِٱلْمُعْتَدِينَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "prohibition",
         "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "deontic_signal": "nahy"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424190"
+      "annotated_at": "2025-12-21T09:11:23.070228"
     },
     {
       "span_id": "QBM_01620",
@@ -267,10 +267,10 @@
         "ayah": 120,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 120 من سورة الأنعام",
+      "text_ar": "وَذَرُوا۟ ظَـٰهِرَ ٱلْإِثْمِ وَبَاطِنَهُۥٓ ۚ إِنَّ ٱلَّذِينَ يَكْسِبُونَ ٱلْإِثْمَ سَيُجْزَوْنَ بِمَا كَانُوا۟ يَقْتَرِفُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -290,7 +290,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.071225"
     },
     {
       "span_id": "QBM_01621",
@@ -299,20 +299,20 @@
         "ayah": 121,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 121 من سورة الأنعام",
+      "text_ar": "وَلَا تَأْكُلُوا۟ مِمَّا لَمْ يُذْكَرِ ٱسْمُ ٱللَّهِ عَلَيْهِ وَإِنَّهُۥ لَفِسْقٌ ۗ وَإِنَّ ٱلشَّيَـٰطِينَ لَيُوحُونَ إِلَىٰٓ أَوْلِيَآئِهِمْ لِيُجَـٰدِلُوكُمْ ۖ وَإِنْ أَطَعْتُمُوهُمْ إِنَّكُمْ لَمُشْرِكُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "prohibition",
+        "evaluation": "blame",
+        "deontic_signal": "nahy"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.071225"
     },
     {
       "span_id": "QBM_01622",
@@ -331,7 +331,7 @@
         "ayah": 122,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 122 من سورة الأنعام",
+      "text_ar": "أَوَمَن كَانَ مَيْتًا فَأَحْيَيْنَـٰهُ وَجَعَلْنَا لَهُۥ نُورًا يَمْشِى بِهِۦ فِى ٱلنَّاسِ كَمَن مَّثَلُهُۥ فِى ٱلظُّلُمَـٰتِ لَيْسَ بِخَارِجٍ مِّنْهَا ۚ كَذَٰلِكَ زُيِّنَ لِلْكَـٰفِرِينَ مَا كَانُوا۟ يَعْمَلُونَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
@@ -339,12 +339,12 @@
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.071225"
     },
     {
       "span_id": "QBM_01623",
@@ -363,10 +363,10 @@
         "ayah": 123,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 123 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَكَذَٰلِكَ جَعَلْنَا فِى كُلِّ قَرْيَةٍ أَكَـٰبِرَ مُجْرِمِيهَا لِيَمْكُرُوا۟ فِيهَا ۖ وَمَا يَمْكُرُونَ إِلَّا بِأَنفُسِهِمْ وَمَا يَشْعُرُونَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -375,18 +375,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.071225"
     },
     {
       "span_id": "QBM_01624",
@@ -395,8 +395,8 @@
         "ayah": 124,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 124 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَإِذَا جَآءَتْهُمْ ءَايَةٌ قَالُوا۟ لَن نُّؤْمِنَ حَتَّىٰ نُؤْتَىٰ مِثْلَ مَآ أُوتِىَ رُسُلُ ٱللَّهِ ۘ ٱللَّهُ أَعْلَمُ حَيْثُ يَجْعَلُ رِسَالَتَهُۥ ۗ سَيُصِيبُ ٱلَّذِينَ أَجْرَمُوا۟ صَغَارٌ عِندَ ٱللَّهِ وَعَذَابٌ شَدِيدٌۢ بِمَا كَانُوا۟ يَمْكُرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.071225"
     },
     {
       "span_id": "QBM_01625",
@@ -427,30 +427,30 @@
         "ayah": 125,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 125 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "فَمَن يُرِدِ ٱللَّهُ أَن يَهْدِيَهُۥ يَشْرَحْ صَدْرَهُۥ لِلْإِسْلَـٰمِ ۖ وَمَن يُرِدْ أَن يُضِلَّهُۥ يَجْعَلْ صَدْرَهُۥ ضَيِّقًا حَرَجًا كَأَنَّمَا يَصَّعَّدُ فِى ٱلسَّمَآءِ ۚ كَذَٰلِكَ يَجْعَلُ ٱللَّهُ ٱلرِّجْسَ عَلَى ٱلَّذِينَ لَا يُؤْمِنُونَ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.071225"
     },
     {
       "span_id": "QBM_01626",
@@ -459,14 +459,14 @@
         "ayah": 126,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 126 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَهَـٰذَا صِرَٰطُ رَبِّكَ مُسْتَقِيمًا ۗ قَدْ فَصَّلْنَا ٱلْـَٔايَـٰتِ لِقَوْمٍ يَذَّكَّرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "interrogative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -482,7 +482,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.071225"
     },
     {
       "span_id": "QBM_01627",
@@ -491,10 +491,10 @@
         "ayah": 127,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 127 من سورة الأنعام",
+      "text_ar": "لَهُمْ دَارُ ٱلسَّلَـٰمِ عِندَ رَبِّهِمْ ۖ وَهُوَ وَلِيُّهُم بِمَا كَانُوا۟ يَعْمَلُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.071225"
     },
     {
       "span_id": "QBM_01628",
@@ -523,20 +523,20 @@
         "ayah": 128,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 128 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَيَوْمَ يَحْشُرُهُمْ جَمِيعًا يَـٰمَعْشَرَ ٱلْجِنِّ قَدِ ٱسْتَكْثَرْتُم مِّنَ ٱلْإِنسِ ۖ وَقَالَ أَوْلِيَآؤُهُم مِّنَ ٱلْإِنسِ رَبَّنَا ٱسْتَمْتَعَ بَعْضُنَا بِبَعْضٍ وَبَلَغْنَآ أَجَلَنَا ٱلَّذِىٓ أَجَّلْتَ لَنَا ۚ قَالَ ٱلنَّارُ مَثْوَىٰكُمْ خَـٰلِدِينَ فِيهَآ إِلَّا مَا شَآءَ ٱللَّهُ ۗ إِنَّ رَبَّكَ حَكِيمٌ عَلِيمٌ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.072225"
     },
     {
       "span_id": "QBM_01629",
@@ -555,10 +555,10 @@
         "ayah": 129,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 129 من سورة الأنعام",
+      "text_ar": "وَكَذَٰلِكَ نُوَلِّى بَعْضَ ٱلظَّـٰلِمِينَ بَعْضًۢا بِمَا كَانُوا۟ يَكْسِبُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -578,7 +578,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.072225"
     },
     {
       "span_id": "QBM_01630",
@@ -587,20 +587,20 @@
         "ayah": 130,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 130 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "يَـٰمَعْشَرَ ٱلْجِنِّ وَٱلْإِنسِ أَلَمْ يَأْتِكُمْ رُسُلٌ مِّنكُمْ يَقُصُّونَ عَلَيْكُمْ ءَايَـٰتِى وَيُنذِرُونَكُمْ لِقَآءَ يَوْمِكُمْ هَـٰذَا ۚ قَالُوا۟ شَهِدْنَا عَلَىٰٓ أَنفُسِنَا ۖ وَغَرَّتْهُمُ ٱلْحَيَوٰةُ ٱلدُّنْيَا وَشَهِدُوا۟ عَلَىٰٓ أَنفُسِهِمْ أَنَّهُمْ كَانُوا۟ كَـٰفِرِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.072225"
     },
     {
       "span_id": "QBM_01631",
@@ -619,10 +619,10 @@
         "ayah": 131,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 131 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "ذَٰلِكَ أَن لَّمْ يَكُن رَّبُّكَ مُهْلِكَ ٱلْقُرَىٰ بِظُلْمٍ وَأَهْلُهَا غَـٰفِلُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -635,14 +635,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.072225"
     },
     {
       "span_id": "QBM_01632",
@@ -651,14 +651,14 @@
         "ayah": 132,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 132 من سورة الأنعام",
+      "text_ar": "وَلِكُلٍّ دَرَجَـٰتٌ مِّمَّا عَمِلُوا۟ ۚ وَمَا رَبُّكَ بِغَـٰفِلٍ عَمَّا يَعْمَلُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "interrogative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -674,7 +674,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.072225"
     },
     {
       "span_id": "QBM_01633",
@@ -683,30 +683,30 @@
         "ayah": 133,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 133 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَرَبُّكَ ٱلْغَنِىُّ ذُو ٱلرَّحْمَةِ ۚ إِن يَشَأْ يُذْهِبْكُمْ وَيَسْتَخْلِفْ مِنۢ بَعْدِكُم مَّا يَشَآءُ كَمَآ أَنشَأَكُم مِّن ذُرِّيَّةِ قَوْمٍ ءَاخَرِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.072225"
     },
     {
       "span_id": "QBM_01634",
@@ -715,8 +715,8 @@
         "ayah": 134,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 134 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "إِنَّ مَا تُوعَدُونَ لَـَٔاتٍ ۖ وَمَآ أَنتُم بِمُعْجِزِينَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -738,7 +738,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.072225"
     },
     {
       "span_id": "QBM_01635",
@@ -747,10 +747,10 @@
         "ayah": 135,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 135 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "قُلْ يَـٰقَوْمِ ٱعْمَلُوا۟ عَلَىٰ مَكَانَتِكُمْ إِنِّى عَامِلٌ ۖ فَسَوْفَ تَعْلَمُونَ مَن تَكُونُ لَهُۥ عَـٰقِبَةُ ٱلدَّارِ ۗ إِنَّهُۥ لَا يُفْلِحُ ٱلظَّـٰلِمُونَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -759,18 +759,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.072225"
     },
     {
       "span_id": "QBM_01636",
@@ -779,20 +779,20 @@
         "ayah": 136,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 136 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَجَعَلُوا۟ لِلَّهِ مِمَّا ذَرَأَ مِنَ ٱلْحَرْثِ وَٱلْأَنْعَـٰمِ نَصِيبًا فَقَالُوا۟ هَـٰذَا لِلَّهِ بِزَعْمِهِمْ وَهَـٰذَا لِشُرَكَآئِنَا ۖ فَمَا كَانَ لِشُرَكَآئِهِمْ فَلَا يَصِلُ إِلَى ٱللَّهِ ۖ وَمَا كَانَ لِلَّهِ فَهُوَ يَصِلُ إِلَىٰ شُرَكَآئِهِمْ ۗ سَآءَ مَا يَحْكُمُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -802,7 +802,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.072225"
     },
     {
       "span_id": "QBM_01637",
@@ -811,20 +811,20 @@
         "ayah": 137,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 137 من سورة الأنعام",
+      "text_ar": "وَكَذَٰلِكَ زَيَّنَ لِكَثِيرٍ مِّنَ ٱلْمُشْرِكِينَ قَتْلَ أَوْلَـٰدِهِمْ شُرَكَآؤُهُمْ لِيُرْدُوهُمْ وَلِيَلْبِسُوا۟ عَلَيْهِمْ دِينَهُمْ ۖ وَلَوْ شَآءَ ٱللَّهُ مَا فَعَلُوهُ ۖ فَذَرْهُمْ وَمَا يَفْتَرُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -834,7 +834,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.072225"
     },
     {
       "span_id": "QBM_01638",
@@ -843,10 +843,10 @@
         "ayah": 138,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 138 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَقَالُوا۟ هَـٰذِهِۦٓ أَنْعَـٰمٌ وَحَرْثٌ حِجْرٌ لَّا يَطْعَمُهَآ إِلَّا مَن نَّشَآءُ بِزَعْمِهِمْ وَأَنْعَـٰمٌ حُرِّمَتْ ظُهُورُهَا وَأَنْعَـٰمٌ لَّا يَذْكُرُونَ ٱسْمَ ٱللَّهِ عَلَيْهَا ٱفْتِرَآءً عَلَيْهِ ۚ سَيَجْزِيهِم بِمَا كَانُوا۟ يَفْتَرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.073225"
     },
     {
       "span_id": "QBM_01639",
@@ -875,20 +875,20 @@
         "ayah": 139,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 139 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَقَالُوا۟ مَا فِى بُطُونِ هَـٰذِهِ ٱلْأَنْعَـٰمِ خَالِصَةٌ لِّذُكُورِنَا وَمُحَرَّمٌ عَلَىٰٓ أَزْوَٰجِنَا ۖ وَإِن يَكُن مَّيْتَةً فَهُمْ فِيهِ شُرَكَآءُ ۚ سَيَجْزِيهِمْ وَصْفَهُمْ ۚ إِنَّهُۥ حَكِيمٌ عَلِيمٌ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -898,7 +898,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.073225"
     },
     {
       "span_id": "QBM_01640",
@@ -907,20 +907,20 @@
         "ayah": 140,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 140 من سورة الأنعام",
+      "text_ar": "قَدْ خَسِرَ ٱلَّذِينَ قَتَلُوٓا۟ أَوْلَـٰدَهُمْ سَفَهًۢا بِغَيْرِ عِلْمٍ وَحَرَّمُوا۟ مَا رَزَقَهُمُ ٱللَّهُ ٱفْتِرَآءً عَلَى ٱللَّهِ ۚ قَدْ ضَلُّوا۟ وَمَا كَانُوا۟ مُهْتَدِينَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -930,7 +930,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.073225"
     },
     {
       "span_id": "QBM_01641",
@@ -939,10 +939,10 @@
         "ayah": 141,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 141 من سورة الأنعام",
+      "text_ar": "وَهُوَ ٱلَّذِىٓ أَنشَأَ جَنَّـٰتٍ مَّعْرُوشَـٰتٍ وَغَيْرَ مَعْرُوشَـٰتٍ وَٱلنَّخْلَ وَٱلزَّرْعَ مُخْتَلِفًا أُكُلُهُۥ وَٱلزَّيْتُونَ وَٱلرُّمَّانَ مُتَشَـٰبِهًا وَغَيْرَ مُتَشَـٰبِهٍ ۚ كُلُوا۟ مِن ثَمَرِهِۦٓ إِذَآ أَثْمَرَ وَءَاتُوا۟ حَقَّهُۥ يَوْمَ حَصَادِهِۦ ۖ وَلَا تُسْرِفُوٓا۟ ۚ إِنَّهُۥ لَا يُحِبُّ ٱلْمُسْرِفِينَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -962,7 +962,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.073225"
     },
     {
       "span_id": "QBM_01642",
@@ -971,7 +971,7 @@
         "ayah": 142,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 142 من سورة الأنعام",
+      "text_ar": "وَمِنَ ٱلْأَنْعَـٰمِ حَمُولَةً وَفَرْشًا ۚ كُلُوا۟ مِمَّا رَزَقَكُمُ ٱللَّهُ وَلَا تَتَّبِعُوا۟ خُطُوَٰتِ ٱلشَّيْطَـٰنِ ۚ إِنَّهُۥ لَكُمْ عَدُوٌّ مُّبِينٌ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.073225"
     },
     {
       "span_id": "QBM_01643",
@@ -1003,10 +1003,10 @@
         "ayah": 143,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 143 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "ثَمَـٰنِيَةَ أَزْوَٰجٍ ۖ مِّنَ ٱلضَّأْنِ ٱثْنَيْنِ وَمِنَ ٱلْمَعْزِ ٱثْنَيْنِ ۗ قُلْ ءَآلذَّكَرَيْنِ حَرَّمَ أَمِ ٱلْأُنثَيَيْنِ أَمَّا ٱشْتَمَلَتْ عَلَيْهِ أَرْحَامُ ٱلْأُنثَيَيْنِ ۖ نَبِّـُٔونِى بِعِلْمٍ إِن كُنتُمْ صَـٰدِقِينَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1015,18 +1015,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.073225"
     },
     {
       "span_id": "QBM_01644",
@@ -1035,20 +1035,20 @@
         "ayah": 144,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 144 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَمِنَ ٱلْإِبِلِ ٱثْنَيْنِ وَمِنَ ٱلْبَقَرِ ٱثْنَيْنِ ۗ قُلْ ءَآلذَّكَرَيْنِ حَرَّمَ أَمِ ٱلْأُنثَيَيْنِ أَمَّا ٱشْتَمَلَتْ عَلَيْهِ أَرْحَامُ ٱلْأُنثَيَيْنِ ۖ أَمْ كُنتُمْ شُهَدَآءَ إِذْ وَصَّىٰكُمُ ٱللَّهُ بِهَـٰذَا ۚ فَمَنْ أَظْلَمُ مِمَّنِ ٱفْتَرَىٰ عَلَى ٱللَّهِ كَذِبًا لِّيُضِلَّ ٱلنَّاسَ بِغَيْرِ عِلْمٍ ۗ إِنَّ ٱللَّهَ لَا يَهْدِى ٱلْقَوْمَ ٱلظَّـٰلِمِينَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.074225"
     },
     {
       "span_id": "QBM_01645",
@@ -1067,10 +1067,10 @@
         "ayah": 145,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 145 من سورة الأنعام",
+      "text_ar": "قُل لَّآ أَجِدُ فِى مَآ أُوحِىَ إِلَىَّ مُحَرَّمًا عَلَىٰ طَاعِمٍ يَطْعَمُهُۥٓ إِلَّآ أَن يَكُونَ مَيْتَةً أَوْ دَمًا مَّسْفُوحًا أَوْ لَحْمَ خِنزِيرٍ فَإِنَّهُۥ رِجْسٌ أَوْ فِسْقًا أُهِلَّ لِغَيْرِ ٱللَّهِ بِهِۦ ۚ فَمَنِ ٱضْطُرَّ غَيْرَ بَاغٍ وَلَا عَادٍ فَإِنَّ رَبَّكَ غَفُورٌ رَّحِيمٌ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1090,7 +1090,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.074225"
     },
     {
       "span_id": "QBM_01646",
@@ -1099,10 +1099,10 @@
         "ayah": 146,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 146 من سورة الأنعام",
+      "text_ar": "وَعَلَى ٱلَّذِينَ هَادُوا۟ حَرَّمْنَا كُلَّ ذِى ظُفُرٍ ۖ وَمِنَ ٱلْبَقَرِ وَٱلْغَنَمِ حَرَّمْنَا عَلَيْهِمْ شُحُومَهُمَآ إِلَّا مَا حَمَلَتْ ظُهُورُهُمَآ أَوِ ٱلْحَوَايَآ أَوْ مَا ٱخْتَلَطَ بِعَظْمٍ ۚ ذَٰلِكَ جَزَيْنَـٰهُم بِبَغْيِهِمْ ۖ وَإِنَّا لَصَـٰدِقُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.074225"
     },
     {
       "span_id": "QBM_01647",
@@ -1131,30 +1131,30 @@
         "ayah": 147,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 147 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "فَإِن كَذَّبُوكَ فَقُل رَّبُّكُمْ ذُو رَحْمَةٍ وَٰسِعَةٍ وَلَا يُرَدُّ بَأْسُهُۥ عَنِ ٱلْقَوْمِ ٱلْمُجْرِمِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.074225"
     },
     {
       "span_id": "QBM_01648",
@@ -1163,20 +1163,20 @@
         "ayah": 148,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 148 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "سَيَقُولُ ٱلَّذِينَ أَشْرَكُوا۟ لَوْ شَآءَ ٱللَّهُ مَآ أَشْرَكْنَا وَلَآ ءَابَآؤُنَا وَلَا حَرَّمْنَا مِن شَىْءٍ ۚ كَذَٰلِكَ كَذَّبَ ٱلَّذِينَ مِن قَبْلِهِمْ حَتَّىٰ ذَاقُوا۟ بَأْسَنَا ۗ قُلْ هَلْ عِندَكُم مِّنْ عِلْمٍ فَتُخْرِجُوهُ لَنَآ ۖ إِن تَتَّبِعُونَ إِلَّا ٱلظَّنَّ وَإِنْ أَنتُمْ إِلَّا تَخْرُصُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.074225"
     },
     {
       "span_id": "QBM_01649",
@@ -1195,20 +1195,20 @@
         "ayah": 149,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 149 من سورة الأنعام",
+      "text_ar": "قُلْ فَلِلَّهِ ٱلْحُجَّةُ ٱلْبَـٰلِغَةُ ۖ فَلَوْ شَآءَ لَهَدَىٰكُمْ أَجْمَعِينَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
+        "speech_mode": "interrogative",
+        "evaluation": "praise",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -1218,7 +1218,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.074225"
     },
     {
       "span_id": "QBM_01650",
@@ -1227,10 +1227,10 @@
         "ayah": 150,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 150 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "قُلْ هَلُمَّ شُهَدَآءَكُمُ ٱلَّذِينَ يَشْهَدُونَ أَنَّ ٱللَّهَ حَرَّمَ هَـٰذَا ۖ فَإِن شَهِدُوا۟ فَلَا تَشْهَدْ مَعَهُمْ ۚ وَلَا تَتَّبِعْ أَهْوَآءَ ٱلَّذِينَ كَذَّبُوا۟ بِـَٔايَـٰتِنَا وَٱلَّذِينَ لَا يُؤْمِنُونَ بِٱلْـَٔاخِرَةِ وَهُم بِرَبِّهِمْ يَعْدِلُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -1243,14 +1243,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.074225"
     },
     {
       "span_id": "QBM_01651",
@@ -1259,30 +1259,30 @@
         "ayah": 151,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 151 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "قُلْ تَعَالَوْا۟ أَتْلُ مَا حَرَّمَ رَبُّكُمْ عَلَيْكُمْ ۖ أَلَّا تُشْرِكُوا۟ بِهِۦ شَيْـًٔا ۖ وَبِٱلْوَٰلِدَيْنِ إِحْسَـٰنًا ۖ وَلَا تَقْتُلُوٓا۟ أَوْلَـٰدَكُم مِّنْ إِمْلَـٰقٍ ۖ نَّحْنُ نَرْزُقُكُمْ وَإِيَّاهُمْ ۖ وَلَا تَقْرَبُوا۟ ٱلْفَوَٰحِشَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ ۖ وَلَا تَقْتُلُوا۟ ٱلنَّفْسَ ٱلَّتِى حَرَّمَ ٱللَّهُ إِلَّا بِٱلْحَقِّ ۚ ذَٰلِكُمْ وَصَّىٰكُم بِهِۦ لَعَلَّكُمْ تَعْقِلُونَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "prohibition",
+        "evaluation": "blame",
+        "deontic_signal": "nahy"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.075225"
     },
     {
       "span_id": "QBM_01652",
@@ -1291,30 +1291,30 @@
         "ayah": 152,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 152 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَلَا تَقْرَبُوا۟ مَالَ ٱلْيَتِيمِ إِلَّا بِٱلَّتِى هِىَ أَحْسَنُ حَتَّىٰ يَبْلُغَ أَشُدَّهُۥ ۖ وَأَوْفُوا۟ ٱلْكَيْلَ وَٱلْمِيزَانَ بِٱلْقِسْطِ ۖ لَا نُكَلِّفُ نَفْسًا إِلَّا وُسْعَهَا ۖ وَإِذَا قُلْتُمْ فَٱعْدِلُوا۟ وَلَوْ كَانَ ذَا قُرْبَىٰ ۖ وَبِعَهْدِ ٱللَّهِ أَوْفُوا۟ ۚ ذَٰلِكُمْ وَصَّىٰكُم بِهِۦ لَعَلَّكُمْ تَذَكَّرُونَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "prohibition",
+        "evaluation": "praise",
+        "deontic_signal": "nahy"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.075225"
     },
     {
       "span_id": "QBM_01653",
@@ -1323,10 +1323,10 @@
         "ayah": 153,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 153 من سورة الأنعام",
+      "text_ar": "وَأَنَّ هَـٰذَا صِرَٰطِى مُسْتَقِيمًا فَٱتَّبِعُوهُ ۖ وَلَا تَتَّبِعُوا۟ ٱلسُّبُلَ فَتَفَرَّقَ بِكُمْ عَن سَبِيلِهِۦ ۚ ذَٰلِكُمْ وَصَّىٰكُم بِهِۦ لَعَلَّكُمْ تَتَّقُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.075225"
     },
     {
       "span_id": "QBM_01654",
@@ -1355,30 +1355,30 @@
         "ayah": 154,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 154 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "ثُمَّ ءَاتَيْنَا مُوسَى ٱلْكِتَـٰبَ تَمَامًا عَلَى ٱلَّذِىٓ أَحْسَنَ وَتَفْصِيلًا لِّكُلِّ شَىْءٍ وَهُدًى وَرَحْمَةً لَّعَلَّهُم بِلِقَآءِ رَبِّهِمْ يُؤْمِنُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.075225"
     },
     {
       "span_id": "QBM_01655",
@@ -1387,8 +1387,8 @@
         "ayah": 155,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 155 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "وَهَـٰذَا كِتَـٰبٌ أَنزَلْنَـٰهُ مُبَارَكٌ فَٱتَّبِعُوهُ وَٱتَّقُوا۟ لَعَلَّكُمْ تُرْحَمُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
@@ -1403,14 +1403,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.075225"
     },
     {
       "span_id": "QBM_01656",
@@ -1419,103 +1419,7 @@
         "ayah": 156,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 156 من سورة الأنعام",
-      "behavior_form": "physical_act",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "external",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
-    },
-    {
-      "span_id": "QBM_01657",
-      "reference": {
-        "surah": 6,
-        "ayah": 157,
-        "surah_name": "الأنعام"
-      },
-      "text_ar": "آية 157 من سورة الأنعام",
-      "behavior_form": "physical_act",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "external",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
-    },
-    {
-      "span_id": "QBM_01658",
-      "reference": {
-        "surah": 6,
-        "ayah": 158,
-        "surah_name": "الأنعام"
-      },
-      "text_ar": "آية 158 من سورة الأنعام",
-      "behavior_form": "physical_act",
-      "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "external",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
-    },
-    {
-      "span_id": "QBM_01659",
-      "reference": {
-        "surah": 6,
-        "ayah": 159,
-        "surah_name": "الأنعام"
-      },
-      "text_ar": "آية 159 من سورة الأنعام",
+      "text_ar": "أَن تَقُولُوٓا۟ إِنَّمَآ أُنزِلَ ٱلْكِتَـٰبُ عَلَىٰ طَآئِفَتَيْنِ مِن قَبْلِنَا وَإِن كُنَّا عَن دِرَاسَتِهِمْ لَغَـٰفِلِينَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
@@ -1538,7 +1442,103 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.075225"
+    },
+    {
+      "span_id": "QBM_01657",
+      "reference": {
+        "surah": 6,
+        "ayah": 157,
+        "surah_name": "الأنعام"
+      },
+      "text_ar": "أَوْ تَقُولُوا۟ لَوْ أَنَّآ أُنزِلَ عَلَيْنَا ٱلْكِتَـٰبُ لَكُنَّآ أَهْدَىٰ مِنْهُمْ ۚ فَقَدْ جَآءَكُم بَيِّنَةٌ مِّن رَّبِّكُمْ وَهُدًى وَرَحْمَةٌ ۚ فَمَنْ أَظْلَمُ مِمَّن كَذَّبَ بِـَٔايَـٰتِ ٱللَّهِ وَصَدَفَ عَنْهَا ۗ سَنَجْزِى ٱلَّذِينَ يَصْدِفُونَ عَنْ ءَايَـٰتِنَا سُوٓءَ ٱلْعَذَابِ بِمَا كَانُوا۟ يَصْدِفُونَ",
+      "behavior_form": "relational_act",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:23.075225"
+    },
+    {
+      "span_id": "QBM_01658",
+      "reference": {
+        "surah": 6,
+        "ayah": 158,
+        "surah_name": "الأنعام"
+      },
+      "text_ar": "هَلْ يَنظُرُونَ إِلَّآ أَن تَأْتِيَهُمُ ٱلْمَلَـٰٓئِكَةُ أَوْ يَأْتِىَ رَبُّكَ أَوْ يَأْتِىَ بَعْضُ ءَايَـٰتِ رَبِّكَ ۗ يَوْمَ يَأْتِى بَعْضُ ءَايَـٰتِ رَبِّكَ لَا يَنفَعُ نَفْسًا إِيمَـٰنُهَا لَمْ تَكُنْ ءَامَنَتْ مِن قَبْلُ أَوْ كَسَبَتْ فِىٓ إِيمَـٰنِهَا خَيْرًا ۗ قُلِ ٱنتَظِرُوٓا۟ إِنَّا مُنتَظِرُونَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SALIH"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:23.075225"
+    },
+    {
+      "span_id": "QBM_01659",
+      "reference": {
+        "surah": 6,
+        "ayah": 159,
+        "surah_name": "الأنعام"
+      },
+      "text_ar": "إِنَّ ٱلَّذِينَ فَرَّقُوا۟ دِينَهُمْ وَكَانُوا۟ شِيَعًا لَّسْتَ مِنْهُمْ فِى شَىْءٍ ۚ إِنَّمَآ أَمْرُهُمْ إِلَى ٱللَّهِ ثُمَّ يُنَبِّئُهُم بِمَا كَانُوا۟ يَفْعَلُونَ",
+      "behavior_form": "relational_act",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:23.076225"
     },
     {
       "span_id": "QBM_01660",
@@ -1547,30 +1547,30 @@
         "ayah": 160,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 160 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "مَن جَآءَ بِٱلْحَسَنَةِ فَلَهُۥ عَشْرُ أَمْثَالِهَا ۖ وَمَن جَآءَ بِٱلسَّيِّئَةِ فَلَا يُجْزَىٰٓ إِلَّا مِثْلَهَا وَهُمْ لَا يُظْلَمُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.076225"
     },
     {
       "span_id": "QBM_01661",
@@ -1579,10 +1579,10 @@
         "ayah": 161,
         "surah_name": "الأنعام"
       },
-      "text_ar": "آية 161 من سورة الأنعام",
-      "behavior_form": "physical_act",
+      "text_ar": "قُلْ إِنَّنِى هَدَىٰنِى رَبِّىٓ إِلَىٰ صِرَٰطٍ مُّسْتَقِيمٍ دِينًا قِيَمًا مِّلَّةَ إِبْرَٰهِيمَ حَنِيفًا ۚ وَمَا كَانَ مِنَ ٱلْمُشْرِكِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1595,14 +1595,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:49.424216"
+      "annotated_at": "2025-12-21T09:11:23.076225"
     }
   ]
 }

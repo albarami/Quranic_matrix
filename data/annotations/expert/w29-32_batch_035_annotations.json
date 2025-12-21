@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_035",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:52:51.785027",
+  "annotated_at": "2025-12-21T09:11:25.435416",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,14 +11,14 @@
         "ayah": 105,
         "surah_name": "يوسف"
       },
-      "text_ar": "آية 105 من سورة يوسف",
+      "text_ar": "وَكَأَيِّن مِّنْ ءَايَةٍ فِى ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ يَمُرُّونَ عَلَيْهَا وَهُمْ عَنْهَا مُعْرِضُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.783369"
+      "annotated_at": "2025-12-21T09:11:25.429998"
     },
     {
       "span_id": "QBM_03406",
@@ -43,20 +43,20 @@
         "ayah": 106,
         "surah_name": "يوسف"
       },
-      "text_ar": "آية 106 من سورة يوسف",
+      "text_ar": "وَمَا يُؤْمِنُ أَكْثَرُهُم بِٱللَّهِ إِلَّا وَهُم مُّشْرِكُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -66,7 +66,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.783369"
+      "annotated_at": "2025-12-21T09:11:25.429998"
     },
     {
       "span_id": "QBM_03407",
@@ -75,20 +75,20 @@
         "ayah": 107,
         "surah_name": "يوسف"
       },
-      "text_ar": "آية 107 من سورة يوسف",
+      "text_ar": "أَفَأَمِنُوٓا۟ أَن تَأْتِيَهُمْ غَـٰشِيَةٌ مِّنْ عَذَابِ ٱللَّهِ أَوْ تَأْتِيَهُمُ ٱلسَّاعَةُ بَغْتَةً وَهُمْ لَا يَشْعُرُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -98,7 +98,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.783369"
+      "annotated_at": "2025-12-21T09:11:25.429998"
     },
     {
       "span_id": "QBM_03408",
@@ -107,30 +107,30 @@
         "ayah": 108,
         "surah_name": "يوسف"
       },
-      "text_ar": "آية 108 من سورة يوسف",
-      "behavior_form": "inner_state",
+      "text_ar": "قُلْ هَـٰذِهِۦ سَبِيلِىٓ أَدْعُوٓا۟ إِلَى ٱللَّهِ ۚ عَلَىٰ بَصِيرَةٍ أَنَا۠ وَمَنِ ٱتَّبَعَنِى ۖ وَسُبْحَـٰنَ ٱللَّهِ وَمَآ أَنَا۠ مِنَ ٱلْمُشْرِكِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.783369"
+      "annotated_at": "2025-12-21T09:11:25.429998"
     },
     {
       "span_id": "QBM_03409",
@@ -139,20 +139,20 @@
         "ayah": 109,
         "surah_name": "يوسف"
       },
-      "text_ar": "آية 109 من سورة يوسف",
+      "text_ar": "وَمَآ أَرْسَلْنَا مِن قَبْلِكَ إِلَّا رِجَالًا نُّوحِىٓ إِلَيْهِم مِّنْ أَهْلِ ٱلْقُرَىٰٓ ۗ أَفَلَمْ يَسِيرُوا۟ فِى ٱلْأَرْضِ فَيَنظُرُوا۟ كَيْفَ كَانَ عَـٰقِبَةُ ٱلَّذِينَ مِن قَبْلِهِمْ ۗ وَلَدَارُ ٱلْـَٔاخِرَةِ خَيْرٌ لِّلَّذِينَ ٱتَّقَوْا۟ ۗ أَفَلَا تَعْقِلُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -162,7 +162,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.783369"
+      "annotated_at": "2025-12-21T09:11:25.429998"
     },
     {
       "span_id": "QBM_03410",
@@ -171,19 +171,19 @@
         "ayah": 110,
         "surah_name": "يوسف"
       },
-      "text_ar": "آية 110 من سورة يوسف",
-      "behavior_form": "inner_state",
+      "text_ar": "حَتَّىٰٓ إِذَا ٱسْتَيْـَٔسَ ٱلرُّسُلُ وَظَنُّوٓا۟ أَنَّهُمْ قَدْ كُذِبُوا۟ جَآءَهُمْ نَصْرُنَا فَنُجِّىَ مَن نَّشَآءُ ۖ وَلَا يُرَدُّ بَأْسُنَا عَنِ ٱلْقَوْمِ ٱلْمُجْرِمِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -194,7 +194,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.783369"
+      "annotated_at": "2025-12-21T09:11:25.429998"
     },
     {
       "span_id": "QBM_03411",
@@ -203,20 +203,20 @@
         "ayah": 111,
         "surah_name": "يوسف"
       },
-      "text_ar": "آية 111 من سورة يوسف",
-      "behavior_form": "inner_state",
+      "text_ar": "لَقَدْ كَانَ فِى قَصَصِهِمْ عِبْرَةٌ لِّأُو۟لِى ٱلْأَلْبَـٰبِ ۗ مَا كَانَ حَدِيثًا يُفْتَرَىٰ وَلَـٰكِن تَصْدِيقَ ٱلَّذِى بَيْنَ يَدَيْهِ وَتَفْصِيلَ كُلِّ شَىْءٍ وَهُدًى وَرَحْمَةً لِّقَوْمٍ يُؤْمِنُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -226,7 +226,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.783369"
+      "annotated_at": "2025-12-21T09:11:25.431001"
     },
     {
       "span_id": "QBM_03601",
@@ -235,14 +235,14 @@
         "ayah": 1,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 1 من سورة الرعد",
+      "text_ar": "الٓمٓر ۚ تِلْكَ ءَايَـٰتُ ٱلْكِتَـٰبِ ۗ وَٱلَّذِىٓ أُنزِلَ إِلَيْكَ مِن رَّبِّكَ ٱلْحَقُّ وَلَـٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يُؤْمِنُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -258,7 +258,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.783369"
+      "annotated_at": "2025-12-21T09:11:25.431055"
     },
     {
       "span_id": "QBM_03602",
@@ -267,10 +267,10 @@
         "ayah": 2,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 2 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "ٱللَّهُ ٱلَّذِى رَفَعَ ٱلسَّمَـٰوَٰتِ بِغَيْرِ عَمَدٍ تَرَوْنَهَا ۖ ثُمَّ ٱسْتَوَىٰ عَلَى ٱلْعَرْشِ ۖ وَسَخَّرَ ٱلشَّمْسَ وَٱلْقَمَرَ ۖ كُلٌّ يَجْرِى لِأَجَلٍ مُّسَمًّى ۚ يُدَبِّرُ ٱلْأَمْرَ يُفَصِّلُ ٱلْـَٔايَـٰتِ لَعَلَّكُم بِلِقَآءِ رَبِّكُمْ تُوقِنُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -279,7 +279,7 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -290,7 +290,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.783369"
+      "annotated_at": "2025-12-21T09:11:25.431055"
     },
     {
       "span_id": "QBM_03603",
@@ -299,14 +299,14 @@
         "ayah": 3,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 3 من سورة الرعد",
+      "text_ar": "وَهُوَ ٱلَّذِى مَدَّ ٱلْأَرْضَ وَجَعَلَ فِيهَا رَوَٰسِىَ وَأَنْهَـٰرًا ۖ وَمِن كُلِّ ٱلثَّمَرَٰتِ جَعَلَ فِيهَا زَوْجَيْنِ ٱثْنَيْنِ ۖ يُغْشِى ٱلَّيْلَ ٱلنَّهَارَ ۚ إِنَّ فِى ذَٰلِكَ لَـَٔايَـٰتٍ لِّقَوْمٍ يَتَفَكَّرُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784368"
+      "annotated_at": "2025-12-21T09:11:25.431055"
     },
     {
       "span_id": "QBM_03604",
@@ -331,19 +331,19 @@
         "ayah": 4,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 4 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَفِى ٱلْأَرْضِ قِطَعٌ مُّتَجَـٰوِرَٰتٌ وَجَنَّـٰتٌ مِّنْ أَعْنَـٰبٍ وَزَرْعٌ وَنَخِيلٌ صِنْوَانٌ وَغَيْرُ صِنْوَانٍ يُسْقَىٰ بِمَآءٍ وَٰحِدٍ وَنُفَضِّلُ بَعْضَهَا عَلَىٰ بَعْضٍ فِى ٱلْأُكُلِ ۚ إِنَّ فِى ذَٰلِكَ لَـَٔايَـٰتٍ لِّقَوْمٍ يَعْقِلُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784368"
+      "annotated_at": "2025-12-21T09:11:25.431055"
     },
     {
       "span_id": "QBM_03605",
@@ -363,30 +363,30 @@
         "ayah": 5,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 5 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَإِن تَعْجَبْ فَعَجَبٌ قَوْلُهُمْ أَءِذَا كُنَّا تُرَٰبًا أَءِنَّا لَفِى خَلْقٍ جَدِيدٍ ۗ أُو۟لَـٰٓئِكَ ٱلَّذِينَ كَفَرُوا۟ بِرَبِّهِمْ ۖ وَأُو۟لَـٰٓئِكَ ٱلْأَغْلَـٰلُ فِىٓ أَعْنَاقِهِمْ ۖ وَأُو۟لَـٰٓئِكَ أَصْحَـٰبُ ٱلنَّارِ ۖ هُمْ فِيهَا خَـٰلِدُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784368"
+      "annotated_at": "2025-12-21T09:11:25.431590"
     },
     {
       "span_id": "QBM_03606",
@@ -395,20 +395,20 @@
         "ayah": 6,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 6 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَيَسْتَعْجِلُونَكَ بِٱلسَّيِّئَةِ قَبْلَ ٱلْحَسَنَةِ وَقَدْ خَلَتْ مِن قَبْلِهِمُ ٱلْمَثُلَـٰتُ ۗ وَإِنَّ رَبَّكَ لَذُو مَغْفِرَةٍ لِّلنَّاسِ عَلَىٰ ظُلْمِهِمْ ۖ وَإِنَّ رَبَّكَ لَشَدِيدُ ٱلْعِقَابِ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784368"
+      "annotated_at": "2025-12-21T09:11:25.431590"
     },
     {
       "span_id": "QBM_03607",
@@ -427,30 +427,30 @@
         "ayah": 7,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 7 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَيَقُولُ ٱلَّذِينَ كَفَرُوا۟ لَوْلَآ أُنزِلَ عَلَيْهِ ءَايَةٌ مِّن رَّبِّهِۦٓ ۗ إِنَّمَآ أَنتَ مُنذِرٌ ۖ وَلِكُلِّ قَوْمٍ هَادٍ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784452"
+      "annotated_at": "2025-12-21T09:11:25.431590"
     },
     {
       "span_id": "QBM_03608",
@@ -459,14 +459,14 @@
         "ayah": 8,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 8 من سورة الرعد",
+      "text_ar": "ٱللَّهُ يَعْلَمُ مَا تَحْمِلُ كُلُّ أُنثَىٰ وَمَا تَغِيضُ ٱلْأَرْحَامُ وَمَا تَزْدَادُ ۖ وَكُلُّ شَىْءٍ عِندَهُۥ بِمِقْدَارٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -482,7 +482,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.431590"
     },
     {
       "span_id": "QBM_03609",
@@ -491,14 +491,14 @@
         "ayah": 9,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 9 من سورة الرعد",
+      "text_ar": "عَـٰلِمُ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ ٱلْكَبِيرُ ٱلْمُتَعَالِ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.431590"
     },
     {
       "span_id": "QBM_03610",
@@ -523,14 +523,14 @@
         "ayah": 10,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 10 من سورة الرعد",
+      "text_ar": "سَوَآءٌ مِّنكُم مَّنْ أَسَرَّ ٱلْقَوْلَ وَمَن جَهَرَ بِهِۦ وَمَنْ هُوَ مُسْتَخْفٍۭ بِٱلَّيْلِ وَسَارِبٌۢ بِٱلنَّهَارِ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.431590"
     },
     {
       "span_id": "QBM_03611",
@@ -555,20 +555,20 @@
         "ayah": 11,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 11 من سورة الرعد",
+      "text_ar": "لَهُۥ مُعَقِّبَـٰتٌ مِّنۢ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِۦ يَحْفَظُونَهُۥ مِنْ أَمْرِ ٱللَّهِ ۗ إِنَّ ٱللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا۟ مَا بِأَنفُسِهِمْ ۗ وَإِذَآ أَرَادَ ٱللَّهُ بِقَوْمٍ سُوٓءًا فَلَا مَرَدَّ لَهُۥ ۚ وَمَا لَهُم مِّن دُونِهِۦ مِن وَالٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -578,7 +578,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.431590"
     },
     {
       "span_id": "QBM_03612",
@@ -587,30 +587,30 @@
         "ayah": 12,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 12 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "هُوَ ٱلَّذِى يُرِيكُمُ ٱلْبَرْقَ خَوْفًا وَطَمَعًا وَيُنشِئُ ٱلسَّحَابَ ٱلثِّقَالَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.431590"
     },
     {
       "span_id": "QBM_03613",
@@ -619,19 +619,19 @@
         "ayah": 13,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 13 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَيُسَبِّحُ ٱلرَّعْدُ بِحَمْدِهِۦ وَٱلْمَلَـٰٓئِكَةُ مِنْ خِيفَتِهِۦ وَيُرْسِلُ ٱلصَّوَٰعِقَ فَيُصِيبُ بِهَا مَن يَشَآءُ وَهُمْ يُجَـٰدِلُونَ فِى ٱللَّهِ وَهُوَ شَدِيدُ ٱلْمِحَالِ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.431590"
     },
     {
       "span_id": "QBM_03614",
@@ -651,30 +651,30 @@
         "ayah": 14,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 14 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "لَهُۥ دَعْوَةُ ٱلْحَقِّ ۖ وَٱلَّذِينَ يَدْعُونَ مِن دُونِهِۦ لَا يَسْتَجِيبُونَ لَهُم بِشَىْءٍ إِلَّا كَبَـٰسِطِ كَفَّيْهِ إِلَى ٱلْمَآءِ لِيَبْلُغَ فَاهُ وَمَا هُوَ بِبَـٰلِغِهِۦ ۚ وَمَا دُعَآءُ ٱلْكَـٰفِرِينَ إِلَّا فِى ضَلَـٰلٍ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.432586"
     },
     {
       "span_id": "QBM_03615",
@@ -683,14 +683,14 @@
         "ayah": 15,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 15 من سورة الرعد",
+      "text_ar": "وَلِلَّهِ يَسْجُدُ مَن فِى ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ طَوْعًا وَكَرْهًا وَظِلَـٰلُهُم بِٱلْغُدُوِّ وَٱلْـَٔاصَالِ ۩",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -706,7 +706,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.432586"
     },
     {
       "span_id": "QBM_03616",
@@ -715,14 +715,14 @@
         "ayah": 16,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 16 من سورة الرعد",
+      "text_ar": "قُلْ مَن رَّبُّ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ قُلِ ٱللَّهُ ۚ قُلْ أَفَٱتَّخَذْتُم مِّن دُونِهِۦٓ أَوْلِيَآءَ لَا يَمْلِكُونَ لِأَنفُسِهِمْ نَفْعًا وَلَا ضَرًّا ۚ قُلْ هَلْ يَسْتَوِى ٱلْأَعْمَىٰ وَٱلْبَصِيرُ أَمْ هَلْ تَسْتَوِى ٱلظُّلُمَـٰتُ وَٱلنُّورُ ۗ أَمْ جَعَلُوا۟ لِلَّهِ شُرَكَآءَ خَلَقُوا۟ كَخَلْقِهِۦ فَتَشَـٰبَهَ ٱلْخَلْقُ عَلَيْهِمْ ۚ قُلِ ٱللَّهُ خَـٰلِقُ كُلِّ شَىْءٍ وَهُوَ ٱلْوَٰحِدُ ٱلْقَهَّـٰرُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -738,7 +738,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.432586"
     },
     {
       "span_id": "QBM_03617",
@@ -747,30 +747,30 @@
         "ayah": 17,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 17 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "أَنزَلَ مِنَ ٱلسَّمَآءِ مَآءً فَسَالَتْ أَوْدِيَةٌۢ بِقَدَرِهَا فَٱحْتَمَلَ ٱلسَّيْلُ زَبَدًا رَّابِيًا ۚ وَمِمَّا يُوقِدُونَ عَلَيْهِ فِى ٱلنَّارِ ٱبْتِغَآءَ حِلْيَةٍ أَوْ مَتَـٰعٍ زَبَدٌ مِّثْلُهُۥ ۚ كَذَٰلِكَ يَضْرِبُ ٱللَّهُ ٱلْحَقَّ وَٱلْبَـٰطِلَ ۚ فَأَمَّا ٱلزَّبَدُ فَيَذْهَبُ جُفَآءً ۖ وَأَمَّا مَا يَنفَعُ ٱلنَّاسَ فَيَمْكُثُ فِى ٱلْأَرْضِ ۚ كَذَٰلِكَ يَضْرِبُ ٱللَّهُ ٱلْأَمْثَالَ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.432586"
     },
     {
       "span_id": "QBM_03618",
@@ -779,20 +779,20 @@
         "ayah": 18,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 18 من سورة الرعد",
+      "text_ar": "لِلَّذِينَ ٱسْتَجَابُوا۟ لِرَبِّهِمُ ٱلْحُسْنَىٰ ۚ وَٱلَّذِينَ لَمْ يَسْتَجِيبُوا۟ لَهُۥ لَوْ أَنَّ لَهُم مَّا فِى ٱلْأَرْضِ جَمِيعًا وَمِثْلَهُۥ مَعَهُۥ لَٱفْتَدَوْا۟ بِهِۦٓ ۚ أُو۟لَـٰٓئِكَ لَهُمْ سُوٓءُ ٱلْحِسَابِ وَمَأْوَىٰهُمْ جَهَنَّمُ ۖ وَبِئْسَ ٱلْمِهَادُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -802,7 +802,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.432586"
     },
     {
       "span_id": "QBM_03619",
@@ -811,14 +811,14 @@
         "ayah": 19,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 19 من سورة الرعد",
+      "text_ar": "أَفَمَن يَعْلَمُ أَنَّمَآ أُنزِلَ إِلَيْكَ مِن رَّبِّكَ ٱلْحَقُّ كَمَنْ هُوَ أَعْمَىٰٓ ۚ إِنَّمَا يَتَذَكَّرُ أُو۟لُوا۟ ٱلْأَلْبَـٰبِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -834,7 +834,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.432586"
     },
     {
       "span_id": "QBM_03620",
@@ -843,14 +843,14 @@
         "ayah": 20,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 20 من سورة الرعد",
+      "text_ar": "ٱلَّذِينَ يُوفُونَ بِعَهْدِ ٱللَّهِ وَلَا يَنقُضُونَ ٱلْمِيثَـٰقَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.432586"
     },
     {
       "span_id": "QBM_03621",
@@ -875,20 +875,20 @@
         "ayah": 21,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 21 من سورة الرعد",
+      "text_ar": "وَٱلَّذِينَ يَصِلُونَ مَآ أَمَرَ ٱللَّهُ بِهِۦٓ أَن يُوصَلَ وَيَخْشَوْنَ رَبَّهُمْ وَيَخَافُونَ سُوٓءَ ٱلْحِسَابِ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -898,7 +898,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.432586"
     },
     {
       "span_id": "QBM_03622",
@@ -907,19 +907,19 @@
         "ayah": 22,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 22 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَٱلَّذِينَ صَبَرُوا۟ ٱبْتِغَآءَ وَجْهِ رَبِّهِمْ وَأَقَامُوا۟ ٱلصَّلَوٰةَ وَأَنفَقُوا۟ مِمَّا رَزَقْنَـٰهُمْ سِرًّا وَعَلَانِيَةً وَيَدْرَءُونَ بِٱلْحَسَنَةِ ٱلسَّيِّئَةَ أُو۟لَـٰٓئِكَ لَهُمْ عُقْبَى ٱلدَّارِ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -930,7 +930,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.433587"
     },
     {
       "span_id": "QBM_03623",
@@ -939,19 +939,19 @@
         "ayah": 23,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 23 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "جَنَّـٰتُ عَدْنٍ يَدْخُلُونَهَا وَمَن صَلَحَ مِنْ ءَابَآئِهِمْ وَأَزْوَٰجِهِمْ وَذُرِّيَّـٰتِهِمْ ۖ وَٱلْمَلَـٰٓئِكَةُ يَدْخُلُونَ عَلَيْهِم مِّن كُلِّ بَابٍ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -962,7 +962,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.433587"
     },
     {
       "span_id": "QBM_03624",
@@ -971,8 +971,8 @@
         "ayah": 24,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 24 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "سَلَـٰمٌ عَلَيْكُم بِمَا صَبَرْتُمْ ۚ فَنِعْمَ عُقْبَى ٱلدَّارِ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
@@ -983,7 +983,7 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.433587"
     },
     {
       "span_id": "QBM_03625",
@@ -1003,20 +1003,20 @@
         "ayah": 25,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 25 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَٱلَّذِينَ يَنقُضُونَ عَهْدَ ٱللَّهِ مِنۢ بَعْدِ مِيثَـٰقِهِۦ وَيَقْطَعُونَ مَآ أَمَرَ ٱللَّهُ بِهِۦٓ أَن يُوصَلَ وَيُفْسِدُونَ فِى ٱلْأَرْضِ ۙ أُو۟لَـٰٓئِكَ لَهُمُ ٱللَّعْنَةُ وَلَهُمْ سُوٓءُ ٱلدَّارِ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1026,7 +1026,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.433587"
     },
     {
       "span_id": "QBM_03626",
@@ -1035,10 +1035,10 @@
         "ayah": 26,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 26 من سورة الرعد",
+      "text_ar": "ٱللَّهُ يَبْسُطُ ٱلرِّزْقَ لِمَن يَشَآءُ وَيَقْدِرُ ۚ وَفَرِحُوا۟ بِٱلْحَيَوٰةِ ٱلدُّنْيَا وَمَا ٱلْحَيَوٰةُ ٱلدُّنْيَا فِى ٱلْـَٔاخِرَةِ إِلَّا مَتَـٰعٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.433587"
     },
     {
       "span_id": "QBM_03627",
@@ -1067,30 +1067,30 @@
         "ayah": 27,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 27 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَيَقُولُ ٱلَّذِينَ كَفَرُوا۟ لَوْلَآ أُنزِلَ عَلَيْهِ ءَايَةٌ مِّن رَّبِّهِۦ ۗ قُلْ إِنَّ ٱللَّهَ يُضِلُّ مَن يَشَآءُ وَيَهْدِىٓ إِلَيْهِ مَنْ أَنَابَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.433587"
     },
     {
       "span_id": "QBM_03628",
@@ -1099,14 +1099,14 @@
         "ayah": 28,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 28 من سورة الرعد",
+      "text_ar": "ٱلَّذِينَ ءَامَنُوا۟ وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ ٱللَّهِ ۗ أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.433587"
     },
     {
       "span_id": "QBM_03629",
@@ -1131,30 +1131,30 @@
         "ayah": 29,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 29 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ طُوبَىٰ لَهُمْ وَحُسْنُ مَـَٔابٍ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.433587"
     },
     {
       "span_id": "QBM_03630",
@@ -1163,14 +1163,14 @@
         "ayah": 30,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 30 من سورة الرعد",
+      "text_ar": "كَذَٰلِكَ أَرْسَلْنَـٰكَ فِىٓ أُمَّةٍ قَدْ خَلَتْ مِن قَبْلِهَآ أُمَمٌ لِّتَتْلُوَا۟ عَلَيْهِمُ ٱلَّذِىٓ أَوْحَيْنَآ إِلَيْكَ وَهُمْ يَكْفُرُونَ بِٱلرَّحْمَـٰنِ ۚ قُلْ هُوَ رَبِّى لَآ إِلَـٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ مَتَابِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.433587"
     },
     {
       "span_id": "QBM_03631",
@@ -1195,30 +1195,30 @@
         "ayah": 31,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 31 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَوْ أَنَّ قُرْءَانًا سُيِّرَتْ بِهِ ٱلْجِبَالُ أَوْ قُطِّعَتْ بِهِ ٱلْأَرْضُ أَوْ كُلِّمَ بِهِ ٱلْمَوْتَىٰ ۗ بَل لِّلَّهِ ٱلْأَمْرُ جَمِيعًا ۗ أَفَلَمْ يَا۟يْـَٔسِ ٱلَّذِينَ ءَامَنُوٓا۟ أَن لَّوْ يَشَآءُ ٱللَّهُ لَهَدَى ٱلنَّاسَ جَمِيعًا ۗ وَلَا يَزَالُ ٱلَّذِينَ كَفَرُوا۟ تُصِيبُهُم بِمَا صَنَعُوا۟ قَارِعَةٌ أَوْ تَحُلُّ قَرِيبًا مِّن دَارِهِمْ حَتَّىٰ يَأْتِىَ وَعْدُ ٱللَّهِ ۚ إِنَّ ٱللَّهَ لَا يُخْلِفُ ٱلْمِيعَادَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.784485"
+      "annotated_at": "2025-12-21T09:11:25.434721"
     },
     {
       "span_id": "QBM_03632",
@@ -1227,20 +1227,20 @@
         "ayah": 32,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 32 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَقَدِ ٱسْتُهْزِئَ بِرُسُلٍ مِّن قَبْلِكَ فَأَمْلَيْتُ لِلَّذِينَ كَفَرُوا۟ ثُمَّ أَخَذْتُهُمْ ۖ فَكَيْفَ كَانَ عِقَابِ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1250,7 +1250,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.785027"
+      "annotated_at": "2025-12-21T09:11:25.434764"
     },
     {
       "span_id": "QBM_03633",
@@ -1259,20 +1259,20 @@
         "ayah": 33,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 33 من سورة الرعد",
+      "text_ar": "أَفَمَنْ هُوَ قَآئِمٌ عَلَىٰ كُلِّ نَفْسٍۭ بِمَا كَسَبَتْ ۗ وَجَعَلُوا۟ لِلَّهِ شُرَكَآءَ قُلْ سَمُّوهُمْ ۚ أَمْ تُنَبِّـُٔونَهُۥ بِمَا لَا يَعْلَمُ فِى ٱلْأَرْضِ أَم بِظَـٰهِرٍ مِّنَ ٱلْقَوْلِ ۗ بَلْ زُيِّنَ لِلَّذِينَ كَفَرُوا۟ مَكْرُهُمْ وَصُدُّوا۟ عَنِ ٱلسَّبِيلِ ۗ وَمَن يُضْلِلِ ٱللَّهُ فَمَا لَهُۥ مِنْ هَادٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.785027"
+      "annotated_at": "2025-12-21T09:11:25.434764"
     },
     {
       "span_id": "QBM_03634",
@@ -1291,20 +1291,20 @@
         "ayah": 34,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 34 من سورة الرعد",
+      "text_ar": "لَّهُمْ عَذَابٌ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا ۖ وَلَعَذَابُ ٱلْـَٔاخِرَةِ أَشَقُّ ۖ وَمَا لَهُم مِّنَ ٱللَّهِ مِن وَاقٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1314,7 +1314,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.785027"
+      "annotated_at": "2025-12-21T09:11:25.434764"
     },
     {
       "span_id": "QBM_03635",
@@ -1323,30 +1323,30 @@
         "ayah": 35,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 35 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "مَّثَلُ ٱلْجَنَّةِ ٱلَّتِى وُعِدَ ٱلْمُتَّقُونَ ۖ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَـٰرُ ۖ أُكُلُهَا دَآئِمٌ وَظِلُّهَا ۚ تِلْكَ عُقْبَى ٱلَّذِينَ ٱتَّقَوا۟ ۖ وَّعُقْبَى ٱلْكَـٰفِرِينَ ٱلنَّارُ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.785027"
+      "annotated_at": "2025-12-21T09:11:25.434764"
     },
     {
       "span_id": "QBM_03636",
@@ -1355,20 +1355,20 @@
         "ayah": 36,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 36 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَٱلَّذِينَ ءَاتَيْنَـٰهُمُ ٱلْكِتَـٰبَ يَفْرَحُونَ بِمَآ أُنزِلَ إِلَيْكَ ۖ وَمِنَ ٱلْأَحْزَابِ مَن يُنكِرُ بَعْضَهُۥ ۚ قُلْ إِنَّمَآ أُمِرْتُ أَنْ أَعْبُدَ ٱللَّهَ وَلَآ أُشْرِكَ بِهِۦٓ ۚ إِلَيْهِ أَدْعُوا۟ وَإِلَيْهِ مَـَٔابِ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1378,7 +1378,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.785027"
+      "annotated_at": "2025-12-21T09:11:25.435351"
     },
     {
       "span_id": "QBM_03637",
@@ -1387,14 +1387,14 @@
         "ayah": 37,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 37 من سورة الرعد",
+      "text_ar": "وَكَذَٰلِكَ أَنزَلْنَـٰهُ حُكْمًا عَرَبِيًّا ۚ وَلَئِنِ ٱتَّبَعْتَ أَهْوَآءَهُم بَعْدَ مَا جَآءَكَ مِنَ ٱلْعِلْمِ مَا لَكَ مِنَ ٱللَّهِ مِن وَلِىٍّ وَلَا وَاقٍ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1410,7 +1410,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.785027"
+      "annotated_at": "2025-12-21T09:11:25.435416"
     },
     {
       "span_id": "QBM_03638",
@@ -1419,30 +1419,30 @@
         "ayah": 38,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 38 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَقَدْ أَرْسَلْنَا رُسُلًا مِّن قَبْلِكَ وَجَعَلْنَا لَهُمْ أَزْوَٰجًا وَذُرِّيَّةً ۚ وَمَا كَانَ لِرَسُولٍ أَن يَأْتِىَ بِـَٔايَةٍ إِلَّا بِإِذْنِ ٱللَّهِ ۗ لِكُلِّ أَجَلٍ كِتَابٌ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.785027"
+      "annotated_at": "2025-12-21T09:11:25.435416"
     },
     {
       "span_id": "QBM_03639",
@@ -1451,10 +1451,10 @@
         "ayah": 39,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 39 من سورة الرعد",
+      "text_ar": "يَمْحُوا۟ ٱللَّهُ مَا يَشَآءُ وَيُثْبِتُ ۖ وَعِندَهُۥٓ أُمُّ ٱلْكِتَـٰبِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.785027"
+      "annotated_at": "2025-12-21T09:11:25.435416"
     },
     {
       "span_id": "QBM_03640",
@@ -1483,14 +1483,14 @@
         "ayah": 40,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 40 من سورة الرعد",
+      "text_ar": "وَإِن مَّا نُرِيَنَّكَ بَعْضَ ٱلَّذِى نَعِدُهُمْ أَوْ نَتَوَفَّيَنَّكَ فَإِنَّمَا عَلَيْكَ ٱلْبَلَـٰغُ وَعَلَيْنَا ٱلْحِسَابُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1506,7 +1506,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.785027"
+      "annotated_at": "2025-12-21T09:11:25.435416"
     },
     {
       "span_id": "QBM_03641",
@@ -1515,19 +1515,19 @@
         "ayah": 41,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 41 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "أَوَلَمْ يَرَوْا۟ أَنَّا نَأْتِى ٱلْأَرْضَ نَنقُصُهَا مِنْ أَطْرَافِهَا ۚ وَٱللَّهُ يَحْكُمُ لَا مُعَقِّبَ لِحُكْمِهِۦ ۚ وَهُوَ سَرِيعُ ٱلْحِسَابِ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -1538,7 +1538,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.785027"
+      "annotated_at": "2025-12-21T09:11:25.435416"
     },
     {
       "span_id": "QBM_03642",
@@ -1547,14 +1547,14 @@
         "ayah": 42,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 42 من سورة الرعد",
+      "text_ar": "وَقَدْ مَكَرَ ٱلَّذِينَ مِن قَبْلِهِمْ فَلِلَّهِ ٱلْمَكْرُ جَمِيعًا ۖ يَعْلَمُ مَا تَكْسِبُ كُلُّ نَفْسٍ ۗ وَسَيَعْلَمُ ٱلْكُفَّـٰرُ لِمَنْ عُقْبَى ٱلدَّارِ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1570,7 +1570,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.785027"
+      "annotated_at": "2025-12-21T09:11:25.435416"
     },
     {
       "span_id": "QBM_03643",
@@ -1579,30 +1579,30 @@
         "ayah": 43,
         "surah_name": "الرعد"
       },
-      "text_ar": "آية 43 من سورة الرعد",
-      "behavior_form": "inner_state",
+      "text_ar": "وَيَقُولُ ٱلَّذِينَ كَفَرُوا۟ لَسْتَ مُرْسَلًا ۚ قُلْ كَفَىٰ بِٱللَّهِ شَهِيدًۢا بَيْنِى وَبَيْنَكُمْ وَمَنْ عِندَهُۥ عِلْمُ ٱلْكِتَـٰبِ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.785027"
+      "annotated_at": "2025-12-21T09:11:25.435416"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_029",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:53:20.551096",
+  "annotated_at": "2025-12-21T09:12:13.766862",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,14 +11,14 @@
         "ayah": 6,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 6 من سورة الطور",
+      "text_ar": "وَٱلْبَحْرِ ٱلْمَسْجُورِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15307",
@@ -43,20 +43,20 @@
         "ayah": 7,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 7 من سورة الطور",
+      "text_ar": "إِنَّ عَذَابَ رَبِّكَ لَوَٰقِعٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -66,7 +66,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15308",
@@ -75,10 +75,10 @@
         "ayah": 8,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 8 من سورة الطور",
+      "text_ar": "مَّا لَهُۥ مِن دَافِعٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -98,7 +98,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15309",
@@ -107,7 +107,7 @@
         "ayah": 9,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 9 من سورة الطور",
+      "text_ar": "يَوْمَ تَمُورُ ٱلسَّمَآءُ مَوْرًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
@@ -130,7 +130,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15310",
@@ -139,14 +139,14 @@
         "ayah": 10,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 10 من سورة الطور",
+      "text_ar": "وَتَسِيرُ ٱلْجِبَالُ سَيْرًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -162,7 +162,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15311",
@@ -171,30 +171,30 @@
         "ayah": 11,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 11 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "فَوَيْلٌ يَوْمَئِذٍ لِّلْمُكَذِّبِينَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15312",
@@ -203,14 +203,14 @@
         "ayah": 12,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 12 من سورة الطور",
+      "text_ar": "ٱلَّذِينَ هُمْ فِى خَوْضٍ يَلْعَبُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -226,7 +226,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15313",
@@ -235,30 +235,30 @@
         "ayah": 13,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 13 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "يَوْمَ يُدَعُّونَ إِلَىٰ نَارِ جَهَنَّمَ دَعًّا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15314",
@@ -267,20 +267,20 @@
         "ayah": 14,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 14 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "هَـٰذِهِ ٱلنَّارُ ٱلَّتِى كُنتُم بِهَا تُكَذِّبُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -290,7 +290,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15315",
@@ -299,14 +299,14 @@
         "ayah": 15,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 15 من سورة الطور",
+      "text_ar": "أَفَسِحْرٌ هَـٰذَآ أَمْ أَنتُمْ لَا تُبْصِرُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15316",
@@ -331,19 +331,19 @@
         "ayah": 16,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 16 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "ٱصْلَوْهَا فَٱصْبِرُوٓا۟ أَوْ لَا تَصْبِرُوا۟ سَوَآءٌ عَلَيْكُمْ ۖ إِنَّمَا تُجْزَوْنَ مَا كُنتُمْ تَعْمَلُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15317",
@@ -363,20 +363,20 @@
         "ayah": 17,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 17 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّ ٱلْمُتَّقِينَ فِى جَنَّـٰتٍ وَنَعِيمٍ",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -386,7 +386,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15318",
@@ -395,20 +395,20 @@
         "ayah": 18,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 18 من سورة الطور",
+      "text_ar": "فَـٰكِهِينَ بِمَآ ءَاتَىٰهُمْ رَبُّهُمْ وَوَقَىٰهُمْ رَبُّهُمْ عَذَابَ ٱلْجَحِيمِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15319",
@@ -427,30 +427,30 @@
         "ayah": 19,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 19 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "كُلُوا۟ وَٱشْرَبُوا۟ هَنِيٓـًٔۢا بِمَا كُنتُمْ تَعْمَلُونَ",
+      "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "blame",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15320",
@@ -459,14 +459,14 @@
         "ayah": 20,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 20 من سورة الطور",
+      "text_ar": "مُتَّكِـِٔينَ عَلَىٰ سُرُرٍ مَّصْفُوفَةٍ ۖ وَزَوَّجْنَـٰهُم بِحُورٍ عِينٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -482,7 +482,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.764304"
     },
     {
       "span_id": "QBM_15321",
@@ -491,30 +491,30 @@
         "ayah": 21,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 21 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "وَٱلَّذِينَ ءَامَنُوا۟ وَٱتَّبَعَتْهُمْ ذُرِّيَّتُهُم بِإِيمَـٰنٍ أَلْحَقْنَا بِهِمْ ذُرِّيَّتَهُمْ وَمَآ أَلَتْنَـٰهُم مِّنْ عَمَلِهِم مِّن شَىْءٍ ۚ كُلُّ ٱمْرِئٍۭ بِمَا كَسَبَ رَهِينٌ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15322",
@@ -523,14 +523,14 @@
         "ayah": 22,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 22 من سورة الطور",
+      "text_ar": "وَأَمْدَدْنَـٰهُم بِفَـٰكِهَةٍ وَلَحْمٍ مِّمَّا يَشْتَهُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15323",
@@ -555,10 +555,10 @@
         "ayah": 23,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 23 من سورة الطور",
+      "text_ar": "يَتَنَـٰزَعُونَ فِيهَا كَأْسًا لَّا لَغْوٌ فِيهَا وَلَا تَأْثِيمٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -578,7 +578,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15324",
@@ -587,14 +587,14 @@
         "ayah": 24,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 24 من سورة الطور",
+      "text_ar": "وَيَطُوفُ عَلَيْهِمْ غِلْمَانٌ لَّهُمْ كَأَنَّهُمْ لُؤْلُؤٌ مَّكْنُونٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15325",
@@ -619,14 +619,14 @@
         "ayah": 25,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 25 من سورة الطور",
+      "text_ar": "وَأَقْبَلَ بَعْضُهُمْ عَلَىٰ بَعْضٍ يَتَسَآءَلُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15326",
@@ -651,30 +651,30 @@
         "ayah": 26,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 26 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالُوٓا۟ إِنَّا كُنَّا قَبْلُ فِىٓ أَهْلِنَا مُشْفِقِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15327",
@@ -683,20 +683,20 @@
         "ayah": 27,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 27 من سورة الطور",
+      "text_ar": "فَمَنَّ ٱللَّهُ عَلَيْنَا وَوَقَىٰنَا عَذَابَ ٱلسَّمُومِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "blame",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -706,7 +706,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15328",
@@ -715,19 +715,19 @@
         "ayah": 28,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 28 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّا كُنَّا مِن قَبْلُ نَدْعُوهُ ۖ إِنَّهُۥ هُوَ ٱلْبَرُّ ٱلرَّحِيمُ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -738,7 +738,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15329",
@@ -747,30 +747,30 @@
         "ayah": 29,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 29 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "فَذَكِّرْ فَمَآ أَنتَ بِنِعْمَتِ رَبِّكَ بِكَاهِنٍ وَلَا مَجْنُونٍ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15330",
@@ -779,8 +779,8 @@
         "ayah": 30,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 30 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمْ يَقُولُونَ شَاعِرٌ نَّتَرَبَّصُ بِهِۦ رَيْبَ ٱلْمَنُونِ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
@@ -791,18 +791,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15331",
@@ -811,14 +811,14 @@
         "ayah": 31,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 31 من سورة الطور",
+      "text_ar": "قُلْ تَرَبَّصُوا۟ فَإِنِّى مَعَكُم مِّنَ ٱلْمُتَرَبِّصِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -834,7 +834,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15332",
@@ -843,19 +843,19 @@
         "ayah": 32,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 32 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمْ تَأْمُرُهُمْ أَحْلَـٰمُهُم بِهَـٰذَآ ۚ أَمْ هُمْ قَوْمٌ طَاغُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15333",
@@ -875,10 +875,10 @@
         "ayah": 33,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 33 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمْ يَقُولُونَ تَقَوَّلَهُۥ ۚ بَل لَّا يُؤْمِنُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -887,18 +887,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15334",
@@ -907,14 +907,14 @@
         "ayah": 34,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 34 من سورة الطور",
+      "text_ar": "فَلْيَأْتُوا۟ بِحَدِيثٍ مِّثْلِهِۦٓ إِن كَانُوا۟ صَـٰدِقِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -930,7 +930,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15335",
@@ -939,14 +939,14 @@
         "ayah": 35,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 35 من سورة الطور",
+      "text_ar": "أَمْ خُلِقُوا۟ مِنْ غَيْرِ شَىْءٍ أَمْ هُمُ ٱلْخَـٰلِقُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -962,7 +962,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.550096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15336",
@@ -971,10 +971,10 @@
         "ayah": 36,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 36 من سورة الطور",
+      "text_ar": "أَمْ خَلَقُوا۟ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضَ ۚ بَل لَّا يُوقِنُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15337",
@@ -1003,14 +1003,14 @@
         "ayah": 37,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 37 من سورة الطور",
+      "text_ar": "أَمْ عِندَهُمْ خَزَآئِنُ رَبِّكَ أَمْ هُمُ ٱلْمُصَۣيْطِرُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1026,7 +1026,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.765301"
     },
     {
       "span_id": "QBM_15338",
@@ -1035,14 +1035,14 @@
         "ayah": 38,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 38 من سورة الطور",
+      "text_ar": "أَمْ لَهُمْ سُلَّمٌ يَسْتَمِعُونَ فِيهِ ۖ فَلْيَأْتِ مُسْتَمِعُهُم بِسُلْطَـٰنٍ مُّبِينٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766329"
     },
     {
       "span_id": "QBM_15339",
@@ -1067,10 +1067,10 @@
         "ayah": 39,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 39 من سورة الطور",
+      "text_ar": "أَمْ لَهُ ٱلْبَنَـٰتُ وَلَكُمُ ٱلْبَنُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1090,7 +1090,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766329"
     },
     {
       "span_id": "QBM_15340",
@@ -1099,20 +1099,20 @@
         "ayah": 40,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 40 من سورة الطور",
+      "text_ar": "أَمْ تَسْـَٔلُهُمْ أَجْرًا فَهُم مِّن مَّغْرَمٍ مُّثْقَلُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766329"
     },
     {
       "span_id": "QBM_15341",
@@ -1131,14 +1131,14 @@
         "ayah": 41,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 41 من سورة الطور",
+      "text_ar": "أَمْ عِندَهُمُ ٱلْغَيْبُ فَهُمْ يَكْتُبُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1154,7 +1154,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766329"
     },
     {
       "span_id": "QBM_15342",
@@ -1163,30 +1163,30 @@
         "ayah": 42,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 42 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمْ يُرِيدُونَ كَيْدًا ۖ فَٱلَّذِينَ كَفَرُوا۟ هُمُ ٱلْمَكِيدُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766329"
     },
     {
       "span_id": "QBM_15343",
@@ -1195,30 +1195,30 @@
         "ayah": 43,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 43 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمْ لَهُمْ إِلَـٰهٌ غَيْرُ ٱللَّهِ ۚ سُبْحَـٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766329"
     },
     {
       "span_id": "QBM_15344",
@@ -1227,30 +1227,30 @@
         "ayah": 44,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 44 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "وَإِن يَرَوْا۟ كِسْفًا مِّنَ ٱلسَّمَآءِ سَاقِطًا يَقُولُوا۟ سَحَابٌ مَّرْكُومٌ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766329"
     },
     {
       "span_id": "QBM_15345",
@@ -1259,19 +1259,19 @@
         "ayah": 45,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 45 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "فَذَرْهُمْ حَتَّىٰ يُلَـٰقُوا۟ يَوْمَهُمُ ٱلَّذِى فِيهِ يُصْعَقُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766329"
     },
     {
       "span_id": "QBM_15346",
@@ -1291,19 +1291,19 @@
         "ayah": 46,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 46 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "يَوْمَ لَا يُغْنِى عَنْهُمْ كَيْدُهُمْ شَيْـًٔا وَلَا هُمْ يُنصَرُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -1314,7 +1314,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766329"
     },
     {
       "span_id": "QBM_15347",
@@ -1323,20 +1323,20 @@
         "ayah": 47,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 47 من سورة الطور",
+      "text_ar": "وَإِنَّ لِلَّذِينَ ظَلَمُوا۟ عَذَابًا دُونَ ذَٰلِكَ وَلَـٰكِنَّ أَكْثَرَهُمْ لَا يَعْلَمُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766862"
     },
     {
       "span_id": "QBM_15348",
@@ -1355,30 +1355,30 @@
         "ayah": 48,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 48 من سورة الطور",
-      "behavior_form": "inner_state",
+      "text_ar": "وَٱصْبِرْ لِحُكْمِ رَبِّكَ فَإِنَّكَ بِأَعْيُنِنَا ۖ وَسَبِّحْ بِحَمْدِ رَبِّكَ حِينَ تَقُومُ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766862"
     },
     {
       "span_id": "QBM_15349",
@@ -1387,104 +1387,8 @@
         "ayah": 49,
         "surah_name": "الطور"
       },
-      "text_ar": "آية 49 من سورة الطور",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
-    },
-    {
-      "span_id": "QBM_15601",
-      "reference": {
-        "surah": 53,
-        "ayah": 1,
-        "surah_name": "النجم"
-      },
-      "text_ar": "آية 1 من سورة النجم",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
-    },
-    {
-      "span_id": "QBM_15602",
-      "reference": {
-        "surah": 53,
-        "ayah": 2,
-        "surah_name": "النجم"
-      },
-      "text_ar": "آية 2 من سورة النجم",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
-    },
-    {
-      "span_id": "QBM_15603",
-      "reference": {
-        "surah": 53,
-        "ayah": 3,
-        "surah_name": "النجم"
-      },
-      "text_ar": "آية 3 من سورة النجم",
-      "behavior_form": "inner_state",
+      "text_ar": "وَمِنَ ٱلَّيْلِ فَسَبِّحْهُ وَإِدْبَـٰرَ ٱلنُّجُومِ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -1495,34 +1399,34 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766862"
     },
     {
-      "span_id": "QBM_15604",
+      "span_id": "QBM_15601",
       "reference": {
         "surah": 53,
-        "ayah": 4,
+        "ayah": 1,
         "surah_name": "النجم"
       },
-      "text_ar": "آية 4 من سورة النجم",
+      "text_ar": "وَٱلنَّجْمِ إِذَا هَوَىٰ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1538,48 +1442,16 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766862"
     },
     {
-      "span_id": "QBM_15605",
+      "span_id": "QBM_15602",
       "reference": {
         "surah": 53,
-        "ayah": 5,
+        "ayah": 2,
         "surah_name": "النجم"
       },
-      "text_ar": "آية 5 من سورة النجم",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
-    },
-    {
-      "span_id": "QBM_15606",
-      "reference": {
-        "surah": 53,
-        "ayah": 6,
-        "surah_name": "النجم"
-      },
-      "text_ar": "آية 6 من سورة النجم",
+      "text_ar": "مَا ضَلَّ صَاحِبُكُمْ وَمَا غَوَىٰ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
@@ -1602,7 +1474,135 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.551096"
+      "annotated_at": "2025-12-21T09:12:13.766862"
+    },
+    {
+      "span_id": "QBM_15603",
+      "reference": {
+        "surah": 53,
+        "ayah": 3,
+        "surah_name": "النجم"
+      },
+      "text_ar": "وَمَا يَنطِقُ عَنِ ٱلْهَوَىٰٓ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:12:13.766862"
+    },
+    {
+      "span_id": "QBM_15604",
+      "reference": {
+        "surah": 53,
+        "ayah": 4,
+        "surah_name": "النجم"
+      },
+      "text_ar": "إِنْ هُوَ إِلَّا وَحْىٌ يُوحَىٰ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:12:13.766862"
+    },
+    {
+      "span_id": "QBM_15605",
+      "reference": {
+        "surah": 53,
+        "ayah": 5,
+        "surah_name": "النجم"
+      },
+      "text_ar": "عَلَّمَهُۥ شَدِيدُ ٱلْقُوَىٰ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:12:13.766862"
+    },
+    {
+      "span_id": "QBM_15606",
+      "reference": {
+        "surah": 53,
+        "ayah": 6,
+        "surah_name": "النجم"
+      },
+      "text_ar": "ذُو مِرَّةٍ فَٱسْتَوَىٰ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:12:13.766862"
     }
   ]
 }

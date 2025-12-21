@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_018",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:53:03.975796",
+  "annotated_at": "2025-12-21T09:11:45.871792",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,20 +11,20 @@
         "ayah": 58,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 58 من سورة الحج",
+      "text_ar": "وَٱلَّذِينَ هَاجَرُوا۟ فِى سَبِيلِ ٱللَّهِ ثُمَّ قُتِلُوٓا۟ أَوْ مَاتُوا۟ لَيَرْزُقَنَّهُمُ ٱللَّهُ رِزْقًا حَسَنًا ۚ وَإِنَّ ٱللَّهَ لَهُوَ خَيْرُ ٱلرَّٰزِقِينَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.974266"
+      "annotated_at": "2025-12-21T09:11:45.867856"
     },
     {
       "span_id": "QBM_06359",
@@ -43,30 +43,30 @@
         "ayah": 59,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 59 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "لَيُدْخِلَنَّهُم مُّدْخَلًا يَرْضَوْنَهُۥ ۗ وَإِنَّ ٱللَّهَ لَعَلِيمٌ حَلِيمٌ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.867856"
     },
     {
       "span_id": "QBM_06360",
@@ -75,14 +75,14 @@
         "ayah": 60,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 60 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "ذَٰلِكَ وَمَنْ عَاقَبَ بِمِثْلِ مَا عُوقِبَ بِهِۦ ثُمَّ بُغِىَ عَلَيْهِ لَيَنصُرَنَّهُ ٱللَّهُ ۗ إِنَّ ٱللَّهَ لَعَفُوٌّ غَفُورٌ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -91,14 +91,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.867856"
     },
     {
       "span_id": "QBM_06361",
@@ -107,30 +107,30 @@
         "ayah": 61,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 61 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "ذَٰلِكَ بِأَنَّ ٱللَّهَ يُولِجُ ٱلَّيْلَ فِى ٱلنَّهَارِ وَيُولِجُ ٱلنَّهَارَ فِى ٱلَّيْلِ وَأَنَّ ٱللَّهَ سَمِيعٌۢ بَصِيرٌ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.867856"
     },
     {
       "span_id": "QBM_06362",
@@ -139,30 +139,30 @@
         "ayah": 62,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 62 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "ذَٰلِكَ بِأَنَّ ٱللَّهَ هُوَ ٱلْحَقُّ وَأَنَّ مَا يَدْعُونَ مِن دُونِهِۦ هُوَ ٱلْبَـٰطِلُ وَأَنَّ ٱللَّهَ هُوَ ٱلْعَلِىُّ ٱلْكَبِيرُ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.867856"
     },
     {
       "span_id": "QBM_06363",
@@ -171,30 +171,30 @@
         "ayah": 63,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 63 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "أَلَمْ تَرَ أَنَّ ٱللَّهَ أَنزَلَ مِنَ ٱلسَّمَآءِ مَآءً فَتُصْبِحُ ٱلْأَرْضُ مُخْضَرَّةً ۗ إِنَّ ٱللَّهَ لَطِيفٌ خَبِيرٌ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.867856"
     },
     {
       "span_id": "QBM_06364",
@@ -203,30 +203,30 @@
         "ayah": 64,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 64 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "لَّهُۥ مَا فِى ٱلسَّمَـٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ وَإِنَّ ٱللَّهَ لَهُوَ ٱلْغَنِىُّ ٱلْحَمِيدُ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.868793"
     },
     {
       "span_id": "QBM_06365",
@@ -235,14 +235,14 @@
         "ayah": 65,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 65 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "أَلَمْ تَرَ أَنَّ ٱللَّهَ سَخَّرَ لَكُم مَّا فِى ٱلْأَرْضِ وَٱلْفُلْكَ تَجْرِى فِى ٱلْبَحْرِ بِأَمْرِهِۦ وَيُمْسِكُ ٱلسَّمَآءَ أَن تَقَعَ عَلَى ٱلْأَرْضِ إِلَّا بِإِذْنِهِۦٓ ۗ إِنَّ ٱللَّهَ بِٱلنَّاسِ لَرَءُوفٌ رَّحِيمٌ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -251,14 +251,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.868793"
     },
     {
       "span_id": "QBM_06366",
@@ -267,30 +267,30 @@
         "ayah": 66,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 66 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "وَهُوَ ٱلَّذِىٓ أَحْيَاكُمْ ثُمَّ يُمِيتُكُمْ ثُمَّ يُحْيِيكُمْ ۗ إِنَّ ٱلْإِنسَـٰنَ لَكَفُورٌ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.868793"
     },
     {
       "span_id": "QBM_06367",
@@ -299,30 +299,30 @@
         "ayah": 67,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 67 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "لِّكُلِّ أُمَّةٍ جَعَلْنَا مَنسَكًا هُمْ نَاسِكُوهُ ۖ فَلَا يُنَـٰزِعُنَّكَ فِى ٱلْأَمْرِ ۚ وَٱدْعُ إِلَىٰ رَبِّكَ ۖ إِنَّكَ لَعَلَىٰ هُدًى مُّسْتَقِيمٍ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.868793"
     },
     {
       "span_id": "QBM_06368",
@@ -331,14 +331,14 @@
         "ayah": 68,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 68 من سورة الحج",
+      "text_ar": "وَإِن جَـٰدَلُوكَ فَقُلِ ٱللَّهُ أَعْلَمُ بِمَا تَعْمَلُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.868793"
     },
     {
       "span_id": "QBM_06369",
@@ -363,10 +363,10 @@
         "ayah": 69,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 69 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "ٱللَّهُ يَحْكُمُ بَيْنَكُمْ يَوْمَ ٱلْقِيَـٰمَةِ فِيمَا كُنتُمْ فِيهِ تَخْتَلِفُونَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -375,18 +375,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.868793"
     },
     {
       "span_id": "QBM_06370",
@@ -395,30 +395,30 @@
         "ayah": 70,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 70 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "أَلَمْ تَعْلَمْ أَنَّ ٱللَّهَ يَعْلَمُ مَا فِى ٱلسَّمَآءِ وَٱلْأَرْضِ ۗ إِنَّ ذَٰلِكَ فِى كِتَـٰبٍ ۚ إِنَّ ذَٰلِكَ عَلَى ٱللَّهِ يَسِيرٌ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.868793"
     },
     {
       "span_id": "QBM_06371",
@@ -427,30 +427,30 @@
         "ayah": 71,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 71 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "وَيَعْبُدُونَ مِن دُونِ ٱللَّهِ مَا لَمْ يُنَزِّلْ بِهِۦ سُلْطَـٰنًا وَمَا لَيْسَ لَهُم بِهِۦ عِلْمٌ ۗ وَمَا لِلظَّـٰلِمِينَ مِن نَّصِيرٍ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.868793"
     },
     {
       "span_id": "QBM_06372",
@@ -459,20 +459,20 @@
         "ayah": 72,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 72 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "وَإِذَا تُتْلَىٰ عَلَيْهِمْ ءَايَـٰتُنَا بَيِّنَـٰتٍ تَعْرِفُ فِى وُجُوهِ ٱلَّذِينَ كَفَرُوا۟ ٱلْمُنكَرَ ۖ يَكَادُونَ يَسْطُونَ بِٱلَّذِينَ يَتْلُونَ عَلَيْهِمْ ءَايَـٰتِنَا ۗ قُلْ أَفَأُنَبِّئُكُم بِشَرٍّ مِّن ذَٰلِكُمُ ۗ ٱلنَّارُ وَعَدَهَا ٱللَّهُ ٱلَّذِينَ كَفَرُوا۟ ۖ وَبِئْسَ ٱلْمَصِيرُ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -482,7 +482,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.868793"
     },
     {
       "span_id": "QBM_06373",
@@ -491,14 +491,14 @@
         "ayah": 73,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 73 من سورة الحج",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلنَّاسُ ضُرِبَ مَثَلٌ فَٱسْتَمِعُوا۟ لَهُۥٓ ۚ إِنَّ ٱلَّذِينَ تَدْعُونَ مِن دُونِ ٱللَّهِ لَن يَخْلُقُوا۟ ذُبَابًا وَلَوِ ٱجْتَمَعُوا۟ لَهُۥ ۖ وَإِن يَسْلُبْهُمُ ٱلذُّبَابُ شَيْـًٔا لَّا يَسْتَنقِذُوهُ مِنْهُ ۚ ضَعُفَ ٱلطَّالِبُ وَٱلْمَطْلُوبُ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.868793"
     },
     {
       "span_id": "QBM_06374",
@@ -523,30 +523,30 @@
         "ayah": 74,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 74 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "مَا قَدَرُوا۟ ٱللَّهَ حَقَّ قَدْرِهِۦٓ ۗ إِنَّ ٱللَّهَ لَقَوِىٌّ عَزِيزٌ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.869793"
     },
     {
       "span_id": "QBM_06375",
@@ -555,20 +555,84 @@
         "ayah": 75,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 75 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "ٱللَّهُ يَصْطَفِى مِنَ ٱلْمَلَـٰٓئِكَةِ رُسُلًا وَمِنَ ٱلنَّاسِ ۚ إِنَّ ٱللَّهَ سَمِيعٌۢ بَصِيرٌ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.869793"
+    },
+    {
+      "span_id": "QBM_06376",
+      "reference": {
+        "surah": 22,
+        "ayah": 76,
+        "surah_name": "الحج"
+      },
+      "text_ar": "يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۗ وَإِلَى ٱللَّهِ تُرْجَعُ ٱلْأُمُورُ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.869793"
+    },
+    {
+      "span_id": "QBM_06377",
+      "reference": {
+        "surah": 22,
+        "ayah": 77,
+        "surah_name": "الحج"
+      },
+      "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱرْكَعُوا۟ وَٱسْجُدُوا۟ وَٱعْبُدُوا۟ رَبَّكُمْ وَٱفْعَلُوا۟ ٱلْخَيْرَ لَعَلَّكُمْ تُفْلِحُونَ ۩",
+      "behavior_form": "physical_act",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "interrogative",
+        "evaluation": "praise",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -578,17 +642,49 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.869793"
     },
     {
-      "span_id": "QBM_06376",
+      "span_id": "QBM_06378",
       "reference": {
         "surah": 22,
-        "ayah": 76,
+        "ayah": 78,
         "surah_name": "الحج"
       },
-      "text_ar": "آية 76 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "وَجَـٰهِدُوا۟ فِى ٱللَّهِ حَقَّ جِهَادِهِۦ ۚ هُوَ ٱجْتَبَىٰكُمْ وَمَا جَعَلَ عَلَيْكُمْ فِى ٱلدِّينِ مِنْ حَرَجٍ ۚ مِّلَّةَ أَبِيكُمْ إِبْرَٰهِيمَ ۚ هُوَ سَمَّىٰكُمُ ٱلْمُسْلِمِينَ مِن قَبْلُ وَفِى هَـٰذَا لِيَكُونَ ٱلرَّسُولُ شَهِيدًا عَلَيْكُمْ وَتَكُونُوا۟ شُهَدَآءَ عَلَى ٱلنَّاسِ ۚ فَأَقِيمُوا۟ ٱلصَّلَوٰةَ وَءَاتُوا۟ ٱلزَّكَوٰةَ وَٱعْتَصِمُوا۟ بِٱللَّهِ هُوَ مَوْلَىٰكُمْ ۖ فَنِعْمَ ٱلْمَوْلَىٰ وَنِعْمَ ٱلنَّصِيرُ",
+      "behavior_form": "relational_act",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "command",
+        "evaluation": "neutral",
+        "deontic_signal": "amr"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.869793"
+    },
+    {
+      "span_id": "QBM_06601",
+      "reference": {
+        "surah": 23,
+        "ayah": 1,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "قَدْ أَفْلَحَ ٱلْمُؤْمِنُونَ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
@@ -599,34 +695,578 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.869793"
     },
     {
-      "span_id": "QBM_06377",
+      "span_id": "QBM_06602",
       "reference": {
-        "surah": 22,
-        "ayah": 77,
-        "surah_name": "الحج"
+        "surah": 23,
+        "ayah": 2,
+        "surah_name": "المؤمنون"
       },
-      "text_ar": "آية 77 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "ٱلَّذِينَ هُمْ فِى صَلَاتِهِمْ خَـٰشِعُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.869793"
+    },
+    {
+      "span_id": "QBM_06603",
+      "reference": {
+        "surah": 23,
+        "ayah": 3,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "وَٱلَّذِينَ هُمْ عَنِ ٱللَّغْوِ مُعْرِضُونَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.869793"
+    },
+    {
+      "span_id": "QBM_06604",
+      "reference": {
+        "surah": 23,
+        "ayah": 4,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "وَٱلَّذِينَ هُمْ لِلزَّكَوٰةِ فَـٰعِلُونَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.869793"
+    },
+    {
+      "span_id": "QBM_06605",
+      "reference": {
+        "surah": 23,
+        "ayah": 5,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "وَٱلَّذِينَ هُمْ لِفُرُوجِهِمْ حَـٰفِظُونَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.869793"
+    },
+    {
+      "span_id": "QBM_06606",
+      "reference": {
+        "surah": 23,
+        "ayah": 6,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "إِلَّا عَلَىٰٓ أَزْوَٰجِهِمْ أَوْ مَا مَلَكَتْ أَيْمَـٰنُهُمْ فَإِنَّهُمْ غَيْرُ مَلُومِينَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.869793"
+    },
+    {
+      "span_id": "QBM_06607",
+      "reference": {
+        "surah": 23,
+        "ayah": 7,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "فَمَنِ ٱبْتَغَىٰ وَرَآءَ ذَٰلِكَ فَأُو۟لَـٰٓئِكَ هُمُ ٱلْعَادُونَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.869793"
+    },
+    {
+      "span_id": "QBM_06608",
+      "reference": {
+        "surah": 23,
+        "ayah": 8,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "وَٱلَّذِينَ هُمْ لِأَمَـٰنَـٰتِهِمْ وَعَهْدِهِمْ رَٰعُونَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.869793"
+    },
+    {
+      "span_id": "QBM_06609",
+      "reference": {
+        "surah": 23,
+        "ayah": 9,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "وَٱلَّذِينَ هُمْ عَلَىٰ صَلَوَٰتِهِمْ يُحَافِظُونَ",
+      "behavior_form": "relational_act",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06610",
+      "reference": {
+        "surah": 23,
+        "ayah": 10,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "أُو۟لَـٰٓئِكَ هُمُ ٱلْوَٰرِثُونَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06611",
+      "reference": {
+        "surah": 23,
+        "ayah": 11,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "ٱلَّذِينَ يَرِثُونَ ٱلْفِرْدَوْسَ هُمْ فِيهَا خَـٰلِدُونَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06612",
+      "reference": {
+        "surah": 23,
+        "ayah": 12,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "وَلَقَدْ خَلَقْنَا ٱلْإِنسَـٰنَ مِن سُلَـٰلَةٍ مِّن طِينٍ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06613",
+      "reference": {
+        "surah": 23,
+        "ayah": 13,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "ثُمَّ جَعَلْنَـٰهُ نُطْفَةً فِى قَرَارٍ مَّكِينٍ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06614",
+      "reference": {
+        "surah": 23,
+        "ayah": 14,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "ثُمَّ خَلَقْنَا ٱلنُّطْفَةَ عَلَقَةً فَخَلَقْنَا ٱلْعَلَقَةَ مُضْغَةً فَخَلَقْنَا ٱلْمُضْغَةَ عِظَـٰمًا فَكَسَوْنَا ٱلْعِظَـٰمَ لَحْمًا ثُمَّ أَنشَأْنَـٰهُ خَلْقًا ءَاخَرَ ۚ فَتَبَارَكَ ٱللَّهُ أَحْسَنُ ٱلْخَـٰلِقِينَ",
+      "behavior_form": "relational_act",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06615",
+      "reference": {
+        "surah": 23,
+        "ayah": 15,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "ثُمَّ إِنَّكُم بَعْدَ ذَٰلِكَ لَمَيِّتُونَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06616",
+      "reference": {
+        "surah": 23,
+        "ayah": 16,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "ثُمَّ إِنَّكُمْ يَوْمَ ٱلْقِيَـٰمَةِ تُبْعَثُونَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06617",
+      "reference": {
+        "surah": 23,
+        "ayah": 17,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "وَلَقَدْ خَلَقْنَا فَوْقَكُمْ سَبْعَ طَرَآئِقَ وَمَا كُنَّا عَنِ ٱلْخَلْقِ غَـٰفِلِينَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
         "speech_mode": "interrogative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06618",
+      "reference": {
+        "surah": 23,
+        "ayah": 18,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "وَأَنزَلْنَا مِنَ ٱلسَّمَآءِ مَآءًۢ بِقَدَرٍ فَأَسْكَنَّـٰهُ فِى ٱلْأَرْضِ ۖ وَإِنَّا عَلَىٰ ذَهَابٍۭ بِهِۦ لَقَـٰدِرُونَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06619",
+      "reference": {
+        "surah": 23,
+        "ayah": 19,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "فَأَنشَأْنَا لَكُم بِهِۦ جَنَّـٰتٍ مِّن نَّخِيلٍ وَأَعْنَـٰبٍ لَّكُمْ فِيهَا فَوَٰكِهُ كَثِيرَةٌ وَمِنْهَا تَأْكُلُونَ",
+      "behavior_form": "physical_act",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -642,17 +1282,113 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
+      "annotated_at": "2025-12-21T09:11:45.870793"
     },
     {
-      "span_id": "QBM_06378",
+      "span_id": "QBM_06620",
       "reference": {
-        "surah": 22,
-        "ayah": 78,
-        "surah_name": "الحج"
+        "surah": 23,
+        "ayah": 20,
+        "surah_name": "المؤمنون"
       },
-      "text_ar": "آية 78 من سورة الحج",
-      "behavior_form": "physical_act",
+      "text_ar": "وَشَجَرَةً تَخْرُجُ مِن طُورِ سَيْنَآءَ تَنۢبُتُ بِٱلدُّهْنِ وَصِبْغٍ لِّلْـَٔاكِلِينَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "interrogative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06621",
+      "reference": {
+        "surah": 23,
+        "ayah": 21,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "وَإِنَّ لَكُمْ فِى ٱلْأَنْعَـٰمِ لَعِبْرَةً ۖ نُّسْقِيكُم مِّمَّا فِى بُطُونِهَا وَلَكُمْ فِيهَا مَنَـٰفِعُ كَثِيرَةٌ وَمِنْهَا تَأْكُلُونَ",
+      "behavior_form": "relational_act",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06622",
+      "reference": {
+        "surah": 23,
+        "ayah": 22,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "وَعَلَيْهَا وَعَلَى ٱلْفُلْكِ تُحْمَلُونَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:45.870793"
+    },
+    {
+      "span_id": "QBM_06623",
+      "reference": {
+        "surah": 23,
+        "ayah": 23,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "وَلَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِۦ فَقَالَ يَـٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَـٰهٍ غَيْرُهُۥٓ ۖ أَفَلَا تَتَّقُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -674,743 +1410,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
-    },
-    {
-      "span_id": "QBM_06601",
-      "reference": {
-        "surah": 23,
-        "ayah": 1,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 1 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
-    },
-    {
-      "span_id": "QBM_06602",
-      "reference": {
-        "surah": 23,
-        "ayah": 2,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 2 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975235"
-    },
-    {
-      "span_id": "QBM_06603",
-      "reference": {
-        "surah": 23,
-        "ayah": 3,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 3 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975751"
-    },
-    {
-      "span_id": "QBM_06604",
-      "reference": {
-        "surah": 23,
-        "ayah": 4,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 4 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975751"
-    },
-    {
-      "span_id": "QBM_06605",
-      "reference": {
-        "surah": 23,
-        "ayah": 5,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 5 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06606",
-      "reference": {
-        "surah": 23,
-        "ayah": 6,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 6 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06607",
-      "reference": {
-        "surah": 23,
-        "ayah": 7,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 7 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06608",
-      "reference": {
-        "surah": 23,
-        "ayah": 8,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 8 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06609",
-      "reference": {
-        "surah": 23,
-        "ayah": 9,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 9 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06610",
-      "reference": {
-        "surah": 23,
-        "ayah": 10,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 10 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06611",
-      "reference": {
-        "surah": 23,
-        "ayah": 11,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 11 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06612",
-      "reference": {
-        "surah": 23,
-        "ayah": 12,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 12 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06613",
-      "reference": {
-        "surah": 23,
-        "ayah": 13,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 13 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06614",
-      "reference": {
-        "surah": 23,
-        "ayah": 14,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 14 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06615",
-      "reference": {
-        "surah": 23,
-        "ayah": 15,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 15 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06616",
-      "reference": {
-        "surah": 23,
-        "ayah": 16,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 16 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06617",
-      "reference": {
-        "surah": 23,
-        "ayah": 17,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 17 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06618",
-      "reference": {
-        "surah": 23,
-        "ayah": 18,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 18 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06619",
-      "reference": {
-        "surah": 23,
-        "ayah": 19,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 19 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06620",
-      "reference": {
-        "surah": 23,
-        "ayah": 20,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 20 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06621",
-      "reference": {
-        "surah": 23,
-        "ayah": 21,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 21 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06622",
-      "reference": {
-        "surah": 23,
-        "ayah": 22,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 22 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
-    },
-    {
-      "span_id": "QBM_06623",
-      "reference": {
-        "surah": 23,
-        "ayah": 23,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "آية 23 من سورة المؤمنون",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
+      "annotated_at": "2025-12-21T09:11:45.870793"
     },
     {
       "span_id": "QBM_06624",
@@ -1419,30 +1419,30 @@
         "ayah": 24,
         "surah_name": "المؤمنون"
       },
-      "text_ar": "آية 24 من سورة المؤمنون",
-      "behavior_form": "inner_state",
+      "text_ar": "فَقَالَ ٱلْمَلَؤُا۟ ٱلَّذِينَ كَفَرُوا۟ مِن قَوْمِهِۦ مَا هَـٰذَآ إِلَّا بَشَرٌ مِّثْلُكُمْ يُرِيدُ أَن يَتَفَضَّلَ عَلَيْكُمْ وَلَوْ شَآءَ ٱللَّهُ لَأَنزَلَ مَلَـٰٓئِكَةً مَّا سَمِعْنَا بِهَـٰذَا فِىٓ ءَابَآئِنَا ٱلْأَوَّلِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
+      "annotated_at": "2025-12-21T09:11:45.871792"
     },
     {
       "span_id": "QBM_06625",
@@ -1451,20 +1451,20 @@
         "ayah": 25,
         "surah_name": "المؤمنون"
       },
-      "text_ar": "آية 25 من سورة المؤمنون",
+      "text_ar": "إِنْ هُوَ إِلَّا رَجُلٌۢ بِهِۦ جِنَّةٌ فَتَرَبَّصُوا۟ بِهِۦ حَتَّىٰ حِينٍ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
+      "annotated_at": "2025-12-21T09:11:45.871792"
     },
     {
       "span_id": "QBM_06626",
@@ -1483,10 +1483,10 @@
         "ayah": 26,
         "surah_name": "المؤمنون"
       },
-      "text_ar": "آية 26 من سورة المؤمنون",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ رَبِّ ٱنصُرْنِى بِمَا كَذَّبُونِ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1495,18 +1495,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
+      "annotated_at": "2025-12-21T09:11:45.871792"
     },
     {
       "span_id": "QBM_06627",
@@ -1515,30 +1515,30 @@
         "ayah": 27,
         "surah_name": "المؤمنون"
       },
-      "text_ar": "آية 27 من سورة المؤمنون",
-      "behavior_form": "inner_state",
+      "text_ar": "فَأَوْحَيْنَآ إِلَيْهِ أَنِ ٱصْنَعِ ٱلْفُلْكَ بِأَعْيُنِنَا وَوَحْيِنَا فَإِذَا جَآءَ أَمْرُنَا وَفَارَ ٱلتَّنُّورُ ۙ فَٱسْلُكْ فِيهَا مِن كُلٍّ زَوْجَيْنِ ٱثْنَيْنِ وَأَهْلَكَ إِلَّا مَن سَبَقَ عَلَيْهِ ٱلْقَوْلُ مِنْهُمْ ۖ وَلَا تُخَـٰطِبْنِى فِى ٱلَّذِينَ ظَلَمُوٓا۟ ۖ إِنَّهُم مُّغْرَقُونَ",
+      "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
+      "annotated_at": "2025-12-21T09:11:45.871792"
     },
     {
       "span_id": "QBM_06628",
@@ -1547,14 +1547,14 @@
         "ayah": 28,
         "surah_name": "المؤمنون"
       },
-      "text_ar": "آية 28 من سورة المؤمنون",
+      "text_ar": "فَإِذَا ٱسْتَوَيْتَ أَنتَ وَمَن مَّعَكَ عَلَى ٱلْفُلْكِ فَقُلِ ٱلْحَمْدُ لِلَّهِ ٱلَّذِى نَجَّىٰنَا مِنَ ٱلْقَوْمِ ٱلظَّـٰلِمِينَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1570,7 +1570,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
+      "annotated_at": "2025-12-21T09:11:45.871792"
     },
     {
       "span_id": "QBM_06629",
@@ -1579,20 +1579,20 @@
         "ayah": 29,
         "surah_name": "المؤمنون"
       },
-      "text_ar": "آية 29 من سورة المؤمنون",
+      "text_ar": "وَقُل رَّبِّ أَنزِلْنِى مُنزَلًا مُّبَارَكًا وَأَنتَ خَيْرُ ٱلْمُنزِلِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1602,7 +1602,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:03.975796"
+      "annotated_at": "2025-12-21T09:11:45.871792"
     }
   ]
 }

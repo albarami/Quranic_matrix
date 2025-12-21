@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_015",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:52:48.821240",
+  "annotated_at": "2025-12-21T09:11:22.483587",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,14 +11,14 @@
         "ayah": 32,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 32 من سورة المائدة",
+      "text_ar": "مِنْ أَجْلِ ذَٰلِكَ كَتَبْنَا عَلَىٰ بَنِىٓ إِسْرَٰٓءِيلَ أَنَّهُۥ مَن قَتَلَ نَفْسًۢا بِغَيْرِ نَفْسٍ أَوْ فَسَادٍ فِى ٱلْأَرْضِ فَكَأَنَّمَا قَتَلَ ٱلنَّاسَ جَمِيعًا وَمَنْ أَحْيَاهَا فَكَأَنَّمَآ أَحْيَا ٱلنَّاسَ جَمِيعًا ۚ وَلَقَدْ جَآءَتْهُمْ رُسُلُنَا بِٱلْبَيِّنَـٰتِ ثُمَّ إِنَّ كَثِيرًا مِّنْهُم بَعْدَ ذَٰلِكَ فِى ٱلْأَرْضِ لَمُسْرِفُونَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.819240"
+      "annotated_at": "2025-12-21T09:11:22.476407"
     },
     {
       "span_id": "QBM_01233",
@@ -43,30 +43,30 @@
         "ayah": 33,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 33 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "إِنَّمَا جَزَٰٓؤُا۟ ٱلَّذِينَ يُحَارِبُونَ ٱللَّهَ وَرَسُولَهُۥ وَيَسْعَوْنَ فِى ٱلْأَرْضِ فَسَادًا أَن يُقَتَّلُوٓا۟ أَوْ يُصَلَّبُوٓا۟ أَوْ تُقَطَّعَ أَيْدِيهِمْ وَأَرْجُلُهُم مِّنْ خِلَـٰفٍ أَوْ يُنفَوْا۟ مِنَ ٱلْأَرْضِ ۚ ذَٰلِكَ لَهُمْ خِزْىٌ فِى ٱلدُّنْيَا ۖ وَلَهُمْ فِى ٱلْـَٔاخِرَةِ عَذَابٌ عَظِيمٌ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.819240"
+      "annotated_at": "2025-12-21T09:11:22.477406"
     },
     {
       "span_id": "QBM_01234",
@@ -75,14 +75,14 @@
         "ayah": 34,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 34 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "إِلَّا ٱلَّذِينَ تَابُوا۟ مِن قَبْلِ أَن تَقْدِرُوا۟ عَلَيْهِمْ ۖ فَٱعْلَمُوٓا۟ أَنَّ ٱللَّهَ غَفُورٌ رَّحِيمٌ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -98,7 +98,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.819240"
+      "annotated_at": "2025-12-21T09:11:22.477406"
     },
     {
       "span_id": "QBM_01235",
@@ -107,7 +107,7 @@
         "ayah": 35,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 35 من سورة المائدة",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱتَّقُوا۟ ٱللَّهَ وَٱبْتَغُوٓا۟ إِلَيْهِ ٱلْوَسِيلَةَ وَجَـٰهِدُوا۟ فِى سَبِيلِهِۦ لَعَلَّكُمْ تُفْلِحُونَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
@@ -130,7 +130,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.819240"
+      "annotated_at": "2025-12-21T09:11:22.477406"
     },
     {
       "span_id": "QBM_01236",
@@ -139,30 +139,30 @@
         "ayah": 36,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 36 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "إِنَّ ٱلَّذِينَ كَفَرُوا۟ لَوْ أَنَّ لَهُم مَّا فِى ٱلْأَرْضِ جَمِيعًا وَمِثْلَهُۥ مَعَهُۥ لِيَفْتَدُوا۟ بِهِۦ مِنْ عَذَابِ يَوْمِ ٱلْقِيَـٰمَةِ مَا تُقُبِّلَ مِنْهُمْ ۖ وَلَهُمْ عَذَابٌ أَلِيمٌ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.819240"
+      "annotated_at": "2025-12-21T09:11:22.477406"
     },
     {
       "span_id": "QBM_01237",
@@ -171,20 +171,20 @@
         "ayah": 37,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 37 من سورة المائدة",
+      "text_ar": "يُرِيدُونَ أَن يَخْرُجُوا۟ مِنَ ٱلنَّارِ وَمَا هُم بِخَـٰرِجِينَ مِنْهَا ۖ وَلَهُمْ عَذَابٌ مُّقِيمٌ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -194,7 +194,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.819240"
+      "annotated_at": "2025-12-21T09:11:22.477406"
     },
     {
       "span_id": "QBM_01238",
@@ -203,14 +203,14 @@
         "ayah": 38,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 38 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَٱلسَّارِقُ وَٱلسَّارِقَةُ فَٱقْطَعُوٓا۟ أَيْدِيَهُمَا جَزَآءًۢ بِمَا كَسَبَا نَكَـٰلًا مِّنَ ٱللَّهِ ۗ وَٱللَّهُ عَزِيزٌ حَكِيمٌ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -219,14 +219,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.477406"
     },
     {
       "span_id": "QBM_01239",
@@ -235,14 +235,14 @@
         "ayah": 39,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 39 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "فَمَن تَابَ مِنۢ بَعْدِ ظُلْمِهِۦ وَأَصْلَحَ فَإِنَّ ٱللَّهَ يَتُوبُ عَلَيْهِ ۗ إِنَّ ٱللَّهَ غَفُورٌ رَّحِيمٌ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -251,14 +251,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.477406"
     },
     {
       "span_id": "QBM_01240",
@@ -267,30 +267,30 @@
         "ayah": 40,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 40 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "أَلَمْ تَعْلَمْ أَنَّ ٱللَّهَ لَهُۥ مُلْكُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ يُعَذِّبُ مَن يَشَآءُ وَيَغْفِرُ لِمَن يَشَآءُ ۗ وَٱللَّهُ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.477406"
     },
     {
       "span_id": "QBM_01241",
@@ -299,20 +299,20 @@
         "ayah": 41,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 41 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلرَّسُولُ لَا يَحْزُنكَ ٱلَّذِينَ يُسَـٰرِعُونَ فِى ٱلْكُفْرِ مِنَ ٱلَّذِينَ قَالُوٓا۟ ءَامَنَّا بِأَفْوَٰهِهِمْ وَلَمْ تُؤْمِن قُلُوبُهُمْ ۛ وَمِنَ ٱلَّذِينَ هَادُوا۟ ۛ سَمَّـٰعُونَ لِلْكَذِبِ سَمَّـٰعُونَ لِقَوْمٍ ءَاخَرِينَ لَمْ يَأْتُوكَ ۖ يُحَرِّفُونَ ٱلْكَلِمَ مِنۢ بَعْدِ مَوَاضِعِهِۦ ۖ يَقُولُونَ إِنْ أُوتِيتُمْ هَـٰذَا فَخُذُوهُ وَإِن لَّمْ تُؤْتَوْهُ فَٱحْذَرُوا۟ ۚ وَمَن يُرِدِ ٱللَّهُ فِتْنَتَهُۥ فَلَن تَمْلِكَ لَهُۥ مِنَ ٱللَّهِ شَيْـًٔا ۚ أُو۟لَـٰٓئِكَ ٱلَّذِينَ لَمْ يُرِدِ ٱللَّهُ أَن يُطَهِّرَ قُلُوبَهُمْ ۚ لَهُمْ فِى ٱلدُّنْيَا خِزْىٌ ۖ وَلَهُمْ فِى ٱلْـَٔاخِرَةِ عَذَابٌ عَظِيمٌ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.478448"
     },
     {
       "span_id": "QBM_01242",
@@ -331,14 +331,14 @@
         "ayah": 42,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 42 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "سَمَّـٰعُونَ لِلْكَذِبِ أَكَّـٰلُونَ لِلسُّحْتِ ۚ فَإِن جَآءُوكَ فَٱحْكُم بَيْنَهُمْ أَوْ أَعْرِضْ عَنْهُمْ ۖ وَإِن تُعْرِضْ عَنْهُمْ فَلَن يَضُرُّوكَ شَيْـًٔا ۖ وَإِنْ حَكَمْتَ فَٱحْكُم بَيْنَهُم بِٱلْقِسْطِ ۚ إِنَّ ٱللَّهَ يُحِبُّ ٱلْمُقْسِطِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -347,14 +347,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.478448"
     },
     {
       "span_id": "QBM_01243",
@@ -363,30 +363,30 @@
         "ayah": 43,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 43 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَكَيْفَ يُحَكِّمُونَكَ وَعِندَهُمُ ٱلتَّوْرَىٰةُ فِيهَا حُكْمُ ٱللَّهِ ثُمَّ يَتَوَلَّوْنَ مِنۢ بَعْدِ ذَٰلِكَ ۚ وَمَآ أُو۟لَـٰٓئِكَ بِٱلْمُؤْمِنِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.478448"
     },
     {
       "span_id": "QBM_01244",
@@ -395,20 +395,20 @@
         "ayah": 44,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 44 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "إِنَّآ أَنزَلْنَا ٱلتَّوْرَىٰةَ فِيهَا هُدًى وَنُورٌ ۚ يَحْكُمُ بِهَا ٱلنَّبِيُّونَ ٱلَّذِينَ أَسْلَمُوا۟ لِلَّذِينَ هَادُوا۟ وَٱلرَّبَّـٰنِيُّونَ وَٱلْأَحْبَارُ بِمَا ٱسْتُحْفِظُوا۟ مِن كِتَـٰبِ ٱللَّهِ وَكَانُوا۟ عَلَيْهِ شُهَدَآءَ ۚ فَلَا تَخْشَوُا۟ ٱلنَّاسَ وَٱخْشَوْنِ وَلَا تَشْتَرُوا۟ بِـَٔايَـٰتِى ثَمَنًا قَلِيلًا ۚ وَمَن لَّمْ يَحْكُم بِمَآ أَنزَلَ ٱللَّهُ فَأُو۟لَـٰٓئِكَ هُمُ ٱلْكَـٰفِرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.479003"
     },
     {
       "span_id": "QBM_01245",
@@ -427,14 +427,14 @@
         "ayah": 45,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 45 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَكَتَبْنَا عَلَيْهِمْ فِيهَآ أَنَّ ٱلنَّفْسَ بِٱلنَّفْسِ وَٱلْعَيْنَ بِٱلْعَيْنِ وَٱلْأَنفَ بِٱلْأَنفِ وَٱلْأُذُنَ بِٱلْأُذُنِ وَٱلسِّنَّ بِٱلسِّنِّ وَٱلْجُرُوحَ قِصَاصٌ ۚ فَمَن تَصَدَّقَ بِهِۦ فَهُوَ كَفَّارَةٌ لَّهُۥ ۚ وَمَن لَّمْ يَحْكُم بِمَآ أَنزَلَ ٱللَّهُ فَأُو۟لَـٰٓئِكَ هُمُ ٱلظَّـٰلِمُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -443,14 +443,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.479003"
     },
     {
       "span_id": "QBM_01246",
@@ -459,20 +459,20 @@
         "ayah": 46,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 46 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَقَفَّيْنَا عَلَىٰٓ ءَاثَـٰرِهِم بِعِيسَى ٱبْنِ مَرْيَمَ مُصَدِّقًا لِّمَا بَيْنَ يَدَيْهِ مِنَ ٱلتَّوْرَىٰةِ ۖ وَءَاتَيْنَـٰهُ ٱلْإِنجِيلَ فِيهِ هُدًى وَنُورٌ وَمُصَدِّقًا لِّمَا بَيْنَ يَدَيْهِ مِنَ ٱلتَّوْرَىٰةِ وَهُدًى وَمَوْعِظَةً لِّلْمُتَّقِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -482,7 +482,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.479003"
     },
     {
       "span_id": "QBM_01247",
@@ -491,14 +491,14 @@
         "ayah": 47,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 47 من سورة المائدة",
+      "text_ar": "وَلْيَحْكُمْ أَهْلُ ٱلْإِنجِيلِ بِمَآ أَنزَلَ ٱللَّهُ فِيهِ ۚ وَمَن لَّمْ يَحْكُم بِمَآ أَنزَلَ ٱللَّهُ فَأُو۟لَـٰٓئِكَ هُمُ ٱلْفَـٰسِقُونَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.479003"
     },
     {
       "span_id": "QBM_01248",
@@ -523,14 +523,14 @@
         "ayah": 48,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 48 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَأَنزَلْنَآ إِلَيْكَ ٱلْكِتَـٰبَ بِٱلْحَقِّ مُصَدِّقًا لِّمَا بَيْنَ يَدَيْهِ مِنَ ٱلْكِتَـٰبِ وَمُهَيْمِنًا عَلَيْهِ ۖ فَٱحْكُم بَيْنَهُم بِمَآ أَنزَلَ ٱللَّهُ ۖ وَلَا تَتَّبِعْ أَهْوَآءَهُمْ عَمَّا جَآءَكَ مِنَ ٱلْحَقِّ ۚ لِكُلٍّ جَعَلْنَا مِنكُمْ شِرْعَةً وَمِنْهَاجًا ۚ وَلَوْ شَآءَ ٱللَّهُ لَجَعَلَكُمْ أُمَّةً وَٰحِدَةً وَلَـٰكِن لِّيَبْلُوَكُمْ فِى مَآ ءَاتَىٰكُمْ ۖ فَٱسْتَبِقُوا۟ ٱلْخَيْرَٰتِ ۚ إِلَى ٱللَّهِ مَرْجِعُكُمْ جَمِيعًا فَيُنَبِّئُكُم بِمَا كُنتُمْ فِيهِ تَخْتَلِفُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.479003"
     },
     {
       "span_id": "QBM_01249",
@@ -555,30 +555,30 @@
         "ayah": 49,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 49 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَأَنِ ٱحْكُم بَيْنَهُم بِمَآ أَنزَلَ ٱللَّهُ وَلَا تَتَّبِعْ أَهْوَآءَهُمْ وَٱحْذَرْهُمْ أَن يَفْتِنُوكَ عَنۢ بَعْضِ مَآ أَنزَلَ ٱللَّهُ إِلَيْكَ ۖ فَإِن تَوَلَّوْا۟ فَٱعْلَمْ أَنَّمَا يُرِيدُ ٱللَّهُ أَن يُصِيبَهُم بِبَعْضِ ذُنُوبِهِمْ ۗ وَإِنَّ كَثِيرًا مِّنَ ٱلنَّاسِ لَفَـٰسِقُونَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.479003"
     },
     {
       "span_id": "QBM_01250",
@@ -587,30 +587,30 @@
         "ayah": 50,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 50 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "أَفَحُكْمَ ٱلْجَـٰهِلِيَّةِ يَبْغُونَ ۚ وَمَنْ أَحْسَنُ مِنَ ٱللَّهِ حُكْمًا لِّقَوْمٍ يُوقِنُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "praise",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.479003"
     },
     {
       "span_id": "QBM_01251",
@@ -619,20 +619,20 @@
         "ayah": 51,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 51 من سورة المائدة",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَتَّخِذُوا۟ ٱلْيَهُودَ وَٱلنَّصَـٰرَىٰٓ أَوْلِيَآءَ ۘ بَعْضُهُمْ أَوْلِيَآءُ بَعْضٍ ۚ وَمَن يَتَوَلَّهُم مِّنكُمْ فَإِنَّهُۥ مِنْهُمْ ۗ إِنَّ ٱللَّهَ لَا يَهْدِى ٱلْقَوْمَ ٱلظَّـٰلِمِينَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.480000"
     },
     {
       "span_id": "QBM_01252",
@@ -651,30 +651,30 @@
         "ayah": 52,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 52 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "فَتَرَى ٱلَّذِينَ فِى قُلُوبِهِم مَّرَضٌ يُسَـٰرِعُونَ فِيهِمْ يَقُولُونَ نَخْشَىٰٓ أَن تُصِيبَنَا دَآئِرَةٌ ۚ فَعَسَى ٱللَّهُ أَن يَأْتِىَ بِٱلْفَتْحِ أَوْ أَمْرٍ مِّنْ عِندِهِۦ فَيُصْبِحُوا۟ عَلَىٰ مَآ أَسَرُّوا۟ فِىٓ أَنفُسِهِمْ نَـٰدِمِينَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.480000"
     },
     {
       "span_id": "QBM_01253",
@@ -683,14 +683,14 @@
         "ayah": 53,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 53 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَيَقُولُ ٱلَّذِينَ ءَامَنُوٓا۟ أَهَـٰٓؤُلَآءِ ٱلَّذِينَ أَقْسَمُوا۟ بِٱللَّهِ جَهْدَ أَيْمَـٰنِهِمْ ۙ إِنَّهُمْ لَمَعَكُمْ ۚ حَبِطَتْ أَعْمَـٰلُهُمْ فَأَصْبَحُوا۟ خَـٰسِرِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -706,7 +706,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.480000"
     },
     {
       "span_id": "QBM_01254",
@@ -715,30 +715,30 @@
         "ayah": 54,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 54 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ مَن يَرْتَدَّ مِنكُمْ عَن دِينِهِۦ فَسَوْفَ يَأْتِى ٱللَّهُ بِقَوْمٍ يُحِبُّهُمْ وَيُحِبُّونَهُۥٓ أَذِلَّةٍ عَلَى ٱلْمُؤْمِنِينَ أَعِزَّةٍ عَلَى ٱلْكَـٰفِرِينَ يُجَـٰهِدُونَ فِى سَبِيلِ ٱللَّهِ وَلَا يَخَافُونَ لَوْمَةَ لَآئِمٍ ۚ ذَٰلِكَ فَضْلُ ٱللَّهِ يُؤْتِيهِ مَن يَشَآءُ ۚ وَٱللَّهُ وَٰسِعٌ عَلِيمٌ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.480000"
     },
     {
       "span_id": "QBM_01255",
@@ -747,14 +747,14 @@
         "ayah": 55,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 55 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "إِنَّمَا وَلِيُّكُمُ ٱللَّهُ وَرَسُولُهُۥ وَٱلَّذِينَ ءَامَنُوا۟ ٱلَّذِينَ يُقِيمُونَ ٱلصَّلَوٰةَ وَيُؤْتُونَ ٱلزَّكَوٰةَ وَهُمْ رَٰكِعُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -763,14 +763,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.480000"
     },
     {
       "span_id": "QBM_01256",
@@ -779,14 +779,14 @@
         "ayah": 56,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 56 من سورة المائدة",
+      "text_ar": "وَمَن يَتَوَلَّ ٱللَّهَ وَرَسُولَهُۥ وَٱلَّذِينَ ءَامَنُوا۟ فَإِنَّ حِزْبَ ٱللَّهِ هُمُ ٱلْغَـٰلِبُونَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -802,7 +802,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.480000"
     },
     {
       "span_id": "QBM_01257",
@@ -811,30 +811,30 @@
         "ayah": 57,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 57 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَتَّخِذُوا۟ ٱلَّذِينَ ٱتَّخَذُوا۟ دِينَكُمْ هُزُوًا وَلَعِبًا مِّنَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَـٰبَ مِن قَبْلِكُمْ وَٱلْكُفَّارَ أَوْلِيَآءَ ۚ وَٱتَّقُوا۟ ٱللَّهَ إِن كُنتُم مُّؤْمِنِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.480000"
     },
     {
       "span_id": "QBM_01258",
@@ -843,14 +843,14 @@
         "ayah": 58,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 58 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَإِذَا نَادَيْتُمْ إِلَى ٱلصَّلَوٰةِ ٱتَّخَذُوهَا هُزُوًا وَلَعِبًا ۚ ذَٰلِكَ بِأَنَّهُمْ قَوْمٌ لَّا يَعْقِلُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -859,14 +859,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.480000"
     },
     {
       "span_id": "QBM_01259",
@@ -875,14 +875,14 @@
         "ayah": 59,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 59 من سورة المائدة",
+      "text_ar": "قُلْ يَـٰٓأَهْلَ ٱلْكِتَـٰبِ هَلْ تَنقِمُونَ مِنَّآ إِلَّآ أَنْ ءَامَنَّا بِٱللَّهِ وَمَآ أُنزِلَ إِلَيْنَا وَمَآ أُنزِلَ مِن قَبْلُ وَأَنَّ أَكْثَرَكُمْ فَـٰسِقُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -898,7 +898,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.481037"
     },
     {
       "span_id": "QBM_01260",
@@ -907,30 +907,30 @@
         "ayah": 60,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 60 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "قُلْ هَلْ أُنَبِّئُكُم بِشَرٍّ مِّن ذَٰلِكَ مَثُوبَةً عِندَ ٱللَّهِ ۚ مَن لَّعَنَهُ ٱللَّهُ وَغَضِبَ عَلَيْهِ وَجَعَلَ مِنْهُمُ ٱلْقِرَدَةَ وَٱلْخَنَازِيرَ وَعَبَدَ ٱلطَّـٰغُوتَ ۚ أُو۟لَـٰٓئِكَ شَرٌّ مَّكَانًا وَأَضَلُّ عَن سَوَآءِ ٱلسَّبِيلِ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.481037"
     },
     {
       "span_id": "QBM_01261",
@@ -939,14 +939,14 @@
         "ayah": 61,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 61 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَإِذَا جَآءُوكُمْ قَالُوٓا۟ ءَامَنَّا وَقَد دَّخَلُوا۟ بِٱلْكُفْرِ وَهُمْ قَدْ خَرَجُوا۟ بِهِۦ ۚ وَٱللَّهُ أَعْلَمُ بِمَا كَانُوا۟ يَكْتُمُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -962,7 +962,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.481037"
     },
     {
       "span_id": "QBM_01262",
@@ -971,14 +971,14 @@
         "ayah": 62,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 62 من سورة المائدة",
+      "text_ar": "وَتَرَىٰ كَثِيرًا مِّنْهُمْ يُسَـٰرِعُونَ فِى ٱلْإِثْمِ وَٱلْعُدْوَٰنِ وَأَكْلِهِمُ ٱلسُّحْتَ ۚ لَبِئْسَ مَا كَانُوا۟ يَعْمَلُونَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.481037"
     },
     {
       "span_id": "QBM_01263",
@@ -1003,14 +1003,14 @@
         "ayah": 63,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 63 من سورة المائدة",
+      "text_ar": "لَوْلَا يَنْهَىٰهُمُ ٱلرَّبَّـٰنِيُّونَ وَٱلْأَحْبَارُ عَن قَوْلِهِمُ ٱلْإِثْمَ وَأَكْلِهِمُ ٱلسُّحْتَ ۚ لَبِئْسَ مَا كَانُوا۟ يَصْنَعُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1026,7 +1026,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.481037"
     },
     {
       "span_id": "QBM_01264",
@@ -1035,20 +1035,20 @@
         "ayah": 64,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 64 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَقَالَتِ ٱلْيَهُودُ يَدُ ٱللَّهِ مَغْلُولَةٌ ۚ غُلَّتْ أَيْدِيهِمْ وَلُعِنُوا۟ بِمَا قَالُوا۟ ۘ بَلْ يَدَاهُ مَبْسُوطَتَانِ يُنفِقُ كَيْفَ يَشَآءُ ۚ وَلَيَزِيدَنَّ كَثِيرًا مِّنْهُم مَّآ أُنزِلَ إِلَيْكَ مِن رَّبِّكَ طُغْيَـٰنًا وَكُفْرًا ۚ وَأَلْقَيْنَا بَيْنَهُمُ ٱلْعَدَٰوَةَ وَٱلْبَغْضَآءَ إِلَىٰ يَوْمِ ٱلْقِيَـٰمَةِ ۚ كُلَّمَآ أَوْقَدُوا۟ نَارًا لِّلْحَرْبِ أَطْفَأَهَا ٱللَّهُ ۚ وَيَسْعَوْنَ فِى ٱلْأَرْضِ فَسَادًا ۚ وَٱللَّهُ لَا يُحِبُّ ٱلْمُفْسِدِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.481590"
     },
     {
       "span_id": "QBM_01265",
@@ -1067,30 +1067,30 @@
         "ayah": 65,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 65 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَلَوْ أَنَّ أَهْلَ ٱلْكِتَـٰبِ ءَامَنُوا۟ وَٱتَّقَوْا۟ لَكَفَّرْنَا عَنْهُمْ سَيِّـَٔاتِهِمْ وَلَأَدْخَلْنَـٰهُمْ جَنَّـٰتِ ٱلنَّعِيمِ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.481590"
     },
     {
       "span_id": "QBM_01266",
@@ -1099,14 +1099,14 @@
         "ayah": 66,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 66 من سورة المائدة",
+      "text_ar": "وَلَوْ أَنَّهُمْ أَقَامُوا۟ ٱلتَّوْرَىٰةَ وَٱلْإِنجِيلَ وَمَآ أُنزِلَ إِلَيْهِم مِّن رَّبِّهِمْ لَأَكَلُوا۟ مِن فَوْقِهِمْ وَمِن تَحْتِ أَرْجُلِهِم ۚ مِّنْهُمْ أُمَّةٌ مُّقْتَصِدَةٌ ۖ وَكَثِيرٌ مِّنْهُمْ سَآءَ مَا يَعْمَلُونَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.481590"
     },
     {
       "span_id": "QBM_01267",
@@ -1131,20 +1131,20 @@
         "ayah": 67,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 67 من سورة المائدة",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلرَّسُولُ بَلِّغْ مَآ أُنزِلَ إِلَيْكَ مِن رَّبِّكَ ۖ وَإِن لَّمْ تَفْعَلْ فَمَا بَلَّغْتَ رِسَالَتَهُۥ ۚ وَٱللَّهُ يَعْصِمُكَ مِنَ ٱلنَّاسِ ۗ إِنَّ ٱللَّهَ لَا يَهْدِى ٱلْقَوْمَ ٱلْكَـٰفِرِينَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -1154,7 +1154,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.481590"
     },
     {
       "span_id": "QBM_01268",
@@ -1163,14 +1163,14 @@
         "ayah": 68,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 68 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "قُلْ يَـٰٓأَهْلَ ٱلْكِتَـٰبِ لَسْتُمْ عَلَىٰ شَىْءٍ حَتَّىٰ تُقِيمُوا۟ ٱلتَّوْرَىٰةَ وَٱلْإِنجِيلَ وَمَآ أُنزِلَ إِلَيْكُم مِّن رَّبِّكُمْ ۗ وَلَيَزِيدَنَّ كَثِيرًا مِّنْهُم مَّآ أُنزِلَ إِلَيْكَ مِن رَّبِّكَ طُغْيَـٰنًا وَكُفْرًا ۖ فَلَا تَأْسَ عَلَى ٱلْقَوْمِ ٱلْكَـٰفِرِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.481590"
     },
     {
       "span_id": "QBM_01269",
@@ -1195,14 +1195,14 @@
         "ayah": 69,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 69 من سورة المائدة",
+      "text_ar": "إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَٱلَّذِينَ هَادُوا۟ وَٱلصَّـٰبِـُٔونَ وَٱلنَّصَـٰرَىٰ مَنْ ءَامَنَ بِٱللَّهِ وَٱلْيَوْمِ ٱلْـَٔاخِرِ وَعَمِلَ صَـٰلِحًا فَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1218,7 +1218,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.481590"
     },
     {
       "span_id": "QBM_01270",
@@ -1227,14 +1227,14 @@
         "ayah": 70,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 70 من سورة المائدة",
+      "text_ar": "لَقَدْ أَخَذْنَا مِيثَـٰقَ بَنِىٓ إِسْرَٰٓءِيلَ وَأَرْسَلْنَآ إِلَيْهِمْ رُسُلًا ۖ كُلَّمَا جَآءَهُمْ رَسُولٌۢ بِمَا لَا تَهْوَىٰٓ أَنفُسُهُمْ فَرِيقًا كَذَّبُوا۟ وَفَرِيقًا يَقْتُلُونَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1250,7 +1250,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.481590"
     },
     {
       "span_id": "QBM_01271",
@@ -1259,14 +1259,14 @@
         "ayah": 71,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 71 من سورة المائدة",
+      "text_ar": "وَحَسِبُوٓا۟ أَلَّا تَكُونَ فِتْنَةٌ فَعَمُوا۟ وَصَمُّوا۟ ثُمَّ تَابَ ٱللَّهُ عَلَيْهِمْ ثُمَّ عَمُوا۟ وَصَمُّوا۟ كَثِيرٌ مِّنْهُمْ ۚ وَٱللَّهُ بَصِيرٌۢ بِمَا يَعْمَلُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.482587"
     },
     {
       "span_id": "QBM_01272",
@@ -1291,20 +1291,20 @@
         "ayah": 72,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 72 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "لَقَدْ كَفَرَ ٱلَّذِينَ قَالُوٓا۟ إِنَّ ٱللَّهَ هُوَ ٱلْمَسِيحُ ٱبْنُ مَرْيَمَ ۖ وَقَالَ ٱلْمَسِيحُ يَـٰبَنِىٓ إِسْرَٰٓءِيلَ ٱعْبُدُوا۟ ٱللَّهَ رَبِّى وَرَبَّكُمْ ۖ إِنَّهُۥ مَن يُشْرِكْ بِٱللَّهِ فَقَدْ حَرَّمَ ٱللَّهُ عَلَيْهِ ٱلْجَنَّةَ وَمَأْوَىٰهُ ٱلنَّارُ ۖ وَمَا لِلظَّـٰلِمِينَ مِنْ أَنصَارٍ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -1314,7 +1314,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.482587"
     },
     {
       "span_id": "QBM_01273",
@@ -1323,20 +1323,20 @@
         "ayah": 73,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 73 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "لَّقَدْ كَفَرَ ٱلَّذِينَ قَالُوٓا۟ إِنَّ ٱللَّهَ ثَالِثُ ثَلَـٰثَةٍ ۘ وَمَا مِنْ إِلَـٰهٍ إِلَّآ إِلَـٰهٌ وَٰحِدٌ ۚ وَإِن لَّمْ يَنتَهُوا۟ عَمَّا يَقُولُونَ لَيَمَسَّنَّ ٱلَّذِينَ كَفَرُوا۟ مِنْهُمْ عَذَابٌ أَلِيمٌ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.482587"
     },
     {
       "span_id": "QBM_01274",
@@ -1355,10 +1355,10 @@
         "ayah": 74,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 74 من سورة المائدة",
+      "text_ar": "أَفَلَا يَتُوبُونَ إِلَى ٱللَّهِ وَيَسْتَغْفِرُونَهُۥ ۚ وَٱللَّهُ غَفُورٌ رَّحِيمٌ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -1378,7 +1378,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.482587"
     },
     {
       "span_id": "QBM_01275",
@@ -1387,14 +1387,14 @@
         "ayah": 75,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 75 من سورة المائدة",
+      "text_ar": "مَّا ٱلْمَسِيحُ ٱبْنُ مَرْيَمَ إِلَّا رَسُولٌ قَدْ خَلَتْ مِن قَبْلِهِ ٱلرُّسُلُ وَأُمُّهُۥ صِدِّيقَةٌ ۖ كَانَا يَأْكُلَانِ ٱلطَّعَامَ ۗ ٱنظُرْ كَيْفَ نُبَيِّنُ لَهُمُ ٱلْـَٔايَـٰتِ ثُمَّ ٱنظُرْ أَنَّىٰ يُؤْفَكُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1410,7 +1410,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.482587"
     },
     {
       "span_id": "QBM_01276",
@@ -1419,14 +1419,14 @@
         "ayah": 76,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 76 من سورة المائدة",
+      "text_ar": "قُلْ أَتَعْبُدُونَ مِن دُونِ ٱللَّهِ مَا لَا يَمْلِكُ لَكُمْ ضَرًّا وَلَا نَفْعًا ۚ وَٱللَّهُ هُوَ ٱلسَّمِيعُ ٱلْعَلِيمُ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1442,7 +1442,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.482587"
     },
     {
       "span_id": "QBM_01277",
@@ -1451,14 +1451,14 @@
         "ayah": 77,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 77 من سورة المائدة",
+      "text_ar": "قُلْ يَـٰٓأَهْلَ ٱلْكِتَـٰبِ لَا تَغْلُوا۟ فِى دِينِكُمْ غَيْرَ ٱلْحَقِّ وَلَا تَتَّبِعُوٓا۟ أَهْوَآءَ قَوْمٍ قَدْ ضَلُّوا۟ مِن قَبْلُ وَأَضَلُّوا۟ كَثِيرًا وَضَلُّوا۟ عَن سَوَآءِ ٱلسَّبِيلِ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.482587"
     },
     {
       "span_id": "QBM_01278",
@@ -1483,20 +1483,20 @@
         "ayah": 78,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 78 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "لُعِنَ ٱلَّذِينَ كَفَرُوا۟ مِنۢ بَنِىٓ إِسْرَٰٓءِيلَ عَلَىٰ لِسَانِ دَاوُۥدَ وَعِيسَى ٱبْنِ مَرْيَمَ ۚ ذَٰلِكَ بِمَا عَصَوا۟ وَّكَانُوا۟ يَعْتَدُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -1506,7 +1506,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.482587"
     },
     {
       "span_id": "QBM_01279",
@@ -1515,14 +1515,14 @@
         "ayah": 79,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 79 من سورة المائدة",
+      "text_ar": "كَانُوا۟ لَا يَتَنَاهَوْنَ عَن مُّنكَرٍ فَعَلُوهُ ۚ لَبِئْسَ مَا كَانُوا۟ يَفْعَلُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1538,7 +1538,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.482587"
     },
     {
       "span_id": "QBM_01280",
@@ -1547,30 +1547,30 @@
         "ayah": 80,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 80 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "تَرَىٰ كَثِيرًا مِّنْهُمْ يَتَوَلَّوْنَ ٱلَّذِينَ كَفَرُوا۟ ۚ لَبِئْسَ مَا قَدَّمَتْ لَهُمْ أَنفُسُهُمْ أَن سَخِطَ ٱللَّهُ عَلَيْهِمْ وَفِى ٱلْعَذَابِ هُمْ خَـٰلِدُونَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.483587"
     },
     {
       "span_id": "QBM_01281",
@@ -1579,30 +1579,30 @@
         "ayah": 81,
         "surah_name": "المائدة"
       },
-      "text_ar": "آية 81 من سورة المائدة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَلَوْ كَانُوا۟ يُؤْمِنُونَ بِٱللَّهِ وَٱلنَّبِىِّ وَمَآ أُنزِلَ إِلَيْهِ مَا ٱتَّخَذُوهُمْ أَوْلِيَآءَ وَلَـٰكِنَّ كَثِيرًا مِّنْهُمْ فَـٰسِقُونَ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.820239"
+      "annotated_at": "2025-12-21T09:11:22.483587"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_021",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:53:19.432195",
+  "annotated_at": "2025-12-21T09:12:12.612527",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,10 +11,10 @@
         "ayah": 16,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 16 من سورة الزخرف",
+      "text_ar": "أَمِ ٱتَّخَذَ مِمَّا يَخْلُقُ بَنَاتٍ وَأَصْفَىٰكُم بِٱلْبَنِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608330"
     },
     {
       "span_id": "QBM_12617",
@@ -43,20 +43,20 @@
         "ayah": 17,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 17 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَإِذَا بُشِّرَ أَحَدُهُم بِمَا ضَرَبَ لِلرَّحْمَـٰنِ مَثَلًا ظَلَّ وَجْهُهُۥ مُسْوَدًّا وَهُوَ كَظِيمٌ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -66,7 +66,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12618",
@@ -75,30 +75,30 @@
         "ayah": 18,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 18 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "أَوَمَن يُنَشَّؤُا۟ فِى ٱلْحِلْيَةِ وَهُوَ فِى ٱلْخِصَامِ غَيْرُ مُبِينٍ",
+      "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12619",
@@ -107,19 +107,19 @@
         "ayah": 19,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 19 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَجَعَلُوا۟ ٱلْمَلَـٰٓئِكَةَ ٱلَّذِينَ هُمْ عِبَـٰدُ ٱلرَّحْمَـٰنِ إِنَـٰثًا ۚ أَشَهِدُوا۟ خَلْقَهُمْ ۚ سَتُكْتَبُ شَهَـٰدَتُهُمْ وَيُسْـَٔلُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -130,7 +130,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12620",
@@ -139,30 +139,30 @@
         "ayah": 20,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 20 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَقَالُوا۟ لَوْ شَآءَ ٱلرَّحْمَـٰنُ مَا عَبَدْنَـٰهُم ۗ مَّا لَهُم بِذَٰلِكَ مِنْ عِلْمٍ ۖ إِنْ هُمْ إِلَّا يَخْرُصُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12621",
@@ -171,14 +171,14 @@
         "ayah": 21,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 21 من سورة الزخرف",
+      "text_ar": "أَمْ ءَاتَيْنَـٰهُمْ كِتَـٰبًا مِّن قَبْلِهِۦ فَهُم بِهِۦ مُسْتَمْسِكُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -194,7 +194,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12622",
@@ -203,30 +203,30 @@
         "ayah": 22,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 22 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "بَلْ قَالُوٓا۟ إِنَّا وَجَدْنَآ ءَابَآءَنَا عَلَىٰٓ أُمَّةٍ وَإِنَّا عَلَىٰٓ ءَاثَـٰرِهِم مُّهْتَدُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12623",
@@ -235,30 +235,30 @@
         "ayah": 23,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 23 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَكَذَٰلِكَ مَآ أَرْسَلْنَا مِن قَبْلِكَ فِى قَرْيَةٍ مِّن نَّذِيرٍ إِلَّا قَالَ مُتْرَفُوهَآ إِنَّا وَجَدْنَآ ءَابَآءَنَا عَلَىٰٓ أُمَّةٍ وَإِنَّا عَلَىٰٓ ءَاثَـٰرِهِم مُّقْتَدُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12624",
@@ -267,30 +267,30 @@
         "ayah": 24,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 24 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "قَـٰلَ أَوَلَوْ جِئْتُكُم بِأَهْدَىٰ مِمَّا وَجَدتُّمْ عَلَيْهِ ءَابَآءَكُمْ ۖ قَالُوٓا۟ إِنَّا بِمَآ أُرْسِلْتُم بِهِۦ كَـٰفِرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12625",
@@ -299,19 +299,19 @@
         "ayah": 25,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 25 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "فَٱنتَقَمْنَا مِنْهُمْ ۖ فَٱنظُرْ كَيْفَ كَانَ عَـٰقِبَةُ ٱلْمُكَذِّبِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12626",
@@ -331,30 +331,30 @@
         "ayah": 26,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 26 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَإِذْ قَالَ إِبْرَٰهِيمُ لِأَبِيهِ وَقَوْمِهِۦٓ إِنَّنِى بَرَآءٌ مِّمَّا تَعْبُدُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12627",
@@ -363,14 +363,14 @@
         "ayah": 27,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 27 من سورة الزخرف",
+      "text_ar": "إِلَّا ٱلَّذِى فَطَرَنِى فَإِنَّهُۥ سَيَهْدِينِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -386,7 +386,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12628",
@@ -395,19 +395,19 @@
         "ayah": 28,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 28 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَجَعَلَهَا كَلِمَةًۢ بَاقِيَةً فِى عَقِبِهِۦ لَعَلَّهُمْ يَرْجِعُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12629",
@@ -427,14 +427,14 @@
         "ayah": 29,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 29 من سورة الزخرف",
+      "text_ar": "بَلْ مَتَّعْتُ هَـٰٓؤُلَآءِ وَءَابَآءَهُمْ حَتَّىٰ جَآءَهُمُ ٱلْحَقُّ وَرَسُولٌ مُّبِينٌ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -450,7 +450,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.608884"
     },
     {
       "span_id": "QBM_12630",
@@ -459,30 +459,30 @@
         "ayah": 30,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 30 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَمَّا جَآءَهُمُ ٱلْحَقُّ قَالُوا۟ هَـٰذَا سِحْرٌ وَإِنَّا بِهِۦ كَـٰفِرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12631",
@@ -491,10 +491,10 @@
         "ayah": 31,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 31 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَقَالُوا۟ لَوْلَا نُزِّلَ هَـٰذَا ٱلْقُرْءَانُ عَلَىٰ رَجُلٍ مِّنَ ٱلْقَرْيَتَيْنِ عَظِيمٍ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -503,18 +503,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12632",
@@ -523,20 +523,20 @@
         "ayah": 32,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 32 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "أَهُمْ يَقْسِمُونَ رَحْمَتَ رَبِّكَ ۚ نَحْنُ قَسَمْنَا بَيْنَهُم مَّعِيشَتَهُمْ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا ۚ وَرَفَعْنَا بَعْضَهُمْ فَوْقَ بَعْضٍ دَرَجَـٰتٍ لِّيَتَّخِذَ بَعْضُهُم بَعْضًا سُخْرِيًّا ۗ وَرَحْمَتُ رَبِّكَ خَيْرٌ مِّمَّا يَجْمَعُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12633",
@@ -555,14 +555,14 @@
         "ayah": 33,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 33 من سورة الزخرف",
+      "text_ar": "وَلَوْلَآ أَن يَكُونَ ٱلنَّاسُ أُمَّةً وَٰحِدَةً لَّجَعَلْنَا لِمَن يَكْفُرُ بِٱلرَّحْمَـٰنِ لِبُيُوتِهِمْ سُقُفًا مِّن فِضَّةٍ وَمَعَارِجَ عَلَيْهَا يَظْهَرُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -578,7 +578,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12634",
@@ -587,14 +587,14 @@
         "ayah": 34,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 34 من سورة الزخرف",
+      "text_ar": "وَلِبُيُوتِهِمْ أَبْوَٰبًا وَسُرُرًا عَلَيْهَا يَتَّكِـُٔونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12635",
@@ -619,14 +619,14 @@
         "ayah": 35,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 35 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَزُخْرُفًا ۚ وَإِن كُلُّ ذَٰلِكَ لَمَّا مَتَـٰعُ ٱلْحَيَوٰةِ ٱلدُّنْيَا ۚ وَٱلْـَٔاخِرَةُ عِندَ رَبِّكَ لِلْمُتَّقِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12636",
@@ -651,30 +651,30 @@
         "ayah": 36,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 36 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَمَن يَعْشُ عَن ذِكْرِ ٱلرَّحْمَـٰنِ نُقَيِّضْ لَهُۥ شَيْطَـٰنًا فَهُوَ لَهُۥ قَرِينٌ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12637",
@@ -683,14 +683,14 @@
         "ayah": 37,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 37 من سورة الزخرف",
+      "text_ar": "وَإِنَّهُمْ لَيَصُدُّونَهُمْ عَنِ ٱلسَّبِيلِ وَيَحْسَبُونَ أَنَّهُم مُّهْتَدُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -706,7 +706,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12638",
@@ -715,30 +715,30 @@
         "ayah": 38,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 38 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "حَتَّىٰٓ إِذَا جَآءَنَا قَالَ يَـٰلَيْتَ بَيْنِى وَبَيْنَكَ بُعْدَ ٱلْمَشْرِقَيْنِ فَبِئْسَ ٱلْقَرِينُ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12639",
@@ -747,20 +747,20 @@
         "ayah": 39,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 39 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَن يَنفَعَكُمُ ٱلْيَوْمَ إِذ ظَّلَمْتُمْ أَنَّكُمْ فِى ٱلْعَذَابِ مُشْتَرِكُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -770,7 +770,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12640",
@@ -779,20 +779,20 @@
         "ayah": 40,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 40 من سورة الزخرف",
+      "text_ar": "أَفَأَنتَ تُسْمِعُ ٱلصُّمَّ أَوْ تَهْدِى ٱلْعُمْىَ وَمَن كَانَ فِى ضَلَـٰلٍ مُّبِينٍ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -802,7 +802,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12641",
@@ -811,14 +811,14 @@
         "ayah": 41,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 41 من سورة الزخرف",
+      "text_ar": "فَإِمَّا نَذْهَبَنَّ بِكَ فَإِنَّا مِنْهُم مُّنتَقِمُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -834,7 +834,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12642",
@@ -843,30 +843,30 @@
         "ayah": 42,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 42 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "أَوْ نُرِيَنَّكَ ٱلَّذِى وَعَدْنَـٰهُمْ فَإِنَّا عَلَيْهِم مُّقْتَدِرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.609877"
     },
     {
       "span_id": "QBM_12643",
@@ -875,14 +875,14 @@
         "ayah": 43,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 43 من سورة الزخرف",
+      "text_ar": "فَٱسْتَمْسِكْ بِٱلَّذِىٓ أُوحِىَ إِلَيْكَ ۖ إِنَّكَ عَلَىٰ صِرَٰطٍ مُّسْتَقِيمٍ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -898,7 +898,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12644",
@@ -907,30 +907,30 @@
         "ayah": 44,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 44 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَإِنَّهُۥ لَذِكْرٌ لَّكَ وَلِقَوْمِكَ ۖ وَسَوْفَ تُسْـَٔلُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.431195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12645",
@@ -939,8 +939,8 @@
         "ayah": 45,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 45 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَسْـَٔلْ مَنْ أَرْسَلْنَا مِن قَبْلِكَ مِن رُّسُلِنَآ أَجَعَلْنَا مِن دُونِ ٱلرَّحْمَـٰنِ ءَالِهَةً يُعْبَدُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
@@ -951,7 +951,7 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -962,7 +962,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12646",
@@ -971,30 +971,30 @@
         "ayah": 46,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 46 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَقَدْ أَرْسَلْنَا مُوسَىٰ بِـَٔايَـٰتِنَآ إِلَىٰ فِرْعَوْنَ وَمَلَإِي۟هِۦ فَقَالَ إِنِّى رَسُولُ رَبِّ ٱلْعَـٰلَمِينَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12647",
@@ -1003,14 +1003,14 @@
         "ayah": 47,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 47 من سورة الزخرف",
+      "text_ar": "فَلَمَّا جَآءَهُم بِـَٔايَـٰتِنَآ إِذَا هُم مِّنْهَا يَضْحَكُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1026,7 +1026,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12648",
@@ -1035,20 +1035,20 @@
         "ayah": 48,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 48 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَمَا نُرِيهِم مِّنْ ءَايَةٍ إِلَّا هِىَ أَكْبَرُ مِنْ أُخْتِهَا ۖ وَأَخَذْنَـٰهُم بِٱلْعَذَابِ لَعَلَّهُمْ يَرْجِعُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12649",
@@ -1067,30 +1067,30 @@
         "ayah": 49,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 49 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَقَالُوا۟ يَـٰٓأَيُّهَ ٱلسَّاحِرُ ٱدْعُ لَنَا رَبَّكَ بِمَا عَهِدَ عِندَكَ إِنَّنَا لَمُهْتَدُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12650",
@@ -1099,20 +1099,20 @@
         "ayah": 50,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 50 من سورة الزخرف",
+      "text_ar": "فَلَمَّا كَشَفْنَا عَنْهُمُ ٱلْعَذَابَ إِذَا هُمْ يَنكُثُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12651",
@@ -1131,30 +1131,30 @@
         "ayah": 51,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 51 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَنَادَىٰ فِرْعَوْنُ فِى قَوْمِهِۦ قَالَ يَـٰقَوْمِ أَلَيْسَ لِى مُلْكُ مِصْرَ وَهَـٰذِهِ ٱلْأَنْهَـٰرُ تَجْرِى مِن تَحْتِىٓ ۖ أَفَلَا تُبْصِرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12652",
@@ -1163,20 +1163,20 @@
         "ayah": 52,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 52 من سورة الزخرف",
+      "text_ar": "أَمْ أَنَا۠ خَيْرٌ مِّنْ هَـٰذَا ٱلَّذِى هُوَ مَهِينٌ وَلَا يَكَادُ يُبِينُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12653",
@@ -1195,7 +1195,7 @@
         "ayah": 53,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 53 من سورة الزخرف",
+      "text_ar": "فَلَوْلَآ أُلْقِىَ عَلَيْهِ أَسْوِرَةٌ مِّن ذَهَبٍ أَوْ جَآءَ مَعَهُ ٱلْمَلَـٰٓئِكَةُ مُقْتَرِنِينَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
@@ -1218,7 +1218,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12654",
@@ -1227,19 +1227,19 @@
         "ayah": 54,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 54 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "فَٱسْتَخَفَّ قَوْمَهُۥ فَأَطَاعُوهُ ۚ إِنَّهُمْ كَانُوا۟ قَوْمًا فَـٰسِقِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -1250,7 +1250,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12655",
@@ -1259,14 +1259,14 @@
         "ayah": 55,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 55 من سورة الزخرف",
+      "text_ar": "فَلَمَّآ ءَاسَفُونَا ٱنتَقَمْنَا مِنْهُمْ فَأَغْرَقْنَـٰهُمْ أَجْمَعِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12656",
@@ -1291,14 +1291,14 @@
         "ayah": 56,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 56 من سورة الزخرف",
+      "text_ar": "فَجَعَلْنَـٰهُمْ سَلَفًا وَمَثَلًا لِّلْـَٔاخِرِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1314,7 +1314,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.610877"
     },
     {
       "span_id": "QBM_12657",
@@ -1323,10 +1323,10 @@
         "ayah": 57,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 57 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَمَّا ضُرِبَ ٱبْنُ مَرْيَمَ مَثَلًا إِذَا قَوْمُكَ مِنْهُ يَصِدُّونَ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1335,18 +1335,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.611878"
     },
     {
       "span_id": "QBM_12658",
@@ -1355,30 +1355,30 @@
         "ayah": 58,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 58 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَقَالُوٓا۟ ءَأَـٰلِهَتُنَا خَيْرٌ أَمْ هُوَ ۚ مَا ضَرَبُوهُ لَكَ إِلَّا جَدَلًۢا ۚ بَلْ هُمْ قَوْمٌ خَصِمُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.611978"
     },
     {
       "span_id": "QBM_12659",
@@ -1387,30 +1387,30 @@
         "ayah": 59,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 59 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنْ هُوَ إِلَّا عَبْدٌ أَنْعَمْنَا عَلَيْهِ وَجَعَلْنَـٰهُ مَثَلًا لِّبَنِىٓ إِسْرَٰٓءِيلَ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.611978"
     },
     {
       "span_id": "QBM_12660",
@@ -1419,10 +1419,10 @@
         "ayah": 60,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 60 من سورة الزخرف",
+      "text_ar": "وَلَوْ نَشَآءُ لَجَعَلْنَا مِنكُم مَّلَـٰٓئِكَةً فِى ٱلْأَرْضِ يَخْلُفُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1442,7 +1442,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.611978"
     },
     {
       "span_id": "QBM_12661",
@@ -1451,14 +1451,14 @@
         "ayah": 61,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 61 من سورة الزخرف",
+      "text_ar": "وَإِنَّهُۥ لَعِلْمٌ لِّلسَّاعَةِ فَلَا تَمْتَرُنَّ بِهَا وَٱتَّبِعُونِ ۚ هَـٰذَا صِرَٰطٌ مُّسْتَقِيمٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.611978"
     },
     {
       "span_id": "QBM_12662",
@@ -1483,8 +1483,40 @@
         "ayah": 62,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 62 من سورة الزخرف",
+      "text_ar": "وَلَا يَصُدَّنَّكُمُ ٱلشَّيْطَـٰنُ ۖ إِنَّهُۥ لَكُمْ عَدُوٌّ مُّبِينٌ",
       "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:12:12.611978"
+    },
+    {
+      "span_id": "QBM_12663",
+      "reference": {
+        "surah": 43,
+        "ayah": 63,
+        "surah_name": "الزخرف"
+      },
+      "text_ar": "وَلَمَّا جَآءَ عِيسَىٰ بِٱلْبَيِّنَـٰتِ قَالَ قَدْ جِئْتُكُم بِٱلْحِكْمَةِ وَلِأُبَيِّنَ لَكُم بَعْضَ ٱلَّذِى تَخْتَلِفُونَ فِيهِ ۖ فَٱتَّقُوا۟ ٱللَّهَ وَأَطِيعُونِ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -1495,50 +1527,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
-    },
-    {
-      "span_id": "QBM_12663",
-      "reference": {
-        "surah": 43,
-        "ayah": 63,
-        "surah_name": "الزخرف"
-      },
-      "text_ar": "آية 63 من سورة الزخرف",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.611978"
     },
     {
       "span_id": "QBM_12664",
@@ -1547,14 +1547,14 @@
         "ayah": 64,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 64 من سورة الزخرف",
+      "text_ar": "إِنَّ ٱللَّهَ هُوَ رَبِّى وَرَبُّكُمْ فَٱعْبُدُوهُ ۚ هَـٰذَا صِرَٰطٌ مُّسْتَقِيمٌ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1570,7 +1570,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.611978"
     },
     {
       "span_id": "QBM_12665",
@@ -1579,20 +1579,20 @@
         "ayah": 65,
         "surah_name": "الزخرف"
       },
-      "text_ar": "آية 65 من سورة الزخرف",
-      "behavior_form": "inner_state",
+      "text_ar": "فَٱخْتَلَفَ ٱلْأَحْزَابُ مِنۢ بَيْنِهِمْ ۖ فَوَيْلٌ لِّلَّذِينَ ظَلَمُوا۟ مِنْ عَذَابِ يَوْمٍ أَلِيمٍ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1602,7 +1602,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:19.432195"
+      "annotated_at": "2025-12-21T09:12:12.612527"
     }
   ]
 }

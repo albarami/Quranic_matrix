@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_030",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:52:51.052902",
+  "annotated_at": "2025-12-21T09:11:24.703820",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,20 +11,20 @@
         "ayah": 87,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 87 من سورة يونس",
-      "behavior_form": "inner_state",
+      "text_ar": "وَأَوْحَيْنَآ إِلَىٰ مُوسَىٰ وَأَخِيهِ أَن تَبَوَّءَا لِقَوْمِكُمَا بِمِصْرَ بُيُوتًا وَٱجْعَلُوا۟ بُيُوتَكُمْ قِبْلَةً وَأَقِيمُوا۟ ٱلصَّلَوٰةَ ۗ وَبَشِّرِ ٱلْمُؤْمِنِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "command",
+        "evaluation": "blame",
+        "deontic_signal": "amr"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.699047"
     },
     {
       "span_id": "QBM_02788",
@@ -43,20 +43,20 @@
         "ayah": 88,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 88 من سورة يونس",
+      "text_ar": "وَقَالَ مُوسَىٰ رَبَّنَآ إِنَّكَ ءَاتَيْتَ فِرْعَوْنَ وَمَلَأَهُۥ زِينَةً وَأَمْوَٰلًا فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا رَبَّنَا لِيُضِلُّوا۟ عَن سَبِيلِكَ ۖ رَبَّنَا ٱطْمِسْ عَلَىٰٓ أَمْوَٰلِهِمْ وَٱشْدُدْ عَلَىٰ قُلُوبِهِمْ فَلَا يُؤْمِنُوا۟ حَتَّىٰ يَرَوُا۟ ٱلْعَذَابَ ٱلْأَلِيمَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -66,7 +66,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.699047"
     },
     {
       "span_id": "QBM_02789",
@@ -75,10 +75,10 @@
         "ayah": 89,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 89 من سورة يونس",
+      "text_ar": "قَالَ قَدْ أُجِيبَت دَّعْوَتُكُمَا فَٱسْتَقِيمَا وَلَا تَتَّبِعَآنِّ سَبِيلَ ٱلَّذِينَ لَا يَعْلَمُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -98,7 +98,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.699047"
     },
     {
       "span_id": "QBM_02790",
@@ -107,30 +107,30 @@
         "ayah": 90,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 90 من سورة يونس",
-      "behavior_form": "inner_state",
+      "text_ar": "وَجَـٰوَزْنَا بِبَنِىٓ إِسْرَٰٓءِيلَ ٱلْبَحْرَ فَأَتْبَعَهُمْ فِرْعَوْنُ وَجُنُودُهُۥ بَغْيًا وَعَدْوًا ۖ حَتَّىٰٓ إِذَآ أَدْرَكَهُ ٱلْغَرَقُ قَالَ ءَامَنتُ أَنَّهُۥ لَآ إِلَـٰهَ إِلَّا ٱلَّذِىٓ ءَامَنَتْ بِهِۦ بَنُوٓا۟ إِسْرَٰٓءِيلَ وَأَنَا۠ مِنَ ٱلْمُسْلِمِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.699047"
     },
     {
       "span_id": "QBM_02791",
@@ -139,8 +139,8 @@
         "ayah": 91,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 91 من سورة يونس",
-      "behavior_form": "inner_state",
+      "text_ar": "ءَآلْـَٔـٰنَ وَقَدْ عَصَيْتَ قَبْلُ وَكُنتَ مِنَ ٱلْمُفْسِدِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -162,7 +162,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.699047"
     },
     {
       "span_id": "QBM_02792",
@@ -171,14 +171,14 @@
         "ayah": 92,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 92 من سورة يونس",
+      "text_ar": "فَٱلْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ لِتَكُونَ لِمَنْ خَلْفَكَ ءَايَةً ۚ وَإِنَّ كَثِيرًا مِّنَ ٱلنَّاسِ عَنْ ءَايَـٰتِنَا لَغَـٰفِلُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -194,7 +194,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.699047"
     },
     {
       "span_id": "QBM_02793",
@@ -203,19 +203,19 @@
         "ayah": 93,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 93 من سورة يونس",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَقَدْ بَوَّأْنَا بَنِىٓ إِسْرَٰٓءِيلَ مُبَوَّأَ صِدْقٍ وَرَزَقْنَـٰهُم مِّنَ ٱلطَّيِّبَـٰتِ فَمَا ٱخْتَلَفُوا۟ حَتَّىٰ جَآءَهُمُ ٱلْعِلْمُ ۚ إِنَّ رَبَّكَ يَقْضِى بَيْنَهُمْ يَوْمَ ٱلْقِيَـٰمَةِ فِيمَا كَانُوا۟ فِيهِ يَخْتَلِفُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -226,7 +226,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.700150"
     },
     {
       "span_id": "QBM_02794",
@@ -235,14 +235,14 @@
         "ayah": 94,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 94 من سورة يونس",
+      "text_ar": "فَإِن كُنتَ فِى شَكٍّ مِّمَّآ أَنزَلْنَآ إِلَيْكَ فَسْـَٔلِ ٱلَّذِينَ يَقْرَءُونَ ٱلْكِتَـٰبَ مِن قَبْلِكَ ۚ لَقَدْ جَآءَكَ ٱلْحَقُّ مِن رَّبِّكَ فَلَا تَكُونَنَّ مِنَ ٱلْمُمْتَرِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -258,7 +258,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.700150"
     },
     {
       "span_id": "QBM_02795",
@@ -267,8 +267,8 @@
         "ayah": 95,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 95 من سورة يونس",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَا تَكُونَنَّ مِنَ ٱلَّذِينَ كَذَّبُوا۟ بِـَٔايَـٰتِ ٱللَّهِ فَتَكُونَ مِنَ ٱلْخَـٰسِرِينَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -279,7 +279,7 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -290,7 +290,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.700150"
     },
     {
       "span_id": "QBM_02796",
@@ -299,14 +299,14 @@
         "ayah": 96,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 96 من سورة يونس",
+      "text_ar": "إِنَّ ٱلَّذِينَ حَقَّتْ عَلَيْهِمْ كَلِمَتُ رَبِّكَ لَا يُؤْمِنُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.700150"
     },
     {
       "span_id": "QBM_02797",
@@ -331,20 +331,20 @@
         "ayah": 97,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 97 من سورة يونس",
+      "text_ar": "وَلَوْ جَآءَتْهُمْ كُلُّ ءَايَةٍ حَتَّىٰ يَرَوُا۟ ٱلْعَذَابَ ٱلْأَلِيمَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.700150"
     },
     {
       "span_id": "QBM_02798",
@@ -363,20 +363,20 @@
         "ayah": 98,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 98 من سورة يونس",
+      "text_ar": "فَلَوْلَا كَانَتْ قَرْيَةٌ ءَامَنَتْ فَنَفَعَهَآ إِيمَـٰنُهَآ إِلَّا قَوْمَ يُونُسَ لَمَّآ ءَامَنُوا۟ كَشَفْنَا عَنْهُمْ عَذَابَ ٱلْخِزْىِ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا وَمَتَّعْنَـٰهُمْ إِلَىٰ حِينٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -386,7 +386,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.700150"
     },
     {
       "span_id": "QBM_02799",
@@ -395,14 +395,14 @@
         "ayah": 99,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 99 من سورة يونس",
+      "text_ar": "وَلَوْ شَآءَ رَبُّكَ لَـَٔامَنَ مَن فِى ٱلْأَرْضِ كُلُّهُمْ جَمِيعًا ۚ أَفَأَنتَ تُكْرِهُ ٱلنَّاسَ حَتَّىٰ يَكُونُوا۟ مُؤْمِنِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052306"
+      "annotated_at": "2025-12-21T09:11:24.700150"
     },
     {
       "span_id": "QBM_02800",
@@ -427,14 +427,14 @@
         "ayah": 100,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 100 من سورة يونس",
+      "text_ar": "وَمَا كَانَ لِنَفْسٍ أَن تُؤْمِنَ إِلَّا بِإِذْنِ ٱللَّهِ ۚ وَيَجْعَلُ ٱلرِّجْسَ عَلَى ٱلَّذِينَ لَا يَعْقِلُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -450,7 +450,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052850"
+      "annotated_at": "2025-12-21T09:11:24.700150"
     },
     {
       "span_id": "QBM_02801",
@@ -459,10 +459,10 @@
         "ayah": 101,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 101 من سورة يونس",
+      "text_ar": "قُلِ ٱنظُرُوا۟ مَاذَا فِى ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۚ وَمَا تُغْنِى ٱلْـَٔايَـٰتُ وَٱلنُّذُرُ عَن قَوْمٍ لَّا يُؤْمِنُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -482,7 +482,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.700150"
     },
     {
       "span_id": "QBM_02802",
@@ -491,14 +491,14 @@
         "ayah": 102,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 102 من سورة يونس",
+      "text_ar": "فَهَلْ يَنتَظِرُونَ إِلَّا مِثْلَ أَيَّامِ ٱلَّذِينَ خَلَوْا۟ مِن قَبْلِهِمْ ۚ قُلْ فَٱنتَظِرُوٓا۟ إِنِّى مَعَكُم مِّنَ ٱلْمُنتَظِرِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.700150"
     },
     {
       "span_id": "QBM_02803",
@@ -523,10 +523,10 @@
         "ayah": 103,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 103 من سورة يونس",
-      "behavior_form": "inner_state",
+      "text_ar": "ثُمَّ نُنَجِّى رُسُلَنَا وَٱلَّذِينَ ءَامَنُوا۟ ۚ كَذَٰلِكَ حَقًّا عَلَيْنَا نُنجِ ٱلْمُؤْمِنِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.701150"
     },
     {
       "span_id": "QBM_02804",
@@ -555,19 +555,19 @@
         "ayah": 104,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 104 من سورة يونس",
-      "behavior_form": "inner_state",
+      "text_ar": "قُلْ يَـٰٓأَيُّهَا ٱلنَّاسُ إِن كُنتُمْ فِى شَكٍّ مِّن دِينِى فَلَآ أَعْبُدُ ٱلَّذِينَ تَعْبُدُونَ مِن دُونِ ٱللَّهِ وَلَـٰكِنْ أَعْبُدُ ٱللَّهَ ٱلَّذِى يَتَوَفَّىٰكُمْ ۖ وَأُمِرْتُ أَنْ أَكُونَ مِنَ ٱلْمُؤْمِنِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -578,7 +578,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.701150"
     },
     {
       "span_id": "QBM_02805",
@@ -587,20 +587,20 @@
         "ayah": 105,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 105 من سورة يونس",
+      "text_ar": "وَأَنْ أَقِمْ وَجْهَكَ لِلدِّينِ حَنِيفًا وَلَا تَكُونَنَّ مِنَ ٱلْمُشْرِكِينَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.701150"
     },
     {
       "span_id": "QBM_02806",
@@ -619,30 +619,30 @@
         "ayah": 106,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 106 من سورة يونس",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَا تَدْعُ مِن دُونِ ٱللَّهِ مَا لَا يَنفَعُكَ وَلَا يَضُرُّكَ ۖ فَإِن فَعَلْتَ فَإِنَّكَ إِذًا مِّنَ ٱلظَّـٰلِمِينَ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.701150"
     },
     {
       "span_id": "QBM_02807",
@@ -651,20 +651,20 @@
         "ayah": 107,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 107 من سورة يونس",
+      "text_ar": "وَإِن يَمْسَسْكَ ٱللَّهُ بِضُرٍّ فَلَا كَاشِفَ لَهُۥٓ إِلَّا هُوَ ۖ وَإِن يُرِدْكَ بِخَيْرٍ فَلَا رَآدَّ لِفَضْلِهِۦ ۚ يُصِيبُ بِهِۦ مَن يَشَآءُ مِنْ عِبَادِهِۦ ۚ وَهُوَ ٱلْغَفُورُ ٱلرَّحِيمُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -674,7 +674,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.701150"
     },
     {
       "span_id": "QBM_02808",
@@ -683,14 +683,14 @@
         "ayah": 108,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 108 من سورة يونس",
+      "text_ar": "قُلْ يَـٰٓأَيُّهَا ٱلنَّاسُ قَدْ جَآءَكُمُ ٱلْحَقُّ مِن رَّبِّكُمْ ۖ فَمَنِ ٱهْتَدَىٰ فَإِنَّمَا يَهْتَدِى لِنَفْسِهِۦ ۖ وَمَن ضَلَّ فَإِنَّمَا يَضِلُّ عَلَيْهَا ۖ وَمَآ أَنَا۠ عَلَيْكُم بِوَكِيلٍ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -706,7 +706,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.701150"
     },
     {
       "span_id": "QBM_02809",
@@ -715,10 +715,202 @@
         "ayah": 109,
         "surah_name": "يونس"
       },
-      "text_ar": "آية 109 من سورة يونس",
+      "text_ar": "وَٱتَّبِعْ مَا يُوحَىٰٓ إِلَيْكَ وَٱصْبِرْ حَتَّىٰ يَحْكُمَ ٱللَّهُ ۚ وَهُوَ خَيْرُ ٱلْحَـٰكِمِينَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SALIH"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:24.701150"
+    },
+    {
+      "span_id": "QBM_03001",
+      "reference": {
+        "surah": 11,
+        "ayah": 1,
+        "surah_name": "هود"
+      },
+      "text_ar": "الٓر ۚ كِتَـٰبٌ أُحْكِمَتْ ءَايَـٰتُهُۥ ثُمَّ فُصِّلَتْ مِن لَّدُنْ حَكِيمٍ خَبِيرٍ",
+      "behavior_form": "relational_act",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "interrogative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:24.701150"
+    },
+    {
+      "span_id": "QBM_03002",
+      "reference": {
+        "surah": 11,
+        "ayah": 2,
+        "surah_name": "هود"
+      },
+      "text_ar": "أَلَّا تَعْبُدُوٓا۟ إِلَّا ٱللَّهَ ۚ إِنَّنِى لَكُم مِّنْهُ نَذِيرٌ وَبَشِيرٌ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:24.701150"
+    },
+    {
+      "span_id": "QBM_03003",
+      "reference": {
+        "surah": 11,
+        "ayah": 3,
+        "surah_name": "هود"
+      },
+      "text_ar": "وَأَنِ ٱسْتَغْفِرُوا۟ رَبَّكُمْ ثُمَّ تُوبُوٓا۟ إِلَيْهِ يُمَتِّعْكُم مَّتَـٰعًا حَسَنًا إِلَىٰٓ أَجَلٍ مُّسَمًّى وَيُؤْتِ كُلَّ ذِى فَضْلٍ فَضْلَهُۥ ۖ وَإِن تَوَلَّوْا۟ فَإِنِّىٓ أَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍ كَبِيرٍ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:24.701150"
+    },
+    {
+      "span_id": "QBM_03004",
+      "reference": {
+        "surah": 11,
+        "ayah": 4,
+        "surah_name": "هود"
+      },
+      "text_ar": "إِلَى ٱللَّهِ مَرْجِعُكُمْ ۖ وَهُوَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:24.701150"
+    },
+    {
+      "span_id": "QBM_03005",
+      "reference": {
+        "surah": 11,
+        "ayah": 5,
+        "surah_name": "هود"
+      },
+      "text_ar": "أَلَآ إِنَّهُمْ يَثْنُونَ صُدُورَهُمْ لِيَسْتَخْفُوا۟ مِنْهُ ۚ أَلَا حِينَ يَسْتَغْشُونَ ثِيَابَهُمْ يَعْلَمُ مَا يُسِرُّونَ وَمَا يُعْلِنُونَ ۚ إِنَّهُۥ عَلِيمٌۢ بِذَاتِ ٱلصُّدُورِ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:24.702152"
+    },
+    {
+      "span_id": "QBM_03006",
+      "reference": {
+        "surah": 11,
+        "ayah": 6,
+        "surah_name": "هود"
+      },
+      "text_ar": "وَمَا مِن دَآبَّةٍ فِى ٱلْأَرْضِ إِلَّا عَلَى ٱللَّهِ رِزْقُهَا وَيَعْلَمُ مُسْتَقَرَّهَا وَمُسْتَوْدَعَهَا ۚ كُلٌّ فِى كِتَـٰبٍ مُّبِينٍ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -738,199 +930,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
-    },
-    {
-      "span_id": "QBM_03001",
-      "reference": {
-        "surah": 11,
-        "ayah": 1,
-        "surah_name": "هود"
-      },
-      "text_ar": "آية 1 من سورة هود",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
-    },
-    {
-      "span_id": "QBM_03002",
-      "reference": {
-        "surah": 11,
-        "ayah": 2,
-        "surah_name": "هود"
-      },
-      "text_ar": "آية 2 من سورة هود",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
-    },
-    {
-      "span_id": "QBM_03003",
-      "reference": {
-        "surah": 11,
-        "ayah": 3,
-        "surah_name": "هود"
-      },
-      "text_ar": "آية 3 من سورة هود",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_DISBELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
-    },
-    {
-      "span_id": "QBM_03004",
-      "reference": {
-        "surah": 11,
-        "ayah": 4,
-        "surah_name": "هود"
-      },
-      "text_ar": "آية 4 من سورة هود",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
-    },
-    {
-      "span_id": "QBM_03005",
-      "reference": {
-        "surah": 11,
-        "ayah": 5,
-        "surah_name": "هود"
-      },
-      "text_ar": "آية 5 من سورة هود",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_DISBELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
-    },
-    {
-      "span_id": "QBM_03006",
-      "reference": {
-        "surah": 11,
-        "ayah": 6,
-        "surah_name": "هود"
-      },
-      "text_ar": "آية 6 من سورة هود",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.702262"
     },
     {
       "span_id": "QBM_03007",
@@ -939,30 +939,30 @@
         "ayah": 7,
         "surah_name": "هود"
       },
-      "text_ar": "آية 7 من سورة هود",
-      "behavior_form": "inner_state",
+      "text_ar": "وَهُوَ ٱلَّذِى خَلَقَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضَ فِى سِتَّةِ أَيَّامٍ وَكَانَ عَرْشُهُۥ عَلَى ٱلْمَآءِ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا ۗ وَلَئِن قُلْتَ إِنَّكُم مَّبْعُوثُونَ مِنۢ بَعْدِ ٱلْمَوْتِ لَيَقُولَنَّ ٱلَّذِينَ كَفَرُوٓا۟ إِنْ هَـٰذَآ إِلَّا سِحْرٌ مُّبِينٌ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.702369"
     },
     {
       "span_id": "QBM_03008",
@@ -971,20 +971,20 @@
         "ayah": 8,
         "surah_name": "هود"
       },
-      "text_ar": "آية 8 من سورة هود",
+      "text_ar": "وَلَئِنْ أَخَّرْنَا عَنْهُمُ ٱلْعَذَابَ إِلَىٰٓ أُمَّةٍ مَّعْدُودَةٍ لَّيَقُولُنَّ مَا يَحْبِسُهُۥٓ ۗ أَلَا يَوْمَ يَأْتِيهِمْ لَيْسَ مَصْرُوفًا عَنْهُمْ وَحَاقَ بِهِم مَّا كَانُوا۟ بِهِۦ يَسْتَهْزِءُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.702369"
     },
     {
       "span_id": "QBM_03009",
@@ -1003,20 +1003,20 @@
         "ayah": 9,
         "surah_name": "هود"
       },
-      "text_ar": "آية 9 من سورة هود",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَئِنْ أَذَقْنَا ٱلْإِنسَـٰنَ مِنَّا رَحْمَةً ثُمَّ نَزَعْنَـٰهَا مِنْهُ إِنَّهُۥ لَيَـُٔوسٌ كَفُورٌ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1026,7 +1026,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.702369"
     },
     {
       "span_id": "QBM_03010",
@@ -1035,7 +1035,7 @@
         "ayah": 10,
         "surah_name": "هود"
       },
-      "text_ar": "آية 10 من سورة هود",
+      "text_ar": "وَلَئِنْ أَذَقْنَـٰهُ نَعْمَآءَ بَعْدَ ضَرَّآءَ مَسَّتْهُ لَيَقُولَنَّ ذَهَبَ ٱلسَّيِّـَٔاتُ عَنِّىٓ ۚ إِنَّهُۥ لَفَرِحٌ فَخُورٌ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.702369"
     },
     {
       "span_id": "QBM_03011",
@@ -1067,20 +1067,20 @@
         "ayah": 11,
         "surah_name": "هود"
       },
-      "text_ar": "آية 11 من سورة هود",
+      "text_ar": "إِلَّا ٱلَّذِينَ صَبَرُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ أُو۟لَـٰٓئِكَ لَهُم مَّغْفِرَةٌ وَأَجْرٌ كَبِيرٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1090,7 +1090,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.702369"
     },
     {
       "span_id": "QBM_03012",
@@ -1099,10 +1099,10 @@
         "ayah": 12,
         "surah_name": "هود"
       },
-      "text_ar": "آية 12 من سورة هود",
-      "behavior_form": "inner_state",
+      "text_ar": "فَلَعَلَّكَ تَارِكٌۢ بَعْضَ مَا يُوحَىٰٓ إِلَيْكَ وَضَآئِقٌۢ بِهِۦ صَدْرُكَ أَن يَقُولُوا۟ لَوْلَآ أُنزِلَ عَلَيْهِ كَنزٌ أَوْ جَآءَ مَعَهُۥ مَلَكٌ ۚ إِنَّمَآ أَنتَ نَذِيرٌ ۚ وَٱللَّهُ عَلَىٰ كُلِّ شَىْءٍ وَكِيلٌ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -1111,18 +1111,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.702974"
     },
     {
       "span_id": "QBM_03013",
@@ -1131,30 +1131,30 @@
         "ayah": 13,
         "surah_name": "هود"
       },
-      "text_ar": "آية 13 من سورة هود",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمْ يَقُولُونَ ٱفْتَرَىٰهُ ۖ قُلْ فَأْتُوا۟ بِعَشْرِ سُوَرٍ مِّثْلِهِۦ مُفْتَرَيَـٰتٍ وَٱدْعُوا۟ مَنِ ٱسْتَطَعْتُم مِّن دُونِ ٱللَّهِ إِن كُنتُمْ صَـٰدِقِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703082"
     },
     {
       "span_id": "QBM_03014",
@@ -1163,10 +1163,10 @@
         "ayah": 14,
         "surah_name": "هود"
       },
-      "text_ar": "آية 14 من سورة هود",
+      "text_ar": "فَإِلَّمْ يَسْتَجِيبُوا۟ لَكُمْ فَٱعْلَمُوٓا۟ أَنَّمَآ أُنزِلَ بِعِلْمِ ٱللَّهِ وَأَن لَّآ إِلَـٰهَ إِلَّا هُوَ ۖ فَهَلْ أَنتُم مُّسْلِمُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703082"
     },
     {
       "span_id": "QBM_03015",
@@ -1195,7 +1195,7 @@
         "ayah": 15,
         "surah_name": "هود"
       },
-      "text_ar": "آية 15 من سورة هود",
+      "text_ar": "مَن كَانَ يُرِيدُ ٱلْحَيَوٰةَ ٱلدُّنْيَا وَزِينَتَهَا نُوَفِّ إِلَيْهِمْ أَعْمَـٰلَهُمْ فِيهَا وَهُمْ فِيهَا لَا يُبْخَسُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
@@ -1218,7 +1218,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703082"
     },
     {
       "span_id": "QBM_03016",
@@ -1227,30 +1227,30 @@
         "ayah": 16,
         "surah_name": "هود"
       },
-      "text_ar": "آية 16 من سورة هود",
-      "behavior_form": "inner_state",
+      "text_ar": "أُو۟لَـٰٓئِكَ ٱلَّذِينَ لَيْسَ لَهُمْ فِى ٱلْـَٔاخِرَةِ إِلَّا ٱلنَّارُ ۖ وَحَبِطَ مَا صَنَعُوا۟ فِيهَا وَبَـٰطِلٌ مَّا كَانُوا۟ يَعْمَلُونَ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703082"
     },
     {
       "span_id": "QBM_03017",
@@ -1259,7 +1259,7 @@
         "ayah": 17,
         "surah_name": "هود"
       },
-      "text_ar": "آية 17 من سورة هود",
+      "text_ar": "أَفَمَن كَانَ عَلَىٰ بَيِّنَةٍ مِّن رَّبِّهِۦ وَيَتْلُوهُ شَاهِدٌ مِّنْهُ وَمِن قَبْلِهِۦ كِتَـٰبُ مُوسَىٰٓ إِمَامًا وَرَحْمَةً ۚ أُو۟لَـٰٓئِكَ يُؤْمِنُونَ بِهِۦ ۚ وَمَن يَكْفُرْ بِهِۦ مِنَ ٱلْأَحْزَابِ فَٱلنَّارُ مَوْعِدُهُۥ ۚ فَلَا تَكُ فِى مِرْيَةٍ مِّنْهُ ۚ إِنَّهُ ٱلْحَقُّ مِن رَّبِّكَ وَلَـٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يُؤْمِنُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703082"
     },
     {
       "span_id": "QBM_03018",
@@ -1291,30 +1291,30 @@
         "ayah": 18,
         "surah_name": "هود"
       },
-      "text_ar": "آية 18 من سورة هود",
-      "behavior_form": "inner_state",
+      "text_ar": "وَمَنْ أَظْلَمُ مِمَّنِ ٱفْتَرَىٰ عَلَى ٱللَّهِ كَذِبًا ۚ أُو۟لَـٰٓئِكَ يُعْرَضُونَ عَلَىٰ رَبِّهِمْ وَيَقُولُ ٱلْأَشْهَـٰدُ هَـٰٓؤُلَآءِ ٱلَّذِينَ كَذَبُوا۟ عَلَىٰ رَبِّهِمْ ۚ أَلَا لَعْنَةُ ٱللَّهِ عَلَى ٱلظَّـٰلِمِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703686"
     },
     {
       "span_id": "QBM_03019",
@@ -1323,10 +1323,10 @@
         "ayah": 19,
         "surah_name": "هود"
       },
-      "text_ar": "آية 19 من سورة هود",
+      "text_ar": "ٱلَّذِينَ يَصُدُّونَ عَن سَبِيلِ ٱللَّهِ وَيَبْغُونَهَا عِوَجًا وَهُم بِٱلْـَٔاخِرَةِ هُمْ كَـٰفِرُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703686"
     },
     {
       "span_id": "QBM_03020",
@@ -1355,20 +1355,20 @@
         "ayah": 20,
         "surah_name": "هود"
       },
-      "text_ar": "آية 20 من سورة هود",
+      "text_ar": "أُو۟لَـٰٓئِكَ لَمْ يَكُونُوا۟ مُعْجِزِينَ فِى ٱلْأَرْضِ وَمَا كَانَ لَهُم مِّن دُونِ ٱللَّهِ مِنْ أَوْلِيَآءَ ۘ يُضَـٰعَفُ لَهُمُ ٱلْعَذَابُ ۚ مَا كَانُوا۟ يَسْتَطِيعُونَ ٱلسَّمْعَ وَمَا كَانُوا۟ يُبْصِرُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1378,7 +1378,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703820"
     },
     {
       "span_id": "QBM_03021",
@@ -1387,7 +1387,7 @@
         "ayah": 21,
         "surah_name": "هود"
       },
-      "text_ar": "آية 21 من سورة هود",
+      "text_ar": "أُو۟لَـٰٓئِكَ ٱلَّذِينَ خَسِرُوٓا۟ أَنفُسَهُمْ وَضَلَّ عَنْهُم مَّا كَانُوا۟ يَفْتَرُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
@@ -1395,12 +1395,12 @@
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1410,7 +1410,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703820"
     },
     {
       "span_id": "QBM_03022",
@@ -1419,20 +1419,20 @@
         "ayah": 22,
         "surah_name": "هود"
       },
-      "text_ar": "آية 22 من سورة هود",
+      "text_ar": "لَا جَرَمَ أَنَّهُمْ فِى ٱلْـَٔاخِرَةِ هُمُ ٱلْأَخْسَرُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1442,7 +1442,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703820"
     },
     {
       "span_id": "QBM_03023",
@@ -1451,30 +1451,30 @@
         "ayah": 23,
         "surah_name": "هود"
       },
-      "text_ar": "آية 23 من سورة هود",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ وَأَخْبَتُوٓا۟ إِلَىٰ رَبِّهِمْ أُو۟لَـٰٓئِكَ أَصْحَـٰبُ ٱلْجَنَّةِ ۖ هُمْ فِيهَا خَـٰلِدُونَ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703820"
     },
     {
       "span_id": "QBM_03024",
@@ -1483,14 +1483,14 @@
         "ayah": 24,
         "surah_name": "هود"
       },
-      "text_ar": "آية 24 من سورة هود",
+      "text_ar": "مَثَلُ ٱلْفَرِيقَيْنِ كَٱلْأَعْمَىٰ وَٱلْأَصَمِّ وَٱلْبَصِيرِ وَٱلسَّمِيعِ ۚ هَلْ يَسْتَوِيَانِ مَثَلًا ۚ أَفَلَا تَذَكَّرُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "interrogative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1506,7 +1506,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703820"
     },
     {
       "span_id": "QBM_03025",
@@ -1515,39 +1515,7 @@
         "ayah": 25,
         "surah_name": "هود"
       },
-      "text_ar": "آية 25 من سورة هود",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_DISBELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
-    },
-    {
-      "span_id": "QBM_03026",
-      "reference": {
-        "surah": 11,
-        "ayah": 26,
-        "surah_name": "هود"
-      },
-      "text_ar": "آية 26 من سورة هود",
+      "text_ar": "وَلَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِۦٓ إِنِّى لَكُمْ نَذِيرٌ مُّبِينٌ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
@@ -1570,29 +1538,29 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703820"
     },
     {
-      "span_id": "QBM_03027",
+      "span_id": "QBM_03026",
       "reference": {
         "surah": 11,
-        "ayah": 27,
+        "ayah": 26,
         "surah_name": "هود"
       },
-      "text_ar": "آية 27 من سورة هود",
+      "text_ar": "أَن لَّا تَعْبُدُوٓا۟ إِلَّا ٱللَّهَ ۖ إِنِّىٓ أَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍ أَلِيمٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1602,7 +1570,39 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:51.052902"
+      "annotated_at": "2025-12-21T09:11:24.703820"
+    },
+    {
+      "span_id": "QBM_03027",
+      "reference": {
+        "surah": 11,
+        "ayah": 27,
+        "surah_name": "هود"
+      },
+      "text_ar": "فَقَالَ ٱلْمَلَأُ ٱلَّذِينَ كَفَرُوا۟ مِن قَوْمِهِۦ مَا نَرَىٰكَ إِلَّا بَشَرًا مِّثْلَنَا وَمَا نَرَىٰكَ ٱتَّبَعَكَ إِلَّا ٱلَّذِينَ هُمْ أَرَاذِلُنَا بَادِىَ ٱلرَّأْىِ وَمَا نَرَىٰ لَكُمْ عَلَيْنَا مِن فَضْلٍۭ بَلْ نَظُنُّكُمْ كَـٰذِبِينَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:24.703820"
     }
   ]
 }

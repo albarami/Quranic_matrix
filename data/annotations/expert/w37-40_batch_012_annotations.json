@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_012",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:53:18.143972",
+  "annotated_at": "2025-12-21T09:12:11.307909",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,10 +11,10 @@
         "ayah": 103,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 103 من سورة الصافات",
+      "text_ar": "فَلَمَّآ أَسْلَمَا وَتَلَّهُۥ لِلْجَبِينِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.304909"
     },
     {
       "span_id": "QBM_10904",
@@ -43,19 +43,19 @@
         "ayah": 104,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 104 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "وَنَـٰدَيْنَـٰهُ أَن يَـٰٓإِبْرَٰهِيمُ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -66,7 +66,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.304909"
     },
     {
       "span_id": "QBM_10905",
@@ -75,30 +75,30 @@
         "ayah": 105,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 105 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "قَدْ صَدَّقْتَ ٱلرُّءْيَآ ۚ إِنَّا كَذَٰلِكَ نَجْزِى ٱلْمُحْسِنِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.304909"
     },
     {
       "span_id": "QBM_10906",
@@ -107,14 +107,14 @@
         "ayah": 106,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 106 من سورة الصافات",
+      "text_ar": "إِنَّ هَـٰذَا لَهُوَ ٱلْبَلَـٰٓؤُا۟ ٱلْمُبِينُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -130,7 +130,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.304909"
     },
     {
       "span_id": "QBM_10907",
@@ -139,30 +139,30 @@
         "ayah": 107,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 107 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "وَفَدَيْنَـٰهُ بِذِبْحٍ عَظِيمٍ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.304909"
     },
     {
       "span_id": "QBM_10908",
@@ -171,14 +171,14 @@
         "ayah": 108,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 108 من سورة الصافات",
+      "text_ar": "وَتَرَكْنَا عَلَيْهِ فِى ٱلْـَٔاخِرِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -194,7 +194,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.304909"
     },
     {
       "span_id": "QBM_10909",
@@ -203,19 +203,19 @@
         "ayah": 109,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 109 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "سَلَـٰمٌ عَلَىٰٓ إِبْرَٰهِيمَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -226,7 +226,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.304909"
     },
     {
       "span_id": "QBM_10910",
@@ -235,14 +235,14 @@
         "ayah": 110,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 110 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "كَذَٰلِكَ نَجْزِى ٱلْمُحْسِنِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -258,7 +258,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.304909"
     },
     {
       "span_id": "QBM_10911",
@@ -267,14 +267,14 @@
         "ayah": 111,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 111 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّهُۥ مِنْ عِبَادِنَا ٱلْمُؤْمِنِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -290,7 +290,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.304909"
     },
     {
       "span_id": "QBM_10912",
@@ -299,20 +299,20 @@
         "ayah": 112,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 112 من سورة الصافات",
+      "text_ar": "وَبَشَّرْنَـٰهُ بِإِسْحَـٰقَ نَبِيًّا مِّنَ ٱلصَّـٰلِحِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "blame",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10913",
@@ -331,14 +331,14 @@
         "ayah": 113,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 113 من سورة الصافات",
+      "text_ar": "وَبَـٰرَكْنَا عَلَيْهِ وَعَلَىٰٓ إِسْحَـٰقَ ۚ وَمِن ذُرِّيَّتِهِمَا مُحْسِنٌ وَظَالِمٌ لِّنَفْسِهِۦ مُبِينٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10914",
@@ -363,10 +363,10 @@
         "ayah": 114,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 114 من سورة الصافات",
+      "text_ar": "وَلَقَدْ مَنَنَّا عَلَىٰ مُوسَىٰ وَهَـٰرُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -386,7 +386,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10915",
@@ -395,14 +395,14 @@
         "ayah": 115,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 115 من سورة الصافات",
+      "text_ar": "وَنَجَّيْنَـٰهُمَا وَقَوْمَهُمَا مِنَ ٱلْكَرْبِ ٱلْعَظِيمِ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.142972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10916",
@@ -427,19 +427,19 @@
         "ayah": 116,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 116 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "وَنَصَرْنَـٰهُمْ فَكَانُوا۟ هُمُ ٱلْغَـٰلِبِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -450,7 +450,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10917",
@@ -459,14 +459,14 @@
         "ayah": 117,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 117 من سورة الصافات",
+      "text_ar": "وَءَاتَيْنَـٰهُمَا ٱلْكِتَـٰبَ ٱلْمُسْتَبِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -482,7 +482,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10918",
@@ -491,14 +491,14 @@
         "ayah": 118,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 118 من سورة الصافات",
+      "text_ar": "وَهَدَيْنَـٰهُمَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10919",
@@ -523,14 +523,14 @@
         "ayah": 119,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 119 من سورة الصافات",
+      "text_ar": "وَتَرَكْنَا عَلَيْهِمَا فِى ٱلْـَٔاخِرِينَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10920",
@@ -555,14 +555,14 @@
         "ayah": 120,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 120 من سورة الصافات",
+      "text_ar": "سَلَـٰمٌ عَلَىٰ مُوسَىٰ وَهَـٰرُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -578,7 +578,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10921",
@@ -587,14 +587,14 @@
         "ayah": 121,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 121 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّا كَذَٰلِكَ نَجْزِى ٱلْمُحْسِنِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10922",
@@ -619,14 +619,14 @@
         "ayah": 122,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 122 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّهُمَا مِنْ عِبَادِنَا ٱلْمُؤْمِنِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10923",
@@ -651,14 +651,14 @@
         "ayah": 123,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 123 من سورة الصافات",
+      "text_ar": "وَإِنَّ إِلْيَاسَ لَمِنَ ٱلْمُرْسَلِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -674,7 +674,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10924",
@@ -683,10 +683,10 @@
         "ayah": 124,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 124 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "إِذْ قَالَ لِقَوْمِهِۦٓ أَلَا تَتَّقُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -695,18 +695,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10925",
@@ -715,20 +715,20 @@
         "ayah": 125,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 125 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "أَتَدْعُونَ بَعْلًا وَتَذَرُونَ أَحْسَنَ ٱلْخَـٰلِقِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "praise",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -738,7 +738,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10926",
@@ -747,10 +747,10 @@
         "ayah": 126,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 126 من سورة الصافات",
+      "text_ar": "ٱللَّهَ رَبَّكُمْ وَرَبَّ ءَابَآئِكُمُ ٱلْأَوَّلِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -770,7 +770,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10927",
@@ -779,30 +779,30 @@
         "ayah": 127,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 127 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "فَكَذَّبُوهُ فَإِنَّهُمْ لَمُحْضَرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10928",
@@ -811,14 +811,14 @@
         "ayah": 128,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 128 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "إِلَّا عِبَادَ ٱللَّهِ ٱلْمُخْلَصِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -834,7 +834,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10929",
@@ -843,14 +843,14 @@
         "ayah": 129,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 129 من سورة الصافات",
+      "text_ar": "وَتَرَكْنَا عَلَيْهِ فِى ٱلْـَٔاخِرِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10930",
@@ -875,14 +875,14 @@
         "ayah": 130,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 130 من سورة الصافات",
+      "text_ar": "سَلَـٰمٌ عَلَىٰٓ إِلْ يَاسِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -898,7 +898,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.305909"
     },
     {
       "span_id": "QBM_10931",
@@ -907,14 +907,14 @@
         "ayah": 131,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 131 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّا كَذَٰلِكَ نَجْزِى ٱلْمُحْسِنِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -930,7 +930,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10932",
@@ -939,14 +939,14 @@
         "ayah": 132,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 132 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّهُۥ مِنْ عِبَادِنَا ٱلْمُؤْمِنِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -962,7 +962,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10933",
@@ -971,14 +971,14 @@
         "ayah": 133,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 133 من سورة الصافات",
+      "text_ar": "وَإِنَّ لُوطًا لَّمِنَ ٱلْمُرْسَلِينَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10934",
@@ -1003,10 +1003,10 @@
         "ayah": 134,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 134 من سورة الصافات",
+      "text_ar": "إِذْ نَجَّيْنَـٰهُ وَأَهْلَهُۥٓ أَجْمَعِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1026,7 +1026,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10935",
@@ -1035,19 +1035,19 @@
         "ayah": 135,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 135 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "إِلَّا عَجُوزًا فِى ٱلْغَـٰبِرِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10936",
@@ -1067,14 +1067,14 @@
         "ayah": 136,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 136 من سورة الصافات",
+      "text_ar": "ثُمَّ دَمَّرْنَا ٱلْـَٔاخَرِينَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1090,7 +1090,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10937",
@@ -1099,14 +1099,14 @@
         "ayah": 137,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 137 من سورة الصافات",
+      "text_ar": "وَإِنَّكُمْ لَتَمُرُّونَ عَلَيْهِم مُّصْبِحِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10938",
@@ -1131,10 +1131,10 @@
         "ayah": 138,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 138 من سورة الصافات",
+      "text_ar": "وَبِٱلَّيْلِ ۗ أَفَلَا تَعْقِلُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1154,7 +1154,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10939",
@@ -1163,14 +1163,14 @@
         "ayah": 139,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 139 من سورة الصافات",
+      "text_ar": "وَإِنَّ يُونُسَ لَمِنَ ٱلْمُرْسَلِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10940",
@@ -1195,10 +1195,10 @@
         "ayah": 140,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 140 من سورة الصافات",
+      "text_ar": "إِذْ أَبَقَ إِلَى ٱلْفُلْكِ ٱلْمَشْحُونِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1218,7 +1218,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10941",
@@ -1227,14 +1227,14 @@
         "ayah": 141,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 141 من سورة الصافات",
+      "text_ar": "فَسَاهَمَ فَكَانَ مِنَ ٱلْمُدْحَضِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1250,7 +1250,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10942",
@@ -1259,14 +1259,14 @@
         "ayah": 142,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 142 من سورة الصافات",
+      "text_ar": "فَٱلْتَقَمَهُ ٱلْحُوتُ وَهُوَ مُلِيمٌ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10943",
@@ -1291,30 +1291,30 @@
         "ayah": 143,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 143 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "فَلَوْلَآ أَنَّهُۥ كَانَ مِنَ ٱلْمُسَبِّحِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10944",
@@ -1323,14 +1323,14 @@
         "ayah": 144,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 144 من سورة الصافات",
+      "text_ar": "لَلَبِثَ فِى بَطْنِهِۦٓ إِلَىٰ يَوْمِ يُبْعَثُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10945",
@@ -1355,14 +1355,14 @@
         "ayah": 145,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 145 من سورة الصافات",
+      "text_ar": "فَنَبَذْنَـٰهُ بِٱلْعَرَآءِ وَهُوَ سَقِيمٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1378,7 +1378,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10946",
@@ -1387,14 +1387,14 @@
         "ayah": 146,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 146 من سورة الصافات",
+      "text_ar": "وَأَنۢبَتْنَا عَلَيْهِ شَجَرَةً مِّن يَقْطِينٍ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1410,7 +1410,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10947",
@@ -1419,10 +1419,10 @@
         "ayah": 147,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 147 من سورة الصافات",
+      "text_ar": "وَأَرْسَلْنَـٰهُ إِلَىٰ مِا۟ئَةِ أَلْفٍ أَوْ يَزِيدُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1442,7 +1442,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10948",
@@ -1451,14 +1451,14 @@
         "ayah": 148,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 148 من سورة الصافات",
+      "text_ar": "فَـَٔامَنُوا۟ فَمَتَّعْنَـٰهُمْ إِلَىٰ حِينٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10949",
@@ -1483,14 +1483,14 @@
         "ayah": 149,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 149 من سورة الصافات",
+      "text_ar": "فَٱسْتَفْتِهِمْ أَلِرَبِّكَ ٱلْبَنَاتُ وَلَهُمُ ٱلْبَنُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1506,7 +1506,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10950",
@@ -1515,14 +1515,14 @@
         "ayah": 150,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 150 من سورة الصافات",
+      "text_ar": "أَمْ خَلَقْنَا ٱلْمَلَـٰٓئِكَةَ إِنَـٰثًا وَهُمْ شَـٰهِدُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1538,7 +1538,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10951",
@@ -1547,30 +1547,30 @@
         "ayah": 151,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 151 من سورة الصافات",
-      "behavior_form": "inner_state",
+      "text_ar": "أَلَآ إِنَّهُم مِّنْ إِفْكِهِمْ لَيَقُولُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.306909"
     },
     {
       "span_id": "QBM_10952",
@@ -1579,14 +1579,14 @@
         "ayah": 152,
         "surah_name": "الصافات"
       },
-      "text_ar": "آية 152 من سورة الصافات",
+      "text_ar": "وَلَدَ ٱللَّهُ وَإِنَّهُمْ لَكَـٰذِبُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1602,7 +1602,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:18.143972"
+      "annotated_at": "2025-12-21T09:12:11.307909"
     }
   ]
 }

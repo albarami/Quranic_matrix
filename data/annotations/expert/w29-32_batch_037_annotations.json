@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_037",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:52:52.075866",
+  "annotated_at": "2025-12-21T09:11:25.721999",
   "ayat_count": 2,
   "annotations": [
     {
@@ -11,40 +11,8 @@
         "ayah": 51,
         "surah_name": "إبراهيم"
       },
-      "text_ar": "آية 51 من سورة إبراهيم",
-      "behavior_form": "relational_act",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "informative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:52.075866"
-    },
-    {
-      "span_id": "QBM_03952",
-      "reference": {
-        "surah": 14,
-        "ayah": 52,
-        "surah_name": "إبراهيم"
-      },
-      "text_ar": "آية 52 من سورة إبراهيم",
-      "behavior_form": "relational_act",
+      "text_ar": "لِيَجْزِىَ ٱللَّهُ كُلَّ نَفْسٍ مَّا كَسَبَتْ ۚ إِنَّ ٱللَّهَ سَرِيعُ ٱلْحِسَابِ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -55,7 +23,7 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -66,7 +34,39 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:52.075866"
+      "annotated_at": "2025-12-21T09:11:25.721999"
+    },
+    {
+      "span_id": "QBM_03952",
+      "reference": {
+        "surah": 14,
+        "ayah": 52,
+        "surah_name": "إبراهيم"
+      },
+      "text_ar": "هَـٰذَا بَلَـٰغٌ لِّلنَّاسِ وَلِيُنذَرُوا۟ بِهِۦ وَلِيَعْلَمُوٓا۟ أَنَّمَا هُوَ إِلَـٰهٌ وَٰحِدٌ وَلِيَذَّكَّرَ أُو۟لُوا۟ ٱلْأَلْبَـٰبِ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:25.721999"
     }
   ]
 }

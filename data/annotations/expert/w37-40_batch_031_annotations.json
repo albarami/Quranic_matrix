@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_031",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:53:20.828614",
+  "annotated_at": "2025-12-21T09:12:14.053233",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,10 +11,10 @@
         "ayah": 57,
         "surah_name": "النجم"
       },
-      "text_ar": "آية 57 من سورة النجم",
+      "text_ar": "أَزِفَتِ ٱلْـَٔازِفَةُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.827615"
+      "annotated_at": "2025-12-21T09:12:14.050128"
     },
     {
       "span_id": "QBM_15658",
@@ -43,10 +43,10 @@
         "ayah": 58,
         "surah_name": "النجم"
       },
-      "text_ar": "آية 58 من سورة النجم",
+      "text_ar": "لَيْسَ لَهَا مِن دُونِ ٱللَّهِ كَاشِفَةٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -66,7 +66,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.827615"
+      "annotated_at": "2025-12-21T09:12:14.050128"
     },
     {
       "span_id": "QBM_15659",
@@ -75,10 +75,10 @@
         "ayah": 59,
         "surah_name": "النجم"
       },
-      "text_ar": "آية 59 من سورة النجم",
+      "text_ar": "أَفَمِنْ هَـٰذَا ٱلْحَدِيثِ تَعْجَبُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -98,7 +98,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.827615"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15660",
@@ -107,14 +107,14 @@
         "ayah": 60,
         "surah_name": "النجم"
       },
-      "text_ar": "آية 60 من سورة النجم",
+      "text_ar": "وَتَضْحَكُونَ وَلَا تَبْكُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -130,7 +130,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.827615"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15661",
@@ -139,14 +139,14 @@
         "ayah": 61,
         "surah_name": "النجم"
       },
-      "text_ar": "آية 61 من سورة النجم",
+      "text_ar": "وَأَنتُمْ سَـٰمِدُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -162,7 +162,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.827615"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15662",
@@ -171,30 +171,30 @@
         "ayah": 62,
         "surah_name": "النجم"
       },
-      "text_ar": "آية 62 من سورة النجم",
-      "behavior_form": "inner_state",
+      "text_ar": "فَٱسْجُدُوا۟ لِلَّهِ وَٱعْبُدُوا۟ ۩",
+      "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.827615"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15901",
@@ -203,14 +203,14 @@
         "ayah": 1,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 1 من سورة القمر",
+      "text_ar": "ٱقْتَرَبَتِ ٱلسَّاعَةُ وَٱنشَقَّ ٱلْقَمَرُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -226,7 +226,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.827615"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15902",
@@ -235,30 +235,30 @@
         "ayah": 2,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 2 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "وَإِن يَرَوْا۟ ءَايَةً يُعْرِضُوا۟ وَيَقُولُوا۟ سِحْرٌ مُّسْتَمِرٌّ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.827615"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15903",
@@ -267,19 +267,19 @@
         "ayah": 3,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 3 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "وَكَذَّبُوا۟ وَٱتَّبَعُوٓا۟ أَهْوَآءَهُمْ ۚ وَكُلُّ أَمْرٍ مُّسْتَقِرٌّ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -290,7 +290,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.827615"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15904",
@@ -299,14 +299,14 @@
         "ayah": 4,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 4 من سورة القمر",
+      "text_ar": "وَلَقَدْ جَآءَهُم مِّنَ ٱلْأَنۢبَآءِ مَا فِيهِ مُزْدَجَرٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15905",
@@ -331,10 +331,10 @@
         "ayah": 5,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 5 من سورة القمر",
+      "text_ar": "حِكْمَةٌۢ بَـٰلِغَةٌ ۖ فَمَا تُغْنِ ٱلنُّذُرُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15906",
@@ -363,14 +363,14 @@
         "ayah": 6,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 6 من سورة القمر",
+      "text_ar": "فَتَوَلَّ عَنْهُمْ ۘ يَوْمَ يَدْعُ ٱلدَّاعِ إِلَىٰ شَىْءٍ نُّكُرٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -386,7 +386,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15907",
@@ -395,20 +395,20 @@
         "ayah": 7,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 7 من سورة القمر",
+      "text_ar": "خُشَّعًا أَبْصَـٰرُهُمْ يَخْرُجُونَ مِنَ ٱلْأَجْدَاثِ كَأَنَّهُمْ جَرَادٌ مُّنتَشِرٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15908",
@@ -427,30 +427,30 @@
         "ayah": 8,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 8 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "مُّهْطِعِينَ إِلَى ٱلدَّاعِ ۖ يَقُولُ ٱلْكَـٰفِرُونَ هَـٰذَا يَوْمٌ عَسِرٌ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15909",
@@ -459,30 +459,30 @@
         "ayah": 9,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 9 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "كَذَّبَتْ قَبْلَهُمْ قَوْمُ نُوحٍ فَكَذَّبُوا۟ عَبْدَنَا وَقَالُوا۟ مَجْنُونٌ وَٱزْدُجِرَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15910",
@@ -491,30 +491,30 @@
         "ayah": 10,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 10 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "فَدَعَا رَبَّهُۥٓ أَنِّى مَغْلُوبٌ فَٱنتَصِرْ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15911",
@@ -523,14 +523,14 @@
         "ayah": 11,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 11 من سورة القمر",
+      "text_ar": "فَفَتَحْنَآ أَبْوَٰبَ ٱلسَّمَآءِ بِمَآءٍ مُّنْهَمِرٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15912",
@@ -555,10 +555,10 @@
         "ayah": 12,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 12 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "وَفَجَّرْنَا ٱلْأَرْضَ عُيُونًا فَٱلْتَقَى ٱلْمَآءُ عَلَىٰٓ أَمْرٍ قَدْ قُدِرَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -567,7 +567,7 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -578,7 +578,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15913",
@@ -587,10 +587,10 @@
         "ayah": 13,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 13 من سورة القمر",
+      "text_ar": "وَحَمَلْنَـٰهُ عَلَىٰ ذَاتِ أَلْوَٰحٍ وَدُسُرٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15914",
@@ -619,30 +619,30 @@
         "ayah": 14,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 14 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "تَجْرِى بِأَعْيُنِنَا جَزَآءً لِّمَن كَانَ كُفِرَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.051125"
     },
     {
       "span_id": "QBM_15915",
@@ -651,10 +651,10 @@
         "ayah": 15,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 15 من سورة القمر",
+      "text_ar": "وَلَقَد تَّرَكْنَـٰهَآ ءَايَةً فَهَلْ مِن مُّدَّكِرٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -674,7 +674,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052166"
     },
     {
       "span_id": "QBM_15916",
@@ -683,20 +683,20 @@
         "ayah": 16,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 16 من سورة القمر",
+      "text_ar": "فَكَيْفَ كَانَ عَذَابِى وَنُذُرِ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -706,7 +706,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052199"
     },
     {
       "span_id": "QBM_15917",
@@ -715,10 +715,10 @@
         "ayah": 17,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 17 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَقَدْ يَسَّرْنَا ٱلْقُرْءَانَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -727,18 +727,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15918",
@@ -747,30 +747,30 @@
         "ayah": 18,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 18 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "كَذَّبَتْ عَادٌ فَكَيْفَ كَانَ عَذَابِى وَنُذُرِ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15919",
@@ -779,14 +779,14 @@
         "ayah": 19,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 19 من سورة القمر",
+      "text_ar": "إِنَّآ أَرْسَلْنَا عَلَيْهِمْ رِيحًا صَرْصَرًا فِى يَوْمِ نَحْسٍ مُّسْتَمِرٍّ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -802,7 +802,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15920",
@@ -811,14 +811,14 @@
         "ayah": 20,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 20 من سورة القمر",
+      "text_ar": "تَنزِعُ ٱلنَّاسَ كَأَنَّهُمْ أَعْجَازُ نَخْلٍ مُّنقَعِرٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -834,7 +834,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15921",
@@ -843,20 +843,20 @@
         "ayah": 21,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 21 من سورة القمر",
+      "text_ar": "فَكَيْفَ كَانَ عَذَابِى وَنُذُرِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15922",
@@ -875,10 +875,10 @@
         "ayah": 22,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 22 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَقَدْ يَسَّرْنَا ٱلْقُرْءَانَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -887,18 +887,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15923",
@@ -907,30 +907,30 @@
         "ayah": 23,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 23 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "كَذَّبَتْ ثَمُودُ بِٱلنُّذُرِ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15924",
@@ -939,30 +939,30 @@
         "ayah": 24,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 24 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "فَقَالُوٓا۟ أَبَشَرًا مِّنَّا وَٰحِدًا نَّتَّبِعُهُۥٓ إِنَّآ إِذًا لَّفِى ضَلَـٰلٍ وَسُعُرٍ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15925",
@@ -971,30 +971,30 @@
         "ayah": 25,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 25 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "أَءُلْقِىَ ٱلذِّكْرُ عَلَيْهِ مِنۢ بَيْنِنَا بَلْ هُوَ كَذَّابٌ أَشِرٌ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15926",
@@ -1003,20 +1003,20 @@
         "ayah": 26,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 26 من سورة القمر",
+      "text_ar": "سَيَعْلَمُونَ غَدًا مَّنِ ٱلْكَذَّابُ ٱلْأَشِرُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "blame",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1026,7 +1026,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15927",
@@ -1035,19 +1035,19 @@
         "ayah": 27,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 27 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّا مُرْسِلُوا۟ ٱلنَّاقَةِ فِتْنَةً لَّهُمْ فَٱرْتَقِبْهُمْ وَٱصْطَبِرْ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15928",
@@ -1067,30 +1067,30 @@
         "ayah": 28,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 28 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "وَنَبِّئْهُمْ أَنَّ ٱلْمَآءَ قِسْمَةٌۢ بَيْنَهُمْ ۖ كُلُّ شِرْبٍ مُّحْتَضَرٌ",
+      "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15929",
@@ -1099,19 +1099,19 @@
         "ayah": 29,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 29 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "فَنَادَوْا۟ صَاحِبَهُمْ فَتَعَاطَىٰ فَعَقَرَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15930",
@@ -1131,20 +1131,20 @@
         "ayah": 30,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 30 من سورة القمر",
+      "text_ar": "فَكَيْفَ كَانَ عَذَابِى وَنُذُرِ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1154,7 +1154,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15931",
@@ -1163,14 +1163,14 @@
         "ayah": 31,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 31 من سورة القمر",
+      "text_ar": "إِنَّآ أَرْسَلْنَا عَلَيْهِمْ صَيْحَةً وَٰحِدَةً فَكَانُوا۟ كَهَشِيمِ ٱلْمُحْتَظِرِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15932",
@@ -1195,10 +1195,10 @@
         "ayah": 32,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 32 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَقَدْ يَسَّرْنَا ٱلْقُرْءَانَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1207,18 +1207,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15933",
@@ -1227,30 +1227,30 @@
         "ayah": 33,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 33 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "كَذَّبَتْ قَوْمُ لُوطٍۭ بِٱلنُّذُرِ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.052264"
     },
     {
       "span_id": "QBM_15934",
@@ -1259,14 +1259,14 @@
         "ayah": 34,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 34 من سورة القمر",
+      "text_ar": "إِنَّآ أَرْسَلْنَا عَلَيْهِمْ حَاصِبًا إِلَّآ ءَالَ لُوطٍ ۖ نَّجَّيْنَـٰهُم بِسَحَرٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.053233"
     },
     {
       "span_id": "QBM_15935",
@@ -1291,231 +1291,7 @@
         "ayah": 35,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 35 من سورة القمر",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
-    },
-    {
-      "span_id": "QBM_15936",
-      "reference": {
-        "surah": 54,
-        "ayah": 36,
-        "surah_name": "القمر"
-      },
-      "text_ar": "آية 36 من سورة القمر",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
-    },
-    {
-      "span_id": "QBM_15937",
-      "reference": {
-        "surah": 54,
-        "ayah": 37,
-        "surah_name": "القمر"
-      },
-      "text_ar": "آية 37 من سورة القمر",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_DISBELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
-    },
-    {
-      "span_id": "QBM_15938",
-      "reference": {
-        "surah": 54,
-        "ayah": 38,
-        "surah_name": "القمر"
-      },
-      "text_ar": "آية 38 من سورة القمر",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_DISBELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
-    },
-    {
-      "span_id": "QBM_15939",
-      "reference": {
-        "surah": 54,
-        "ayah": 39,
-        "surah_name": "القمر"
-      },
-      "text_ar": "آية 39 من سورة القمر",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
-    },
-    {
-      "span_id": "QBM_15940",
-      "reference": {
-        "surah": 54,
-        "ayah": 40,
-        "surah_name": "القمر"
-      },
-      "text_ar": "آية 40 من سورة القمر",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
-    },
-    {
-      "span_id": "QBM_15941",
-      "reference": {
-        "surah": 54,
-        "ayah": 41,
-        "surah_name": "القمر"
-      },
-      "text_ar": "آية 41 من سورة القمر",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
-    },
-    {
-      "span_id": "QBM_15942",
-      "reference": {
-        "surah": 54,
-        "ayah": 42,
-        "surah_name": "القمر"
-      },
-      "text_ar": "آية 42 من سورة القمر",
+      "text_ar": "نِّعْمَةً مِّنْ عِندِنَا ۚ كَذَٰلِكَ نَجْزِى مَن شَكَرَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
@@ -1538,7 +1314,231 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.053233"
+    },
+    {
+      "span_id": "QBM_15936",
+      "reference": {
+        "surah": 54,
+        "ayah": 36,
+        "surah_name": "القمر"
+      },
+      "text_ar": "وَلَقَدْ أَنذَرَهُم بَطْشَتَنَا فَتَمَارَوْا۟ بِٱلنُّذُرِ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:12:14.053233"
+    },
+    {
+      "span_id": "QBM_15937",
+      "reference": {
+        "surah": 54,
+        "ayah": 37,
+        "surah_name": "القمر"
+      },
+      "text_ar": "وَلَقَدْ رَٰوَدُوهُ عَن ضَيْفِهِۦ فَطَمَسْنَآ أَعْيُنَهُمْ فَذُوقُوا۟ عَذَابِى وَنُذُرِ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:12:14.053233"
+    },
+    {
+      "span_id": "QBM_15938",
+      "reference": {
+        "surah": 54,
+        "ayah": 38,
+        "surah_name": "القمر"
+      },
+      "text_ar": "وَلَقَدْ صَبَّحَهُم بُكْرَةً عَذَابٌ مُّسْتَقِرٌّ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:12:14.053233"
+    },
+    {
+      "span_id": "QBM_15939",
+      "reference": {
+        "surah": 54,
+        "ayah": 39,
+        "surah_name": "القمر"
+      },
+      "text_ar": "فَذُوقُوا۟ عَذَابِى وَنُذُرِ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:12:14.053233"
+    },
+    {
+      "span_id": "QBM_15940",
+      "reference": {
+        "surah": 54,
+        "ayah": 40,
+        "surah_name": "القمر"
+      },
+      "text_ar": "وَلَقَدْ يَسَّرْنَا ٱلْقُرْءَانَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ",
+      "behavior_form": "speech_act",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "interrogative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "external",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:12:14.053233"
+    },
+    {
+      "span_id": "QBM_15941",
+      "reference": {
+        "surah": 54,
+        "ayah": 41,
+        "surah_name": "القمر"
+      },
+      "text_ar": "وَلَقَدْ جَآءَ ءَالَ فِرْعَوْنَ ٱلنُّذُرُ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:12:14.053233"
+    },
+    {
+      "span_id": "QBM_15942",
+      "reference": {
+        "surah": 54,
+        "ayah": 42,
+        "surah_name": "القمر"
+      },
+      "text_ar": "كَذَّبُوا۟ بِـَٔايَـٰتِنَا كُلِّهَا فَأَخَذْنَـٰهُمْ أَخْذَ عَزِيزٍ مُّقْتَدِرٍ",
+      "behavior_form": "relational_act",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:12:14.053233"
     },
     {
       "span_id": "QBM_15943",
@@ -1547,20 +1547,20 @@
         "ayah": 43,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 43 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "أَكُفَّارُكُمْ خَيْرٌ مِّنْ أُو۟لَـٰٓئِكُمْ أَمْ لَكُم بَرَآءَةٌ فِى ٱلزُّبُرِ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "praise",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1570,7 +1570,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.053233"
     },
     {
       "span_id": "QBM_15944",
@@ -1579,8 +1579,8 @@
         "ayah": 44,
         "surah_name": "القمر"
       },
-      "text_ar": "آية 44 من سورة القمر",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمْ يَقُولُونَ نَحْنُ جَمِيعٌ مُّنتَصِرٌ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
@@ -1591,18 +1591,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:20.828614"
+      "annotated_at": "2025-12-21T09:12:14.053233"
     }
   ]
 }

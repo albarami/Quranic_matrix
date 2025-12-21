@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_001",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:53:16.527663",
+  "annotated_at": "2025-12-21T09:12:09.710842",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,20 +11,20 @@
         "ayah": 1,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 1 من سورة العنكبوت",
+      "text_ar": "الٓمٓ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.706186"
     },
     {
       "span_id": "QBM_08402",
@@ -43,30 +43,30 @@
         "ayah": 2,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 2 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "أَحَسِبَ ٱلنَّاسُ أَن يُتْرَكُوٓا۟ أَن يَقُولُوٓا۟ ءَامَنَّا وَهُمْ لَا يُفْتَنُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.706186"
     },
     {
       "span_id": "QBM_08403",
@@ -75,20 +75,20 @@
         "ayah": 3,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 3 من سورة العنكبوت",
+      "text_ar": "وَلَقَدْ فَتَنَّا ٱلَّذِينَ مِن قَبْلِهِمْ ۖ فَلَيَعْلَمَنَّ ٱللَّهُ ٱلَّذِينَ صَدَقُوا۟ وَلَيَعْلَمَنَّ ٱلْكَـٰذِبِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -98,7 +98,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.706186"
     },
     {
       "span_id": "QBM_08404",
@@ -107,30 +107,30 @@
         "ayah": 4,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 4 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمْ حَسِبَ ٱلَّذِينَ يَعْمَلُونَ ٱلسَّيِّـَٔاتِ أَن يَسْبِقُونَا ۚ سَآءَ مَا يَحْكُمُونَ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.706186"
     },
     {
       "span_id": "QBM_08405",
@@ -139,20 +139,20 @@
         "ayah": 5,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 5 من سورة العنكبوت",
+      "text_ar": "مَن كَانَ يَرْجُوا۟ لِقَآءَ ٱللَّهِ فَإِنَّ أَجَلَ ٱللَّهِ لَـَٔاتٍ ۚ وَهُوَ ٱلسَّمِيعُ ٱلْعَلِيمُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -162,7 +162,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.706186"
     },
     {
       "span_id": "QBM_08406",
@@ -171,20 +171,20 @@
         "ayah": 6,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 6 من سورة العنكبوت",
+      "text_ar": "وَمَن جَـٰهَدَ فَإِنَّمَا يُجَـٰهِدُ لِنَفْسِهِۦٓ ۚ إِنَّ ٱللَّهَ لَغَنِىٌّ عَنِ ٱلْعَـٰلَمِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -194,7 +194,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.706186"
     },
     {
       "span_id": "QBM_08407",
@@ -203,30 +203,30 @@
         "ayah": 7,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 7 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ لَنُكَفِّرَنَّ عَنْهُمْ سَيِّـَٔاتِهِمْ وَلَنَجْزِيَنَّهُمْ أَحْسَنَ ٱلَّذِى كَانُوا۟ يَعْمَلُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.706186"
     },
     {
       "span_id": "QBM_08408",
@@ -235,30 +235,30 @@
         "ayah": 8,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 8 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَوَصَّيْنَا ٱلْإِنسَـٰنَ بِوَٰلِدَيْهِ حُسْنًا ۖ وَإِن جَـٰهَدَاكَ لِتُشْرِكَ بِى مَا لَيْسَ لَكَ بِهِۦ عِلْمٌ فَلَا تُطِعْهُمَآ ۚ إِلَىَّ مَرْجِعُكُمْ فَأُنَبِّئُكُم بِمَا كُنتُمْ تَعْمَلُونَ",
+      "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "blame",
-        "deontic_signal": "khabar"
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.707186"
     },
     {
       "span_id": "QBM_08409",
@@ -267,30 +267,30 @@
         "ayah": 9,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 9 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ لَنُدْخِلَنَّهُمْ فِى ٱلصَّـٰلِحِينَ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.707186"
     },
     {
       "span_id": "QBM_08410",
@@ -299,30 +299,30 @@
         "ayah": 10,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 10 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَمِنَ ٱلنَّاسِ مَن يَقُولُ ءَامَنَّا بِٱللَّهِ فَإِذَآ أُوذِىَ فِى ٱللَّهِ جَعَلَ فِتْنَةَ ٱلنَّاسِ كَعَذَابِ ٱللَّهِ وَلَئِن جَآءَ نَصْرٌ مِّن رَّبِّكَ لَيَقُولُنَّ إِنَّا كُنَّا مَعَكُمْ ۚ أَوَلَيْسَ ٱللَّهُ بِأَعْلَمَ بِمَا فِى صُدُورِ ٱلْعَـٰلَمِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "blame",
-        "deontic_signal": "khabar"
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.707186"
     },
     {
       "span_id": "QBM_08411",
@@ -331,7 +331,7 @@
         "ayah": 11,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 11 من سورة العنكبوت",
+      "text_ar": "وَلَيَعْلَمَنَّ ٱللَّهُ ٱلَّذِينَ ءَامَنُوا۟ وَلَيَعْلَمَنَّ ٱلْمُنَـٰفِقِينَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
@@ -339,12 +339,12 @@
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.707186"
     },
     {
       "span_id": "QBM_08412",
@@ -363,30 +363,30 @@
         "ayah": 12,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 12 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَقَالَ ٱلَّذِينَ كَفَرُوا۟ لِلَّذِينَ ءَامَنُوا۟ ٱتَّبِعُوا۟ سَبِيلَنَا وَلْنَحْمِلْ خَطَـٰيَـٰكُمْ وَمَا هُم بِحَـٰمِلِينَ مِنْ خَطَـٰيَـٰهُم مِّن شَىْءٍ ۖ إِنَّهُمْ لَكَـٰذِبُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.707186"
     },
     {
       "span_id": "QBM_08413",
@@ -395,30 +395,30 @@
         "ayah": 13,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 13 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَيَحْمِلُنَّ أَثْقَالَهُمْ وَأَثْقَالًا مَّعَ أَثْقَالِهِمْ ۖ وَلَيُسْـَٔلُنَّ يَوْمَ ٱلْقِيَـٰمَةِ عَمَّا كَانُوا۟ يَفْتَرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.707186"
     },
     {
       "span_id": "QBM_08414",
@@ -427,30 +427,30 @@
         "ayah": 14,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 14 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِۦ فَلَبِثَ فِيهِمْ أَلْفَ سَنَةٍ إِلَّا خَمْسِينَ عَامًا فَأَخَذَهُمُ ٱلطُّوفَانُ وَهُمْ ظَـٰلِمُونَ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.707186"
     },
     {
       "span_id": "QBM_08415",
@@ -459,20 +459,20 @@
         "ayah": 15,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 15 من سورة العنكبوت",
+      "text_ar": "فَأَنجَيْنَـٰهُ وَأَصْحَـٰبَ ٱلسَّفِينَةِ وَجَعَلْنَـٰهَآ ءَايَةً لِّلْعَـٰلَمِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -482,7 +482,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.707186"
     },
     {
       "span_id": "QBM_08416",
@@ -491,20 +491,20 @@
         "ayah": 16,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 16 من سورة العنكبوت",
+      "text_ar": "وَإِبْرَٰهِيمَ إِذْ قَالَ لِقَوْمِهِ ٱعْبُدُوا۟ ٱللَّهَ وَٱتَّقُوهُ ۖ ذَٰلِكُمْ خَيْرٌ لَّكُمْ إِن كُنتُمْ تَعْلَمُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.707186"
     },
     {
       "span_id": "QBM_08417",
@@ -523,20 +523,20 @@
         "ayah": 17,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 17 من سورة العنكبوت",
+      "text_ar": "إِنَّمَا تَعْبُدُونَ مِن دُونِ ٱللَّهِ أَوْثَـٰنًا وَتَخْلُقُونَ إِفْكًا ۚ إِنَّ ٱلَّذِينَ تَعْبُدُونَ مِن دُونِ ٱللَّهِ لَا يَمْلِكُونَ لَكُمْ رِزْقًا فَٱبْتَغُوا۟ عِندَ ٱللَّهِ ٱلرِّزْقَ وَٱعْبُدُوهُ وَٱشْكُرُوا۟ لَهُۥٓ ۖ إِلَيْهِ تُرْجَعُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.707186"
     },
     {
       "span_id": "QBM_08418",
@@ -555,30 +555,30 @@
         "ayah": 18,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 18 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَإِن تُكَذِّبُوا۟ فَقَدْ كَذَّبَ أُمَمٌ مِّن قَبْلِكُمْ ۖ وَمَا عَلَى ٱلرَّسُولِ إِلَّا ٱلْبَلَـٰغُ ٱلْمُبِينُ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708214"
     },
     {
       "span_id": "QBM_08419",
@@ -587,20 +587,20 @@
         "ayah": 19,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 19 من سورة العنكبوت",
+      "text_ar": "أَوَلَمْ يَرَوْا۟ كَيْفَ يُبْدِئُ ٱللَّهُ ٱلْخَلْقَ ثُمَّ يُعِيدُهُۥٓ ۚ إِنَّ ذَٰلِكَ عَلَى ٱللَّهِ يَسِيرٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708274"
     },
     {
       "span_id": "QBM_08420",
@@ -619,20 +619,20 @@
         "ayah": 20,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 20 من سورة العنكبوت",
+      "text_ar": "قُلْ سِيرُوا۟ فِى ٱلْأَرْضِ فَٱنظُرُوا۟ كَيْفَ بَدَأَ ٱلْخَلْقَ ۚ ثُمَّ ٱللَّهُ يُنشِئُ ٱلنَّشْأَةَ ٱلْـَٔاخِرَةَ ۚ إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708274"
     },
     {
       "span_id": "QBM_08421",
@@ -651,7 +651,7 @@
         "ayah": 21,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 21 من سورة العنكبوت",
+      "text_ar": "يُعَذِّبُ مَن يَشَآءُ وَيَرْحَمُ مَن يَشَآءُ ۖ وَإِلَيْهِ تُقْلَبُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
@@ -659,12 +659,12 @@
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -674,7 +674,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708274"
     },
     {
       "span_id": "QBM_08422",
@@ -683,20 +683,20 @@
         "ayah": 22,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 22 من سورة العنكبوت",
+      "text_ar": "وَمَآ أَنتُم بِمُعْجِزِينَ فِى ٱلْأَرْضِ وَلَا فِى ٱلسَّمَآءِ ۖ وَمَا لَكُم مِّن دُونِ ٱللَّهِ مِن وَلِىٍّ وَلَا نَصِيرٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -706,7 +706,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708274"
     },
     {
       "span_id": "QBM_08423",
@@ -715,20 +715,20 @@
         "ayah": 23,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 23 من سورة العنكبوت",
+      "text_ar": "وَٱلَّذِينَ كَفَرُوا۟ بِـَٔايَـٰتِ ٱللَّهِ وَلِقَآئِهِۦٓ أُو۟لَـٰٓئِكَ يَئِسُوا۟ مِن رَّحْمَتِى وَأُو۟لَـٰٓئِكَ لَهُمْ عَذَابٌ أَلِيمٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "blame",
-        "deontic_signal": "khabar"
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -738,7 +738,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708274"
     },
     {
       "span_id": "QBM_08424",
@@ -747,30 +747,30 @@
         "ayah": 24,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 24 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "فَمَا كَانَ جَوَابَ قَوْمِهِۦٓ إِلَّآ أَن قَالُوا۟ ٱقْتُلُوهُ أَوْ حَرِّقُوهُ فَأَنجَىٰهُ ٱللَّهُ مِنَ ٱلنَّارِ ۚ إِنَّ فِى ذَٰلِكَ لَـَٔايَـٰتٍ لِّقَوْمٍ يُؤْمِنُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "blame",
-        "deontic_signal": "khabar"
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708791"
     },
     {
       "span_id": "QBM_08425",
@@ -779,30 +779,30 @@
         "ayah": 25,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 25 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَقَالَ إِنَّمَا ٱتَّخَذْتُم مِّن دُونِ ٱللَّهِ أَوْثَـٰنًا مَّوَدَّةَ بَيْنِكُمْ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا ۖ ثُمَّ يَوْمَ ٱلْقِيَـٰمَةِ يَكْفُرُ بَعْضُكُم بِبَعْضٍ وَيَلْعَنُ بَعْضُكُم بَعْضًا وَمَأْوَىٰكُمُ ٱلنَّارُ وَمَا لَكُم مِّن نَّـٰصِرِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "blame",
-        "deontic_signal": "khabar"
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708847"
     },
     {
       "span_id": "QBM_08426",
@@ -811,30 +811,30 @@
         "ayah": 26,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 26 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "فَـَٔامَنَ لَهُۥ لُوطٌ ۘ وَقَالَ إِنِّى مُهَاجِرٌ إِلَىٰ رَبِّىٓ ۖ إِنَّهُۥ هُوَ ٱلْعَزِيزُ ٱلْحَكِيمُ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708847"
     },
     {
       "span_id": "QBM_08427",
@@ -843,20 +843,20 @@
         "ayah": 27,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 27 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَوَهَبْنَا لَهُۥٓ إِسْحَـٰقَ وَيَعْقُوبَ وَجَعَلْنَا فِى ذُرِّيَّتِهِ ٱلنُّبُوَّةَ وَٱلْكِتَـٰبَ وَءَاتَيْنَـٰهُ أَجْرَهُۥ فِى ٱلدُّنْيَا ۖ وَإِنَّهُۥ فِى ٱلْـَٔاخِرَةِ لَمِنَ ٱلصَّـٰلِحِينَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708847"
     },
     {
       "span_id": "QBM_08428",
@@ -875,30 +875,30 @@
         "ayah": 28,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 28 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلُوطًا إِذْ قَالَ لِقَوْمِهِۦٓ إِنَّكُمْ لَتَأْتُونَ ٱلْفَـٰحِشَةَ مَا سَبَقَكُم بِهَا مِنْ أَحَدٍ مِّنَ ٱلْعَـٰلَمِينَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708847"
     },
     {
       "span_id": "QBM_08429",
@@ -907,30 +907,30 @@
         "ayah": 29,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 29 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "أَئِنَّكُمْ لَتَأْتُونَ ٱلرِّجَالَ وَتَقْطَعُونَ ٱلسَّبِيلَ وَتَأْتُونَ فِى نَادِيكُمُ ٱلْمُنكَرَ ۖ فَمَا كَانَ جَوَابَ قَوْمِهِۦٓ إِلَّآ أَن قَالُوا۟ ٱئْتِنَا بِعَذَابِ ٱللَّهِ إِن كُنتَ مِنَ ٱلصَّـٰدِقِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "blame",
-        "deontic_signal": "khabar"
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708847"
     },
     {
       "span_id": "QBM_08430",
@@ -939,20 +939,20 @@
         "ayah": 30,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 30 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ رَبِّ ٱنصُرْنِى عَلَى ٱلْقَوْمِ ٱلْمُفْسِدِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -962,7 +962,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708847"
     },
     {
       "span_id": "QBM_08431",
@@ -971,30 +971,30 @@
         "ayah": 31,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 31 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَمَّا جَآءَتْ رُسُلُنَآ إِبْرَٰهِيمَ بِٱلْبُشْرَىٰ قَالُوٓا۟ إِنَّا مُهْلِكُوٓا۟ أَهْلِ هَـٰذِهِ ٱلْقَرْيَةِ ۖ إِنَّ أَهْلَهَا كَانُوا۟ ظَـٰلِمِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708847"
     },
     {
       "span_id": "QBM_08432",
@@ -1003,30 +1003,30 @@
         "ayah": 32,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 32 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ إِنَّ فِيهَا لُوطًا ۚ قَالُوا۟ نَحْنُ أَعْلَمُ بِمَن فِيهَا ۖ لَنُنَجِّيَنَّهُۥ وَأَهْلَهُۥٓ إِلَّا ٱمْرَأَتَهُۥ كَانَتْ مِنَ ٱلْغَـٰبِرِينَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.708847"
     },
     {
       "span_id": "QBM_08433",
@@ -1035,30 +1035,30 @@
         "ayah": 33,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 33 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَمَّآ أَن جَآءَتْ رُسُلُنَا لُوطًا سِىٓءَ بِهِمْ وَضَاقَ بِهِمْ ذَرْعًا وَقَالُوا۟ لَا تَخَفْ وَلَا تَحْزَنْ ۖ إِنَّا مُنَجُّوكَ وَأَهْلَكَ إِلَّا ٱمْرَأَتَكَ كَانَتْ مِنَ ٱلْغَـٰبِرِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.709842"
     },
     {
       "span_id": "QBM_08434",
@@ -1067,20 +1067,20 @@
         "ayah": 34,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 34 من سورة العنكبوت",
+      "text_ar": "إِنَّا مُنزِلُونَ عَلَىٰٓ أَهْلِ هَـٰذِهِ ٱلْقَرْيَةِ رِجْزًا مِّنَ ٱلسَّمَآءِ بِمَا كَانُوا۟ يَفْسُقُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -1090,7 +1090,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.709842"
     },
     {
       "span_id": "QBM_08435",
@@ -1099,20 +1099,20 @@
         "ayah": 35,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 35 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَقَد تَّرَكْنَا مِنْهَآ ءَايَةًۢ بَيِّنَةً لِّقَوْمٍ يَعْقِلُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.709842"
     },
     {
       "span_id": "QBM_08436",
@@ -1131,30 +1131,30 @@
         "ayah": 36,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 36 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَإِلَىٰ مَدْيَنَ أَخَاهُمْ شُعَيْبًا فَقَالَ يَـٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ وَٱرْجُوا۟ ٱلْيَوْمَ ٱلْـَٔاخِرَ وَلَا تَعْثَوْا۟ فِى ٱلْأَرْضِ مُفْسِدِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.709842"
     },
     {
       "span_id": "QBM_08437",
@@ -1163,30 +1163,30 @@
         "ayah": 37,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 37 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "فَكَذَّبُوهُ فَأَخَذَتْهُمُ ٱلرَّجْفَةُ فَأَصْبَحُوا۟ فِى دَارِهِمْ جَـٰثِمِينَ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.709842"
     },
     {
       "span_id": "QBM_08438",
@@ -1195,20 +1195,20 @@
         "ayah": 38,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 38 من سورة العنكبوت",
+      "text_ar": "وَعَادًا وَثَمُودَا۟ وَقَد تَّبَيَّنَ لَكُم مِّن مَّسَـٰكِنِهِمْ ۖ وَزَيَّنَ لَهُمُ ٱلشَّيْطَـٰنُ أَعْمَـٰلَهُمْ فَصَدَّهُمْ عَنِ ٱلسَّبِيلِ وَكَانُوا۟ مُسْتَبْصِرِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -1218,7 +1218,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.709842"
     },
     {
       "span_id": "QBM_08439",
@@ -1227,20 +1227,20 @@
         "ayah": 39,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 39 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَقَـٰرُونَ وَفِرْعَوْنَ وَهَـٰمَـٰنَ ۖ وَلَقَدْ جَآءَهُم مُّوسَىٰ بِٱلْبَيِّنَـٰتِ فَٱسْتَكْبَرُوا۟ فِى ٱلْأَرْضِ وَمَا كَانُوا۟ سَـٰبِقِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -1250,7 +1250,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.709842"
     },
     {
       "span_id": "QBM_08440",
@@ -1259,20 +1259,20 @@
         "ayah": 40,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 40 من سورة العنكبوت",
+      "text_ar": "فَكُلًّا أَخَذْنَا بِذَنۢبِهِۦ ۖ فَمِنْهُم مَّنْ أَرْسَلْنَا عَلَيْهِ حَاصِبًا وَمِنْهُم مَّنْ أَخَذَتْهُ ٱلصَّيْحَةُ وَمِنْهُم مَّنْ خَسَفْنَا بِهِ ٱلْأَرْضَ وَمِنْهُم مَّنْ أَغْرَقْنَا ۚ وَمَا كَانَ ٱللَّهُ لِيَظْلِمَهُمْ وَلَـٰكِن كَانُوٓا۟ أَنفُسَهُمْ يَظْلِمُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.709842"
     },
     {
       "span_id": "QBM_08441",
@@ -1291,20 +1291,20 @@
         "ayah": 41,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 41 من سورة العنكبوت",
+      "text_ar": "مَثَلُ ٱلَّذِينَ ٱتَّخَذُوا۟ مِن دُونِ ٱللَّهِ أَوْلِيَآءَ كَمَثَلِ ٱلْعَنكَبُوتِ ٱتَّخَذَتْ بَيْتًا ۖ وَإِنَّ أَوْهَنَ ٱلْبُيُوتِ لَبَيْتُ ٱلْعَنكَبُوتِ ۖ لَوْ كَانُوا۟ يَعْلَمُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "blame",
-        "deontic_signal": "khabar"
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1314,7 +1314,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.526663"
+      "annotated_at": "2025-12-21T09:12:09.709842"
     },
     {
       "span_id": "QBM_08442",
@@ -1323,20 +1323,20 @@
         "ayah": 42,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 42 من سورة العنكبوت",
+      "text_ar": "إِنَّ ٱللَّهَ يَعْلَمُ مَا يَدْعُونَ مِن دُونِهِۦ مِن شَىْءٍ ۚ وَهُوَ ٱلْعَزِيزُ ٱلْحَكِيمُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.527663"
+      "annotated_at": "2025-12-21T09:12:09.709842"
     },
     {
       "span_id": "QBM_08443",
@@ -1355,20 +1355,20 @@
         "ayah": 43,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 43 من سورة العنكبوت",
+      "text_ar": "وَتِلْكَ ٱلْأَمْثَـٰلُ نَضْرِبُهَا لِلنَّاسِ ۖ وَمَا يَعْقِلُهَآ إِلَّا ٱلْعَـٰلِمُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -1378,7 +1378,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.527663"
+      "annotated_at": "2025-12-21T09:12:09.710842"
     },
     {
       "span_id": "QBM_08444",
@@ -1387,20 +1387,20 @@
         "ayah": 44,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 44 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "خَلَقَ ٱللَّهُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضَ بِٱلْحَقِّ ۚ إِنَّ فِى ذَٰلِكَ لَـَٔايَةً لِّلْمُؤْمِنِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -1410,7 +1410,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.527663"
+      "annotated_at": "2025-12-21T09:12:09.710842"
     },
     {
       "span_id": "QBM_08445",
@@ -1419,20 +1419,20 @@
         "ayah": 45,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 45 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "ٱتْلُ مَآ أُوحِىَ إِلَيْكَ مِنَ ٱلْكِتَـٰبِ وَأَقِمِ ٱلصَّلَوٰةَ ۖ إِنَّ ٱلصَّلَوٰةَ تَنْهَىٰ عَنِ ٱلْفَحْشَآءِ وَٱلْمُنكَرِ ۗ وَلَذِكْرُ ٱللَّهِ أَكْبَرُ ۗ وَٱللَّهُ يَعْلَمُ مَا تَصْنَعُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -1442,7 +1442,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.527663"
+      "annotated_at": "2025-12-21T09:12:09.710842"
     },
     {
       "span_id": "QBM_08446",
@@ -1451,20 +1451,20 @@
         "ayah": 46,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 46 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَا تُجَـٰدِلُوٓا۟ أَهْلَ ٱلْكِتَـٰبِ إِلَّا بِٱلَّتِى هِىَ أَحْسَنُ إِلَّا ٱلَّذِينَ ظَلَمُوا۟ مِنْهُمْ ۖ وَقُولُوٓا۟ ءَامَنَّا بِٱلَّذِىٓ أُنزِلَ إِلَيْنَا وَأُنزِلَ إِلَيْكُمْ وَإِلَـٰهُنَا وَإِلَـٰهُكُمْ وَٰحِدٌ وَنَحْنُ لَهُۥ مُسْلِمُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.527663"
+      "annotated_at": "2025-12-21T09:12:09.710842"
     },
     {
       "span_id": "QBM_08447",
@@ -1483,20 +1483,20 @@
         "ayah": 47,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 47 من سورة العنكبوت",
+      "text_ar": "وَكَذَٰلِكَ أَنزَلْنَآ إِلَيْكَ ٱلْكِتَـٰبَ ۚ فَٱلَّذِينَ ءَاتَيْنَـٰهُمُ ٱلْكِتَـٰبَ يُؤْمِنُونَ بِهِۦ ۖ وَمِنْ هَـٰٓؤُلَآءِ مَن يُؤْمِنُ بِهِۦ ۚ وَمَا يَجْحَدُ بِـَٔايَـٰتِنَآ إِلَّا ٱلْكَـٰفِرُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "internal",
@@ -1506,7 +1506,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.527663"
+      "annotated_at": "2025-12-21T09:12:09.710842"
     },
     {
       "span_id": "QBM_08448",
@@ -1515,30 +1515,30 @@
         "ayah": 48,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 48 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَمَا كُنتَ تَتْلُوا۟ مِن قَبْلِهِۦ مِن كِتَـٰبٍ وَلَا تَخُطُّهُۥ بِيَمِينِكَ ۖ إِذًا لَّٱرْتَابَ ٱلْمُبْطِلُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.527663"
+      "annotated_at": "2025-12-21T09:12:09.710842"
     },
     {
       "span_id": "QBM_08449",
@@ -1547,30 +1547,30 @@
         "ayah": 49,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 49 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "بَلْ هُوَ ءَايَـٰتٌۢ بَيِّنَـٰتٌ فِى صُدُورِ ٱلَّذِينَ أُوتُوا۟ ٱلْعِلْمَ ۚ وَمَا يَجْحَدُ بِـَٔايَـٰتِنَآ إِلَّا ٱلظَّـٰلِمُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.527663"
+      "annotated_at": "2025-12-21T09:12:09.710842"
     },
     {
       "span_id": "QBM_08450",
@@ -1579,30 +1579,30 @@
         "ayah": 50,
         "surah_name": "العنكبوت"
       },
-      "text_ar": "آية 50 من سورة العنكبوت",
-      "behavior_form": "inner_state",
+      "text_ar": "وَقَالُوا۟ لَوْلَآ أُنزِلَ عَلَيْهِ ءَايَـٰتٌ مِّن رَّبِّهِۦ ۖ قُلْ إِنَّمَا ٱلْـَٔايَـٰتُ عِندَ ٱللَّهِ وَإِنَّمَآ أَنَا۠ نَذِيرٌ مُّبِينٌ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "blame",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_FASID"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:16.527663"
+      "annotated_at": "2025-12-21T09:12:09.710842"
     }
   ]
 }

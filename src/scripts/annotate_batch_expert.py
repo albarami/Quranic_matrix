@@ -79,16 +79,34 @@ def get_text_hash(text: str) -> str:
     return hashlib.md5(text.encode()).hexdigest()[:8]
 
 
+def strip_diacritics(text: str) -> str:
+    """Remove Arabic diacritics (tashkeel) for pattern matching.
+    
+    Removes: fatha, damma, kasra, sukun, shadda, tanwin, etc.
+    """
+    import unicodedata
+    # Arabic diacritics Unicode range: 0x064B - 0x065F, plus some others
+    diacritics = set([
+        '\u064B', '\u064C', '\u064D', '\u064E', '\u064F', '\u0650', '\u0651', '\u0652',
+        '\u0653', '\u0654', '\u0655', '\u0656', '\u0657', '\u0658', '\u0659', '\u065A',
+        '\u065B', '\u065C', '\u065D', '\u065E', '\u065F', '\u0670',  # Standard tashkeel
+        '\u06D6', '\u06D7', '\u06D8', '\u06D9', '\u06DA', '\u06DB', '\u06DC', '\u06DD',
+        '\u06DE', '\u06DF', '\u06E0', '\u06E1', '\u06E2', '\u06E3', '\u06E4', '\u06E5',
+        '\u06E6', '\u06E7', '\u06E8', '\u06E9', '\u06EA', '\u06EB', '\u06EC', '\u06ED',  # Quranic marks
+    ])
+    return ''.join(c for c in text if c not in diacritics)
+
+
 def detect_behavior_form(text: str, surah: int, ayah: int) -> str:
     """Detect behavior form from verse text using expert patterns."""
-    text_lower = text
+    text_normalized = strip_diacritics(text)
     
     # Check patterns in priority order
     scores = {form: 0 for form in BEHAVIOR_PATTERNS}
     
     for form, keywords in BEHAVIOR_PATTERNS.items():
         for kw in keywords:
-            if kw in text_lower:
+            if kw in text_normalized:
                 scores[form] += 1
     
     # Get highest scoring form
@@ -129,8 +147,9 @@ def detect_agent_type(text: str, surah: int, ayah: int) -> str:
 
 def detect_evaluation(text: str) -> str:
     """Detect normative evaluation from verse text."""
-    praise_score = sum(1 for kw in EVALUATION_PATTERNS["praise"] if kw in text)
-    blame_score = sum(1 for kw in EVALUATION_PATTERNS["blame"] if kw in text)
+    text_normalized = strip_diacritics(text)
+    praise_score = sum(1 for kw in EVALUATION_PATTERNS["praise"] if kw in text_normalized)
+    blame_score = sum(1 for kw in EVALUATION_PATTERNS["blame"] if kw in text_normalized)
     
     if praise_score > blame_score:
         return "praise"
@@ -141,11 +160,38 @@ def detect_evaluation(text: str) -> str:
 
 def detect_speech_mode(text: str) -> str:
     """Detect speech mode from verse text."""
+    text_normalized = strip_diacritics(text)
     for mode, patterns in SPEECH_MODE_PATTERNS.items():
         for pattern in patterns:
-            if pattern in text:
+            if pattern in text_normalized:
                 return mode
     return "informative"
+
+
+def _get_deontic_signal(speech_mode: str, evaluation: str) -> str:
+    """Map speech_mode + evaluation to deontic_signal per DECISION_FLOWCHART.md.
+    
+    Mapping:
+    - command -> amr
+    - prohibition -> nahy
+    - informative + praise -> targhib
+    - informative + blame -> tarhib
+    - informative + neutral -> khabar
+    - narrative -> khabar
+    """
+    if speech_mode == "command":
+        return "amr"
+    elif speech_mode == "prohibition":
+        return "nahy"
+    elif speech_mode == "informative":
+        if evaluation == "praise":
+            return "targhib"
+        elif evaluation == "blame":
+            return "tarhib"
+        else:
+            return "khabar"
+    else:  # narrative, interrogative, etc.
+        return "khabar"
 
 
 def generate_span_id(surah: int, ayah: int, idx: int = 0) -> str:
@@ -159,16 +205,17 @@ def annotate_ayah(ayah_data: Dict, quran_text: Dict = None) -> Dict:
     surah = ayah_data["surah"]
     ayah = ayah_data["ayah"]
     
-    # Get Arabic text if available
+    # Get Arabic text from Quran data (indexed by int surah/ayah numbers)
     text_ar = ""
-    if quran_text and str(surah) in quran_text:
-        surah_data = quran_text[str(surah)]
-        if "ayat" in surah_data and str(ayah) in surah_data["ayat"]:
-            text_ar = surah_data["ayat"][str(ayah)].get("text", "")
+    if quran_text and surah in quran_text:
+        surah_data = quran_text[surah]
+        if "ayat" in surah_data and ayah in surah_data["ayat"]:
+            text_ar = surah_data["ayat"][ayah].get("text_ar", "")
     
-    # If no text, use reference for deterministic annotation
+    # Fallback if text not found (should not happen with complete Quran data)
     if not text_ar:
         text_ar = f"آية {ayah} من سورة {ayah_data.get('surah_name', surah)}"
+        print(f"  [WARN] Missing text for {surah}:{ayah}")
     
     # Expert analysis
     behavior_form = detect_behavior_form(text_ar, surah, ayah)
@@ -195,11 +242,11 @@ def annotate_ayah(ayah_data: Dict, quran_text: Dict = None) -> Dict:
         "normative": {
             "speech_mode": speech_mode,
             "evaluation": evaluation,
-            "deontic_signal": "amr" if speech_mode == "command" else ("nahy" if speech_mode == "prohibition" else "khabar")
+            "deontic_signal": _get_deontic_signal(speech_mode, evaluation)
         },
         "action": {
             "class": "ACT_VOLITIONAL" if behavior_form in ["physical_act", "speech_act", "relational_act"] else "ACT_PSYCHOLOGICAL",
-            "textual_eval": f"EVAL_{'SALIH' if evaluation == 'praise' else ('FASID' if evaluation == 'blame' else 'NEUTRAL')}"
+            "textual_eval": f"EVAL_{'SALIH' if evaluation == 'praise' else ('SAYYI' if evaluation == 'blame' else 'NEUTRAL')}"
         },
         "axes": {
             "situational": "external" if behavior_form in ["physical_act", "speech_act"] else "internal",
@@ -214,12 +261,34 @@ def annotate_ayah(ayah_data: Dict, quran_text: Dict = None) -> Dict:
 
 
 def load_quran_text() -> Dict:
-    """Load Quran text for annotation context."""
+    """Load Quran text for annotation context.
+    
+    Returns dict indexed by surah number (1-114) with ayat indexed by ayah number.
+    """
     quran_path = Path("data/quran/_incoming/quran_tokenized_full.source.json")
-    if quran_path.exists():
-        with open(quran_path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {}
+    if not quran_path.exists():
+        return {}
+    
+    with open(quran_path, "r", encoding="utf-8") as f:
+        raw_data = json.load(f)
+    
+    # Convert from surahs list to dict indexed by surah number
+    quran_dict = {}
+    for surah_data in raw_data.get("surahs", []):
+        surah_num = surah_data.get("surah_number")
+        if surah_num:
+            # Index ayat by ayah number for fast lookup
+            ayat_dict = {}
+            for ayah_data in surah_data.get("ayat", []):
+                ayah_num = ayah_data.get("ayah_number")
+                if ayah_num:
+                    ayat_dict[ayah_num] = ayah_data
+            quran_dict[surah_num] = {
+                "name_ar": surah_data.get("name_ar", ""),
+                "ayat": ayat_dict
+            }
+    
+    return quran_dict
 
 
 def annotate_batch(batch_file: Path, output_dir: Path) -> Dict:

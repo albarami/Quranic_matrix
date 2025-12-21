@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_005",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:53:17.118502",
+  "annotated_at": "2025-12-21T09:12:10.294450",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,20 +11,20 @@
         "ayah": 8,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 8 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "لِّيَسْـَٔلَ ٱلصَّـٰدِقِينَ عَن صِدْقِهِمْ ۚ وَأَعَدَّ لِلْكَـٰفِرِينَ عَذَابًا أَلِيمًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.289417"
     },
     {
       "span_id": "QBM_09609",
@@ -43,14 +43,14 @@
         "ayah": 9,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 9 من سورة الأحزاب",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱذْكُرُوا۟ نِعْمَةَ ٱللَّهِ عَلَيْكُمْ إِذْ جَآءَتْكُمْ جُنُودٌ فَأَرْسَلْنَا عَلَيْهِمْ رِيحًا وَجُنُودًا لَّمْ تَرَوْهَا ۚ وَكَانَ ٱللَّهُ بِمَا تَعْمَلُونَ بَصِيرًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -66,7 +66,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.289417"
     },
     {
       "span_id": "QBM_09610",
@@ -75,7 +75,7 @@
         "ayah": 10,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 10 من سورة الأحزاب",
+      "text_ar": "إِذْ جَآءُوكُم مِّن فَوْقِكُمْ وَمِنْ أَسْفَلَ مِنكُمْ وَإِذْ زَاغَتِ ٱلْأَبْصَـٰرُ وَبَلَغَتِ ٱلْقُلُوبُ ٱلْحَنَاجِرَ وَتَظُنُّونَ بِٱللَّهِ ٱلظُّنُونَا۠",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
@@ -98,7 +98,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.289417"
     },
     {
       "span_id": "QBM_09611",
@@ -107,10 +107,10 @@
         "ayah": 11,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 11 من سورة الأحزاب",
+      "text_ar": "هُنَالِكَ ٱبْتُلِىَ ٱلْمُؤْمِنُونَ وَزُلْزِلُوا۟ زِلْزَالًا شَدِيدًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -130,7 +130,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.289417"
     },
     {
       "span_id": "QBM_09612",
@@ -139,30 +139,30 @@
         "ayah": 12,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 12 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "وَإِذْ يَقُولُ ٱلْمُنَـٰفِقُونَ وَٱلَّذِينَ فِى قُلُوبِهِم مَّرَضٌ مَّا وَعَدَنَا ٱللَّهُ وَرَسُولُهُۥٓ إِلَّا غُرُورًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.289417"
     },
     {
       "span_id": "QBM_09613",
@@ -171,30 +171,30 @@
         "ayah": 13,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 13 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "وَإِذْ قَالَت طَّآئِفَةٌ مِّنْهُمْ يَـٰٓأَهْلَ يَثْرِبَ لَا مُقَامَ لَكُمْ فَٱرْجِعُوا۟ ۚ وَيَسْتَـْٔذِنُ فَرِيقٌ مِّنْهُمُ ٱلنَّبِىَّ يَقُولُونَ إِنَّ بُيُوتَنَا عَوْرَةٌ وَمَا هِىَ بِعَوْرَةٍ ۖ إِن يُرِيدُونَ إِلَّا فِرَارًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.289417"
     },
     {
       "span_id": "QBM_09614",
@@ -203,14 +203,14 @@
         "ayah": 14,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 14 من سورة الأحزاب",
+      "text_ar": "وَلَوْ دُخِلَتْ عَلَيْهِم مِّنْ أَقْطَارِهَا ثُمَّ سُئِلُوا۟ ٱلْفِتْنَةَ لَـَٔاتَوْهَا وَمَا تَلَبَّثُوا۟ بِهَآ إِلَّا يَسِيرًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -226,7 +226,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.289417"
     },
     {
       "span_id": "QBM_09615",
@@ -235,14 +235,14 @@
         "ayah": 15,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 15 من سورة الأحزاب",
+      "text_ar": "وَلَقَدْ كَانُوا۟ عَـٰهَدُوا۟ ٱللَّهَ مِن قَبْلُ لَا يُوَلُّونَ ٱلْأَدْبَـٰرَ ۚ وَكَانَ عَهْدُ ٱللَّهِ مَسْـُٔولًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -258,7 +258,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.289417"
     },
     {
       "span_id": "QBM_09616",
@@ -267,30 +267,30 @@
         "ayah": 16,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 16 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "قُل لَّن يَنفَعَكُمُ ٱلْفِرَارُ إِن فَرَرْتُم مِّنَ ٱلْمَوْتِ أَوِ ٱلْقَتْلِ وَإِذًا لَّا تُمَتَّعُونَ إِلَّا قَلِيلًا",
+      "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.289417"
     },
     {
       "span_id": "QBM_09617",
@@ -299,19 +299,19 @@
         "ayah": 17,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 17 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "قُلْ مَن ذَا ٱلَّذِى يَعْصِمُكُم مِّنَ ٱللَّهِ إِنْ أَرَادَ بِكُمْ سُوٓءًا أَوْ أَرَادَ بِكُمْ رَحْمَةً ۚ وَلَا يَجِدُونَ لَهُم مِّن دُونِ ٱللَّهِ وَلِيًّا وَلَا نَصِيرًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.290417"
     },
     {
       "span_id": "QBM_09618",
@@ -331,14 +331,14 @@
         "ayah": 18,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 18 من سورة الأحزاب",
+      "text_ar": "قَدْ يَعْلَمُ ٱللَّهُ ٱلْمُعَوِّقِينَ مِنكُمْ وَٱلْقَآئِلِينَ لِإِخْوَٰنِهِمْ هَلُمَّ إِلَيْنَا ۖ وَلَا يَأْتُونَ ٱلْبَأْسَ إِلَّا قَلِيلًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.290417"
     },
     {
       "span_id": "QBM_09619",
@@ -363,20 +363,20 @@
         "ayah": 19,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 19 من سورة الأحزاب",
+      "text_ar": "أَشِحَّةً عَلَيْكُمْ ۖ فَإِذَا جَآءَ ٱلْخَوْفُ رَأَيْتَهُمْ يَنظُرُونَ إِلَيْكَ تَدُورُ أَعْيُنُهُمْ كَٱلَّذِى يُغْشَىٰ عَلَيْهِ مِنَ ٱلْمَوْتِ ۖ فَإِذَا ذَهَبَ ٱلْخَوْفُ سَلَقُوكُم بِأَلْسِنَةٍ حِدَادٍ أَشِحَّةً عَلَى ٱلْخَيْرِ ۚ أُو۟لَـٰٓئِكَ لَمْ يُؤْمِنُوا۟ فَأَحْبَطَ ٱللَّهُ أَعْمَـٰلَهُمْ ۚ وَكَانَ ذَٰلِكَ عَلَى ٱللَّهِ يَسِيرًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -386,7 +386,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.290417"
     },
     {
       "span_id": "QBM_09620",
@@ -395,14 +395,14 @@
         "ayah": 20,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 20 من سورة الأحزاب",
+      "text_ar": "يَحْسَبُونَ ٱلْأَحْزَابَ لَمْ يَذْهَبُوا۟ ۖ وَإِن يَأْتِ ٱلْأَحْزَابُ يَوَدُّوا۟ لَوْ أَنَّهُم بَادُونَ فِى ٱلْأَعْرَابِ يَسْـَٔلُونَ عَنْ أَنۢبَآئِكُمْ ۖ وَلَوْ كَانُوا۟ فِيكُم مَّا قَـٰتَلُوٓا۟ إِلَّا قَلِيلًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.290417"
     },
     {
       "span_id": "QBM_09621",
@@ -427,14 +427,14 @@
         "ayah": 21,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 21 من سورة الأحزاب",
+      "text_ar": "لَّقَدْ كَانَ لَكُمْ فِى رَسُولِ ٱللَّهِ أُسْوَةٌ حَسَنَةٌ لِّمَن كَانَ يَرْجُوا۟ ٱللَّهَ وَٱلْيَوْمَ ٱلْـَٔاخِرَ وَذَكَرَ ٱللَّهَ كَثِيرًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -450,7 +450,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.290417"
     },
     {
       "span_id": "QBM_09622",
@@ -459,30 +459,30 @@
         "ayah": 22,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 22 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَمَّا رَءَا ٱلْمُؤْمِنُونَ ٱلْأَحْزَابَ قَالُوا۟ هَـٰذَا مَا وَعَدَنَا ٱللَّهُ وَرَسُولُهُۥ وَصَدَقَ ٱللَّهُ وَرَسُولُهُۥ ۚ وَمَا زَادَهُمْ إِلَّآ إِيمَـٰنًا وَتَسْلِيمًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.290417"
     },
     {
       "span_id": "QBM_09623",
@@ -491,14 +491,14 @@
         "ayah": 23,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 23 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "مِّنَ ٱلْمُؤْمِنِينَ رِجَالٌ صَدَقُوا۟ مَا عَـٰهَدُوا۟ ٱللَّهَ عَلَيْهِ ۖ فَمِنْهُم مَّن قَضَىٰ نَحْبَهُۥ وَمِنْهُم مَّن يَنتَظِرُ ۖ وَمَا بَدَّلُوا۟ تَبْدِيلًا",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.290417"
     },
     {
       "span_id": "QBM_09624",
@@ -523,19 +523,19 @@
         "ayah": 24,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 24 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "لِّيَجْزِىَ ٱللَّهُ ٱلصَّـٰدِقِينَ بِصِدْقِهِمْ وَيُعَذِّبَ ٱلْمُنَـٰفِقِينَ إِن شَآءَ أَوْ يَتُوبَ عَلَيْهِمْ ۚ إِنَّ ٱللَّهَ كَانَ غَفُورًا رَّحِيمًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.290417"
     },
     {
       "span_id": "QBM_09625",
@@ -555,30 +555,30 @@
         "ayah": 25,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 25 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "وَرَدَّ ٱللَّهُ ٱلَّذِينَ كَفَرُوا۟ بِغَيْظِهِمْ لَمْ يَنَالُوا۟ خَيْرًا ۚ وَكَفَى ٱللَّهُ ٱلْمُؤْمِنِينَ ٱلْقِتَالَ ۚ وَكَانَ ٱللَّهُ قَوِيًّا عَزِيزًا",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.290417"
     },
     {
       "span_id": "QBM_09626",
@@ -587,14 +587,14 @@
         "ayah": 26,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 26 من سورة الأحزاب",
+      "text_ar": "وَأَنزَلَ ٱلَّذِينَ ظَـٰهَرُوهُم مِّنْ أَهْلِ ٱلْكِتَـٰبِ مِن صَيَاصِيهِمْ وَقَذَفَ فِى قُلُوبِهِمُ ٱلرُّعْبَ فَرِيقًا تَقْتُلُونَ وَتَأْسِرُونَ فَرِيقًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.291518"
     },
     {
       "span_id": "QBM_09627",
@@ -619,14 +619,14 @@
         "ayah": 27,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 27 من سورة الأحزاب",
+      "text_ar": "وَأَوْرَثَكُمْ أَرْضَهُمْ وَدِيَـٰرَهُمْ وَأَمْوَٰلَهُمْ وَأَرْضًا لَّمْ تَطَـُٔوهَا ۚ وَكَانَ ٱللَّهُ عَلَىٰ كُلِّ شَىْءٍ قَدِيرًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.291518"
     },
     {
       "span_id": "QBM_09628",
@@ -651,14 +651,14 @@
         "ayah": 28,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 28 من سورة الأحزاب",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلنَّبِىُّ قُل لِّأَزْوَٰجِكَ إِن كُنتُنَّ تُرِدْنَ ٱلْحَيَوٰةَ ٱلدُّنْيَا وَزِينَتَهَا فَتَعَالَيْنَ أُمَتِّعْكُنَّ وَأُسَرِّحْكُنَّ سَرَاحًا جَمِيلًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -674,7 +674,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.291518"
     },
     {
       "span_id": "QBM_09629",
@@ -683,20 +683,20 @@
         "ayah": 29,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 29 من سورة الأحزاب",
+      "text_ar": "وَإِن كُنتُنَّ تُرِدْنَ ٱللَّهَ وَرَسُولَهُۥ وَٱلدَّارَ ٱلْـَٔاخِرَةَ فَإِنَّ ٱللَّهَ أَعَدَّ لِلْمُحْسِنَـٰتِ مِنكُنَّ أَجْرًا عَظِيمًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -706,7 +706,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.291518"
     },
     {
       "span_id": "QBM_09630",
@@ -715,20 +715,20 @@
         "ayah": 30,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 30 من سورة الأحزاب",
+      "text_ar": "يَـٰنِسَآءَ ٱلنَّبِىِّ مَن يَأْتِ مِنكُنَّ بِفَـٰحِشَةٍ مُّبَيِّنَةٍ يُضَـٰعَفْ لَهَا ٱلْعَذَابُ ضِعْفَيْنِ ۚ وَكَانَ ذَٰلِكَ عَلَى ٱللَّهِ يَسِيرًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -738,7 +738,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.291518"
     },
     {
       "span_id": "QBM_09631",
@@ -747,30 +747,30 @@
         "ayah": 31,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 31 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "وَمَن يَقْنُتْ مِنكُنَّ لِلَّهِ وَرَسُولِهِۦ وَتَعْمَلْ صَـٰلِحًا نُّؤْتِهَآ أَجْرَهَا مَرَّتَيْنِ وَأَعْتَدْنَا لَهَا رِزْقًا كَرِيمًا",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "praise",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.291518"
     },
     {
       "span_id": "QBM_09632",
@@ -779,14 +779,14 @@
         "ayah": 32,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 32 من سورة الأحزاب",
+      "text_ar": "يَـٰنِسَآءَ ٱلنَّبِىِّ لَسْتُنَّ كَأَحَدٍ مِّنَ ٱلنِّسَآءِ ۚ إِنِ ٱتَّقَيْتُنَّ فَلَا تَخْضَعْنَ بِٱلْقَوْلِ فَيَطْمَعَ ٱلَّذِى فِى قَلْبِهِۦ مَرَضٌ وَقُلْنَ قَوْلًا مَّعْرُوفًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -802,7 +802,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.291518"
     },
     {
       "span_id": "QBM_09633",
@@ -811,19 +811,19 @@
         "ayah": 33,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 33 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "وَقَرْنَ فِى بُيُوتِكُنَّ وَلَا تَبَرَّجْنَ تَبَرُّجَ ٱلْجَـٰهِلِيَّةِ ٱلْأُولَىٰ ۖ وَأَقِمْنَ ٱلصَّلَوٰةَ وَءَاتِينَ ٱلزَّكَوٰةَ وَأَطِعْنَ ٱللَّهَ وَرَسُولَهُۥٓ ۚ إِنَّمَا يُرِيدُ ٱللَّهُ لِيُذْهِبَ عَنكُمُ ٱلرِّجْسَ أَهْلَ ٱلْبَيْتِ وَيُطَهِّرَكُمْ تَطْهِيرًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -834,7 +834,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.291518"
     },
     {
       "span_id": "QBM_09634",
@@ -843,14 +843,14 @@
         "ayah": 34,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 34 من سورة الأحزاب",
+      "text_ar": "وَٱذْكُرْنَ مَا يُتْلَىٰ فِى بُيُوتِكُنَّ مِنْ ءَايَـٰتِ ٱللَّهِ وَٱلْحِكْمَةِ ۚ إِنَّ ٱللَّهَ كَانَ لَطِيفًا خَبِيرًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.291518"
     },
     {
       "span_id": "QBM_09635",
@@ -875,30 +875,30 @@
         "ayah": 35,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 35 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّ ٱلْمُسْلِمِينَ وَٱلْمُسْلِمَـٰتِ وَٱلْمُؤْمِنِينَ وَٱلْمُؤْمِنَـٰتِ وَٱلْقَـٰنِتِينَ وَٱلْقَـٰنِتَـٰتِ وَٱلصَّـٰدِقِينَ وَٱلصَّـٰدِقَـٰتِ وَٱلصَّـٰبِرِينَ وَٱلصَّـٰبِرَٰتِ وَٱلْخَـٰشِعِينَ وَٱلْخَـٰشِعَـٰتِ وَٱلْمُتَصَدِّقِينَ وَٱلْمُتَصَدِّقَـٰتِ وَٱلصَّـٰٓئِمِينَ وَٱلصَّـٰٓئِمَـٰتِ وَٱلْحَـٰفِظِينَ فُرُوجَهُمْ وَٱلْحَـٰفِظَـٰتِ وَٱلذَّٰكِرِينَ ٱللَّهَ كَثِيرًا وَٱلذَّٰكِرَٰتِ أَعَدَّ ٱللَّهُ لَهُم مَّغْفِرَةً وَأَجْرًا عَظِيمًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.292450"
     },
     {
       "span_id": "QBM_09636",
@@ -907,20 +907,20 @@
         "ayah": 36,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 36 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "وَمَا كَانَ لِمُؤْمِنٍ وَلَا مُؤْمِنَةٍ إِذَا قَضَى ٱللَّهُ وَرَسُولُهُۥٓ أَمْرًا أَن يَكُونَ لَهُمُ ٱلْخِيَرَةُ مِنْ أَمْرِهِمْ ۗ وَمَن يَعْصِ ٱللَّهَ وَرَسُولَهُۥ فَقَدْ ضَلَّ ضَلَـٰلًا مُّبِينًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -930,7 +930,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.292450"
     },
     {
       "span_id": "QBM_09637",
@@ -939,14 +939,14 @@
         "ayah": 37,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 37 من سورة الأحزاب",
+      "text_ar": "وَإِذْ تَقُولُ لِلَّذِىٓ أَنْعَمَ ٱللَّهُ عَلَيْهِ وَأَنْعَمْتَ عَلَيْهِ أَمْسِكْ عَلَيْكَ زَوْجَكَ وَٱتَّقِ ٱللَّهَ وَتُخْفِى فِى نَفْسِكَ مَا ٱللَّهُ مُبْدِيهِ وَتَخْشَى ٱلنَّاسَ وَٱللَّهُ أَحَقُّ أَن تَخْشَىٰهُ ۖ فَلَمَّا قَضَىٰ زَيْدٌ مِّنْهَا وَطَرًا زَوَّجْنَـٰكَهَا لِكَىْ لَا يَكُونَ عَلَى ٱلْمُؤْمِنِينَ حَرَجٌ فِىٓ أَزْوَٰجِ أَدْعِيَآئِهِمْ إِذَا قَضَوْا۟ مِنْهُنَّ وَطَرًا ۚ وَكَانَ أَمْرُ ٱللَّهِ مَفْعُولًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -962,7 +962,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.292450"
     },
     {
       "span_id": "QBM_09638",
@@ -971,19 +971,19 @@
         "ayah": 38,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 38 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "مَّا كَانَ عَلَى ٱلنَّبِىِّ مِنْ حَرَجٍ فِيمَا فَرَضَ ٱللَّهُ لَهُۥ ۖ سُنَّةَ ٱللَّهِ فِى ٱلَّذِينَ خَلَوْا۟ مِن قَبْلُ ۚ وَكَانَ أَمْرُ ٱللَّهِ قَدَرًا مَّقْدُورًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.292450"
     },
     {
       "span_id": "QBM_09639",
@@ -1003,10 +1003,10 @@
         "ayah": 39,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 39 من سورة الأحزاب",
+      "text_ar": "ٱلَّذِينَ يُبَلِّغُونَ رِسَـٰلَـٰتِ ٱللَّهِ وَيَخْشَوْنَهُۥ وَلَا يَخْشَوْنَ أَحَدًا إِلَّا ٱللَّهَ ۗ وَكَفَىٰ بِٱللَّهِ حَسِيبًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -1026,7 +1026,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.292450"
     },
     {
       "span_id": "QBM_09640",
@@ -1035,14 +1035,14 @@
         "ayah": 40,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 40 من سورة الأحزاب",
+      "text_ar": "مَّا كَانَ مُحَمَّدٌ أَبَآ أَحَدٍ مِّن رِّجَالِكُمْ وَلَـٰكِن رَّسُولَ ٱللَّهِ وَخَاتَمَ ٱلنَّبِيِّـۧنَ ۗ وَكَانَ ٱللَّهُ بِكُلِّ شَىْءٍ عَلِيمًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.292450"
     },
     {
       "span_id": "QBM_09641",
@@ -1067,10 +1067,10 @@
         "ayah": 41,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 41 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱذْكُرُوا۟ ٱللَّهَ ذِكْرًا كَثِيرًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -1079,18 +1079,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.292450"
     },
     {
       "span_id": "QBM_09642",
@@ -1099,10 +1099,10 @@
         "ayah": 42,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 42 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "وَسَبِّحُوهُ بُكْرَةً وَأَصِيلًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1111,18 +1111,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.292450"
     },
     {
       "span_id": "QBM_09643",
@@ -1131,20 +1131,20 @@
         "ayah": 43,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 43 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "هُوَ ٱلَّذِى يُصَلِّى عَلَيْكُمْ وَمَلَـٰٓئِكَتُهُۥ لِيُخْرِجَكُم مِّنَ ٱلظُّلُمَـٰتِ إِلَى ٱلنُّورِ ۚ وَكَانَ بِٱلْمُؤْمِنِينَ رَحِيمًا",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1154,7 +1154,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.293450"
     },
     {
       "span_id": "QBM_09644",
@@ -1163,20 +1163,20 @@
         "ayah": 44,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 44 من سورة الأحزاب",
+      "text_ar": "تَحِيَّتُهُمْ يَوْمَ يَلْقَوْنَهُۥ سَلَـٰمٌ ۚ وَأَعَدَّ لَهُمْ أَجْرًا كَرِيمًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.293450"
     },
     {
       "span_id": "QBM_09645",
@@ -1195,20 +1195,20 @@
         "ayah": 45,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 45 من سورة الأحزاب",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلنَّبِىُّ إِنَّآ أَرْسَلْنَـٰكَ شَـٰهِدًا وَمُبَشِّرًا وَنَذِيرًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1218,7 +1218,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.117559"
+      "annotated_at": "2025-12-21T09:12:10.293450"
     },
     {
       "span_id": "QBM_09646",
@@ -1227,10 +1227,10 @@
         "ayah": 46,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 46 من سورة الأحزاب",
+      "text_ar": "وَدَاعِيًا إِلَى ٱللَّهِ بِإِذْنِهِۦ وَسِرَاجًا مُّنِيرًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1250,7 +1250,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.118502"
+      "annotated_at": "2025-12-21T09:12:10.293450"
     },
     {
       "span_id": "QBM_09647",
@@ -1259,20 +1259,20 @@
         "ayah": 47,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 47 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "وَبَشِّرِ ٱلْمُؤْمِنِينَ بِأَنَّ لَهُم مِّنَ ٱللَّهِ فَضْلًا كَبِيرًا",
+      "behavior_form": "trait_disposition",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.118502"
+      "annotated_at": "2025-12-21T09:12:10.293450"
     },
     {
       "span_id": "QBM_09648",
@@ -1291,14 +1291,14 @@
         "ayah": 48,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 48 من سورة الأحزاب",
+      "text_ar": "وَلَا تُطِعِ ٱلْكَـٰفِرِينَ وَٱلْمُنَـٰفِقِينَ وَدَعْ أَذَىٰهُمْ وَتَوَكَّلْ عَلَى ٱللَّهِ ۚ وَكَفَىٰ بِٱللَّهِ وَكِيلًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1314,7 +1314,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.118502"
+      "annotated_at": "2025-12-21T09:12:10.293450"
     },
     {
       "span_id": "QBM_09649",
@@ -1323,14 +1323,14 @@
         "ayah": 49,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 49 من سورة الأحزاب",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِذَا نَكَحْتُمُ ٱلْمُؤْمِنَـٰتِ ثُمَّ طَلَّقْتُمُوهُنَّ مِن قَبْلِ أَن تَمَسُّوهُنَّ فَمَا لَكُمْ عَلَيْهِنَّ مِنْ عِدَّةٍ تَعْتَدُّونَهَا ۖ فَمَتِّعُوهُنَّ وَسَرِّحُوهُنَّ سَرَاحًا جَمِيلًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.118502"
+      "annotated_at": "2025-12-21T09:12:10.293450"
     },
     {
       "span_id": "QBM_09650",
@@ -1355,14 +1355,14 @@
         "ayah": 50,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 50 من سورة الأحزاب",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلنَّبِىُّ إِنَّآ أَحْلَلْنَا لَكَ أَزْوَٰجَكَ ٱلَّـٰتِىٓ ءَاتَيْتَ أُجُورَهُنَّ وَمَا مَلَكَتْ يَمِينُكَ مِمَّآ أَفَآءَ ٱللَّهُ عَلَيْكَ وَبَنَاتِ عَمِّكَ وَبَنَاتِ عَمَّـٰتِكَ وَبَنَاتِ خَالِكَ وَبَنَاتِ خَـٰلَـٰتِكَ ٱلَّـٰتِى هَاجَرْنَ مَعَكَ وَٱمْرَأَةً مُّؤْمِنَةً إِن وَهَبَتْ نَفْسَهَا لِلنَّبِىِّ إِنْ أَرَادَ ٱلنَّبِىُّ أَن يَسْتَنكِحَهَا خَالِصَةً لَّكَ مِن دُونِ ٱلْمُؤْمِنِينَ ۗ قَدْ عَلِمْنَا مَا فَرَضْنَا عَلَيْهِمْ فِىٓ أَزْوَٰجِهِمْ وَمَا مَلَكَتْ أَيْمَـٰنُهُمْ لِكَيْلَا يَكُونَ عَلَيْكَ حَرَجٌ ۗ وَكَانَ ٱللَّهُ غَفُورًا رَّحِيمًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1378,7 +1378,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.118502"
+      "annotated_at": "2025-12-21T09:12:10.293450"
     },
     {
       "span_id": "QBM_09651",
@@ -1387,14 +1387,14 @@
         "ayah": 51,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 51 من سورة الأحزاب",
+      "text_ar": "تُرْجِى مَن تَشَآءُ مِنْهُنَّ وَتُـْٔوِىٓ إِلَيْكَ مَن تَشَآءُ ۖ وَمَنِ ٱبْتَغَيْتَ مِمَّنْ عَزَلْتَ فَلَا جُنَاحَ عَلَيْكَ ۚ ذَٰلِكَ أَدْنَىٰٓ أَن تَقَرَّ أَعْيُنُهُنَّ وَلَا يَحْزَنَّ وَيَرْضَيْنَ بِمَآ ءَاتَيْتَهُنَّ كُلُّهُنَّ ۚ وَٱللَّهُ يَعْلَمُ مَا فِى قُلُوبِكُمْ ۚ وَكَانَ ٱللَّهُ عَلِيمًا حَلِيمًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1410,7 +1410,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.118502"
+      "annotated_at": "2025-12-21T09:12:10.294450"
     },
     {
       "span_id": "QBM_09652",
@@ -1419,14 +1419,14 @@
         "ayah": 52,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 52 من سورة الأحزاب",
+      "text_ar": "لَّا يَحِلُّ لَكَ ٱلنِّسَآءُ مِنۢ بَعْدُ وَلَآ أَن تَبَدَّلَ بِهِنَّ مِنْ أَزْوَٰجٍ وَلَوْ أَعْجَبَكَ حُسْنُهُنَّ إِلَّا مَا مَلَكَتْ يَمِينُكَ ۗ وَكَانَ ٱللَّهُ عَلَىٰ كُلِّ شَىْءٍ رَّقِيبًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1442,7 +1442,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.118502"
+      "annotated_at": "2025-12-21T09:12:10.294450"
     },
     {
       "span_id": "QBM_09653",
@@ -1451,20 +1451,20 @@
         "ayah": 53,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 53 من سورة الأحزاب",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَدْخُلُوا۟ بُيُوتَ ٱلنَّبِىِّ إِلَّآ أَن يُؤْذَنَ لَكُمْ إِلَىٰ طَعَامٍ غَيْرَ نَـٰظِرِينَ إِنَىٰهُ وَلَـٰكِنْ إِذَا دُعِيتُمْ فَٱدْخُلُوا۟ فَإِذَا طَعِمْتُمْ فَٱنتَشِرُوا۟ وَلَا مُسْتَـْٔنِسِينَ لِحَدِيثٍ ۚ إِنَّ ذَٰلِكُمْ كَانَ يُؤْذِى ٱلنَّبِىَّ فَيَسْتَحْىِۦ مِنكُمْ ۖ وَٱللَّهُ لَا يَسْتَحْىِۦ مِنَ ٱلْحَقِّ ۚ وَإِذَا سَأَلْتُمُوهُنَّ مَتَـٰعًا فَسْـَٔلُوهُنَّ مِن وَرَآءِ حِجَابٍ ۚ ذَٰلِكُمْ أَطْهَرُ لِقُلُوبِكُمْ وَقُلُوبِهِنَّ ۚ وَمَا كَانَ لَكُمْ أَن تُؤْذُوا۟ رَسُولَ ٱللَّهِ وَلَآ أَن تَنكِحُوٓا۟ أَزْوَٰجَهُۥ مِنۢ بَعْدِهِۦٓ أَبَدًا ۚ إِنَّ ذَٰلِكُمْ كَانَ عِندَ ٱللَّهِ عَظِيمًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.118502"
+      "annotated_at": "2025-12-21T09:12:10.294450"
     },
     {
       "span_id": "QBM_09654",
@@ -1483,14 +1483,14 @@
         "ayah": 54,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 54 من سورة الأحزاب",
+      "text_ar": "إِن تُبْدُوا۟ شَيْـًٔا أَوْ تُخْفُوهُ فَإِنَّ ٱللَّهَ كَانَ بِكُلِّ شَىْءٍ عَلِيمًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1506,7 +1506,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.118502"
+      "annotated_at": "2025-12-21T09:12:10.294450"
     },
     {
       "span_id": "QBM_09655",
@@ -1515,14 +1515,14 @@
         "ayah": 55,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 55 من سورة الأحزاب",
+      "text_ar": "لَّا جُنَاحَ عَلَيْهِنَّ فِىٓ ءَابَآئِهِنَّ وَلَآ أَبْنَآئِهِنَّ وَلَآ إِخْوَٰنِهِنَّ وَلَآ أَبْنَآءِ إِخْوَٰنِهِنَّ وَلَآ أَبْنَآءِ أَخَوَٰتِهِنَّ وَلَا نِسَآئِهِنَّ وَلَا مَا مَلَكَتْ أَيْمَـٰنُهُنَّ ۗ وَٱتَّقِينَ ٱللَّهَ ۚ إِنَّ ٱللَّهَ كَانَ عَلَىٰ كُلِّ شَىْءٍ شَهِيدًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1538,7 +1538,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.118502"
+      "annotated_at": "2025-12-21T09:12:10.294450"
     },
     {
       "span_id": "QBM_09656",
@@ -1547,30 +1547,30 @@
         "ayah": 56,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 56 من سورة الأحزاب",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّ ٱللَّهَ وَمَلَـٰٓئِكَتَهُۥ يُصَلُّونَ عَلَى ٱلنَّبِىِّ ۚ يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ صَلُّوا۟ عَلَيْهِ وَسَلِّمُوا۟ تَسْلِيمًا",
+      "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.118502"
+      "annotated_at": "2025-12-21T09:12:10.294450"
     },
     {
       "span_id": "QBM_09657",
@@ -1579,20 +1579,20 @@
         "ayah": 57,
         "surah_name": "الأحزاب"
       },
-      "text_ar": "آية 57 من سورة الأحزاب",
+      "text_ar": "إِنَّ ٱلَّذِينَ يُؤْذُونَ ٱللَّهَ وَرَسُولَهُۥ لَعَنَهُمُ ٱللَّهُ فِى ٱلدُّنْيَا وَٱلْـَٔاخِرَةِ وَأَعَدَّ لَهُمْ عَذَابًا مُّهِينًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1602,7 +1602,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:17.118502"
+      "annotated_at": "2025-12-21T09:12:10.294450"
     }
   ]
 }

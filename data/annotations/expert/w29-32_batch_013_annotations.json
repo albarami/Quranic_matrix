@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_013",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:52:48.518697",
+  "annotated_at": "2025-12-21T09:11:22.184436",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,14 +11,14 @@
         "ayah": 108,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 108 من سورة النساء",
+      "text_ar": "يَسْتَخْفُونَ مِنَ ٱلنَّاسِ وَلَا يَسْتَخْفُونَ مِنَ ٱللَّهِ وَهُوَ مَعَهُمْ إِذْ يُبَيِّتُونَ مَا لَا يَرْضَىٰ مِنَ ٱلْقَوْلِ ۚ وَكَانَ ٱللَّهُ بِمَا يَعْمَلُونَ مُحِيطًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.517729"
+      "annotated_at": "2025-12-21T09:11:22.178775"
     },
     {
       "span_id": "QBM_01009",
@@ -43,14 +43,14 @@
         "ayah": 109,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 109 من سورة النساء",
+      "text_ar": "هَـٰٓأَنتُمْ هَـٰٓؤُلَآءِ جَـٰدَلْتُمْ عَنْهُمْ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا فَمَن يُجَـٰدِلُ ٱللَّهَ عَنْهُمْ يَوْمَ ٱلْقِيَـٰمَةِ أَم مَّن يَكُونُ عَلَيْهِمْ وَكِيلًا",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -66,7 +66,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.517729"
+      "annotated_at": "2025-12-21T09:11:22.178775"
     },
     {
       "span_id": "QBM_01010",
@@ -75,7 +75,7 @@
         "ayah": 110,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 110 من سورة النساء",
+      "text_ar": "وَمَن يَعْمَلْ سُوٓءًا أَوْ يَظْلِمْ نَفْسَهُۥ ثُمَّ يَسْتَغْفِرِ ٱللَّهَ يَجِدِ ٱللَّهَ غَفُورًا رَّحِيمًا",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
@@ -83,12 +83,12 @@
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "blame",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -98,7 +98,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.517729"
+      "annotated_at": "2025-12-21T09:11:22.178775"
     },
     {
       "span_id": "QBM_01011",
@@ -107,30 +107,30 @@
         "ayah": 111,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 111 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَمَن يَكْسِبْ إِثْمًا فَإِنَّمَا يَكْسِبُهُۥ عَلَىٰ نَفْسِهِۦ ۚ وَكَانَ ٱللَّهُ عَلِيمًا حَكِيمًا",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.517729"
+      "annotated_at": "2025-12-21T09:11:22.179329"
     },
     {
       "span_id": "QBM_01012",
@@ -139,10 +139,10 @@
         "ayah": 112,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 112 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَمَن يَكْسِبْ خَطِيٓـَٔةً أَوْ إِثْمًا ثُمَّ يَرْمِ بِهِۦ بَرِيٓـًٔا فَقَدِ ٱحْتَمَلَ بُهْتَـٰنًا وَإِثْمًا مُّبِينًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -155,14 +155,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.517729"
+      "annotated_at": "2025-12-21T09:11:22.179329"
     },
     {
       "span_id": "QBM_01013",
@@ -171,30 +171,30 @@
         "ayah": 113,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 113 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَلَوْلَا فَضْلُ ٱللَّهِ عَلَيْكَ وَرَحْمَتُهُۥ لَهَمَّت طَّآئِفَةٌ مِّنْهُمْ أَن يُضِلُّوكَ وَمَا يُضِلُّونَ إِلَّآ أَنفُسَهُمْ ۖ وَمَا يَضُرُّونَكَ مِن شَىْءٍ ۚ وَأَنزَلَ ٱللَّهُ عَلَيْكَ ٱلْكِتَـٰبَ وَٱلْحِكْمَةَ وَعَلَّمَكَ مَا لَمْ تَكُن تَعْلَمُ ۚ وَكَانَ فَضْلُ ٱللَّهِ عَلَيْكَ عَظِيمًا",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.517729"
+      "annotated_at": "2025-12-21T09:11:22.179329"
     },
     {
       "span_id": "QBM_01014",
@@ -203,30 +203,30 @@
         "ayah": 114,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 114 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "لَّا خَيْرَ فِى كَثِيرٍ مِّن نَّجْوَىٰهُمْ إِلَّا مَنْ أَمَرَ بِصَدَقَةٍ أَوْ مَعْرُوفٍ أَوْ إِصْلَـٰحٍۭ بَيْنَ ٱلنَّاسِ ۚ وَمَن يَفْعَلْ ذَٰلِكَ ٱبْتِغَآءَ مَرْضَاتِ ٱللَّهِ فَسَوْفَ نُؤْتِيهِ أَجْرًا عَظِيمًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.517729"
+      "annotated_at": "2025-12-21T09:11:22.179329"
     },
     {
       "span_id": "QBM_01015",
@@ -235,10 +235,10 @@
         "ayah": 115,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 115 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَمَن يُشَاقِقِ ٱلرَّسُولَ مِنۢ بَعْدِ مَا تَبَيَّنَ لَهُ ٱلْهُدَىٰ وَيَتَّبِعْ غَيْرَ سَبِيلِ ٱلْمُؤْمِنِينَ نُوَلِّهِۦ مَا تَوَلَّىٰ وَنُصْلِهِۦ جَهَنَّمَ ۖ وَسَآءَتْ مَصِيرًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -251,14 +251,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.517729"
+      "annotated_at": "2025-12-21T09:11:22.179329"
     },
     {
       "span_id": "QBM_01016",
@@ -267,20 +267,20 @@
         "ayah": 116,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 116 من سورة النساء",
+      "text_ar": "إِنَّ ٱللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِۦ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَآءُ ۚ وَمَن يُشْرِكْ بِٱللَّهِ فَقَدْ ضَلَّ ضَلَـٰلًۢا بَعِيدًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -290,7 +290,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.517729"
+      "annotated_at": "2025-12-21T09:11:22.179883"
     },
     {
       "span_id": "QBM_01017",
@@ -299,14 +299,14 @@
         "ayah": 117,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 117 من سورة النساء",
+      "text_ar": "إِن يَدْعُونَ مِن دُونِهِۦٓ إِلَّآ إِنَـٰثًا وَإِن يَدْعُونَ إِلَّا شَيْطَـٰنًا مَّرِيدًا",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.179883"
     },
     {
       "span_id": "QBM_01018",
@@ -331,20 +331,20 @@
         "ayah": 118,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 118 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "لَّعَنَهُ ٱللَّهُ ۘ وَقَالَ لَأَتَّخِذَنَّ مِنْ عِبَادِكَ نَصِيبًا مَّفْرُوضًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "blame",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.179883"
     },
     {
       "span_id": "QBM_01019",
@@ -363,20 +363,20 @@
         "ayah": 119,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 119 من سورة النساء",
+      "text_ar": "وَلَأُضِلَّنَّهُمْ وَلَأُمَنِّيَنَّهُمْ وَلَـَٔامُرَنَّهُمْ فَلَيُبَتِّكُنَّ ءَاذَانَ ٱلْأَنْعَـٰمِ وَلَـَٔامُرَنَّهُمْ فَلَيُغَيِّرُنَّ خَلْقَ ٱللَّهِ ۚ وَمَن يَتَّخِذِ ٱلشَّيْطَـٰنَ وَلِيًّا مِّن دُونِ ٱللَّهِ فَقَدْ خَسِرَ خُسْرَانًا مُّبِينًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -386,7 +386,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.179883"
     },
     {
       "span_id": "QBM_01020",
@@ -395,14 +395,14 @@
         "ayah": 120,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 120 من سورة النساء",
+      "text_ar": "يَعِدُهُمْ وَيُمَنِّيهِمْ ۖ وَمَا يَعِدُهُمُ ٱلشَّيْطَـٰنُ إِلَّا غُرُورًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.179883"
     },
     {
       "span_id": "QBM_01021",
@@ -427,20 +427,20 @@
         "ayah": 121,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 121 من سورة النساء",
+      "text_ar": "أُو۟لَـٰٓئِكَ مَأْوَىٰهُمْ جَهَنَّمُ وَلَا يَجِدُونَ عَنْهَا مَحِيصًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -450,7 +450,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.179883"
     },
     {
       "span_id": "QBM_01022",
@@ -459,14 +459,14 @@
         "ayah": 122,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 122 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ سَنُدْخِلُهُمْ جَنَّـٰتٍ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَـٰرُ خَـٰلِدِينَ فِيهَآ أَبَدًا ۖ وَعْدَ ٱللَّهِ حَقًّا ۚ وَمَنْ أَصْدَقُ مِنَ ٱللَّهِ قِيلًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -482,7 +482,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.180437"
     },
     {
       "span_id": "QBM_01023",
@@ -491,20 +491,20 @@
         "ayah": 123,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 123 من سورة النساء",
+      "text_ar": "لَّيْسَ بِأَمَانِيِّكُمْ وَلَآ أَمَانِىِّ أَهْلِ ٱلْكِتَـٰبِ ۗ مَن يَعْمَلْ سُوٓءًا يُجْزَ بِهِۦ وَلَا يَجِدْ لَهُۥ مِن دُونِ ٱللَّهِ وَلِيًّا وَلَا نَصِيرًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "blame",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.180437"
     },
     {
       "span_id": "QBM_01024",
@@ -523,20 +523,20 @@
         "ayah": 124,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 124 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَمَن يَعْمَلْ مِنَ ٱلصَّـٰلِحَـٰتِ مِن ذَكَرٍ أَوْ أُنثَىٰ وَهُوَ مُؤْمِنٌ فَأُو۟لَـٰٓئِكَ يَدْخُلُونَ ٱلْجَنَّةَ وَلَا يُظْلَمُونَ نَقِيرًا",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.180437"
     },
     {
       "span_id": "QBM_01025",
@@ -555,30 +555,30 @@
         "ayah": 125,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 125 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَمَنْ أَحْسَنُ دِينًا مِّمَّنْ أَسْلَمَ وَجْهَهُۥ لِلَّهِ وَهُوَ مُحْسِنٌ وَٱتَّبَعَ مِلَّةَ إِبْرَٰهِيمَ حَنِيفًا ۗ وَٱتَّخَذَ ٱللَّهُ إِبْرَٰهِيمَ خَلِيلًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.180437"
     },
     {
       "span_id": "QBM_01026",
@@ -587,14 +587,14 @@
         "ayah": 126,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 126 من سورة النساء",
+      "text_ar": "وَلِلَّهِ مَا فِى ٱلسَّمَـٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۚ وَكَانَ ٱللَّهُ بِكُلِّ شَىْءٍ مُّحِيطًا",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.180437"
     },
     {
       "span_id": "QBM_01027",
@@ -619,20 +619,20 @@
         "ayah": 127,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 127 من سورة النساء",
+      "text_ar": "وَيَسْتَفْتُونَكَ فِى ٱلنِّسَآءِ ۖ قُلِ ٱللَّهُ يُفْتِيكُمْ فِيهِنَّ وَمَا يُتْلَىٰ عَلَيْكُمْ فِى ٱلْكِتَـٰبِ فِى يَتَـٰمَى ٱلنِّسَآءِ ٱلَّـٰتِى لَا تُؤْتُونَهُنَّ مَا كُتِبَ لَهُنَّ وَتَرْغَبُونَ أَن تَنكِحُوهُنَّ وَٱلْمُسْتَضْعَفِينَ مِنَ ٱلْوِلْدَٰنِ وَأَن تَقُومُوا۟ لِلْيَتَـٰمَىٰ بِٱلْقِسْطِ ۚ وَمَا تَفْعَلُوا۟ مِنْ خَيْرٍ فَإِنَّ ٱللَّهَ كَانَ بِهِۦ عَلِيمًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.180984"
     },
     {
       "span_id": "QBM_01028",
@@ -651,30 +651,30 @@
         "ayah": 128,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 128 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَإِنِ ٱمْرَأَةٌ خَافَتْ مِنۢ بَعْلِهَا نُشُوزًا أَوْ إِعْرَاضًا فَلَا جُنَاحَ عَلَيْهِمَآ أَن يُصْلِحَا بَيْنَهُمَا صُلْحًا ۚ وَٱلصُّلْحُ خَيْرٌ ۗ وَأُحْضِرَتِ ٱلْأَنفُسُ ٱلشُّحَّ ۚ وَإِن تُحْسِنُوا۟ وَتَتَّقُوا۟ فَإِنَّ ٱللَّهَ كَانَ بِمَا تَعْمَلُونَ خَبِيرًا",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.180984"
     },
     {
       "span_id": "QBM_01029",
@@ -683,14 +683,14 @@
         "ayah": 129,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 129 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَلَن تَسْتَطِيعُوٓا۟ أَن تَعْدِلُوا۟ بَيْنَ ٱلنِّسَآءِ وَلَوْ حَرَصْتُمْ ۖ فَلَا تَمِيلُوا۟ كُلَّ ٱلْمَيْلِ فَتَذَرُوهَا كَٱلْمُعَلَّقَةِ ۚ وَإِن تُصْلِحُوا۟ وَتَتَّقُوا۟ فَإِنَّ ٱللَّهَ كَانَ غَفُورًا رَّحِيمًا",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -699,14 +699,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.180984"
     },
     {
       "span_id": "QBM_01030",
@@ -715,14 +715,14 @@
         "ayah": 130,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 130 من سورة النساء",
+      "text_ar": "وَإِن يَتَفَرَّقَا يُغْنِ ٱللَّهُ كُلًّا مِّن سَعَتِهِۦ ۚ وَكَانَ ٱللَّهُ وَٰسِعًا حَكِيمًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -738,7 +738,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.180984"
     },
     {
       "span_id": "QBM_01031",
@@ -747,30 +747,30 @@
         "ayah": 131,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 131 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَلِلَّهِ مَا فِى ٱلسَّمَـٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ وَلَقَدْ وَصَّيْنَا ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَـٰبَ مِن قَبْلِكُمْ وَإِيَّاكُمْ أَنِ ٱتَّقُوا۟ ٱللَّهَ ۚ وَإِن تَكْفُرُوا۟ فَإِنَّ لِلَّهِ مَا فِى ٱلسَّمَـٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۚ وَكَانَ ٱللَّهُ غَنِيًّا حَمِيدًا",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.181612"
     },
     {
       "span_id": "QBM_01032",
@@ -779,10 +779,10 @@
         "ayah": 132,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 132 من سورة النساء",
+      "text_ar": "وَلِلَّهِ مَا فِى ٱلسَّمَـٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۚ وَكَفَىٰ بِٱللَّهِ وَكِيلًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -802,7 +802,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.181685"
     },
     {
       "span_id": "QBM_01033",
@@ -811,14 +811,14 @@
         "ayah": 133,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 133 من سورة النساء",
+      "text_ar": "إِن يَشَأْ يُذْهِبْكُمْ أَيُّهَا ٱلنَّاسُ وَيَأْتِ بِـَٔاخَرِينَ ۚ وَكَانَ ٱللَّهُ عَلَىٰ ذَٰلِكَ قَدِيرًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -834,7 +834,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.181789"
     },
     {
       "span_id": "QBM_01034",
@@ -843,14 +843,14 @@
         "ayah": 134,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 134 من سورة النساء",
+      "text_ar": "مَّن كَانَ يُرِيدُ ثَوَابَ ٱلدُّنْيَا فَعِندَ ٱللَّهِ ثَوَابُ ٱلدُّنْيَا وَٱلْـَٔاخِرَةِ ۚ وَكَانَ ٱللَّهُ سَمِيعًۢا بَصِيرًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.181897"
     },
     {
       "span_id": "QBM_01035",
@@ -875,30 +875,30 @@
         "ayah": 135,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 135 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ كُونُوا۟ قَوَّٰمِينَ بِٱلْقِسْطِ شُهَدَآءَ لِلَّهِ وَلَوْ عَلَىٰٓ أَنفُسِكُمْ أَوِ ٱلْوَٰلِدَيْنِ وَٱلْأَقْرَبِينَ ۚ إِن يَكُنْ غَنِيًّا أَوْ فَقِيرًا فَٱللَّهُ أَوْلَىٰ بِهِمَا ۖ فَلَا تَتَّبِعُوا۟ ٱلْهَوَىٰٓ أَن تَعْدِلُوا۟ ۚ وَإِن تَلْوُۥٓا۟ أَوْ تُعْرِضُوا۟ فَإِنَّ ٱللَّهَ كَانَ بِمَا تَعْمَلُونَ خَبِيرًا",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.182110"
     },
     {
       "span_id": "QBM_01036",
@@ -907,30 +907,30 @@
         "ayah": 136,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 136 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ ءَامِنُوا۟ بِٱللَّهِ وَرَسُولِهِۦ وَٱلْكِتَـٰبِ ٱلَّذِى نَزَّلَ عَلَىٰ رَسُولِهِۦ وَٱلْكِتَـٰبِ ٱلَّذِىٓ أَنزَلَ مِن قَبْلُ ۚ وَمَن يَكْفُرْ بِٱللَّهِ وَمَلَـٰٓئِكَتِهِۦ وَكُتُبِهِۦ وَرُسُلِهِۦ وَٱلْيَوْمِ ٱلْـَٔاخِرِ فَقَدْ ضَلَّ ضَلَـٰلًۢا بَعِيدًا",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.182281"
     },
     {
       "span_id": "QBM_01037",
@@ -939,30 +939,30 @@
         "ayah": 137,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 137 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "إِنَّ ٱلَّذِينَ ءَامَنُوا۟ ثُمَّ كَفَرُوا۟ ثُمَّ ءَامَنُوا۟ ثُمَّ كَفَرُوا۟ ثُمَّ ٱزْدَادُوا۟ كُفْرًا لَّمْ يَكُنِ ٱللَّهُ لِيَغْفِرَ لَهُمْ وَلَا لِيَهْدِيَهُمْ سَبِيلًۢا",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.182421"
     },
     {
       "span_id": "QBM_01038",
@@ -971,20 +971,20 @@
         "ayah": 138,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 138 من سورة النساء",
+      "text_ar": "بَشِّرِ ٱلْمُنَـٰفِقِينَ بِأَنَّ لَهُمْ عَذَابًا أَلِيمًا",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.182492"
     },
     {
       "span_id": "QBM_01039",
@@ -1003,30 +1003,30 @@
         "ayah": 139,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 139 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "ٱلَّذِينَ يَتَّخِذُونَ ٱلْكَـٰفِرِينَ أَوْلِيَآءَ مِن دُونِ ٱلْمُؤْمِنِينَ ۚ أَيَبْتَغُونَ عِندَهُمُ ٱلْعِزَّةَ فَإِنَّ ٱلْعِزَّةَ لِلَّهِ جَمِيعًا",
+      "behavior_form": "trait_disposition",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.182596"
     },
     {
       "span_id": "QBM_01040",
@@ -1035,30 +1035,30 @@
         "ayah": 140,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 140 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَقَدْ نَزَّلَ عَلَيْكُمْ فِى ٱلْكِتَـٰبِ أَنْ إِذَا سَمِعْتُمْ ءَايَـٰتِ ٱللَّهِ يُكْفَرُ بِهَا وَيُسْتَهْزَأُ بِهَا فَلَا تَقْعُدُوا۟ مَعَهُمْ حَتَّىٰ يَخُوضُوا۟ فِى حَدِيثٍ غَيْرِهِۦٓ ۚ إِنَّكُمْ إِذًا مِّثْلُهُمْ ۗ إِنَّ ٱللَّهَ جَامِعُ ٱلْمُنَـٰفِقِينَ وَٱلْكَـٰفِرِينَ فِى جَهَنَّمَ جَمِيعًا",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.182763"
     },
     {
       "span_id": "QBM_01041",
@@ -1067,14 +1067,14 @@
         "ayah": 141,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 141 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "ٱلَّذِينَ يَتَرَبَّصُونَ بِكُمْ فَإِن كَانَ لَكُمْ فَتْحٌ مِّنَ ٱللَّهِ قَالُوٓا۟ أَلَمْ نَكُن مَّعَكُمْ وَإِن كَانَ لِلْكَـٰفِرِينَ نَصِيبٌ قَالُوٓا۟ أَلَمْ نَسْتَحْوِذْ عَلَيْكُمْ وَنَمْنَعْكُم مِّنَ ٱلْمُؤْمِنِينَ ۚ فَٱللَّهُ يَحْكُمُ بَيْنَكُمْ يَوْمَ ٱلْقِيَـٰمَةِ ۗ وَلَن يَجْعَلَ ٱللَّهُ لِلْكَـٰفِرِينَ عَلَى ٱلْمُؤْمِنِينَ سَبِيلًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1090,7 +1090,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.183000"
     },
     {
       "span_id": "QBM_01042",
@@ -1099,14 +1099,14 @@
         "ayah": 142,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 142 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "إِنَّ ٱلْمُنَـٰفِقِينَ يُخَـٰدِعُونَ ٱللَّهَ وَهُوَ خَـٰدِعُهُمْ وَإِذَا قَامُوٓا۟ إِلَى ٱلصَّلَوٰةِ قَامُوا۟ كُسَالَىٰ يُرَآءُونَ ٱلنَّاسَ وَلَا يَذْكُرُونَ ٱللَّهَ إِلَّا قَلِيلًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.183133"
     },
     {
       "span_id": "QBM_01043",
@@ -1131,10 +1131,10 @@
         "ayah": 143,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 143 من سورة النساء",
+      "text_ar": "مُّذَبْذَبِينَ بَيْنَ ذَٰلِكَ لَآ إِلَىٰ هَـٰٓؤُلَآءِ وَلَآ إِلَىٰ هَـٰٓؤُلَآءِ ۚ وَمَن يُضْلِلِ ٱللَّهُ فَلَن تَجِدَ لَهُۥ سَبِيلًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -1154,7 +1154,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.183231"
     },
     {
       "span_id": "QBM_01044",
@@ -1163,30 +1163,30 @@
         "ayah": 144,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 144 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَتَّخِذُوا۟ ٱلْكَـٰفِرِينَ أَوْلِيَآءَ مِن دُونِ ٱلْمُؤْمِنِينَ ۚ أَتُرِيدُونَ أَن تَجْعَلُوا۟ لِلَّهِ عَلَيْكُمْ سُلْطَـٰنًا مُّبِينًا",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.183364"
     },
     {
       "span_id": "QBM_01045",
@@ -1195,20 +1195,20 @@
         "ayah": 145,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 145 من سورة النساء",
+      "text_ar": "إِنَّ ٱلْمُنَـٰفِقِينَ فِى ٱلدَّرْكِ ٱلْأَسْفَلِ مِنَ ٱلنَّارِ وَلَن تَجِدَ لَهُمْ نَصِيرًا",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -1218,7 +1218,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.183430"
     },
     {
       "span_id": "QBM_01046",
@@ -1227,20 +1227,20 @@
         "ayah": 146,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 146 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "إِلَّا ٱلَّذِينَ تَابُوا۟ وَأَصْلَحُوا۟ وَٱعْتَصَمُوا۟ بِٱللَّهِ وَأَخْلَصُوا۟ دِينَهُمْ لِلَّهِ فَأُو۟لَـٰٓئِكَ مَعَ ٱلْمُؤْمِنِينَ ۖ وَسَوْفَ يُؤْتِ ٱللَّهُ ٱلْمُؤْمِنِينَ أَجْرًا عَظِيمًا",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -1250,7 +1250,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.183593"
     },
     {
       "span_id": "QBM_01047",
@@ -1259,30 +1259,30 @@
         "ayah": 147,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 147 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "مَّا يَفْعَلُ ٱللَّهُ بِعَذَابِكُمْ إِن شَكَرْتُمْ وَءَامَنتُمْ ۚ وَكَانَ ٱللَّهُ شَاكِرًا عَلِيمًا",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.183656"
     },
     {
       "span_id": "QBM_01048",
@@ -1291,30 +1291,30 @@
         "ayah": 148,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 148 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "لَّا يُحِبُّ ٱللَّهُ ٱلْجَهْرَ بِٱلسُّوٓءِ مِنَ ٱلْقَوْلِ إِلَّا مَن ظُلِمَ ۚ وَكَانَ ٱللَّهُ سَمِيعًا عَلِيمًا",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.183762"
     },
     {
       "span_id": "QBM_01049",
@@ -1323,14 +1323,14 @@
         "ayah": 149,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 149 من سورة النساء",
+      "text_ar": "إِن تُبْدُوا۟ خَيْرًا أَوْ تُخْفُوهُ أَوْ تَعْفُوا۟ عَن سُوٓءٍ فَإِنَّ ٱللَّهَ كَانَ عَفُوًّا قَدِيرًا",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.183859"
     },
     {
       "span_id": "QBM_01050",
@@ -1355,14 +1355,14 @@
         "ayah": 150,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 150 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "إِنَّ ٱلَّذِينَ يَكْفُرُونَ بِٱللَّهِ وَرُسُلِهِۦ وَيُرِيدُونَ أَن يُفَرِّقُوا۟ بَيْنَ ٱللَّهِ وَرُسُلِهِۦ وَيَقُولُونَ نُؤْمِنُ بِبَعْضٍ وَنَكْفُرُ بِبَعْضٍ وَيُرِيدُونَ أَن يَتَّخِذُوا۟ بَيْنَ ذَٰلِكَ سَبِيلًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1378,7 +1378,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.183989"
     },
     {
       "span_id": "QBM_01051",
@@ -1387,20 +1387,20 @@
         "ayah": 151,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 151 من سورة النساء",
+      "text_ar": "أُو۟لَـٰٓئِكَ هُمُ ٱلْكَـٰفِرُونَ حَقًّا ۚ وَأَعْتَدْنَا لِلْكَـٰفِرِينَ عَذَابًا مُّهِينًا",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -1410,7 +1410,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.184090"
     },
     {
       "span_id": "QBM_01052",
@@ -1419,14 +1419,14 @@
         "ayah": 152,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 152 من سورة النساء",
+      "text_ar": "وَٱلَّذِينَ ءَامَنُوا۟ بِٱللَّهِ وَرُسُلِهِۦ وَلَمْ يُفَرِّقُوا۟ بَيْنَ أَحَدٍ مِّنْهُمْ أُو۟لَـٰٓئِكَ سَوْفَ يُؤْتِيهِمْ أُجُورَهُمْ ۗ وَكَانَ ٱللَّهُ غَفُورًا رَّحِيمًا",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1442,7 +1442,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.184215"
     },
     {
       "span_id": "QBM_01053",
@@ -1451,14 +1451,14 @@
         "ayah": 153,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 153 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "يَسْـَٔلُكَ أَهْلُ ٱلْكِتَـٰبِ أَن تُنَزِّلَ عَلَيْهِمْ كِتَـٰبًا مِّنَ ٱلسَّمَآءِ ۚ فَقَدْ سَأَلُوا۟ مُوسَىٰٓ أَكْبَرَ مِن ذَٰلِكَ فَقَالُوٓا۟ أَرِنَا ٱللَّهَ جَهْرَةً فَأَخَذَتْهُمُ ٱلصَّـٰعِقَةُ بِظُلْمِهِمْ ۚ ثُمَّ ٱتَّخَذُوا۟ ٱلْعِجْلَ مِنۢ بَعْدِ مَا جَآءَتْهُمُ ٱلْبَيِّنَـٰتُ فَعَفَوْنَا عَن ذَٰلِكَ ۚ وَءَاتَيْنَا مُوسَىٰ سُلْطَـٰنًا مُّبِينًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.184436"
     },
     {
       "span_id": "QBM_01054",
@@ -1483,14 +1483,14 @@
         "ayah": 154,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 154 من سورة النساء",
+      "text_ar": "وَرَفَعْنَا فَوْقَهُمُ ٱلطُّورَ بِمِيثَـٰقِهِمْ وَقُلْنَا لَهُمُ ٱدْخُلُوا۟ ٱلْبَابَ سُجَّدًا وَقُلْنَا لَهُمْ لَا تَعْدُوا۟ فِى ٱلسَّبْتِ وَأَخَذْنَا مِنْهُم مِّيثَـٰقًا غَلِيظًا",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1506,7 +1506,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.184436"
     },
     {
       "span_id": "QBM_01055",
@@ -1515,30 +1515,30 @@
         "ayah": 155,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 155 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "فَبِمَا نَقْضِهِم مِّيثَـٰقَهُمْ وَكُفْرِهِم بِـَٔايَـٰتِ ٱللَّهِ وَقَتْلِهِمُ ٱلْأَنۢبِيَآءَ بِغَيْرِ حَقٍّ وَقَوْلِهِمْ قُلُوبُنَا غُلْفٌۢ ۚ بَلْ طَبَعَ ٱللَّهُ عَلَيْهَا بِكُفْرِهِمْ فَلَا يُؤْمِنُونَ إِلَّا قَلِيلًا",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.184436"
     },
     {
       "span_id": "QBM_01056",
@@ -1547,30 +1547,30 @@
         "ayah": 156,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 156 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَبِكُفْرِهِمْ وَقَوْلِهِمْ عَلَىٰ مَرْيَمَ بُهْتَـٰنًا عَظِيمًا",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.184436"
     },
     {
       "span_id": "QBM_01057",
@@ -1579,30 +1579,30 @@
         "ayah": 157,
         "surah_name": "النساء"
       },
-      "text_ar": "آية 157 من سورة النساء",
-      "behavior_form": "physical_act",
+      "text_ar": "وَقَوْلِهِمْ إِنَّا قَتَلْنَا ٱلْمَسِيحَ عِيسَى ٱبْنَ مَرْيَمَ رَسُولَ ٱللَّهِ وَمَا قَتَلُوهُ وَمَا صَلَبُوهُ وَلَـٰكِن شُبِّهَ لَهُمْ ۚ وَإِنَّ ٱلَّذِينَ ٱخْتَلَفُوا۟ فِيهِ لَفِى شَكٍّ مِّنْهُ ۚ مَا لَهُم بِهِۦ مِنْ عِلْمٍ إِلَّا ٱتِّبَاعَ ٱلظَّنِّ ۚ وَمَا قَتَلُوهُ يَقِينًۢا",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:48.518697"
+      "annotated_at": "2025-12-21T09:11:22.184436"
     }
   ]
 }

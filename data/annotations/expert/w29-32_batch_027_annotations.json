@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_027",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:52:50.614001",
+  "annotated_at": "2025-12-21T09:11:24.261435",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,30 +11,30 @@
         "ayah": 66,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 66 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "لَا تَعْتَذِرُوا۟ قَدْ كَفَرْتُم بَعْدَ إِيمَـٰنِكُمْ ۚ إِن نَّعْفُ عَن طَآئِفَةٍ مِّنكُمْ نُعَذِّبْ طَآئِفَةًۢ بِأَنَّهُمْ كَانُوا۟ مُجْرِمِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.255396"
     },
     {
       "span_id": "QBM_02467",
@@ -43,30 +43,30 @@
         "ayah": 67,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 67 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "ٱلْمُنَـٰفِقُونَ وَٱلْمُنَـٰفِقَـٰتُ بَعْضُهُم مِّنۢ بَعْضٍ ۚ يَأْمُرُونَ بِٱلْمُنكَرِ وَيَنْهَوْنَ عَنِ ٱلْمَعْرُوفِ وَيَقْبِضُونَ أَيْدِيَهُمْ ۚ نَسُوا۟ ٱللَّهَ فَنَسِيَهُمْ ۗ إِنَّ ٱلْمُنَـٰفِقِينَ هُمُ ٱلْفَـٰسِقُونَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.255396"
     },
     {
       "span_id": "QBM_02468",
@@ -75,20 +75,20 @@
         "ayah": 68,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 68 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَعَدَ ٱللَّهُ ٱلْمُنَـٰفِقِينَ وَٱلْمُنَـٰفِقَـٰتِ وَٱلْكُفَّارَ نَارَ جَهَنَّمَ خَـٰلِدِينَ فِيهَا ۚ هِىَ حَسْبُهُمْ ۚ وَلَعَنَهُمُ ٱللَّهُ ۖ وَلَهُمْ عَذَابٌ مُّقِيمٌ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -98,7 +98,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.256397"
     },
     {
       "span_id": "QBM_02469",
@@ -107,14 +107,14 @@
         "ayah": 69,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 69 من سورة التوبة",
+      "text_ar": "كَٱلَّذِينَ مِن قَبْلِكُمْ كَانُوٓا۟ أَشَدَّ مِنكُمْ قُوَّةً وَأَكْثَرَ أَمْوَٰلًا وَأَوْلَـٰدًا فَٱسْتَمْتَعُوا۟ بِخَلَـٰقِهِمْ فَٱسْتَمْتَعْتُم بِخَلَـٰقِكُمْ كَمَا ٱسْتَمْتَعَ ٱلَّذِينَ مِن قَبْلِكُم بِخَلَـٰقِهِمْ وَخُضْتُمْ كَٱلَّذِى خَاضُوٓا۟ ۚ أُو۟لَـٰٓئِكَ حَبِطَتْ أَعْمَـٰلُهُمْ فِى ٱلدُّنْيَا وَٱلْـَٔاخِرَةِ ۖ وَأُو۟لَـٰٓئِكَ هُمُ ٱلْخَـٰسِرُونَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -130,7 +130,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.256397"
     },
     {
       "span_id": "QBM_02470",
@@ -139,30 +139,30 @@
         "ayah": 70,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 70 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "أَلَمْ يَأْتِهِمْ نَبَأُ ٱلَّذِينَ مِن قَبْلِهِمْ قَوْمِ نُوحٍ وَعَادٍ وَثَمُودَ وَقَوْمِ إِبْرَٰهِيمَ وَأَصْحَـٰبِ مَدْيَنَ وَٱلْمُؤْتَفِكَـٰتِ ۚ أَتَتْهُمْ رُسُلُهُم بِٱلْبَيِّنَـٰتِ ۖ فَمَا كَانَ ٱللَّهُ لِيَظْلِمَهُمْ وَلَـٰكِن كَانُوٓا۟ أَنفُسَهُمْ يَظْلِمُونَ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.256397"
     },
     {
       "span_id": "QBM_02471",
@@ -171,14 +171,14 @@
         "ayah": 71,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 71 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَٱلْمُؤْمِنُونَ وَٱلْمُؤْمِنَـٰتُ بَعْضُهُمْ أَوْلِيَآءُ بَعْضٍ ۚ يَأْمُرُونَ بِٱلْمَعْرُوفِ وَيَنْهَوْنَ عَنِ ٱلْمُنكَرِ وَيُقِيمُونَ ٱلصَّلَوٰةَ وَيُؤْتُونَ ٱلزَّكَوٰةَ وَيُطِيعُونَ ٱللَّهَ وَرَسُولَهُۥٓ ۚ أُو۟لَـٰٓئِكَ سَيَرْحَمُهُمُ ٱللَّهُ ۗ إِنَّ ٱللَّهَ عَزِيزٌ حَكِيمٌ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -187,14 +187,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.256397"
     },
     {
       "span_id": "QBM_02472",
@@ -203,30 +203,30 @@
         "ayah": 72,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 72 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَعَدَ ٱللَّهُ ٱلْمُؤْمِنِينَ وَٱلْمُؤْمِنَـٰتِ جَنَّـٰتٍ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَـٰرُ خَـٰلِدِينَ فِيهَا وَمَسَـٰكِنَ طَيِّبَةً فِى جَنَّـٰتِ عَدْنٍ ۚ وَرِضْوَٰنٌ مِّنَ ٱللَّهِ أَكْبَرُ ۚ ذَٰلِكَ هُوَ ٱلْفَوْزُ ٱلْعَظِيمُ",
+      "behavior_form": "trait_disposition",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.256397"
     },
     {
       "span_id": "QBM_02473",
@@ -235,20 +235,20 @@
         "ayah": 73,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 73 من سورة التوبة",
+      "text_ar": "يَـٰٓأَيُّهَا ٱلنَّبِىُّ جَـٰهِدِ ٱلْكُفَّارَ وَٱلْمُنَـٰفِقِينَ وَٱغْلُظْ عَلَيْهِمْ ۚ وَمَأْوَىٰهُمْ جَهَنَّمُ ۖ وَبِئْسَ ٱلْمَصِيرُ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -258,7 +258,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.256397"
     },
     {
       "span_id": "QBM_02474",
@@ -267,14 +267,14 @@
         "ayah": 74,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 74 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "يَحْلِفُونَ بِٱللَّهِ مَا قَالُوا۟ وَلَقَدْ قَالُوا۟ كَلِمَةَ ٱلْكُفْرِ وَكَفَرُوا۟ بَعْدَ إِسْلَـٰمِهِمْ وَهَمُّوا۟ بِمَا لَمْ يَنَالُوا۟ ۚ وَمَا نَقَمُوٓا۟ إِلَّآ أَنْ أَغْنَىٰهُمُ ٱللَّهُ وَرَسُولُهُۥ مِن فَضْلِهِۦ ۚ فَإِن يَتُوبُوا۟ يَكُ خَيْرًا لَّهُمْ ۖ وَإِن يَتَوَلَّوْا۟ يُعَذِّبْهُمُ ٱللَّهُ عَذَابًا أَلِيمًا فِى ٱلدُّنْيَا وَٱلْـَٔاخِرَةِ ۚ وَمَا لَهُمْ فِى ٱلْأَرْضِ مِن وَلِىٍّ وَلَا نَصِيرٍ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -290,7 +290,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.257397"
     },
     {
       "span_id": "QBM_02475",
@@ -299,14 +299,14 @@
         "ayah": 75,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 75 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَمِنْهُم مَّنْ عَـٰهَدَ ٱللَّهَ لَئِنْ ءَاتَىٰنَا مِن فَضْلِهِۦ لَنَصَّدَّقَنَّ وَلَنَكُونَنَّ مِنَ ٱلصَّـٰلِحِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.257397"
     },
     {
       "span_id": "QBM_02476",
@@ -331,14 +331,14 @@
         "ayah": 76,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 76 من سورة التوبة",
+      "text_ar": "فَلَمَّآ ءَاتَىٰهُم مِّن فَضْلِهِۦ بَخِلُوا۟ بِهِۦ وَتَوَلَّوا۟ وَّهُم مُّعْرِضُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.257397"
     },
     {
       "span_id": "QBM_02477",
@@ -363,14 +363,14 @@
         "ayah": 77,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 77 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "فَأَعْقَبَهُمْ نِفَاقًا فِى قُلُوبِهِمْ إِلَىٰ يَوْمِ يَلْقَوْنَهُۥ بِمَآ أَخْلَفُوا۟ ٱللَّهَ مَا وَعَدُوهُ وَبِمَا كَانُوا۟ يَكْذِبُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -386,7 +386,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.257397"
     },
     {
       "span_id": "QBM_02478",
@@ -395,30 +395,30 @@
         "ayah": 78,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 78 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "أَلَمْ يَعْلَمُوٓا۟ أَنَّ ٱللَّهَ يَعْلَمُ سِرَّهُمْ وَنَجْوَىٰهُمْ وَأَنَّ ٱللَّهَ عَلَّـٰمُ ٱلْغُيُوبِ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.257397"
     },
     {
       "span_id": "QBM_02479",
@@ -427,30 +427,30 @@
         "ayah": 79,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 79 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "ٱلَّذِينَ يَلْمِزُونَ ٱلْمُطَّوِّعِينَ مِنَ ٱلْمُؤْمِنِينَ فِى ٱلصَّدَقَـٰتِ وَٱلَّذِينَ لَا يَجِدُونَ إِلَّا جُهْدَهُمْ فَيَسْخَرُونَ مِنْهُمْ ۙ سَخِرَ ٱللَّهُ مِنْهُمْ وَلَهُمْ عَذَابٌ أَلِيمٌ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.257397"
     },
     {
       "span_id": "QBM_02480",
@@ -459,20 +459,20 @@
         "ayah": 80,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 80 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "ٱسْتَغْفِرْ لَهُمْ أَوْ لَا تَسْتَغْفِرْ لَهُمْ إِن تَسْتَغْفِرْ لَهُمْ سَبْعِينَ مَرَّةً فَلَن يَغْفِرَ ٱللَّهُ لَهُمْ ۚ ذَٰلِكَ بِأَنَّهُمْ كَفَرُوا۟ بِٱللَّهِ وَرَسُولِهِۦ ۗ وَٱللَّهُ لَا يَهْدِى ٱلْقَوْمَ ٱلْفَـٰسِقِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -482,7 +482,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.257397"
     },
     {
       "span_id": "QBM_02481",
@@ -491,30 +491,30 @@
         "ayah": 81,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 81 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "فَرِحَ ٱلْمُخَلَّفُونَ بِمَقْعَدِهِمْ خِلَـٰفَ رَسُولِ ٱللَّهِ وَكَرِهُوٓا۟ أَن يُجَـٰهِدُوا۟ بِأَمْوَٰلِهِمْ وَأَنفُسِهِمْ فِى سَبِيلِ ٱللَّهِ وَقَالُوا۟ لَا تَنفِرُوا۟ فِى ٱلْحَرِّ ۗ قُلْ نَارُ جَهَنَّمَ أَشَدُّ حَرًّا ۚ لَّوْ كَانُوا۟ يَفْقَهُونَ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.257397"
     },
     {
       "span_id": "QBM_02482",
@@ -523,14 +523,14 @@
         "ayah": 82,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 82 من سورة التوبة",
+      "text_ar": "فَلْيَضْحَكُوا۟ قَلِيلًا وَلْيَبْكُوا۟ كَثِيرًا جَزَآءًۢ بِمَا كَانُوا۟ يَكْسِبُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.257397"
     },
     {
       "span_id": "QBM_02483",
@@ -555,14 +555,14 @@
         "ayah": 83,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 83 من سورة التوبة",
+      "text_ar": "فَإِن رَّجَعَكَ ٱللَّهُ إِلَىٰ طَآئِفَةٍ مِّنْهُمْ فَٱسْتَـْٔذَنُوكَ لِلْخُرُوجِ فَقُل لَّن تَخْرُجُوا۟ مَعِىَ أَبَدًا وَلَن تُقَـٰتِلُوا۟ مَعِىَ عَدُوًّا ۖ إِنَّكُمْ رَضِيتُم بِٱلْقُعُودِ أَوَّلَ مَرَّةٍ فَٱقْعُدُوا۟ مَعَ ٱلْخَـٰلِفِينَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -578,7 +578,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.258400"
     },
     {
       "span_id": "QBM_02484",
@@ -587,14 +587,14 @@
         "ayah": 84,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 84 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَلَا تُصَلِّ عَلَىٰٓ أَحَدٍ مِّنْهُم مَّاتَ أَبَدًا وَلَا تَقُمْ عَلَىٰ قَبْرِهِۦٓ ۖ إِنَّهُمْ كَفَرُوا۟ بِٱللَّهِ وَرَسُولِهِۦ وَمَاتُوا۟ وَهُمْ فَـٰسِقُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -603,14 +603,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.258462"
     },
     {
       "span_id": "QBM_02485",
@@ -619,30 +619,30 @@
         "ayah": 85,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 85 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَلَا تُعْجِبْكَ أَمْوَٰلُهُمْ وَأَوْلَـٰدُهُمْ ۚ إِنَّمَا يُرِيدُ ٱللَّهُ أَن يُعَذِّبَهُم بِهَا فِى ٱلدُّنْيَا وَتَزْهَقَ أَنفُسُهُمْ وَهُمْ كَـٰفِرُونَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.258462"
     },
     {
       "span_id": "QBM_02486",
@@ -651,14 +651,14 @@
         "ayah": 86,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 86 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَإِذَآ أُنزِلَتْ سُورَةٌ أَنْ ءَامِنُوا۟ بِٱللَّهِ وَجَـٰهِدُوا۟ مَعَ رَسُولِهِ ٱسْتَـْٔذَنَكَ أُو۟لُوا۟ ٱلطَّوْلِ مِنْهُمْ وَقَالُوا۟ ذَرْنَا نَكُن مَّعَ ٱلْقَـٰعِدِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -674,7 +674,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.258462"
     },
     {
       "span_id": "QBM_02487",
@@ -683,30 +683,30 @@
         "ayah": 87,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 87 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "رَضُوا۟ بِأَن يَكُونُوا۟ مَعَ ٱلْخَوَالِفِ وَطُبِعَ عَلَىٰ قُلُوبِهِمْ فَهُمْ لَا يَفْقَهُونَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.258462"
     },
     {
       "span_id": "QBM_02488",
@@ -715,30 +715,30 @@
         "ayah": 88,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 88 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "لَـٰكِنِ ٱلرَّسُولُ وَٱلَّذِينَ ءَامَنُوا۟ مَعَهُۥ جَـٰهَدُوا۟ بِأَمْوَٰلِهِمْ وَأَنفُسِهِمْ ۚ وَأُو۟لَـٰٓئِكَ لَهُمُ ٱلْخَيْرَٰتُ ۖ وَأُو۟لَـٰٓئِكَ هُمُ ٱلْمُفْلِحُونَ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.258462"
     },
     {
       "span_id": "QBM_02489",
@@ -747,20 +747,20 @@
         "ayah": 89,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 89 من سورة التوبة",
+      "text_ar": "أَعَدَّ ٱللَّهُ لَهُمْ جَنَّـٰتٍ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَـٰرُ خَـٰلِدِينَ فِيهَا ۚ ذَٰلِكَ ٱلْفَوْزُ ٱلْعَظِيمُ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -770,7 +770,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.258462"
     },
     {
       "span_id": "QBM_02490",
@@ -779,20 +779,20 @@
         "ayah": 90,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 90 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَجَآءَ ٱلْمُعَذِّرُونَ مِنَ ٱلْأَعْرَابِ لِيُؤْذَنَ لَهُمْ وَقَعَدَ ٱلَّذِينَ كَذَبُوا۟ ٱللَّهَ وَرَسُولَهُۥ ۚ سَيُصِيبُ ٱلَّذِينَ كَفَرُوا۟ مِنْهُمْ عَذَابٌ أَلِيمٌ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -802,7 +802,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.258462"
     },
     {
       "span_id": "QBM_02491",
@@ -811,8 +811,8 @@
         "ayah": 91,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 91 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "لَّيْسَ عَلَى ٱلضُّعَفَآءِ وَلَا عَلَى ٱلْمَرْضَىٰ وَلَا عَلَى ٱلَّذِينَ لَا يَجِدُونَ مَا يُنفِقُونَ حَرَجٌ إِذَا نَصَحُوا۟ لِلَّهِ وَرَسُولِهِۦ ۚ مَا عَلَى ٱلْمُحْسِنِينَ مِن سَبِيلٍ ۚ وَٱللَّهُ غَفُورٌ رَّحِيمٌ",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -823,18 +823,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.258462"
     },
     {
       "span_id": "QBM_02492",
@@ -843,30 +843,30 @@
         "ayah": 92,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 92 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَلَا عَلَى ٱلَّذِينَ إِذَا مَآ أَتَوْكَ لِتَحْمِلَهُمْ قُلْتَ لَآ أَجِدُ مَآ أَحْمِلُكُمْ عَلَيْهِ تَوَلَّوا۟ وَّأَعْيُنُهُمْ تَفِيضُ مِنَ ٱلدَّمْعِ حَزَنًا أَلَّا يَجِدُوا۟ مَا يُنفِقُونَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.612814"
+      "annotated_at": "2025-12-21T09:11:24.258462"
     },
     {
       "span_id": "QBM_02493",
@@ -875,30 +875,30 @@
         "ayah": 93,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 93 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "إِنَّمَا ٱلسَّبِيلُ عَلَى ٱلَّذِينَ يَسْتَـْٔذِنُونَكَ وَهُمْ أَغْنِيَآءُ ۚ رَضُوا۟ بِأَن يَكُونُوا۟ مَعَ ٱلْخَوَالِفِ وَطَبَعَ ٱللَّهُ عَلَىٰ قُلُوبِهِمْ فَهُمْ لَا يَعْلَمُونَ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.613817"
+      "annotated_at": "2025-12-21T09:11:24.259431"
     },
     {
       "span_id": "QBM_02494",
@@ -907,14 +907,14 @@
         "ayah": 94,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 94 من سورة التوبة",
+      "text_ar": "يَعْتَذِرُونَ إِلَيْكُمْ إِذَا رَجَعْتُمْ إِلَيْهِمْ ۚ قُل لَّا تَعْتَذِرُوا۟ لَن نُّؤْمِنَ لَكُمْ قَدْ نَبَّأَنَا ٱللَّهُ مِنْ أَخْبَارِكُمْ ۚ وَسَيَرَى ٱللَّهُ عَمَلَكُمْ وَرَسُولُهُۥ ثُمَّ تُرَدُّونَ إِلَىٰ عَـٰلِمِ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ فَيُنَبِّئُكُم بِمَا كُنتُمْ تَعْمَلُونَ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -930,7 +930,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.613817"
+      "annotated_at": "2025-12-21T09:11:24.259431"
     },
     {
       "span_id": "QBM_02495",
@@ -939,30 +939,30 @@
         "ayah": 95,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 95 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "سَيَحْلِفُونَ بِٱللَّهِ لَكُمْ إِذَا ٱنقَلَبْتُمْ إِلَيْهِمْ لِتُعْرِضُوا۟ عَنْهُمْ ۖ فَأَعْرِضُوا۟ عَنْهُمْ ۖ إِنَّهُمْ رِجْسٌ ۖ وَمَأْوَىٰهُمْ جَهَنَّمُ جَزَآءًۢ بِمَا كَانُوا۟ يَكْسِبُونَ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.613866"
+      "annotated_at": "2025-12-21T09:11:24.259431"
     },
     {
       "span_id": "QBM_02496",
@@ -971,14 +971,14 @@
         "ayah": 96,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 96 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "يَحْلِفُونَ لَكُمْ لِتَرْضَوْا۟ عَنْهُمْ ۖ فَإِن تَرْضَوْا۟ عَنْهُمْ فَإِنَّ ٱللَّهَ لَا يَرْضَىٰ عَنِ ٱلْقَوْمِ ٱلْفَـٰسِقِينَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.613909"
+      "annotated_at": "2025-12-21T09:11:24.259431"
     },
     {
       "span_id": "QBM_02497",
@@ -1003,30 +1003,30 @@
         "ayah": 97,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 97 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "ٱلْأَعْرَابُ أَشَدُّ كُفْرًا وَنِفَاقًا وَأَجْدَرُ أَلَّا يَعْلَمُوا۟ حُدُودَ مَآ أَنزَلَ ٱللَّهُ عَلَىٰ رَسُولِهِۦ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌ",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.613909"
+      "annotated_at": "2025-12-21T09:11:24.259431"
     },
     {
       "span_id": "QBM_02498",
@@ -1035,20 +1035,20 @@
         "ayah": 98,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 98 من سورة التوبة",
+      "text_ar": "وَمِنَ ٱلْأَعْرَابِ مَن يَتَّخِذُ مَا يُنفِقُ مَغْرَمًا وَيَتَرَبَّصُ بِكُمُ ٱلدَّوَآئِرَ ۚ عَلَيْهِمْ دَآئِرَةُ ٱلسَّوْءِ ۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "external",
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.613953"
+      "annotated_at": "2025-12-21T09:11:24.259431"
     },
     {
       "span_id": "QBM_02499",
@@ -1067,14 +1067,14 @@
         "ayah": 99,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 99 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَمِنَ ٱلْأَعْرَابِ مَن يُؤْمِنُ بِٱللَّهِ وَٱلْيَوْمِ ٱلْـَٔاخِرِ وَيَتَّخِذُ مَا يُنفِقُ قُرُبَـٰتٍ عِندَ ٱللَّهِ وَصَلَوَٰتِ ٱلرَّسُولِ ۚ أَلَآ إِنَّهَا قُرْبَةٌ لَّهُمْ ۚ سَيُدْخِلُهُمُ ٱللَّهُ فِى رَحْمَتِهِۦٓ ۗ إِنَّ ٱللَّهَ غَفُورٌ رَّحِيمٌ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1083,14 +1083,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.613953"
+      "annotated_at": "2025-12-21T09:11:24.259431"
     },
     {
       "span_id": "QBM_02500",
@@ -1099,20 +1099,20 @@
         "ayah": 100,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 100 من سورة التوبة",
+      "text_ar": "وَٱلسَّـٰبِقُونَ ٱلْأَوَّلُونَ مِنَ ٱلْمُهَـٰجِرِينَ وَٱلْأَنصَارِ وَٱلَّذِينَ ٱتَّبَعُوهُم بِإِحْسَـٰنٍ رَّضِىَ ٱللَّهُ عَنْهُمْ وَرَضُوا۟ عَنْهُ وَأَعَدَّ لَهُمْ جَنَّـٰتٍ تَجْرِى تَحْتَهَا ٱلْأَنْهَـٰرُ خَـٰلِدِينَ فِيهَآ أَبَدًا ۚ ذَٰلِكَ ٱلْفَوْزُ ٱلْعَظِيمُ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
+      "annotated_at": "2025-12-21T09:11:24.259431"
     },
     {
       "span_id": "QBM_02501",
@@ -1131,30 +1131,30 @@
         "ayah": 101,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 101 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَمِمَّنْ حَوْلَكُم مِّنَ ٱلْأَعْرَابِ مُنَـٰفِقُونَ ۖ وَمِنْ أَهْلِ ٱلْمَدِينَةِ ۖ مَرَدُوا۟ عَلَى ٱلنِّفَاقِ لَا تَعْلَمُهُمْ ۖ نَحْنُ نَعْلَمُهُمْ ۚ سَنُعَذِّبُهُم مَّرَّتَيْنِ ثُمَّ يُرَدُّونَ إِلَىٰ عَذَابٍ عَظِيمٍ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
+      "annotated_at": "2025-12-21T09:11:24.260432"
     },
     {
       "span_id": "QBM_02502",
@@ -1163,14 +1163,14 @@
         "ayah": 102,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 102 من سورة التوبة",
+      "text_ar": "وَءَاخَرُونَ ٱعْتَرَفُوا۟ بِذُنُوبِهِمْ خَلَطُوا۟ عَمَلًا صَـٰلِحًا وَءَاخَرَ سَيِّئًا عَسَى ٱللَّهُ أَن يَتُوبَ عَلَيْهِمْ ۚ إِنَّ ٱللَّهَ غَفُورٌ رَّحِيمٌ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
+      "annotated_at": "2025-12-21T09:11:24.260432"
     },
     {
       "span_id": "QBM_02503",
@@ -1195,14 +1195,14 @@
         "ayah": 103,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 103 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "خُذْ مِنْ أَمْوَٰلِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ ۖ إِنَّ صَلَوٰتَكَ سَكَنٌ لَّهُمْ ۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1211,14 +1211,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
+      "annotated_at": "2025-12-21T09:11:24.260432"
     },
     {
       "span_id": "QBM_02504",
@@ -1227,30 +1227,30 @@
         "ayah": 104,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 104 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "أَلَمْ يَعْلَمُوٓا۟ أَنَّ ٱللَّهَ هُوَ يَقْبَلُ ٱلتَّوْبَةَ عَنْ عِبَادِهِۦ وَيَأْخُذُ ٱلصَّدَقَـٰتِ وَأَنَّ ٱللَّهَ هُوَ ٱلتَّوَّابُ ٱلرَّحِيمُ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
+      "annotated_at": "2025-12-21T09:11:24.260432"
     },
     {
       "span_id": "QBM_02505",
@@ -1259,7 +1259,7 @@
         "ayah": 105,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 105 من سورة التوبة",
+      "text_ar": "وَقُلِ ٱعْمَلُوا۟ فَسَيَرَى ٱللَّهُ عَمَلَكُمْ وَرَسُولُهُۥ وَٱلْمُؤْمِنُونَ ۖ وَسَتُرَدُّونَ إِلَىٰ عَـٰلِمِ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ فَيُنَبِّئُكُم بِمَا كُنتُمْ تَعْمَلُونَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
+      "annotated_at": "2025-12-21T09:11:24.260432"
     },
     {
       "span_id": "QBM_02506",
@@ -1291,14 +1291,14 @@
         "ayah": 106,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 106 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَءَاخَرُونَ مُرْجَوْنَ لِأَمْرِ ٱللَّهِ إِمَّا يُعَذِّبُهُمْ وَإِمَّا يَتُوبُ عَلَيْهِمْ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1307,14 +1307,14 @@
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
+      "annotated_at": "2025-12-21T09:11:24.260432"
     },
     {
       "span_id": "QBM_02507",
@@ -1323,14 +1323,14 @@
         "ayah": 107,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 107 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَٱلَّذِينَ ٱتَّخَذُوا۟ مَسْجِدًا ضِرَارًا وَكُفْرًا وَتَفْرِيقًۢا بَيْنَ ٱلْمُؤْمِنِينَ وَإِرْصَادًا لِّمَنْ حَارَبَ ٱللَّهَ وَرَسُولَهُۥ مِن قَبْلُ ۚ وَلَيَحْلِفُنَّ إِنْ أَرَدْنَآ إِلَّا ٱلْحُسْنَىٰ ۖ وَٱللَّهُ يَشْهَدُ إِنَّهُمْ لَكَـٰذِبُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
+      "annotated_at": "2025-12-21T09:11:24.260432"
     },
     {
       "span_id": "QBM_02508",
@@ -1355,30 +1355,30 @@
         "ayah": 108,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 108 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "لَا تَقُمْ فِيهِ أَبَدًا ۚ لَّمَسْجِدٌ أُسِّسَ عَلَى ٱلتَّقْوَىٰ مِنْ أَوَّلِ يَوْمٍ أَحَقُّ أَن تَقُومَ فِيهِ ۚ فِيهِ رِجَالٌ يُحِبُّونَ أَن يَتَطَهَّرُوا۟ ۚ وَٱللَّهُ يُحِبُّ ٱلْمُطَّهِّرِينَ",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
+      "annotated_at": "2025-12-21T09:11:24.260432"
     },
     {
       "span_id": "QBM_02509",
@@ -1387,135 +1387,7 @@
         "ayah": 109,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 109 من سورة التوبة",
-      "behavior_form": "physical_act",
-      "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "external",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
-    },
-    {
-      "span_id": "QBM_02510",
-      "reference": {
-        "surah": 9,
-        "ayah": 110,
-        "surah_name": "التوبة"
-      },
-      "text_ar": "آية 110 من سورة التوبة",
-      "behavior_form": "physical_act",
-      "agent": {
-        "type": "AGT_DISBELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "external",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
-    },
-    {
-      "span_id": "QBM_02511",
-      "reference": {
-        "surah": 9,
-        "ayah": 111,
-        "surah_name": "التوبة"
-      },
-      "text_ar": "آية 111 من سورة التوبة",
-      "behavior_form": "physical_act",
-      "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "external",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
-    },
-    {
-      "span_id": "QBM_02512",
-      "reference": {
-        "surah": 9,
-        "ayah": 112,
-        "surah_name": "التوبة"
-      },
-      "text_ar": "آية 112 من سورة التوبة",
-      "behavior_form": "physical_act",
-      "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "external",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
-    },
-    {
-      "span_id": "QBM_02513",
-      "reference": {
-        "surah": 9,
-        "ayah": 113,
-        "surah_name": "التوبة"
-      },
-      "text_ar": "آية 113 من سورة التوبة",
+      "text_ar": "أَفَمَنْ أَسَّسَ بُنْيَـٰنَهُۥ عَلَىٰ تَقْوَىٰ مِنَ ٱللَّهِ وَرِضْوَٰنٍ خَيْرٌ أَم مَّنْ أَسَّسَ بُنْيَـٰنَهُۥ عَلَىٰ شَفَا جُرُفٍ هَارٍ فَٱنْهَارَ بِهِۦ فِى نَارِ جَهَنَّمَ ۗ وَٱللَّهُ لَا يَهْدِى ٱلْقَوْمَ ٱلظَّـٰلِمِينَ",
       "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_BELIEVER",
@@ -1538,7 +1410,135 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
+      "annotated_at": "2025-12-21T09:11:24.261435"
+    },
+    {
+      "span_id": "QBM_02510",
+      "reference": {
+        "surah": 9,
+        "ayah": 110,
+        "surah_name": "التوبة"
+      },
+      "text_ar": "لَا يَزَالُ بُنْيَـٰنُهُمُ ٱلَّذِى بَنَوْا۟ رِيبَةً فِى قُلُوبِهِمْ إِلَّآ أَن تَقَطَّعَ قُلُوبُهُمْ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌ",
+      "behavior_form": "relational_act",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:24.261435"
+    },
+    {
+      "span_id": "QBM_02511",
+      "reference": {
+        "surah": 9,
+        "ayah": 111,
+        "surah_name": "التوبة"
+      },
+      "text_ar": "إِنَّ ٱللَّهَ ٱشْتَرَىٰ مِنَ ٱلْمُؤْمِنِينَ أَنفُسَهُمْ وَأَمْوَٰلَهُم بِأَنَّ لَهُمُ ٱلْجَنَّةَ ۚ يُقَـٰتِلُونَ فِى سَبِيلِ ٱللَّهِ فَيَقْتُلُونَ وَيُقْتَلُونَ ۖ وَعْدًا عَلَيْهِ حَقًّا فِى ٱلتَّوْرَىٰةِ وَٱلْإِنجِيلِ وَٱلْقُرْءَانِ ۚ وَمَنْ أَوْفَىٰ بِعَهْدِهِۦ مِنَ ٱللَّهِ ۚ فَٱسْتَبْشِرُوا۟ بِبَيْعِكُمُ ٱلَّذِى بَايَعْتُم بِهِۦ ۚ وَذَٰلِكَ هُوَ ٱلْفَوْزُ ٱلْعَظِيمُ",
+      "behavior_form": "speech_act",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
+      },
+      "axes": {
+        "situational": "external",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:24.261435"
+    },
+    {
+      "span_id": "QBM_02512",
+      "reference": {
+        "surah": 9,
+        "ayah": 112,
+        "surah_name": "التوبة"
+      },
+      "text_ar": "ٱلتَّـٰٓئِبُونَ ٱلْعَـٰبِدُونَ ٱلْحَـٰمِدُونَ ٱلسَّـٰٓئِحُونَ ٱلرَّٰكِعُونَ ٱلسَّـٰجِدُونَ ٱلْـَٔامِرُونَ بِٱلْمَعْرُوفِ وَٱلنَّاهُونَ عَنِ ٱلْمُنكَرِ وَٱلْحَـٰفِظُونَ لِحُدُودِ ٱللَّهِ ۗ وَبَشِّرِ ٱلْمُؤْمِنِينَ",
+      "behavior_form": "trait_disposition",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
+      },
+      "action": {
+        "class": "ACT_PSYCHOLOGICAL",
+        "textual_eval": "EVAL_SAYYI"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:24.261435"
+    },
+    {
+      "span_id": "QBM_02513",
+      "reference": {
+        "surah": 9,
+        "ayah": 113,
+        "surah_name": "التوبة"
+      },
+      "text_ar": "مَا كَانَ لِلنَّبِىِّ وَٱلَّذِينَ ءَامَنُوٓا۟ أَن يَسْتَغْفِرُوا۟ لِلْمُشْرِكِينَ وَلَوْ كَانُوٓا۟ أُو۟لِى قُرْبَىٰ مِنۢ بَعْدِ مَا تَبَيَّنَ لَهُمْ أَنَّهُمْ أَصْحَـٰبُ ٱلْجَحِيمِ",
+      "behavior_form": "physical_act",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
+      },
+      "axes": {
+        "situational": "external",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:24.261435"
     },
     {
       "span_id": "QBM_02514",
@@ -1547,14 +1547,14 @@
         "ayah": 114,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 114 من سورة التوبة",
-      "behavior_form": "physical_act",
+      "text_ar": "وَمَا كَانَ ٱسْتِغْفَارُ إِبْرَٰهِيمَ لِأَبِيهِ إِلَّا عَن مَّوْعِدَةٍ وَعَدَهَآ إِيَّاهُ فَلَمَّا تَبَيَّنَ لَهُۥٓ أَنَّهُۥ عَدُوٌّ لِّلَّهِ تَبَرَّأَ مِنْهُ ۚ إِنَّ إِبْرَٰهِيمَ لَأَوَّٰهٌ حَلِيمٌ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1570,7 +1570,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
+      "annotated_at": "2025-12-21T09:11:24.261435"
     },
     {
       "span_id": "QBM_02515",
@@ -1579,20 +1579,20 @@
         "ayah": 115,
         "surah_name": "التوبة"
       },
-      "text_ar": "آية 115 من سورة التوبة",
+      "text_ar": "وَمَا كَانَ ٱللَّهُ لِيُضِلَّ قَوْمًۢا بَعْدَ إِذْ هَدَىٰهُمْ حَتَّىٰ يُبَيِّنَ لَهُم مَّا يَتَّقُونَ ۚ إِنَّ ٱللَّهَ بِكُلِّ شَىْءٍ عَلِيمٌ",
       "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "external",
@@ -1602,7 +1602,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:52:50.614001"
+      "annotated_at": "2025-12-21T09:11:24.261435"
     }
   ]
 }

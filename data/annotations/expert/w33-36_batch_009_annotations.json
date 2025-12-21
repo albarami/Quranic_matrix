@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_009",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:53:02.710833",
+  "annotated_at": "2025-12-21T09:11:44.519872",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,14 +11,14 @@
         "ayah": 63,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 63 من سورة الكهف",
+      "text_ar": "قَالَ أَرَءَيْتَ إِذْ أَوَيْنَآ إِلَى ٱلصَّخْرَةِ فَإِنِّى نَسِيتُ ٱلْحُوتَ وَمَآ أَنسَىٰنِيهُ إِلَّا ٱلشَّيْطَـٰنُ أَنْ أَذْكُرَهُۥ ۚ وَٱتَّخَذَ سَبِيلَهُۥ فِى ٱلْبَحْرِ عَجَبًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.516272"
     },
     {
       "span_id": "QBM_05164",
@@ -43,30 +43,30 @@
         "ayah": 64,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 64 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ ذَٰلِكَ مَا كُنَّا نَبْغِ ۚ فَٱرْتَدَّا عَلَىٰٓ ءَاثَارِهِمَا قَصَصًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.516272"
     },
     {
       "span_id": "QBM_05165",
@@ -75,20 +75,20 @@
         "ayah": 65,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 65 من سورة الكهف",
+      "text_ar": "فَوَجَدَا عَبْدًا مِّنْ عِبَادِنَآ ءَاتَيْنَـٰهُ رَحْمَةً مِّنْ عِندِنَا وَعَلَّمْنَـٰهُ مِن لَّدُنَّا عِلْمًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "praise",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -98,7 +98,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.516272"
     },
     {
       "span_id": "QBM_05166",
@@ -107,14 +107,14 @@
         "ayah": 66,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 66 من سورة الكهف",
+      "text_ar": "قَالَ لَهُۥ مُوسَىٰ هَلْ أَتَّبِعُكَ عَلَىٰٓ أَن تُعَلِّمَنِ مِمَّا عُلِّمْتَ رُشْدًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -130,7 +130,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.516272"
     },
     {
       "span_id": "QBM_05167",
@@ -139,14 +139,14 @@
         "ayah": 67,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 67 من سورة الكهف",
+      "text_ar": "قَالَ إِنَّكَ لَن تَسْتَطِيعَ مَعِىَ صَبْرًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -162,7 +162,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.516272"
     },
     {
       "span_id": "QBM_05168",
@@ -171,7 +171,7 @@
         "ayah": 68,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 68 من سورة الكهف",
+      "text_ar": "وَكَيْفَ تَصْبِرُ عَلَىٰ مَا لَمْ تُحِطْ بِهِۦ خُبْرًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
@@ -194,7 +194,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.516272"
     },
     {
       "span_id": "QBM_05169",
@@ -203,19 +203,19 @@
         "ayah": 69,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 69 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ سَتَجِدُنِىٓ إِن شَآءَ ٱللَّهُ صَابِرًا وَلَآ أَعْصِى لَكَ أَمْرًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -226,7 +226,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.516272"
     },
     {
       "span_id": "QBM_05170",
@@ -235,30 +235,30 @@
         "ayah": 70,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 70 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ فَإِنِ ٱتَّبَعْتَنِى فَلَا تَسْـَٔلْنِى عَن شَىْءٍ حَتَّىٰٓ أُحْدِثَ لَكَ مِنْهُ ذِكْرًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.516272"
     },
     {
       "span_id": "QBM_05171",
@@ -267,10 +267,10 @@
         "ayah": 71,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 71 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "فَٱنطَلَقَا حَتَّىٰٓ إِذَا رَكِبَا فِى ٱلسَّفِينَةِ خَرَقَهَا ۖ قَالَ أَخَرَقْتَهَا لِتُغْرِقَ أَهْلَهَا لَقَدْ جِئْتَ شَيْـًٔا إِمْرًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -279,18 +279,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.516272"
     },
     {
       "span_id": "QBM_05172",
@@ -299,14 +299,14 @@
         "ayah": 72,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 72 من سورة الكهف",
+      "text_ar": "قَالَ أَلَمْ أَقُلْ إِنَّكَ لَن تَسْتَطِيعَ مَعِىَ صَبْرًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.516272"
     },
     {
       "span_id": "QBM_05173",
@@ -331,10 +331,10 @@
         "ayah": 73,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 73 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ لَا تُؤَاخِذْنِى بِمَا نَسِيتُ وَلَا تُرْهِقْنِى مِنْ أَمْرِى عُسْرًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -343,18 +343,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.517236"
     },
     {
       "span_id": "QBM_05174",
@@ -363,10 +363,10 @@
         "ayah": 74,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 74 من سورة الكهف",
+      "text_ar": "فَٱنطَلَقَا حَتَّىٰٓ إِذَا لَقِيَا غُلَـٰمًا فَقَتَلَهُۥ قَالَ أَقَتَلْتَ نَفْسًا زَكِيَّةًۢ بِغَيْرِ نَفْسٍ لَّقَدْ جِئْتَ شَيْـًٔا نُّكْرًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -386,7 +386,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.517236"
     },
     {
       "span_id": "QBM_05175",
@@ -395,19 +395,19 @@
         "ayah": 75,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 75 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ أَلَمْ أَقُل لَّكَ إِنَّكَ لَن تَسْتَطِيعَ مَعِىَ صَبْرًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.517236"
     },
     {
       "span_id": "QBM_05176",
@@ -427,30 +427,30 @@
         "ayah": 76,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 76 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ إِن سَأَلْتُكَ عَن شَىْءٍۭ بَعْدَهَا فَلَا تُصَـٰحِبْنِى ۖ قَدْ بَلَغْتَ مِن لَّدُنِّى عُذْرًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.517236"
     },
     {
       "span_id": "QBM_05177",
@@ -459,30 +459,30 @@
         "ayah": 77,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 77 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "فَٱنطَلَقَا حَتَّىٰٓ إِذَآ أَتَيَآ أَهْلَ قَرْيَةٍ ٱسْتَطْعَمَآ أَهْلَهَا فَأَبَوْا۟ أَن يُضَيِّفُوهُمَا فَوَجَدَا فِيهَا جِدَارًا يُرِيدُ أَن يَنقَضَّ فَأَقَامَهُۥ ۖ قَالَ لَوْ شِئْتَ لَتَّخَذْتَ عَلَيْهِ أَجْرًا",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.517236"
     },
     {
       "span_id": "QBM_05178",
@@ -491,19 +491,19 @@
         "ayah": 78,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 78 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ هَـٰذَا فِرَاقُ بَيْنِى وَبَيْنِكَ ۚ سَأُنَبِّئُكَ بِتَأْوِيلِ مَا لَمْ تَسْتَطِع عَّلَيْهِ صَبْرًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.517236"
     },
     {
       "span_id": "QBM_05179",
@@ -523,30 +523,30 @@
         "ayah": 79,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 79 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمَّا ٱلسَّفِينَةُ فَكَانَتْ لِمَسَـٰكِينَ يَعْمَلُونَ فِى ٱلْبَحْرِ فَأَرَدتُّ أَنْ أَعِيبَهَا وَكَانَ وَرَآءَهُم مَّلِكٌ يَأْخُذُ كُلَّ سَفِينَةٍ غَصْبًا",
+      "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.517236"
     },
     {
       "span_id": "QBM_05180",
@@ -555,14 +555,14 @@
         "ayah": 80,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 80 من سورة الكهف",
+      "text_ar": "وَأَمَّا ٱلْغُلَـٰمُ فَكَانَ أَبَوَاهُ مُؤْمِنَيْنِ فَخَشِينَآ أَن يُرْهِقَهُمَا طُغْيَـٰنًا وَكُفْرًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -578,7 +578,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.517236"
     },
     {
       "span_id": "QBM_05181",
@@ -587,20 +587,20 @@
         "ayah": 81,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 81 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "فَأَرَدْنَآ أَن يُبْدِلَهُمَا رَبُّهُمَا خَيْرًا مِّنْهُ زَكَوٰةً وَأَقْرَبَ رُحْمًا",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.517236"
     },
     {
       "span_id": "QBM_05182",
@@ -619,20 +619,20 @@
         "ayah": 82,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 82 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَأَمَّا ٱلْجِدَارُ فَكَانَ لِغُلَـٰمَيْنِ يَتِيمَيْنِ فِى ٱلْمَدِينَةِ وَكَانَ تَحْتَهُۥ كَنزٌ لَّهُمَا وَكَانَ أَبُوهُمَا صَـٰلِحًا فَأَرَادَ رَبُّكَ أَن يَبْلُغَآ أَشُدَّهُمَا وَيَسْتَخْرِجَا كَنزَهُمَا رَحْمَةً مِّن رَّبِّكَ ۚ وَمَا فَعَلْتُهُۥ عَنْ أَمْرِى ۚ ذَٰلِكَ تَأْوِيلُ مَا لَمْ تَسْطِع عَّلَيْهِ صَبْرًا",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.709090"
+      "annotated_at": "2025-12-21T09:11:44.517236"
     },
     {
       "span_id": "QBM_05183",
@@ -651,10 +651,10 @@
         "ayah": 83,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 83 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَيَسْـَٔلُونَكَ عَن ذِى ٱلْقَرْنَيْنِ ۖ قُلْ سَأَتْلُوا۟ عَلَيْكُم مِّنْهُ ذِكْرًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -663,18 +663,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710093"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05184",
@@ -683,14 +683,14 @@
         "ayah": 84,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 84 من سورة الكهف",
+      "text_ar": "إِنَّا مَكَّنَّا لَهُۥ فِى ٱلْأَرْضِ وَءَاتَيْنَـٰهُ مِن كُلِّ شَىْءٍ سَبَبًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -706,7 +706,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710133"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05185",
@@ -715,10 +715,10 @@
         "ayah": 85,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 85 من سورة الكهف",
+      "text_ar": "فَأَتْبَعَ سَبَبًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -738,7 +738,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710133"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05186",
@@ -747,14 +747,14 @@
         "ayah": 86,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 86 من سورة الكهف",
+      "text_ar": "حَتَّىٰٓ إِذَا بَلَغَ مَغْرِبَ ٱلشَّمْسِ وَجَدَهَا تَغْرُبُ فِى عَيْنٍ حَمِئَةٍ وَوَجَدَ عِندَهَا قَوْمًا ۗ قُلْنَا يَـٰذَا ٱلْقَرْنَيْنِ إِمَّآ أَن تُعَذِّبَ وَإِمَّآ أَن تَتَّخِذَ فِيهِمْ حُسْنًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -770,7 +770,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710168"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05187",
@@ -779,30 +779,30 @@
         "ayah": 87,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 87 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ أَمَّا مَن ظَلَمَ فَسَوْفَ نُعَذِّبُهُۥ ثُمَّ يُرَدُّ إِلَىٰ رَبِّهِۦ فَيُعَذِّبُهُۥ عَذَابًا نُّكْرًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "blame",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05188",
@@ -811,10 +811,10 @@
         "ayah": 88,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 88 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "وَأَمَّا مَنْ ءَامَنَ وَعَمِلَ صَـٰلِحًا فَلَهُۥ جَزَآءً ٱلْحُسْنَىٰ ۖ وَسَنَقُولُ لَهُۥ مِنْ أَمْرِنَا يُسْرًا",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -823,18 +823,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05189",
@@ -843,7 +843,7 @@
         "ayah": 89,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 89 من سورة الكهف",
+      "text_ar": "ثُمَّ أَتْبَعَ سَبَبًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05190",
@@ -875,14 +875,14 @@
         "ayah": 90,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 90 من سورة الكهف",
+      "text_ar": "حَتَّىٰٓ إِذَا بَلَغَ مَطْلِعَ ٱلشَّمْسِ وَجَدَهَا تَطْلُعُ عَلَىٰ قَوْمٍ لَّمْ نَجْعَل لَّهُم مِّن دُونِهَا سِتْرًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -898,7 +898,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05191",
@@ -907,10 +907,10 @@
         "ayah": 91,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 91 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "كَذَٰلِكَ وَقَدْ أَحَطْنَا بِمَا لَدَيْهِ خُبْرًا",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -919,7 +919,7 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -930,7 +930,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05192",
@@ -939,10 +939,10 @@
         "ayah": 92,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 92 من سورة الكهف",
+      "text_ar": "ثُمَّ أَتْبَعَ سَبَبًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -962,7 +962,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05193",
@@ -971,14 +971,14 @@
         "ayah": 93,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 93 من سورة الكهف",
+      "text_ar": "حَتَّىٰٓ إِذَا بَلَغَ بَيْنَ ٱلسَّدَّيْنِ وَجَدَ مِن دُونِهِمَا قَوْمًا لَّا يَكَادُونَ يَفْقَهُونَ قَوْلًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05194",
@@ -1003,30 +1003,30 @@
         "ayah": 94,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 94 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالُوا۟ يَـٰذَا ٱلْقَرْنَيْنِ إِنَّ يَأْجُوجَ وَمَأْجُوجَ مُفْسِدُونَ فِى ٱلْأَرْضِ فَهَلْ نَجْعَلُ لَكَ خَرْجًا عَلَىٰٓ أَن تَجْعَلَ بَيْنَنَا وَبَيْنَهُمْ سَدًّا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05195",
@@ -1035,30 +1035,30 @@
         "ayah": 95,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 95 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ مَا مَكَّنِّى فِيهِ رَبِّى خَيْرٌ فَأَعِينُونِى بِقُوَّةٍ أَجْعَلْ بَيْنَكُمْ وَبَيْنَهُمْ رَدْمًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.518236"
     },
     {
       "span_id": "QBM_05196",
@@ -1067,30 +1067,30 @@
         "ayah": 96,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 96 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "ءَاتُونِى زُبَرَ ٱلْحَدِيدِ ۖ حَتَّىٰٓ إِذَا سَاوَىٰ بَيْنَ ٱلصَّدَفَيْنِ قَالَ ٱنفُخُوا۟ ۖ حَتَّىٰٓ إِذَا جَعَلَهُۥ نَارًا قَالَ ءَاتُونِىٓ أُفْرِغْ عَلَيْهِ قِطْرًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "blame",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519236"
     },
     {
       "span_id": "QBM_05197",
@@ -1099,14 +1099,14 @@
         "ayah": 97,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 97 من سورة الكهف",
+      "text_ar": "فَمَا ٱسْطَـٰعُوٓا۟ أَن يَظْهَرُوهُ وَمَا ٱسْتَطَـٰعُوا۟ لَهُۥ نَقْبًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519236"
     },
     {
       "span_id": "QBM_05198",
@@ -1131,30 +1131,30 @@
         "ayah": 98,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 98 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ هَـٰذَا رَحْمَةٌ مِّن رَّبِّى ۖ فَإِذَا جَآءَ وَعْدُ رَبِّى جَعَلَهُۥ دَكَّآءَ ۖ وَكَانَ وَعْدُ رَبِّى حَقًّا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519236"
     },
     {
       "span_id": "QBM_05199",
@@ -1163,14 +1163,14 @@
         "ayah": 99,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 99 من سورة الكهف",
+      "text_ar": "وَتَرَكْنَا بَعْضَهُمْ يَوْمَئِذٍ يَمُوجُ فِى بَعْضٍ ۖ وَنُفِخَ فِى ٱلصُّورِ فَجَمَعْنَـٰهُمْ جَمْعًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519236"
     },
     {
       "span_id": "QBM_05200",
@@ -1195,20 +1195,20 @@
         "ayah": 100,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 100 من سورة الكهف",
+      "text_ar": "وَعَرَضْنَا جَهَنَّمَ يَوْمَئِذٍ لِّلْكَـٰفِرِينَ عَرْضًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1218,7 +1218,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519236"
     },
     {
       "span_id": "QBM_05201",
@@ -1227,30 +1227,30 @@
         "ayah": 101,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 101 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "ٱلَّذِينَ كَانَتْ أَعْيُنُهُمْ فِى غِطَآءٍ عَن ذِكْرِى وَكَانُوا۟ لَا يَسْتَطِيعُونَ سَمْعًا",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519236"
     },
     {
       "span_id": "QBM_05202",
@@ -1259,20 +1259,20 @@
         "ayah": 102,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 102 من سورة الكهف",
+      "text_ar": "أَفَحَسِبَ ٱلَّذِينَ كَفَرُوٓا۟ أَن يَتَّخِذُوا۟ عِبَادِى مِن دُونِىٓ أَوْلِيَآءَ ۚ إِنَّآ أَعْتَدْنَا جَهَنَّمَ لِلْكَـٰفِرِينَ نُزُلًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519236"
     },
     {
       "span_id": "QBM_05203",
@@ -1291,7 +1291,7 @@
         "ayah": 103,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 103 من سورة الكهف",
+      "text_ar": "قُلْ هَلْ نُنَبِّئُكُم بِٱلْأَخْسَرِينَ أَعْمَـٰلًا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
@@ -1299,12 +1299,12 @@
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "blame",
         "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1314,7 +1314,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519770"
     },
     {
       "span_id": "QBM_05204",
@@ -1323,30 +1323,30 @@
         "ayah": 104,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 104 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "ٱلَّذِينَ ضَلَّ سَعْيُهُمْ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا وَهُمْ يَحْسَبُونَ أَنَّهُمْ يُحْسِنُونَ صُنْعًا",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519872"
     },
     {
       "span_id": "QBM_05205",
@@ -1355,30 +1355,30 @@
         "ayah": 105,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 105 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "أُو۟لَـٰٓئِكَ ٱلَّذِينَ كَفَرُوا۟ بِـَٔايَـٰتِ رَبِّهِمْ وَلِقَآئِهِۦ فَحَبِطَتْ أَعْمَـٰلُهُمْ فَلَا نُقِيمُ لَهُمْ يَوْمَ ٱلْقِيَـٰمَةِ وَزْنًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519872"
     },
     {
       "span_id": "QBM_05206",
@@ -1387,30 +1387,30 @@
         "ayah": 106,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 106 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "ذَٰلِكَ جَزَآؤُهُمْ جَهَنَّمُ بِمَا كَفَرُوا۟ وَٱتَّخَذُوٓا۟ ءَايَـٰتِى وَرُسُلِى هُزُوًا",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519872"
     },
     {
       "span_id": "QBM_05207",
@@ -1419,30 +1419,30 @@
         "ayah": 107,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 107 من سورة الكهف",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ كَانَتْ لَهُمْ جَنَّـٰتُ ٱلْفِرْدَوْسِ نُزُلًا",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519872"
     },
     {
       "span_id": "QBM_05208",
@@ -1451,14 +1451,14 @@
         "ayah": 108,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 108 من سورة الكهف",
+      "text_ar": "خَـٰلِدِينَ فِيهَا لَا يَبْغُونَ عَنْهَا حِوَلًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519872"
     },
     {
       "span_id": "QBM_05209",
@@ -1483,14 +1483,14 @@
         "ayah": 109,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 109 من سورة الكهف",
+      "text_ar": "قُل لَّوْ كَانَ ٱلْبَحْرُ مِدَادًا لِّكَلِمَـٰتِ رَبِّى لَنَفِدَ ٱلْبَحْرُ قَبْلَ أَن تَنفَدَ كَلِمَـٰتُ رَبِّى وَلَوْ جِئْنَا بِمِثْلِهِۦ مَدَدًا",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1506,7 +1506,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710202"
+      "annotated_at": "2025-12-21T09:11:44.519872"
     },
     {
       "span_id": "QBM_05210",
@@ -1515,20 +1515,20 @@
         "ayah": 110,
         "surah_name": "الكهف"
       },
-      "text_ar": "آية 110 من سورة الكهف",
+      "text_ar": "قُلْ إِنَّمَآ أَنَا۠ بَشَرٌ مِّثْلُكُمْ يُوحَىٰٓ إِلَىَّ أَنَّمَآ إِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ ۖ فَمَن كَانَ يَرْجُوا۟ لِقَآءَ رَبِّهِۦ فَلْيَعْمَلْ عَمَلًا صَـٰلِحًا وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِۦٓ أَحَدًۢا",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1538,7 +1538,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710733"
+      "annotated_at": "2025-12-21T09:11:44.519872"
     },
     {
       "span_id": "QBM_05401",
@@ -1547,14 +1547,14 @@
         "ayah": 1,
         "surah_name": "مريم"
       },
-      "text_ar": "آية 1 من سورة مريم",
+      "text_ar": "كٓهيعٓصٓ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1570,7 +1570,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710768"
+      "annotated_at": "2025-12-21T09:11:44.519872"
     },
     {
       "span_id": "QBM_05402",
@@ -1579,14 +1579,14 @@
         "ayah": 2,
         "surah_name": "مريم"
       },
-      "text_ar": "آية 2 من سورة مريم",
+      "text_ar": "ذِكْرُ رَحْمَتِ رَبِّكَ عَبْدَهُۥ زَكَرِيَّآ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1602,7 +1602,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:02.710800"
+      "annotated_at": "2025-12-21T09:11:44.519872"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_008",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:53:30.666118",
+  "annotated_at": "2025-12-21T09:12:44.553782",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,10 +11,10 @@
         "ayah": 19,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 19 من سورة المدثر",
-      "behavior_form": "inner_state",
+      "text_ar": "فَقُتِلَ كَيْفَ قَدَّرَ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -23,18 +23,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.550781"
     },
     {
       "span_id": "QBM_21920",
@@ -43,8 +43,8 @@
         "ayah": 20,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 20 من سورة المدثر",
-      "behavior_form": "inner_state",
+      "text_ar": "ثُمَّ قُتِلَ كَيْفَ قَدَّرَ",
+      "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
@@ -55,18 +55,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.550781"
     },
     {
       "span_id": "QBM_21921",
@@ -75,14 +75,14 @@
         "ayah": 21,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 21 من سورة المدثر",
+      "text_ar": "ثُمَّ نَظَرَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -98,7 +98,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.550781"
     },
     {
       "span_id": "QBM_21922",
@@ -107,14 +107,14 @@
         "ayah": 22,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 22 من سورة المدثر",
+      "text_ar": "ثُمَّ عَبَسَ وَبَسَرَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -130,7 +130,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.550781"
     },
     {
       "span_id": "QBM_21923",
@@ -139,8 +139,8 @@
         "ayah": 23,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 23 من سورة المدثر",
-      "behavior_form": "inner_state",
+      "text_ar": "ثُمَّ أَدْبَرَ وَٱسْتَكْبَرَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
@@ -151,7 +151,7 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -162,7 +162,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.550781"
     },
     {
       "span_id": "QBM_21924",
@@ -171,30 +171,30 @@
         "ayah": 24,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 24 من سورة المدثر",
-      "behavior_form": "inner_state",
+      "text_ar": "فَقَالَ إِنْ هَـٰذَآ إِلَّا سِحْرٌ يُؤْثَرُ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.550781"
     },
     {
       "span_id": "QBM_21925",
@@ -203,20 +203,20 @@
         "ayah": 25,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 25 من سورة المدثر",
+      "text_ar": "إِنْ هَـٰذَآ إِلَّا قَوْلُ ٱلْبَشَرِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -226,7 +226,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.550781"
     },
     {
       "span_id": "QBM_21926",
@@ -235,8 +235,8 @@
         "ayah": 26,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 26 من سورة المدثر",
-      "behavior_form": "inner_state",
+      "text_ar": "سَأُصْلِيهِ سَقَرَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -247,7 +247,7 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -258,7 +258,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.550781"
     },
     {
       "span_id": "QBM_21927",
@@ -267,10 +267,10 @@
         "ayah": 27,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 27 من سورة المدثر",
+      "text_ar": "وَمَآ أَدْرَىٰكَ مَا سَقَرُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -290,7 +290,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.550781"
     },
     {
       "span_id": "QBM_21928",
@@ -299,14 +299,14 @@
         "ayah": 28,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 28 من سورة المدثر",
+      "text_ar": "لَا تُبْقِى وَلَا تَذَرُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.550781"
     },
     {
       "span_id": "QBM_21929",
@@ -331,20 +331,20 @@
         "ayah": 29,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 29 من سورة المدثر",
+      "text_ar": "لَوَّاحَةٌ لِّلْبَشَرِ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -354,7 +354,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.550781"
     },
     {
       "span_id": "QBM_21930",
@@ -363,20 +363,20 @@
         "ayah": 30,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 30 من سورة المدثر",
+      "text_ar": "عَلَيْهَا تِسْعَةَ عَشَرَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -386,7 +386,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21931",
@@ -395,20 +395,20 @@
         "ayah": 31,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 31 من سورة المدثر",
+      "text_ar": "وَمَا جَعَلْنَآ أَصْحَـٰبَ ٱلنَّارِ إِلَّا مَلَـٰٓئِكَةً ۙ وَمَا جَعَلْنَا عِدَّتَهُمْ إِلَّا فِتْنَةً لِّلَّذِينَ كَفَرُوا۟ لِيَسْتَيْقِنَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَـٰبَ وَيَزْدَادَ ٱلَّذِينَ ءَامَنُوٓا۟ إِيمَـٰنًا ۙ وَلَا يَرْتَابَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَـٰبَ وَٱلْمُؤْمِنُونَ ۙ وَلِيَقُولَ ٱلَّذِينَ فِى قُلُوبِهِم مَّرَضٌ وَٱلْكَـٰفِرُونَ مَاذَآ أَرَادَ ٱللَّهُ بِهَـٰذَا مَثَلًا ۚ كَذَٰلِكَ يُضِلُّ ٱللَّهُ مَن يَشَآءُ وَيَهْدِى مَن يَشَآءُ ۚ وَمَا يَعْلَمُ جُنُودَ رَبِّكَ إِلَّا هُوَ ۚ وَمَا هِىَ إِلَّا ذِكْرَىٰ لِلْبَشَرِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21932",
@@ -427,14 +427,14 @@
         "ayah": 32,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 32 من سورة المدثر",
+      "text_ar": "كَلَّا وَٱلْقَمَرِ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -450,7 +450,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21933",
@@ -459,10 +459,10 @@
         "ayah": 33,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 33 من سورة المدثر",
-      "behavior_form": "inner_state",
+      "text_ar": "وَٱلَّيْلِ إِذْ أَدْبَرَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -471,7 +471,7 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -482,7 +482,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21934",
@@ -491,10 +491,10 @@
         "ayah": 34,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 34 من سورة المدثر",
+      "text_ar": "وَٱلصُّبْحِ إِذَآ أَسْفَرَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21935",
@@ -523,19 +523,19 @@
         "ayah": 35,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 35 من سورة المدثر",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّهَا لَإِحْدَى ٱلْكُبَرِ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21936",
@@ -555,20 +555,20 @@
         "ayah": 36,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 36 من سورة المدثر",
+      "text_ar": "نَذِيرًا لِّلْبَشَرِ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -578,7 +578,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21937",
@@ -587,14 +587,14 @@
         "ayah": 37,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 37 من سورة المدثر",
+      "text_ar": "لِمَن شَآءَ مِنكُمْ أَن يَتَقَدَّمَ أَوْ يَتَأَخَّرَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21938",
@@ -619,14 +619,14 @@
         "ayah": 38,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 38 من سورة المدثر",
+      "text_ar": "كُلُّ نَفْسٍۭ بِمَا كَسَبَتْ رَهِينَةٌ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21939",
@@ -651,10 +651,10 @@
         "ayah": 39,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 39 من سورة المدثر",
+      "text_ar": "إِلَّآ أَصْحَـٰبَ ٱلْيَمِينِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -674,7 +674,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21940",
@@ -683,14 +683,14 @@
         "ayah": 40,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 40 من سورة المدثر",
+      "text_ar": "فِى جَنَّـٰتٍ يَتَسَآءَلُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -706,7 +706,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21941",
@@ -715,14 +715,14 @@
         "ayah": 41,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 41 من سورة المدثر",
-      "behavior_form": "inner_state",
+      "text_ar": "عَنِ ٱلْمُجْرِمِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -738,7 +738,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21942",
@@ -747,10 +747,10 @@
         "ayah": 42,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 42 من سورة المدثر",
+      "text_ar": "مَا سَلَكَكُمْ فِى سَقَرَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -770,7 +770,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21943",
@@ -779,8 +779,8 @@
         "ayah": 43,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 43 من سورة المدثر",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالُوا۟ لَمْ نَكُ مِنَ ٱلْمُصَلِّينَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -791,18 +791,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21944",
@@ -811,14 +811,14 @@
         "ayah": 44,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 44 من سورة المدثر",
+      "text_ar": "وَلَمْ نَكُ نُطْعِمُ ٱلْمِسْكِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -834,7 +834,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21945",
@@ -843,14 +843,14 @@
         "ayah": 45,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 45 من سورة المدثر",
+      "text_ar": "وَكُنَّا نَخُوضُ مَعَ ٱلْخَآئِضِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.551781"
     },
     {
       "span_id": "QBM_21946",
@@ -875,30 +875,30 @@
         "ayah": 46,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 46 من سورة المدثر",
-      "behavior_form": "inner_state",
+      "text_ar": "وَكُنَّا نُكَذِّبُ بِيَوْمِ ٱلدِّينِ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_21947",
@@ -907,10 +907,10 @@
         "ayah": 47,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 47 من سورة المدثر",
+      "text_ar": "حَتَّىٰٓ أَتَىٰنَا ٱلْيَقِينُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -930,7 +930,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_21948",
@@ -939,14 +939,14 @@
         "ayah": 48,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 48 من سورة المدثر",
+      "text_ar": "فَمَا تَنفَعُهُمْ شَفَـٰعَةُ ٱلشَّـٰفِعِينَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -962,7 +962,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_21949",
@@ -971,14 +971,14 @@
         "ayah": 49,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 49 من سورة المدثر",
+      "text_ar": "فَمَا لَهُمْ عَنِ ٱلتَّذْكِرَةِ مُعْرِضِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_21950",
@@ -1003,14 +1003,14 @@
         "ayah": 50,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 50 من سورة المدثر",
+      "text_ar": "كَأَنَّهُمْ حُمُرٌ مُّسْتَنفِرَةٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1026,7 +1026,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_21951",
@@ -1035,7 +1035,7 @@
         "ayah": 51,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 51 من سورة المدثر",
+      "text_ar": "فَرَّتْ مِن قَسْوَرَةٍۭ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_21952",
@@ -1067,20 +1067,20 @@
         "ayah": 52,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 52 من سورة المدثر",
+      "text_ar": "بَلْ يُرِيدُ كُلُّ ٱمْرِئٍ مِّنْهُمْ أَن يُؤْتَىٰ صُحُفًا مُّنَشَّرَةً",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -1090,7 +1090,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_21953",
@@ -1099,14 +1099,14 @@
         "ayah": 53,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 53 من سورة المدثر",
+      "text_ar": "كَلَّا ۖ بَل لَّا يَخَافُونَ ٱلْـَٔاخِرَةَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_21954",
@@ -1131,14 +1131,14 @@
         "ayah": 54,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 54 من سورة المدثر",
+      "text_ar": "كَلَّآ إِنَّهُۥ تَذْكِرَةٌ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1154,7 +1154,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_21955",
@@ -1163,10 +1163,10 @@
         "ayah": 55,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 55 من سورة المدثر",
+      "text_ar": "فَمَن شَآءَ ذَكَرَهُۥ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_21956",
@@ -1195,30 +1195,30 @@
         "ayah": 56,
         "surah_name": "المدثر"
       },
-      "text_ar": "آية 56 من سورة المدثر",
-      "behavior_form": "inner_state",
+      "text_ar": "وَمَا يَذْكُرُونَ إِلَّآ أَن يَشَآءَ ٱللَّهُ ۚ هُوَ أَهْلُ ٱلتَّقْوَىٰ وَأَهْلُ ٱلْمَغْفِرَةِ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_22201",
@@ -1227,10 +1227,10 @@
         "ayah": 1,
         "surah_name": "القيامة"
       },
-      "text_ar": "آية 1 من سورة القيامة",
-      "behavior_form": "inner_state",
+      "text_ar": "لَآ أُقْسِمُ بِيَوْمِ ٱلْقِيَـٰمَةِ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1239,18 +1239,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_22202",
@@ -1259,10 +1259,10 @@
         "ayah": 2,
         "surah_name": "القيامة"
       },
-      "text_ar": "آية 2 من سورة القيامة",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلَآ أُقْسِمُ بِٱلنَّفْسِ ٱللَّوَّامَةِ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1271,18 +1271,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.665118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_22203",
@@ -1291,14 +1291,14 @@
         "ayah": 3,
         "surah_name": "القيامة"
       },
-      "text_ar": "آية 3 من سورة القيامة",
+      "text_ar": "أَيَحْسَبُ ٱلْإِنسَـٰنُ أَلَّن نَّجْمَعَ عِظَامَهُۥ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1314,7 +1314,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.666118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_22204",
@@ -1323,14 +1323,14 @@
         "ayah": 4,
         "surah_name": "القيامة"
       },
-      "text_ar": "آية 4 من سورة القيامة",
+      "text_ar": "بَلَىٰ قَـٰدِرِينَ عَلَىٰٓ أَن نُّسَوِّىَ بَنَانَهُۥ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.666118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_22205",
@@ -1355,14 +1355,14 @@
         "ayah": 5,
         "surah_name": "القيامة"
       },
-      "text_ar": "آية 5 من سورة القيامة",
+      "text_ar": "بَلْ يُرِيدُ ٱلْإِنسَـٰنُ لِيَفْجُرَ أَمَامَهُۥ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1378,7 +1378,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.666118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_22206",
@@ -1387,10 +1387,10 @@
         "ayah": 6,
         "surah_name": "القيامة"
       },
-      "text_ar": "آية 6 من سورة القيامة",
+      "text_ar": "يَسْـَٔلُ أَيَّانَ يَوْمُ ٱلْقِيَـٰمَةِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -1410,7 +1410,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.666118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_22207",
@@ -1419,19 +1419,19 @@
         "ayah": 7,
         "surah_name": "القيامة"
       },
-      "text_ar": "آية 7 من سورة القيامة",
-      "behavior_form": "inner_state",
+      "text_ar": "فَإِذَا بَرِقَ ٱلْبَصَرُ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -1442,7 +1442,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.666118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_22208",
@@ -1451,14 +1451,14 @@
         "ayah": 8,
         "surah_name": "القيامة"
       },
-      "text_ar": "آية 8 من سورة القيامة",
+      "text_ar": "وَخَسَفَ ٱلْقَمَرُ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.666118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_22209",
@@ -1483,14 +1483,14 @@
         "ayah": 9,
         "surah_name": "القيامة"
       },
-      "text_ar": "آية 9 من سورة القيامة",
+      "text_ar": "وَجُمِعَ ٱلشَّمْسُ وَٱلْقَمَرُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1506,7 +1506,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.666118"
+      "annotated_at": "2025-12-21T09:12:44.552782"
     },
     {
       "span_id": "QBM_22210",
@@ -1515,30 +1515,30 @@
         "ayah": 10,
         "surah_name": "القيامة"
       },
-      "text_ar": "آية 10 من سورة القيامة",
-      "behavior_form": "inner_state",
+      "text_ar": "يَقُولُ ٱلْإِنسَـٰنُ يَوْمَئِذٍ أَيْنَ ٱلْمَفَرُّ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.666118"
+      "annotated_at": "2025-12-21T09:12:44.553782"
     },
     {
       "span_id": "QBM_22211",
@@ -1547,14 +1547,14 @@
         "ayah": 11,
         "surah_name": "القيامة"
       },
-      "text_ar": "آية 11 من سورة القيامة",
+      "text_ar": "كَلَّا لَا وَزَرَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1570,7 +1570,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.666118"
+      "annotated_at": "2025-12-21T09:12:44.553782"
     },
     {
       "span_id": "QBM_22212",
@@ -1579,14 +1579,14 @@
         "ayah": 12,
         "surah_name": "القيامة"
       },
-      "text_ar": "آية 12 من سورة القيامة",
+      "text_ar": "إِلَىٰ رَبِّكَ يَوْمَئِذٍ ٱلْمُسْتَقَرُّ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1602,7 +1602,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:30.666118"
+      "annotated_at": "2025-12-21T09:12:44.553782"
     }
   ]
 }

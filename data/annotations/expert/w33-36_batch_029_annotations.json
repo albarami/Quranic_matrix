@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_029",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T08:53:05.535724",
+  "annotated_at": "2025-12-21T09:11:47.515214",
   "ayat_count": 50,
   "annotations": [
     {
@@ -11,14 +11,14 @@
         "ayah": 44,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 44 من سورة النمل",
+      "text_ar": "قِيلَ لَهَا ٱدْخُلِى ٱلصَّرْحَ ۖ فَلَمَّا رَأَتْهُ حَسِبَتْهُ لُجَّةً وَكَشَفَتْ عَن سَاقَيْهَا ۚ قَالَ إِنَّهُۥ صَرْحٌ مُّمَرَّدٌ مِّن قَوَارِيرَ ۗ قَالَتْ رَبِّ إِنِّى ظَلَمْتُ نَفْسِى وَأَسْلَمْتُ مَعَ سُلَيْمَـٰنَ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.511215"
     },
     {
       "span_id": "QBM_07845",
@@ -43,14 +43,14 @@
         "ayah": 45,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 45 من سورة النمل",
+      "text_ar": "وَلَقَدْ أَرْسَلْنَآ إِلَىٰ ثَمُودَ أَخَاهُمْ صَـٰلِحًا أَنِ ٱعْبُدُوا۟ ٱللَّهَ فَإِذَا هُمْ فَرِيقَانِ يَخْتَصِمُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -66,7 +66,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.511215"
     },
     {
       "span_id": "QBM_07846",
@@ -75,30 +75,30 @@
         "ayah": 46,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 46 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالَ يَـٰقَوْمِ لِمَ تَسْتَعْجِلُونَ بِٱلسَّيِّئَةِ قَبْلَ ٱلْحَسَنَةِ ۖ لَوْلَا تَسْتَغْفِرُونَ ٱللَّهَ لَعَلَّكُمْ تُرْحَمُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.511215"
     },
     {
       "span_id": "QBM_07847",
@@ -107,30 +107,30 @@
         "ayah": 47,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 47 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالُوا۟ ٱطَّيَّرْنَا بِكَ وَبِمَن مَّعَكَ ۚ قَالَ طَـٰٓئِرُكُمْ عِندَ ٱللَّهِ ۖ بَلْ أَنتُمْ قَوْمٌ تُفْتَنُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.511215"
     },
     {
       "span_id": "QBM_07848",
@@ -139,19 +139,19 @@
         "ayah": 48,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 48 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "وَكَانَ فِى ٱلْمَدِينَةِ تِسْعَةُ رَهْطٍ يُفْسِدُونَ فِى ٱلْأَرْضِ وَلَا يُصْلِحُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -162,7 +162,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.511215"
     },
     {
       "span_id": "QBM_07849",
@@ -171,30 +171,30 @@
         "ayah": 49,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 49 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "قَالُوا۟ تَقَاسَمُوا۟ بِٱللَّهِ لَنُبَيِّتَنَّهُۥ وَأَهْلَهُۥ ثُمَّ لَنَقُولَنَّ لِوَلِيِّهِۦ مَا شَهِدْنَا مَهْلِكَ أَهْلِهِۦ وَإِنَّا لَصَـٰدِقُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07850",
@@ -203,14 +203,14 @@
         "ayah": 50,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 50 من سورة النمل",
+      "text_ar": "وَمَكَرُوا۟ مَكْرًا وَمَكَرْنَا مَكْرًا وَهُمْ لَا يَشْعُرُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -226,7 +226,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07851",
@@ -235,14 +235,14 @@
         "ayah": 51,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 51 من سورة النمل",
+      "text_ar": "فَٱنظُرْ كَيْفَ كَانَ عَـٰقِبَةُ مَكْرِهِمْ أَنَّا دَمَّرْنَـٰهُمْ وَقَوْمَهُمْ أَجْمَعِينَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -258,7 +258,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07852",
@@ -267,14 +267,14 @@
         "ayah": 52,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 52 من سورة النمل",
+      "text_ar": "فَتِلْكَ بُيُوتُهُمْ خَاوِيَةًۢ بِمَا ظَلَمُوٓا۟ ۗ إِنَّ فِى ذَٰلِكَ لَـَٔايَةً لِّقَوْمٍ يَعْلَمُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -290,7 +290,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07853",
@@ -299,14 +299,14 @@
         "ayah": 53,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 53 من سورة النمل",
+      "text_ar": "وَأَنجَيْنَا ٱلَّذِينَ ءَامَنُوا۟ وَكَانُوا۟ يَتَّقُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -322,7 +322,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07854",
@@ -331,30 +331,30 @@
         "ayah": 54,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 54 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "وَلُوطًا إِذْ قَالَ لِقَوْمِهِۦٓ أَتَأْتُونَ ٱلْفَـٰحِشَةَ وَأَنتُمْ تُبْصِرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07855",
@@ -363,14 +363,14 @@
         "ayah": 55,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 55 من سورة النمل",
+      "text_ar": "أَئِنَّكُمْ لَتَأْتُونَ ٱلرِّجَالَ شَهْوَةً مِّن دُونِ ٱلنِّسَآءِ ۚ بَلْ أَنتُمْ قَوْمٌ تَجْهَلُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -386,7 +386,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07856",
@@ -395,30 +395,30 @@
         "ayah": 56,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 56 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "فَمَا كَانَ جَوَابَ قَوْمِهِۦٓ إِلَّآ أَن قَالُوٓا۟ أَخْرِجُوٓا۟ ءَالَ لُوطٍ مِّن قَرْيَتِكُمْ ۖ إِنَّهُمْ أُنَاسٌ يَتَطَهَّرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07857",
@@ -427,19 +427,19 @@
         "ayah": 57,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 57 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "فَأَنجَيْنَـٰهُ وَأَهْلَهُۥٓ إِلَّا ٱمْرَأَتَهُۥ قَدَّرْنَـٰهَا مِنَ ٱلْغَـٰبِرِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -450,7 +450,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07858",
@@ -459,14 +459,14 @@
         "ayah": 58,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 58 من سورة النمل",
+      "text_ar": "وَأَمْطَرْنَا عَلَيْهِم مَّطَرًا ۖ فَسَآءَ مَطَرُ ٱلْمُنذَرِينَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -482,7 +482,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07859",
@@ -491,10 +491,10 @@
         "ayah": 59,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 59 من سورة النمل",
+      "text_ar": "قُلِ ٱلْحَمْدُ لِلَّهِ وَسَلَـٰمٌ عَلَىٰ عِبَادِهِ ٱلَّذِينَ ٱصْطَفَىٰٓ ۗ ءَآللَّهُ خَيْرٌ أَمَّا يُشْرِكُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
@@ -514,7 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07860",
@@ -523,19 +523,19 @@
         "ayah": 60,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 60 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمَّنْ خَلَقَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضَ وَأَنزَلَ لَكُم مِّنَ ٱلسَّمَآءِ مَآءً فَأَنۢبَتْنَا بِهِۦ حَدَآئِقَ ذَاتَ بَهْجَةٍ مَّا كَانَ لَكُمْ أَن تُنۢبِتُوا۟ شَجَرَهَآ ۗ أَءِلَـٰهٌ مَّعَ ٱللَّهِ ۚ بَلْ هُمْ قَوْمٌ يَعْدِلُونَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.534103"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07861",
@@ -555,14 +555,14 @@
         "ayah": 61,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 61 من سورة النمل",
+      "text_ar": "أَمَّن جَعَلَ ٱلْأَرْضَ قَرَارًا وَجَعَلَ خِلَـٰلَهَآ أَنْهَـٰرًا وَجَعَلَ لَهَا رَوَٰسِىَ وَجَعَلَ بَيْنَ ٱلْبَحْرَيْنِ حَاجِزًا ۗ أَءِلَـٰهٌ مَّعَ ٱللَّهِ ۚ بَلْ أَكْثَرُهُمْ لَا يَعْلَمُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -578,7 +578,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535106"
+      "annotated_at": "2025-12-21T09:11:47.512214"
     },
     {
       "span_id": "QBM_07862",
@@ -587,30 +587,30 @@
         "ayah": 62,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 62 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمَّن يُجِيبُ ٱلْمُضْطَرَّ إِذَا دَعَاهُ وَيَكْشِفُ ٱلسُّوٓءَ وَيَجْعَلُكُمْ خُلَفَآءَ ٱلْأَرْضِ ۗ أَءِلَـٰهٌ مَّعَ ٱللَّهِ ۚ قَلِيلًا مَّا تَذَكَّرُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "blame",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535106"
+      "annotated_at": "2025-12-21T09:11:47.513214"
     },
     {
       "span_id": "QBM_07863",
@@ -619,20 +619,20 @@
         "ayah": 63,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 63 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمَّن يَهْدِيكُمْ فِى ظُلُمَـٰتِ ٱلْبَرِّ وَٱلْبَحْرِ وَمَن يُرْسِلُ ٱلرِّيَـٰحَ بُشْرًۢا بَيْنَ يَدَىْ رَحْمَتِهِۦٓ ۗ أَءِلَـٰهٌ مَّعَ ٱللَّهِ ۚ تَعَـٰلَى ٱللَّهُ عَمَّا يُشْرِكُونَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
         "speech_mode": "interrogative",
-        "evaluation": "neutral",
+        "evaluation": "blame",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
         "situational": "internal",
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.513214"
     },
     {
       "span_id": "QBM_07864",
@@ -651,19 +651,19 @@
         "ayah": 64,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 64 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "أَمَّن يَبْدَؤُا۟ ٱلْخَلْقَ ثُمَّ يُعِيدُهُۥ وَمَن يَرْزُقُكُم مِّنَ ٱلسَّمَآءِ وَٱلْأَرْضِ ۗ أَءِلَـٰهٌ مَّعَ ٱللَّهِ ۚ قُلْ هَاتُوا۟ بُرْهَـٰنَكُمْ إِن كُنتُمْ صَـٰدِقِينَ",
+      "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
@@ -674,7 +674,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.513214"
     },
     {
       "span_id": "QBM_07865",
@@ -683,10 +683,10 @@
         "ayah": 65,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 65 من سورة النمل",
+      "text_ar": "قُل لَّا يَعْلَمُ مَن فِى ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ٱلْغَيْبَ إِلَّا ٱللَّهُ ۚ وَمَا يَشْعُرُونَ أَيَّانَ يُبْعَثُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -706,7 +706,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.513214"
     },
     {
       "span_id": "QBM_07866",
@@ -715,14 +715,14 @@
         "ayah": 66,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 66 من سورة النمل",
+      "text_ar": "بَلِ ٱدَّٰرَكَ عِلْمُهُمْ فِى ٱلْـَٔاخِرَةِ ۚ بَلْ هُمْ فِى شَكٍّ مِّنْهَا ۖ بَلْ هُم مِّنْهَا عَمُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -738,7 +738,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.513214"
     },
     {
       "span_id": "QBM_07867",
@@ -747,8 +747,8 @@
         "ayah": 67,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 67 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "وَقَالَ ٱلَّذِينَ كَفَرُوٓا۟ أَءِذَا كُنَّا تُرَٰبًا وَءَابَآؤُنَآ أَئِنَّا لَمُخْرَجُونَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
@@ -759,18 +759,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.513214"
     },
     {
       "span_id": "QBM_07868",
@@ -779,30 +779,30 @@
         "ayah": 68,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 68 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "لَقَدْ وُعِدْنَا هَـٰذَا نَحْنُ وَءَابَآؤُنَا مِن قَبْلُ إِنْ هَـٰذَآ إِلَّآ أَسَـٰطِيرُ ٱلْأَوَّلِينَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.513214"
     },
     {
       "span_id": "QBM_07869",
@@ -811,14 +811,14 @@
         "ayah": 69,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 69 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "قُلْ سِيرُوا۟ فِى ٱلْأَرْضِ فَٱنظُرُوا۟ كَيْفَ كَانَ عَـٰقِبَةُ ٱلْمُجْرِمِينَ",
+      "behavior_form": "trait_disposition",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -834,7 +834,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.513214"
     },
     {
       "span_id": "QBM_07870",
@@ -843,14 +843,14 @@
         "ayah": 70,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 70 من سورة النمل",
+      "text_ar": "وَلَا تَحْزَنْ عَلَيْهِمْ وَلَا تَكُن فِى ضَيْقٍ مِّمَّا يَمْكُرُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.513214"
     },
     {
       "span_id": "QBM_07871",
@@ -875,30 +875,30 @@
         "ayah": 71,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 71 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "وَيَقُولُونَ مَتَىٰ هَـٰذَا ٱلْوَعْدُ إِن كُنتُمْ صَـٰدِقِينَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.513214"
     },
     {
       "span_id": "QBM_07872",
@@ -907,14 +907,14 @@
         "ayah": 72,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 72 من سورة النمل",
+      "text_ar": "قُلْ عَسَىٰٓ أَن يَكُونَ رَدِفَ لَكُم بَعْضُ ٱلَّذِى تَسْتَعْجِلُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -930,7 +930,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.513214"
     },
     {
       "span_id": "QBM_07873",
@@ -939,14 +939,14 @@
         "ayah": 73,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 73 من سورة النمل",
+      "text_ar": "وَإِنَّ رَبَّكَ لَذُو فَضْلٍ عَلَى ٱلنَّاسِ وَلَـٰكِنَّ أَكْثَرَهُمْ لَا يَشْكُرُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -962,7 +962,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.513214"
     },
     {
       "span_id": "QBM_07874",
@@ -971,14 +971,14 @@
         "ayah": 74,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 74 من سورة النمل",
+      "text_ar": "وَإِنَّ رَبَّكَ لَيَعْلَمُ مَا تُكِنُّ صُدُورُهُمْ وَمَا يُعْلِنُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -994,7 +994,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07875",
@@ -1003,7 +1003,7 @@
         "ayah": 75,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 75 من سورة النمل",
+      "text_ar": "وَمَا مِنْ غَآئِبَةٍ فِى ٱلسَّمَآءِ وَٱلْأَرْضِ إِلَّا فِى كِتَـٰبٍ مُّبِينٍ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
@@ -1026,7 +1026,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07876",
@@ -1035,30 +1035,30 @@
         "ayah": 76,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 76 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّ هَـٰذَا ٱلْقُرْءَانَ يَقُصُّ عَلَىٰ بَنِىٓ إِسْرَٰٓءِيلَ أَكْثَرَ ٱلَّذِى هُمْ فِيهِ يَخْتَلِفُونَ",
+      "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07877",
@@ -1067,20 +1067,20 @@
         "ayah": 77,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 77 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "وَإِنَّهُۥ لَهُدًى وَرَحْمَةٌ لِّلْمُؤْمِنِينَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1090,7 +1090,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07878",
@@ -1099,14 +1099,14 @@
         "ayah": 78,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 78 من سورة النمل",
+      "text_ar": "إِنَّ رَبَّكَ يَقْضِى بَيْنَهُم بِحُكْمِهِۦ ۚ وَهُوَ ٱلْعَزِيزُ ٱلْعَلِيمُ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1122,7 +1122,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07879",
@@ -1131,14 +1131,14 @@
         "ayah": 79,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 79 من سورة النمل",
+      "text_ar": "فَتَوَكَّلْ عَلَى ٱللَّهِ ۖ إِنَّكَ عَلَى ٱلْحَقِّ ٱلْمُبِينِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1154,7 +1154,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07880",
@@ -1163,30 +1163,30 @@
         "ayah": 80,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 80 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "إِنَّكَ لَا تُسْمِعُ ٱلْمَوْتَىٰ وَلَا تُسْمِعُ ٱلصُّمَّ ٱلدُّعَآءَ إِذَا وَلَّوْا۟ مُدْبِرِينَ",
+      "behavior_form": "speech_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07881",
@@ -1195,14 +1195,14 @@
         "ayah": 81,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 81 من سورة النمل",
+      "text_ar": "وَمَآ أَنتَ بِهَـٰدِى ٱلْعُمْىِ عَن ضَلَـٰلَتِهِمْ ۖ إِن تُسْمِعُ إِلَّا مَن يُؤْمِنُ بِـَٔايَـٰتِنَا فَهُم مُّسْلِمُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1218,7 +1218,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07882",
@@ -1227,14 +1227,14 @@
         "ayah": 82,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 82 من سورة النمل",
+      "text_ar": "وَإِذَا وَقَعَ ٱلْقَوْلُ عَلَيْهِمْ أَخْرَجْنَا لَهُمْ دَآبَّةً مِّنَ ٱلْأَرْضِ تُكَلِّمُهُمْ أَنَّ ٱلنَّاسَ كَانُوا۟ بِـَٔايَـٰتِنَا لَا يُوقِنُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1250,7 +1250,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07883",
@@ -1259,30 +1259,30 @@
         "ayah": 83,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 83 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "وَيَوْمَ نَحْشُرُ مِن كُلِّ أُمَّةٍ فَوْجًا مِّمَّن يُكَذِّبُ بِـَٔايَـٰتِنَا فَهُمْ يُوزَعُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07884",
@@ -1291,10 +1291,10 @@
         "ayah": 84,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 84 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "حَتَّىٰٓ إِذَا جَآءُو قَالَ أَكَذَّبْتُم بِـَٔايَـٰتِى وَلَمْ تُحِيطُوا۟ بِهَا عِلْمًا أَمَّاذَا كُنتُمْ تَعْمَلُونَ",
+      "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
@@ -1303,18 +1303,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07885",
@@ -1323,14 +1323,14 @@
         "ayah": 85,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 85 من سورة النمل",
+      "text_ar": "وَوَقَعَ ٱلْقَوْلُ عَلَيْهِم بِمَا ظَلَمُوا۟ فَهُمْ لَا يَنطِقُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07886",
@@ -1355,14 +1355,14 @@
         "ayah": 86,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 86 من سورة النمل",
+      "text_ar": "أَلَمْ يَرَوْا۟ أَنَّا جَعَلْنَا ٱلَّيْلَ لِيَسْكُنُوا۟ فِيهِ وَٱلنَّهَارَ مُبْصِرًا ۚ إِنَّ فِى ذَٰلِكَ لَـَٔايَـٰتٍ لِّقَوْمٍ يُؤْمِنُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
+        "type": "AGT_HUMAN_GENERAL",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1378,7 +1378,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535159"
+      "annotated_at": "2025-12-21T09:11:47.514215"
     },
     {
       "span_id": "QBM_07887",
@@ -1387,7 +1387,7 @@
         "ayah": 87,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 87 من سورة النمل",
+      "text_ar": "وَيَوْمَ يُنفَخُ فِى ٱلصُّورِ فَفَزِعَ مَن فِى ٱلسَّمَـٰوَٰتِ وَمَن فِى ٱلْأَرْضِ إِلَّا مَن شَآءَ ٱللَّهُ ۚ وَكُلٌّ أَتَوْهُ دَٰخِرِينَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
@@ -1410,7 +1410,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535688"
+      "annotated_at": "2025-12-21T09:11:47.515214"
     },
     {
       "span_id": "QBM_07888",
@@ -1419,30 +1419,30 @@
         "ayah": 88,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 88 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "وَتَرَى ٱلْجِبَالَ تَحْسَبُهَا جَامِدَةً وَهِىَ تَمُرُّ مَرَّ ٱلسَّحَابِ ۚ صُنْعَ ٱللَّهِ ٱلَّذِىٓ أَتْقَنَ كُلَّ شَىْءٍ ۚ إِنَّهُۥ خَبِيرٌۢ بِمَا تَفْعَلُونَ",
+      "behavior_form": "physical_act",
       "agent": {
-        "type": "AGT_BELIEVER",
+        "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535724"
+      "annotated_at": "2025-12-21T09:11:47.515214"
     },
     {
       "span_id": "QBM_07889",
@@ -1451,20 +1451,20 @@
         "ayah": 89,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 89 من سورة النمل",
+      "text_ar": "مَن جَآءَ بِٱلْحَسَنَةِ فَلَهُۥ خَيْرٌ مِّنْهَا وَهُم مِّن فَزَعٍ يَوْمَئِذٍ ءَامِنُونَ",
       "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "speech_mode": "informative",
+        "evaluation": "praise",
+        "deontic_signal": "targhib"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
+        "textual_eval": "EVAL_SALIH"
       },
       "axes": {
         "situational": "internal",
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535724"
+      "annotated_at": "2025-12-21T09:11:47.515214"
     },
     {
       "span_id": "QBM_07890",
@@ -1483,14 +1483,78 @@
         "ayah": 90,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 90 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "وَمَن جَآءَ بِٱلسَّيِّئَةِ فَكُبَّتْ وُجُوهُهُمْ فِى ٱلنَّارِ هَلْ تُجْزَوْنَ إِلَّا مَا كُنتُمْ تَعْمَلُونَ",
+      "behavior_form": "physical_act",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "blame",
+        "deontic_signal": "tarhib"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_SAYYI"
+      },
+      "axes": {
+        "situational": "external",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:47.515214"
+    },
+    {
+      "span_id": "QBM_07891",
+      "reference": {
+        "surah": 27,
+        "ayah": 91,
+        "surah_name": "النمل"
+      },
+      "text_ar": "إِنَّمَآ أُمِرْتُ أَنْ أَعْبُدَ رَبَّ هَـٰذِهِ ٱلْبَلْدَةِ ٱلَّذِى حَرَّمَهَا وَلَهُۥ كُلُّ شَىْءٍ ۖ وَأُمِرْتُ أَنْ أَكُونَ مِنَ ٱلْمُسْلِمِينَ",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
-        "speech_mode": "interrogative",
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:11:47.515214"
+    },
+    {
+      "span_id": "QBM_07892",
+      "reference": {
+        "surah": 27,
+        "ayah": 92,
+        "surah_name": "النمل"
+      },
+      "text_ar": "وَأَنْ أَتْلُوَا۟ ٱلْقُرْءَانَ ۖ فَمَنِ ٱهْتَدَىٰ فَإِنَّمَا يَهْتَدِى لِنَفْسِهِۦ ۖ وَمَن ضَلَّ فَقُلْ إِنَّمَآ أَنَا۠ مِنَ ٱلْمُنذِرِينَ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1506,17 +1570,17 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535724"
+      "annotated_at": "2025-12-21T09:11:47.515214"
     },
     {
-      "span_id": "QBM_07891",
+      "span_id": "QBM_07893",
       "reference": {
         "surah": 27,
-        "ayah": 91,
+        "ayah": 93,
         "surah_name": "النمل"
       },
-      "text_ar": "آية 91 من سورة النمل",
-      "behavior_form": "inner_state",
+      "text_ar": "وَقُلِ ٱلْحَمْدُ لِلَّهِ سَيُرِيكُمْ ءَايَـٰتِهِۦ فَتَعْرِفُونَهَا ۚ وَمَا رَبُّكَ بِغَـٰفِلٍ عَمَّا تَعْمَلُونَ",
+      "behavior_form": "physical_act",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -1527,82 +1591,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_PSYCHOLOGICAL",
+        "class": "ACT_VOLITIONAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "internal",
+        "situational": "external",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535724"
-    },
-    {
-      "span_id": "QBM_07892",
-      "reference": {
-        "surah": 27,
-        "ayah": 92,
-        "surah_name": "النمل"
-      },
-      "text_ar": "آية 92 من سورة النمل",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535724"
-    },
-    {
-      "span_id": "QBM_07893",
-      "reference": {
-        "surah": 27,
-        "ayah": 93,
-        "surah_name": "النمل"
-      },
-      "text_ar": "آية 93 من سورة النمل",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T08:53:05.535724"
+      "annotated_at": "2025-12-21T09:11:47.515214"
     }
   ]
 }
