@@ -6,18 +6,21 @@
 # TABLE OF CONTENTS
 
 1. [Project Overview](#1-project-overview)
-2. [Phase 0: Project Setup (Week 1)](#2-phase-0-project-setup-week-1)
-3. [Phase 1: Self-Calibration (Week 2)](#3-phase-1-self-calibration-week-2)
-4. [Phase 2: Micro-Pilot (Weeks 3-4)](#4-phase-2-micro-pilot-weeks-3-4)
-5. [Phase 3: Full Pilot (Weeks 5-8)](#5-phase-3-full-pilot-weeks-5-8)
-6. [Phase 4: Scale-Up (Weeks 9-16)](#6-phase-4-scale-up-weeks-9-16)
-7. [Phase 5: Production Release (Weeks 17-20)](#7-phase-5-production-release-weeks-17-20)
-8. [Phase 6: Maintenance & Growth (Ongoing)](#8-phase-6-maintenance--growth-ongoing)
-9. [Git Workflow](#9-git-workflow)
-10. [Quality Gates](#10-quality-gates)
-11. [Risk Management](#11-risk-management)
-12. [Resource Requirements](#12-resource-requirements)
-13. [Success Metrics](#13-success-metrics)
+2. [Phase 0: Project Setup (Week 1-2)](#2-phase-0-project-setup-week-1-2)
+3. [Phase 1: Self-Calibration (Week 3-4)](#3-phase-1-self-calibration-week-3-4)
+4. [Phase 2: Micro-Pilot (Weeks 5-8)](#4-phase-2-micro-pilot-weeks-5-8)
+5. [Phase 3: Full Pilot (Weeks 9-16)](#5-phase-3-full-pilot-weeks-9-16)
+6. [Phase 4: Tafsir Integration (Weeks 17-24)](#6-phase-4-tafsir-integration-weeks-17-24)
+7. [Phase 5: Scale-Up (Weeks 25-40)](#7-phase-5-scale-up-weeks-25-40)
+8. [Phase 6: Full Quran Coverage (Weeks 41-60)](#8-phase-6-full-quran-coverage-weeks-41-60)
+9. [Phase 7: Production Release (Weeks 61-70)](#9-phase-7-production-release-weeks-61-70)
+10. [Phase 8: Publication & Launch (Weeks 71-78)](#10-phase-8-publication--launch-weeks-71-78)
+11. [Phase 9: Maintenance & Growth (Ongoing)](#11-phase-9-maintenance--growth-ongoing)
+12. [Git Workflow](#12-git-workflow)
+13. [Quality Gates](#13-quality-gates)
+14. [Risk Management](#14-risk-management)
+15. [Resource Requirements](#15-resource-requirements)
+16. [Success Metrics](#16-success-metrics)
 
 ---
 
@@ -27,29 +30,47 @@
 Create the world's first academically rigorous, computationally structured dataset of Quranic behavioral classifications, grounded in Islamic scholarship and suitable for research, education, and ethical AI applications.
 
 ## 1.2 Key Deliverables
-| Deliverable | Description | Target |
-|-------------|-------------|--------|
-| Gold Dataset | Fully validated, reviewer-approved annotations | 2,000+ spans |
-| Silver Dataset | High-confidence annotations meeting ESS threshold | 5,000+ spans |
-| Research Dataset | All annotations including disputed | 10,000+ spans |
-| Coding Manual | Comprehensive annotator training guide | v2.0 |
-| API/Tools | Export tools, validation scripts, graph builder | Production-ready |
-| Publications | Academic papers documenting methodology | 2-3 papers |
+| Deliverable | Description | Pilot Target | Production Target |
+|-------------|-------------|--------------|-------------------|
+| Gold Dataset | Fully validated, reviewer-approved annotations | 500 spans | **4,000+ spans** |
+| Silver Dataset | High-confidence annotations meeting ESS threshold | 1,000 spans | **10,000+ spans** |
+| Research Dataset | All annotations including disputed | 2,500 spans | **20,000+ spans** |
+| **Quran Coverage** | Ayat annotated | 500 ayat | **6,236 ayat (100%)** |
+| **Tafsir Integration** | Structured tafsir database + lookup tools | Manual | **5+ sources, DB + API** |
+| Coding Manual | Comprehensive annotator training guide | v1.0 | **v2.0** |
+| API/Tools | Export tools, validation scripts, graph builder | Basic | **Production-ready** |
+| Publications | Academic papers documenting methodology | Draft | **2-3 papers** |
 
 ## 1.3 Timeline Summary
 | Phase | Duration | Milestone |
 |-------|----------|-----------|
-| Phase 0: Setup | Week 1 | Repository ready, tools configured |
-| Phase 1: Self-Calibration | Week 2 | Personal baseline established |
-| Phase 2: Micro-Pilot | Weeks 3-4 | 100 spans, IAA measured |
-| Phase 3: Full Pilot | Weeks 5-8 | 500 spans, Gold v0.1 released |
-| Phase 4: Scale-Up | Weeks 9-16 | 3,000 spans, team expanded |
-| Phase 5: Production | Weeks 17-20 | Full release, API live |
-| Phase 6: Maintenance | Ongoing | Continuous improvement |
+| Phase 0: Setup | Weeks 1-2 | Repository ready, tools configured |
+| Phase 1: Self-Calibration | Weeks 3-4 | Personal baseline established |
+| Phase 2: Micro-Pilot | Weeks 5-8 | 100 spans, IAA measured |
+| Phase 3: Full Pilot | Weeks 9-16 | 500 spans, Gold v0.1 released |
+| **Phase 4: Tafsir Integration** | **Weeks 17-24** | **Tafsir DB + lookup tools** |
+| **Phase 5: Scale-Up** | **Weeks 25-40** | **3,000 ayat, 10,000 spans** |
+| **Phase 6: Full Coverage** | **Weeks 41-60** | **6,236 ayat (100%), 15,000+ spans** |
+| **Phase 7: Production** | **Weeks 61-70** | **Full release, API live** |
+| **Phase 8: Publication** | **Weeks 71-78** | **2-3 papers, v1.0.0 release** |
+| Phase 9: Maintenance | Ongoing | Continuous improvement |
+
+**Total Duration: 78 weeks (~18 months)**
+
+## 1.4 Budget Summary
+| Category | Pilot (Weeks 1-16) | Full Project (78 weeks) |
+|----------|-------------------|-------------------------|
+| Personnel | $15,000 | $217,800 |
+| Infrastructure | $1,000 | $4,500 |
+| Software/Tools | $500 | $3,000 |
+| Contingency | $2,000 | $33,795 |
+| **TOTAL** | **$18,500** | **$259,095** |
+
+> **Note:** Budget can be significantly reduced with volunteer annotators and academic partnerships. Minimum viable: $80,000 with reduced team and extended timeline.
 
 ---
 
-# 2. PHASE 0: PROJECT SETUP (Week 1)
+# 2. PHASE 0: PROJECT SETUP (Weeks 1-2)
 
 ## 2.1 Day 1: GitHub Repository Setup
 
@@ -672,7 +693,7 @@ git push origin main --tags
 
 ---
 
-# 3. PHASE 1: SELF-CALIBRATION (Week 2)
+# 3. PHASE 1: SELF-CALIBRATION (Weeks 3-4)
 
 ## 3.1 Day 1-2: Study Materials
 
@@ -868,7 +889,7 @@ git push origin main --tags
 
 ---
 
-# 4. PHASE 2: MICRO-PILOT (Weeks 3-4)
+# 4. PHASE 2: MICRO-PILOT (Weeks 5-8)
 
 ## 4.1 Week 3: Recruit and Train Annotators
 
@@ -1225,7 +1246,7 @@ git push origin main --tags
 
 ---
 
-# 5. PHASE 3: FULL PILOT (Weeks 5-8)
+# 5. PHASE 3: FULL PILOT (Weeks 9-16)
 
 ## 5.1 Week 5: Scale to 500 Spans
 
@@ -1520,16 +1541,168 @@ git push origin main --tags
 
 ---
 
-# 6. PHASE 4: SCALE-UP (Weeks 9-16)
+# 6. PHASE 4: TAFSIR INTEGRATION (Weeks 17-24)
 
-## 6.1 Weeks 9-10: Expand Team
+> **Reference:** See `QBM_END_TO_END_UPDATE.md` for complete tafsir scripts and database schema.
 
-### Task 4.1.1: Recruit Additional Annotators
-- Target: 4-6 total annotators
-- Train new annotators using refined manual
+## 6.1 Weeks 17-18: Tafsir Data Acquisition
+
+### Task 4.1.1: Download Tafsir Sources
+```bash
+# Create tafsir directory
+mkdir -p data/tafsir
+
+# Download from Quran.com API
+python src/scripts/download_tafsir.py \
+    --sources quran_api \
+    --output data/tafsir/
+
+# Download priority tafsir individually
+python src/scripts/download_tafsir.py --tafsir ibn_kathir_ar --output data/tafsir/
+python src/scripts/download_tafsir.py --tafsir tabari --output data/tafsir/
+python src/scripts/download_tafsir.py --tafsir qurtubi --output data/tafsir/
+python src/scripts/download_tafsir.py --tafsir saadi --output data/tafsir/
+python src/scripts/download_tafsir.py --tafsir jalalayn_ar --output data/tafsir/
+
+git add data/tafsir/
+git commit -m "data: add tafsir sources (ibn kathir, tabari, qurtubi, saadi, jalalayn)"
+git push origin main
+```
+
+### Task 4.1.2: Verify Tafsir Coverage
+```bash
+# Check download completeness
+python -c "
+import json
+from pathlib import Path
+
+tafsir_dir = Path('data/tafsir')
+for f in tafsir_dir.glob('*.json'):
+    if f.name != 'tafsir_index.json':
+        data = json.load(open(f))
+        ayat_count = len(data.get('ayat', {}))
+        print(f'{f.name}: {ayat_count} ayat')
+"
+```
+
+## 6.2 Weeks 19-20: Database Setup
+
+### Task 4.2.1: Initialize Tafsir Database
+```bash
+# Set up PostgreSQL (if not already done)
+createdb qbm
+
+# Run tafsir schema setup
+python src/scripts/setup_tafsir_db.py \
+    --host localhost \
+    --db qbm \
+    --user postgres \
+    --password YOUR_PASSWORD
+
+# Load tafsir data into database
+for tafsir in ibn_kathir_ar tabari qurtubi saadi jalalayn_ar; do
+    python src/scripts/setup_tafsir_db.py \
+        --load data/tafsir/${tafsir}.json \
+        --source-id TAFSIR_${tafsir^^}
+done
+```
+
+### Task 4.2.2: Verify Database
+```sql
+-- Check tafsir coverage
+SELECT * FROM tafsir_coverage_summary;
+
+-- Verify all 6,236 ayat have tafsir
+SELECT source_id, COUNT(*) as ayat_count 
+FROM tafsir_content 
+GROUP BY source_id;
+```
+
+## 6.3 Weeks 21-22: Tafsir Lookup Tool
+
+### Task 4.3.1: Test Lookup Tool
+```bash
+# Test single ayah lookup
+python src/scripts/tafsir_lookup.py --surah 2 --ayah 255
+
+# Test range lookup
+python src/scripts/tafsir_lookup.py --surah 2 --ayah 255 --end-ayah 257
+
+# Test comparison mode
+python src/scripts/tafsir_lookup.py --surah 2 --ayah 255 --compare --json
+
+# Test search
+python src/scripts/tafsir_lookup.py --search "الكرسي"
+```
+
+### Task 4.3.2: Integrate with Label Studio
+```json
+// Add to Label Studio annotation interface
+// config/label_studio_config.json - add tafsir panel
+{
+    "panels": {
+        "tafsir": {
+            "enabled": true,
+            "position": "right",
+            "sources": ["ibn_kathir_ar", "tabari", "qurtubi"],
+            "auto_load": true
+        }
+    }
+}
+```
+
+## 6.4 Weeks 23-24: Annotator Training on Tafsir Usage
+
+### Task 4.4.1: Create Tafsir Consultation Protocol
+```markdown
+## Tafsir Consultation Protocol
+
+### When to Consult Tafsir
+1. **Agent identification** - unclear who is addressed
+2. **Behavior classification** - ambiguous action type
+3. **Context determination** - need سبب نزول
+4. **Disputed interpretations** - multiple valid readings
+
+### Consultation Hierarchy
+1. Ibn Kathir (primary - most comprehensive)
+2. Al-Tabari (linguistic depth)
+3. Al-Qurtubi (fiqh implications)
+4. Al-Sa'di (modern clarity)
+
+### Documentation Requirements
+- Record which tafsir was consulted
+- Note if tafsir influenced decision
+- Flag disagreements between sources
+```
+
+### Task 4.4.2: Phase 4 Completion
+```bash
+# Verify Phase 4 completion checklist
+# - [ ] 5+ tafsir sources downloaded
+# - [ ] Database populated with all 6,236 ayat
+# - [ ] Lookup tool functional
+# - [ ] Annotators trained on tafsir protocol
+# - [ ] Label Studio integrated
+
+git add .
+git commit -m "milestone: complete Phase 4 - tafsir integration"
+git tag -a v0.4.0 -m "Phase 4 Complete - Tafsir Integration"
+git push origin main --tags
+```
+
+---
+
+# 7. PHASE 5: SCALE-UP (Weeks 25-40)
+
+## 7.1 Weeks 25-28: Expand Team
+
+### Task 5.1.1: Recruit Additional Annotators
+- Target: 6-9 total annotators
+- Train new annotators using refined manual + tafsir protocol
 - Pair new annotators with experienced ones
+- Assign tafsir consultant for edge cases
 
-### Task 4.1.2: Set Up Production Database
+### Task 5.1.2: Set Up Production Database
 ```bash
 cat > src/scripts/setup_database.py << 'EOF'
 #!/usr/bin/env python3
@@ -1607,21 +1780,20 @@ git commit -m "feat: add database setup script"
 git push origin main
 ```
 
-## 6.2 Weeks 11-14: Bulk Annotation
+## 7.2 Weeks 29-36: Bulk Annotation
 
-### Task 4.2.1: Daily Targets
+### Task 5.2.1: Weekly Targets
 ```markdown
-## Daily Annotation Targets
+## Weekly Annotation Targets (Scale-Up Phase)
 
-| Week | Target/Day | Cumulative |
-|------|------------|------------|
-| 11 | 50 spans | 850 |
-| 12 | 50 spans | 1,200 |
-| 13 | 75 spans | 1,725 |
-| 14 | 75 spans | 2,250 |
+| Week Block | Surahs | Ayat Target | Cumulative Ayat | Spans Target |
+|------------|--------|-------------|-----------------|-------------|
+| 29-32 | 1-14 | 1,500 | 1,500 | 4,500 |
+| 33-36 | 15-28 | 1,500 | 3,000 | 9,000 |
+| 37-40 | Review + gaps | - | 3,000 | 10,000 |
 ```
 
-### Task 4.2.2: Automated Quality Checks
+### Task 5.2.2: Automated Quality Checks
 ```bash
 cat > src/scripts/quality_check.py << 'EOF'
 #!/usr/bin/env python3
@@ -1681,9 +1853,9 @@ git commit -m "feat: add automated quality check script"
 git push origin main
 ```
 
-## 6.3 Weeks 15-16: Review Sprint
+## 7.3 Weeks 37-40: Review Sprint + Coverage Audit
 
-### Task 4.3.1: Senior Review Process
+### Task 5.3.1: Senior Review Process
 ```markdown
 ## Review Protocol
 
@@ -1696,21 +1868,132 @@ git push origin main
    - Common issues
 ```
 
-### Task 4.3.2: Phase 4 Completion
+### Task 5.3.2: Coverage Audit
+```bash
+# Run coverage audit
+python src/scripts/coverage_audit.py \
+    --annotations data/annotations/ \
+    --output reports/coverage/ \
+    --create-batches
+
+# Review coverage report
+cat reports/coverage/coverage_report_*.json | jq '.summary'
+```
+
+### Task 5.3.3: Phase 5 Completion
 ```bash
 git add .
-git commit -m "milestone: complete Phase 4 - scale-up (3000+ spans)"
-git tag -a v0.5.0 -m "Phase 4 Complete: Scale-Up - Gold v0.5"
+git commit -m "milestone: complete Phase 5 - scale-up (3000 ayat, 10000 spans)"
+git tag -a v0.5.0 -m "Phase 5 Complete: Scale-Up"
 git push origin main --tags
 ```
 
 ---
 
-# 7. PHASE 5: PRODUCTION RELEASE (Weeks 17-20)
+# 8. PHASE 6: FULL QURAN COVERAGE (Weeks 41-60)
 
-## 7.1 Week 17: API Development
+## 8.1 Coverage Strategy
 
-### Task 5.1.1: Create FastAPI Backend
+### Target: 6,236 ayat (100%)
+
+| Week Block | Surahs | Ayat Target | Cumulative |
+|------------|--------|-------------|------------|
+| 41-45 | 29-50 | 1,200 | 4,200 |
+| 46-50 | 51-80 | 1,100 | 5,300 |
+| 51-55 | 81-100 | 500 | 5,800 |
+| 56-60 | 101-114 + gaps | 436 | 6,236 |
+
+## 8.2 Weeks 41-45: Surahs 29-50
+
+### Task 6.1.1: Prepare Batches
+```bash
+# Generate batches for surahs 29-50
+python src/scripts/select_full_quran.py \
+    --surahs 29-50 \
+    --output data/processed/batches_week41-45/
+
+# Distribute to annotators
+python src/scripts/distribute_batches.py \
+    --input data/processed/batches_week41-45/ \
+    --annotators 6 \
+    --overlap 0.2
+```
+
+### Task 6.1.2: Weekly Quality Gates
+```markdown
+## Weekly Quality Check
+- [ ] IAA ≥ 0.72 maintained
+- [ ] Tafsir consultation logged
+- [ ] All spans validated against schema
+- [ ] Coverage tracker updated
+```
+
+## 8.3 Weeks 46-50: Surahs 51-80
+
+### Task 6.2.1: Continue Annotation
+```bash
+# Similar process for surahs 51-80
+python src/scripts/select_full_quran.py \
+    --surahs 51-80 \
+    --output data/processed/batches_week46-50/
+```
+
+## 8.4 Weeks 51-55: Surahs 81-100
+
+### Task 6.3.1: Short Surahs Strategy
+```markdown
+## Short Surah Annotation Notes
+- Many short surahs have dense behavioral content
+- May require multiple spans per ayah
+- Focus on eschatological themes (akhira behaviors)
+```
+
+## 8.5 Weeks 56-60: Final Coverage + Gap Filling
+
+### Task 6.4.1: Coverage Audit
+```bash
+# Check for gaps
+python src/scripts/coverage_audit.py \
+    --annotations data/annotations/ \
+    --output reports/coverage/ \
+    --create-batches
+
+# Fill gaps
+python src/scripts/distribute_batches.py \
+    --input reports/coverage/gap_batches/ \
+    --annotators 6
+```
+
+### Task 6.4.2: Final Coverage Verification
+```bash
+# Verify 100% coverage
+python -c "
+from src.scripts.select_full_quran import TOTAL_AYAT
+import json
+
+with open('data/processed/full_quran_batches/coverage_tracker.json') as f:
+    tracker = json.load(f)
+
+annotated = sum(s['annotated'] for s in tracker['surahs'].values())
+print(f'Annotated: {annotated}/{TOTAL_AYAT} ({100*annotated/TOTAL_AYAT:.1f}%)')
+"
+```
+
+### Task 6.4.3: Phase 6 Completion
+```bash
+git add data/annotations/
+git commit -m "milestone: 100% Quran coverage achieved (6,236 ayat)"
+git tag -a v0.6.0 -m "Phase 6 Complete - Full Quran Coverage"
+git push origin main --tags
+```
+
+---
+
+# 9. PHASE 7: PRODUCTION RELEASE (Weeks 61-70)
+
+## 9.1 Weeks 61-64: API Development
+
+### Task 7.1.1: Create FastAPI Backend
 ```bash
 cat > src/api/main.py << 'EOF'
 #!/usr/bin/env python3
@@ -1823,9 +2106,9 @@ git commit -m "feat: add REST API"
 git push origin main
 ```
 
-## 7.2 Week 18: Documentation
+## 9.2 Weeks 65-66: Documentation
 
-### Task 5.2.1: API Documentation
+### Task 7.2.1: API Documentation
 ```bash
 cat > docs/API.md << 'EOF'
 # QBM API Documentation
@@ -1867,9 +2150,9 @@ git commit -m "docs: add API documentation"
 git push origin main
 ```
 
-## 7.3 Week 19: Testing
+## 9.3 Weeks 67-68: Testing
 
-### Task 5.3.1: Create Test Suite
+### Task 7.3.1: Create Test Suite
 ```bash
 cat > tests/test_api.py << 'EOF'
 """API tests."""
@@ -1948,9 +2231,9 @@ git commit -m "test: add API and validation tests"
 git push origin main
 ```
 
-## 7.4 Week 20: Launch
+## 9.4 Weeks 69-70: Launch
 
-### Task 5.4.1: Final Release
+### Task 7.4.1: Final Release
 ```bash
 # Run full test suite
 pytest tests/ -v --cov=src --cov-report=html
@@ -1969,7 +2252,7 @@ git tag -a v1.0.0 -m "Production Release v1.0.0 - QBM Gold Dataset"
 git push origin main --tags
 ```
 
-### Task 5.4.2: Create Release Notes
+### Task 7.4.2: Create Release Notes
 ```bash
 cat > CHANGELOG.md << 'EOF'
 # Changelog
@@ -2003,18 +2286,131 @@ git push origin main
 
 ---
 
-# 8. PHASE 6: MAINTENANCE & GROWTH (Ongoing)
+# 10. PHASE 8: PUBLICATION & LAUNCH (Weeks 71-78)
 
-## 8.1 Monthly Tasks
+## 10.1 Weeks 71-74: Academic Papers
 
-### Task 6.1.1: Quality Monitoring
+### Task 8.1.1: Methodology Paper
+```markdown
+## Paper 1: Methodology
+**Title:** "QBM: A Multi-Dimensional Framework for Quranic Behavioral Classification"
+
+### Outline
+1. Introduction - gap in computational Islamic studies
+2. Related Work - existing Quranic NLP, behavioral taxonomies
+3. Framework Design - axes, vocabularies, annotation protocol
+4. Pilot Study - IAA results, annotator feedback
+5. Discussion - challenges, limitations
+6. Conclusion - contributions, future work
+
+### Target Venues
+- ACL/EMNLP (NLP track)
+- Digital Humanities conferences
+- Islamic Studies journals
+```
+
+### Task 8.1.2: Dataset Paper
+```markdown
+## Paper 2: Dataset
+**Title:** "The QBM Dataset: 20,000+ Annotated Behavioral Spans from the Complete Quran"
+
+### Outline
+1. Dataset Overview - statistics, coverage
+2. Annotation Process - team, training, quality control
+3. Data Format - schema, vocabularies
+4. Analysis - distribution of behaviors, agents, axes
+5. Use Cases - NLP, education, research
+6. Access - API, download, license
+
+### Target Venues
+- LREC (Language Resources)
+- NeurIPS Datasets Track
+- ACL Resource Papers
+```
+
+## 10.2 Weeks 75-78: Public Launch
+
+### Task 8.2.1: Public Repository
+```bash
+# Prepare public release
+git checkout -b release/v1.0.0
+
+# Update README for public
+cat > README.md << 'EOF'
+# Quranic Human-Behavior Classification Matrix (QBM)
+
+The world's first comprehensive, academically rigorous dataset of Quranic behavioral classifications.
+
+## Dataset Statistics
+- **6,236 ayat** (100% Quran coverage)
+- **20,000+ spans** annotated
+- **80+ behavior concepts**
+- **5 tafsir sources** integrated
+- **IAA ≥ 0.75** (Cohen's κ)
+
+## Quick Start
+```bash
+pip install qbm-api
+from qbm import QBMClient
+client = QBMClient()
+spans = client.get_spans(surah=2, agent="AGT_BELIEVER")
+```
+
+## Documentation
+- [API Reference](docs/API.md)
+- [Dataset Schema](docs/SCHEMA.md)
+- [Coding Manual](docs/CODING_MANUAL.md)
+
+## Citation
+```bibtex
+@dataset{qbm2025,
+  title={QBM: Quranic Human-Behavior Classification Matrix},
+  author={Al-Barami, Salim and Bouzidani, Ibrahim},
+  year={2025},
+  publisher={GitHub},
+  url={https://github.com/qbm-project/quranic-behavior-matrix}
+}
+```
+
+## License
+CC BY-NC-SA 4.0 (Research use)
+EOF
+
+git add .
+git commit -m "docs: prepare public release v1.0.0"
+git tag -a v1.0.0 -m "QBM v1.0.0 - Full Quran Coverage"
+git push origin main --tags
+```
+
+### Task 8.2.2: Phase 8 Completion
+```bash
+# Final checklist
+# - [ ] Methodology paper submitted
+# - [ ] Dataset paper submitted
+# - [ ] Public repository ready
+# - [ ] API documentation complete
+# - [ ] Press release drafted
+# - [ ] Academic partners notified
+
+git commit -m "milestone: complete Phase 8 - publication and launch"
+git tag -a v1.0.0-final -m "Phase 8 Complete - QBM v1.0.0 Public Release"
+git push origin main --tags
+```
+
+---
+
+# 11. PHASE 9: MAINTENANCE & GROWTH (Ongoing)
+
+## 11.1 Monthly Tasks
+
+### Task 9.1.1: Quality Monitoring
 ```bash
 # Monthly quality check
 python src/validation/validate_schema.py data/exports/qbm_gold_*.json
 python src/scripts/quality_check.py data/exports/qbm_gold_*.json
 ```
 
-### Task 6.1.2: Vocabulary Updates
+### Task 9.1.2: Vocabulary Updates
 ```markdown
 ## Vocabulary Update Process
 1. Propose new term with justification
@@ -2024,21 +2420,23 @@ python src/scripts/quality_check.py data/exports/qbm_gold_*.json
 5. Commit with clear message
 ```
 
-## 8.2 Quarterly Tasks
+## 11.2 Quarterly Tasks
 
-### Task 6.2.1: Dataset Expansion
+### Task 9.2.1: Dataset Expansion
 - Add 500-1000 new spans per quarter
-- Focus on underrepresented surahs
-- Add specialized domains (e.g., economic behaviors)
+- Focus on specialized domains (e.g., economic behaviors, family relations)
+- Incorporate user feedback and corrections
+- Update tafsir sources as new translations become available
 
-### Task 6.2.2: Academic Publications
-- Write methodology paper
-- Submit to Islamic studies journals
+### Task 9.2.2: Community Engagement
+- Respond to GitHub issues and PRs
+- Host quarterly community calls
+- Maintain academic partnerships
 - Present at conferences
 
 ---
 
-# 9. GIT WORKFLOW
+# 12. GIT WORKFLOW
 
 ## 9.1 Branch Strategy
 
@@ -2097,20 +2495,23 @@ git merge main
 
 ---
 
-# 10. QUALITY GATES
+# 13. QUALITY GATES
 
-## 10.1 Phase Gates
+## 13.1 Phase Gates
 
 | Phase | Gate | Criteria |
 |-------|------|----------|
-| 0 | Setup Complete | All tools configured, repo ready |
-| 1 | Calibration Pass | Personal accuracy ≥ 80% |
-| 2 | Micro-Pilot Pass | IAA ≥ 0.65 (average) |
-| 3 | Pilot Pass | IAA ≥ 0.70, Gold ≥ 200 spans |
-| 4 | Scale Pass | IAA maintained, Gold ≥ 1,500 spans |
-| 5 | Production Pass | All tests pass, docs complete |
+| 0-1 | Setup Complete | All tools configured, repo ready |
+| 2 | Calibration Pass | Personal accuracy ≥ 80% |
+| 3 | Micro-Pilot Pass | IAA ≥ 0.65 (average), 100 spans |
+| 4 | Pilot Pass | IAA ≥ 0.70, Gold ≥ 500 spans |
+| **5** | **Tafsir Ready** | **5+ sources, DB live, lookup functional** |
+| **6** | **Scale Pass** | **IAA ≥ 0.72, 3,000 ayat, 10,000 spans** |
+| **7** | **Full Coverage** | **6,236 ayat (100%), 15,000+ spans** |
+| **8** | **Production Pass** | **All tests pass, API live, docs complete** |
+| **9** | **Publication Pass** | **2+ papers submitted, v1.0.0 released** |
 
-## 10.2 Continuous Quality
+## 13.2 Continuous Quality
 
 | Check | Frequency | Tool |
 |-------|-----------|------|
@@ -2122,70 +2523,113 @@ git merge main
 
 ---
 
-# 11. RISK MANAGEMENT
+# 14. RISK MANAGEMENT
 
-| Risk | Impact | Mitigation |
-|------|--------|------------|
-| Annotator dropout | High | Cross-train, document everything |
-| Low IAA | High | More examples, frequent calibration |
-| Scope creep | Medium | Strict phase gates |
-| Data loss | Critical | Daily backups, Git LFS |
-| Interpretation disputes | Medium | Clear adjudication process |
-
----
-
-# 12. RESOURCE REQUIREMENTS
-
-## 12.1 Human Resources
-
-| Role | Count | Hours/Week | Duration |
-|------|-------|------------|----------|
-| Project Lead | 1 | 20 | Full project |
-| Senior Annotator | 2 | 15 | Weeks 3-20 |
-| Junior Annotator | 2-4 | 10 | Weeks 9-20 |
-| Reviewer | 1 | 10 | Weeks 5-20 |
-| Developer | 1 | 10 | Weeks 9-20 |
-
-## 12.2 Infrastructure
-
-| Item | Cost/Month |
-|------|------------|
-| Cloud hosting (API) | $50-100 |
-| Database (PostgreSQL) | $20-50 |
-| Label Studio hosting | Free (self-hosted) |
-| Git LFS storage | $5-10 |
-
-## 12.3 Total Budget Estimate
-
-| Phase | Cost (USD) |
-|-------|------------|
-| Setup (Phase 0-1) | $500 |
-| Pilot (Phase 2-3) | $3,000-5,000 |
-| Scale-Up (Phase 4) | $10,000-15,000 |
-| Production (Phase 5) | $2,000-3,000 |
-| **Total** | **$15,500-23,500** |
+| Risk | Impact | Probability | Mitigation |
+|------|--------|-------------|------------|
+| Annotator dropout | High | Medium | Cross-train, document everything, competitive compensation |
+| Low IAA | High | Medium | More examples, frequent calibration, weekly check-ins |
+| Scope creep | Medium | High | Strict phase gates, change control process |
+| Data loss | Critical | Low | Daily backups, Git LFS, cloud redundancy |
+| Interpretation disputes | Medium | High | Clear adjudication process, tafsir consultation |
+| **Annotator burnout** | **High** | **Medium** | **Rotate batches, limit daily quota, breaks** |
+| **IAA degradation at scale** | **High** | **Medium** | **Weekly calibration sessions, gold standard checks** |
+| **Tafsir API rate limits** | **Medium** | **High** | **Implement caching, async downloads, local DB** |
+| **Budget overrun** | **High** | **Medium** | **Phased funding, volunteer recruitment, partnerships** |
+| **Database performance** | **Medium** | **Low** | **Index optimization, partitioning, caching** |
 
 ---
 
-# 13. SUCCESS METRICS
+# 15. RESOURCE REQUIREMENTS
 
-## 13.1 Quantitative
+## 15.1 Human Resources
 
-| Metric | Pilot Target | Production Target |
-|--------|--------------|-------------------|
-| Gold spans | 200+ | 2,000+ |
-| Silver spans | 400+ | 5,000+ |
-| IAA (Cohen's κ) | ≥ 0.70 | ≥ 0.75 |
-| Coverage (surahs) | 20+ | 80+ |
-| Behavior concepts used | 30+ | 60+ |
+| Role | Count | Hours/Week | Duration | Notes |
+|------|-------|------------|----------|-------|
+| Project Lead | 1 | 20 | Full project | You (Salim) |
+| Senior Annotator | 3 | 15 | Weeks 5-70 | Islamic studies background |
+| Junior Annotator | 6 | 10 | Weeks 25-70 | Trained on coding manual |
+| Tafsir Consultant | 1 | 5 | Weeks 17-70 | Scholar for edge cases |
+| Reviewer | 2 | 10 | Weeks 9-70 | Final quality gate |
+| Developer | 1 | 15 | Weeks 1-70 | API, pipeline, tools |
 
-## 13.2 Qualitative
+## 15.2 Infrastructure
 
-- [ ] Coding manual stable (no major revisions in 4 weeks)
+| Item | Cost/Month | Duration | Total |
+|------|------------|----------|-------|
+| Cloud hosting (API) | $100 | 18 months | $1,800 |
+| Database (PostgreSQL) | $50 | 18 months | $900 |
+| Label Studio hosting | $50 | 18 months | $900 |
+| Git LFS storage | $20 | 18 months | $360 |
+| Backup storage | $30 | 18 months | $540 |
+| **Infrastructure Total** | | | **$4,500** |
+
+## 15.3 Personnel Costs
+
+| Role | Rate/Hour | Hours | Total |
+|------|-----------|-------|-------|
+| Senior Annotators (3) | $25 | 3 × 15 × 66 weeks | $74,250 |
+| Junior Annotators (6) | $15 | 6 × 10 × 46 weeks | $41,400 |
+| Tafsir Consultant | $50 | 5 × 54 weeks | $13,500 |
+| Reviewers (2) | $30 | 2 × 10 × 62 weeks | $37,200 |
+| Developer | $40 | 15 × 70 weeks | $42,000 |
+| **Personnel Total** | | | **$208,350** |
+
+## 15.4 Total Budget Estimate (Full Project)
+
+| Category | Amount (USD) |
+|----------|--------------|
+| Personnel | $208,350 |
+| Infrastructure | $4,500 |
+| Software/Tools | $3,000 |
+| Contingency (15%) | $32,378 |
+| **TOTAL** | **$248,228** |
+
+### Budget Notes
+- Can be reduced significantly with volunteer annotators
+- Academic partnerships can offset costs
+- Phased funding approach recommended
+- **Minimum viable: $80,000** (reduced team, longer timeline, volunteer annotators)
+
+---
+
+# 16. SUCCESS METRICS
+
+## 16.1 Quantitative
+
+| Metric | Pilot Target | Scale Target | Production Target |
+|--------|--------------|--------------|-------------------|
+| Gold spans | 500 | 2,000 | **4,000+** |
+| Silver spans | 1,000 | 5,000 | **10,000+** |
+| Research spans | 2,500 | 10,000 | **20,000+** |
+| **Ayat coverage** | 500 | 3,000 | **6,236 (100%)** |
+| IAA (Cohen's κ) | ≥ 0.70 | ≥ 0.72 | **≥ 0.75** |
+| Surahs | 20+ | 60+ | **114 (100%)** |
+| Behavior concepts | 30+ | 50+ | **80+** |
+| **Tafsir sources** | Manual | 3 | **5+** |
+| **Tafsir consultations** | N/A | 50% | **80%** |
+
+## 16.2 Qualitative
+
+- [ ] Coding manual stable (no major revisions in 8 weeks)
 - [ ] Annotator satisfaction (survey score ≥ 4/5)
-- [ ] Academic endorsement (2+ scholars review)
-- [ ] Publication acceptance (1+ paper submitted)
+- [ ] Academic endorsement (3+ scholars review)
+- [ ] **Tafsir integration validated by Islamic studies faculty**
+- [ ] Publication acceptance (2+ papers submitted)
 - [ ] User adoption (API users, downloads)
+- [ ] **Complete Quran behavioral map published**
+
+## 16.3 Milestone Checkpoints
+
+| Phase | Gate | Criteria |
+|-------|------|----------|
+| 0-1 | Setup Complete | Tools configured |
+| 2-3 | Pilot Pass | IAA ≥ 0.70, 500 spans |
+| **4** | **Tafsir Ready** | **5 sources, DB live** |
+| **5** | **Scale Pass** | **3,000 ayat, 10,000 spans** |
+| **6** | **Full Coverage** | **6,236 ayat (100%)** |
+| **7** | **Production** | **API live, docs complete** |
+| **8** | **Publication** | **2+ papers submitted** |
 
 ---
 
@@ -2241,5 +2685,6 @@ python src/scripts/export_gold.py <input.json> data/exports/
 
 ---
 
-*Document Version: 1.0*
+*Document Version: 2.0*
 *Last Updated: December 2025*
+*Aligned with: QBM_END_TO_END_UPDATE.md v2.0*
