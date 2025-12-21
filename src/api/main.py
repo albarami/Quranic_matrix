@@ -11,6 +11,10 @@ Endpoints:
 - GET /surahs/{num} - Get spans by surah
 - GET /stats - Dataset statistics
 - GET /vocabularies - Controlled vocabularies
+- GET /tafsir/{surah}/{ayah} - Get tafsir for ayah
+- GET /tafsir/compare/{surah}/{ayah} - Compare tafsir sources
+- GET /ayah/{surah}/{ayah} - Get ayah with annotations
+- POST /api/spans/search - Search spans (C1 frontend)
 
 Usage:
     uvicorn src.api.main:app --reload
@@ -34,7 +38,7 @@ from .models import (
 )
 
 # API metadata
-API_VERSION = "0.7.0"
+API_VERSION = "0.8.0"
 API_TITLE = "QBM API"
 API_DESCRIPTION = """
 Quranic Behavioral Matrix (QBM) REST API.

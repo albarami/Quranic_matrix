@@ -147,3 +147,82 @@ class TestDocs:
         """Test /redoc endpoint exists."""
         response = client.get("/redoc")
         assert response.status_code == 200
+
+
+class TestTafsir:
+    """Test tafsir endpoints (Phase 8)."""
+    
+    def test_get_tafsir(self):
+        """Test GET /tafsir/{surah}/{ayah} returns tafsir data."""
+        response = client.get("/tafsir/1/1")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["surah"] == 1
+        assert data["ayah"] == 1
+        assert data["reference"] == "1:1"
+        assert "tafsir" in data
+    
+    def test_get_tafsir_invalid_surah(self):
+        """Test invalid surah returns 400."""
+        response = client.get("/tafsir/0/1")
+        assert response.status_code == 400
+        
+        response = client.get("/tafsir/115/1")
+        assert response.status_code == 400
+    
+    def test_compare_tafsir(self):
+        """Test GET /tafsir/compare/{surah}/{ayah} returns comparison."""
+        response = client.get("/tafsir/compare/1/1")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["surah"] == 1
+        assert data["ayah"] == 1
+        assert "tafsir" in data
+        assert "comparison" in data
+        assert "sources_count" in data["comparison"]
+
+
+class TestAyah:
+    """Test ayah endpoint (Phase 8)."""
+    
+    def test_get_ayah(self):
+        """Test GET /ayah/{surah}/{ayah} returns ayah data."""
+        response = client.get("/ayah/1/1")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["surah"] == 1
+        assert data["ayah"] == 1
+        assert data["reference"] == "1:1"
+        assert "annotations" in data
+    
+    def test_get_ayah_invalid_surah(self):
+        """Test invalid surah returns 400."""
+        response = client.get("/ayah/0/1")
+        assert response.status_code == 400
+    
+    def test_get_ayah_without_annotations(self):
+        """Test GET /ayah with include_annotations=false."""
+        response = client.get("/ayah/1/1?include_annotations=false")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["annotations"] == []
+
+
+class TestSpansSearchPost:
+    """Test POST /api/spans/search endpoint (Phase 8)."""
+    
+    def test_search_spans_post(self):
+        """Test POST /api/spans/search returns spans."""
+        response = client.post("/api/spans/search")
+        assert response.status_code == 200
+        data = response.json()
+        assert "total" in data
+        assert "spans" in data
+    
+    def test_search_spans_post_with_surah(self):
+        """Test POST /api/spans/search with surah filter."""
+        response = client.post("/api/spans/search?surah=1")
+        assert response.status_code == 200
+        data = response.json()
+        for span in data["spans"]:
+            assert span["reference"]["surah"] == 1

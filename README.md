@@ -83,6 +83,7 @@ pytest tests/ -v
 | `/tafsir/{surah}/{ayah}` | GET | Get tafsir for ayah |
 | `/tafsir/compare/{surah}/{ayah}` | GET | Compare tafsir sources |
 | `/ayah/{surah}/{ayah}` | GET | Get ayah with annotations |
+| `/api/spans/search` | POST | Search spans (C1 frontend) |
 
 ---
 
