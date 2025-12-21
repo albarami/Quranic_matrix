@@ -122,7 +122,7 @@ async def get_dataset(tier: str):
     if not metadata:
         metadata = {
             "tier": tier,
-            "version": API_VERSION,
+            "version": data.get("version", "1.0.0"),
             "exported_at": data.get("exported_at", "unknown"),
             "total_spans": len(data.get("spans", []))
         }
