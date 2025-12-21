@@ -24,4 +24,10 @@ __pycache__/
 .pytest_cache/
 .venv/
 
+# Environment files with secrets
+.env
+
+# SQLite databases
+*.db
+
 
