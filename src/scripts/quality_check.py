@@ -161,20 +161,20 @@ def main():
     print(f"Total spans: {results['total_spans']}")
     print(f"Issues: {results['issues_found']}")
     print(f"Warnings: {results['warnings_found']}")
-    print(f"Status: {'✅ PASS' if results['pass'] else '❌ FAIL'}")
+    print(f"Status: {'[PASS]' if results['pass'] else '[FAIL]'}")
     
     if args.verbose or results['issues_found'] > 0:
         if results['issues']:
             print(f"\nIssues ({len(results['issues'])}):")
             for issue in results['issues'][:20]:
-                print(f"  ❌ {issue}")
+                print(f"  [X] {issue}")
             if len(results['issues']) > 20:
                 print(f"  ... and {len(results['issues']) - 20} more")
         
         if results['warnings'] and args.verbose:
             print(f"\nWarnings ({len(results['warnings'])}):")
             for warning in results['warnings'][:10]:
-                print(f"  ⚠️ {warning}")
+                print(f"  [!] {warning}")
     
     if args.coverage:
         cov = check_coverage(spans)
@@ -186,7 +186,7 @@ def main():
         iaa = check_iaa_readiness(spans)
         print(f"\nIAA Readiness:")
         print(f"  Annotators: {iaa['annotators']}")
-        print(f"  Ready: {'✅' if iaa['ready_for_iaa'] else '❌'}")
+        print(f"  Ready: {'[YES]' if iaa['ready_for_iaa'] else '[NO]'}")
     
     # Exit with error code if issues found
     sys.exit(0 if results['pass'] else 1)
