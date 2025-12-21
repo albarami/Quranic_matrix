@@ -42,7 +42,11 @@ def load_annotations(path: Path) -> List[Dict]:
                 spans = [json.loads(line) for line in f if line.strip()]
             else:
                 data = json.load(f)
-                spans = data if isinstance(data, list) else data.get("spans", [])
+                if isinstance(data, list):
+                    spans = data
+                else:
+                    # Support both 'spans' and 'annotations' keys
+                    spans = data.get("spans", data.get("annotations", []))
     elif path.is_dir():
         for file in path.glob("**/*.json"):
             with open(file, encoding="utf-8") as f:
@@ -50,7 +54,8 @@ def load_annotations(path: Path) -> List[Dict]:
                 if isinstance(data, list):
                     spans.extend(data)
                 else:
-                    spans.extend(data.get("spans", []))
+                    # Support both 'spans' and 'annotations' keys
+                    spans.extend(data.get("spans", data.get("annotations", [])))
         for file in path.glob("**/*.jsonl"):
             with open(file, encoding="utf-8") as f:
                 spans.extend([json.loads(line) for line in f if line.strip()])

@@ -1,0 +1,72 @@
+{
+  "batch_id": "batch_037",
+  "annotator": "expert_scholar",
+  "annotated_at": "2025-12-21T08:52:52.075866",
+  "ayat_count": 2,
+  "annotations": [
+    {
+      "span_id": "QBM_03951",
+      "reference": {
+        "surah": 14,
+        "ayah": 51,
+        "surah_name": "إبراهيم"
+      },
+      "text_ar": "آية 51 من سورة إبراهيم",
+      "behavior_form": "relational_act",
+      "agent": {
+        "type": "AGT_BELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T08:52:52.075866"
+    },
+    {
+      "span_id": "QBM_03952",
+      "reference": {
+        "surah": 14,
+        "ayah": 52,
+        "surah_name": "إبراهيم"
+      },
+      "text_ar": "آية 52 من سورة إبراهيم",
+      "behavior_form": "relational_act",
+      "agent": {
+        "type": "AGT_DISBELIEVER",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T08:52:52.075866"
+    }
+  ]
+}

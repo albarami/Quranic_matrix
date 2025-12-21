@@ -234,8 +234,12 @@ def annotate_batch(batch_file: Path, output_dir: Path) -> Dict:
         annotation = annotate_ayah(ayah_data, quran_text)
         annotations.append(annotation)
     
+    # Use parent directory name as prefix for unique batch IDs
+    week_prefix = batch_file.parent.name.replace("week", "w")
+    unique_batch_id = f"{week_prefix}_{batch['batch_id']}"
+    
     # Save annotations
-    output_file = output_dir / f"{batch['batch_id']}_annotations.json"
+    output_file = output_dir / f"{unique_batch_id}_annotations.json"
     result = {
         "batch_id": batch["batch_id"],
         "annotator": "expert_scholar",
