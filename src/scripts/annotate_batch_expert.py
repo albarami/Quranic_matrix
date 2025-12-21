@@ -79,13 +79,15 @@ def get_text_hash(text: str) -> str:
     return hashlib.md5(text.encode()).hexdigest()[:8]
 
 
-def strip_diacritics(text: str) -> str:
-    """Remove Arabic diacritics (tashkeel) for pattern matching.
+def normalize_arabic(text: str) -> str:
+    """Normalize Arabic text for pattern matching.
     
-    Removes: fatha, damma, kasra, sukun, shadda, tanwin, etc.
+    - Removes diacritics (tashkeel)
+    - Normalizes alif variants (alif-wasla, alif-madda, alif-hamza) to plain alif
+    - Normalizes taa-marbuta to haa
+    - Normalizes alif-maqsura to yaa
     """
-    import unicodedata
-    # Arabic diacritics Unicode range: 0x064B - 0x065F, plus some others
+    # Arabic diacritics Unicode range: 0x064B - 0x065F, plus Quranic marks
     diacritics = set([
         '\u064B', '\u064C', '\u064D', '\u064E', '\u064F', '\u0650', '\u0651', '\u0652',
         '\u0653', '\u0654', '\u0655', '\u0656', '\u0657', '\u0658', '\u0659', '\u065A',
@@ -94,7 +96,32 @@ def strip_diacritics(text: str) -> str:
         '\u06DE', '\u06DF', '\u06E0', '\u06E1', '\u06E2', '\u06E3', '\u06E4', '\u06E5',
         '\u06E6', '\u06E7', '\u06E8', '\u06E9', '\u06EA', '\u06EB', '\u06EC', '\u06ED',  # Quranic marks
     ])
-    return ''.join(c for c in text if c not in diacritics)
+    
+    # Alif variants to normalize
+    alif_variants = {
+        '\u0671': '\u0627',  # Alif wasla -> Alif
+        '\u0622': '\u0627',  # Alif madda -> Alif
+        '\u0623': '\u0627',  # Alif hamza above -> Alif
+        '\u0625': '\u0627',  # Alif hamza below -> Alif
+        '\u0649': '\u064A',  # Alif maqsura -> Yaa
+        '\u0629': '\u0647',  # Taa marbuta -> Haa
+    }
+    
+    result = []
+    for c in text:
+        if c in diacritics:
+            continue
+        if c in alif_variants:
+            result.append(alif_variants[c])
+        else:
+            result.append(c)
+    
+    return ''.join(result)
+
+
+def strip_diacritics(text: str) -> str:
+    """Alias for normalize_arabic for backward compatibility."""
+    return normalize_arabic(text)
 
 
 def detect_behavior_form(text: str, surah: int, ayah: int) -> str:
@@ -130,9 +157,10 @@ def detect_behavior_form(text: str, surah: int, ayah: int) -> str:
 
 def detect_agent_type(text: str, surah: int, ayah: int) -> str:
     """Detect agent type from verse text."""
+    text_normalized = normalize_arabic(text)
     for agent, patterns in AGENT_PATTERNS.items():
         for pattern in patterns:
-            if pattern in text:
+            if pattern in text_normalized:
                 return agent
     
     # Default based on context
@@ -217,6 +245,9 @@ def annotate_ayah(ayah_data: Dict, quran_text: Dict = None) -> Dict:
         text_ar = f"آية {ayah} من سورة {ayah_data.get('surah_name', surah)}"
         print(f"  [WARN] Missing text for {surah}:{ayah}")
     
+    # Normalize text for pattern matching
+    text_normalized = normalize_arabic(text_ar)
+    
     # Expert analysis
     behavior_form = detect_behavior_form(text_ar, surah, ayah)
     agent_type = detect_agent_type(text_ar, surah, ayah)
@@ -250,10 +281,10 @@ def annotate_ayah(ayah_data: Dict, quran_text: Dict = None) -> Dict:
         },
         "axes": {
             "situational": "external" if behavior_form in ["physical_act", "speech_act"] else "internal",
-            "systemic": "SYS_GOD" if "الله" in text_ar or "رب" in text_ar else "SYS_SOCIAL"
+            "systemic": "SYS_GOD" if any(kw in text_normalized for kw in ["الله", "رب", "الرحمن"]) else "SYS_SOCIAL"
         },
         "evidence": {
-            "support_type": "direct" if any(kw in text_ar for kw in ["قال", "فعل", "عمل"]) else "inferred"
+            "support_type": "direct" if any(kw in text_normalized for kw in ["قال", "فعل", "عمل"]) else "inferred"
         },
         "annotator": "expert_scholar",
         "annotated_at": datetime.utcnow().isoformat()

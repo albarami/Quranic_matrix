@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_019",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T09:11:46.022437",
+  "annotated_at": "2025-12-21T09:43:04.965628",
   "ayat_count": 50,
   "annotations": [
     {
@@ -34,7 +34,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.018822"
+      "annotated_at": "2025-12-21T09:43:04.960505"
     },
     {
       "span_id": "QBM_06631",
@@ -66,7 +66,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.018822"
+      "annotated_at": "2025-12-21T09:43:04.960505"
     },
     {
       "span_id": "QBM_06632",
@@ -78,13 +78,13 @@
       "text_ar": "فَأَرْسَلْنَا فِيهِمْ رَسُولًا مِّنْهُمْ أَنِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَـٰهٍ غَيْرُهُۥٓ ۖ أَفَلَا تَتَّقُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "command",
         "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "deontic_signal": "amr"
       },
       "action": {
         "class": "ACT_PSYCHOLOGICAL",
@@ -92,13 +92,13 @@
       },
       "axes": {
         "situational": "internal",
-        "systemic": "SYS_SOCIAL"
+        "systemic": "SYS_GOD"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.018822"
+      "annotated_at": "2025-12-21T09:43:04.960505"
     },
     {
       "span_id": "QBM_06633",
@@ -110,8 +110,8 @@
       "text_ar": "وَقَالَ ٱلْمَلَأُ مِن قَوْمِهِ ٱلَّذِينَ كَفَرُوا۟ وَكَذَّبُوا۟ بِلِقَآءِ ٱلْـَٔاخِرَةِ وَأَتْرَفْنَـٰهُمْ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا مَا هَـٰذَآ إِلَّا بَشَرٌ مِّثْلُكُمْ يَأْكُلُ مِمَّا تَأْكُلُونَ مِنْهُ وَيَشْرَبُ مِمَّا تَشْرَبُونَ",
       "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
         "speech_mode": "informative",
@@ -124,13 +124,13 @@
       },
       "axes": {
         "situational": "external",
-        "systemic": "SYS_SOCIAL"
+        "systemic": "SYS_GOD"
       },
       "evidence": {
-        "support_type": "inferred"
+        "support_type": "direct"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.018822"
+      "annotated_at": "2025-12-21T09:43:04.961505"
     },
     {
       "span_id": "QBM_06634",
@@ -162,7 +162,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.018822"
+      "annotated_at": "2025-12-21T09:43:04.961505"
     },
     {
       "span_id": "QBM_06635",
@@ -178,7 +178,7 @@
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "interrogative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -194,7 +194,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.018822"
+      "annotated_at": "2025-12-21T09:43:04.961505"
     },
     {
       "span_id": "QBM_06636",
@@ -226,7 +226,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.018822"
+      "annotated_at": "2025-12-21T09:43:04.961505"
     },
     {
       "span_id": "QBM_06637",
@@ -238,8 +238,8 @@
       "text_ar": "إِنْ هِىَ إِلَّا حَيَاتُنَا ٱلدُّنْيَا نَمُوتُ وَنَحْيَا وَمَا نَحْنُ بِمَبْعُوثِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
         "speech_mode": "informative",
@@ -258,7 +258,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.018822"
+      "annotated_at": "2025-12-21T09:43:04.961505"
     },
     {
       "span_id": "QBM_06638",
@@ -270,8 +270,8 @@
       "text_ar": "إِنْ هُوَ إِلَّا رَجُلٌ ٱفْتَرَىٰ عَلَى ٱللَّهِ كَذِبًا وَمَا نَحْنُ لَهُۥ بِمُؤْمِنِينَ",
       "behavior_form": "trait_disposition",
       "agent": {
-        "type": "AGT_DISBELIEVER",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
         "speech_mode": "informative",
@@ -284,13 +284,13 @@
       },
       "axes": {
         "situational": "internal",
-        "systemic": "SYS_SOCIAL"
+        "systemic": "SYS_GOD"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.018822"
+      "annotated_at": "2025-12-21T09:43:04.961505"
     },
     {
       "span_id": "QBM_06639",
@@ -302,8 +302,8 @@
       "text_ar": "قَالَ رَبِّ ٱنصُرْنِى بِمَا كَذَّبُونِ",
       "behavior_form": "speech_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
         "speech_mode": "interrogative",
@@ -316,13 +316,13 @@
       },
       "axes": {
         "situational": "external",
-        "systemic": "SYS_SOCIAL"
+        "systemic": "SYS_GOD"
       },
       "evidence": {
-        "support_type": "inferred"
+        "support_type": "direct"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.018822"
+      "annotated_at": "2025-12-21T09:43:04.961505"
     },
     {
       "span_id": "QBM_06640",
@@ -351,10 +351,10 @@
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
-        "support_type": "inferred"
+        "support_type": "direct"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.018822"
+      "annotated_at": "2025-12-21T09:43:04.961505"
     },
     {
       "span_id": "QBM_06641",
@@ -364,7 +364,7 @@
         "surah_name": "المؤمنون"
       },
       "text_ar": "فَأَخَذَتْهُمُ ٱلصَّيْحَةُ بِٱلْحَقِّ فَجَعَلْنَـٰهُمْ غُثَآءً ۚ فَبُعْدًا لِّلْقَوْمِ ٱلظَّـٰلِمِينَ",
-      "behavior_form": "physical_act",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -375,18 +375,18 @@
         "deontic_signal": "khabar"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.019874"
+      "annotated_at": "2025-12-21T09:43:04.961505"
     },
     {
       "span_id": "QBM_06642",
@@ -418,7 +418,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.019874"
+      "annotated_at": "2025-12-21T09:43:04.961505"
     },
     {
       "span_id": "QBM_06643",
@@ -450,7 +450,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.019874"
+      "annotated_at": "2025-12-21T09:43:04.962504"
     },
     {
       "span_id": "QBM_06644",
@@ -460,9 +460,41 @@
         "surah_name": "المؤمنون"
       },
       "text_ar": "ثُمَّ أَرْسَلْنَا رُسُلَنَا تَتْرَا ۖ كُلَّ مَا جَآءَ أُمَّةً رَّسُولُهَا كَذَّبُوهُ ۚ فَأَتْبَعْنَا بَعْضَهُم بَعْضًا وَجَعَلْنَـٰهُمْ أَحَادِيثَ ۚ فَبُعْدًا لِّقَوْمٍ لَّا يُؤْمِنُونَ",
-      "behavior_form": "inner_state",
+      "behavior_form": "relational_act",
       "agent": {
         "type": "AGT_HUMAN_GENERAL",
+        "explicit": false
+      },
+      "normative": {
+        "speech_mode": "informative",
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
+      },
+      "action": {
+        "class": "ACT_VOLITIONAL",
+        "textual_eval": "EVAL_NEUTRAL"
+      },
+      "axes": {
+        "situational": "internal",
+        "systemic": "SYS_SOCIAL"
+      },
+      "evidence": {
+        "support_type": "inferred"
+      },
+      "annotator": "expert_scholar",
+      "annotated_at": "2025-12-21T09:43:04.962504"
+    },
+    {
+      "span_id": "QBM_06645",
+      "reference": {
+        "surah": 23,
+        "ayah": 45,
+        "surah_name": "المؤمنون"
+      },
+      "text_ar": "ثُمَّ أَرْسَلْنَا مُوسَىٰ وَأَخَاهُ هَـٰرُونَ بِـَٔايَـٰتِنَا وَسُلْطَـٰنٍ مُّبِينٍ",
+      "behavior_form": "inner_state",
+      "agent": {
+        "type": "AGT_BELIEVER",
         "explicit": false
       },
       "normative": {
@@ -482,39 +514,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.019874"
-    },
-    {
-      "span_id": "QBM_06645",
-      "reference": {
-        "surah": 23,
-        "ayah": 45,
-        "surah_name": "المؤمنون"
-      },
-      "text_ar": "ثُمَّ أَرْسَلْنَا مُوسَىٰ وَأَخَاهُ هَـٰرُونَ بِـَٔايَـٰتِنَا وَسُلْطَـٰنٍ مُّبِينٍ",
-      "behavior_form": "inner_state",
-      "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
-      },
-      "normative": {
-        "speech_mode": "interrogative",
-        "evaluation": "neutral",
-        "deontic_signal": "khabar"
-      },
-      "action": {
-        "class": "ACT_PSYCHOLOGICAL",
-        "textual_eval": "EVAL_NEUTRAL"
-      },
-      "axes": {
-        "situational": "internal",
-        "systemic": "SYS_SOCIAL"
-      },
-      "evidence": {
-        "support_type": "inferred"
-      },
-      "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.019874"
+      "annotated_at": "2025-12-21T09:43:04.962504"
     },
     {
       "span_id": "QBM_06646",
@@ -546,7 +546,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.019874"
+      "annotated_at": "2025-12-21T09:43:04.962504"
     },
     {
       "span_id": "QBM_06647",
@@ -575,10 +575,10 @@
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
-        "support_type": "inferred"
+        "support_type": "direct"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.019874"
+      "annotated_at": "2025-12-21T09:43:04.962504"
     },
     {
       "span_id": "QBM_06648",
@@ -610,7 +610,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.019874"
+      "annotated_at": "2025-12-21T09:43:04.962504"
     },
     {
       "span_id": "QBM_06649",
@@ -642,7 +642,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.962504"
     },
     {
       "span_id": "QBM_06650",
@@ -654,8 +654,8 @@
       "text_ar": "وَجَعَلْنَا ٱبْنَ مَرْيَمَ وَأُمَّهُۥٓ ءَايَةً وَءَاوَيْنَـٰهُمَآ إِلَىٰ رَبْوَةٍ ذَاتِ قَرَارٍ وَمَعِينٍ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
         "speech_mode": "informative",
@@ -668,13 +668,13 @@
       },
       "axes": {
         "situational": "internal",
-        "systemic": "SYS_SOCIAL"
+        "systemic": "SYS_GOD"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.962504"
     },
     {
       "span_id": "QBM_06651",
@@ -690,9 +690,9 @@
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "command",
         "evaluation": "neutral",
-        "deontic_signal": "khabar"
+        "deontic_signal": "amr"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
@@ -703,10 +703,10 @@
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
-        "support_type": "inferred"
+        "support_type": "direct"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.962504"
     },
     {
       "span_id": "QBM_06652",
@@ -718,8 +718,8 @@
       "text_ar": "وَإِنَّ هَـٰذِهِۦٓ أُمَّتُكُمْ أُمَّةً وَٰحِدَةً وَأَنَا۠ رَبُّكُمْ فَٱتَّقُونِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
         "speech_mode": "informative",
@@ -732,13 +732,13 @@
       },
       "axes": {
         "situational": "internal",
-        "systemic": "SYS_SOCIAL"
+        "systemic": "SYS_GOD"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.962504"
     },
     {
       "span_id": "QBM_06653",
@@ -770,7 +770,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.963505"
     },
     {
       "span_id": "QBM_06654",
@@ -802,7 +802,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.963505"
     },
     {
       "span_id": "QBM_06655",
@@ -834,7 +834,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.963505"
     },
     {
       "span_id": "QBM_06656",
@@ -866,7 +866,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.963505"
     },
     {
       "span_id": "QBM_06657",
@@ -878,8 +878,8 @@
       "text_ar": "إِنَّ ٱلَّذِينَ هُم مِّنْ خَشْيَةِ رَبِّهِم مُّشْفِقُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
         "speech_mode": "informative",
@@ -892,13 +892,13 @@
       },
       "axes": {
         "situational": "internal",
-        "systemic": "SYS_SOCIAL"
+        "systemic": "SYS_GOD"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.963505"
     },
     {
       "span_id": "QBM_06658",
@@ -910,8 +910,8 @@
       "text_ar": "وَٱلَّذِينَ هُم بِـَٔايَـٰتِ رَبِّهِمْ يُؤْمِنُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
         "speech_mode": "informative",
@@ -924,13 +924,13 @@
       },
       "axes": {
         "situational": "internal",
-        "systemic": "SYS_SOCIAL"
+        "systemic": "SYS_GOD"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.963505"
     },
     {
       "span_id": "QBM_06659",
@@ -942,8 +942,8 @@
       "text_ar": "وَٱلَّذِينَ هُم بِرَبِّهِمْ لَا يُشْرِكُونَ",
       "behavior_form": "relational_act",
       "agent": {
-        "type": "AGT_DISBELIEVER",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
         "speech_mode": "informative",
@@ -956,13 +956,13 @@
       },
       "axes": {
         "situational": "internal",
-        "systemic": "SYS_SOCIAL"
+        "systemic": "SYS_GOD"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.963505"
     },
     {
       "span_id": "QBM_06660",
@@ -974,8 +974,8 @@
       "text_ar": "وَٱلَّذِينَ يُؤْتُونَ مَآ ءَاتَوا۟ وَّقُلُوبُهُمْ وَجِلَةٌ أَنَّهُمْ إِلَىٰ رَبِّهِمْ رَٰجِعُونَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
         "speech_mode": "informative",
@@ -988,13 +988,13 @@
       },
       "axes": {
         "situational": "internal",
-        "systemic": "SYS_SOCIAL"
+        "systemic": "SYS_GOD"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.963505"
     },
     {
       "span_id": "QBM_06661",
@@ -1026,7 +1026,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.963505"
     },
     {
       "span_id": "QBM_06662",
@@ -1058,7 +1058,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.963505"
     },
     {
       "span_id": "QBM_06663",
@@ -1090,7 +1090,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.020439"
+      "annotated_at": "2025-12-21T09:43:04.963505"
     },
     {
       "span_id": "QBM_06664",
@@ -1100,7 +1100,7 @@
         "surah_name": "المؤمنون"
       },
       "text_ar": "حَتَّىٰٓ إِذَآ أَخَذْنَا مُتْرَفِيهِم بِٱلْعَذَابِ إِذَا هُمْ يَجْـَٔرُونَ",
-      "behavior_form": "physical_act",
+      "behavior_form": "inner_state",
       "agent": {
         "type": "AGT_DISBELIEVER",
         "explicit": false
@@ -1111,18 +1111,18 @@
         "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
+        "situational": "internal",
         "systemic": "SYS_SOCIAL"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.963505"
     },
     {
       "span_id": "QBM_06665",
@@ -1138,7 +1138,7 @@
         "explicit": false
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "interrogative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -1154,7 +1154,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.964508"
     },
     {
       "span_id": "QBM_06666",
@@ -1186,7 +1186,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.964508"
     },
     {
       "span_id": "QBM_06667",
@@ -1218,7 +1218,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.964508"
     },
     {
       "span_id": "QBM_06668",
@@ -1250,7 +1250,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.964508"
     },
     {
       "span_id": "QBM_06669",
@@ -1282,7 +1282,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.964508"
     },
     {
       "span_id": "QBM_06670",
@@ -1299,12 +1299,12 @@
       },
       "normative": {
         "speech_mode": "informative",
-        "evaluation": "praise",
-        "deontic_signal": "targhib"
+        "evaluation": "neutral",
+        "deontic_signal": "khabar"
       },
       "action": {
         "class": "ACT_VOLITIONAL",
-        "textual_eval": "EVAL_SALIH"
+        "textual_eval": "EVAL_NEUTRAL"
       },
       "axes": {
         "situational": "external",
@@ -1314,7 +1314,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.964508"
     },
     {
       "span_id": "QBM_06671",
@@ -1346,7 +1346,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.965029"
     },
     {
       "span_id": "QBM_06672",
@@ -1358,8 +1358,8 @@
       "text_ar": "أَمْ تَسْـَٔلُهُمْ خَرْجًا فَخَرَاجُ رَبِّكَ خَيْرٌ ۖ وَهُوَ خَيْرُ ٱلرَّٰزِقِينَ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_BELIEVER",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
         "speech_mode": "informative",
@@ -1372,13 +1372,13 @@
       },
       "axes": {
         "situational": "internal",
-        "systemic": "SYS_SOCIAL"
+        "systemic": "SYS_GOD"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.965029"
     },
     {
       "span_id": "QBM_06673",
@@ -1410,7 +1410,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.965029"
     },
     {
       "span_id": "QBM_06674",
@@ -1442,7 +1442,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.965029"
     },
     {
       "span_id": "QBM_06675",
@@ -1474,7 +1474,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.965029"
     },
     {
       "span_id": "QBM_06676",
@@ -1484,10 +1484,10 @@
         "surah_name": "المؤمنون"
       },
       "text_ar": "وَلَقَدْ أَخَذْنَـٰهُم بِٱلْعَذَابِ فَمَا ٱسْتَكَانُوا۟ لِرَبِّهِمْ وَمَا يَتَضَرَّعُونَ",
-      "behavior_form": "physical_act",
+      "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_HUMAN_GENERAL",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
         "speech_mode": "informative",
@@ -1495,18 +1495,18 @@
         "deontic_signal": "tarhib"
       },
       "action": {
-        "class": "ACT_VOLITIONAL",
+        "class": "ACT_PSYCHOLOGICAL",
         "textual_eval": "EVAL_SAYYI"
       },
       "axes": {
-        "situational": "external",
-        "systemic": "SYS_SOCIAL"
+        "situational": "internal",
+        "systemic": "SYS_GOD"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.965575"
     },
     {
       "span_id": "QBM_06677",
@@ -1538,7 +1538,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.965628"
     },
     {
       "span_id": "QBM_06678",
@@ -1570,7 +1570,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.021437"
+      "annotated_at": "2025-12-21T09:43:04.965628"
     },
     {
       "span_id": "QBM_06679",
@@ -1602,7 +1602,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:46.022437"
+      "annotated_at": "2025-12-21T09:43:04.965628"
     }
   ]
 }

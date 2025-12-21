@@ -1,7 +1,7 @@
 {
   "batch_id": "batch_037",
   "annotator": "expert_scholar",
-  "annotated_at": "2025-12-21T09:11:25.721999",
+  "annotated_at": "2025-12-21T09:40:32.264971",
   "ayat_count": 2,
   "annotations": [
     {
@@ -14,11 +14,11 @@
       "text_ar": "لِيَجْزِىَ ٱللَّهُ كُلَّ نَفْسٍ مَّا كَسَبَتْ ۚ إِنَّ ٱللَّهَ سَرِيعُ ٱلْحِسَابِ",
       "behavior_form": "inner_state",
       "agent": {
-        "type": "AGT_DISBELIEVER",
-        "explicit": false
+        "type": "AGT_ALLAH",
+        "explicit": true
       },
       "normative": {
-        "speech_mode": "informative",
+        "speech_mode": "interrogative",
         "evaluation": "neutral",
         "deontic_signal": "khabar"
       },
@@ -28,13 +28,13 @@
       },
       "axes": {
         "situational": "internal",
-        "systemic": "SYS_SOCIAL"
+        "systemic": "SYS_GOD"
       },
       "evidence": {
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:25.721999"
+      "annotated_at": "2025-12-21T09:40:32.264971"
     },
     {
       "span_id": "QBM_03952",
@@ -66,7 +66,7 @@
         "support_type": "inferred"
       },
       "annotator": "expert_scholar",
-      "annotated_at": "2025-12-21T09:11:25.721999"
+      "annotated_at": "2025-12-21T09:40:32.264971"
     }
   ]
 }
