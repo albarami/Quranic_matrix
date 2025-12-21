@@ -2,6 +2,13 @@
 """
 Run automated quality checks on QBM annotations.
 
+Validates a subset of fields:
+- agent.type (required)
+- behavior_form (valid vocabulary)
+- assertions (confidence range, presence)
+- normative.speech_mode (warning if missing)
+- reference (surah/ayah completeness)
+
 Usage:
     python src/scripts/quality_check.py data/exports/qbm_gold_*.json
     python src/scripts/quality_check.py data/pilot/phase3_550_selections.jsonl --format jsonl
@@ -22,7 +29,8 @@ def load_spans(filepath: str, format: str = "json") -> List[Dict]:
             data = json.load(f)
             if isinstance(data, list):
                 return data
-            return data.get("spans", [])
+            # Support multiple key names for spans/annotations
+            return data.get("spans", data.get("annotations", []))
 
 
 def check_quality(spans: List[Dict]) -> Dict[str, Any]:
