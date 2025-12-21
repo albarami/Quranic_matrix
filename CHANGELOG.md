@@ -2,6 +2,22 @@
 
 All notable changes to the Quranic Behavioral Matrix (QBM) project.
 
+## [0.8.0] - 2025-12-21
+
+### Added
+- **Tafsir API endpoints** for C1 frontend integration
+  - `GET /tafsir/{surah}/{ayah}` - Get tafsir for ayah
+  - `GET /tafsir/compare/{surah}/{ayah}` - Compare tafsir sources
+  - `GET /ayah/{surah}/{ayah}` - Get ayah with annotations
+  - `POST /api/spans/search` - Search spans (for C1 tools)
+- **Frontend-backend integration** - Tools now connect to real API
+- Comprehensive README.md with project overview
+- CITATION.cff for academic citations
+
+### Changed
+- Frontend tools try real backend first, fallback to mock data
+- Updated mock data to match actual project statistics
+
 ## [0.7.0] - 2025-12-21
 
 ### Added

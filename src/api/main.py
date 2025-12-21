@@ -252,3 +252,199 @@ async def get_vocabularies():
         speech_modes=["command", "prohibition", "informative", "interrogative"],
         systemic=["SYS_GOD", "SYS_SOCIAL"]
     )
+
+
+# =============================================================================
+# TAFSIR ENDPOINTS (for C1 frontend integration)
+# =============================================================================
+
+TAFSIR_DIR = DATA_DIR / "tafsir"
+_tafsir_cache = {}
+
+
+def load_tafsir(source: str) -> dict:
+    """Load tafsir data from JSON file."""
+    if source in _tafsir_cache:
+        return _tafsir_cache[source]
+    
+    filepath = TAFSIR_DIR / f"{source}.json"
+    if not filepath.exists():
+        # Try with .jsonl extension
+        filepath = TAFSIR_DIR / f"{source}.jsonl"
+        if not filepath.exists():
+            return {}
+    
+    try:
+        if filepath.suffix == ".jsonl":
+            # Load JSONL format
+            data = {"ayat": {}}
+            with open(filepath, encoding="utf-8") as f:
+                for line in f:
+                    if line.strip():
+                        entry = json.loads(line)
+                        key = f"{entry.get('surah', 0)}:{entry.get('ayah', 0)}"
+                        data["ayat"][key] = entry
+            _tafsir_cache[source] = data
+        else:
+            with open(filepath, encoding="utf-8") as f:
+                data = json.load(f)
+            _tafsir_cache[source] = data
+        return _tafsir_cache[source]
+    except Exception:
+        return {}
+
+
+@app.get("/tafsir/{surah}/{ayah}")
+async def get_tafsir(
+    surah: int,
+    ayah: int,
+    sources: List[str] = Query(default=["ibn_kathir"]),
+):
+    """Get tafsir for a specific ayah from one or more sources."""
+    if surah < 1 or surah > 114:
+        raise HTTPException(status_code=400, detail="Surah must be 1-114")
+    
+    result = {
+        "surah": surah,
+        "ayah": ayah,
+        "reference": f"{surah}:{ayah}",
+        "tafsir": {}
+    }
+    
+    # Get ayah text from annotations
+    spans = get_all_spans()
+    for span in spans:
+        ref = span.get("reference", {})
+        if ref.get("surah") == surah and ref.get("ayah") == ayah:
+            result["ayah_text"] = span.get("text_ar", "")
+            break
+    
+    # Get tafsir from each source
+    for source in sources:
+        tafsir_data = load_tafsir(source)
+        ayat = tafsir_data.get("ayat", {})
+        key = f"{surah}:{ayah}"
+        
+        if key in ayat:
+            entry = ayat[key]
+            result["tafsir"][source] = {
+                "source_name": source.replace("_", " ").title(),
+                "text": entry.get("text", entry.get("tafsir", "")),
+                "word_count": len(entry.get("text", entry.get("tafsir", "")).split())
+            }
+    
+    return result
+
+
+@app.get("/tafsir/compare/{surah}/{ayah}")
+async def compare_tafsir(surah: int, ayah: int):
+    """Compare tafsir from all available sources for an ayah."""
+    if surah < 1 or surah > 114:
+        raise HTTPException(status_code=400, detail="Surah must be 1-114")
+    
+    # Available sources
+    available_sources = []
+    for f in TAFSIR_DIR.glob("*.json"):
+        available_sources.append(f.stem)
+    for f in TAFSIR_DIR.glob("*.jsonl"):
+        available_sources.append(f.stem)
+    
+    if not available_sources:
+        available_sources = ["ibn_kathir"]
+    
+    # Get tafsir from all sources
+    result = {
+        "surah": surah,
+        "ayah": ayah,
+        "reference": f"{surah}:{ayah}",
+        "tafsir": {},
+        "comparison": {
+            "sources_count": 0,
+            "sources_with_content": [],
+            "word_counts": {}
+        }
+    }
+    
+    for source in available_sources:
+        tafsir_data = load_tafsir(source)
+        ayat = tafsir_data.get("ayat", {})
+        key = f"{surah}:{ayah}"
+        
+        if key in ayat:
+            entry = ayat[key]
+            text = entry.get("text", entry.get("tafsir", ""))
+            result["tafsir"][source] = {
+                "source_name": source.replace("_", " ").title(),
+                "text": text,
+                "word_count": len(text.split())
+            }
+            result["comparison"]["sources_with_content"].append(source)
+            result["comparison"]["word_counts"][source] = len(text.split())
+    
+    result["comparison"]["sources_count"] = len(result["comparison"]["sources_with_content"])
+    
+    return result
+
+
+@app.get("/ayah/{surah}/{ayah}")
+async def get_ayah(
+    surah: int,
+    ayah: int,
+    include_annotations: bool = Query(default=True),
+):
+    """Get ayah text and metadata."""
+    if surah < 1 or surah > 114:
+        raise HTTPException(status_code=400, detail="Surah must be 1-114")
+    
+    result = {
+        "surah": surah,
+        "ayah": ayah,
+        "reference": f"{surah}:{ayah}",
+        "text_ar": "",
+        "annotations": []
+    }
+    
+    # Find ayah in spans
+    spans = get_all_spans()
+    for span in spans:
+        ref = span.get("reference", {})
+        if ref.get("surah") == surah and ref.get("ayah") == ayah:
+            if not result["text_ar"]:
+                result["text_ar"] = span.get("text_ar", "")
+            if include_annotations:
+                result["annotations"].append({
+                    "id": span.get("span_id", span.get("id")),
+                    "agent_type": span.get("agent", {}).get("type"),
+                    "behavior_form": span.get("behavior_form"),
+                    "evaluation": span.get("normative", {}).get("evaluation"),
+                    "deontic_signal": span.get("normative", {}).get("deontic_signal"),
+                })
+    
+    return result
+
+
+@app.post("/api/spans/search")
+async def search_spans_post(
+    behavior_concept: Optional[str] = None,
+    surah: Optional[int] = None,
+    agent_type: Optional[str] = None,
+    organ: Optional[str] = None,
+    text_search: Optional[str] = None,
+    limit: int = 20,
+):
+    """Search spans (POST endpoint for C1 tools)."""
+    spans = get_all_spans()
+    
+    if surah:
+        spans = [s for s in spans if s.get("reference", {}).get("surah") == surah]
+    
+    if agent_type:
+        spans = [s for s in spans if s.get("agent", {}).get("type") == agent_type]
+    
+    if behavior_concept:
+        spans = [s for s in spans if behavior_concept.lower() in s.get("behavior_form", "").lower()]
+    
+    if text_search:
+        spans = [s for s in spans if text_search in s.get("text_ar", "")]
+    
+    return {"total": len(spans), "spans": spans[:limit]}

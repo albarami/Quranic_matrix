@@ -1,64 +1,160 @@
-## Quranic Behavior Matrix (QBM)
+# Quranic Behavioral Matrix (QBM)
 
-This repository hosts a **Qur’an‑grounded, audit‑grade classification matrix for human behavior** aligned with **Usul al‑Fiqh evidence discipline** (fail‑closed: **no evidence → no label**).
+> مصفوفة التصنيف القرآني للسلوك البشري
 
-### Core documents
+A **structured dataset of Quranic behavioral classifications** grounded in Islamic scholarship, covering all **6,236 ayat** of the Holy Quran.
 
-- **Methodology + schema spec**: `docs/qbm_spec/` (split into parts to respect the repo **500-line/file** rule)
-- **Startup requirements**: `docs/startup/startup_requirements.md`
-- **Coding manual (outline; expand before pilot)**: `docs/coding_manual/coding_manual_v1_outline.md`
-
-### Repository structure (v1)
-
-- `docs/`
-  - `qbm_spec/` – full specification (Markdown + Word-openable `.doc` text parts)
-  - `startup/` – project bootstrap requirements and checklists
-  - `coding_manual/` – coding manual v1 outline + examples folder (to be expanded)
-- `vocab/` – frozen controlled vocabularies (JSON)
-- `schemas/` – JSON schemas for Quran tokenized text + tafsir records (v1)
-- `data/` – ingestion stubs + policy notes (do not commit copyrighted corpora)
-- `PLANNING.md` – repo constraints + layout
-- `TASK.md` – task tracking log
+[![Version](https://img.shields.io/badge/version-0.8.0-blue.svg)](CHANGELOG.md)
+[![Coverage](https://img.shields.io/badge/coverage-100%25-green.svg)](reports/coverage/)
+[![IAA](https://img.shields.io/badge/IAA-κ%200.925-brightgreen.svg)](reports/iaa/)
 
 ---
 
-## Quick start (what to do next)
+## Overview
 
-### 1) Freeze Quran text + tokenization
+This project implements Dr. Ibrahim Bouzidani's five-context behavioral classification framework from "السلوك البشري في سياقه القرآني" (Human Behavior in the Quranic Context).
 
-- Choose Qur’an source (e.g., Tanzil Uthmani Hafs).
-- Define token boundaries and freeze:
-  - `quran_text_version` (e.g., `uthmani_hafs_v1`)
-  - `tokenization_id` (e.g., `tok_v1`)
-- Validate against `schemas/quran_tokenized_v1.schema.json`.
+### Key Statistics
 
-### 2) Acquire tafsir baseline (minimum 4 sources)
+| Metric | Value |
+|--------|-------|
+| **Ayat Covered** | 6,236 (100%) |
+| **Surahs** | 114 (100%) |
+| **Behavioral Spans** | 6,236+ |
+| **Tafsir Sources** | Ibn Kathir |
+| **IAA (Cohen's κ)** | 0.925 |
 
-- Ibn Kathir, al-Tabari, al-Sa‘di, al-Qurtubi
-- Validate records against `schemas/tafsir_record_v1.schema.json`.
+### Classification Framework
 
-### 3) Freeze controlled vocabularies
+Behaviors are classified across five contexts:
 
-Edit/extend JSON files under `vocab/` and keep IDs stable:
-- `organs.json`
-- `agents.json`
-- `systemic.json`
-- `spatial.json`
-- `temporal.json`
-- `behavior_concepts.json`
-- `thematic_constructs.json`
-- `justification_codes.json`
-- `grammatical_indicators.json`
+1. **العضوي (Organic)** — Body organs involved (heart, tongue, eyes, hands)
+2. **الموضعي (Situational)** — Internal (باطني) vs External (ظاهري)
+3. **النسقي (Systemic)** — Social contexts (SYS_GOD, SYS_SOCIAL)
+4. **المكاني (Spatial)** — Location context
+5. **الزماني (Temporal)** — Time context
 
-### 4) Write the coding manual v1 (required before pilot)
+---
 
-Expand:
-- `docs/coding_manual/coding_manual_v1_outline.md`
-Add:
-- 20+ worked JSON examples under `docs/coding_manual/examples/`
+## Quick Start
 
-### 5) Run micro‑pilot → pilot
+### 1. Backend API
 
-See: `docs/qbm_spec/part_03_measurement_appendices.md` for IAA targets and export tiers.
+```bash
+# Install dependencies
+pip install -r requirements.txt
 
+# Run FastAPI server
+uvicorn src.api.main:app --reload
 
+# API available at http://localhost:8000
+# Docs at http://localhost:8000/docs
+```
+
+### 2. Frontend (Optional)
+
+```bash
+cd qbm-frontend
+npm install
+npm run dev
+
+# Frontend at http://localhost:3000
+```
+
+### 3. Run Tests
+
+```bash
+pytest tests/ -v
+```
+
+---
+
+## API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/` | GET | Health check |
+| `/datasets/{tier}` | GET | Full dataset (gold/silver/research) |
+| `/spans` | GET | Search with filters |
+| `/spans/{id}` | GET | Get specific span |
+| `/surahs/{num}` | GET | Get spans by surah |
+| `/stats` | GET | Dataset statistics |
+| `/vocabularies` | GET | Controlled vocabularies |
+| `/tafsir/{surah}/{ayah}` | GET | Get tafsir for ayah |
+| `/tafsir/compare/{surah}/{ayah}` | GET | Compare tafsir sources |
+| `/ayah/{surah}/{ayah}` | GET | Get ayah with annotations |
+
+---
+
+## Project Structure
+
+```
+quranic-behavior-matrix/
+├── src/
+│   ├── api/                 # FastAPI backend
+│   │   ├── main.py          # API endpoints
+│   │   └── models.py        # Pydantic models
+│   ├── scripts/             # Utility scripts
+│   │   ├── annotate_batch_expert.py
+│   │   ├── calculate_iaa.py
+│   │   ├── export_tiers.py
+│   │   ├── progress_report.py
+│   │   └── quality_check.py
+│   └── validation/          # Schema validation
+├── data/
+│   ├── annotations/         # Annotation files
+│   ├── exports/             # Exported datasets
+│   ├── tafsir/              # Tafsir sources
+│   └── vocab/               # Controlled vocabularies
+├── qbm-frontend/            # Next.js + C1 frontend
+├── tests/                   # Test suite
+├── reports/                 # Coverage & IAA reports
+├── docs/                    # Documentation
+├── CHANGELOG.md             # Version history
+├── PROJECT_PLAN.md          # Full project plan
+└── requirements.txt         # Python dependencies
+```
+
+---
+
+## Version History
+
+| Version | Date | Milestone |
+|---------|------|-----------|
+| v0.7.0 | 2025-12-21 | Production Release (API + Frontend) |
+| v0.6.0 | 2025-12-21 | Full Quran Coverage (6,236 ayat) |
+| v0.5.0 | 2025-12-21 | Scale-Up Complete |
+
+See [CHANGELOG.md](CHANGELOG.md) for full history.
+
+---
+
+## Citation
+
+```bibtex
+@misc{qbm2025,
+  title={Quranic Behavioral Matrix: A Structured Dataset of Quranic Behavioral Classifications},
+  author={Al-Barami, Salim and Bouzidani, Ibrahim},
+  year={2025},
+  publisher={GitHub},
+  url={https://github.com/albarami/Quranic_matrix}
+}
+```
+
+---
+
+## Contributors
+
+- **Salim Al-Barami** — Project Lead
+- **Dr. Ibrahim Bouzidani** — Framework Design
+
+---
+
+## License
+
+This project is part of the Quranic Behavioral Matrix research initiative.
+Contact for permissions.
+
+---
+
+*Built with ❤️ for Islamic scholarship*

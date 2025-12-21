@@ -256,6 +256,9 @@ export const tools: OpenAI.Chat.Completions.ChatCompletionTool[] = [
 
 const QBM_BACKEND_URL = process.env.QBM_BACKEND_URL || "http://localhost:8000";
 
+// Flag to use real backend vs mock data
+const USE_REAL_BACKEND = process.env.USE_REAL_BACKEND === "true";
+
 /**
  * Execute tool calls and return results
  */
@@ -321,9 +324,25 @@ async function searchSpans(args: {
   tier?: string;
   limit?: number;
 }) {
-  // In production, call your FastAPI backend
-  // For demo, return mock data
+  // Try real backend first
+  if (USE_REAL_BACKEND) {
+    try {
+      const params = new URLSearchParams();
+      if (args.surah) params.append("surah", args.surah.toString());
+      if (args.agent_type) params.append("agent", args.agent_type);
+      if (args.behavior_concept) params.append("behavior", args.behavior_concept);
+      if (args.limit) params.append("limit", args.limit.toString());
+      
+      const response = await fetch(`${QBM_BACKEND_URL}/spans?${params}`);
+      if (response.ok) {
+        return await response.json();
+      }
+    } catch (error) {
+      console.error("Backend fetch failed, using mock data:", error);
+    }
+  }
   
+  // Fallback to mock data
   const mockSpans = [
     {
       id: "QBM_00001",
@@ -346,7 +365,6 @@ async function searchSpans(args: {
     },
   ];
 
-  // Filter based on args
   let filtered = mockSpans;
   if (args.surah) {
     filtered = filtered.filter((s) => s.surah === args.surah);
@@ -374,7 +392,22 @@ async function getTafsir(args: {
 }) {
   const sources = args.sources || ["ibn_kathir", "tabari"];
 
-  // Mock tafsir data
+  // Try real backend first
+  if (USE_REAL_BACKEND) {
+    try {
+      const params = new URLSearchParams();
+      sources.forEach(s => params.append("sources", s));
+      
+      const response = await fetch(`${QBM_BACKEND_URL}/tafsir/${args.surah}/${args.ayah}?${params}`);
+      if (response.ok) {
+        return await response.json();
+      }
+    } catch (error) {
+      console.error("Backend fetch failed, using mock data:", error);
+    }
+  }
+
+  // Fallback to mock tafsir data
   const mockTafsir: Record<string, string> = {
     ibn_kathir: `هذه آية عظيمة من آيات القرآن الكريم، وهي آية الكرسي المباركة...`,
     tabari: `القول في تأويل قوله تعالى: الله لا إله إلا هو الحي القيوم...`,
@@ -413,30 +446,53 @@ async function getStatistics(args: {
   surah_filter?: number;
   top_n?: number;
 }) {
-  // Mock statistics
+  // Try real backend first
+  if (USE_REAL_BACKEND) {
+    try {
+      const response = await fetch(`${QBM_BACKEND_URL}/stats`);
+      if (response.ok) {
+        const data = await response.json();
+        return {
+          summary: {
+            total_ayat: 6236,
+            annotated_ayat: data.unique_ayat || 0,
+            total_spans: data.total_spans || 0,
+            coverage_percent: ((data.unique_ayat || 0) / 6236 * 100).toFixed(1),
+          },
+          by_agent: data.agent_types || {},
+          by_behavior: data.behavior_forms || {},
+          by_evaluation: data.evaluations || {},
+          query: args,
+        };
+      }
+    } catch (error) {
+      console.error("Backend fetch failed, using mock data:", error);
+    }
+  }
+
+  // Fallback to mock statistics
   return {
     summary: {
       total_ayat: 6236,
-      annotated_ayat: 2500,
-      total_spans: 8500,
-      gold_spans: 2000,
-      silver_spans: 4500,
-      research_spans: 2000,
-      coverage_percent: 40.1,
-      average_iaa: 0.73,
+      annotated_ayat: 6236,
+      total_spans: 6236,
+      gold_spans: 0,
+      silver_spans: 6236,
+      research_spans: 0,
+      coverage_percent: 100.0,
+      average_iaa: 0.925,
     },
     by_surah: [
-      { surah: 2, name: "البقرة", spans: 450, coverage: 85 },
-      { surah: 3, name: "آل عمران", spans: 280, coverage: 70 },
-      { surah: 4, name: "النساء", spans: 220, coverage: 62 },
-      { surah: 49, name: "الحجرات", spans: 65, coverage: 100 },
+      { surah: 2, name: "البقرة", spans: 286, coverage: 100 },
+      { surah: 3, name: "آل عمران", spans: 200, coverage: 100 },
+      { surah: 4, name: "النساء", spans: 176, coverage: 100 },
+      { surah: 49, name: "الحجرات", spans: 18, coverage: 100 },
     ],
     top_behaviors: [
-      { concept: "BEH_BELIEF", name_ar: "الإيمان", count: 420 },
-      { concept: "BEH_PATIENCE", name_ar: "الصبر", count: 280 },
-      { concept: "BEH_GRATITUDE", name_ar: "الشكر", count: 195 },
-      { concept: "BEH_PRAYER", name_ar: "الصلاة", count: 180 },
-      { concept: "BEH_CHARITY", name_ar: "الصدقة", count: 145 },
+      { concept: "inner_state", name_ar: "الحالة الداخلية", count: 3184 },
+      { concept: "speech_act", name_ar: "الفعل القولي", count: 1255 },
+      { concept: "relational_act", name_ar: "الفعل العلائقي", count: 1003 },
+      { concept: "physical_act", name_ar: "الفعل البدني", count: 640 },
     ],
     query: args,
   };
@@ -447,6 +503,23 @@ async function compareTafsir(args: {
   ayah: number;
   focus_topic?: string;
 }) {
+  // Try real backend first
+  if (USE_REAL_BACKEND) {
+    try {
+      const response = await fetch(`${QBM_BACKEND_URL}/tafsir/compare/${args.surah}/${args.ayah}`);
+      if (response.ok) {
+        const data = await response.json();
+        return {
+          ...data,
+          focus_topic: args.focus_topic,
+        };
+      }
+    } catch (error) {
+      console.error("Backend fetch failed, using mock data:", error);
+    }
+  }
+
+  // Fallback to mock
   const tafsir = await getTafsir({
     surah: args.surah,
     ayah: args.ayah,
@@ -475,6 +548,24 @@ async function getAyah(args: {
   include_translation?: boolean;
   include_annotations?: boolean;
 }) {
+  // Try real backend first
+  if (USE_REAL_BACKEND) {
+    try {
+      const params = new URLSearchParams();
+      if (args.include_annotations !== undefined) {
+        params.append("include_annotations", args.include_annotations.toString());
+      }
+      
+      const response = await fetch(`${QBM_BACKEND_URL}/ayah/${args.surah}/${args.ayah}?${params}`);
+      if (response.ok) {
+        return await response.json();
+      }
+    } catch (error) {
+      console.error("Backend fetch failed, using mock data:", error);
+    }
+  }
+
+  // Fallback to mock
   return {
     surah: args.surah,
     ayah: args.ayah,
