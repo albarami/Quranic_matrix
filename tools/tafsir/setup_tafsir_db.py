@@ -66,7 +66,7 @@ def load_tafsir_file(conn: sqlite3.Connection, filepath: Path, source_id: str):
     
     # Get source name from first record
     source_name = source_id
-    count = 0
+    seen_refs = set()
     
     with open(filepath, "r", encoding="utf-8") as f:
         for line in f:
@@ -75,8 +75,14 @@ def load_tafsir_file(conn: sqlite3.Connection, filepath: Path, source_id: str):
             
             record = json.loads(line)
             ref = record["reference"]
+            ref_key = f"{ref['surah']}:{ref['ayah']}"
             
-            if count == 0:
+            # Skip duplicates (file should be pre-deduped, but safety check)
+            if ref_key in seen_refs:
+                continue
+            seen_refs.add(ref_key)
+            
+            if len(seen_refs) == 1:
                 source_name = record.get("resource_name", source_id)
             
             cursor.execute("""
@@ -84,18 +90,16 @@ def load_tafsir_file(conn: sqlite3.Connection, filepath: Path, source_id: str):
                 (source_id, surah, ayah, text_ar)
                 VALUES (?, ?, ?, ?)
             """, (source_id, ref["surah"], ref["ayah"], record.get("text_ar", "")))
-            
-            count += 1
     
-    # Update source info
+    # Update source info with unique ref count
     cursor.execute("""
         INSERT OR REPLACE INTO tafsir_sources (id, name, language, ayat_count)
         VALUES (?, ?, 'ar', ?)
-    """, (source_id, source_name, count))
+    """, (source_id, source_name, len(seen_refs)))
     
     conn.commit()
-    print(f"Loaded {count} records from {source_id}")
-    return count
+    print(f"Loaded {len(seen_refs)} unique records from {source_id}")
+    return len(seen_refs)
 
 
 def rebuild_fts(conn: sqlite3.Connection):
