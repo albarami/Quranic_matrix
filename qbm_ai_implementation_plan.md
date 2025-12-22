@@ -7,14 +7,14 @@
 
 ---
 
-## Tool Stack Decision: Free & Open Source
+## Tool Stack Decision
 
-| Component | Paid Option | **Free Alternative (Selected)** | Rationale |
-|-----------|-------------|--------------------------------|----------|
+| Component | Option | **Selected** | Rationale |
+|-----------|--------|--------------|----------|
 | Graph DB | Neo4j Enterprise | **NetworkX + SQLite** | Zero cost, Python-native, sufficient for ~50K nodes |
-| Vector DB | Pinecone | **ChromaDB** or **Qdrant (self-hosted)** | Free, local, good Arabic support |
-| LLM | GPT-4 API | **Ollama + JAIS/Qwen** | Local inference, no API costs |
-| Embeddings | OpenAI | **sentence-transformers (AraBERT)** | Free, Arabic-optimized |
+| Vector DB | Pinecone | **ChromaDB** (local) | Free, local, good Arabic support |
+| LLM | OpenAI / Local | **Azure OpenAI (GPT-5)** | Enterprise-grade, Arabic support, already configured |
+| Embeddings | Various | **Azure OpenAI / AraBERT** | Arabic-optimized |
 | Ontology | Protégé + commercial | **RDFLib + OWL** | Python-native, SPARQL support |
 
 ### Graph Database: NetworkX + SQLite Persistence
@@ -30,6 +30,28 @@
 # Persistence strategy:
 # - Development: pickle/JSON for quick iteration
 # - Production: SQLite for durability + GraphML for portability
+```
+
+### LLM: Azure OpenAI Configuration
+
+```python
+# Using Azure OpenAI with GPT-5 deployment
+# Environment variables (from .env):
+# - AZURE_OPENAI_API_KEY
+# - AZURE_OPENAI_ENDPOINT
+# - AZURE_OPENAI_API_VERSION
+# - AZURE_OPENAI_DEPLOYMENT_NAME (gpt-5-chat)
+
+from openai import AzureOpenAI
+import os
+
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT")
+)
+
+# Available deployments: gpt-5-chat, gpt-5.1, gpt-5.2
 ```
 
 ---
@@ -356,15 +378,16 @@ class QBMVectorStore:
 # results = store.search_similar("مرض القلب", n=10)
 ```
 
-### 2.4 RAG Pipeline (Free Stack)
+### 2.4 RAG Pipeline (Azure OpenAI)
 
 ```python
 # src/ai/rag/qbm_rag.py
 from typing import Dict, List
-import ollama  # Free local LLM inference
+from openai import AzureOpenAI
+import os
 
 class QBMRAGPipeline:
-    """RAG pipeline using free tools: ChromaDB + NetworkX + Ollama."""
+    """RAG pipeline using ChromaDB + NetworkX + Azure OpenAI."""
     
     def __init__(self):
         from .vectors.qbm_vectors import QBMVectorStore
@@ -372,7 +395,12 @@ class QBMRAGPipeline:
         
         self.vector_store = QBMVectorStore()
         self.graph = QBMKnowledgeGraph()
-        self.llm_model = "jais"  # or "qwen2:7b" for Arabic
+        self.client = AzureOpenAI(
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+            azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT")
+        )
+        self.deployment = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-5-chat")
     
     def query(self, question: str) -> Dict:
         """Full RAG query with graph expansion."""
@@ -436,21 +464,25 @@ class QBMRAGPipeline:
         return "\n".join(context_parts)
     
     def _generate(self, question: str, context: str) -> str:
-        """Generate response using Ollama (free local LLM)."""
-        prompt = f"""أنت عالم متخصص في تحليل السلوك القرآني.
-
-السياق:
+        """Generate response using Azure OpenAI."""
+        system_prompt = """أنت عالم متخصص في تحليل السلوك القرآني وفق منهجية مصفوفة السلوك القرآني (QBM).
+أجب بناءً على السياق المقدم فقط. استخدم الآيات والتفسير لدعم إجابتك."""
+        
+        user_prompt = f"""السياق:
 {context}
 
-السؤال: {question}
-
-أجب بناءً على السياق المقدم فقط:"""
+السؤال: {question}"""
         
-        response = ollama.chat(
-            model=self.llm_model,
-            messages=[{"role": "user", "content": prompt}]
+        response = self.client.chat.completions.create(
+            model=self.deployment,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            temperature=0.7,
+            max_tokens=2000
         )
-        return response["message"]["content"]
+        return response.choices[0].message.content
 ```
 
 ### 2.5 Semantic Search Examples
@@ -1217,7 +1249,7 @@ async def discover_patterns(dimension: str):
 | 3. Taxonomy | 7-8 | RDFLib ontology + rules | `v0.3.0-ontology` |
 | 4. Multi-Tafsir | 9-11 | 5 tafsir sources integrated | `v0.4.0-tafsir` |
 | 5. Complete Annotation | 12-16 | Full 11-dimension annotations | `v0.5.0-annotations` |
-| 6. Model Training | 17-20 | Fine-tuned via Ollama/Unsloth | `v0.6.0-model` |
+| 6. Model Training | 17-20 | Fine-tuned via Azure OpenAI | `v0.6.0-model` |
 | 7. Discovery System | 21-24 | Pattern discovery engine | `v0.7.0-discovery` |
 | 8. Integration | 25-28 | Production deployment | `v1.0.0` |
 
@@ -1225,16 +1257,16 @@ async def discover_patterns(dimension: str):
 
 ---
 
-## Budget Estimate (Free Stack)
+## Budget Estimate
 
-| Item | Paid Option | **Free Alternative** |
-|------|-------------|---------------------|
-| Graph DB | Neo4j Enterprise (~$5,000/yr) | **NetworkX + SQLite ($0)** |
-| Vector DB | Qdrant Cloud (~$2,000/yr) | **ChromaDB local ($0)** |
-| LLM Inference | OpenAI API (~$500/mo) | **Ollama local ($0)** |
-| Embeddings | OpenAI (~$100/mo) | **sentence-transformers ($0)** |
-| Tafsir Data | Commercial (~$1,000) | **quran.com API ($0)** |
-| **Total First Year** | **~$9,500** | **~$0** |
+| Item | Cost | Notes |
+|------|------|-------|
+| Graph DB | $0 | NetworkX + SQLite |
+| Vector DB | $0 | ChromaDB local |
+| LLM Inference | Azure OpenAI | Already provisioned (gpt-5-chat, gpt-5.1, gpt-5.2) |
+| Embeddings | $0 | AraBERT / Azure OpenAI |
+| Tafsir Data | $0 | quran.com API |
+| **Infrastructure** | **Existing Azure** | **Enterprise subscription** |
 
 ---
 
