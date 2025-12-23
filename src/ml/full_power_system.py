@@ -538,6 +538,19 @@ class FullPowerQBMSystem:
         
         return candidates[:top_k]
     
+    def _normalize_behavior(self, behavior: str) -> str:
+        """
+        Normalize Arabic behavior name to match graph vocabulary.
+        Removes definite article 'ال' and common prefixes.
+        """
+        # Remove definite article
+        if behavior.startswith("ال"):
+            behavior = behavior[2:]
+        # Remove common prefixes
+        if behavior.startswith("ا"):
+            behavior = behavior[1:]
+        return behavior
+    
     def find_behavioral_chain(self, behavior1: str, behavior2: str) -> Dict[str, Any]:
         """
         Find multi-hop path between two behaviors using GNN.
@@ -548,7 +561,24 @@ class FullPowerQBMSystem:
         if not self.gnn_reasoner:
             return {"error": "GNN reasoning not available"}
         
-        result = self.gnn_reasoner.find_path(behavior1, behavior2)
+        # Normalize behavior names to match graph vocabulary (remove ال prefix)
+        b1_normalized = self._normalize_behavior(behavior1)
+        b2_normalized = self._normalize_behavior(behavior2)
+        
+        # Try multiple combinations to find a match
+        combinations = [
+            (b1_normalized, b2_normalized),  # Both normalized
+            (behavior1, behavior2),           # Both original
+            (b1_normalized, behavior2),       # First normalized
+            (behavior1, b2_normalized),       # Second normalized
+        ]
+        
+        for b1, b2 in combinations:
+            result = self.gnn_reasoner.find_path(b1, b2)
+            if result.get("found"):
+                return result
+        
+        # Return last result (will contain error info)
         return result
     
     def discover_patterns(self) -> List[Dict[str, Any]]:
@@ -567,18 +597,28 @@ class FullPowerQBMSystem:
         # 2. Extract behaviors from question for GNN reasoning
         gnn_context = ""
         if self.gnn_reasoner:
-            # Try to find behavioral chains mentioned in the question
-            # Common Arabic behavior keywords
-            behavior_keywords = ["الكبر", "القسوة", "الغفلة", "التوبة", "الإيمان", "الكفر", "النفاق", 
-                               "الصبر", "الشكر", "الحسد", "الرياء", "الإخلاص", "التواضع"]
-            found_behaviors = [b for b in behavior_keywords if b in question]
+            # Common Arabic behavior keywords (with and without definite article)
+            # Graph vocabulary uses: كبر, غفلة, كفر, etc. (without ال)
+            behavior_keywords_with_al = ["الكبر", "القسوة", "الغفلة", "التوبة", "الإيمان", "الكفر", "النفاق", 
+                                        "الصبر", "الشكر", "الحسد", "الرياء", "الإخلاص", "التواضع"]
+            behavior_keywords_without_al = ["كبر", "قسوة", "غفلة", "توبة", "إيمان", "كفر", "نفاق",
+                                           "صبر", "شكر", "حسد", "رياء", "إخلاص", "تواضع", "قاسي", "ظلم"]
+            
+            # Find behaviors in question (check both forms)
+            found_behaviors = []
+            for b in behavior_keywords_with_al + behavior_keywords_without_al:
+                if b in question and b not in found_behaviors:
+                    found_behaviors.append(b)
             
             if len(found_behaviors) >= 2:
-                # Find path between first two behaviors
+                # Find path between first two behaviors (normalization happens in find_behavioral_chain)
                 path_result = self.find_behavioral_chain(found_behaviors[0], found_behaviors[1])
                 if path_result.get("found"):
                     gnn_context = f"\n\n[سلسلة سلوكية من GNN]: {' → '.join(path_result['path'])}"
                     gnn_context += f"\n(عدد الخطوات: {path_result['length']})"
+            elif len(found_behaviors) == 1:
+                # Single behavior - show its connections
+                gnn_context = f"\n\n[سلوك مكتشف في الشبكة]: {found_behaviors[0]}"
         
         # 3. Build context
         context_parts = []
