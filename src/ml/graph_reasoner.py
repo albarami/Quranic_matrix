@@ -172,7 +172,7 @@ class GraphBuilder:
             self.edges.append([src_idx, tgt_idx])
             self.edge_types.append(EDGE_TYPES.get(edge_type, 4))
     
-    def build(self, node_embeddings: Dict[str, List[float]] = None) -> Optional[Data]:
+    def build(self, node_embeddings: Dict[str, List[float]] = None):
         """Build PyTorch Geometric Data object."""
         if not PYG_AVAILABLE or not self.edges:
             return None
