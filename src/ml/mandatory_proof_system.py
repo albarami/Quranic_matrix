@@ -482,19 +482,38 @@ class MandatoryProofSystem:
         quran_results = []
         tafsir_results = {s: [] for s in self.tafsir_sources}
         behavior_results = []
+        seen_verses = set()  # Deduplicate verses
         
         for r in rag_results:
             meta = r.get("metadata", {})
             source = meta.get("source", meta.get("type", "unknown"))
             
-            if source == "quran" or meta.get("type") == "verse":
-                quran_results.append({
-                    "surah": meta.get("surah", "?"),
-                    "ayah": meta.get("ayah", "?"),
-                    "text": r.get("text", ""),
-                    "relevance": r.get("score", 0),
-                })
-            elif source in self.tafsir_sources:
+            # Extract Quran verse info from ANY result that has verse reference
+            surah = str(meta.get("surah", "")) if meta.get("surah") else ""
+            ayah = str(meta.get("ayah", "")) if meta.get("ayah") else ""
+            verse_ref = str(meta.get("verse", "")) if meta.get("verse") else ""
+            
+            # Parse verse reference if present (format: "2:255" or similar)
+            if (not surah or not ayah) and verse_ref and ":" in verse_ref:
+                parts = verse_ref.split(":")
+                if len(parts) >= 2:
+                    surah = parts[0].strip()
+                    ayah = parts[1].strip()
+            
+            # Add to quran_results if we have valid verse reference (deduplicated)
+            if surah and ayah and surah not in ["?", "", "None"] and ayah not in ["?", "", "None"]:
+                verse_key = f"{surah}:{ayah}"
+                if verse_key not in seen_verses:
+                    seen_verses.add(verse_key)
+                    quran_results.append({
+                        "surah": surah,
+                        "ayah": ayah,
+                        "text": r.get("text", "")[:200] if r.get("text") else meta.get("text", "")[:200],
+                        "relevance": r.get("score", 0),
+                    })
+            
+            # Categorize by source
+            if source in self.tafsir_sources:
                 tafsir_results[source].append({
                     "surah": meta.get("surah", meta.get("verse", "?").split(":")[0] if ":" in str(meta.get("verse", "")) else "?"),
                     "ayah": meta.get("ayah", meta.get("verse", "?").split(":")[-1] if ":" in str(meta.get("verse", "")) else "?"),
@@ -523,6 +542,12 @@ class MandatoryProofSystem:
         )
         
         # 4. Build Tafsir Evidence for all 5 sources
+        # Log which sources are missing for debugging
+        missing_tafsir = [s for s in self.tafsir_sources if not tafsir_results[s]]
+        if missing_tafsir:
+            import logging
+            logging.warning(f"Tafsir sources not found in retrieval: {missing_tafsir}")
+        
         ibn_kathir = TafsirEvidence(source="ibn_kathir", quotes=tafsir_results["ibn_kathir"][:5])
         tabari = TafsirEvidence(source="tabari", quotes=tafsir_results["tabari"][:5])
         qurtubi = TafsirEvidence(source="qurtubi", quotes=tafsir_results["qurtubi"][:5])
@@ -779,7 +804,14 @@ def integrate_with_system(full_power_system):
 # =============================================================================
 
 if __name__ == "__main__":
-    from src.ml.full_power_system import FullPowerQBMSystem
+    import sys
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+    
+    try:
+        from src.ml.full_power_system import FullPowerQBMSystem
+    except ImportError:
+        from full_power_system import FullPowerQBMSystem
     
     # Initialize system
     print("Initializing Full Power QBM System...")

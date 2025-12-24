@@ -489,13 +489,14 @@ class FullPowerQBMSystem:
             "gnn_relations": len(gnn_relations),
         }
     
-    def search(self, query: str, top_k: int = 20) -> List[Dict]:
+    def search(self, query: str, top_k: int = 20, ensure_source_diversity: bool = True) -> List[Dict]:
         """
         Full-power search using all GPU components.
         
         1. Embed query using GPUEmbeddingPipeline
         2. Vector search using TorchGPUVectorSearch
         3. Rerank using CrossEncoderReranker
+        4. Ensure source diversity (all 5 tafsir sources represented)
         """
         if not self.embedder or not self.vector_search:
             return []
@@ -503,9 +504,10 @@ class FullPowerQBMSystem:
         # 1. Embed query
         query_embedding = self.embedder.embed_texts([query], show_progress=False)
         
-        # 2. Vector search on GPU
+        # 2. Vector search on GPU - get more candidates for diversity
+        search_k = top_k * 5 if ensure_source_diversity else top_k * 3
         distances, indices, metadata_results = self.vector_search.search(
-            query_embedding, k=top_k * 3
+            query_embedding, k=search_k
         )
         
         # 3. Prepare candidates for reranking
@@ -524,10 +526,10 @@ class FullPowerQBMSystem:
             candidate_meta = [c["metadata"] for c in candidates]
             
             reranked = self.reranker.rerank(
-                query, candidate_texts, candidate_meta, top_k=top_k
+                query, candidate_texts, candidate_meta, top_k=len(candidates)
             )
             
-            return [
+            reranked_results = [
                 {
                     "text": r["document"],
                     "score": r["score"],
@@ -535,8 +537,49 @@ class FullPowerQBMSystem:
                 }
                 for r in reranked
             ]
+        else:
+            reranked_results = candidates
         
-        return candidates[:top_k]
+        # 5. Ensure source diversity - include top results from each tafsir source
+        if ensure_source_diversity:
+            tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+            source_buckets = {s: [] for s in tafsir_sources}
+            other_results = []
+            
+            for r in reranked_results:
+                source = r.get("metadata", {}).get("source", "")
+                if source in source_buckets:
+                    source_buckets[source].append(r)
+                else:
+                    other_results.append(r)
+            
+            # Build diverse result set: take top from each source, then fill with best overall
+            diverse_results = []
+            min_per_source = max(1, top_k // 10)  # At least 1 per source for top_k >= 10
+            
+            # First pass: ensure each source has representation
+            for source in tafsir_sources:
+                for r in source_buckets[source][:min_per_source]:
+                    if r not in diverse_results:
+                        diverse_results.append(r)
+            
+            # Second pass: fill remaining slots with highest-scored results
+            remaining = top_k - len(diverse_results)
+            all_remaining = []
+            for source in tafsir_sources:
+                all_remaining.extend(source_buckets[source][min_per_source:])
+            all_remaining.extend(other_results)
+            all_remaining.sort(key=lambda x: x.get("score", 0), reverse=True)
+            
+            for r in all_remaining:
+                if len(diverse_results) >= top_k:
+                    break
+                if r not in diverse_results:
+                    diverse_results.append(r)
+            
+            return diverse_results[:top_k]
+        
+        return reranked_results[:top_k]
     
     def _normalize_behavior(self, behavior: str) -> str:
         """

@@ -108,6 +108,9 @@ class HybridRAGSystem:
         self.tafsir_data = {}
         self.spans = []
         
+        # HYBRID RETRIEVER (BM25 + Embeddings + Behavior filtering)
+        self.hybrid_retriever = None
+        
         # Frontier model clients (Layer 7)
         self.claude_client = None
         self.openai_client = None
@@ -121,62 +124,107 @@ class HybridRAGSystem:
     
     def _init_llm_clients(self):
         """Initialize frontier model API clients."""
-        # Primary: Claude (better for Arabic)
+        # Load .env file
+        try:
+            from dotenv import load_dotenv
+            load_dotenv()
+            load_dotenv(".env.local")
+        except ImportError:
+            pass
+        
+        # Primary: Azure OpenAI
+        try:
+            from openai import AzureOpenAI
+            import os
+            api_key = os.getenv("AZURE_OPENAI_API_KEY")
+            endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+            if api_key and endpoint:
+                self.azure_client = AzureOpenAI(
+                    api_key=api_key,
+                    api_version=os.getenv("AZURE_OPENAI_API_VERSION", "2024-02-15-preview"),
+                    azure_endpoint=endpoint
+                )
+                logger.info("Initialized: Azure OpenAI API client")
+            else:
+                self.azure_client = None
+        except ImportError:
+            self.azure_client = None
+        except Exception as e:
+            self.azure_client = None
+            logger.warning(f"Could not init Azure OpenAI client: {e}")
+        
+        # Fallback: Claude
         try:
             import anthropic
             self.claude_client = anthropic.Anthropic()
-            logger.info("Initialized: Claude API client")
+            logger.info("Initialized: Claude API client (fallback)")
         except ImportError:
-            logger.warning("anthropic not installed. Install: pip install anthropic")
-        except Exception as e:
-            logger.warning(f"Could not init Claude client: {e}")
-        
-        # Fallback: OpenAI GPT-5
-        try:
-            import openai
-            self.openai_client = openai.OpenAI()
-            logger.info("Initialized: OpenAI API client (fallback)")
-        except ImportError:
-            logger.warning("openai not installed. Install: pip install openai")
-        except Exception as e:
-            logger.warning(f"Could not init OpenAI client: {e}")
+            pass
+        except Exception:
+            pass
     
     def _load_components(self):
         """Load all trained components."""
+        # Load HYBRID RETRIEVER (primary retrieval method)
         try:
-            from .arabic_embeddings import get_qbm_embeddings
+            try:
+                from .hybrid_retriever import get_hybrid_retriever
+            except ImportError:
+                from hybrid_retriever import get_hybrid_retriever
+            self.hybrid_retriever = get_hybrid_retriever()
+            logger.info("Loaded: Hybrid Retriever (BM25 + Embeddings)")
+        except Exception:
+            pass  # Hybrid retriever optional - will use fallback
+        
+        try:
+            try:
+                from .arabic_embeddings import get_qbm_embeddings
+            except ImportError:
+                from arabic_embeddings import get_qbm_embeddings
             self.embedder = get_qbm_embeddings()
             logger.info("Loaded: Arabic Embeddings")
-        except Exception as e:
-            logger.warning(f"Could not load embeddings: {e}")
+        except Exception:
+            pass  # Embeddings loaded via hybrid retriever
         
         try:
-            from .behavioral_classifier import get_behavioral_classifier
+            try:
+                from .behavioral_classifier import get_behavioral_classifier
+            except ImportError:
+                from behavioral_classifier import get_behavioral_classifier
             self.classifier = get_behavioral_classifier()
             logger.info("Loaded: Behavioral Classifier")
-        except Exception as e:
-            logger.warning(f"Could not load classifier: {e}")
+        except Exception:
+            pass  # Classifier optional - will use keyword detection
         
         try:
-            from .relation_extractor import get_relation_extractor
+            try:
+                from .relation_extractor import get_relation_extractor
+            except ImportError:
+                from relation_extractor import get_relation_extractor
             self.relation_extractor = get_relation_extractor()
             logger.info("Loaded: Relation Extractor")
-        except Exception as e:
-            logger.warning(f"Could not load relation extractor: {e}")
+        except Exception:
+            pass  # Relation extractor optional
         
         try:
-            from .graph_reasoner import get_reasoning_engine
+            try:
+                from .graph_reasoner import get_reasoning_engine
+            except ImportError:
+                from graph_reasoner import get_reasoning_engine
             self.gnn = get_reasoning_engine()
             logger.info("Loaded: Graph Reasoner")
-        except Exception as e:
-            logger.warning(f"Could not load GNN: {e}")
+        except Exception:
+            pass  # GNN optional
         
         try:
-            from .domain_reranker import get_domain_reranker
+            try:
+                from .domain_reranker import get_domain_reranker
+            except ImportError:
+                from domain_reranker import get_domain_reranker
             self.reranker = get_domain_reranker()
             logger.info("Loaded: Domain Reranker")
-        except Exception as e:
-            logger.warning(f"Could not load reranker: {e}")
+        except Exception:
+            pass  # Reranker optional
         
         # Load tafsir data
         self._load_tafsir()
@@ -201,17 +249,29 @@ class HybridRAGSystem:
     
     def retrieve(self, query: str, top_k: int = 50) -> List[Dict[str, Any]]:
         """
-        Step 1-2: Embed query and retrieve relevant passages.
+        Step 1-2: HYBRID RETRIEVAL (BM25 + Embeddings + Behavior filtering).
+        
+        This is the key improvement - uses keyword matching (BM25) combined with
+        semantic search and behavior-based filtering for accurate retrieval.
         """
         candidates = []
         
-        # If embedder available, do semantic search
-        if self.embedder is not None:
-            query_embedding = self.embedder.encode(query)
-            # TODO: Search vector DB with query_embedding
-            # For now, return sample candidates
+        # PRIMARY: Use hybrid retriever (BM25 + Embeddings + Behavior filtering)
+        if self.hybrid_retriever is not None:
+            results = self.hybrid_retriever.search(query, top_k=top_k)
+            for r in results:
+                candidates.append({
+                    "source": r.get("tafsir", ""),
+                    "verse": f"{r.get('surah', '')}:{r.get('ayah', '')}",
+                    "text": r.get("text", ""),
+                    "score": r.get("score", 0),
+                    "behavior_id": r.get("behavior_id", ""),
+                    "behavior_name": r.get("behavior_name", ""),
+                    "behavior_match": r.get("behavior_match", False),
+                })
+            return candidates
         
-        # Fallback: keyword search in tafsir
+        # FALLBACK: keyword search in tafsir (if hybrid retriever not available)
         query_terms = query.split()
         for source, verses in self.tafsir_data.items():
             for verse_key, text in verses.items():
@@ -224,25 +284,35 @@ class HybridRAGSystem:
                         "score": score,
                     })
         
-        # Sort by score
         candidates.sort(key=lambda x: x["score"], reverse=True)
         return candidates[:top_k]
     
     def classify_behaviors(self, text: str) -> List[Dict[str, Any]]:
         """
         Step 3: Classify behaviors mentioned in text.
+        Returns max 5 behaviors to avoid noise.
         """
+        # PRIMARY: Use hybrid retriever's behavior detection (max 5)
+        if self.hybrid_retriever is not None:
+            detected = self.hybrid_retriever.detect_behaviors_in_query(text)
+            return [{"behavior": beh, "confidence": 0.9} for beh in list(detected)[:5]]
+        
+        # FALLBACK: Use classifier if available
         if self.classifier is not None:
             result = self.classifier.predict(text)
-            return result.get("behaviors", [])
+            behaviors = result.get("behaviors", [])
+            # Sort by confidence and take top 5
+            if behaviors and isinstance(behaviors[0], dict):
+                behaviors.sort(key=lambda x: x.get("confidence", 0), reverse=True)
+            return behaviors[:5]
         
-        # Fallback: simple keyword detection
+        # LAST RESORT: simple keyword detection
         behaviors = []
         keywords = ["الكبر", "النفاق", "الصبر", "الشكر", "التوبة", "الإيمان", "الكفر"]
         for kw in keywords:
             if kw in text:
                 behaviors.append({"behavior": kw, "confidence": 0.7})
-        return behaviors
+        return behaviors[:5]
     
     def find_related_behaviors(self, behaviors: List[str]) -> Dict[str, Any]:
         """
@@ -402,12 +472,12 @@ class HybridRAGSystem:
     
     def _call_frontier_model(self, question: str, context: str) -> str:
         """
-        Call Claude or GPT-5 with the prepared context.
+        Call Azure OpenAI or Claude with the prepared context.
         
         Strategy:
         1. Check cache first
-        2. Try Claude (primary - better for Arabic)
-        3. Fallback to GPT-5 if Claude fails
+        2. Try Azure OpenAI (primary)
+        3. Fallback to Claude if Azure fails
         4. Cache successful responses
         """
         # Check cache first
@@ -426,8 +496,26 @@ class HybridRAGSystem:
         
         result = None
         
-        # Try Claude first (primary - better for Arabic)
-        if self.claude_client is not None:
+        # Try Azure OpenAI first (primary)
+        if hasattr(self, 'azure_client') and self.azure_client is not None:
+            try:
+                import os
+                deployment_name = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4o")
+                response = self.azure_client.chat.completions.create(
+                    model=deployment_name,
+                    max_tokens=4096,
+                    messages=[
+                        {"role": "system", "content": SYSTEM_PROMPT},
+                        {"role": "user", "content": user_message}
+                    ]
+                )
+                result = response.choices[0].message.content
+                logger.info("Response from Azure OpenAI API")
+            except Exception as e:
+                logger.warning(f"Azure OpenAI API failed: {e}, trying fallback...")
+        
+        # Fallback to Claude
+        if result is None and hasattr(self, 'claude_client') and self.claude_client is not None:
             try:
                 response = self.claude_client.messages.create(
                     model="claude-sonnet-4-20250514",
@@ -436,29 +524,13 @@ class HybridRAGSystem:
                     messages=[{"role": "user", "content": user_message}]
                 )
                 result = response.content[0].text
-                logger.info("Response from Claude API")
+                logger.info("Response from Claude API (fallback)")
             except Exception as e:
-                logger.warning(f"Claude API failed: {e}, trying fallback...")
-        
-        # Fallback to OpenAI GPT-5
-        if result is None and self.openai_client is not None:
-            try:
-                response = self.openai_client.chat.completions.create(
-                    model="gpt-4o",  # or "gpt-5" when available
-                    max_tokens=4096,
-                    messages=[
-                        {"role": "system", "content": SYSTEM_PROMPT},
-                        {"role": "user", "content": user_message}
-                    ]
-                )
-                result = response.choices[0].message.content
-                logger.info("Response from OpenAI API (fallback)")
-            except Exception as e:
-                logger.error(f"OpenAI API also failed: {e}")
+                logger.error(f"Claude API also failed: {e}")
         
         # If both failed
         if result is None:
-            return "[Error: Both Claude and OpenAI APIs failed. Check API keys and network.]"
+            return "[Error: Both Azure OpenAI and Claude APIs failed. Check API keys and network.]"
         
         # Cache successful response
         self.response_cache[cache_key] = result
