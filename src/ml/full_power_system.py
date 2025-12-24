@@ -505,7 +505,8 @@ class FullPowerQBMSystem:
         query_embedding = self.embedder.embed_texts([query], show_progress=False)
         
         # 2. Vector search on GPU - get more candidates for diversity
-        search_k = top_k * 5 if ensure_source_diversity else top_k * 3
+        # Increase search space significantly to ensure all 5 tafsir sources are found
+        search_k = top_k * 10 if ensure_source_diversity else top_k * 3
         distances, indices, metadata_results = self.vector_search.search(
             query_embedding, k=search_k
         )
@@ -555,7 +556,7 @@ class FullPowerQBMSystem:
             
             # Build diverse result set: take top from each source, then fill with best overall
             diverse_results = []
-            min_per_source = max(1, top_k // 10)  # At least 1 per source for top_k >= 10
+            min_per_source = max(2, top_k // 5)  # At least 2 per source, more for larger top_k
             
             # First pass: ensure each source has representation
             for source in tafsir_sources:

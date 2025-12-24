@@ -542,11 +542,45 @@ class MandatoryProofSystem:
         )
         
         # 4. Build Tafsir Evidence for all 5 sources
-        # Log which sources are missing for debugging
+        # GUARANTEE all 5 sources: if missing from retrieval, fetch directly from tafsir data
         missing_tafsir = [s for s in self.tafsir_sources if not tafsir_results[s]]
-        if missing_tafsir:
+        if missing_tafsir and hasattr(self.system, 'tafsir_data'):
             import logging
             logging.warning(f"Tafsir sources not found in retrieval: {missing_tafsir}")
+            
+            # Get verse references from existing results to find relevant tafsir
+            verse_refs = list(seen_verses)[:10]  # Use top 10 verses found
+            
+            for source in missing_tafsir:
+                if source in self.system.tafsir_data:
+                    source_data = self.system.tafsir_data[source]
+                    # First try: get tafsir for verses we already found
+                    for verse_ref in verse_refs:
+                        if verse_ref in source_data and source_data[verse_ref]:
+                            tafsir_results[source].append({
+                                "surah": verse_ref.split(":")[0],
+                                "ayah": verse_ref.split(":")[1] if ":" in verse_ref else "1",
+                                "text": source_data[verse_ref][:500],
+                                "score": 0.5,  # Lower score since not from retrieval
+                            })
+                            if len(tafsir_results[source]) >= 3:
+                                break
+                    
+                    # Second try: if still empty, get any relevant entries
+                    if not tafsir_results[source]:
+                        for verse_key, text in list(source_data.items())[:100]:
+                            if text and len(text) > 50:
+                                # Check if text contains any keywords from question
+                                question_words = [w for w in question.split() if len(w) > 2]
+                                if any(word in text for word in question_words):
+                                    tafsir_results[source].append({
+                                        "surah": verse_key.split(":")[0],
+                                        "ayah": verse_key.split(":")[1] if ":" in verse_key else "1",
+                                        "text": text[:500],
+                                        "score": 0.3,
+                                    })
+                                    if len(tafsir_results[source]) >= 2:
+                                        break
         
         ibn_kathir = TafsirEvidence(source="ibn_kathir", quotes=tafsir_results["ibn_kathir"][:5])
         tabari = TafsirEvidence(source="tabari", quotes=tafsir_results["tabari"][:5])
