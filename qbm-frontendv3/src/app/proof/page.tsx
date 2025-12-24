@@ -38,6 +38,8 @@ export default function ProofPage() {
   const [error, setError] = useState<string | null>(null);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(['answer', 'quran']));
   const [activeTafsir, setActiveTafsir] = useState('ibn_kathir');
+  const [showAllQuran, setShowAllQuran] = useState(false);
+  const [showAllTafsir, setShowAllTafsir] = useState(false);
 
   const toggleSection = (section: string) => {
     const newExpanded = new Set(expandedSections);
@@ -125,34 +127,48 @@ export default function ProofPage() {
     ];
 
     const currentTafsir = result?.proof[activeTafsir as keyof typeof result.proof] as Array<{ surah: string; ayah: string; text: string }> || [];
+    const tafsirToShow = showAllTafsir ? currentTafsir : currentTafsir.slice(0, 5);
 
     return (
       <div>
         <div className="flex flex-wrap border-b border-emerald-200 mb-4 gap-1">
-          {tabs.map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTafsir(tab.id)}
-              className={`px-3 py-2 font-medium transition rounded-t-lg ${
-                activeTafsir === tab.id
-                  ? 'bg-emerald-600 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-emerald-100'
-              }`}
-            >
-              {tab.icon} {tab.label}
-            </button>
-          ))}
+          {tabs.map(tab => {
+            const count = (result?.proof[tab.id as keyof typeof result.proof] as any[])?.length || 0;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => { setActiveTafsir(tab.id); setShowAllTafsir(false); }}
+                className={`px-3 py-2 font-medium transition rounded-t-lg ${
+                  activeTafsir === tab.id
+                    ? 'bg-emerald-600 text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-emerald-100'
+                }`}
+              >
+                {tab.icon} {tab.label} <span className="text-xs">({count})</span>
+              </button>
+            );
+          })}
         </div>
         <div className="space-y-3" dir="rtl">
-          {currentTafsir.length > 0 ? (
-            currentTafsir.map((item, i) => (
-              <div key={i} className="p-4 bg-gradient-to-r from-amber-50 to-white rounded-lg border-r-4 border-amber-500">
-                <p className="text-gray-800 leading-relaxed text-lg">{item.text}</p>
-                <p className="text-sm text-amber-700 mt-2 font-medium">
-                  📍 {item.surah}:{item.ayah}
-                </p>
-              </div>
-            ))
+          {tafsirToShow.length > 0 ? (
+            <>
+              {tafsirToShow.map((item, i) => (
+                <div key={i} className="p-4 bg-gradient-to-r from-amber-50 to-white rounded-lg border-r-4 border-amber-500">
+                  <p className="text-gray-800 leading-relaxed text-lg">{item.text}</p>
+                  <p className="text-sm text-amber-700 mt-2 font-medium">
+                    📍 {item.surah}:{item.ayah}
+                  </p>
+                </div>
+              ))}
+              {currentTafsir.length > 5 && !showAllTafsir && (
+                <button
+                  onClick={() => setShowAllTafsir(true)}
+                  className="w-full py-3 text-emerald-600 hover:bg-emerald-50 rounded-lg border border-emerald-200 font-medium"
+                >
+                  عرض الكل ({currentTafsir.length} نص)
+                </button>
+              )}
+            </>
           ) : (
             <p className="text-gray-500 text-center py-4">لا توجد بيانات تفسيرية</p>
           )}
@@ -285,19 +301,29 @@ export default function ProofPage() {
             >
               <div className="space-y-4">
                 {result.proof.quran?.length > 0 ? (
-                  result.proof.quran.map((verse, i) => (
-                    <div key={i} className="p-4 bg-gradient-to-r from-emerald-50 to-white rounded-lg border-r-4 border-emerald-600">
-                      <p className="text-xl leading-relaxed font-arabic text-gray-800">{verse.text}</p>
-                      <div className="flex justify-between items-center mt-3">
-                        <span className="text-emerald-700 font-bold">
-                          📍 {verse.surah}:{verse.ayah}
-                        </span>
-                        <span className="text-sm text-gray-500">
-                          نسبة الصلة: {(verse.relevance * 100).toFixed(0)}%
-                        </span>
+                  <>
+                    {(showAllQuran ? result.proof.quran : result.proof.quran.slice(0, 10)).map((verse, i) => (
+                      <div key={i} className="p-4 bg-gradient-to-r from-emerald-50 to-white rounded-lg border-r-4 border-emerald-600">
+                        <p className="text-xl leading-relaxed font-arabic text-gray-800">{verse.text}</p>
+                        <div className="flex justify-between items-center mt-3">
+                          <span className="text-emerald-700 font-bold">
+                            📍 {verse.surah}:{verse.ayah}
+                          </span>
+                          <span className="text-sm text-gray-500">
+                            نسبة الصلة: {(verse.relevance * 100).toFixed(0)}%
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  ))
+                    ))}
+                    {result.proof.quran.length > 10 && !showAllQuran && (
+                      <button
+                        onClick={() => setShowAllQuran(true)}
+                        className="w-full py-3 text-emerald-600 hover:bg-emerald-50 rounded-lg border border-emerald-200 font-medium"
+                      >
+                        عرض الكل ({result.proof.quran.length} آية)
+                      </button>
+                    )}
+                  </>
                 ) : (
                   <p className="text-gray-500 text-center py-4">لا توجد آيات</p>
                 )}

@@ -371,28 +371,60 @@ class FullPowerQBMSystem:
         self.all_texts = []
         self.all_metadata = []
         
-        # Add tafsir entries
+        # SOURCE-TO-INDEX MAPPING: Track which indices belong to each source
+        self.source_indices = {s: [] for s in ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]}
+        
+        # Add tafsir entries - track counts per source AND index positions
+        tafsir_counts = {}
+        current_idx = 0
         for source, entries in self.tafsir_data.items():
+            tafsir_counts[source] = 0
             for verse_key, text in entries.items():
                 if text and len(text) > 20:
+                    # Parse verse reference once so downstream can use real ints
+                    surah_num = None
+                    ayah_num = None
+                    if verse_key and ":" in verse_key:
+                        parts = verse_key.split(":", 1)
+                        if len(parts) == 2:
+                            if parts[0].isdigit():
+                                surah_num = int(parts[0])
+                            if parts[1].isdigit():
+                                ayah_num = int(parts[1])
+
                     self.all_texts.append(text[:512])
                     self.all_metadata.append({
                         "type": "tafsir",
                         "source": source,
                         "verse": verse_key,
+                        "surah": surah_num,
+                        "ayah": ayah_num,
                         "text": text[:300],
                     })
+                    # Track index position for this source
+                    if source in self.source_indices:
+                        self.source_indices[source].append(current_idx)
+                    tafsir_counts[source] += 1
+                    current_idx += 1
+        
+        logger.info(f"[INDEX BUILD] Tafsir entries indexed per source: {tafsir_counts}")
+        source_idx_counts = {s: len(v) for s, v in self.source_indices.items()}
+        logger.info(f"[INDEX BUILD] Source index counts: {source_idx_counts}")
         
         # Add behavioral annotations
         for ann in self.behavioral_data:
             text = ann.get("context", "")
             if text and len(text) > 20:
+                surah_num = ann.get("surah")
+                ayah_num = ann.get("ayah")
                 self.all_texts.append(text[:512])
                 self.all_metadata.append({
                     "type": "behavior",
                     "behavior": ann.get("behavior_ar", ""),
                     "source": ann.get("source", ""),
                     "verse": f"{ann.get('surah')}:{ann.get('ayah')}",
+                    "surah": surah_num,
+                    "ayah": ayah_num,
                     "text": text[:300],
                 })
         
@@ -421,6 +453,21 @@ class FullPowerQBMSystem:
         INDEX_DIR.mkdir(parents=True, exist_ok=True)
         index_path = INDEX_DIR / "full_power_index.npy"
         self.vector_search.save_index(str(index_path))
+
+        # Cache source index tensors for fast, source-restricted similarity search
+        self.source_idx_tensors = {}
+        try:
+            import torch
+
+            if self.vector_search and getattr(self.vector_search, "device", None) is not None:
+                device = self.vector_search.device
+                for source, idx_list in self.source_indices.items():
+                    if idx_list:
+                        self.source_idx_tensors[source] = torch.tensor(
+                            idx_list, dtype=torch.long, device=device
+                        )
+        except Exception as e:
+            logger.warning(f"Failed to build source_idx_tensors: {e}")
         
         return {
             "texts_indexed": len(self.all_texts),
@@ -428,6 +475,126 @@ class FullPowerQBMSystem:
             "rate_per_second": round(rate, 0),
             "index_path": str(index_path),
         }
+
+    def _vector_search_subset(
+        self,
+        query_embedding: np.ndarray,
+        subset_indices,
+        k: int,
+    ) -> List[Dict[str, Any]]:
+        """
+        Vector search restricted to a subset of index rows (no fallbacks).
+
+        This fixes "0 results for qurtubi/jalalayn" by selecting top-k *within* each
+        source's vector region, even if those items rank low globally.
+        """
+        if not self.vector_search or getattr(self.vector_search, "index_vectors", None) is None:
+            return []
+        if subset_indices is None:
+            return []
+
+        try:
+            import torch
+
+            if isinstance(subset_indices, list):
+                if not subset_indices:
+                    return []
+                subset_indices = torch.tensor(
+                    subset_indices, dtype=torch.long, device=self.vector_search.device
+                )
+
+            if subset_indices.numel() == 0:
+                return []
+
+            query_tensor = torch.from_numpy(query_embedding.astype(np.float32)).to(
+                self.vector_search.device
+            )
+            if query_tensor.ndim == 2:
+                query_tensor = query_tensor[0]
+            query_tensor = torch.nn.functional.normalize(query_tensor, p=2, dim=0)
+
+            subset_vectors = self.vector_search.index_vectors.index_select(0, subset_indices)
+            scores = torch.mv(subset_vectors, query_tensor)
+
+            k = min(int(k), int(scores.shape[0]))
+            if k <= 0:
+                return []
+
+            top_scores, top_pos = torch.topk(scores, k)
+            selected_indices = subset_indices.index_select(0, top_pos).detach().cpu().numpy().tolist()
+            selected_scores = top_scores.detach().cpu().numpy().tolist()
+
+            results: List[Dict[str, Any]] = []
+            for score, idx in zip(selected_scores, selected_indices):
+                meta = self.all_metadata[idx] if idx < len(self.all_metadata) else {"id": idx}
+                results.append(
+                    {
+                        "text": meta.get("text", ""),
+                        "score": float(score),
+                        "metadata": meta,
+                    }
+                )
+            return results
+        except Exception as e:
+            logger.warning(f"Subset vector search failed: {e}")
+            return []
+
+    def search_tafsir_by_source(
+        self,
+        query: str,
+        per_source_k: int = 10,
+        candidate_multiplier: int = 8,
+        rerank: bool = True,
+    ) -> Dict[str, List[Dict[str, Any]]]:
+        """
+        Guaranteed per-source tafsir retrieval using *source-restricted vector search*.
+
+        This avoids the previous behavior of "filling" missing sources from raw tafsir text,
+        while still ensuring each of the 5 tafsir sources is represented.
+        """
+        if not self.embedder or not self.vector_search:
+            return {}
+
+        tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+
+        query_embedding = self.embedder.embed_texts([query], show_progress=False)
+
+        results: Dict[str, List[Dict[str, Any]]] = {}
+        for source in tafsir_sources:
+            subset = None
+            if hasattr(self, "source_idx_tensors"):
+                subset = self.source_idx_tensors.get(source)
+            if subset is None and hasattr(self, "source_indices"):
+                subset = self.source_indices.get(source, [])
+
+            candidate_k = max(int(per_source_k) * int(candidate_multiplier), int(per_source_k))
+            candidates = self._vector_search_subset(query_embedding, subset, k=candidate_k)
+
+            # Replace the short preview text with the full tafsir entry for reranking/display
+            for c in candidates:
+                meta = c.get("metadata", {})
+                verse_key = meta.get("verse")
+                full = None
+                if verse_key and source in self.tafsir_data:
+                    full = self.tafsir_data[source].get(verse_key)
+                if full and len(full) > 20:
+                    c["text"] = full
+
+            if rerank and self.reranker and candidates:
+                reranked = self.reranker.rerank(
+                    query,
+                    [c["text"] for c in candidates],
+                    [c["metadata"] for c in candidates],
+                    top_k=int(per_source_k),
+                )
+                results[source] = [
+                    {"text": r["document"], "score": r["score"], "metadata": r["metadata"]}
+                    for r in reranked
+                ]
+            else:
+                results[source] = candidates[: int(per_source_k)]
+
+        return results
     
     def build_graph(self) -> Dict[str, Any]:
         """Build the behavioral graph on GPU and GNN reasoning graph."""
@@ -504,11 +671,12 @@ class FullPowerQBMSystem:
         # 1. Embed query
         query_embedding = self.embedder.embed_texts([query], show_progress=False)
         
-        # 2. Vector search on GPU - get more candidates for diversity
-        # Increase search space significantly to ensure all 5 tafsir sources are found
-        search_k = top_k * 10 if ensure_source_diversity else top_k * 3
+        # 2. Global vector search (bounded candidate pool to keep reranking fast)
+        total_indexed = len(self.all_metadata) if hasattr(self, "all_metadata") else 0
+        candidate_k = max(top_k * 10, 200)
+        candidate_k = min(candidate_k, 1200) if total_indexed else candidate_k
         distances, indices, metadata_results = self.vector_search.search(
-            query_embedding, k=search_k
+            query_embedding, k=candidate_k
         )
         
         # 3. Prepare candidates for reranking
@@ -521,65 +689,122 @@ class FullPowerQBMSystem:
                 "metadata": meta,
             })
         
-        # 4. Rerank if available
+        # Log raw vector search distribution BEFORE reranking
+        raw_source_counts = {}
+        for c in candidates:
+            src = c.get("metadata", {}).get("source", "unknown")
+            raw_source_counts[src] = raw_source_counts.get(src, 0) + 1
+        logger.info(f"[VECTOR SEARCH] Raw distribution BEFORE rerank: {raw_source_counts}")
+        
+        # 3. Optionally augment candidates with a small, per-source subset search
+        # (prevents "0 results" for some sources without exploding rerank cost)
+        if ensure_source_diversity and hasattr(self, "source_idx_tensors"):
+            tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+            per_source_hint = 2 if top_k >= len(tafsir_sources) * 2 else 1
+            per_source_candidate_k = max(per_source_hint * 10, 25)
+            for source in tafsir_sources:
+                subset = self.source_idx_tensors.get(source)
+                if subset is None:
+                    continue
+                candidates.extend(
+                    self._vector_search_subset(
+                        query_embedding, subset_indices=subset, k=per_source_candidate_k
+                    )
+                )
+
+        # De-duplicate candidates (same type+source+verse)
+        def _key(r: Dict[str, Any]) -> str:
+            meta = r.get("metadata", {})
+            return f"{meta.get('type')}|{meta.get('source')}|{meta.get('verse')}"
+
+        deduped = {}
+        for c in candidates:
+            k = _key(c)
+            if k not in deduped or c.get("score", 0) > deduped[k].get("score", 0):
+                deduped[k] = c
+        candidates = list(deduped.values())
+
+        # 4. Rerank a bounded pool (but force-in a few per tafsir source)
         if self.reranker and candidates:
-            candidate_texts = [c["text"] for c in candidates]
-            candidate_meta = [c["metadata"] for c in candidates]
-            
+            tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+            rerank_max = min(len(candidates), max(top_k * 15, 250))
+
+            pool: List[Dict[str, Any]] = []
+            used = set()
+
+            # Guarantee minimal per-source presence in the rerank pool
+            min_pool_per_source = 2 if top_k >= len(tafsir_sources) * 2 else 1
+            for source in tafsir_sources:
+                source_items = [
+                    r
+                    for r in candidates
+                    if r.get("metadata", {}).get("type") == "tafsir"
+                    and r.get("metadata", {}).get("source") == source
+                ]
+                source_items.sort(key=lambda x: x.get("score", 0), reverse=True)
+                for r in source_items[:min_pool_per_source]:
+                    rk = _key(r)
+                    if rk not in used:
+                        pool.append(r)
+                        used.add(rk)
+
+            # Fill the rest by best vector score overall
+            candidates.sort(key=lambda x: x.get("score", 0), reverse=True)
+            for r in candidates:
+                if len(pool) >= rerank_max:
+                    break
+                rk = _key(r)
+                if rk not in used:
+                    pool.append(r)
+                    used.add(rk)
+
             reranked = self.reranker.rerank(
-                query, candidate_texts, candidate_meta, top_k=len(candidates)
+                query,
+                [c["text"] for c in pool],
+                [c["metadata"] for c in pool],
+                top_k=len(pool),
             )
-            
             reranked_results = [
-                {
-                    "text": r["document"],
-                    "score": r["score"],
-                    "metadata": r["metadata"],
-                }
+                {"text": r["document"], "score": r["score"], "metadata": r["metadata"]}
                 for r in reranked
             ]
         else:
             reranked_results = candidates
         
-        # 5. Ensure source diversity - include top results from each tafsir source
+        # 5. Final selection: keep relevance, but force a small, bounded tafsir diversity
         if ensure_source_diversity:
             tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
-            source_buckets = {s: [] for s in tafsir_sources}
-            other_results = []
-            
+            per_source_target = 2 if top_k >= len(tafsir_sources) * 2 else 1
+
+            selected: List[Dict[str, Any]] = []
+            used = set()
+
+            # First pass: take a small number per tafsir source
+            for source in tafsir_sources:
+                source_items = [
+                    r
+                    for r in reranked_results
+                    if r.get("metadata", {}).get("type") == "tafsir"
+                    and r.get("metadata", {}).get("source") == source
+                ]
+                for r in source_items[:per_source_target]:
+                    rk = _key(r)
+                    if rk not in used:
+                        selected.append(r)
+                        used.add(rk)
+
+            # Second pass: fill remaining with best overall (any type)
             for r in reranked_results:
-                source = r.get("metadata", {}).get("source", "")
-                if source in source_buckets:
-                    source_buckets[source].append(r)
-                else:
-                    other_results.append(r)
-            
-            # Build diverse result set: take top from each source, then fill with best overall
-            diverse_results = []
-            min_per_source = max(2, top_k // 5)  # At least 2 per source, more for larger top_k
-            
-            # First pass: ensure each source has representation
-            for source in tafsir_sources:
-                for r in source_buckets[source][:min_per_source]:
-                    if r not in diverse_results:
-                        diverse_results.append(r)
-            
-            # Second pass: fill remaining slots with highest-scored results
-            remaining = top_k - len(diverse_results)
-            all_remaining = []
-            for source in tafsir_sources:
-                all_remaining.extend(source_buckets[source][min_per_source:])
-            all_remaining.extend(other_results)
-            all_remaining.sort(key=lambda x: x.get("score", 0), reverse=True)
-            
-            for r in all_remaining:
-                if len(diverse_results) >= top_k:
+                if len(selected) >= top_k:
                     break
-                if r not in diverse_results:
-                    diverse_results.append(r)
-            
-            return diverse_results[:top_k]
-        
+                rk = _key(r)
+                if rk not in used:
+                    selected.append(r)
+                    used.add(rk)
+
+            return selected[:top_k]
+
+        reranked_results.sort(key=lambda x: x.get("score", 0), reverse=True)
         return reranked_results[:top_k]
     
     def _normalize_behavior(self, behavior: str) -> str:
