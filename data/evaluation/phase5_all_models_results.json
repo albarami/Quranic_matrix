@@ -1,0 +1,1499 @@
+[
+  {
+    "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "relatedness": {
+      "benchmark": "relatedness",
+      "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "num_pairs": 58,
+      "spearman": -0.0376,
+      "pearson": -0.0122,
+      "avg_equivalent_sim": 0.5522,
+      "avg_related_sim": 0.6264,
+      "avg_unrelated_sim": 0.5256,
+      "separation_equiv_related": -0.0742,
+      "separation_related_unrelated": 0.1007,
+      "pairwise_win_rate": 0.4848,
+      "winrate_equiv_vs_related": 0.3976,
+      "winrate_related_vs_unrelated": 0.6583,
+      "winrate_equiv_vs_unrelated": 0.5208,
+      "category_order_holds": false,
+      "passes_threshold": false
+    },
+    "equivalence": {
+      "benchmark": "equivalence",
+      "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "num_pairs": 65,
+      "num_positive": 25,
+      "num_negative": 40,
+      "auc": 0.361,
+      "avg_positive_sim": 0.5672,
+      "avg_negative_sim": 0.6714,
+      "separation_gap": -0.1042,
+      "passes_threshold": false
+    },
+    "details_rel": [
+      {
+        "id": "rel_001",
+        "text_a": "الصبر",
+        "text_b": "الصبر على البلاء",
+        "gold": 1.0,
+        "predicted": 0.8596,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_002",
+        "text_a": "الصبر",
+        "text_b": "التحمل والثبات",
+        "gold": 1.0,
+        "predicted": 0.5922,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_003",
+        "text_a": "الصبر",
+        "text_b": "الجزع",
+        "gold": 0.5,
+        "predicted": 0.736,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_004",
+        "text_a": "الإيمان",
+        "text_b": "التصديق بالله",
+        "gold": 1.0,
+        "predicted": 0.8107,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_005",
+        "text_a": "الإيمان",
+        "text_b": "الكفر",
+        "gold": 0.5,
+        "predicted": 0.5147,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_006",
+        "text_a": "الكبر",
+        "text_b": "التكبر والغطرسة",
+        "gold": 1.0,
+        "predicted": 0.5704,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_007",
+        "text_a": "الكبر",
+        "text_b": "التواضع",
+        "gold": 0.5,
+        "predicted": 0.2909,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_008",
+        "text_a": "الكبر",
+        "text_b": "الخشوع",
+        "gold": 0.5,
+        "predicted": 0.6814,
+        "category": "related"
+      },
+      {
+        "id": "rel_009",
+        "text_a": "الشكر",
+        "text_b": "الحمد والثناء على النعم",
+        "gold": 1.0,
+        "predicted": 0.8402,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_010",
+        "text_a": "الشكر",
+        "text_b": "الكفران",
+        "gold": 0.5,
+        "predicted": 0.6558,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_011",
+        "text_a": "التوبة",
+        "text_b": "الرجوع إلى الله",
+        "gold": 1.0,
+        "predicted": 0.6431,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_012",
+        "text_a": "التوبة",
+        "text_b": "الإصرار على المعصية",
+        "gold": 0.5,
+        "predicted": 0.7241,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_013",
+        "text_a": "النفاق",
+        "text_b": "إظهار الإيمان وإخفاء الكفر",
+        "gold": 1.0,
+        "predicted": 0.2727,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_014",
+        "text_a": "النفاق",
+        "text_b": "الإخلاص",
+        "gold": 0.5,
+        "predicted": 0.519,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_015",
+        "text_a": "النفاق",
+        "text_b": "الصدق",
+        "gold": 0.5,
+        "predicted": 0.5736,
+        "category": "related"
+      },
+      {
+        "id": "rel_016",
+        "text_a": "الحسد",
+        "text_b": "تمني زوال النعمة عن الغير",
+        "gold": 1.0,
+        "predicted": 0.5137,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_017",
+        "text_a": "الحسد",
+        "text_b": "الرضا بقسمة الله",
+        "gold": 0.5,
+        "predicted": 0.3265,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_018",
+        "text_a": "التقوى",
+        "text_b": "الخوف من الله واجتناب المعاصي",
+        "gold": 1.0,
+        "predicted": 0.3384,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_019",
+        "text_a": "التقوى",
+        "text_b": "الفسق",
+        "gold": 0.5,
+        "predicted": 0.8378,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_020",
+        "text_a": "الظلم",
+        "text_b": "وضع الشيء في غير موضعه",
+        "gold": 1.0,
+        "predicted": 0.3011,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_021",
+        "text_a": "الظلم",
+        "text_b": "العدل",
+        "gold": 0.5,
+        "predicted": 0.7249,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_022",
+        "text_a": "الرحمة",
+        "text_b": "اللين والرأفة",
+        "gold": 1.0,
+        "predicted": 0.7848,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_023",
+        "text_a": "الرحمة",
+        "text_b": "القسوة",
+        "gold": 0.5,
+        "predicted": 0.6516,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_024",
+        "text_a": "الخشوع",
+        "text_b": "خضوع القلب لله",
+        "gold": 1.0,
+        "predicted": 0.4488,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_025",
+        "text_a": "الخشوع",
+        "text_b": "الغفلة",
+        "gold": 0.5,
+        "predicted": 0.8704,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_026",
+        "text_a": "التوكل",
+        "text_b": "الاعتماد على الله",
+        "gold": 1.0,
+        "predicted": 0.3045,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_027",
+        "text_a": "التوكل",
+        "text_b": "الاعتماد على النفس فقط",
+        "gold": 0.5,
+        "predicted": 0.307,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_028",
+        "text_a": "الذكر",
+        "text_b": "ذكر الله باللسان والقلب",
+        "gold": 1.0,
+        "predicted": 0.419,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_029",
+        "text_a": "الذكر",
+        "text_b": "الغفلة عن الله",
+        "gold": 0.5,
+        "predicted": 0.5075,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_030",
+        "text_a": "البخل",
+        "text_b": "الشح ومنع الحق",
+        "gold": 1.0,
+        "predicted": 0.5846,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_031",
+        "text_a": "البخل",
+        "text_b": "الكرم",
+        "gold": 0.5,
+        "predicted": 0.8417,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_032",
+        "text_a": "الغضب",
+        "text_b": "ثوران النفس لدفع المكروه",
+        "gold": 1.0,
+        "predicted": 0.3306,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_033",
+        "text_a": "الغضب",
+        "text_b": "الحلم",
+        "gold": 0.5,
+        "predicted": 0.3186,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_034",
+        "text_a": "الرياء",
+        "text_b": "العمل لأجل الناس",
+        "gold": 1.0,
+        "predicted": 0.4582,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_035",
+        "text_a": "الرياء",
+        "text_b": "الإخلاص لله",
+        "gold": 0.5,
+        "predicted": 0.6077,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_036",
+        "text_a": "الصدق",
+        "text_b": "مطابقة القول للواقع",
+        "gold": 1.0,
+        "predicted": 0.8476,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_037",
+        "text_a": "الصدق",
+        "text_b": "الكذب",
+        "gold": 0.5,
+        "predicted": 0.6936,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_038",
+        "text_a": "الأمانة",
+        "text_b": "حفظ الحقوق وأداؤها",
+        "gold": 1.0,
+        "predicted": 0.388,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_039",
+        "text_a": "الأمانة",
+        "text_b": "الخيانة",
+        "gold": 0.5,
+        "predicted": 0.6798,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_040",
+        "text_a": "قسوة القلب",
+        "text_b": "جمود القلب وعدم تأثره",
+        "gold": 1.0,
+        "predicted": 0.9034,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_041",
+        "text_a": "قسوة القلب",
+        "text_b": "لين القلب",
+        "gold": 0.5,
+        "predicted": 0.9646,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_042",
+        "text_a": "الرجاء",
+        "text_b": "الخوف",
+        "gold": 0.5,
+        "predicted": 0.3307,
+        "category": "complementary"
+      },
+      {
+        "id": "rel_043",
+        "text_a": "الرجاء",
+        "text_b": "الأمل في رحمة الله",
+        "gold": 1.0,
+        "predicted": 0.365,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_044",
+        "text_a": "الخوف",
+        "text_b": "خشية الله",
+        "gold": 1.0,
+        "predicted": 0.7623,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_045",
+        "text_a": "العدل",
+        "text_b": "القسط",
+        "gold": 1.0,
+        "predicted": 0.5035,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_046",
+        "text_a": "الخوف",
+        "text_b": "الخشية",
+        "gold": 1.0,
+        "predicted": 0.4096,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_047",
+        "text_a": "الحسد",
+        "text_b": "الغيرة",
+        "gold": 0.5,
+        "predicted": 0.9523,
+        "category": "related"
+      },
+      {
+        "id": "rel_048",
+        "text_a": "الصبر",
+        "text_b": "التوكل",
+        "gold": 0.5,
+        "predicted": 0.7228,
+        "category": "related"
+      },
+      {
+        "id": "rel_049",
+        "text_a": "الصبر",
+        "text_b": "الطهارة",
+        "gold": 0.0,
+        "predicted": 0.7207,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_050",
+        "text_a": "الصدق",
+        "text_b": "الزكاة",
+        "gold": 0.0,
+        "predicted": 0.5503,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_051",
+        "text_a": "التوبة",
+        "text_b": "الحج",
+        "gold": 0.0,
+        "predicted": 0.6832,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_052",
+        "text_a": "الشكر",
+        "text_b": "الصيام",
+        "gold": 0.0,
+        "predicted": 0.6053,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_053",
+        "text_a": "التقوى",
+        "text_b": "الوضوء",
+        "gold": 0.0,
+        "predicted": 0.4414,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_054",
+        "text_a": "الإيمان",
+        "text_b": "القراءة",
+        "gold": 0.0,
+        "predicted": 0.3886,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_055",
+        "text_a": "الكبر",
+        "text_b": "الصلاة",
+        "gold": 0.0,
+        "predicted": 0.2993,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_056",
+        "text_a": "الحسد",
+        "text_b": "الدعاء",
+        "gold": 0.0,
+        "predicted": 0.4151,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_057",
+        "text_a": "الظلم",
+        "text_b": "التلاوة",
+        "gold": 0.0,
+        "predicted": 0.4572,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_058",
+        "text_a": "الرحمة",
+        "text_b": "السجود",
+        "gold": 0.0,
+        "predicted": 0.6953,
+        "category": "hard_unrelated"
+      }
+    ]
+  },
+  {
+    "model": "aubmindlab/bert-base-arabertv2",
+    "relatedness": {
+      "benchmark": "relatedness",
+      "model_name": "aubmindlab/bert-base-arabertv2",
+      "num_pairs": 58,
+      "spearman": -0.5722,
+      "pearson": -0.5797,
+      "avg_equivalent_sim": 0.5661,
+      "avg_related_sim": 0.7236,
+      "avg_unrelated_sim": 0.7522,
+      "separation_equiv_related": -0.1575,
+      "separation_related_unrelated": -0.0286,
+      "pairwise_win_rate": 0.2244,
+      "winrate_equiv_vs_related": 0.1615,
+      "winrate_related_vs_unrelated": 0.4958,
+      "winrate_equiv_vs_unrelated": 0.1042,
+      "category_order_holds": false,
+      "passes_threshold": false
+    },
+    "equivalence": {
+      "benchmark": "equivalence",
+      "model_name": "aubmindlab/bert-base-arabertv2",
+      "num_pairs": 65,
+      "num_positive": 25,
+      "num_negative": 40,
+      "auc": 0.16,
+      "avg_positive_sim": 0.5748,
+      "avg_negative_sim": 0.7386,
+      "separation_gap": -0.1638,
+      "passes_threshold": false
+    },
+    "details_rel": [
+      {
+        "id": "rel_001",
+        "text_a": "الصبر",
+        "text_b": "الصبر على البلاء",
+        "gold": 1.0,
+        "predicted": 0.6566,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_002",
+        "text_a": "الصبر",
+        "text_b": "التحمل والثبات",
+        "gold": 1.0,
+        "predicted": 0.6184,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_003",
+        "text_a": "الصبر",
+        "text_b": "الجزع",
+        "gold": 0.5,
+        "predicted": 0.8322,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_004",
+        "text_a": "الإيمان",
+        "text_b": "التصديق بالله",
+        "gold": 1.0,
+        "predicted": 0.7051,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_005",
+        "text_a": "الإيمان",
+        "text_b": "الكفر",
+        "gold": 0.5,
+        "predicted": 0.7403,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_006",
+        "text_a": "الكبر",
+        "text_b": "التكبر والغطرسة",
+        "gold": 1.0,
+        "predicted": 0.5453,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_007",
+        "text_a": "الكبر",
+        "text_b": "التواضع",
+        "gold": 0.5,
+        "predicted": 0.737,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_008",
+        "text_a": "الكبر",
+        "text_b": "الخشوع",
+        "gold": 0.5,
+        "predicted": 0.6,
+        "category": "related"
+      },
+      {
+        "id": "rel_009",
+        "text_a": "الشكر",
+        "text_b": "الحمد والثناء على النعم",
+        "gold": 1.0,
+        "predicted": 0.4976,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_010",
+        "text_a": "الشكر",
+        "text_b": "الكفران",
+        "gold": 0.5,
+        "predicted": 0.7112,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_011",
+        "text_a": "التوبة",
+        "text_b": "الرجوع إلى الله",
+        "gold": 1.0,
+        "predicted": 0.5872,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_012",
+        "text_a": "التوبة",
+        "text_b": "الإصرار على المعصية",
+        "gold": 0.5,
+        "predicted": 0.6191,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_013",
+        "text_a": "النفاق",
+        "text_b": "إظهار الإيمان وإخفاء الكفر",
+        "gold": 1.0,
+        "predicted": 0.5431,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_014",
+        "text_a": "النفاق",
+        "text_b": "الإخلاص",
+        "gold": 0.5,
+        "predicted": 0.7519,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_015",
+        "text_a": "النفاق",
+        "text_b": "الصدق",
+        "gold": 0.5,
+        "predicted": 0.7828,
+        "category": "related"
+      },
+      {
+        "id": "rel_016",
+        "text_a": "الحسد",
+        "text_b": "تمني زوال النعمة عن الغير",
+        "gold": 1.0,
+        "predicted": 0.5353,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_017",
+        "text_a": "الحسد",
+        "text_b": "الرضا بقسمة الله",
+        "gold": 0.5,
+        "predicted": 0.5844,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_018",
+        "text_a": "التقوى",
+        "text_b": "الخوف من الله واجتناب المعاصي",
+        "gold": 1.0,
+        "predicted": 0.3651,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_019",
+        "text_a": "التقوى",
+        "text_b": "الفسق",
+        "gold": 0.5,
+        "predicted": 0.7247,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_020",
+        "text_a": "الظلم",
+        "text_b": "وضع الشيء في غير موضعه",
+        "gold": 1.0,
+        "predicted": 0.4681,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_021",
+        "text_a": "الظلم",
+        "text_b": "العدل",
+        "gold": 0.5,
+        "predicted": 0.8093,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_022",
+        "text_a": "الرحمة",
+        "text_b": "اللين والرأفة",
+        "gold": 1.0,
+        "predicted": 0.6885,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_023",
+        "text_a": "الرحمة",
+        "text_b": "القسوة",
+        "gold": 0.5,
+        "predicted": 0.6993,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_024",
+        "text_a": "الخشوع",
+        "text_b": "خضوع القلب لله",
+        "gold": 1.0,
+        "predicted": 0.3894,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_025",
+        "text_a": "الخشوع",
+        "text_b": "الغفلة",
+        "gold": 0.5,
+        "predicted": 0.6998,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_026",
+        "text_a": "التوكل",
+        "text_b": "الاعتماد على الله",
+        "gold": 1.0,
+        "predicted": 0.5445,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_027",
+        "text_a": "التوكل",
+        "text_b": "الاعتماد على النفس فقط",
+        "gold": 0.5,
+        "predicted": 0.5302,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_028",
+        "text_a": "الذكر",
+        "text_b": "ذكر الله باللسان والقلب",
+        "gold": 1.0,
+        "predicted": 0.4834,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_029",
+        "text_a": "الذكر",
+        "text_b": "الغفلة عن الله",
+        "gold": 0.5,
+        "predicted": 0.5647,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_030",
+        "text_a": "البخل",
+        "text_b": "الشح ومنع الحق",
+        "gold": 1.0,
+        "predicted": 0.6534,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_031",
+        "text_a": "البخل",
+        "text_b": "الكرم",
+        "gold": 0.5,
+        "predicted": 0.813,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_032",
+        "text_a": "الغضب",
+        "text_b": "ثوران النفس لدفع المكروه",
+        "gold": 1.0,
+        "predicted": 0.5272,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_033",
+        "text_a": "الغضب",
+        "text_b": "الحلم",
+        "gold": 0.5,
+        "predicted": 0.7993,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_034",
+        "text_a": "الرياء",
+        "text_b": "العمل لأجل الناس",
+        "gold": 1.0,
+        "predicted": 0.4341,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_035",
+        "text_a": "الرياء",
+        "text_b": "الإخلاص لله",
+        "gold": 0.5,
+        "predicted": 0.5652,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_036",
+        "text_a": "الصدق",
+        "text_b": "مطابقة القول للواقع",
+        "gold": 1.0,
+        "predicted": 0.5456,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_037",
+        "text_a": "الصدق",
+        "text_b": "الكذب",
+        "gold": 0.5,
+        "predicted": 0.7747,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_038",
+        "text_a": "الأمانة",
+        "text_b": "حفظ الحقوق وأداؤها",
+        "gold": 1.0,
+        "predicted": 0.5234,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_039",
+        "text_a": "الأمانة",
+        "text_b": "الخيانة",
+        "gold": 0.5,
+        "predicted": 0.7794,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_040",
+        "text_a": "قسوة القلب",
+        "text_b": "جمود القلب وعدم تأثره",
+        "gold": 1.0,
+        "predicted": 0.7339,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_041",
+        "text_a": "قسوة القلب",
+        "text_b": "لين القلب",
+        "gold": 0.5,
+        "predicted": 0.8156,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_042",
+        "text_a": "الرجاء",
+        "text_b": "الخوف",
+        "gold": 0.5,
+        "predicted": 0.7837,
+        "category": "complementary"
+      },
+      {
+        "id": "rel_043",
+        "text_a": "الرجاء",
+        "text_b": "الأمل في رحمة الله",
+        "gold": 1.0,
+        "predicted": 0.3407,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_044",
+        "text_a": "الخوف",
+        "text_b": "خشية الله",
+        "gold": 1.0,
+        "predicted": 0.5528,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_045",
+        "text_a": "العدل",
+        "text_b": "القسط",
+        "gold": 1.0,
+        "predicted": 0.8006,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_046",
+        "text_a": "الخوف",
+        "text_b": "الخشية",
+        "gold": 1.0,
+        "predicted": 0.8474,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_047",
+        "text_a": "الحسد",
+        "text_b": "الغيرة",
+        "gold": 0.5,
+        "predicted": 0.8166,
+        "category": "related"
+      },
+      {
+        "id": "rel_048",
+        "text_a": "الصبر",
+        "text_b": "التوكل",
+        "gold": 0.5,
+        "predicted": 0.8318,
+        "category": "related"
+      },
+      {
+        "id": "rel_049",
+        "text_a": "الصبر",
+        "text_b": "الطهارة",
+        "gold": 0.0,
+        "predicted": 0.7808,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_050",
+        "text_a": "الصدق",
+        "text_b": "الزكاة",
+        "gold": 0.0,
+        "predicted": 0.7808,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_051",
+        "text_a": "التوبة",
+        "text_b": "الحج",
+        "gold": 0.0,
+        "predicted": 0.7319,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_052",
+        "text_a": "الشكر",
+        "text_b": "الصيام",
+        "gold": 0.0,
+        "predicted": 0.695,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_053",
+        "text_a": "التقوى",
+        "text_b": "الوضوء",
+        "gold": 0.0,
+        "predicted": 0.7666,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_054",
+        "text_a": "الإيمان",
+        "text_b": "القراءة",
+        "gold": 0.0,
+        "predicted": 0.7159,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_055",
+        "text_a": "الكبر",
+        "text_b": "الصلاة",
+        "gold": 0.0,
+        "predicted": 0.6913,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_056",
+        "text_a": "الحسد",
+        "text_b": "الدعاء",
+        "gold": 0.0,
+        "predicted": 0.8605,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_057",
+        "text_a": "الظلم",
+        "text_b": "التلاوة",
+        "gold": 0.0,
+        "predicted": 0.7326,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_058",
+        "text_a": "الرحمة",
+        "text_b": "السجود",
+        "gold": 0.0,
+        "predicted": 0.7664,
+        "category": "hard_unrelated"
+      }
+    ]
+  },
+  {
+    "model": "CAMeL-Lab/bert-base-arabic-camelbert-ca",
+    "relatedness": {
+      "benchmark": "relatedness",
+      "model_name": "CAMeL-Lab/bert-base-arabic-camelbert-ca",
+      "num_pairs": 58,
+      "spearman": -0.3719,
+      "pearson": -0.3866,
+      "avg_equivalent_sim": 0.8221,
+      "avg_related_sim": 0.8612,
+      "avg_unrelated_sim": 0.8894,
+      "separation_equiv_related": -0.0391,
+      "separation_related_unrelated": -0.0282,
+      "pairwise_win_rate": 0.3258,
+      "winrate_equiv_vs_related": 0.3611,
+      "winrate_related_vs_unrelated": 0.3958,
+      "winrate_equiv_vs_unrelated": 0.1708,
+      "category_order_holds": false,
+      "passes_threshold": false
+    },
+    "equivalence": {
+      "benchmark": "equivalence",
+      "model_name": "CAMeL-Lab/bert-base-arabic-camelbert-ca",
+      "num_pairs": 65,
+      "num_positive": 25,
+      "num_negative": 40,
+      "auc": 0.279,
+      "avg_positive_sim": 0.8256,
+      "avg_negative_sim": 0.8804,
+      "separation_gap": -0.0548,
+      "passes_threshold": false
+    },
+    "details_rel": [
+      {
+        "id": "rel_001",
+        "text_a": "الصبر",
+        "text_b": "الصبر على البلاء",
+        "gold": 1.0,
+        "predicted": 0.9008,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_002",
+        "text_a": "الصبر",
+        "text_b": "التحمل والثبات",
+        "gold": 1.0,
+        "predicted": 0.8244,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_003",
+        "text_a": "الصبر",
+        "text_b": "الجزع",
+        "gold": 0.5,
+        "predicted": 0.8525,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_004",
+        "text_a": "الإيمان",
+        "text_b": "التصديق بالله",
+        "gold": 1.0,
+        "predicted": 0.8452,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_005",
+        "text_a": "الإيمان",
+        "text_b": "الكفر",
+        "gold": 0.5,
+        "predicted": 0.933,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_006",
+        "text_a": "الكبر",
+        "text_b": "التكبر والغطرسة",
+        "gold": 1.0,
+        "predicted": 0.8168,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_007",
+        "text_a": "الكبر",
+        "text_b": "التواضع",
+        "gold": 0.5,
+        "predicted": 0.9511,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_008",
+        "text_a": "الكبر",
+        "text_b": "الخشوع",
+        "gold": 0.5,
+        "predicted": 0.8194,
+        "category": "related"
+      },
+      {
+        "id": "rel_009",
+        "text_a": "الشكر",
+        "text_b": "الحمد والثناء على النعم",
+        "gold": 1.0,
+        "predicted": 0.844,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_010",
+        "text_a": "الشكر",
+        "text_b": "الكفران",
+        "gold": 0.5,
+        "predicted": 0.885,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_011",
+        "text_a": "التوبة",
+        "text_b": "الرجوع إلى الله",
+        "gold": 1.0,
+        "predicted": 0.8557,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_012",
+        "text_a": "التوبة",
+        "text_b": "الإصرار على المعصية",
+        "gold": 0.5,
+        "predicted": 0.7395,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_013",
+        "text_a": "النفاق",
+        "text_b": "إظهار الإيمان وإخفاء الكفر",
+        "gold": 1.0,
+        "predicted": 0.813,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_014",
+        "text_a": "النفاق",
+        "text_b": "الإخلاص",
+        "gold": 0.5,
+        "predicted": 0.845,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_015",
+        "text_a": "النفاق",
+        "text_b": "الصدق",
+        "gold": 0.5,
+        "predicted": 0.9504,
+        "category": "related"
+      },
+      {
+        "id": "rel_016",
+        "text_a": "الحسد",
+        "text_b": "تمني زوال النعمة عن الغير",
+        "gold": 1.0,
+        "predicted": 0.7598,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_017",
+        "text_a": "الحسد",
+        "text_b": "الرضا بقسمة الله",
+        "gold": 0.5,
+        "predicted": 0.7419,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_018",
+        "text_a": "التقوى",
+        "text_b": "الخوف من الله واجتناب المعاصي",
+        "gold": 1.0,
+        "predicted": 0.7092,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_019",
+        "text_a": "التقوى",
+        "text_b": "الفسق",
+        "gold": 0.5,
+        "predicted": 0.8227,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_020",
+        "text_a": "الظلم",
+        "text_b": "وضع الشيء في غير موضعه",
+        "gold": 1.0,
+        "predicted": 0.7011,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_021",
+        "text_a": "الظلم",
+        "text_b": "العدل",
+        "gold": 0.5,
+        "predicted": 0.9235,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_022",
+        "text_a": "الرحمة",
+        "text_b": "اللين والرأفة",
+        "gold": 1.0,
+        "predicted": 0.7298,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_023",
+        "text_a": "الرحمة",
+        "text_b": "القسوة",
+        "gold": 0.5,
+        "predicted": 0.8138,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_024",
+        "text_a": "الخشوع",
+        "text_b": "خضوع القلب لله",
+        "gold": 1.0,
+        "predicted": 0.8857,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_025",
+        "text_a": "الخشوع",
+        "text_b": "الغفلة",
+        "gold": 0.5,
+        "predicted": 0.7966,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_026",
+        "text_a": "التوكل",
+        "text_b": "الاعتماد على الله",
+        "gold": 1.0,
+        "predicted": 0.8652,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_027",
+        "text_a": "التوكل",
+        "text_b": "الاعتماد على النفس فقط",
+        "gold": 0.5,
+        "predicted": 0.8522,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_028",
+        "text_a": "الذكر",
+        "text_b": "ذكر الله باللسان والقلب",
+        "gold": 1.0,
+        "predicted": 0.7933,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_029",
+        "text_a": "الذكر",
+        "text_b": "الغفلة عن الله",
+        "gold": 0.5,
+        "predicted": 0.7963,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_030",
+        "text_a": "البخل",
+        "text_b": "الشح ومنع الحق",
+        "gold": 1.0,
+        "predicted": 0.8779,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_031",
+        "text_a": "البخل",
+        "text_b": "الكرم",
+        "gold": 0.5,
+        "predicted": 0.7988,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_032",
+        "text_a": "الغضب",
+        "text_b": "ثوران النفس لدفع المكروه",
+        "gold": 1.0,
+        "predicted": 0.825,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_033",
+        "text_a": "الغضب",
+        "text_b": "الحلم",
+        "gold": 0.5,
+        "predicted": 0.9546,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_034",
+        "text_a": "الرياء",
+        "text_b": "العمل لأجل الناس",
+        "gold": 1.0,
+        "predicted": 0.8177,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_035",
+        "text_a": "الرياء",
+        "text_b": "الإخلاص لله",
+        "gold": 0.5,
+        "predicted": 0.8286,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_036",
+        "text_a": "الصدق",
+        "text_b": "مطابقة القول للواقع",
+        "gold": 1.0,
+        "predicted": 0.8442,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_037",
+        "text_a": "الصدق",
+        "text_b": "الكذب",
+        "gold": 0.5,
+        "predicted": 0.96,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_038",
+        "text_a": "الأمانة",
+        "text_b": "حفظ الحقوق وأداؤها",
+        "gold": 1.0,
+        "predicted": 0.8022,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_039",
+        "text_a": "الأمانة",
+        "text_b": "الخيانة",
+        "gold": 0.5,
+        "predicted": 0.854,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_040",
+        "text_a": "قسوة القلب",
+        "text_b": "جمود القلب وعدم تأثره",
+        "gold": 1.0,
+        "predicted": 0.8917,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_041",
+        "text_a": "قسوة القلب",
+        "text_b": "لين القلب",
+        "gold": 0.5,
+        "predicted": 0.8641,
+        "category": "opposite"
+      },
+      {
+        "id": "rel_042",
+        "text_a": "الرجاء",
+        "text_b": "الخوف",
+        "gold": 0.5,
+        "predicted": 0.9407,
+        "category": "complementary"
+      },
+      {
+        "id": "rel_043",
+        "text_a": "الرجاء",
+        "text_b": "الأمل في رحمة الله",
+        "gold": 1.0,
+        "predicted": 0.7061,
+        "category": "same_concept"
+      },
+      {
+        "id": "rel_044",
+        "text_a": "الخوف",
+        "text_b": "خشية الله",
+        "gold": 1.0,
+        "predicted": 0.8893,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_045",
+        "text_a": "العدل",
+        "text_b": "القسط",
+        "gold": 1.0,
+        "predicted": 0.8867,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_046",
+        "text_a": "الخوف",
+        "text_b": "الخشية",
+        "gold": 1.0,
+        "predicted": 0.8465,
+        "category": "synonym"
+      },
+      {
+        "id": "rel_047",
+        "text_a": "الحسد",
+        "text_b": "الغيرة",
+        "gold": 0.5,
+        "predicted": 0.8371,
+        "category": "related"
+      },
+      {
+        "id": "rel_048",
+        "text_a": "الصبر",
+        "text_b": "التوكل",
+        "gold": 0.5,
+        "predicted": 0.9082,
+        "category": "related"
+      },
+      {
+        "id": "rel_049",
+        "text_a": "الصبر",
+        "text_b": "الطهارة",
+        "gold": 0.0,
+        "predicted": 0.8783,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_050",
+        "text_a": "الصدق",
+        "text_b": "الزكاة",
+        "gold": 0.0,
+        "predicted": 0.9029,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_051",
+        "text_a": "التوبة",
+        "text_b": "الحج",
+        "gold": 0.0,
+        "predicted": 0.9289,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_052",
+        "text_a": "الشكر",
+        "text_b": "الصيام",
+        "gold": 0.0,
+        "predicted": 0.94,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_053",
+        "text_a": "التقوى",
+        "text_b": "الوضوء",
+        "gold": 0.0,
+        "predicted": 0.789,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_054",
+        "text_a": "الإيمان",
+        "text_b": "القراءة",
+        "gold": 0.0,
+        "predicted": 0.8786,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_055",
+        "text_a": "الكبر",
+        "text_b": "الصلاة",
+        "gold": 0.0,
+        "predicted": 0.9026,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_056",
+        "text_a": "الحسد",
+        "text_b": "الدعاء",
+        "gold": 0.0,
+        "predicted": 0.9376,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_057",
+        "text_a": "الظلم",
+        "text_b": "التلاوة",
+        "gold": 0.0,
+        "predicted": 0.8308,
+        "category": "hard_unrelated"
+      },
+      {
+        "id": "rel_058",
+        "text_a": "الرحمة",
+        "text_b": "السجود",
+        "gold": 0.0,
+        "predicted": 0.9054,
+        "category": "hard_unrelated"
+      }
+    ]
+  }
+]
