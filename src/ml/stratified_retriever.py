@@ -4,9 +4,11 @@ Guarantees results from all 5 tafsir sources without fallbacks.
 
 Architecture:
 1. Per-source BM25 indexes for exact Arabic term matching
-2. Per-source embedding indexes for semantic search
-3. RRF fusion within each source
-4. Guaranteed minimum results per source (no fallbacks needed)
+2. Guaranteed minimum results per source (no fallbacks needed)
+3. Fail-fast design: missing indexes = startup failure
+
+NOTE: This is BM25-only. Semantic embeddings will be added in Phase 5
+after the embedding model is evaluated/fine-tuned for Classical Arabic.
 
 Hard Rule: If this retriever cannot return results from all sources,
 the indexes are broken and must be rebuilt - NO runtime fallbacks.
@@ -38,12 +40,12 @@ TAFSIR_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
 
 @dataclass
 class SourceIndex:
-    """Index for a single tafsir source."""
+    """Index for a single tafsir source (BM25-only in Phase 4)."""
     source_id: str
     documents: List[Dict[str, Any]] = field(default_factory=list)
     texts: List[str] = field(default_factory=list)
-    bm25: Any = None
-    embeddings: Optional[np.ndarray] = None
+    bm25: Any = None  # BM25Okapi index
+    # NOTE: embeddings will be added in Phase 5
     
     def __len__(self):
         return len(self.documents)
@@ -68,42 +70,42 @@ class StratifiedTafsirRetriever:
     
     MIN_RESULTS_PER_SOURCE = 5
     
-    def __init__(
-        self,
-        embedder: Any = None,
-        fail_fast: bool = True,
-    ):
+    def __init__(self, fail_fast: bool = True):
         """
         Initialize the stratified retriever.
         
+        Phase 4: BM25-only. Embeddings will be added in Phase 5.
+        
         Args:
-            embedder: Sentence transformer model for embeddings
             fail_fast: If True, raise error if indexes missing (default: True)
         """
-        self.embedder = embedder
         self.fail_fast = fail_fast
         self.source_indexes: Dict[str, SourceIndex] = {}
         self._initialized = False
         
     def initialize(self):
         """
-        Load or build indexes for all sources.
+        Load pre-built indexes for all sources.
+        
+        NO RUNTIME BUILDS: If indexes are missing, this fails fast.
+        Run `python -m src.ml.stratified_retriever` to build indexes.
         
         Raises:
-            IndexNotFoundError: If fail_fast=True and indexes are missing
+            IndexNotFoundError: If indexes are missing (always - no fallback)
         """
         if self._initialized:
             return
             
         logger.info("Initializing StratifiedTafsirRetriever...")
         
-        # Try to load from pre-built indexes first
+        # Load from pre-built indexes ONLY - no runtime builds
         indexes_exist = self._try_load_indexes()
         
         if not indexes_exist:
-            # Build indexes from database
-            logger.info("Pre-built indexes not found, building from database...")
-            self._build_indexes_from_db()
+            raise IndexNotFoundError(
+                f"Pre-built tafsir indexes not found at {INDEXES_DIR}. "
+                "Run `python -m src.ml.stratified_retriever` to build indexes."
+            )
         
         # Validate all sources have data
         self._validate_indexes()
@@ -232,11 +234,13 @@ class StratifiedTafsirRetriever:
         top_k_per_source: int = 5,
     ) -> Dict[str, List[Dict[str, Any]]]:
         """
-        Search all sources and return stratified results.
+        Search all sources using BM25 and return stratified results.
+        
+        Phase 4: BM25-only. Semantic search will be added in Phase 5.
         
         Args:
             query: Search query in Arabic
-            top_k_per_source: Minimum results per source (default: 5)
+            top_k_per_source: Results per source (default: 5)
             
         Returns:
             Dict mapping source_id to list of results
@@ -253,50 +257,20 @@ class StratifiedTafsirRetriever:
         for source, idx in self.source_indexes.items():
             source_results = []
             
-            # BM25 search
+            # BM25 search (Phase 4: BM25-only)
             if idx.bm25 and query_tokens:
                 scores = idx.bm25.get_scores(query_tokens)
                 top_indices = np.argsort(scores)[-top_k_per_source * 2:][::-1]
                 
-                for i in top_indices:
+                for rank, i in enumerate(top_indices):
                     if scores[i] > 0:
                         doc = idx.documents[i].copy()
                         doc["bm25_score"] = float(scores[i])
-                        doc["rank"] = len(source_results)
+                        doc["rank"] = rank
                         source_results.append(doc)
             
-            # Embedding search (if available)
-            if self.embedder and idx.embeddings is not None:
-                query_emb = self.embedder.encode(query)
-                similarities = np.dot(idx.embeddings, query_emb)
-                similarities /= (np.linalg.norm(idx.embeddings, axis=1) * np.linalg.norm(query_emb) + 1e-8)
-                
-                top_indices = np.argsort(similarities)[-top_k_per_source * 2:][::-1]
-                
-                for i in top_indices:
-                    doc = idx.documents[i].copy()
-                    doc["emb_score"] = float(similarities[i])
-                    
-                    # Merge with BM25 results using RRF
-                    existing = next((r for r in source_results if r["surah"] == doc["surah"] and r["ayah"] == doc["ayah"]), None)
-                    if existing:
-                        existing["emb_score"] = doc["emb_score"]
-                    else:
-                        doc["rank"] = len(source_results)
-                        source_results.append(doc)
-            
-            # Calculate final RRF score
-            for doc in source_results:
-                bm25_rank = doc.get("rank", 100)
-                emb_rank = 100  # Default if no embedding
-                if "emb_score" in doc:
-                    # Estimate rank from score
-                    emb_rank = doc.get("rank", 50)
-                
-                doc["rrf_score"] = 1.0 / (bm25_rank + 1) + 1.0 / (emb_rank + 1)
-            
-            # Sort by RRF score and take top_k
-            source_results.sort(key=lambda x: x.get("rrf_score", 0), reverse=True)
+            # Sort by BM25 score and take top_k
+            source_results.sort(key=lambda x: x.get("bm25_score", 0), reverse=True)
             results[source] = source_results[:top_k_per_source]
         
         return results
@@ -340,18 +314,12 @@ class StratifiedTafsirRetriever:
 _stratified_retriever: Optional[StratifiedTafsirRetriever] = None
 
 
-def get_stratified_retriever(
-    embedder: Any = None,
-    fail_fast: bool = True,
-) -> StratifiedTafsirRetriever:
+def get_stratified_retriever(fail_fast: bool = True) -> StratifiedTafsirRetriever:
     """Get or create the stratified retriever singleton."""
     global _stratified_retriever
     
     if _stratified_retriever is None:
-        _stratified_retriever = StratifiedTafsirRetriever(
-            embedder=embedder,
-            fail_fast=fail_fast,
-        )
+        _stratified_retriever = StratifiedTafsirRetriever(fail_fast=fail_fast)
         _stratified_retriever.initialize()
     
     return _stratified_retriever

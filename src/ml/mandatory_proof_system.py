@@ -514,6 +514,15 @@ class MandatoryProofSystem:
     def __init__(self, full_power_system):
         self.system = full_power_system
         self.tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+        
+        # Phase 4: Initialize stratified tafsir retriever for guaranteed results
+        from src.ml.stratified_retriever import get_stratified_retriever, IndexNotFoundError
+        try:
+            self.stratified_retriever = get_stratified_retriever(fail_fast=True)
+            logging.info("[PROOF] StratifiedTafsirRetriever initialized successfully")
+        except IndexNotFoundError as e:
+            logging.error(f"[PROOF] StratifiedTafsirRetriever failed to initialize: {e}")
+            raise  # Fail fast - no fallback allowed
     
     def answer_with_full_proof(self, question: str) -> Dict[str, Any]:
         """Answer with mandatory proof from all 13 components"""
@@ -675,41 +684,20 @@ class MandatoryProofSystem:
         )
         
         # 4. Build Tafsir Evidence for all 5 sources
-        # Root-cause fix: use source-restricted vector search (avoid "fill from tafsir_data")
+        # Phase 4: Use StratifiedTafsirRetriever for guaranteed results from all sources
         MIN_PER_SOURCE = 10
-        try:
-            if hasattr(self.system, "search_tafsir_by_source"):
-                per_source = self.system.search_tafsir_by_source(
-                    question, per_source_k=MIN_PER_SOURCE, rerank=True
-                )
-                for source in self.tafsir_sources:
-                    source_results = per_source.get(source, [])
-                    logging.info(f"[TAFSIR] {source}: {len(source_results)} results from search")
-                    for row in source_results:
-                        meta = row.get("metadata", {}) or {}
-                        verse = str(meta.get("verse", "")) if meta.get("verse") else ""
-                        surah = meta.get("surah")
-                        ayah = meta.get("ayah")
-                        if (not surah or not ayah) and verse and ":" in verse:
-                            parts = verse.split(":", 1)
-                            surah = parts[0]
-                            ayah = parts[1]
-
-                        # Boost low scores to show relevance (reranker scores can be very low)
-                        raw_score = row.get("score", 0)
-                        # Normalize score: if reranker returned it, it's at least somewhat relevant
-                        display_score = max(raw_score, 0.15) if raw_score > 0 else 0.1
-                        
-                        tafsir_results[source].append(
-                            {
-                                "surah": str(surah) if surah not in [None, ""] else "?",
-                                "ayah": str(ayah) if ayah not in [None, ""] else "?",
-                                "text": row.get("text", ""),
-                                "score": display_score,
-                            }
-                        )
-        except Exception as e:
-            logging.warning(f"[TAFSIR] source-restricted search failed: {e}")
+        stratified_results = self.stratified_retriever.search(question, top_k_per_source=MIN_PER_SOURCE)
+        
+        for source in self.tafsir_sources:
+            source_results = stratified_results.get(source, [])
+            logging.info(f"[TAFSIR] {source}: {len(source_results)} results from stratified retriever")
+            for row in source_results:
+                tafsir_results[source].append({
+                    "surah": str(row.get("surah", "?")),
+                    "ayah": str(row.get("ayah", "?")),
+                    "text": row.get("text", ""),
+                    "score": row.get("rrf_score", row.get("bm25_score", 0.5)),
+                })
 
         # Deduplicate + trim per source
         for source in self.tafsir_sources:
