@@ -675,7 +675,6 @@ class MandatoryProofSystem:
         # 4. Build Tafsir Evidence for all 5 sources
         # Root-cause fix: use source-restricted vector search (avoid "fill from tafsir_data")
         MIN_PER_SOURCE = 10
-        import logging
         try:
             if hasattr(self.system, "search_tafsir_by_source"):
                 per_source = self.system.search_tafsir_by_source(
@@ -802,7 +801,6 @@ class MandatoryProofSystem:
                     {"from": "صبر", "to": "إيمان", "type": "strengthens", "weight": 0.9, "verses": 35},
                 ]
                 
-                import logging
                 logging.info(f"[GRAPH FALLBACK] Framework query detected, added {len(graph_nodes)} core behavior nodes")
         
         # GNN paths
@@ -956,7 +954,6 @@ class MandatoryProofSystem:
             framework_keywords = ['خارطة', 'سلوك', 'إطار', 'منهج', 'نظام', 'قلب', 'مؤمن', 'منافق', 'كافر']
             if len(detected_behaviors) == 0 and any(kw in question for kw in framework_keywords):
                 detected_behaviors = ['إيمان', 'كفر', 'نفاق', 'توبة', 'شكر', 'صبر', 'كبر', 'صدق']
-                import logging
                 logging.info(f"[BEHAVIOR FALLBACK] Framework query, using core behaviors: {detected_behaviors}")
             
             # Build behavior entries
