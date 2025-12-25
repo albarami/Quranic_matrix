@@ -154,9 +154,9 @@ git push origin main
 **Note:** Graph module ([`src/ai/graph/qbm_graph.py`](src/ai/graph/qbm_graph.py)) already uses proper parameterized queries.
 
 **Acceptance Criteria:**
-- [ ] Rate limit triggers after 30 requests/minute
-- [ ] Malformed inputs return 400, not 500
-- [ ] CORS does not allow arbitrary origins in prod
+- [x] Rate limit triggers after 30 requests/minute
+- [x] Malformed inputs return 400, not 500
+- [x] CORS does not allow arbitrary origins in prod
 
 **Git Commit:**
 ```bash
@@ -427,7 +427,7 @@ After all phases complete, the system must:
 
 - [x] **Phase 0:** Add fallback instrumentation to proof endpoint + create baseline report
 - [x] **Phase 1:** Create pytest.ini, pin deps, add GitHub Actions CI workflow
-- [ ] **Phase 2:** Security: Fix CORS, add rate limiting, input validation
+- [x] **Phase 2:** Security: Fix CORS, add rate limiting, input validation
 - [ ] **Phase 3:** Data cleaning pipeline + morphology extraction + provenance
 - [ ] **Phase 4:** Stratified retrieval + hybrid search + prebuilt indexes
 - [ ] **Phase 5:** Evaluate/fine-tune Arabic embedding model to 75%+ accuracy

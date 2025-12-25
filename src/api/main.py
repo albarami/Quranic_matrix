@@ -21,12 +21,16 @@ Usage:
 """
 
 import json
+import os
 import re
 from pathlib import Path
 from typing import Optional, List
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 
 from .models import (
     HealthResponse,
@@ -97,14 +101,29 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
-# CORS middleware - allow frontend to call backend
+# =============================================================================
+# SECURITY: CORS Configuration (Phase 2)
+# =============================================================================
+# Read allowed origins from environment variable, default to localhost for dev
+ALLOWED_ORIGINS = os.getenv(
+    "ALLOWED_ORIGINS",
+    "http://localhost:3000,http://localhost:3001,http://127.0.0.1:3000"
+).split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins for development
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"],
 )
+
+# =============================================================================
+# SECURITY: Rate Limiting (Phase 2)
+# =============================================================================
+limiter = Limiter(key_func=get_remote_address)
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # Include Discovery API routes
 from .discovery_routes import router as discovery_router
@@ -2005,12 +2024,33 @@ async def ml_search(
 # QBM FULL POWER PROOF SYSTEM - 13 Component Mandatory Proof
 # =============================================================================
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, field_validator
 from typing import Dict, Any
 
 class ProofQueryRequest(BaseModel):
-    question: str
+    """Request model for proof queries with input validation (Phase 2)"""
+    question: str = Field(
+        ...,
+        min_length=2,
+        max_length=2000,
+        description="Question to analyze (Arabic or English)"
+    )
     include_proof: bool = True
+    
+    @field_validator('question')
+    @classmethod
+    def validate_question(cls, v: str) -> str:
+        """Validate and sanitize question input"""
+        v = v.strip()
+        if not v:
+            raise ValueError("Question cannot be empty")
+        # Basic sanitization - remove potential injection patterns
+        dangerous_patterns = ['<script', 'javascript:', 'onclick=', 'onerror=']
+        v_lower = v.lower()
+        for pattern in dangerous_patterns:
+            if pattern in v_lower:
+                raise ValueError("Invalid characters in question")
+        return v
 
 # Global instance (lazy initialization)
 _full_power_system = None
@@ -2030,7 +2070,8 @@ def get_full_power_system():
 
 
 @app.post("/api/proof/query")
-async def proof_query(request: ProofQueryRequest):
+@limiter.limit("30/minute")
+async def proof_query(request: Request, request_body: ProofQueryRequest):
     """
     Run a query through the Full Power QBM System.
     Returns answer with mandatory 13-component proof structure.
@@ -2043,7 +2084,7 @@ async def proof_query(request: ProofQueryRequest):
     
     try:
         system = get_full_power_system()
-        result = system.answer_with_full_proof(request.question)
+        result = system.answer_with_full_proof(request_body.question)
         
         processing_time = (time.time() - start_time) * 1000
         
@@ -2109,7 +2150,7 @@ async def proof_query(request: ProofQueryRequest):
                 # Try to parse surah number
                 try:
                     surah_num = int(str(surah).split(':')[0]) if ':' in str(surah) else int(surah)
-                except:
+                except (ValueError, TypeError, AttributeError):
                     surah_num = 0
                 
                 # Include if: relevance > 5% OR surah is explicitly mentioned in question
@@ -2126,10 +2167,10 @@ async def proof_query(request: ProofQueryRequest):
             return filtered[:20]  # Limit to top 20
         
         return {
-            "question": request.question,
+            "question": request_body.question,
             "answer": result.get("answer", ""),
             "proof": {
-                "quran": filter_quran_verses(proof.quran.verses if proof else [], request.question),
+                "quran": filter_quran_verses(proof.quran.verses if proof else [], request_body.question),
                 "ibn_kathir": filter_tafsir(proof.ibn_kathir.quotes if proof else []),
                 "tabari": filter_tafsir(proof.tabari.quotes if proof else []),
                 "qurtubi": filter_tafsir(proof.qurtubi.quotes if proof else []),
@@ -2257,8 +2298,8 @@ async def get_behavior_profile(behavior: str):
                         "ayah": ayah,
                         "text": tafsir_text[:500] + "..." if len(tafsir_text) > 500 else tafsir_text
                     })
-            except:
-                pass
+            except (KeyError, TypeError, AttributeError) as e:
+                continue  # Skip malformed tafsir entries
     
     # 4. Build 11 dimensions analysis
     dimensions = {
@@ -2312,8 +2353,8 @@ async def get_behavior_profile(behavior: str):
                             "behavior": r.get("text", ""),
                             "similarity": round(r.get("score", 0) * 100, 1)
                         })
-        except:
-            pass
+        except (KeyError, TypeError, AttributeError) as e:
+            pass  # Skip if behavior analysis unavailable
     
     # 8. Vocabulary extraction
     vocabulary = {
