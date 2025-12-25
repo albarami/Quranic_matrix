@@ -38,11 +38,12 @@ class TestStratifiedRetriever:
         retriever = StratifiedTafsirRetriever(fail_fast=False)
         retriever.initialize()
         
-        results = retriever.search("الصبر", top_k_per_source=5)
+        # Use a realistic full-question query (punctuation + stopwords)
+        results = retriever.search("ما هو الصبر؟", top_k_per_source=5)
         
         for source in TAFSIR_SOURCES:
             assert source in results, f"Missing results from {source}"
-            assert len(results[source]) >= 1, f"No results from {source}"
+            assert len(results[source]) == 5, f"Expected 5 results from {source}, got {len(results[source])}"
     
     def test_minimum_results_per_source(self):
         """Each source should return at least MIN_RESULTS_PER_SOURCE"""

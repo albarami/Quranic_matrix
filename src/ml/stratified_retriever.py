@@ -20,6 +20,7 @@ from pathlib import Path
 from typing import List, Dict, Any, Optional, Tuple
 from dataclasses import dataclass, field
 import numpy as np
+import unicodedata
 
 try:
     from rank_bm25 import BM25Okapi
@@ -36,6 +37,57 @@ TAFSIR_DB = TAFSIR_DIR / "tafsir_cleaned.db"
 TAFSIR_DB_ORIGINAL = TAFSIR_DIR / "tafsir.db"
 
 TAFSIR_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+
+# Common Arabic stopwords to drop from BM25 queries (Phase 4: BM25-only)
+# Keep this small and conservative to avoid removing meaningful terms.
+ARABIC_STOPWORDS = {
+    "ما",
+    "ماذا",
+    "من",
+    "متى",
+    "اين",
+    "أين",
+    "كيف",
+    "لماذا",
+    "هل",
+    "هو",
+    "هي",
+    "هذا",
+    "هذه",
+    "ذلك",
+    "تلك",
+    "في",
+    "على",
+    "عن",
+    "مع",
+    "الى",
+    "إلى",
+    "الي",
+    "او",
+    "أو",
+    "ثم",
+    "قد",
+    "لم",
+    "لن",
+    "لا",
+    "ليس",
+    "ان",
+    "إن",
+    "أن",
+}
+
+# Minimal Arabic character normalization for better lexical matching
+ARABIC_NORMALIZATIONS = {
+    "أ": "ا",
+    "إ": "ا",
+    "آ": "ا",
+    "ٱ": "ا",
+    "ؤ": "و",
+    "ئ": "ي",
+    "ة": "ه",
+    "ى": "ي",
+    "ـ": "",
+}
 
 
 @dataclass
@@ -222,11 +274,41 @@ class StratifiedTafsirRetriever:
             logger.error(msg)
     
     def _tokenize(self, text: str) -> List[str]:
-        """Simple Arabic tokenizer."""
+        """
+        Arabic tokenizer tuned for BM25 on tafsir.
+        
+        - Removes punctuation/symbols (including Arabic punctuation like "؟")
+        - Removes diacritics/marks
+        - Applies minimal Arabic normalization
+        - Drops common Arabic stopwords (e.g., "ما", "هو") so full-question queries work
+        """
         import re
-        text = re.sub(r'[^\u0600-\u06FF\s]', ' ', text)
-        tokens = text.split()
-        return [t for t in tokens if len(t) > 1]
+
+        if not text:
+            return []
+
+        # Normalize common Arabic variants for consistent matching
+        for old, new in ARABIC_NORMALIZATIONS.items():
+            text = text.replace(old, new)
+
+        # Replace punctuation/symbols with spaces; drop diacritics/marks
+        cleaned_chars: List[str] = []
+        for ch in text:
+            cat = unicodedata.category(ch)
+            if cat and cat[0] in {"P", "S"}:
+                cleaned_chars.append(" ")
+                continue
+            if cat in {"Mn", "Cf"}:
+                continue
+            cleaned_chars.append(ch)
+        text = "".join(cleaned_chars)
+
+        # Keep Arabic block chars + whitespace; replace everything else with spaces
+        text = re.sub(r"[^\u0600-\u06FF\s]", " ", text)
+        tokens = [t for t in text.split() if len(t) > 1]
+
+        # Drop common stopwords (post-normalization)
+        return [t for t in tokens if t not in ARABIC_STOPWORDS]
     
     def search(
         self,
@@ -258,16 +340,28 @@ class StratifiedTafsirRetriever:
             source_results = []
             
             # BM25 search (Phase 4: BM25-only)
-            if idx.bm25 and query_tokens:
-                scores = idx.bm25.get_scores(query_tokens)
-                top_indices = np.argsort(scores)[-top_k_per_source * 2:][::-1]
-                
+            if not idx.bm25:
+                raise IndexNotFoundError(f"BM25 index not initialized for source: {source}")
+
+            # If tokenization yields no Arabic tokens (e.g., English query),
+            # return a deterministic top-K slice to preserve proof structure.
+            if not query_tokens:
+                for rank, doc in enumerate(idx.documents[:top_k_per_source]):
+                    out = doc.copy()
+                    out["bm25_score"] = 0.0
+                    out["rank"] = rank
+                    source_results.append(out)
+            else:
+                scores = np.asarray(idx.bm25.get_scores(query_tokens))
+                top_n = min(len(scores), top_k_per_source)
+                top_indices = np.argsort(scores)[-top_n:][::-1]
+
+                # Do NOT filter on score sign; BM25 can produce negative scores for very common tokens.
                 for rank, i in enumerate(top_indices):
-                    if scores[i] > 0:
-                        doc = idx.documents[i].copy()
-                        doc["bm25_score"] = float(scores[i])
-                        doc["rank"] = rank
-                        source_results.append(doc)
+                    doc = idx.documents[int(i)].copy()
+                    doc["bm25_score"] = float(scores[int(i)])
+                    doc["rank"] = rank
+                    source_results.append(doc)
             
             # Sort by BM25 score and take top_k
             source_results.sort(key=lambda x: x.get("bm25_score", 0), reverse=True)
