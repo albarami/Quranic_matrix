@@ -175,10 +175,24 @@ def clean_tafsir_database(
     
     # Calculate final stats
     stats["completed_at"] = datetime.utcnow().isoformat()
-    stats["contamination_rate"] = (
+    stats["pre_clean_contamination_rate"] = (
         stats["contaminated_records"] / stats["total_records"]
         if stats["total_records"] > 0 else 0.0
     )
+    
+    # Verify post-clean contamination rate
+    dst_cursor.execute("SELECT text_cleaned FROM tafsir_content_cleaned LIMIT 1000")
+    post_clean_contaminated = 0
+    sample_size = 0
+    for (text,) in dst_cursor.fetchall():
+        sample_size += 1
+        if cleaner.has_html(text):
+            post_clean_contaminated += 1
+    
+    stats["post_clean_contamination_rate"] = (
+        post_clean_contaminated / sample_size if sample_size > 0 else 0.0
+    )
+    stats["post_clean_sample_size"] = sample_size
     
     # Save report
     Path(report_path).parent.mkdir(parents=True, exist_ok=True)
@@ -188,7 +202,8 @@ def clean_tafsir_database(
     print(f"\n=== Cleaning Complete ===")
     print(f"Total records: {stats['total_records']}")
     print(f"Contaminated records: {stats['contaminated_records']}")
-    print(f"Contamination rate: {stats['contamination_rate']:.2%}")
+    print(f"Pre-clean contamination rate: {stats['pre_clean_contamination_rate']:.2%}")
+    print(f"Post-clean contamination rate: {stats['post_clean_contamination_rate']:.2%}")
     print(f"HTML chars removed: {stats['total_html_chars_removed']:,}")
     print(f"\nBy source:")
     for source, source_stats in stats["by_source"].items():

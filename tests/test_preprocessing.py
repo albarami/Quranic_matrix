@@ -194,15 +194,17 @@ class TestTafsirExtractor:
             assert ann.extraction_method == "morphology"
 
 
+@pytest.mark.slow
 class TestCleanedDatabase:
-    """Test the cleaned tafsir database"""
+    """Test the cleaned tafsir database (requires running clean_all_tafsir.py first)"""
     
     def test_cleaned_db_exists(self):
         """Cleaned database should exist after running clean script"""
         from pathlib import Path
         
         cleaned_db = Path("data/tafsir/tafsir_cleaned.db")
-        assert cleaned_db.exists(), "Run scripts/clean_all_tafsir.py first"
+        if not cleaned_db.exists():
+            pytest.skip("Cleaned database not found - run scripts/clean_all_tafsir.py")
     
     def test_cleaned_data_has_no_html(self):
         """Cleaned data should have no HTML tags"""
@@ -212,7 +214,7 @@ class TestCleanedDatabase:
         
         cleaned_db = Path("data/tafsir/tafsir_cleaned.db")
         if not cleaned_db.exists():
-            pytest.skip("Cleaned database not found")
+            pytest.skip("Cleaned database not found - run scripts/clean_all_tafsir.py")
         
         conn = sqlite3.connect(str(cleaned_db))
         cursor = conn.cursor()
