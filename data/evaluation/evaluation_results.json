@@ -1,0 +1,22 @@
+{
+  "aubmindlab/bert-base-arabertv2": {
+    "model_name": "aubmindlab/bert-base-arabertv2",
+    "accuracy": 0.375,
+    "high_sim_accuracy": 0.7143,
+    "low_sim_accuracy": 0.0,
+    "avg_high_similarity": 0.5508,
+    "avg_low_similarity": 0.6416,
+    "opposite_separation": -0.0908,
+    "passes_threshold": false
+  },
+  "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2": {
+    "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "accuracy": 0.45,
+    "high_sim_accuracy": 0.5714,
+    "low_sim_accuracy": 0.3158,
+    "avg_high_similarity": 0.5604,
+    "avg_low_similarity": 0.5806,
+    "opposite_separation": -0.0202,
+    "passes_threshold": false
+  }
+}

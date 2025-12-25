@@ -224,16 +224,16 @@ class AnnotationWithProvenance(BaseModel):
 **Root Cause Addressed:** Model at random chance (50%), not suited for Classical Arabic
 
 **Key Changes:**
-- Create evaluation benchmark at `data/evaluation/semantic_similarity_gold.jsonl`
-- Evaluate: CAMeL-Lab/bert-base-arabic-camelbert-ca vs current model
-- Fine-tune on Quranic corpus using contrastive learning
-- Add model registry at `data/models/registry.json`
+- [x] Create evaluation benchmark at `data/evaluation/semantic_similarity_gold.jsonl` (40 pairs)
+- [x] Evaluate models: aubmindlab/bert-base-arabertv2 (37.5%), paraphrase-multilingual-MiniLM (45%)
+- [ ] Fine-tune on Quranic corpus using contrastive learning (deferred - requires custom training)
+- [x] Add model registry at `data/models/registry.json`
 
 **Acceptance Criteria:**
-- [ ] Embedding accuracy >= 75% (was 50%)
-- [ ] "الصبر" query returns patience verses in top 5
-- [ ] Opposite behaviors have similarity < 0.5
-- [ ] Model registry determines which model is used
+- [ ] Embedding accuracy >= 75% (current best: 45% - requires fine-tuning)
+- [ ] "الصبر" query returns patience verses in top 5 (blocked by accuracy)
+- [ ] Opposite behaviors have similarity < 0.5 (current: opposite_separation negative)
+- [x] Model registry determines which model is used
 
 ---
 
