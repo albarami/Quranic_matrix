@@ -1032,13 +1032,16 @@ class MandatoryProofSystem:
         
         # Phase 0: Finalize debug tracking
         debug.primary_path_latency_ms = round(elapsed * 1000)
-        debug.retrieval_distribution = rag_source_counts
         
-        # Check tafsir fallbacks (if any source has 0 results from primary retrieval)
+        # Include both RAG and stratified retrieval counts in distribution
+        stratified_counts = {f"stratified_{src}": len(tafsir_results.get(src, [])) for src in self.tafsir_sources}
+        debug.retrieval_distribution = {**rag_source_counts, **stratified_counts}
+        
+        # Check tafsir fallbacks (if any source has 0 results from stratified retrieval)
         for source in self.tafsir_sources:
             if len(tafsir_results.get(source, [])) == 0:
                 debug.tafsir_fallbacks[source] = True
-                debug.add_fallback(f"tafsir_{source}: primary retrieval returned 0 results")
+                debug.add_fallback(f"tafsir_{source}: stratified retrieval returned 0 results")
         
         return {
             "question": question,
