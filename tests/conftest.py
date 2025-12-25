@@ -98,12 +98,25 @@ def assert_source_distribution(
 # FIXTURES
 # =============================================================================
 
+def _is_gpu_available() -> bool:
+    """Check if GPU is available for testing."""
+    try:
+        import torch
+        return torch.cuda.is_available()
+    except ImportError:
+        return False
+
+
 @pytest.fixture(scope="session")
 def qbm_system():
     """
     Initialize the full power QBM system with proof system.
     Session-scoped to avoid repeated initialization.
+    Requires GPU - use qbm_system_mini for CPU-only testing.
     """
+    if not _is_gpu_available():
+        pytest.skip("GPU not available - use qbm_system_mini for CPU-only testing")
+    
     from src.ml.full_power_system import FullPowerQBMSystem
     from src.ml.mandatory_proof_system import integrate_with_system
     
@@ -119,6 +132,111 @@ def qbm_system():
     system = integrate_with_system(system)
     
     return system
+
+
+# =============================================================================
+# MINI-FIXTURES FOR CPU-ONLY TESTING (Phase 1)
+# =============================================================================
+
+@pytest.fixture(scope="session")
+def qbm_system_mini():
+    """
+    Lightweight QBM system for CPU-only testing.
+    Uses mock embeddings and minimal data for fast CI runs.
+    """
+    from unittest.mock import MagicMock
+    
+    # Create a minimal mock system
+    system = MagicMock()
+    system.index_source = "disk"
+    system.tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+    
+    # Mock search to return sample results
+    def mock_search(query, top_k=10, ensure_source_diversity=False):
+        return [
+            {"text": "Sample Quran verse", "score": 0.9, "metadata": {"type": "quran", "surah": 2, "ayah": 255}},
+            {"text": "Sample Ibn Kathir", "score": 0.85, "metadata": {"source": "ibn_kathir", "surah": 2, "ayah": 255}},
+            {"text": "Sample Tabari", "score": 0.8, "metadata": {"source": "tabari", "surah": 2, "ayah": 255}},
+            {"text": "Sample Qurtubi", "score": 0.75, "metadata": {"source": "qurtubi", "surah": 2, "ayah": 255}},
+            {"text": "Sample Saadi", "score": 0.7, "metadata": {"source": "saadi", "surah": 2, "ayah": 255}},
+            {"text": "Sample Jalalayn", "score": 0.65, "metadata": {"source": "jalalayn", "surah": 2, "ayah": 255}},
+        ]
+    
+    system.search = mock_search
+    system.get_status = lambda: {"vector_search": {"status": "ready"}}
+    
+    return system
+
+
+@pytest.fixture
+def mock_proof_response():
+    """
+    Sample proof response for testing without GPU.
+    """
+    return {
+        "question": "ما هو الصبر؟",
+        "answer": "الصبر هو حبس النفس على ما تكره",
+        "validation": {"score": 100.0, "passed": True, "missing": []},
+        "processing_time_ms": 150.0,
+        "debug": {
+            "fallback_used": False,
+            "fallback_reasons": [],
+            "retrieval_distribution": {
+                "ibn_kathir": 10,
+                "tabari": 10,
+                "qurtubi": 10,
+                "saadi": 10,
+                "jalalayn": 10,
+                "quran": 15
+            },
+            "primary_path_latency_ms": 150,
+            "index_source": "disk",
+            "component_fallbacks": {
+                "quran": False,
+                "graph": False,
+                "taxonomy": False,
+                "tafsir": {
+                    "ibn_kathir": False,
+                    "tabari": False,
+                    "qurtubi": False,
+                    "saadi": False,
+                    "jalalayn": False
+                }
+            }
+        }
+    }
+
+
+@pytest.fixture
+def mock_fallback_response():
+    """
+    Sample proof response with fallback for testing.
+    """
+    return {
+        "question": "ما هو الصبر؟",
+        "answer": "الصبر هو حبس النفس على ما تكره",
+        "validation": {"score": 100.0, "passed": True, "missing": []},
+        "processing_time_ms": 200.0,
+        "debug": {
+            "fallback_used": True,
+            "fallback_reasons": ["quran: primary retrieval returned 0 verses, using surah name extraction"],
+            "retrieval_distribution": {"ibn_kathir": 5, "tabari": 3},
+            "primary_path_latency_ms": 200,
+            "index_source": "runtime_build",
+            "component_fallbacks": {
+                "quran": True,
+                "graph": False,
+                "taxonomy": False,
+                "tafsir": {
+                    "ibn_kathir": False,
+                    "tabari": True,
+                    "qurtubi": False,
+                    "saadi": True,
+                    "jalalayn": False
+                }
+            }
+        }
+    }
 
 
 @pytest.fixture(scope="session")

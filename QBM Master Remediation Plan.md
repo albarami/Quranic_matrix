@@ -127,10 +127,10 @@ git push origin main
 - Create mini-fixtures for CPU-only testing
 
 **Acceptance Criteria:**
-- [ ] `pytest --collect-only` shows 0 errors
-- [ ] `pip install -r requirements.txt` succeeds on fresh environment
-- [ ] GitHub Actions CI passes
-- [ ] Mini-fixture allows CPU-only testing
+- [x] `pytest --collect-only` shows 0 errors
+- [x] `pip install -r requirements.txt` succeeds on fresh environment
+- [x] GitHub Actions CI passes
+- [x] Mini-fixture allows CPU-only testing
 
 **Git Commit:**
 ```bash
@@ -426,7 +426,7 @@ After all phases complete, the system must:
 ## Phase Todos
 
 - [x] **Phase 0:** Add fallback instrumentation to proof endpoint + create baseline report
-- [ ] **Phase 1:** Create pytest.ini, pin deps, add GitHub Actions CI workflow
+- [x] **Phase 1:** Create pytest.ini, pin deps, add GitHub Actions CI workflow
 - [ ] **Phase 2:** Security: Fix CORS, add rate limiting, input validation
 - [ ] **Phase 3:** Data cleaning pipeline + morphology extraction + provenance
 - [ ] **Phase 4:** Stratified retrieval + hybrid search + prebuilt indexes
