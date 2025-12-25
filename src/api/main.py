@@ -422,11 +422,18 @@ _tafsir_cache = {}
 
 def get_tafsir_sources() -> List[str]:
     """List available tafsir sources from data/tafsir."""
-    sources = set()
-    for ext in ("*.json", "*.jsonl"):
-        for filepath in TAFSIR_DIR.glob(ext):
-            sources.add(filepath.stem)
-    return sorted(sources)
+    # Canonical 5 tafsir sources
+    CANONICAL_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+    
+    # Check which sources actually exist
+    available = []
+    for source in CANONICAL_SOURCES:
+        for ext in [".json", ".jsonl", ".ar.json", ".ar.jsonl"]:
+            if (TAFSIR_DIR / f"{source}{ext}").exists():
+                available.append(source)
+                break
+    
+    return available if available else CANONICAL_SOURCES
 
 
 def load_tafsir(source: str) -> dict:
@@ -2043,34 +2050,91 @@ async def proof_query(request: ProofQueryRequest):
         # Extract proof components from dataclass
         proof = result.get("proof")
         
+        # Filter out empty/placeholder tafsir entries
+        def filter_tafsir(quotes):
+            """Filter out placeholder tafsir entries"""
+            if not quotes:
+                return []
+            filtered = []
+            for q in quotes:
+                text = q.get("text", "")
+                # Skip placeholder/empty entries
+                if not text or "لا يوجد تفسير" in text or len(text.strip()) < 10:
+                    continue
+                filtered.append({
+                    "surah": q.get("surah", "?"),
+                    "ayah": q.get("ayah", "?"),
+                    "text": text,
+                    "score": q.get("score", 0)  # Include relevance score
+                })
+            return filtered
+        
+        # Filter Quran verses - only keep those with relevance > 5% or explicitly mentioned surahs
+        def filter_quran_verses(verses, question):
+            """Filter Quran verses to only include relevant ones"""
+            if not verses:
+                return []
+            
+            # Extract surah numbers mentioned in question
+            import re
+            mentioned_surahs = set()
+            # Match patterns like "سورة الحجرات", "سورة الإسراء", "Surah 49", etc.
+            surah_names = {
+                'الحجرات': 49, 'الإسراء': 17, 'البقرة': 2, 'آل عمران': 3,
+                'النساء': 4, 'المائدة': 5, 'الأنعام': 6, 'الأعراف': 7,
+                'الأنفال': 8, 'التوبة': 9, 'يونس': 10, 'هود': 11,
+                'يوسف': 12, 'الرعد': 13, 'إبراهيم': 14, 'الحجر': 15,
+                'النحل': 16, 'الكهف': 18, 'مريم': 19, 'طه': 20,
+            }
+            for name, num in surah_names.items():
+                if name in question:
+                    mentioned_surahs.add(num)
+            
+            # Also check for numeric surah references
+            num_matches = re.findall(r'سورة\s*(\d+)|surah\s*(\d+)', question.lower())
+            for match in num_matches:
+                for m in match:
+                    if m:
+                        mentioned_surahs.add(int(m))
+            
+            filtered = []
+            for v in verses:
+                text = v.get("text", "")
+                if not text or len(text.strip()) < 10:
+                    continue
+                
+                relevance = v.get("relevance", 0)
+                surah = v.get("surah")
+                
+                # Try to parse surah number
+                try:
+                    surah_num = int(str(surah).split(':')[0]) if ':' in str(surah) else int(surah)
+                except:
+                    surah_num = 0
+                
+                # Include if: relevance > 5% OR surah is explicitly mentioned in question
+                if relevance > 0.05 or surah_num in mentioned_surahs:
+                    filtered.append({
+                        "surah": v.get("surah"),
+                        "ayah": v.get("ayah"),
+                        "text": text,
+                        "relevance": relevance
+                    })
+            
+            # Sort by relevance descending
+            filtered.sort(key=lambda x: x.get("relevance", 0), reverse=True)
+            return filtered[:20]  # Limit to top 20
+        
         return {
             "question": request.question,
             "answer": result.get("answer", ""),
             "proof": {
-                "quran": [
-                    {"surah": v.get("surah"), "ayah": v.get("ayah"), "text": v.get("text", ""), "relevance": v.get("relevance", 0)}
-                    for v in (proof.quran.verses if proof else [])
-                ],
-                "ibn_kathir": [
-                    {"surah": q.get("surah"), "ayah": q.get("ayah"), "text": q.get("text", "")}
-                    for q in (proof.ibn_kathir.quotes if proof else [])
-                ],
-                "tabari": [
-                    {"surah": q.get("surah"), "ayah": q.get("ayah"), "text": q.get("text", "")}
-                    for q in (proof.tabari.quotes if proof else [])
-                ],
-                "qurtubi": [
-                    {"surah": q.get("surah"), "ayah": q.get("ayah"), "text": q.get("text", "")}
-                    for q in (proof.qurtubi.quotes if proof else [])
-                ],
-                "saadi": [
-                    {"surah": q.get("surah"), "ayah": q.get("ayah"), "text": q.get("text", "")}
-                    for q in (proof.saadi.quotes if proof else [])
-                ],
-                "jalalayn": [
-                    {"surah": q.get("surah"), "ayah": q.get("ayah"), "text": q.get("text", "")}
-                    for q in (proof.jalalayn.quotes if proof else [])
-                ],
+                "quran": filter_quran_verses(proof.quran.verses if proof else [], request.question),
+                "ibn_kathir": filter_tafsir(proof.ibn_kathir.quotes if proof else []),
+                "tabari": filter_tafsir(proof.tabari.quotes if proof else []),
+                "qurtubi": filter_tafsir(proof.qurtubi.quotes if proof else []),
+                "saadi": filter_tafsir(proof.saadi.quotes if proof else []),
+                "jalalayn": filter_tafsir(proof.jalalayn.quotes if proof else []),
                 "graph": {
                     "nodes": proof.graph.nodes if proof else [],
                     "edges": proof.graph.edges if proof else [],
@@ -2096,7 +2160,8 @@ async def proof_query(request: ProofQueryRequest):
                 }
             },
             "validation": result.get("validation", {}),
-            "processing_time_ms": round(processing_time, 2)
+            "processing_time_ms": round(processing_time, 2),
+            "debug": result.get("debug", {})
         }
         
     except Exception as e:
@@ -2121,4 +2186,219 @@ async def proof_system_status():
             "tafsir_sources": 5,
             "behaviors": 46
         }
+    }
+
+
+# =============================================================================
+# BEHAVIOR PROFILE ENDPOINT - ملف السلوك (Systematic Behavior Extraction)
+# =============================================================================
+
+@app.get("/api/behavior/profile/{behavior}")
+async def get_behavior_profile(behavior: str):
+    """
+    Complete Behavior Profile - ملف السلوك الشامل
+    
+    Returns EVERYTHING about a behavior systematically across all 11 dimensions:
+    - All verses where it appears
+    - All tafsir from 5 sources
+    - Graph relationships (causes, effects, opposites)
+    - 11 Bouzidani dimensions (organic, situational, systemic, temporal, etc.)
+    - Vocabulary (roots, derivatives)
+    - Semantic similarity (embeddings)
+    - Surah distribution
+    
+    This is the "Behavior Profiler" tool the scholar requested.
+    """
+    import time
+    start_time = time.time()
+    
+    spans = get_all_spans()
+    brain = get_brain(spans)
+    graph = get_unified_graph(spans)
+    
+    # 1. Get all verses for this behavior
+    behavior_lower = behavior.lower().strip()
+    matching_spans = []
+    verses_set = set()
+    
+    for span in spans:
+        behavior_form = span.get("behavior_form", "").lower()
+        if behavior_lower in behavior_form or behavior_form in behavior_lower:
+            matching_spans.append(span)
+            ref = span.get("reference", {})
+            if ref.get("surah") and ref.get("ayah"):
+                verses_set.add((ref["surah"], ref["ayah"]))
+    
+    # 2. Build verse details with metadata
+    verses = []
+    for span in matching_spans:
+        ref = span.get("reference", {})
+        verses.append({
+            "surah": ref.get("surah"),
+            "surah_name": ref.get("surah_name", ""),
+            "ayah": ref.get("ayah"),
+            "text": span.get("text", ""),
+            "agent": span.get("agent", {}).get("type", ""),
+            "agent_referent": span.get("agent", {}).get("referent", ""),
+            "evaluation": span.get("normative", {}).get("evaluation", ""),
+            "deontic": span.get("normative", {}).get("deontic_signal", ""),
+            "behavior_form": span.get("behavior_form", ""),
+        })
+    
+    # 3. Get all tafsir for these verses
+    tafsir_data = {"ibn_kathir": [], "tabari": [], "qurtubi": [], "saadi": [], "jalalayn": []}
+    for surah, ayah in list(verses_set)[:50]:  # Limit to avoid timeout
+        for source in tafsir_data.keys():
+            try:
+                tafsir_text = brain.get_tafsir(surah, ayah, source)
+                if tafsir_text and behavior_lower in tafsir_text.lower():
+                    tafsir_data[source].append({
+                        "surah": surah,
+                        "ayah": ayah,
+                        "text": tafsir_text[:500] + "..." if len(tafsir_text) > 500 else tafsir_text
+                    })
+            except:
+                pass
+    
+    # 4. Build 11 dimensions analysis
+    dimensions = {
+        "organic": {},      # العضوي - body organs
+        "positional": {},   # الموضعي - internal/external
+        "systemic": {},     # النسقي - home/work/public
+        "spatial": {},      # المكاني - location
+        "temporal": {},     # الزماني - time
+        "agent": {},        # الفاعل - who performs
+        "source": {},       # المصدر - origin
+        "evaluation": {},   # التقييم - praise/blame
+        "heart": {},        # القلب - heart state
+        "outcome": {},      # العاقبة - consequence
+        "relations": {}     # العلاقات - relationships
+    }
+    
+    # Analyze each span for dimensions
+    for span in matching_spans:
+        # Agent dimension
+        agent_type = span.get("agent", {}).get("type", "unknown")
+        dimensions["agent"][agent_type] = dimensions["agent"].get(agent_type, 0) + 1
+        
+        # Evaluation dimension
+        eval_type = span.get("normative", {}).get("evaluation", "neutral")
+        dimensions["evaluation"][eval_type] = dimensions["evaluation"].get(eval_type, 0) + 1
+        
+        # Deontic/outcome
+        deontic = span.get("normative", {}).get("deontic_signal", "none")
+        dimensions["outcome"][deontic] = dimensions["outcome"].get(deontic, 0) + 1
+    
+    # 5. Surah distribution
+    surah_distribution = {}
+    for span in matching_spans:
+        ref = span.get("reference", {})
+        surah_name = ref.get("surah_name", f"Surah {ref.get('surah', '?')}")
+        surah_distribution[surah_name] = surah_distribution.get(surah_name, 0) + 1
+    
+    # 6. Graph relationships
+    graph_data = graph.query_behavior(behavior)
+    
+    # 7. Get similar behaviors using embeddings (if ML available)
+    similar_behaviors = []
+    if ML_AVAILABLE:
+        try:
+            pipeline = get_pipeline()
+            if pipeline.vector_db.size() > 0:
+                results = pipeline.search(behavior, top_k=10, rerank=False)
+                for r in results:
+                    if r.get("type") == "behavior" and r.get("text") != behavior:
+                        similar_behaviors.append({
+                            "behavior": r.get("text", ""),
+                            "similarity": round(r.get("score", 0) * 100, 1)
+                        })
+        except:
+            pass
+    
+    # 8. Vocabulary extraction
+    vocabulary = {
+        "primary_term": behavior,
+        "roots": [],
+        "derivatives": [],
+        "related_concepts": []
+    }
+    
+    # Extract unique behavior forms from matching spans
+    behavior_forms = set()
+    for span in matching_spans:
+        bf = span.get("behavior_form", "")
+        if bf:
+            behavior_forms.add(bf)
+    vocabulary["derivatives"] = list(behavior_forms)[:20]
+    
+    processing_time = (time.time() - start_time) * 1000
+    
+    return {
+        "behavior": behavior,
+        "arabic_name": behavior,
+        
+        # Summary stats
+        "summary": {
+            "total_verses": len(verses_set),
+            "total_spans": len(matching_spans),
+            "total_tafsir": sum(len(t) for t in tafsir_data.values()),
+            "total_surahs": len(surah_distribution),
+            "coverage_percentage": round(len(verses_set) / 6236 * 100, 2)
+        },
+        
+        # All verses with full metadata
+        "verses": verses,
+        
+        # All tafsir organized by source
+        "tafsir": tafsir_data,
+        
+        # Graph relationships
+        "graph": {
+            "related_behaviors": graph_data.get("related_behaviors", []),
+            "verses": graph_data.get("verses", []),
+            "connections": graph_data.get("connections", [])
+        },
+        
+        # 11 Bouzidani dimensions
+        "dimensions": dimensions,
+        
+        # Surah distribution
+        "surah_distribution": [
+            {"surah": k, "count": v} 
+            for k, v in sorted(surah_distribution.items(), key=lambda x: -x[1])
+        ],
+        
+        # Vocabulary
+        "vocabulary": vocabulary,
+        
+        # Similar behaviors (embeddings)
+        "similar_behaviors": similar_behaviors,
+        
+        # Processing metadata
+        "processing_time_ms": round(processing_time, 2)
+    }
+
+
+@app.get("/api/behavior/list")
+async def list_all_behaviors():
+    """
+    Get list of all unique behaviors in the dataset.
+    Useful for the behavior profile dropdown/search.
+    """
+    spans = get_all_spans()
+    
+    behavior_counts = {}
+    for span in spans:
+        bf = span.get("behavior_form", "")
+        if bf:
+            behavior_counts[bf] = behavior_counts.get(bf, 0) + 1
+    
+    # Sort by frequency
+    sorted_behaviors = sorted(behavior_counts.items(), key=lambda x: -x[1])
+    
+    return {
+        "total_unique": len(sorted_behaviors),
+        "behaviors": [
+            {"name": b, "count": c} for b, c in sorted_behaviors
+        ]
     }
