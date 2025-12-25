@@ -193,9 +193,9 @@ class AnnotationWithProvenance(BaseModel):
 ```
 
 **Acceptance Criteria:**
-- [ ] HTML contamination rate < 1% (was ~50%)
-- [ ] Known false positives eliminated
-- [ ] All records have provenance fields
+- [x] HTML contamination rate < 1% (was ~99%, now 0% in cleaned DB)
+- [x] Known false positives eliminated
+- [x] All records have provenance fields
 
 ---
 
@@ -428,7 +428,7 @@ After all phases complete, the system must:
 - [x] **Phase 0:** Add fallback instrumentation to proof endpoint + create baseline report
 - [x] **Phase 1:** Create pytest.ini, pin deps, add GitHub Actions CI workflow
 - [x] **Phase 2:** Security: Fix CORS, add rate limiting, input validation
-- [ ] **Phase 3:** Data cleaning pipeline + morphology extraction + provenance
+- [x] **Phase 3:** Data cleaning pipeline + morphology extraction + provenance
 - [ ] **Phase 4:** Stratified retrieval + hybrid search + prebuilt indexes
 - [ ] **Phase 5:** Evaluate/fine-tune Arabic embedding model to 75%+ accuracy
 - [ ] **Phase 6:** Split graph into co-occurrence vs semantic + fix frontend random weights
