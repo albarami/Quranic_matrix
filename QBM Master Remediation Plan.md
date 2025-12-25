@@ -204,9 +204,9 @@ class AnnotationWithProvenance(BaseModel):
 **Root Cause Addressed:** Source collapse, runtime builds, no hybrid search
 
 **Key Changes:**
-- Split indexes by source: `data/indexes/tafsir/{ibn_kathir,tabari,qurtubi,saadi,jalalayn}.idx`
-- Implement `StratifiedTafsirRetriever` guaranteeing 5 results per source
-- Add `HybridRetriever` combining BM25 + semantic search with RRF fusion
+- Split indexes by source: `data/indexes/tafsir/{ibn_kathir,tabari,qurtubi,saadi,jalalayn}.json`
+- Implement `StratifiedTafsirRetriever` guaranteeing 5+ results per source (BM25-only; semantic deferred to Phase 5)
+- Integrate into `MandatoryProofSystem` for live proof path
 - Remove runtime index builds - fail fast if indexes missing at startup
 
 **Hard Rule:** If the system needs a "fill missing sources" mechanism during normal operation, the design is broken.
@@ -215,7 +215,7 @@ class AnnotationWithProvenance(BaseModel):
 - [x] `fallback_used = false` for standard queries (StratifiedTafsirRetriever guarantees results)
 - [x] All 5 tafsir sources have >= 5 results in distribution (31,046 docs across 5 sources)
 - [x] No "need N more from source X" logs during normal operation (fail-fast design)
-- [x] Hybrid search finds exact Arabic terms (BM25 + per-source indexes)
+- [x] BM25 search finds exact Arabic terms (semantic search deferred to Phase 5)
 
 ---
 
