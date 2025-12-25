@@ -227,6 +227,9 @@ class FullPowerQBMSystem:
         # GNN Reasoning Engine
         self.gnn_reasoner = None
         
+        # Phase 0: Track index source (disk vs runtime_build)
+        self.index_source = "disk"  # Default, updated to "runtime_build" if build_index() is called
+        
         self._initialize_all()
     
     def _initialize_all(self):
@@ -280,18 +283,70 @@ class FullPowerQBMSystem:
         except Exception as e:
             logger.warning(f"GNN ReasoningEngine init failed: {e}")
         
-        # 5. Load Tafsir Data
+        # 5. Load Quran Verses (actual Arabic text)
+        self._load_quran_verses()
+        
+        # 6. Load Tafsir Data
         self._load_tafsir()
         
-        # 6. Load Behavioral Annotations
+        # 7. Load Behavioral Annotations
         self._load_behavioral_data()
         
-        # 7. Initialize LLM clients
+        # 8. Initialize LLM clients
         self._init_llm_clients()
         
         logger.info("=" * 70)
         logger.info("FULL POWER SYSTEM READY")
         logger.info("=" * 70)
+    
+    def _load_quran_verses(self):
+        """Load actual Quran verses from XML file."""
+        self.quran_verses = {}  # {surah_num: {ayah_num: text}}
+        
+        quran_path = DATA_DIR / "quran" / "quran-uthmani.xml"
+        if not quran_path.exists():
+            logger.warning(f"Quran XML not found at {quran_path}")
+            return
+        
+        try:
+            import xml.etree.ElementTree as ET
+            tree = ET.parse(quran_path)
+            root = tree.getroot()
+            
+            verse_count = 0
+            for sura in root.findall('sura'):
+                sura_idx = int(sura.get('index'))
+                sura_name = sura.get('name', '')
+                self.quran_verses[sura_idx] = {'name': sura_name, 'verses': {}}
+                
+                for aya in sura.findall('aya'):
+                    aya_idx = int(aya.get('index'))
+                    aya_text = aya.get('text', '')
+                    if aya_text:
+                        self.quran_verses[sura_idx]['verses'][aya_idx] = aya_text
+                        verse_count += 1
+            
+            logger.info(f"Loaded {verse_count} Quran verses from {len(self.quran_verses)} surahs")
+        except Exception as e:
+            logger.error(f"Failed to load Quran verses: {e}")
+            self.quran_verses = {}
+    
+    def get_quran_verse(self, surah: int, ayah: int) -> str:
+        """Get actual Quran verse text by surah and ayah number."""
+        if not hasattr(self, 'quran_verses') or not self.quran_verses:
+            return ""
+        
+        sura_data = self.quran_verses.get(surah, {})
+        verses = sura_data.get('verses', {})
+        return verses.get(ayah, "")
+    
+    def get_surah_name(self, surah: int) -> str:
+        """Get surah name by number."""
+        if not hasattr(self, 'quran_verses') or not self.quran_verses:
+            return ""
+        
+        sura_data = self.quran_verses.get(surah, {})
+        return sura_data.get('name', "")
     
     def _load_tafsir(self):
         """Load all 5 tafsir sources."""
@@ -364,6 +419,8 @@ class FullPowerQBMSystem:
         Uses GPUEmbeddingPipeline with DataParallel across all 8 GPUs.
         Uses TorchGPUVectorSearch for PyTorch-based GPU vector search.
         """
+        # Phase 0: Mark index as runtime-built
+        self.index_source = "runtime_build"
         logger.info("Building vector index using all GPUs...")
         start_time = time.time()
         
@@ -372,11 +429,34 @@ class FullPowerQBMSystem:
         self.all_metadata = []
         
         # SOURCE-TO-INDEX MAPPING: Track which indices belong to each source
-        self.source_indices = {s: [] for s in ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]}
+        self.source_indices = {s: [] for s in ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "quran"]}
+        
+        # Add Quran verses FIRST - these are the actual Arabic verses
+        quran_count = 0
+        current_idx = 0
+        if hasattr(self, 'quran_verses') and self.quran_verses:
+            for surah_num, sura_data in self.quran_verses.items():
+                sura_name = sura_data.get('name', '')
+                verses = sura_data.get('verses', {})
+                for ayah_num, verse_text in verses.items():
+                    if verse_text and len(verse_text) > 5:
+                        self.all_texts.append(verse_text)
+                        self.all_metadata.append({
+                            "type": "quran",
+                            "source": "quran",
+                            "verse": f"{surah_num}:{ayah_num}",
+                            "surah": surah_num,
+                            "ayah": ayah_num,
+                            "surah_name": sura_name,
+                            "text": verse_text,
+                        })
+                        self.source_indices["quran"].append(current_idx)
+                        quran_count += 1
+                        current_idx += 1
+            logger.info(f"[INDEX BUILD] Quran verses indexed: {quran_count}")
         
         # Add tafsir entries - track counts per source AND index positions
         tafsir_counts = {}
-        current_idx = 0
         for source, entries in self.tafsir_data.items():
             tafsir_counts[source] = 0
             for verse_key, text in entries.items():
@@ -466,6 +546,9 @@ class FullPowerQBMSystem:
                         self.source_idx_tensors[source] = torch.tensor(
                             idx_list, dtype=torch.long, device=device
                         )
+                logger.info(f"[INDEX BUILD] source_idx_tensors built: {list(self.source_idx_tensors.keys())} with sizes {[(k, len(v)) for k, v in self.source_idx_tensors.items()]}")
+            else:
+                logger.warning(f"[INDEX BUILD] Cannot build source_idx_tensors: vector_search={self.vector_search}, device={getattr(self.vector_search, 'device', None)}")
         except Exception as e:
             logger.warning(f"Failed to build source_idx_tensors: {e}")
         
@@ -698,19 +781,23 @@ class FullPowerQBMSystem:
         
         # 3. Optionally augment candidates with a small, per-source subset search
         # (prevents "0 results" for some sources without exploding rerank cost)
-        if ensure_source_diversity and hasattr(self, "source_idx_tensors"):
-            tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
-            per_source_hint = 2 if top_k >= len(tafsir_sources) * 2 else 1
+        logger.info(f"[DIVERSITY] ensure_source_diversity={ensure_source_diversity}, has_tensors={hasattr(self, 'source_idx_tensors')}, tensors_len={len(getattr(self, 'source_idx_tensors', {}))}")
+        if ensure_source_diversity and hasattr(self, "source_idx_tensors") and self.source_idx_tensors:
+            # Include quran source for actual verse retrieval
+            all_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "quran"]
+            per_source_hint = 2 if top_k >= len(all_sources) * 2 else 1
             per_source_candidate_k = max(per_source_hint * 10, 25)
-            for source in tafsir_sources:
+            logger.info(f"[DIVERSITY] source_idx_tensors keys: {list(self.source_idx_tensors.keys())}")
+            for source in all_sources:
                 subset = self.source_idx_tensors.get(source)
                 if subset is None:
+                    logger.warning(f"[DIVERSITY] No subset for source: {source}")
                     continue
-                candidates.extend(
-                    self._vector_search_subset(
-                        query_embedding, subset_indices=subset, k=per_source_candidate_k
-                    )
+                subset_results = self._vector_search_subset(
+                    query_embedding, subset_indices=subset, k=per_source_candidate_k
                 )
+                logger.info(f"[DIVERSITY] {source}: {len(subset_results)} results from subset search")
+                candidates.extend(subset_results)
 
         # De-duplicate candidates (same type+source+verse)
         def _key(r: Dict[str, Any]) -> str:
@@ -724,22 +811,21 @@ class FullPowerQBMSystem:
                 deduped[k] = c
         candidates = list(deduped.values())
 
-        # 4. Rerank a bounded pool (but force-in a few per tafsir source)
+        # 4. Rerank a bounded pool (but force-in a few per source including quran)
         if self.reranker and candidates:
-            tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+            all_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "quran"]
             rerank_max = min(len(candidates), max(top_k * 15, 250))
 
             pool: List[Dict[str, Any]] = []
             used = set()
 
-            # Guarantee minimal per-source presence in the rerank pool
-            min_pool_per_source = 2 if top_k >= len(tafsir_sources) * 2 else 1
-            for source in tafsir_sources:
+            # Guarantee minimal per-source presence in the rerank pool (including Quran)
+            min_pool_per_source = 2 if top_k >= len(all_sources) * 2 else 1
+            for source in all_sources:
                 source_items = [
                     r
                     for r in candidates
-                    if r.get("metadata", {}).get("type") == "tafsir"
-                    and r.get("metadata", {}).get("source") == source
+                    if r.get("metadata", {}).get("source") == source
                 ]
                 source_items.sort(key=lambda x: x.get("score", 0), reverse=True)
                 for r in source_items[:min_pool_per_source]:

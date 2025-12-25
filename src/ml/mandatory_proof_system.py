@@ -24,17 +24,17 @@ import json
 import time
 from pathlib import Path
 import logging
+from pydantic import BaseModel, Field
 
 # =============================================================================
 # PROOF DEBUG SCHEMA - Phase 0 Instrumentation
 # =============================================================================
 
-@dataclass
-class ProofDebug:
+class ProofDebug(BaseModel):
     """Debug information for tracking fallback usage - Phase 0 instrumentation"""
     fallback_used: bool = False
-    fallback_reasons: List[str] = field(default_factory=list)
-    retrieval_distribution: Dict[str, int] = field(default_factory=dict)
+    fallback_reasons: List[str] = Field(default_factory=list)
+    retrieval_distribution: Dict[str, int] = Field(default_factory=dict)
     primary_path_latency_ms: int = 0
     index_source: Literal["disk", "runtime_build"] = "disk"
     
@@ -42,7 +42,7 @@ class ProofDebug:
     quran_fallback: bool = False
     graph_fallback: bool = False
     taxonomy_fallback: bool = False
-    tafsir_fallbacks: Dict[str, bool] = field(default_factory=dict)
+    tafsir_fallbacks: Dict[str, bool] = Field(default_factory=dict)
     
     def add_fallback(self, reason: str):
         """Record a fallback event"""
@@ -520,8 +520,10 @@ class MandatoryProofSystem:
         start_time = time.time()
         
         # Phase 0: Initialize debug tracking
-        debug = ProofDebug()
-        debug.tafsir_fallbacks = {s: False for s in self.tafsir_sources}
+        debug = ProofDebug(
+            index_source=getattr(self.system, 'index_source', 'disk'),
+            tafsir_fallbacks={s: False for s in self.tafsir_sources}
+        )
         
         # 1. RAG Retrieval - MUST use ensure_source_diversity=True to get Quran verses and all tafsir sources
         rag_results = self.system.search(question, top_k=100, ensure_source_diversity=True)
