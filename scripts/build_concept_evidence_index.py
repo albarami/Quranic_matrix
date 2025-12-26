@@ -22,8 +22,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Paths
-ENTITY_TYPES_FILE = Path("vocab/entity_types.json")
-BEHAVIOR_CONCEPTS_FILE = Path("vocab/behavior_concepts.json")
+CANONICAL_ENTITIES_FILE = Path("vocab/canonical_entities.json")
 CHUNKED_INDEX_FILE = Path("data/evidence/evidence_index_v2_chunked.jsonl")
 OUTPUT_FILE = Path("data/evidence/concept_index_v1.jsonl")
 METADATA_FILE = Path("data/evidence/concept_index_v1_metadata.json")
@@ -31,15 +30,9 @@ METADATA_FILE = Path("data/evidence/concept_index_v1_metadata.json")
 CORE_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
 
 
-def load_entity_types() -> Dict[str, Any]:
-    """Load canonical entity types."""
-    with open(ENTITY_TYPES_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-
-def load_behavior_concepts() -> Dict[str, Any]:
-    """Load behavior concepts vocabulary."""
-    with open(BEHAVIOR_CONCEPTS_FILE, "r", encoding="utf-8") as f:
+def load_canonical_entities() -> Dict[str, Any]:
+    """Load canonical entities registry."""
+    with open(CANONICAL_ENTITIES_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -116,11 +109,10 @@ def build_concept_index():
     """Build the deterministic concept evidence index."""
     logger.info("Loading data...")
     
-    entity_types = load_entity_types()
-    behavior_concepts = load_behavior_concepts()
+    canonical_entities = load_canonical_entities()
     chunks = load_chunked_index()
     
-    term_to_entity = entity_types.get("term_to_entity_type", {})
+    term_to_entity = canonical_entities.get("term_to_entity", {})
     
     logger.info(f"Loaded {len(chunks)} chunks")
     logger.info(f"Loaded {len(term_to_entity)} term mappings")
@@ -210,8 +202,7 @@ def build_concept_index():
         'created_at': datetime.now().isoformat(),
         'concept_count': len(concept_index),
         'total_chunks_searched': len(chunks),
-        'entity_types_version': entity_types.get('version', '1.0'),
-        'vocab_version': behavior_concepts.get('version', '1.0'),
+        'canonical_entities_version': canonical_entities.get('version', '1.0'),
         'core_sources': CORE_SOURCES,
         'stats': {
             'concepts_with_evidence': len(concept_index),
