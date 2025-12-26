@@ -1,0 +1,59 @@
+{
+  "build_version": "2.0.0",
+  "extractor_version": "2.0.0",
+  "chunker_version": "1.0.0",
+  "created_at": "2025-12-26T00:17:38.227775+00:00",
+  "chunking_params": {
+    "min_chunk_chars": 200,
+    "target_chunk_chars": 800,
+    "max_chunk_chars": 1400
+  },
+  "stats": {
+    "total_entries": 43687,
+    "total_chunks": 81733,
+    "entries_per_source": {
+      "ibn_kathir": 6230,
+      "tabari": 6236,
+      "qurtubi": 6235,
+      "saadi": 6232,
+      "jalalayn": 6235,
+      "baghawi": 6232,
+      "muyassar": 6287
+    },
+    "chunks_per_source": {
+      "ibn_kathir": 12952,
+      "tabari": 25442,
+      "qurtubi": 15474,
+      "saadi": 6860,
+      "jalalayn": 6242,
+      "baghawi": 8475,
+      "muyassar": 6288
+    },
+    "avg_chunks_per_entry": {
+      "ibn_kathir": 2.08,
+      "tabari": 4.08,
+      "qurtubi": 2.48,
+      "saadi": 1.1,
+      "jalalayn": 1.0,
+      "baghawi": 1.36,
+      "muyassar": 1.0
+    },
+    "verses_covered": 6236
+  },
+  "core_sources": [
+    "ibn_kathir",
+    "tabari",
+    "qurtubi",
+    "saadi",
+    "jalalayn"
+  ],
+  "all_sources": [
+    "ibn_kathir",
+    "tabari",
+    "qurtubi",
+    "saadi",
+    "jalalayn",
+    "baghawi",
+    "muyassar"
+  ]
+}
