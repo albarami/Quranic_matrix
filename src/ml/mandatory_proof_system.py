@@ -513,7 +513,7 @@ class MandatoryProofSystem:
     
     def __init__(self, full_power_system):
         self.system = full_power_system
-        self.tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+        self.tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "muyassar", "baghawi"]
         
         # Phase 4: Initialize stratified tafsir retriever for guaranteed results
         from src.ml.stratified_retriever import get_stratified_retriever, IndexNotFoundError
@@ -743,57 +743,27 @@ class MandatoryProofSystem:
                         "id": f"BHV_{len(graph_nodes)}",
                     })
             
-            # Get edges from graph
-            if hasattr(self.system.graph, 'num_edges'):
-                graph_edges = [
-                    {"from": "سلوك1", "to": "سلوك2", "type": "يسبب", "weight": 0.85, "verses": 5}
-                    for _ in range(min(5, self.system.graph.num_edges // 1000))
-                ]
+            # Get REAL edges from graph - NO SYNTHETIC EDGES
+            # Only add edges if they actually exist in the graph
+            if hasattr(self.system.graph, 'edges') and self.system.graph.edges:
+                for edge in list(self.system.graph.edges)[:10]:
+                    if hasattr(edge, 'source') and hasattr(edge, 'target'):
+                        graph_edges.append({
+                            "from": str(edge.source),
+                            "to": str(edge.target),
+                            "type": getattr(edge, 'type', 'related'),
+                            "weight": getattr(edge, 'weight', 0.0),
+                            "verses": getattr(edge, 'verse_count', 0),
+                        })
         
-        # FALLBACK: If no nodes found, check for conceptual/framework query
+        # NO SYNTHETIC FALLBACK: If no nodes found, log warning and return empty
         if len(graph_nodes) == 0:
-            framework_keywords = ['خارطة', 'إطار', 'منهج', 'نظام', 'بنية', 'شبكة', 'علاقات', 'سلوك', 'قلب', 'مؤمن', 'كافر', 'منافق']
-            is_framework_query = any(kw in question for kw in framework_keywords)
-            
-            if is_framework_query:
-                # FALLBACK DETECTED: Graph primary path returned 0 nodes
-                debug.graph_fallback = True
-                debug.add_fallback("graph: primary retrieval returned 0 nodes, using framework keywords")
-                # Use core behaviors from Bouzidani's framework
-                core_behaviors = [
-                    {"name": "إيمان", "type": "core", "category": "قلبي"},
-                    {"name": "كفر", "type": "core", "category": "قلبي"},
-                    {"name": "نفاق", "type": "core", "category": "قلبي"},
-                    {"name": "توبة", "type": "core", "category": "قلبي"},
-                    {"name": "شكر", "type": "core", "category": "قلبي"},
-                    {"name": "صبر", "type": "core", "category": "قلبي"},
-                    {"name": "كبر", "type": "negative", "category": "قلبي"},
-                    {"name": "صدق", "type": "positive", "category": "لساني"},
-                    {"name": "كذب", "type": "negative", "category": "لساني"},
-                    {"name": "ظلم", "type": "negative", "category": "فعلي"},
-                ]
-                for i, beh in enumerate(core_behaviors):
-                    graph_nodes.append({
-                        "type": beh["type"],
-                        "name": beh["name"],
-                        "id": f"BHV_{i:03d}",
-                        "category": beh["category"],
-                    })
-                
-                # Add meaningful edges between behaviors
-                graph_edges = [
-                    {"from": "إيمان", "to": "كفر", "type": "opposite", "weight": 1.0, "verses": 150},
-                    {"from": "صدق", "to": "كذب", "type": "opposite", "weight": 1.0, "verses": 45},
-                    {"from": "إيمان", "to": "شكر", "type": "leads_to", "weight": 0.9, "verses": 30},
-                    {"from": "كفر", "to": "نفاق", "type": "related", "weight": 0.8, "verses": 25},
-                    {"from": "توبة", "to": "إيمان", "type": "leads_to", "weight": 0.95, "verses": 40},
-                    {"from": "كبر", "to": "كفر", "type": "leads_to", "weight": 0.85, "verses": 20},
-                    {"from": "صبر", "to": "إيمان", "type": "strengthens", "weight": 0.9, "verses": 35},
-                ]
-                
-                logging.info(f"[GRAPH FALLBACK] Framework query detected, added {len(graph_nodes)} core behavior nodes")
+            # Log that no graph evidence was found - DO NOT FABRICATE
+            debug.graph_fallback = True
+            debug.add_fallback("graph: no graph nodes found for query - returning empty (no synthetic data)")
+            logging.warning(f"[GRAPH] No graph nodes found for query: {question[:50]}...")
         
-        # GNN paths
+        # GNN paths - only add REAL paths from the reasoner
         if self.system.gnn_reasoner:
             behavior_keywords = ["الكبر", "القسوة", "الغفلة", "التوبة", "الإيمان", "الكفر", "النفاق"]
             found = [b for b in behavior_keywords if b in question]
@@ -802,14 +772,13 @@ class MandatoryProofSystem:
                 if path_result.get("found"):
                     graph_paths.append(path_result["path"])
         
-        # Ensure at least one path for framework queries
-        if len(graph_paths) == 0 and len(graph_nodes) > 0:
-            graph_paths = [["إيمان", "شكر", "صبر"], ["كفر", "نفاق", "كذب"]]
+        # NO SYNTHETIC PATHS - if no paths found, return empty list
+        # Do NOT fabricate paths like ["سلوك_أ", "سلوك_ب", "سلوك_ج"]
         
         graph_evidence = GraphEvidence(
             nodes=graph_nodes,
             edges=graph_edges,
-            paths=graph_paths if graph_paths else [["سلوك_أ", "سلوك_ب", "سلوك_ج"]],
+            paths=graph_paths,  # Empty list if no real paths found
         )
         
         # 7. Embedding Evidence - Generate dynamic similarities from query and results
@@ -916,48 +885,15 @@ class MandatoryProofSystem:
                 "agent": b.get("agent", "?"),
             })
         
-        # FALLBACK: If no behaviors detected, use keyword-based detection
+        # NO SYNTHETIC FALLBACK: If no behaviors detected, log warning and return empty
         if len(behaviors) == 0:
-            # FALLBACK DETECTED: Taxonomy primary path returned 0 behaviors
+            # Log that no taxonomy evidence was found - DO NOT FABRICATE
             debug.taxonomy_fallback = True
-            debug.add_fallback("taxonomy: primary retrieval returned 0 behaviors, using keyword detection")
-            # Keyword-based behavior detection
-            BEHAVIOR_KEYWORDS = {
-                'إيمان': ['إيمان', 'مؤمن', 'آمن', 'يؤمن', 'آمنوا'],
-                'كفر': ['كفر', 'كافر', 'يكفر', 'كفروا'],
-                'نفاق': ['نفاق', 'منافق', 'نافق', 'منافقين'],
-                'توبة': ['توبة', 'تاب', 'يتوب', 'توبوا'],
-                'شكر': ['شكر', 'شاكر', 'يشكر', 'شكور'],
-                'صبر': ['صبر', 'صابر', 'يصبر', 'صابرين'],
-                'كذب': ['كذب', 'كاذب', 'يكذب', 'كذبوا'],
-                'صدق': ['صدق', 'صادق', 'يصدق', 'صادقين'],
-                'كبر': ['كبر', 'متكبر', 'يتكبر', 'استكبر', 'الكبر'],
-                'ظلم': ['ظلم', 'ظالم', 'يظلم', 'ظلموا'],
-            }
-            
-            detected_behaviors = []
-            for behavior, keywords in BEHAVIOR_KEYWORDS.items():
-                if any(kw in question for kw in keywords):
-                    detected_behaviors.append(behavior)
-            
-            # Framework query fallback
-            framework_keywords = ['خارطة', 'سلوك', 'إطار', 'منهج', 'نظام', 'قلب', 'مؤمن', 'منافق', 'كافر']
-            if len(detected_behaviors) == 0 and any(kw in question for kw in framework_keywords):
-                detected_behaviors = ['إيمان', 'كفر', 'نفاق', 'توبة', 'شكر', 'صبر', 'كبر', 'صدق']
-                logging.info(f"[BEHAVIOR FALLBACK] Framework query, using core behaviors: {detected_behaviors}")
-            
-            # Build behavior entries
-            for i, beh in enumerate(detected_behaviors[:10]):
-                behaviors.append({
-                    "name": beh,
-                    "code": f"BHV_{i:03d}",
-                    "evaluation": "إيجابي" if beh in ['إيمان', 'توبة', 'شكر', 'صبر', 'صدق'] else "سلبي",
-                    "organ": "القلب",
-                    "agent": "الإنسان",
-                })
+            debug.add_fallback("taxonomy: no behaviors found for query - returning empty (no synthetic data)")
+            logging.warning(f"[TAXONOMY] No behaviors found for query: {question[:50]}...")
         
         taxonomy_evidence = TaxonomyEvidence(
-            behaviors=behaviors if behaviors else [{"name": "سلوك", "code": "BHV_001", "evaluation": "?", "organ": "?", "agent": "?"}],
+            behaviors=behaviors,  # Empty list if no real behaviors found - NO SYNTHETIC DATA
             dimensions={
                 "1. العضوي": "القلب",
                 "2. الموقفي": "داخلي",
