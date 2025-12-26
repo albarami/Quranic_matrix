@@ -302,17 +302,21 @@ class QBMKnowledgeGraph:
         return paths
 
     def _is_causal_path(self, path: List[str]) -> bool:
-        """Check if a path consists only of causal edges."""
+        """Check if a path consists only of causal edges (ALL edges must be causal)."""
         causal_types = {"CAUSES", "RESULTS_IN", "LEADS_TO"}
         for i in range(len(path) - 1):
             edge_data = self.G.get_edge_data(path[i], path[i + 1])
             if edge_data is None:
                 return False
-            # MultiDiGraph returns dict of dicts
+            # MultiDiGraph returns dict of dicts - check if ANY edge between nodes is causal
+            has_causal_edge = False
             for key, data in edge_data.items():
                 if data.get("edge_type") in causal_types:
-                    return True
-        return False
+                    has_causal_edge = True
+                    break
+            if not has_causal_edge:
+                return False
+        return True
 
     def find_all_paths(
         self, start: str, end: str, max_depth: int = 5
@@ -515,11 +519,12 @@ class QBMKnowledgeGraph:
             vocab = json.load(f)
 
         count = 0
-        for agent in vocab.get("agents", []):
+        # Vocab uses 'items' key, not 'agents'
+        for agent in vocab.get("items", []):
             self.add_agent(
                 agent_id=agent["id"],
                 name_ar=agent.get("ar", ""),
-                agent_type=agent.get("type", "unknown"),
+                agent_type=agent.get("en", "unknown"),
             )
             count += 1
 
@@ -531,11 +536,12 @@ class QBMKnowledgeGraph:
             vocab = json.load(f)
 
         count = 0
-        for organ in vocab.get("organs", []):
+        # Vocab uses 'items' key, not 'organs'
+        for organ in vocab.get("items", []):
             self.add_organ(
                 organ_id=organ["id"],
                 name_ar=organ.get("ar", ""),
-                name_en=organ.get("en", ""),
+                name_en=organ.get("id", "").replace("ORG_", "").replace("_", " ").title(),
             )
             count += 1
 
