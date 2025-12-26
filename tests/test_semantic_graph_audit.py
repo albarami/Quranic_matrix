@@ -391,6 +391,84 @@ class TestNoFabrication:
 
 
 @pytest.mark.audit
+class TestCausalEdgeMultiSupport:
+    """
+    Phase 10.3: Causal edges require multi-source and multi-verse support.
+    
+    For CAUSES/LEADS_TO/PREVENTS/STRENGTHENS edges:
+    - Require at least 2 different verse_keys OR
+    - Flag as "single-evidence edge"
+    """
+    
+    def test_causal_edges_have_multi_verse_support(self, sampled_causal_edges):
+        """Causal edges should have evidence from multiple verses."""
+        edges_with_multi_verse = 0
+        single_verse_edges = []
+        
+        for edge in sampled_causal_edges:
+            evidence = edge.get("evidence", [])
+            verse_keys = set()
+            for ev in evidence:
+                vk = ev.get("verse_key", "")
+                if vk:
+                    verse_keys.add(vk)
+            
+            if len(verse_keys) >= 2:
+                edges_with_multi_verse += 1
+            else:
+                # Check if flagged as single-evidence
+                if not edge.get("single_evidence_edge", False):
+                    single_verse_edges.append({
+                        "source": edge["source"],
+                        "target": edge["target"],
+                        "edge_type": edge["edge_type"],
+                        "verse_keys": list(verse_keys),
+                    })
+        
+        total = len(sampled_causal_edges)
+        pct = (edges_with_multi_verse / total * 100) if total > 0 else 0
+        
+        # At least 50% of causal edges should have multi-verse support
+        # (remaining can be flagged as single-evidence)
+        assert edges_with_multi_verse >= total * 0.50, \
+            f"Only {edges_with_multi_verse}/{total} ({pct:.1f}%) causal edges have multi-verse support. " \
+            f"Sample single-verse: {single_verse_edges[:5]}"
+    
+    def test_causal_edges_have_multi_source_support(self, sampled_causal_edges):
+        """Causal edges should have evidence from multiple tafsir sources."""
+        edges_with_multi_source = 0
+        single_source_edges = []
+        
+        for edge in sampled_causal_edges:
+            evidence = edge.get("evidence", [])
+            sources = set()
+            for ev in evidence:
+                src = ev.get("source", "")
+                if src:
+                    sources.add(src)
+            
+            if len(sources) >= 2:
+                edges_with_multi_source += 1
+            else:
+                if not edge.get("single_evidence_edge", False):
+                    single_source_edges.append({
+                        "source": edge["source"],
+                        "target": edge["target"],
+                        "edge_type": edge["edge_type"],
+                        "tafsir_sources": list(sources),
+                    })
+        
+        total = len(sampled_causal_edges)
+        pct = (edges_with_multi_source / total * 100) if total > 0 else 0
+        
+        # At least 30% of causal edges should have multi-source support
+        # (this is a softer requirement since not all concepts appear in all tafsir)
+        assert edges_with_multi_source >= total * 0.30, \
+            f"Only {edges_with_multi_source}/{total} ({pct:.1f}%) causal edges have multi-source support. " \
+            f"Sample single-source: {single_source_edges[:5]}"
+
+
+@pytest.mark.audit
 class TestAuditSummary:
     """Summary statistics for audit."""
     
