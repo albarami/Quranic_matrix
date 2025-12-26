@@ -2153,8 +2153,9 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
                 except (ValueError, TypeError, AttributeError):
                     surah_num = 0
                 
-                # Include if: relevance > 5% OR surah is explicitly mentioned in question
-                if relevance > 0.05 or surah_num in mentioned_surahs:
+                # Include all verses - filtering is now handled upstream by deterministic logic
+                # Rank-based selection (top_k) replaces threshold-based filtering
+                if True:  # Always include - let upstream handle selection
                     filtered.append({
                         "surah": v.get("surah"),
                         "ayah": v.get("ayah"),

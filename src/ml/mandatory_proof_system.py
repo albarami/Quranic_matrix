@@ -26,6 +26,9 @@ from pathlib import Path
 import logging
 from pydantic import BaseModel, Field
 
+# Phase 10.2: Deterministic Quran evidence paths
+CONCEPT_INDEX_FILE = Path("data/evidence/concept_index_v2.jsonl")
+
 # =============================================================================
 # PROOF DEBUG SCHEMA - Phase 0 Instrumentation
 # =============================================================================
@@ -524,6 +527,9 @@ class MandatoryProofSystem:
         self.tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "muyassar", "baghawi"]
         self.core_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
         
+        # Phase 10.2: Load concept index for deterministic Quran evidence
+        self.concept_index = self._load_concept_index()
+        
         # Phase 5: Initialize hybrid evidence retriever (deterministic + BM25)
         self.hybrid_retriever = None
         try:
@@ -542,6 +548,144 @@ class MandatoryProofSystem:
             logging.error(f"[PROOF] StratifiedTafsirRetriever failed to initialize: {e}")
             raise  # Fail fast - no fallback allowed
     
+    def _load_concept_index(self) -> Dict[str, Any]:
+        """Load concept index for deterministic verse lookup."""
+        concept_index = {}
+        if CONCEPT_INDEX_FILE.exists():
+            with open(CONCEPT_INDEX_FILE, "r", encoding="utf-8") as f:
+                for line in f:
+                    entry = json.loads(line.strip())
+                    term = entry.get("term", "")
+                    if term:
+                        concept_index[term] = entry
+            logging.info(f"[PROOF] Loaded {len(concept_index)} concepts from index")
+        return concept_index
+    
+    def _route_query(self, question: str) -> Dict[str, Any]:
+        """
+        Phase 10.2: Route query to determine intent and extract entities.
+        
+        Returns:
+            dict with keys: intent, concept, surah, ayah
+        """
+        import re
+        
+        result = {"intent": "FREE_TEXT", "concept": None, "surah": None, "ayah": None}
+        
+        # Check for AYAH_REF (e.g., "2:255", "البقرة:255")
+        ayah_pattern = r'(\d+):(\d+)'
+        ayah_match = re.search(ayah_pattern, question)
+        if ayah_match:
+            result["intent"] = "AYAH_REF"
+            result["surah"] = int(ayah_match.group(1))
+            result["ayah"] = int(ayah_match.group(2))
+            return result
+        
+        # Check for SURAH_REF (e.g., "سورة البقرة")
+        surah_names = {
+            'الفاتحة': 1, 'البقرة': 2, 'آل عمران': 3, 'النساء': 4, 'المائدة': 5,
+            'الأنعام': 6, 'الأعراف': 7, 'الأنفال': 8, 'التوبة': 9, 'يونس': 10,
+            'هود': 11, 'يوسف': 12, 'الرعد': 13, 'إبراهيم': 14, 'الحجر': 15,
+            'النحل': 16, 'الإسراء': 17, 'الكهف': 18, 'مريم': 19, 'طه': 20,
+            'الأنبياء': 21, 'الحج': 22, 'المؤمنون': 23, 'النور': 24, 'الفرقان': 25,
+            'الشعراء': 26, 'النمل': 27, 'القصص': 28, 'العنكبوت': 29, 'الروم': 30,
+            'لقمان': 31, 'السجدة': 32, 'الأحزاب': 33, 'سبأ': 34, 'فاطر': 35,
+            'يس': 36, 'الصافات': 37, 'ص': 38, 'الزمر': 39, 'غافر': 40,
+            'فصلت': 41, 'الشورى': 42, 'الزخرف': 43, 'الدخان': 44, 'الجاثية': 45,
+            'الأحقاف': 46, 'محمد': 47, 'الفتح': 48, 'الحجرات': 49, 'ق': 50,
+        }
+        surah_pattern = r'سورة\s*(\S+)'
+        surah_match = re.search(surah_pattern, question)
+        if surah_match:
+            surah_name = surah_match.group(1)
+            if surah_name in surah_names:
+                result["intent"] = "SURAH_REF"
+                result["surah"] = surah_names[surah_name]
+                return result
+        
+        # Check for CONCEPT_REF (behavior/concept term in concept index)
+        for term in self.concept_index.keys():
+            if term in question:
+                result["intent"] = "CONCEPT_REF"
+                result["concept"] = term
+                return result
+        
+        return result
+    
+    def _get_deterministic_quran_evidence(self, route_result: Dict[str, Any], top_k: int = 20) -> List[Dict]:
+        """
+        Phase 10.2: Get Quran verses deterministically based on query intent.
+        
+        - CONCEPT_REF: verses from concept index
+        - SURAH_REF: verses from that surah
+        - AYAH_REF: that specific ayah
+        - FREE_TEXT: returns empty (caller should use RAG)
+        """
+        intent = route_result.get("intent", "FREE_TEXT")
+        quran_results = []
+        
+        if intent == "CONCEPT_REF":
+            concept_term = route_result.get("concept")
+            if concept_term and concept_term in self.concept_index:
+                concept_data = self.concept_index[concept_term]
+                verses = concept_data.get("verses", [])
+                for v in verses[:top_k]:
+                    surah = v.get("surah")
+                    ayah = v.get("ayah")
+                    if surah and ayah and hasattr(self.system, 'quran_verses'):
+                        surah_data = self.system.quran_verses.get(int(surah), {})
+                        verse_text = surah_data.get('verses', {}).get(int(ayah), "")
+                        if not verse_text:
+                            verse_text = surah_data.get('verses', {}).get(str(ayah), "")
+                        if verse_text:
+                            quran_results.append({
+                                "surah": str(surah),
+                                "ayah": str(ayah),
+                                "surah_name": surah_data.get('name', ''),
+                                "text": verse_text,
+                                "relevance": 1.0,  # Deterministic = full relevance
+                                "source": "concept_index",
+                            })
+                logging.info(f"[PROOF] CONCEPT_REF '{concept_term}': {len(quran_results)} verses from concept index")
+        
+        elif intent == "SURAH_REF":
+            surah_num = route_result.get("surah")
+            if surah_num and hasattr(self.system, 'quran_verses'):
+                surah_data = self.system.quran_verses.get(int(surah_num), {})
+                verses = surah_data.get('verses', {})
+                for ayah_num, verse_text in list(verses.items())[:top_k]:
+                    quran_results.append({
+                        "surah": str(surah_num),
+                        "ayah": str(ayah_num),
+                        "surah_name": surah_data.get('name', ''),
+                        "text": verse_text,
+                        "relevance": 1.0,
+                        "source": "surah_ref",
+                    })
+                logging.info(f"[PROOF] SURAH_REF {surah_num}: {len(quran_results)} verses")
+        
+        elif intent == "AYAH_REF":
+            surah_num = route_result.get("surah")
+            ayah_num = route_result.get("ayah")
+            if surah_num and ayah_num and hasattr(self.system, 'quran_verses'):
+                surah_data = self.system.quran_verses.get(int(surah_num), {})
+                verse_text = surah_data.get('verses', {}).get(int(ayah_num), "")
+                if not verse_text:
+                    verse_text = surah_data.get('verses', {}).get(str(ayah_num), "")
+                if verse_text:
+                    quran_results.append({
+                        "surah": str(surah_num),
+                        "ayah": str(ayah_num),
+                        "surah_name": surah_data.get('name', ''),
+                        "text": verse_text,
+                        "relevance": 1.0,
+                        "source": "ayah_ref",
+                    })
+                logging.info(f"[PROOF] AYAH_REF {surah_num}:{ayah_num}: {len(quran_results)} verses")
+        
+        # FREE_TEXT returns empty - caller should use RAG
+        return quran_results
+    
     def answer_with_full_proof(self, question: str) -> Dict[str, Any]:
         """Answer with mandatory proof from all 13 components"""
         start_time = time.time()
@@ -552,14 +696,21 @@ class MandatoryProofSystem:
             tafsir_fallbacks={s: False for s in self.tafsir_sources}
         )
         
+        # Phase 10.2: Route query to determine intent (CONCEPT_REF, SURAH_REF, AYAH_REF, FREE_TEXT)
+        route_result = self._route_query(question)
+        intent = route_result.get("intent", "FREE_TEXT")
+        logging.info(f"[PROOF] Query intent: {intent}, route_result: {route_result}")
+        
+        # Phase 10.2: Get deterministic Quran evidence for structured queries
+        quran_results = self._get_deterministic_quran_evidence(route_result, top_k=20)
+        seen_verses = {f"{v['surah']}:{v['ayah']}" for v in quran_results}
+        
         # 1. RAG Retrieval - MUST use ensure_source_diversity=True to get Quran verses and all tafsir sources
         rag_results = self.system.search(question, top_k=100, ensure_source_diversity=True)
         
         # 2. Categorize results by source
-        quran_results = []
         tafsir_results = {s: [] for s in self.tafsir_sources}
         behavior_results = []
-        seen_verses = set()  # Deduplicate verses
         
         # Log RAG results distribution
         rag_source_counts = {}
@@ -574,6 +725,7 @@ class MandatoryProofSystem:
             result_type = meta.get("type", "")
             
             # Handle actual Quran verse results (type="quran")
+            # Phase 10.2: Only add RAG verses for FREE_TEXT or if deterministic found none
             if result_type == "quran" or source == "quran":
                 surah = meta.get("surah")
                 ayah = meta.get("ayah")
@@ -588,6 +740,7 @@ class MandatoryProofSystem:
                             "surah_name": meta.get("surah_name", ""),
                             "text": meta.get("text", r.get("text", "")),
                             "relevance": r.get("score", 0),
+                            "source": "rag",  # Mark as RAG-sourced
                         })
                 continue
             
