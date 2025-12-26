@@ -34,13 +34,31 @@ from .relation_extractor import (
     RELATION_TYPES,
 )
 
-# Layer 5: Graph Reasoning
-from .graph_reasoner import (
-    QBMGraphReasoner,
-    ReasoningEngine,
-    build_and_train_reasoner,
-    get_reasoning_engine,
-)
+# Layer 5: Graph Reasoning - LAZY IMPORT (torch_geometric is optional)
+# Import only when explicitly requested to avoid Windows DLL crashes
+def get_reasoning_engine(*args, **kwargs):
+    """Lazy import of graph reasoning engine."""
+    from .graph_reasoner import get_reasoning_engine as _get_reasoning_engine
+    return _get_reasoning_engine(*args, **kwargs)
+
+def build_and_train_reasoner(*args, **kwargs):
+    """Lazy import of graph reasoner builder."""
+    from .graph_reasoner import build_and_train_reasoner as _build_and_train_reasoner
+    return _build_and_train_reasoner(*args, **kwargs)
+
+# These will be imported lazily when accessed
+QBMGraphReasoner = None
+ReasoningEngine = None
+
+def _lazy_load_graph_reasoner():
+    """Load graph reasoner classes on demand."""
+    global QBMGraphReasoner, ReasoningEngine
+    if QBMGraphReasoner is None:
+        from .graph_reasoner import QBMGraphReasoner as _QBMGraphReasoner
+        from .graph_reasoner import ReasoningEngine as _ReasoningEngine
+        QBMGraphReasoner = _QBMGraphReasoner
+        ReasoningEngine = _ReasoningEngine
+    return QBMGraphReasoner, ReasoningEngine
 
 # Layer 6: Tafsir Alignment
 from .tafsir_aligner import (

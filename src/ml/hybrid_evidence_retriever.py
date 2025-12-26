@@ -58,6 +58,25 @@ class RetrievalResult:
 
 
 @dataclass
+class SurahCoverage:
+    """Coverage summary for SURAH_REF responses."""
+    surah_num: int
+    verse_count: int
+    verses_covered: List[str]
+    sources_per_verse: Dict[str, List[str]]
+    total_chunks: int
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            'surah_num': self.surah_num,
+            'verse_count': self.verse_count,
+            'verses_covered': self.verses_covered,
+            'sources_per_verse': self.sources_per_verse,
+            'total_chunks': self.total_chunks,
+        }
+
+
+@dataclass
 class RetrievalResponse:
     """Complete retrieval response."""
     query: str
@@ -68,9 +87,14 @@ class RetrievalResponse:
     fallback_used: bool = False
     fallback_reason: str = ""
     
+    # SURAH_REF specific fields
+    intent: str = "FREE_TEXT"  # SURAH_REF, AYAH_REF, CONCEPT_REF, FREE_TEXT
+    surah_coverage: Optional[SurahCoverage] = None
+    
     def to_dict(self) -> Dict[str, Any]:
-        return {
+        result = {
             'query': self.query,
+            'intent': self.intent,
             'results': [r.to_dict() for r in self.results],
             'counts': {
                 'deterministic': self.deterministic_count,
@@ -80,6 +104,46 @@ class RetrievalResponse:
             },
             'fallback_used': self.fallback_used,
             'fallback_reason': self.fallback_reason,
+        }
+        if self.surah_coverage:
+            result['surah_coverage'] = self.surah_coverage.to_dict()
+        return result
+    
+    def get_summary_view(self, top_per_verse_source: int = 1) -> Dict[str, Any]:
+        """
+        Get a summarized view: top N chunks per verse per source.
+        
+        For SURAH_REF, this provides a readable summary while preserving
+        full data access via the complete results list.
+        """
+        if self.intent != "SURAH_REF":
+            return self.to_dict()
+        
+        # Group by verse_key -> source -> chunks
+        by_verse_source: Dict[str, Dict[str, List[RetrievalResult]]] = {}
+        for r in self.results:
+            if r.verse_key not in by_verse_source:
+                by_verse_source[r.verse_key] = {}
+            if r.source not in by_verse_source[r.verse_key]:
+                by_verse_source[r.verse_key][r.source] = []
+            by_verse_source[r.verse_key][r.source].append(r)
+        
+        # Build summary: top N per verse per source
+        summary_results = []
+        for verse_key in sorted(by_verse_source.keys(), key=lambda x: (int(x.split(':')[0]), int(x.split(':')[1]))):
+            for source in CORE_SOURCES:
+                chunks = by_verse_source.get(verse_key, {}).get(source, [])
+                for chunk in chunks[:top_per_verse_source]:
+                    summary_results.append(chunk.to_dict())
+        
+        return {
+            'query': self.query,
+            'intent': self.intent,
+            'view': 'summary',
+            'top_per_verse_source': top_per_verse_source,
+            'summary_results': summary_results,
+            'total_available': len(self.results),
+            'surah_coverage': self.surah_coverage.to_dict() if self.surah_coverage else None,
         }
 
 
@@ -321,6 +385,79 @@ class HybridEvidenceRetriever:
         
         self._initialized = True
     
+    # Surah verse counts for SURAH_REF deterministic retrieval
+    SURAH_VERSE_COUNTS = {
+        1: 7, 2: 286, 3: 200, 4: 176, 5: 120, 6: 165, 7: 206, 8: 75, 9: 129, 10: 109,
+        11: 123, 12: 111, 13: 43, 14: 52, 15: 99, 16: 128, 17: 111, 18: 110, 19: 98, 20: 135,
+        21: 112, 22: 78, 23: 118, 24: 64, 25: 77, 26: 227, 27: 93, 28: 88, 29: 69, 30: 60,
+        31: 34, 32: 30, 33: 73, 34: 54, 35: 45, 36: 83, 37: 182, 38: 88, 39: 75, 40: 85,
+        41: 54, 42: 53, 43: 89, 44: 59, 45: 37, 46: 35, 47: 38, 48: 29, 49: 18, 50: 45,
+        51: 60, 52: 49, 53: 62, 54: 55, 55: 78, 56: 96, 57: 29, 58: 22, 59: 24, 60: 13,
+        61: 14, 62: 11, 63: 11, 64: 18, 65: 12, 66: 12, 67: 30, 68: 52, 69: 52, 70: 44,
+        71: 28, 72: 28, 73: 20, 74: 56, 75: 40, 76: 31, 77: 50, 78: 40, 79: 46, 80: 42,
+        81: 29, 82: 19, 83: 36, 84: 25, 85: 22, 86: 17, 87: 19, 88: 26, 89: 30, 90: 20,
+        91: 15, 92: 21, 93: 11, 94: 8, 95: 8, 96: 19, 97: 5, 98: 8, 99: 8, 100: 11,
+        101: 11, 102: 8, 103: 3, 104: 9, 105: 5, 106: 4, 107: 7, 108: 3, 109: 6, 110: 3,
+        111: 5, 112: 4, 113: 5, 114: 6,
+    }
+    
+    # Arabic surah names for parsing
+    SURAH_NAMES = {
+        'الفاتحة': 1, 'البقرة': 2, 'آل عمران': 3, 'النساء': 4, 'المائدة': 5,
+        'الأنعام': 6, 'الأعراف': 7, 'الأنفال': 8, 'التوبة': 9, 'يونس': 10,
+        'هود': 11, 'يوسف': 12, 'الرعد': 13, 'إبراهيم': 14, 'الحجر': 15,
+        'النحل': 16, 'الإسراء': 17, 'الكهف': 18, 'مريم': 19, 'طه': 20,
+        'الأنبياء': 21, 'الحج': 22, 'المؤمنون': 23, 'النور': 24, 'الفرقان': 25,
+        'الشعراء': 26, 'النمل': 27, 'القصص': 28, 'العنكبوت': 29, 'الروم': 30,
+        'لقمان': 31, 'السجدة': 32, 'الأحزاب': 33, 'سبأ': 34, 'فاطر': 35,
+        'يس': 36, 'الصافات': 37, 'ص': 38, 'الزمر': 39, 'غافر': 40,
+        'فصلت': 41, 'الشورى': 42, 'الزخرف': 43, 'الدخان': 44, 'الجاثية': 45,
+        'الأحقاف': 46, 'محمد': 47, 'الفتح': 48, 'الحجرات': 49, 'ق': 50,
+        'الذاريات': 51, 'الطور': 52, 'النجم': 53, 'القمر': 54, 'الرحمن': 55,
+        'الواقعة': 56, 'الحديد': 57, 'المجادلة': 58, 'الحشر': 59, 'الممتحنة': 60,
+        'الصف': 61, 'الجمعة': 62, 'المنافقون': 63, 'التغابن': 64, 'الطلاق': 65,
+        'التحريم': 66, 'الملك': 67, 'القلم': 68, 'الحاقة': 69, 'المعارج': 70,
+        'نوح': 71, 'الجن': 72, 'المزمل': 73, 'المدثر': 74, 'القيامة': 75,
+        'الإنسان': 76, 'المرسلات': 77, 'النبأ': 78, 'النازعات': 79, 'عبس': 80,
+        'التكوير': 81, 'الانفطار': 82, 'المطففين': 83, 'الانشقاق': 84, 'البروج': 85,
+        'الطارق': 86, 'الأعلى': 87, 'الغاشية': 88, 'الفجر': 89, 'البلد': 90,
+        'الشمس': 91, 'الليل': 92, 'الضحى': 93, 'الشرح': 94, 'التين': 95,
+        'العلق': 96, 'القدر': 97, 'البينة': 98, 'الزلزلة': 99, 'العاديات': 100,
+        'القارعة': 101, 'التكاثر': 102, 'العصر': 103, 'الهمزة': 104, 'الفيل': 105,
+        'قريش': 106, 'الماعون': 107, 'الكوثر': 108, 'الكافرون': 109, 'النصر': 110,
+        'المسد': 111, 'الإخلاص': 112, 'الفلق': 113, 'الناس': 114,
+    }
+    
+    def _parse_surah_reference(self, query: str) -> Optional[int]:
+        """Extract surah number from query (SURAH_REF intent)."""
+        # Check for "سورة X" pattern (highest priority)
+        match = re.search(r'سورة\s+([\u0600-\u06FF\s]+)', query)
+        if match:
+            surah_name = match.group(1).strip()
+            # Sort by name length descending to match longer names first
+            # This prevents "ص" from matching before "الإخلاص"
+            sorted_names = sorted(self.SURAH_NAMES.items(), key=lambda x: len(x[0]), reverse=True)
+            for name, num in sorted_names:
+                if name == surah_name or name in surah_name:
+                    return num
+        
+        # Check for word-boundary surah name match (not substring)
+        # Sort by length to match longer names first
+        sorted_names = sorted(self.SURAH_NAMES.items(), key=lambda x: len(x[0]), reverse=True)
+        for name, num in sorted_names:
+            # Use word boundary check - name must be a complete word
+            # For single-char names like "ص" or "ق", require "سورة" prefix
+            if len(name) <= 2:
+                if f"سورة {name}" in query:
+                    return num
+            else:
+                # For longer names, check if it appears as a word
+                pattern = rf'\b{re.escape(name)}\b|{re.escape(name)}'
+                if re.search(pattern, query):
+                    return num
+        
+        return None
+    
     def _parse_verse_reference(self, query: str) -> Optional[str]:
         """Extract verse reference from query (e.g., '2:255' or 'البقرة:255')."""
         # Numeric format: 2:255
@@ -328,13 +465,7 @@ class HybridEvidenceRetriever:
         if match:
             return f"{match.group(1)}:{match.group(2)}"
         
-        # Arabic surah names (partial list)
-        surah_names = {
-            'الفاتحة': 1, 'البقرة': 2, 'آل عمران': 3, 'النساء': 4, 'المائدة': 5,
-            'الأنعام': 6, 'الأعراف': 7, 'الأنفال': 8, 'التوبة': 9, 'يونس': 10,
-        }
-        
-        for name, num in surah_names.items():
+        for name, num in self.SURAH_NAMES.items():
             if name in query:
                 ayah_match = re.search(r'(\d+)', query)
                 if ayah_match:
@@ -343,7 +474,7 @@ class HybridEvidenceRetriever:
         return None
     
     def _deterministic_retrieval(self, query: str) -> List[RetrievalResult]:
-        """Direct lookup by verse reference."""
+        """Direct lookup by verse reference (AYAH_REF)."""
         verse_key = self._parse_verse_reference(query)
         if not verse_key:
             return []
@@ -363,6 +494,43 @@ class HybridEvidenceRetriever:
                 ayah=chunk['ayah'],
             ))
         
+        return results
+    
+    def _surah_deterministic_retrieval(self, surah_num: int) -> List[RetrievalResult]:
+        """
+        Deterministic retrieval for SURAH_REF intent.
+        
+        Fetches tafsir chunks ONLY for verses in the specified surah.
+        No BM25 pollution - this is the primary evidence set.
+        """
+        results = []
+        verse_count = self.SURAH_VERSE_COUNTS.get(surah_num, 0)
+        
+        if verse_count == 0:
+            logger.warning(f"Unknown surah number: {surah_num}")
+            return []
+        
+        logger.info(f"[SURAH_REF] Fetching tafsir for surah {surah_num} ({verse_count} verses)")
+        
+        # Fetch chunks for each verse in the surah
+        for ayah in range(1, verse_count + 1):
+            verse_key = f"{surah_num}:{ayah}"
+            chunks = self.index.get_by_verse(verse_key)
+            
+            for chunk in chunks:
+                if chunk['source'] in CORE_SOURCES:
+                    results.append(RetrievalResult(
+                        chunk_id=chunk['chunk_id'],
+                        verse_key=chunk['verse_key'],
+                        source=chunk['source'],
+                        text=chunk['text_clean'],
+                        score=1.0,  # Perfect match - deterministic
+                        retrieval_method='surah_deterministic',
+                        surah=chunk['surah'],
+                        ayah=chunk['ayah'],
+                    ))
+        
+        logger.info(f"[SURAH_REF] Retrieved {len(results)} chunks for surah {surah_num}")
         return results
     
     def _rrf_fusion(
@@ -389,19 +557,67 @@ class HybridEvidenceRetriever:
         query: str,
         top_k: int = 20,
         min_per_source: int = 3,
+        surah_num: Optional[int] = None,
     ) -> RetrievalResponse:
         """
         Hybrid search with source-aware bucketed selection.
         
         Phase 5.5: Ensures all 5 core sources are represented in top-K.
+        Phase 6.3: SURAH_REF intent uses deterministic verse filtering.
         Returns empty results if nothing found - NO SYNTHETIC EVIDENCE.
+        
+        Args:
+            query: Search query
+            top_k: Maximum results to return
+            min_per_source: Minimum results per core source
+            surah_num: If provided, enforces SURAH_REF deterministic retrieval
         """
         self.initialize()
         
         response = RetrievalResponse(query=query)
         seen_chunk_ids = set()
         
-        # 1. Deterministic retrieval (verse reference) - if present
+        # 0. SURAH_REF: If surah_num provided, use deterministic surah retrieval
+        if surah_num is None:
+            # Auto-detect SURAH_REF from query
+            surah_num = self._parse_surah_reference(query)
+        
+        if surah_num is not None:
+            # SURAH_REF intent: Deterministic retrieval for ALL verses in surah
+            response.intent = "SURAH_REF"
+            surah_results = self._surah_deterministic_retrieval(surah_num)
+            for r in surah_results:
+                if r.chunk_id not in seen_chunk_ids:
+                    response.results.append(r)
+                    seen_chunk_ids.add(r.chunk_id)
+                    response.deterministic_count += 1
+            
+            # For SURAH_REF: Return ALL results, no top_k limit
+            # This ensures complete coverage of all verses in the surah
+            if response.deterministic_count > 0:
+                # Build coverage summary
+                verses_covered = set()
+                sources_per_verse: Dict[str, List[str]] = {}
+                for r in response.results:
+                    verses_covered.add(r.verse_key)
+                    if r.verse_key not in sources_per_verse:
+                        sources_per_verse[r.verse_key] = []
+                    if r.source not in sources_per_verse[r.verse_key]:
+                        sources_per_verse[r.verse_key].append(r.source)
+                
+                response.surah_coverage = SurahCoverage(
+                    surah_num=surah_num,
+                    verse_count=self.SURAH_VERSE_COUNTS.get(surah_num, 0),
+                    verses_covered=sorted(verses_covered, key=lambda x: int(x.split(':')[1])),
+                    sources_per_verse=sources_per_verse,
+                    total_chunks=len(response.results),
+                )
+                
+                logger.info(f"[SURAH_REF] Returning {len(response.results)} results for surah {surah_num} "
+                           f"({len(verses_covered)} verses covered)")
+                return response
+        
+        # 1. Deterministic retrieval (verse reference) - AYAH_REF
         det_results = self._deterministic_retrieval(query)
         for r in det_results:
             if r.chunk_id not in seen_chunk_ids:
@@ -411,6 +627,7 @@ class HybridEvidenceRetriever:
         
         # If deterministic found results, we're done (perfect coverage)
         if response.deterministic_count > 0:
+            response.intent = "AYAH_REF"
             # Still apply source diversity
             response.results = self._apply_source_diversity(response.results, top_k, min_per_source)
             return response
