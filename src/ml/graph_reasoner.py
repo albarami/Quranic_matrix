@@ -16,23 +16,40 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-try:
-    import torch
-    import torch.nn as nn
-    import torch.nn.functional as F
-    TORCH_AVAILABLE = True
-    DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-except ImportError:
-    TORCH_AVAILABLE = False
-    DEVICE = "cpu"
+# Lazy import flags - DO NOT import torch_geometric at module level
+# Windows DLL load can crash before exception handler catches it
+TORCH_AVAILABLE = False
+PYG_AVAILABLE = False
+DEVICE = "cpu"
 
-try:
-    from torch_geometric.nn import GATConv, GCNConv
-    from torch_geometric.data import Data
-    PYG_AVAILABLE = True
-except ImportError:
-    PYG_AVAILABLE = False
-    logger.warning("torch_geometric not available. Install: pip install torch-geometric")
+def _check_torch_available():
+    """Lazy check for torch availability."""
+    global TORCH_AVAILABLE, DEVICE
+    if TORCH_AVAILABLE:
+        return True
+    try:
+        import torch
+        TORCH_AVAILABLE = True
+        DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+        return True
+    except ImportError:
+        return False
+
+def _check_pyg_available():
+    """Lazy check for torch_geometric availability."""
+    global PYG_AVAILABLE
+    if PYG_AVAILABLE:
+        return True
+    if not _check_torch_available():
+        return False
+    try:
+        from torch_geometric.nn import GATConv
+        from torch_geometric.data import Data
+        PYG_AVAILABLE = True
+        return True
+    except (ImportError, OSError, Exception) as e:
+        logger.warning(f"torch_geometric not available: {e}")
+        return False
 
 # =============================================================================
 # CONFIGURATION
@@ -65,79 +82,158 @@ EDGE_TYPES = {
 # GRAPH NEURAL NETWORK
 # =============================================================================
 
-class QBMGraphReasoner(nn.Module):
+def _create_gnn_model(num_node_features: int = 768, hidden_dim: int = 256,
+                      num_relations: int = 6, num_heads: int = 8):
     """
-    Graph Attention Network for multi-hop reasoning.
+    Factory function to create GNN model with lazy imports.
+    Returns None if torch_geometric is not available.
+    """
+    if not _check_pyg_available():
+        return None
     
-    Learns:
-    1. Which behaviors cluster together
-    2. Common causal chains
-    3. Hidden relationships not explicitly annotated
+    import torch
+    import torch.nn as nn
+    from torch_geometric.nn import GATConv
+    
+    class QBMGraphReasonerImpl(nn.Module):
+        """
+        Graph Attention Network for multi-hop reasoning.
+        
+        Learns:
+        1. Which behaviors cluster together
+        2. Common causal chains
+        3. Hidden relationships not explicitly annotated
+        """
+        
+        def __init__(self):
+            super().__init__()
+            
+            self.num_relations = num_relations
+            
+            # Graph Attention layers
+            self.conv1 = GATConv(num_node_features, hidden_dim, heads=num_heads, dropout=0.1)
+            self.conv2 = GATConv(hidden_dim * num_heads, hidden_dim, heads=4, dropout=0.1)
+            self.conv3 = GATConv(hidden_dim * 4, hidden_dim, heads=2, dropout=0.1)
+            
+            # Relation predictor
+            self.relation_predictor = nn.Sequential(
+                nn.Linear(hidden_dim * 2 * 2, hidden_dim),
+                nn.ReLU(),
+                nn.Dropout(0.1),
+                nn.Linear(hidden_dim, num_relations),
+            )
+            
+            # Path scorer
+            self.path_scorer = nn.Sequential(
+                nn.Linear(hidden_dim * 2, hidden_dim),
+                nn.ReLU(),
+                nn.Linear(hidden_dim, 1),
+            )
+        
+        def forward(self, x, edge_index):
+            """Forward pass through GAT layers."""
+            import torch.nn.functional as F
+            
+            # Layer 1
+            x = self.conv1(x, edge_index)
+            x = F.elu(x)
+            x = F.dropout(x, p=0.1, training=self.training)
+            
+            # Layer 2
+            x = self.conv2(x, edge_index)
+            x = F.elu(x)
+            x = F.dropout(x, p=0.1, training=self.training)
+            
+            # Layer 3
+            x = self.conv3(x, edge_index)
+            
+            return x
+        
+        def predict_relation(self, node1_embed, node2_embed):
+            """Predict relationship between two nodes."""
+            import torch
+            combined = torch.cat([node1_embed, node2_embed], dim=-1)
+            return self.relation_predictor(combined)
+        
+        def score_path(self, path_embeddings):
+            """Score a path through the graph."""
+            import torch
+            if len(path_embeddings) < 2:
+                return 0.0
+            
+            total_score = 0.0
+            for i in range(len(path_embeddings) - 1):
+                combined = torch.cat([path_embeddings[i], path_embeddings[i+1]], dim=-1)
+                score = self.path_scorer(combined)
+                total_score += score.item()
+            
+            return total_score / (len(path_embeddings) - 1)
+    
+    return QBMGraphReasonerImpl()
+
+
+# Legacy class name for backward compatibility
+class QBMGraphReasoner:
+    """
+    Wrapper class for backward compatibility.
+    Actual implementation is created lazily via _create_gnn_model().
     """
     
     def __init__(self, num_node_features: int = 768, hidden_dim: int = 256, 
                  num_relations: int = 6, num_heads: int = 8):
-        super().__init__()
-        
-        self.num_relations = num_relations
-        
-        # Graph Attention layers
-        self.conv1 = GATConv(num_node_features, hidden_dim, heads=num_heads, dropout=0.1) if PYG_AVAILABLE else None
-        self.conv2 = GATConv(hidden_dim * num_heads, hidden_dim, heads=4, dropout=0.1) if PYG_AVAILABLE else None
-        self.conv3 = GATConv(hidden_dim * 4, hidden_dim, heads=2, dropout=0.1) if PYG_AVAILABLE else None
-        
-        # Relation predictor
-        self.relation_predictor = nn.Sequential(
-            nn.Linear(hidden_dim * 2 * 2, hidden_dim),
-            nn.ReLU(),
-            nn.Dropout(0.1),
-            nn.Linear(hidden_dim, num_relations),
-        )
-        
-        # Path scorer
-        self.path_scorer = nn.Sequential(
-            nn.Linear(hidden_dim * 2, hidden_dim),
-            nn.ReLU(),
-            nn.Linear(hidden_dim, 1),
-        )
+        self._impl = None
+        self._params = (num_node_features, hidden_dim, num_relations, num_heads)
     
-    def forward(self, x, edge_index):
-        """Forward pass through GAT layers."""
-        if not PYG_AVAILABLE:
+    def _get_impl(self):
+        if self._impl is None:
+            self._impl = _create_gnn_model(*self._params)
+        return self._impl
+    
+    def __call__(self, x, edge_index):
+        impl = self._get_impl()
+        if impl is None:
             return x
-        
-        # Layer 1
-        x = self.conv1(x, edge_index)
-        x = F.elu(x)
-        x = F.dropout(x, p=0.1, training=self.training)
-        
-        # Layer 2
-        x = self.conv2(x, edge_index)
-        x = F.elu(x)
-        x = F.dropout(x, p=0.1, training=self.training)
-        
-        # Layer 3
-        x = self.conv3(x, edge_index)
-        
-        return x
+        return impl(x, edge_index)
+    
+    def eval(self):
+        impl = self._get_impl()
+        if impl is not None:
+            impl.eval()
+    
+    def train(self, mode=True):
+        impl = self._get_impl()
+        if impl is not None:
+            impl.train(mode)
+    
+    def state_dict(self):
+        impl = self._get_impl()
+        if impl is not None:
+            return impl.state_dict()
+        return {}
+    
+    def load_state_dict(self, state_dict):
+        impl = self._get_impl()
+        if impl is not None:
+            impl.load_state_dict(state_dict)
+    
+    def cuda(self):
+        impl = self._get_impl()
+        if impl is not None:
+            impl.cuda()
+        return self
     
     def predict_relation(self, node1_embed, node2_embed):
-        """Predict relationship between two nodes."""
-        combined = torch.cat([node1_embed, node2_embed], dim=-1)
-        return self.relation_predictor(combined)
+        impl = self._get_impl()
+        if impl is not None:
+            return impl.predict_relation(node1_embed, node2_embed)
+        return None
     
-    def score_path(self, path_embeddings: List[torch.Tensor]) -> float:
-        """Score a path through the graph."""
-        if len(path_embeddings) < 2:
-            return 0.0
-        
-        total_score = 0.0
-        for i in range(len(path_embeddings) - 1):
-            combined = torch.cat([path_embeddings[i], path_embeddings[i+1]], dim=-1)
-            score = self.path_scorer(combined)
-            total_score += score.item()
-        
-        return total_score / (len(path_embeddings) - 1)
+    def score_path(self, path_embeddings):
+        impl = self._get_impl()
+        if impl is not None:
+            return impl.score_path(path_embeddings)
+        return 0.0
+    
 
 
 # =============================================================================
@@ -174,8 +270,11 @@ class GraphBuilder:
     
     def build(self, node_embeddings: Dict[str, List[float]] = None):
         """Build PyTorch Geometric Data object."""
-        if not PYG_AVAILABLE or not self.edges:
+        if not _check_pyg_available() or not self.edges:
             return None
+        
+        import torch
+        from torch_geometric.data import Data
         
         # Node features
         num_nodes = len(self.node_to_idx)
@@ -217,11 +316,56 @@ class ReasoningEngine:
         self.graph_data = None
         self.graph_builder = GraphBuilder()
         self.model_path = model_path or (MODELS_DIR / "qbm-graph-reasoner")
+        self._fallback_graph = None
+        self._fallback_adjacency = {}  # node -> list of (neighbor, edge_type)
         
-        if TORCH_AVAILABLE and PYG_AVAILABLE:
+        # Lazy initialization - don't import torch_geometric here
+        self._model_initialized = False
+    
+    def _ensure_model(self):
+        """Lazy model initialization."""
+        if self._model_initialized:
+            return
+        self._model_initialized = True
+        
+        if _check_torch_available() and _check_pyg_available():
             self.model = QBMGraphReasoner()
             if DEVICE == "cuda":
                 self.model = self.model.cuda()
+    
+    def _load_fallback_graph(self):
+        """Load semantic graph JSON as fallback when torch_geometric unavailable."""
+        if self._fallback_graph is not None:
+            return self._fallback_graph
+        
+        fallback_path = DATA_DIR / "graph" / "semantic_graph_v2.json"
+        if not fallback_path.exists():
+            logger.warning(f"Fallback graph not found: {fallback_path}")
+            return None
+        
+        try:
+            with open(fallback_path, "r", encoding="utf-8") as f:
+                self._fallback_graph = json.load(f)
+            
+            # Build adjacency list for path finding
+            for edge in self._fallback_graph.get("edges", []):
+                src = edge.get("source", "")
+                tgt = edge.get("target", "")
+                edge_type = edge.get("edge_type", "CO_OCCURS_WITH")
+                
+                if src not in self._fallback_adjacency:
+                    self._fallback_adjacency[src] = []
+                self._fallback_adjacency[src].append((tgt, edge_type))
+                
+                # Also add nodes to graph_builder for compatibility
+                self.graph_builder.add_node(src, "behavior")
+                self.graph_builder.add_node(tgt, "behavior")
+            
+            logger.info(f"Loaded fallback graph with {len(self._fallback_adjacency)} nodes")
+            return self._fallback_graph
+        except Exception as e:
+            logger.error(f"Failed to load fallback graph: {e}")
+            return None
     
     def build_graph_from_relations(self, relations: List[Dict[str, Any]]):
         """Build graph from extracted relations."""
@@ -241,10 +385,15 @@ class ReasoningEngine:
     def find_path(self, start: str, end: str, max_depth: int = 5) -> Dict[str, Any]:
         """
         Find path between two behaviors using learned representations.
+        Falls back to semantic graph JSON if torch_geometric unavailable.
         
         Example: find_path("الغفلة", "قسوة_القلب")
         Returns: ["الغفلة", "الكبر", "الإعراض", "قسوة_القلب"]
         """
+        # Try fallback graph first if torch_geometric not available
+        if self.graph_data is None and not _check_pyg_available():
+            return self._find_path_fallback(start, end, max_depth)
+        
         if start not in self.graph_builder.node_to_idx:
             return {"error": f"Start node '{start}' not in graph"}
         if end not in self.graph_builder.node_to_idx:
@@ -291,6 +440,52 @@ class ReasoningEngine:
             "path": best_path,
             "length": len(best_path) - 1,
             "all_paths": all_paths[:5],
+        }
+    
+    def _find_path_fallback(self, start: str, end: str, max_depth: int = 5) -> Dict[str, Any]:
+        """Find path using fallback semantic graph JSON."""
+        self._load_fallback_graph()
+        
+        if not self._fallback_adjacency:
+            return {"error": "No graph data available", "fallback": True}
+        
+        if start not in self._fallback_adjacency and start not in self.graph_builder.node_to_idx:
+            return {"error": f"Start node '{start}' not in graph", "fallback": True}
+        
+        # BFS on fallback adjacency
+        visited = set()
+        queue = [(start, [start])]
+        all_paths = []
+        
+        while queue and len(all_paths) < 10:
+            current, path = queue.pop(0)
+            
+            if current == end:
+                all_paths.append(path)
+                continue
+            
+            if current in visited or len(path) > max_depth:
+                continue
+            
+            visited.add(current)
+            
+            # Find neighbors from fallback adjacency
+            neighbors = self._fallback_adjacency.get(current, [])
+            for neighbor, edge_type in neighbors:
+                if neighbor not in visited:
+                    queue.append((neighbor, path + [neighbor]))
+        
+        if not all_paths:
+            return {"found": False, "start": start, "end": end, "fallback": True}
+        
+        best_path = min(all_paths, key=len)
+        
+        return {
+            "found": True,
+            "path": best_path,
+            "length": len(best_path) - 1,
+            "all_paths": all_paths[:5],
+            "fallback": True,
         }
     
     def discover_patterns(self, min_support: int = 3) -> List[Dict[str, Any]]:
@@ -351,8 +546,15 @@ class ReasoningEngine:
         """Predict relationships not in the graph."""
         predictions = []
         
+        self._ensure_model()
+        
         if self.model is None or self.graph_data is None:
             return predictions
+        
+        if not _check_torch_available():
+            return predictions
+        
+        import torch
         
         # Get node embeddings
         self.model.eval()
@@ -380,6 +582,7 @@ class ReasoningEngine:
                         node_embeddings[idx1].unsqueeze(0),
                         node_embeddings[idx2].unsqueeze(0)
                     )
+                    import torch.nn.functional as F
                     probs = F.softmax(logits, dim=-1).squeeze()
                     
                     max_prob, pred_rel = probs.max(dim=-1)
@@ -402,7 +605,8 @@ class ReasoningEngine:
             path = self.model_path
         path.mkdir(parents=True, exist_ok=True)
         
-        if self.model is not None:
+        if self.model is not None and _check_torch_available():
+            import torch
             torch.save(self.model.state_dict(), path / "model.pt")
         
         # Save graph structure
@@ -420,7 +624,8 @@ class ReasoningEngine:
         if path is None:
             path = self.model_path
         
-        if (path / "model.pt").exists() and self.model is not None:
+        if (path / "model.pt").exists() and self.model is not None and _check_torch_available():
+            import torch
             self.model.load_state_dict(torch.load(path / "model.pt"))
         
         if (path / "graph.json").exists():
