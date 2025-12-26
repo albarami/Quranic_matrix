@@ -20,7 +20,25 @@ logger = logging.getLogger(__name__)
 # Windows DLL load can crash before exception handler catches it
 TORCH_AVAILABLE = False
 PYG_AVAILABLE = False
+PYG_ENABLED = False  # Phase 10.1d: Opt-in flag, not auto-detected
 DEVICE = "cpu"
+
+import os
+
+def _is_pyg_enabled():
+    """
+    Check if PyG is explicitly enabled via environment variable.
+    
+    Phase 10.1d: PyG must be OPT-IN, not auto-detected.
+    On Windows, attempting to import torch_geometric can hard-crash
+    the Python process if DLLs are ABI-mismatched. This crash is
+    NOT catchable with try/except.
+    
+    To enable PyG:
+    1. Run scripts/check_pyg_health.py to verify environment is safe
+    2. Set QBM_ENABLE_PYG=1 in environment
+    """
+    return os.getenv("QBM_ENABLE_PYG", "0") == "1"
 
 def _check_torch_available():
     """Lazy check for torch availability."""
@@ -36,19 +54,37 @@ def _check_torch_available():
         return False
 
 def _check_pyg_available():
-    """Lazy check for torch_geometric availability."""
-    global PYG_AVAILABLE
+    """
+    Check if torch_geometric is available AND enabled.
+    
+    Phase 10.1d: This function will ONLY attempt to import PyG
+    if QBM_ENABLE_PYG=1 is set. Otherwise, returns False immediately
+    without any import attempt (to prevent Windows DLL crashes).
+    """
+    global PYG_AVAILABLE, PYG_ENABLED
+    
+    # If already checked and available, return cached result
     if PYG_AVAILABLE:
         return True
+    
+    # Phase 10.1d: NEVER attempt PyG import unless explicitly enabled
+    if not _is_pyg_enabled():
+        logger.info("PyG not enabled (set QBM_ENABLE_PYG=1 to enable after running check_pyg_health.py)")
+        return False
+    
+    PYG_ENABLED = True
+    
     if not _check_torch_available():
         return False
+    
     try:
         from torch_geometric.nn import GATConv
         from torch_geometric.data import Data
         PYG_AVAILABLE = True
+        logger.info("torch_geometric loaded successfully (QBM_ENABLE_PYG=1)")
         return True
     except (ImportError, OSError, Exception) as e:
-        logger.warning(f"torch_geometric not available: {e}")
+        logger.warning(f"torch_geometric import failed despite QBM_ENABLE_PYG=1: {e}")
         return False
 
 # =============================================================================
@@ -344,15 +380,18 @@ class ReasoningEngine:
             if DEVICE == "cuda":
                 self.model = self.model.cuda()
             self._graph_backend = "pyg"
-            self._graph_backend_reason = "torch_geometric available and loaded"
+            self._graph_backend_reason = "torch_geometric available and loaded (QBM_ENABLE_PYG=1)"
         else:
             # Set fallback mode with reason
-            if not _check_torch_available():
+            if not _is_pyg_enabled():
+                self._graph_backend = "json_fallback"
+                self._graph_backend_reason = "PyG not enabled (set QBM_ENABLE_PYG=1 after running check_pyg_health.py)"
+            elif not _check_torch_available():
                 self._graph_backend = "json_fallback"
                 self._graph_backend_reason = "torch not available"
             else:
                 self._graph_backend = "json_fallback"
-                self._graph_backend_reason = "torch_geometric DLL load failure or not installed"
+                self._graph_backend_reason = "torch_geometric import failed despite QBM_ENABLE_PYG=1"
     
     def _load_fallback_graph(self):
         """Load semantic graph JSON as fallback when torch_geometric unavailable."""

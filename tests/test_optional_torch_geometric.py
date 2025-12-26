@@ -265,7 +265,7 @@ class TestGraphBackendTransparency:
     
     def test_fallback_mode_explicitly_stated(self):
         """If PyG unavailable, response must explicitly show fallback mode."""
-        from src.ml.graph_reasoner import ReasoningEngine, _check_pyg_available
+        from src.ml.graph_reasoner import ReasoningEngine, _check_pyg_available, _is_pyg_enabled
         
         engine = ReasoningEngine()
         engine._ensure_model()
@@ -281,6 +281,49 @@ class TestGraphBackendTransparency:
                 f"Expected json_fallback when PyG unavailable, got {backend_info['graph_backend']}"
             assert len(backend_info["graph_backend_reason"]) > 0, \
                 "Fallback reason must be provided"
+    
+    def test_pyg_is_opt_in_not_auto_detected(self):
+        """
+        Phase 10.1d: PyG must be opt-in via QBM_ENABLE_PYG=1, not auto-detected.
+        Without the env flag, no PyG import should be attempted.
+        """
+        import os
+        from src.ml.graph_reasoner import _is_pyg_enabled, _check_pyg_available
+        
+        # Save original value
+        original = os.environ.get("QBM_ENABLE_PYG")
+        
+        try:
+            # Unset the flag
+            if "QBM_ENABLE_PYG" in os.environ:
+                del os.environ["QBM_ENABLE_PYG"]
+            
+            # Should return False without attempting import
+            assert _is_pyg_enabled() == False, "PyG should not be enabled without QBM_ENABLE_PYG=1"
+            
+            # _check_pyg_available should also return False without import attempt
+            # (We can't easily verify no import was attempted, but we verify the flag check)
+            
+        finally:
+            # Restore original value
+            if original is not None:
+                os.environ["QBM_ENABLE_PYG"] = original
+    
+    def test_backend_reason_present_when_not_pyg(self):
+        """graph_backend_reason must be present and non-empty when backend != pyg."""
+        from src.ml.graph_reasoner import ReasoningEngine
+        
+        engine = ReasoningEngine()
+        engine._ensure_model()
+        backend_info = engine.get_backend_info()
+        
+        if backend_info["graph_backend"] != "pyg":
+            assert len(backend_info["graph_backend_reason"]) > 0, \
+                "graph_backend_reason must be present when backend != pyg"
+            # Should mention how to enable PyG
+            assert "QBM_ENABLE_PYG" in backend_info["graph_backend_reason"] or \
+                   "check_pyg_health" in backend_info["graph_backend_reason"], \
+                "Reason should mention how to enable PyG"
 
 
 if __name__ == "__main__":

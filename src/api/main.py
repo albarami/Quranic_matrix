@@ -2057,9 +2057,30 @@ _full_power_system = None
 _proof_system = None
 
 def get_full_power_system():
-    """Lazy initialization of Full Power System with index"""
+    """
+    Lazy initialization of Full Power System with index.
+    
+    Phase 10.1f: Fail-fast if FullPower is requested but index is missing.
+    Returns 503 with clear error instead of silently degrading.
+    """
     global _full_power_system, _proof_system
     if _full_power_system is None:
+        import os
+        from pathlib import Path
+        
+        # Phase 10.1f: Check if FullPower is explicitly enabled
+        fullpower_ready = os.getenv("QBM_FULLPOWER_READY", "0") == "1"
+        index_path = Path("data/indexes/full_power_index.npy")
+        
+        # If index exists, we can proceed even without explicit flag
+        if not index_path.exists() and not fullpower_ready:
+            raise RuntimeError(
+                "FullPower index not found and QBM_FULLPOWER_READY not set. "
+                f"Expected index at: {index_path.absolute()}. "
+                "Either build the index with 'python -m src.ml.full_power_system' "
+                "or set QBM_FULLPOWER_READY=1 to build on first request."
+            )
+        
         from src.ml.full_power_system import FullPowerQBMSystem
         from src.ml.mandatory_proof_system import integrate_with_system
         _full_power_system = FullPowerQBMSystem()
@@ -2211,6 +2232,21 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
             }
         }
         
+    except RuntimeError as e:
+        # Phase 10.1f: Fail-fast with 503 for missing index
+        if "FullPower index not found" in str(e):
+            raise HTTPException(
+                status_code=503,
+                detail={
+                    "error": "full_power_index_missing",
+                    "reason": str(e),
+                    "resolution": "Build index with 'python -m src.ml.full_power_system' or set QBM_FULLPOWER_READY=1"
+                }
+            )
+        raise HTTPException(
+            status_code=500,
+            detail=f"QBM Full Power System error: {str(e)}"
+        )
     except Exception as e:
         import traceback
         raise HTTPException(
