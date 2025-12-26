@@ -1,0 +1,206 @@
+{
+  "scenario_1_verse_text": {
+    "recall_at_20": 0.856,
+    "avg_hits_at_20": 5.58,
+    "avg_source_coverage": 4.0,
+    "full_coverage_rate": 0.46,
+    "ndcg_at_10": 0.8585622767187903,
+    "mrr": 0.8666666666666667,
+    "per_source_hit_rate": {
+      "ibn_kathir": 0.7,
+      "tabari": 0.76,
+      "qurtubi": 0.96,
+      "saadi": 0.58,
+      "jalalayn": 1.0
+    },
+    "num_failures": 27,
+    "failures": [
+      {
+        "query_id": 3,
+        "verse_key": "39:49",
+        "verse_text": "فَإِذَا مَسَّ ٱلْإِنسَـٰنَ ضُرٌّ دَعَانَا ثُمَّ إِ",
+        "sources_found": [
+          "jalalayn",
+          "saadi",
+          "qurtubi",
+          "tabari"
+        ],
+        "sources_missing": [
+          "ibn_kathir"
+        ],
+        "hit_count": 4
+      },
+      {
+        "query_id": 5,
+        "verse_key": "3:87",
+        "verse_text": "أُو۟لَـٰٓئِكَ جَزَآؤُهُمْ أَنَّ عَلَيْهِمْ لَعْنَ",
+        "sources_found": [
+          "jalalayn"
+        ],
+        "sources_missing": [
+          "qurtubi",
+          "saadi",
+          "ibn_kathir",
+          "tabari"
+        ],
+        "hit_count": 1
+      },
+      {
+        "query_id": 6,
+        "verse_key": "9:8",
+        "verse_text": "كَيْفَ وَإِن يَظْهَرُوا۟ عَلَيْكُمْ لَا يَرْقُبُوا",
+        "sources_found": [
+          "jalalayn",
+          "saadi",
+          "qurtubi",
+          "tabari"
+        ],
+        "sources_missing": [
+          "ibn_kathir"
+        ],
+        "hit_count": 7
+      },
+      {
+        "query_id": 7,
+        "verse_key": "3:113",
+        "verse_text": "لَيْسُوا۟ سَوَآءً ۗ مِّنْ أَهْلِ ٱلْكِتَـٰبِ أُمّ",
+        "sources_found": [
+          "jalalayn",
+          "saadi",
+          "qurtubi"
+        ],
+        "sources_missing": [
+          "ibn_kathir",
+          "tabari"
+        ],
+        "hit_count": 5
+      },
+      {
+        "query_id": 8,
+        "verse_key": "96:1",
+        "verse_text": "ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ",
+        "sources_found": [
+          "jalalayn",
+          "tabari"
+        ],
+        "sources_missing": [
+          "saadi",
+          "ibn_kathir",
+          "qurtubi"
+        ],
+        "hit_count": 2
+      },
+      {
+        "query_id": 10,
+        "verse_key": "59:22",
+        "verse_text": "هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ۖ ع",
+        "sources_found": [
+          "jalalayn",
+          "qurtubi"
+        ],
+        "sources_missing": [
+          "saadi",
+          "ibn_kathir",
+          "tabari"
+        ],
+        "hit_count": 2
+      },
+      {
+        "query_id": 12,
+        "verse_key": "20:99",
+        "verse_text": "كَذَٰلِكَ نَقُصُّ عَلَيْكَ مِنْ أَنۢبَآءِ مَا قَد",
+        "sources_found": [
+          "jalalayn",
+          "saadi",
+          "qurtubi",
+          "ibn_kathir"
+        ],
+        "sources_missing": [
+          "tabari"
+        ],
+        "hit_count": 4
+      },
+      {
+        "query_id": 13,
+        "verse_key": "4:88",
+        "verse_text": "فَمَا لَكُمْ فِى ٱلْمُنَـٰفِقِينَ فِئَتَيْنِ وَٱلل",
+        "sources_found": [
+          "jalalayn",
+          "qurtubi",
+          "ibn_kathir",
+          "tabari"
+        ],
+        "sources_missing": [
+          "saadi"
+        ],
+        "hit_count": 6
+      },
+      {
+        "query_id": 14,
+        "verse_key": "2:138",
+        "verse_text": "صِبْغَةَ ٱللَّهِ ۖ وَمَنْ أَحْسَنُ مِنَ ٱللَّهِ صِ",
+        "sources_found": [
+          "jalalayn",
+          "qurtubi",
+          "tabari"
+        ],
+        "sources_missing": [
+          "saadi",
+          "ibn_kathir"
+        ],
+        "hit_count": 5
+      },
+      {
+        "query_id": 15,
+        "verse_key": "4:80",
+        "verse_text": "مَّن يُطِعِ ٱلرَّسُولَ فَقَدْ أَطَاعَ ٱللَّهَ ۖ وَ",
+        "sources_found": [
+          "jalalayn",
+          "qurtubi",
+          "ibn_kathir",
+          "tabari"
+        ],
+        "sources_missing": [
+          "saadi"
+        ],
+        "hit_count": 4
+      }
+    ]
+  },
+  "scenario_2_verse_ref": {
+    "recall_at_20": 1.0,
+    "avg_hits_at_20": 9.02,
+    "avg_source_coverage": 4.98,
+    "full_coverage_rate": 0.98,
+    "ndcg_at_10": 0.7397626460746503,
+    "mrr": 0.44433333333333336,
+    "per_source_hit_rate": {
+      "ibn_kathir": 1.0,
+      "tabari": 0.98,
+      "qurtubi": 1.0,
+      "saadi": 1.0,
+      "jalalayn": 1.0
+    },
+    "num_failures": 1,
+    "failures": [
+      {
+        "query_id": 26,
+        "verse_key": "60:1",
+        "verse_text": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَتَّخِذُوا",
+        "sources_found": [
+          "jalalayn",
+          "saadi",
+          "qurtubi",
+          "ibn_kathir"
+        ],
+        "sources_missing": [
+          "tabari"
+        ],
+        "hit_count": 14
+      }
+    ]
+  },
+  "corpus_size": 81733,
+  "num_queries": 50,
+  "note": "Scenario 1 is the canonical benchmark for retrieval selection. Scenario 2 tests deterministic lookup correctness."
+}
