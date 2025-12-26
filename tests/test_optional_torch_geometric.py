@@ -227,5 +227,61 @@ class TestAPIWithoutTorchGeometric:
             raise
 
 
+@pytest.mark.phase10
+class TestGraphBackendTransparency:
+    """
+    Phase 10.1c: Graph backend mode must be explicitly shown in API debug.
+    No silent fallback allowed.
+    """
+    
+    def test_api_response_has_graph_backend_field(self):
+        """API response must include graph_backend in debug."""
+        try:
+            from fastapi.testclient import TestClient
+            from src.api.main import app
+            client = TestClient(app)
+        except Exception as e:
+            pytest.skip(f"Could not create test client: {e}")
+        
+        response = client.post(
+            "/api/proof/query",
+            json={"question": "ما هو الصبر؟"}
+        )
+        
+        assert response.status_code == 200
+        data = response.json()
+        
+        # Debug section must exist
+        assert "debug" in data, "Response missing 'debug' section"
+        debug = data["debug"]
+        
+        # graph_backend must be explicitly stated
+        assert "graph_backend" in debug, "Debug missing 'graph_backend' field"
+        assert debug["graph_backend"] in ["pyg", "json_fallback", "disabled"], \
+            f"Invalid graph_backend value: {debug['graph_backend']}"
+        
+        # graph_backend_reason must be present
+        assert "graph_backend_reason" in debug, "Debug missing 'graph_backend_reason' field"
+    
+    def test_fallback_mode_explicitly_stated(self):
+        """If PyG unavailable, response must explicitly show fallback mode."""
+        from src.ml.graph_reasoner import ReasoningEngine, _check_pyg_available
+        
+        engine = ReasoningEngine()
+        engine._ensure_model()
+        backend_info = engine.get_backend_info()
+        
+        # Backend must be one of the valid values
+        assert backend_info["graph_backend"] in ["pyg", "json_fallback", "not_initialized"], \
+            f"Invalid backend: {backend_info['graph_backend']}"
+        
+        # If PyG not available, must be in fallback mode
+        if not _check_pyg_available():
+            assert backend_info["graph_backend"] == "json_fallback", \
+                f"Expected json_fallback when PyG unavailable, got {backend_info['graph_backend']}"
+            assert len(backend_info["graph_backend_reason"]) > 0, \
+                "Fallback reason must be provided"
+
+
 if __name__ == "__main__":
     pytest.main([__file__, "-v", "-m", "phase10"])

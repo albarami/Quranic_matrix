@@ -273,14 +273,20 @@ class FullPowerQBMSystem:
             logger.error(f"Graph init failed: {e}")
         
         # 5. GNN Reasoning Engine (for multi-hop reasoning)
+        # Phase 10.1b: Track graph backend mode for API debug transparency
+        self.graph_backend = "disabled"
+        self.graph_backend_reason = "not initialized"
         try:
             from src.ml.graph_reasoner import ReasoningEngine, PYG_AVAILABLE
-            if PYG_AVAILABLE:
-                self.gnn_reasoner = ReasoningEngine()
-                logger.info("GNN ReasoningEngine initialized (multi-hop reasoning enabled)")
-            else:
-                logger.warning("torch_geometric not available - GNN reasoning disabled")
+            self.gnn_reasoner = ReasoningEngine()
+            self.gnn_reasoner._ensure_model()  # Force initialization to get backend info
+            backend_info = self.gnn_reasoner.get_backend_info()
+            self.graph_backend = backend_info.get("graph_backend", "unknown")
+            self.graph_backend_reason = backend_info.get("graph_backend_reason", "")
+            logger.info(f"GNN ReasoningEngine: backend={self.graph_backend}, reason={self.graph_backend_reason}")
         except Exception as e:
+            self.graph_backend = "disabled"
+            self.graph_backend_reason = f"initialization failed: {str(e)}"
             logger.warning(f"GNN ReasoningEngine init failed: {e}")
         
         # 5. Load Quran Verses (actual Arabic text)

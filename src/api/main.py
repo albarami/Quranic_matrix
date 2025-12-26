@@ -2203,7 +2203,12 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
             },
             "validation": result.get("validation", {}),
             "processing_time_ms": round(processing_time, 2),
-            "debug": result.get("debug", {})
+            "debug": {
+                **result.get("debug", {}),
+                # Phase 10.1b: Expose graph backend mode explicitly
+                "graph_backend": getattr(system, 'graph_backend', 'unknown'),
+                "graph_backend_reason": getattr(system, 'graph_backend_reason', ''),
+            }
         }
         
     except Exception as e:

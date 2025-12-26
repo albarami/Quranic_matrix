@@ -321,6 +321,17 @@ class ReasoningEngine:
         
         # Lazy initialization - don't import torch_geometric here
         self._model_initialized = False
+        
+        # Phase 10.1b: Track graph backend mode for API debug transparency
+        self._graph_backend = "not_initialized"
+        self._graph_backend_reason = ""
+    
+    def get_backend_info(self) -> Dict[str, str]:
+        """Return current graph backend mode and reason for API debug."""
+        return {
+            "graph_backend": self._graph_backend,
+            "graph_backend_reason": self._graph_backend_reason,
+        }
     
     def _ensure_model(self):
         """Lazy model initialization."""
@@ -332,6 +343,16 @@ class ReasoningEngine:
             self.model = QBMGraphReasoner()
             if DEVICE == "cuda":
                 self.model = self.model.cuda()
+            self._graph_backend = "pyg"
+            self._graph_backend_reason = "torch_geometric available and loaded"
+        else:
+            # Set fallback mode with reason
+            if not _check_torch_available():
+                self._graph_backend = "json_fallback"
+                self._graph_backend_reason = "torch not available"
+            else:
+                self._graph_backend = "json_fallback"
+                self._graph_backend_reason = "torch_geometric DLL load failure or not installed"
     
     def _load_fallback_graph(self):
         """Load semantic graph JSON as fallback when torch_geometric unavailable."""
