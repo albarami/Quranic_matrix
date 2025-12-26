@@ -1,0 +1,193 @@
+{
+  "vocabulary_id": "tafsir_sources_v1",
+  "version": "1.0",
+  "frozen_date": "2025-01-01",
+  "description": "Cross-tafsir methodology metadata for evidence weighting and source characterization",
+  "core_sources": [
+    {
+      "id": "ibn_kathir",
+      "name_ar": "تفسير ابن كثير",
+      "name_en": "Tafsir Ibn Kathir",
+      "author_ar": "إسماعيل بن عمر بن كثير",
+      "author_en": "Ismail ibn Umar ibn Kathir",
+      "death_year_hijri": 774,
+      "death_year_ce": 1373,
+      "methodology": "hadith_based",
+      "methodology_ar": "تفسير بالمأثور",
+      "school": "shafi",
+      "strengths": ["hadith_chains", "historical_context", "prophetic_traditions"],
+      "focus_areas": ["sunnah", "sahaba_opinions", "historical_events"],
+      "reliability_weight": 0.95,
+      "coverage_estimate": 0.98,
+      "notes": "Relies heavily on authentic hadith and opinions of companions"
+    },
+    {
+      "id": "tabari",
+      "name_ar": "جامع البيان في تأويل القرآن",
+      "name_en": "Jami al-Bayan (Tafsir al-Tabari)",
+      "author_ar": "محمد بن جرير الطبري",
+      "author_en": "Muhammad ibn Jarir al-Tabari",
+      "death_year_hijri": 310,
+      "death_year_ce": 923,
+      "methodology": "hadith_based",
+      "methodology_ar": "تفسير بالمأثور",
+      "school": "independent",
+      "strengths": ["comprehensive_chains", "linguistic_analysis", "variant_readings"],
+      "focus_areas": ["isnad", "qiraat", "early_opinions"],
+      "reliability_weight": 0.98,
+      "coverage_estimate": 0.99,
+      "notes": "Earliest comprehensive tafsir, exhaustive collection of early opinions"
+    },
+    {
+      "id": "qurtubi",
+      "name_ar": "الجامع لأحكام القرآن",
+      "name_en": "Al-Jami li-Ahkam al-Quran",
+      "author_ar": "محمد بن أحمد القرطبي",
+      "author_en": "Muhammad ibn Ahmad al-Qurtubi",
+      "death_year_hijri": 671,
+      "death_year_ce": 1273,
+      "methodology": "fiqh_focused",
+      "methodology_ar": "تفسير فقهي",
+      "school": "maliki",
+      "strengths": ["legal_rulings", "fiqh_derivation", "practical_application"],
+      "focus_areas": ["ahkam", "fiqh", "legal_opinions"],
+      "reliability_weight": 0.92,
+      "coverage_estimate": 0.95,
+      "notes": "Focus on legal rulings and jurisprudential implications"
+    },
+    {
+      "id": "saadi",
+      "name_ar": "تيسير الكريم الرحمن",
+      "name_en": "Taysir al-Karim al-Rahman",
+      "author_ar": "عبد الرحمن بن ناصر السعدي",
+      "author_en": "Abd al-Rahman ibn Nasir al-Saadi",
+      "death_year_hijri": 1376,
+      "death_year_ce": 1956,
+      "methodology": "meaning_focused",
+      "methodology_ar": "تفسير بالرأي",
+      "school": "hanbali",
+      "strengths": ["clarity", "spiritual_insights", "practical_guidance"],
+      "focus_areas": ["tarbiya", "spiritual_development", "contemporary_application"],
+      "reliability_weight": 0.88,
+      "coverage_estimate": 0.92,
+      "notes": "Modern, accessible, focuses on spiritual and practical meanings"
+    },
+    {
+      "id": "jalalayn",
+      "name_ar": "تفسير الجلالين",
+      "name_en": "Tafsir al-Jalalayn",
+      "author_ar": "جلال الدين المحلي وجلال الدين السيوطي",
+      "author_en": "Jalal al-Din al-Mahalli and Jalal al-Din al-Suyuti",
+      "death_year_hijri": 911,
+      "death_year_ce": 1505,
+      "methodology": "concise",
+      "methodology_ar": "تفسير موجز",
+      "school": "shafi",
+      "strengths": ["brevity", "linguistic_precision", "accessibility"],
+      "focus_areas": ["word_meanings", "grammar", "quick_reference"],
+      "reliability_weight": 0.85,
+      "coverage_estimate": 0.99,
+      "notes": "Concise, word-by-word explanation, widely used for basic understanding"
+    }
+  ],
+  "supplementary_sources": [
+    {
+      "id": "baghawi",
+      "name_ar": "معالم التنزيل",
+      "name_en": "Maalim al-Tanzil",
+      "author_ar": "الحسين بن مسعود البغوي",
+      "author_en": "Al-Husayn ibn Masud al-Baghawi",
+      "death_year_hijri": 516,
+      "death_year_ce": 1122,
+      "methodology": "hadith_based",
+      "school": "shafi",
+      "reliability_weight": 0.90,
+      "notes": "Summarizes earlier tafsirs, reliable hadith selection"
+    },
+    {
+      "id": "muyassar",
+      "name_ar": "التفسير الميسر",
+      "name_en": "Al-Tafsir al-Muyassar",
+      "author_ar": "مجمع الملك فهد",
+      "author_en": "King Fahd Complex",
+      "death_year_hijri": null,
+      "death_year_ce": 2009,
+      "methodology": "simplified",
+      "school": "consensus",
+      "reliability_weight": 0.82,
+      "notes": "Modern simplified tafsir for general audience"
+    }
+  ],
+  "methodology_types": {
+    "hadith_based": {
+      "ar": "تفسير بالمأثور",
+      "en": "Narration-based interpretation",
+      "description": "Relies on Quran, Hadith, and companion opinions",
+      "evidence_weight": 1.0
+    },
+    "fiqh_focused": {
+      "ar": "تفسير فقهي",
+      "en": "Jurisprudence-focused interpretation",
+      "description": "Emphasizes legal rulings and practical application",
+      "evidence_weight": 0.9
+    },
+    "meaning_focused": {
+      "ar": "تفسير بالرأي",
+      "en": "Reason-based interpretation",
+      "description": "Uses linguistic and rational analysis",
+      "evidence_weight": 0.85
+    },
+    "concise": {
+      "ar": "تفسير موجز",
+      "en": "Concise interpretation",
+      "description": "Brief explanations for quick reference",
+      "evidence_weight": 0.8
+    },
+    "simplified": {
+      "ar": "تفسير مبسط",
+      "en": "Simplified interpretation",
+      "description": "Modern accessible explanations",
+      "evidence_weight": 0.75
+    }
+  },
+  "agreement_levels": {
+    "ijma": {
+      "ar": "إجماع",
+      "en": "Consensus",
+      "min_sources": 5,
+      "confidence_boost": 0.2,
+      "description": "All core sources agree"
+    },
+    "jumhur": {
+      "ar": "جمهور",
+      "en": "Majority",
+      "min_sources": 3,
+      "confidence_boost": 0.1,
+      "description": "Majority of sources agree"
+    },
+    "khilaf": {
+      "ar": "خلاف",
+      "en": "Disagreement",
+      "min_sources": 1,
+      "confidence_boost": 0.0,
+      "description": "Sources differ significantly"
+    }
+  },
+  "cross_validation_rules": [
+    {
+      "rule_id": "multi_source_required",
+      "description": "Claims require at least 2 independent sources",
+      "min_sources": 2
+    },
+    {
+      "rule_id": "methodology_diversity",
+      "description": "Stronger claims have support from different methodology types",
+      "preferred_mix": ["hadith_based", "fiqh_focused"]
+    },
+    {
+      "rule_id": "temporal_span",
+      "description": "Claims supported across centuries are more reliable",
+      "min_century_span": 2
+    }
+  ]
+}
