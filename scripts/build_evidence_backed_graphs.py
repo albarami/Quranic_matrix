@@ -1,19 +1,22 @@
 """
-Build Evidence-Backed Graphs (Phase 6.2)
+Build Evidence-Backed Graphs (Phase 6.3)
 
 Two explicit graphs:
 1. Co-occurrence graph (statistical only) - for discovery
 2. Semantic claim graph (typed edges only) - for causal reasoning
 
 Hard rules:
+- Graph must include ALL canonical entities as nodes (even isolated)
 - No semantic edge without evidence offsets
+- Both endpoints must appear in the quote for semantic edges
 - No causal chain may use co-occurrence edges
 """
 
 import json
 import logging
+import re
 from pathlib import Path
-from typing import Dict, List, Any, Set, Tuple
+from typing import Dict, List, Any, Set, Tuple, Optional
 from collections import defaultdict
 from datetime import datetime
 
@@ -21,6 +24,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Paths
+CANONICAL_ENTITIES_FILE = Path("vocab/canonical_entities.json")
 CONCEPT_INDEX_FILE = Path("data/evidence/concept_index_v1.jsonl")
 CHUNKED_INDEX_FILE = Path("data/evidence/evidence_index_v2_chunked.jsonl")
 COOCCURRENCE_OUTPUT = Path("data/graph/cooccurrence_graph_v1.json")
@@ -37,7 +41,14 @@ SEMANTIC_EDGE_TYPES = [
     "OPPOSITE_OF",      # A is opposite of B
     "COMPLEMENTS",      # A complements B
     "CONDITIONAL_ON",   # A is conditional on B
+    "STRENGTHENS",      # A strengthens B
 ]
+
+
+def load_canonical_entities() -> Dict[str, Any]:
+    """Load canonical entities registry."""
+    with open(CANONICAL_ENTITIES_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def load_concept_index() -> Dict[str, Any]:
@@ -59,52 +70,193 @@ def load_chunked_index() -> List[Dict[str, Any]]:
     return chunks
 
 
-def build_cooccurrence_graph(concept_index: Dict[str, Any], chunks: List[Dict[str, Any]]) -> Dict[str, Any]:
+def normalize_arabic(text: str) -> str:
+    """Normalize Arabic text for matching."""
+    if not text:
+        return text
+    # Remove diacritics
+    text = re.sub(r'[\u064B-\u0652]', '', text)
+    # Normalize Alef forms
+    text = re.sub(r'[أإآٱ]', 'ا', text)
+    # Normalize Yaa
+    text = re.sub(r'ى', 'ي', text)
+    # Normalize Taa Marbuta
+    text = re.sub(r'ة', 'ه', text)
+    # Remove tatweel
+    text = re.sub(r'ـ', '', text)
+    return text
+
+
+def build_all_nodes(canonical_entities: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    """
+    Build ALL nodes from canonical entities.
+    Every canonical entity becomes a node, even if isolated.
+    """
+    nodes = {}
+    
+    # Add all behaviors (73)
+    for behavior in canonical_entities.get("behaviors", []):
+        node_id = behavior["id"]
+        nodes[node_id] = {
+            "id": node_id,
+            "type": "BEHAVIOR",
+            "ar": behavior.get("ar", ""),
+            "en": behavior.get("en", ""),
+            "category": behavior.get("category", ""),
+        }
+    
+    # Add all agents
+    for agent in canonical_entities.get("agents", []):
+        node_id = agent["id"]
+        nodes[node_id] = {
+            "id": node_id,
+            "type": "AGENT",
+            "ar": agent.get("ar", ""),
+            "en": agent.get("en", ""),
+        }
+    
+    # Add all organs
+    for organ in canonical_entities.get("organs", []):
+        node_id = organ["id"]
+        nodes[node_id] = {
+            "id": node_id,
+            "type": "ORGAN",
+            "ar": organ.get("ar", ""),
+            "en": organ.get("en", ""),
+        }
+    
+    # Add all heart states
+    for state in canonical_entities.get("heart_states", []):
+        node_id = state["id"]
+        nodes[node_id] = {
+            "id": node_id,
+            "type": "HEART_STATE",
+            "ar": state.get("ar", ""),
+            "en": state.get("en", ""),
+            "polarity": state.get("polarity", ""),
+        }
+    
+    # Add all consequences
+    for consequence in canonical_entities.get("consequences", []):
+        node_id = consequence["id"]
+        nodes[node_id] = {
+            "id": node_id,
+            "type": "CONSEQUENCE",
+            "ar": consequence.get("ar", ""),
+            "en": consequence.get("en", ""),
+            "temporal": consequence.get("temporal", ""),
+            "polarity": consequence.get("polarity", ""),
+        }
+    
+    return nodes
+
+
+def build_term_to_node_mapping(nodes: Dict[str, Dict[str, Any]]) -> Dict[str, str]:
+    """Build mapping from Arabic terms to node IDs."""
+    term_to_node = {}
+    
+    for node_id, node in nodes.items():
+        ar_term = node.get("ar", "")
+        if ar_term:
+            # Add original term
+            term_to_node[ar_term] = node_id
+            
+            # Add normalized version
+            normalized = normalize_arabic(ar_term)
+            term_to_node[normalized] = node_id
+            
+            # Add without ال prefix
+            if ar_term.startswith("ال"):
+                term_to_node[ar_term[2:]] = node_id
+                term_to_node[normalize_arabic(ar_term[2:])] = node_id
+    
+    return term_to_node
+
+
+def build_cooccurrence_graph(
+    nodes: Dict[str, Dict[str, Any]],
+    term_to_node: Dict[str, str],
+    chunks: List[Dict[str, Any]]
+) -> Dict[str, Any]:
     """
     Build co-occurrence graph (statistical only).
     
-    Edge: CO_OCCURS_WITH
-    Weight: count of chunks where both concepts appear
+    - ALL canonical entities are nodes (even isolated)
+    - Edges only from real co-occurrence in same chunk
     """
-    logger.info("Building co-occurrence graph...")
+    logger.info("Building co-occurrence graph with ALL nodes...")
     
-    # Build concept -> chunk_ids mapping
-    concept_chunks = defaultdict(set)
-    for concept_id, entry in concept_index.items():
-        for chunk in entry.get('tafsir_chunks', []):
-            concept_chunks[concept_id].add(chunk['chunk_id'])
+    # Track which nodes appear in which chunks
+    node_chunks = defaultdict(set)  # node_id -> set of chunk_ids
+    chunk_nodes = defaultdict(set)  # chunk_id -> set of node_ids
     
-    # Calculate co-occurrences
-    concept_ids = list(concept_chunks.keys())
+    # Scan all chunks for node mentions
+    for chunk in chunks:
+        text = chunk.get('text_clean', '')
+        if not text:
+            continue
+        
+        chunk_id = chunk.get('chunk_id', '')
+        text_normalized = normalize_arabic(text)
+        
+        # Find all nodes mentioned in this chunk
+        for term, node_id in term_to_node.items():
+            term_normalized = normalize_arabic(term)
+            if term_normalized in text_normalized:
+                node_chunks[node_id].add(chunk_id)
+                chunk_nodes[chunk_id].add(node_id)
+    
+    # Calculate co-occurrences from real chunk overlap
     edges = []
+    node_ids_with_mentions = list(node_chunks.keys())
     
-    for i, c1 in enumerate(concept_ids):
-        for c2 in concept_ids[i+1:]:
-            # Count shared chunks
-            shared = concept_chunks[c1] & concept_chunks[c2]
-            if len(shared) >= 3:  # Minimum threshold
-                # Calculate PMI-like score
+    for i, n1 in enumerate(node_ids_with_mentions):
+        for n2 in node_ids_with_mentions[i+1:]:
+            # Count chunks where both appear
+            shared = node_chunks[n1] & node_chunks[n2]
+            if len(shared) >= 2:  # Minimum threshold
+                # Calculate PMI
                 total_chunks = len(chunks)
-                p_c1 = len(concept_chunks[c1]) / total_chunks
-                p_c2 = len(concept_chunks[c2]) / total_chunks
+                p_n1 = len(node_chunks[n1]) / total_chunks
+                p_n2 = len(node_chunks[n2]) / total_chunks
                 p_joint = len(shared) / total_chunks
                 
-                if p_c1 > 0 and p_c2 > 0 and p_joint > 0:
-                    pmi = p_joint / (p_c1 * p_c2)
+                if p_n1 > 0 and p_n2 > 0 and p_joint > 0:
+                    pmi = p_joint / (p_n1 * p_n2)
                 else:
                     pmi = 0
                 
+                # Get sample verse_keys for audit
+                sample_verses = []
+                for chunk_id in list(shared)[:5]:
+                    for c in chunks:
+                        if c.get('chunk_id') == chunk_id:
+                            sample_verses.append(c.get('verse_key', ''))
+                            break
+                
                 edges.append({
-                    'source': c1,
-                    'target': c2,
+                    'source': n1,
+                    'target': n2,
                     'edge_type': 'CO_OCCURS_WITH',
                     'count': len(shared),
                     'pmi': round(pmi, 4),
-                    'sample_chunks': list(shared)[:5],  # Sample for verification
+                    'sample_verse_keys': sample_verses,
                 })
     
     # Sort by count
     edges.sort(key=lambda x: -x['count'])
+    
+    # Count nodes by type
+    nodes_by_type = defaultdict(int)
+    for node in nodes.values():
+        nodes_by_type[node['type']] += 1
+    
+    # Count isolated nodes (no edges)
+    nodes_with_edges = set()
+    for edge in edges:
+        nodes_with_edges.add(edge['source'])
+        nodes_with_edges.add(edge['target'])
+    isolated_count = len(nodes) - len(nodes_with_edges)
     
     graph = {
         'graph_type': 'cooccurrence',
@@ -112,149 +264,218 @@ def build_cooccurrence_graph(concept_index: Dict[str, Any], chunks: List[Dict[st
         'created_at': datetime.now().isoformat(),
         'description': 'Statistical co-occurrence graph. For discovery only, NOT for causal reasoning.',
         'edge_type': 'CO_OCCURS_WITH',
-        'node_count': len(concept_ids),
+        'nodes': list(nodes.values()),
+        'node_count': len(nodes),
+        'nodes_by_type': dict(nodes_by_type),
+        'isolated_node_count': isolated_count,
         'edge_count': len(edges),
         'edges': edges,
     }
     
-    logger.info(f"Co-occurrence graph: {len(concept_ids)} nodes, {len(edges)} edges")
+    logger.info(f"Co-occurrence graph: {len(nodes)} nodes ({isolated_count} isolated), {len(edges)} edges")
     return graph
 
 
-def build_semantic_graph(concept_index: Dict[str, Any], chunks: List[Dict[str, Any]]) -> Dict[str, Any]:
+def build_semantic_graph(
+    nodes: Dict[str, Dict[str, Any]],
+    term_to_node: Dict[str, str],
+    chunks: List[Dict[str, Any]]
+) -> Dict[str, Any]:
     """
     Build semantic claim graph (typed edges only).
     
-    Hard rule: Every edge must include at least one supporting quote span with offsets.
+    STRICT VALIDATION RULES:
+    - Both endpoints must appear in the quote
+    - Cue phrase must be present in the quote
+    - Evidence offsets must be valid
+    - NO hardcoded relationships
     """
-    logger.info("Building semantic graph...")
+    logger.info("Building semantic graph with STRICT validation...")
     
-    # Build chunk lookup
-    chunk_by_id = {c['chunk_id']: c for c in chunks}
-    
-    # For now, we'll extract semantic edges from co-occurring concepts
-    # that have clear polarity relationships (positive/negative behaviors)
-    
-    # Define known semantic relationships based on entity types and polarity
-    known_opposites = [
-        ("BEH_EMO_PATIENCE", "BEH_EMO_IMPATIENCE"),
-        ("BEH_EMO_GRATITUDE", "BEH_EMO_INGRATITUDE"),
-        ("BEH_SPI_FAITH", "BEH_SPI_DISBELIEF"),
-        ("BEH_SPI_SINCERITY", "BEH_SPI_SHOWING_OFF"),
-        ("BEH_SOC_JUSTICE", "BEH_SOC_OPPRESSION"),
-        ("BEH_SPEECH_TRUTHFULNESS", "BEH_SPEECH_LYING"),
-        ("BEH_COG_HUMILITY", "BEH_COG_ARROGANCE"),
-        ("BEH_COG_KNOWLEDGE", "BEH_COG_IGNORANCE"),
-        ("BEH_COG_CERTAINTY", "BEH_COG_DOUBT"),
-        ("STA_IMAN", "STA_KUFR"),
+    # Arabic cue patterns for relationship extraction
+    CAUSAL_PATTERNS = [
+        (r'بسبب', 'CAUSES'),
+        (r'لأن', 'CAUSES'),
+        (r'سبب', 'CAUSES'),
     ]
     
-    known_leads_to = [
-        ("BEH_COG_ARROGANCE", "STA_KUFR"),  # Arrogance leads to disbelief
-        ("BEH_SPI_TAQWA", "BEH_EMO_PATIENCE"),  # Taqwa leads to patience
-        ("BEH_EMO_GRATITUDE", "BEH_SPI_FAITH"),  # Gratitude strengthens faith
-        ("BEH_COG_HEEDLESSNESS", "BEH_SPI_DISBELIEF"),  # Heedlessness leads to disbelief
+    LEADS_TO_PATTERNS = [
+        (r'يؤدي\s*إلى', 'LEADS_TO'),
+        (r'يفضي\s*إلى', 'LEADS_TO'),
+        (r'أدى\s*إلى', 'LEADS_TO'),
+        (r'نتيجة', 'LEADS_TO'),
     ]
     
+    OPPOSITION_PATTERNS = [
+        (r'ضد', 'OPPOSITE_OF'),
+        (r'عكس', 'OPPOSITE_OF'),
+        (r'نقيض', 'OPPOSITE_OF'),
+        (r'خلاف', 'OPPOSITE_OF'),
+    ]
+    
+    STRENGTHENING_PATTERNS = [
+        (r'يزيد', 'STRENGTHENS'),
+        (r'يقوي', 'STRENGTHENS'),
+    ]
+    
+    PREVENTION_PATTERNS = [
+        (r'يمنع', 'PREVENTS'),
+        (r'يحول\s*دون', 'PREVENTS'),
+    ]
+    
+    ALL_PATTERNS = (CAUSAL_PATTERNS + LEADS_TO_PATTERNS + 
+                   OPPOSITION_PATTERNS + STRENGTHENING_PATTERNS + PREVENTION_PATTERNS)
+    
+    edge_evidence = defaultdict(list)  # (source, target, edge_type) -> evidence list
+    
+    logger.info(f"Scanning {len(chunks)} chunks for semantic patterns with strict validation...")
+    
+    for chunk in chunks:
+        text = chunk.get('text_clean', '')
+        if not text or len(text) < 100:
+            continue
+        
+        chunk_id = chunk.get('chunk_id', '')
+        source = chunk.get('source', '')
+        surah = chunk.get('surah', 0)
+        ayah = chunk.get('ayah', 0)
+        text_normalized = normalize_arabic(text)
+        
+        # Check each pattern
+        for pattern, edge_type in ALL_PATTERNS:
+            for match in re.finditer(pattern, text_normalized):
+                match_start = match.start()
+                match_end = match.end()
+                
+                # Extract quote window (80 chars before and after the cue)
+                quote_start = max(0, match_start - 80)
+                quote_end = min(len(text_normalized), match_end + 80)
+                quote = text_normalized[quote_start:quote_end]
+                
+                # STRICT VALIDATION: Find ALL nodes that appear in this quote
+                nodes_in_quote = []
+                for term, node_id in term_to_node.items():
+                    term_normalized = normalize_arabic(term)
+                    if len(term_normalized) >= 3 and term_normalized in quote:
+                        nodes_in_quote.append((node_id, term_normalized))
+                
+                # Only create edges if we have at least 2 different nodes in the quote
+                unique_nodes = list(set(n[0] for n in nodes_in_quote))
+                if len(unique_nodes) >= 2:
+                    # Create edges between all pairs found in the same quote
+                    for i, n1 in enumerate(unique_nodes):
+                        for n2 in unique_nodes[i+1:]:
+                            # Determine direction based on position in quote
+                            # (node appearing before cue -> node appearing after cue)
+                            n1_term = next((t for nid, t in nodes_in_quote if nid == n1), '')
+                            n2_term = next((t for nid, t in nodes_in_quote if nid == n2), '')
+                            
+                            n1_pos = quote.find(n1_term)
+                            n2_pos = quote.find(n2_term)
+                            cue_pos = match_start - quote_start
+                            
+                            # Source is before cue, target is after
+                            if n1_pos < cue_pos < n2_pos:
+                                src, tgt = n1, n2
+                            elif n2_pos < cue_pos < n1_pos:
+                                src, tgt = n2, n1
+                            else:
+                                # Both on same side - skip ambiguous
+                                continue
+                            
+                            edge_key = (src, tgt, edge_type)
+                            
+                            # Get original (non-normalized) quote for display
+                            orig_quote = text[quote_start:quote_end].strip()
+                            
+                            evidence_item = {
+                                'source': source,
+                                'surah': surah,
+                                'ayah': ayah,
+                                'chunk_id': chunk_id,
+                                'char_start': quote_start,
+                                'char_end': quote_end,
+                                'cue_pattern': pattern,
+                                'quote': orig_quote,
+                                'endpoints_in_quote': [n1_term, n2_term],
+                                'validated': True,
+                            }
+                            
+                            edge_evidence[edge_key].append(evidence_item)
+    
+    # Convert to edges (only edges with at least 2 validated evidence items)
+    MIN_EVIDENCE = 2
     edges = []
     
-    # Build OPPOSITE_OF edges with evidence
-    for c1, c2 in known_opposites:
-        if c1 in concept_index and c2 in concept_index:
-            # Find chunks where both appear (evidence of opposition)
-            chunks_c1 = {c['chunk_id'] for c in concept_index[c1].get('tafsir_chunks', [])}
-            chunks_c2 = {c['chunk_id'] for c in concept_index[c2].get('tafsir_chunks', [])}
-            shared = chunks_c1 & chunks_c2
+    for (src, tgt, edge_type), evidence_list in edge_evidence.items():
+        if len(evidence_list) >= MIN_EVIDENCE:
+            # Count unique sources
+            unique_sources = set(e['source'] for e in evidence_list)
             
-            if shared:
-                # Get evidence from shared chunks
-                evidence = []
-                for chunk_id in list(shared)[:3]:
-                    chunk = chunk_by_id.get(chunk_id, {})
-                    if chunk:
-                        # Find quotes for both concepts
-                        for entry in [concept_index[c1], concept_index[c2]]:
-                            for tc in entry.get('tafsir_chunks', []):
-                                if tc['chunk_id'] == chunk_id:
-                                    evidence.append({
-                                        'source': tc['source'],
-                                        'surah': tc['surah'],
-                                        'ayah': tc['ayah'],
-                                        'chunk_id': chunk_id,
-                                        'char_start': tc['char_start'],
-                                        'char_end': tc['char_end'],
-                                        'quote': tc['quote'],
-                                    })
-                                    break
-                
-                if evidence:
-                    edges.append({
-                        'source': c1,
-                        'target': c2,
-                        'edge_type': 'OPPOSITE_OF',
-                        'confidence': 0.9,
-                        'evidence': evidence[:3],  # Limit to 3 evidence items
-                        'extractor_version': '1.0',
-                    })
+            edges.append({
+                'source': src,
+                'target': tgt,
+                'edge_type': edge_type,
+                'confidence': min(0.4 + 0.1 * len(evidence_list) + 0.1 * len(unique_sources), 0.95),
+                'evidence_count': len(evidence_list),
+                'sources_count': len(unique_sources),
+                'evidence': evidence_list[:5],
+                'extractor_version': '1.0',
+                'extraction_method': 'arabic_cue_patterns_strict',
+            })
     
-    # Build LEADS_TO edges with evidence
-    for c1, c2 in known_leads_to:
-        if c1 in concept_index and c2 in concept_index:
-            chunks_c1 = {c['chunk_id'] for c in concept_index[c1].get('tafsir_chunks', [])}
-            chunks_c2 = {c['chunk_id'] for c in concept_index[c2].get('tafsir_chunks', [])}
-            shared = chunks_c1 & chunks_c2
-            
-            if shared:
-                evidence = []
-                for chunk_id in list(shared)[:3]:
-                    chunk = chunk_by_id.get(chunk_id, {})
-                    if chunk:
-                        for entry in [concept_index[c1], concept_index[c2]]:
-                            for tc in entry.get('tafsir_chunks', []):
-                                if tc['chunk_id'] == chunk_id:
-                                    evidence.append({
-                                        'source': tc['source'],
-                                        'surah': tc['surah'],
-                                        'ayah': tc['ayah'],
-                                        'chunk_id': chunk_id,
-                                        'char_start': tc['char_start'],
-                                        'char_end': tc['char_end'],
-                                        'quote': tc['quote'],
-                                    })
-                                    break
-                
-                if evidence:
-                    edges.append({
-                        'source': c1,
-                        'target': c2,
-                        'edge_type': 'LEADS_TO',
-                        'confidence': 0.8,
-                        'evidence': evidence[:3],
-                        'extractor_version': '1.0',
-                    })
+    logger.info(f"Extracted {len(edges)} validated semantic edges")
+    
+    # Count nodes by type
+    nodes_by_type = defaultdict(int)
+    for node in nodes.values():
+        nodes_by_type[node['type']] += 1
+    
+    # Count isolated nodes
+    nodes_with_edges = set()
+    for edge in edges:
+        nodes_with_edges.add(edge['source'])
+        nodes_with_edges.add(edge['target'])
+    isolated_count = len(nodes) - len(nodes_with_edges)
+    
+    # Count edges by type
+    edges_by_type = defaultdict(int)
+    for edge in edges:
+        edges_by_type[edge['edge_type']] += 1
     
     graph = {
         'graph_type': 'semantic',
         'version': '1.0',
         'created_at': datetime.now().isoformat(),
-        'description': 'Semantic claim graph with typed edges. Every edge has evidence offsets.',
+        'description': 'Semantic claim graph. Both endpoints verified in quote. Evidence-backed only.',
         'allowed_edge_types': SEMANTIC_EDGE_TYPES,
-        'node_count': len(set(e['source'] for e in edges) | set(e['target'] for e in edges)),
+        'nodes': list(nodes.values()),
+        'node_count': len(nodes),
+        'nodes_by_type': dict(nodes_by_type),
+        'isolated_node_count': isolated_count,
         'edge_count': len(edges),
+        'edges_by_type': dict(edges_by_type),
         'edges': edges,
         'hard_rules': [
+            'Both endpoints must appear in the quote',
+            'Cue phrase must be present between endpoints',
             'No semantic edge without evidence offsets',
             'No causal chain may use co-occurrence edges',
         ],
+        'validation': {
+            'extraction_method': 'arabic_cue_patterns_strict',
+            'min_evidence_per_edge': 2,
+            'endpoints_validated': True,
+        }
     }
     
-    logger.info(f"Semantic graph: {graph['node_count']} nodes, {len(edges)} edges")
+    logger.info(f"Semantic graph: {len(nodes)} nodes ({isolated_count} isolated), {len(edges)} edges")
     return graph
 
 
 def generate_quality_report(cooccurrence: Dict, semantic: Dict) -> str:
     """Generate graph quality report."""
-    report = f"""# Graph Quality Report (Phase 6.2)
+    report = f"""# Graph Quality Report (Phase 6.3)
 
 **Generated**: {datetime.now().isoformat()}
 
@@ -262,11 +483,22 @@ def generate_quality_report(cooccurrence: Dict, semantic: Dict) -> str:
 
 ## Summary
 
-| Graph | Nodes | Edges | Edge Type |
-|-------|-------|-------|-----------|
-| Co-occurrence | {cooccurrence['node_count']} | {cooccurrence['edge_count']} | CO_OCCURS_WITH |
-| Semantic | {semantic['node_count']} | {semantic['edge_count']} | {', '.join(SEMANTIC_EDGE_TYPES[:3])}... |
+| Graph | Total Nodes | Isolated Nodes | Edges |
+|-------|-------------|----------------|-------|
+| Co-occurrence | {cooccurrence['node_count']} | {cooccurrence.get('isolated_node_count', 0)} | {cooccurrence['edge_count']} |
+| Semantic | {semantic['node_count']} | {semantic.get('isolated_node_count', 0)} | {semantic['edge_count']} |
 
+---
+
+## Node Counts by Type
+
+| Type | Count |
+|------|-------|
+"""
+    for node_type, count in cooccurrence.get('nodes_by_type', {}).items():
+        report += f"| {node_type} | {count} |\n"
+    
+    report += f"""
 ---
 
 ## Co-occurrence Graph (Statistical)
@@ -355,14 +587,22 @@ def generate_quality_report(cooccurrence: Dict, semantic: Dict) -> str:
 def main():
     """Build both graphs and generate report."""
     logger.info("Loading data...")
-    concept_index = load_concept_index()
+    
+    # Load canonical entities for complete node set
+    canonical_entities = load_canonical_entities()
     chunks = load_chunked_index()
     
-    logger.info(f"Loaded {len(concept_index)} concepts, {len(chunks)} chunks")
+    # Build ALL nodes from canonical vocab
+    nodes = build_all_nodes(canonical_entities)
+    term_to_node = build_term_to_node_mapping(nodes)
     
-    # Build graphs
-    cooccurrence = build_cooccurrence_graph(concept_index, chunks)
-    semantic = build_semantic_graph(concept_index, chunks)
+    logger.info(f"Built {len(nodes)} nodes from canonical entities")
+    logger.info(f"Built {len(term_to_node)} term mappings")
+    logger.info(f"Loaded {len(chunks)} chunks")
+    
+    # Build graphs with ALL nodes
+    cooccurrence = build_cooccurrence_graph(nodes, term_to_node, chunks)
+    semantic = build_semantic_graph(nodes, term_to_node, chunks)
     
     # Save graphs
     COOCCURRENCE_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
