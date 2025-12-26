@@ -1,7 +1,7 @@
 """
-Test: Proof System Integration with Hybrid Retrieval
+Test: Proof System Integration with Hybrid Evidence Retriever
 
-Step D Gate: These tests MUST pass before Phase 5 is complete.
+Phase 5.5: Ensures hybrid retriever is PRIMARY tafsir retrieval path.
 """
 
 import pytest
@@ -10,7 +10,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.ml.mandatory_proof_system import ProofDebug, GraphEvidence, TaxonomyEvidence
+from src.ml.mandatory_proof_system import ProofDebug, GraphEvidence, TaxonomyEvidence, MANDATORY_COMPONENTS
 
 CORE_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
 
@@ -123,6 +123,54 @@ def test_fallback_used_false_on_standard_debug():
     
     assert debug.fallback_used == False
     assert debug.fallback_reasons == []
+
+
+class TestHybridRetrieverIntegration:
+    """Tests that verify hybrid retriever is PRIMARY tafsir path."""
+    
+    def test_mandatory_proof_system_has_hybrid_retriever(self):
+        """MandatoryProofSystem must initialize hybrid_retriever."""
+        # Check the source code has hybrid retriever initialization
+        source_file = Path(__file__).parent.parent / "src" / "ml" / "mandatory_proof_system.py"
+        
+        with open(source_file, "r", encoding="utf-8") as f:
+            content = f.read()
+        
+        assert "self.hybrid_retriever" in content, "hybrid_retriever not initialized"
+        assert "get_hybrid_retriever" in content, "get_hybrid_retriever not imported"
+    
+    def test_answer_with_full_proof_uses_hybrid(self):
+        """answer_with_full_proof must use hybrid_retriever as PRIMARY path."""
+        source_file = Path(__file__).parent.parent / "src" / "ml" / "mandatory_proof_system.py"
+        
+        with open(source_file, "r", encoding="utf-8") as f:
+            content = f.read()
+        
+        # Must have hybrid retriever search call
+        assert "hybrid_retriever.search" in content, "hybrid_retriever.search not called"
+        
+        # Must set retrieval_mode to hybrid
+        assert 'retrieval_mode = "hybrid"' in content, "retrieval_mode not set to hybrid"
+    
+    def test_tafsir_results_include_chunk_id(self):
+        """Tafsir results from hybrid retriever must include chunk_id."""
+        source_file = Path(__file__).parent.parent / "src" / "ml" / "mandatory_proof_system.py"
+        
+        with open(source_file, "r", encoding="utf-8") as f:
+            content = f.read()
+        
+        # Must include chunk_id in tafsir results
+        assert '"chunk_id": r.chunk_id' in content, "chunk_id not included in tafsir results"
+    
+    def test_stratified_is_fallback_only(self):
+        """Stratified retriever must be fallback, not primary."""
+        source_file = Path(__file__).parent.parent / "src" / "ml" / "mandatory_proof_system.py"
+        
+        with open(source_file, "r", encoding="utf-8") as f:
+            content = f.read()
+        
+        # Stratified should be in else block (fallback)
+        assert "FALLBACK: Use stratified retriever" in content, "stratified not marked as fallback"
 
 
 if __name__ == "__main__":

@@ -140,6 +140,36 @@ class ChunkedEvidenceIndex:
         return [c['text_clean'] for c in self.chunks]
 
 
+def normalize_arabic_query(text: str) -> str:
+    """
+    Normalize Arabic text for better BM25 matching.
+    
+    Phase 5.5.3: Query normalization + lexical expansion.
+    """
+    if not text:
+        return text
+    
+    # Remove diacritics (tashkeel)
+    text = re.sub(r'[\u064B-\u0652]', '', text)
+    
+    # Normalize Alef forms (أ إ آ ا → ا)
+    text = re.sub(r'[أإآٱ]', 'ا', text)
+    
+    # Normalize Yaa forms (ى → ي)
+    text = re.sub(r'ى', 'ي', text)
+    
+    # Normalize Taa Marbuta (ة → ه)
+    text = re.sub(r'ة', 'ه', text)
+    
+    # Remove tatweel (ـ)
+    text = re.sub(r'ـ', '', text)
+    
+    # Normalize Hamza forms
+    text = re.sub(r'[ؤئء]', 'ء', text)
+    
+    return text
+
+
 class BM25Retriever:
     """BM25 lexical retrieval over chunks."""
     
@@ -163,7 +193,7 @@ class BM25Retriever:
         
         logger.info("Building BM25 index...")
         
-        # Tokenize Arabic text
+        # Tokenize Arabic text with normalization
         texts = self.index.get_all_texts()
         tokenized = [self._tokenize(t) for t in texts]
         
@@ -173,9 +203,9 @@ class BM25Retriever:
         logger.info(f"BM25 index built with {len(texts)} documents")
     
     def _tokenize(self, text: str) -> List[str]:
-        """Simple Arabic tokenization."""
-        # Remove diacritics for matching
-        text = re.sub(r'[\u064B-\u0652]', '', text)
+        """Arabic tokenization with normalization."""
+        # Normalize text first
+        text = normalize_arabic_query(text)
         # Split on whitespace and punctuation
         tokens = re.findall(r'[\u0600-\u06FF]+', text)
         return tokens
@@ -358,11 +388,12 @@ class HybridEvidenceRetriever:
         self,
         query: str,
         top_k: int = 20,
-        top_k_per_source: int = 5,
+        min_per_source: int = 3,
     ) -> RetrievalResponse:
         """
-        Hybrid search combining all retrieval methods.
+        Hybrid search with source-aware bucketed selection.
         
+        Phase 5.5: Ensures all 5 core sources are represented in top-K.
         Returns empty results if nothing found - NO SYNTHETIC EVIDENCE.
         """
         self.initialize()
@@ -370,7 +401,7 @@ class HybridEvidenceRetriever:
         response = RetrievalResponse(query=query)
         seen_chunk_ids = set()
         
-        # 1. Deterministic retrieval (verse reference)
+        # 1. Deterministic retrieval (verse reference) - if present
         det_results = self._deterministic_retrieval(query)
         for r in det_results:
             if r.chunk_id not in seen_chunk_ids:
@@ -378,67 +409,151 @@ class HybridEvidenceRetriever:
                 seen_chunk_ids.add(r.chunk_id)
                 response.deterministic_count += 1
         
-        # 2. BM25 retrieval
-        bm25_results = []
+        # If deterministic found results, we're done (perfect coverage)
+        if response.deterministic_count > 0:
+            # Still apply source diversity
+            response.results = self._apply_source_diversity(response.results, top_k, min_per_source)
+            return response
+        
+        # 2. BM25 retrieval - get large candidate pool
+        bm25_candidates = []
         if self.bm25:
-            bm25_results = self.bm25.search(query, top_k=top_k * 2)
-            for idx, score in bm25_results[:top_k]:
+            bm25_results = self.bm25.search(query, top_k=200)  # Large pool
+            for idx, score in bm25_results:
                 chunk = self.index.chunks[idx]
-                if chunk['chunk_id'] not in seen_chunk_ids:
-                    response.results.append(RetrievalResult(
+                bm25_candidates.append(RetrievalResult(
+                    chunk_id=chunk['chunk_id'],
+                    verse_key=chunk['verse_key'],
+                    source=chunk['source'],
+                    text=chunk['text_clean'],
+                    score=score,
+                    retrieval_method='bm25',
+                    surah=chunk['surah'],
+                    ayah=chunk['ayah'],
+                ))
+        
+        # 3. Phase 5.5: Verse-first retrieval strategy
+        # Find the most likely verse(s) from BM25 results, then get all sources for those verses
+        verse_scores = defaultdict(float)
+        for r in bm25_candidates:
+            verse_scores[r.verse_key] += r.score
+        
+        # Get top candidate verses
+        top_verses = sorted(verse_scores.items(), key=lambda x: -x[1])[:5]
+        
+        # For each top verse, get all chunks from all core sources
+        verse_based_results = []
+        for verse_key, verse_score in top_verses:
+            chunks = self.index.get_by_verse(verse_key)
+            for chunk in chunks:
+                if chunk['source'] in CORE_SOURCES:
+                    verse_based_results.append(RetrievalResult(
                         chunk_id=chunk['chunk_id'],
                         verse_key=chunk['verse_key'],
                         source=chunk['source'],
                         text=chunk['text_clean'],
-                        score=score,
-                        retrieval_method='bm25',
+                        score=verse_score,  # Use verse-level score
+                        retrieval_method='verse_first',
                         surah=chunk['surah'],
                         ayah=chunk['ayah'],
                     ))
-                    seen_chunk_ids.add(chunk['chunk_id'])
+        
+        # 4. Source-aware bucketed selection from verse-based results
+        source_buckets = {s: [] for s in CORE_SOURCES}
+        
+        for r in verse_based_results:
+            if r.source in CORE_SOURCES:
+                source_buckets[r.source].append(r)
+        
+        # 5. Select min_per_source from each bucket first
+        final_results = []
+        for source in CORE_SOURCES:
+            bucket = source_buckets[source]
+            for r in bucket[:min_per_source]:
+                if r.chunk_id not in seen_chunk_ids:
+                    final_results.append(r)
+                    seen_chunk_ids.add(r.chunk_id)
                     response.bm25_count += 1
         
-        # 3. Dense retrieval
-        dense_results = []
-        if self.dense:
-            dense_results = self.dense.search(query, top_k=top_k * 2)
-            for idx, score in dense_results[:top_k]:
-                chunk = self.index.chunks[idx]
-                if chunk['chunk_id'] not in seen_chunk_ids:
-                    response.results.append(RetrievalResult(
-                        chunk_id=chunk['chunk_id'],
-                        verse_key=chunk['verse_key'],
-                        source=chunk['source'],
-                        text=chunk['text_clean'],
-                        score=score,
-                        retrieval_method='dense',
-                        surah=chunk['surah'],
-                        ayah=chunk['ayah'],
-                    ))
-                    seen_chunk_ids.add(chunk['chunk_id'])
-                    response.dense_count += 1
+        # 6. Fill remaining slots from BM25 candidates (fallback)
+        remaining_slots = top_k - len(final_results)
+        if remaining_slots > 0:
+            for r in bm25_candidates:
+                if r.chunk_id not in seen_chunk_ids and len(final_results) < top_k:
+                    final_results.append(r)
+                    seen_chunk_ids.add(r.chunk_id)
+                    response.bm25_count += 1
         
-        # 4. Ensure source diversity (top_k_per_source from each core source)
-        source_counts = defaultdict(int)
-        diverse_results = []
-        
-        for r in response.results:
-            if r.source in CORE_SOURCES:
-                if source_counts[r.source] < top_k_per_source:
-                    diverse_results.append(r)
-                    source_counts[r.source] += 1
-            else:
-                diverse_results.append(r)
-        
-        response.results = diverse_results[:top_k]
+        response.results = final_results
         
         # Log if no results found (but do NOT fabricate)
         if len(response.results) == 0:
             logger.warning(f"[HYBRID] No results found for query: {query[:50]}...")
-            response.fallback_used = False  # No fallback, just empty
+            response.fallback_used = False
             response.fallback_reason = "no_results_found"
         
         return response
+    
+    def _apply_source_diversity(
+        self,
+        results: List[RetrievalResult],
+        top_k: int,
+        min_per_source: int,
+    ) -> List[RetrievalResult]:
+        """Apply source diversity to deterministic results."""
+        source_counts = defaultdict(int)
+        diverse_results = []
+        
+        # First pass: ensure min_per_source from each core source
+        for r in results:
+            if r.source in CORE_SOURCES:
+                if source_counts[r.source] < min_per_source:
+                    diverse_results.append(r)
+                    source_counts[r.source] += 1
+        
+        # Second pass: fill remaining slots
+        for r in results:
+            if r not in diverse_results and len(diverse_results) < top_k:
+                diverse_results.append(r)
+        
+        return diverse_results[:top_k]
+    
+    def _rerank_bucket_with_dense(
+        self,
+        query: str,
+        bucket: List[RetrievalResult],
+        top_n: int,
+    ) -> List[RetrievalResult]:
+        """Rerank a source bucket using dense embeddings."""
+        if not bucket or not self.dense or not self.dense._built:
+            return bucket
+        
+        # Get query embedding
+        query_emb = self.dense.model.encode(query, normalize_embeddings=True)
+        
+        # Score each chunk in bucket
+        scored = []
+        for r in bucket:
+            # Get chunk embedding from index
+            chunk_idx = self.index.by_chunk_id.get(r.chunk_id)
+            if chunk_idx is not None and chunk_idx < len(self.dense.embeddings):
+                chunk_emb = self.dense.embeddings[chunk_idx]
+                score = float(np.dot(query_emb, chunk_emb))
+                scored.append((r, score))
+            else:
+                scored.append((r, r.score))  # Keep original score
+        
+        # Sort by dense score
+        scored.sort(key=lambda x: -x[1])
+        
+        # Update scores and return
+        reranked = []
+        for r, new_score in scored[:top_n]:
+            r.score = new_score
+            r.retrieval_method = 'bm25+dense_rerank'
+            reranked.append(r)
+        
+        return reranked
 
 
 def get_hybrid_retriever(

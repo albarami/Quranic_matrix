@@ -702,20 +702,48 @@ class MandatoryProofSystem:
         )
         
         # 4. Build Tafsir Evidence for all 5 sources
-        # Phase 4: Use StratifiedTafsirRetriever for guaranteed results from all sources
+        # Phase 5.5: Use HybridEvidenceRetriever as PRIMARY tafsir retrieval
         MIN_PER_SOURCE = 10
-        stratified_results = self.stratified_retriever.search(question, top_k_per_source=MIN_PER_SOURCE)
         
-        for source in self.tafsir_sources:
-            source_results = stratified_results.get(source, [])
-            logging.info(f"[TAFSIR] {source}: {len(source_results)} results from stratified retriever")
-            for row in source_results:
-                tafsir_results[source].append({
-                    "surah": str(row.get("surah", "?")),
-                    "ayah": str(row.get("ayah", "?")),
-                    "text": row.get("text", ""),
-                    "score": row.get("rrf_score", row.get("bm25_score", 0.5)),
-                })
+        if self.hybrid_retriever:
+            # PRIMARY PATH: Use hybrid retriever (deterministic + BM25)
+            hybrid_response = self.hybrid_retriever.search(question, top_k=50, min_per_source=MIN_PER_SOURCE)
+            debug.retrieval_mode = "hybrid"
+            
+            # Track sources covered
+            sources_found = set()
+            for r in hybrid_response.results:
+                source = r.source
+                sources_found.add(source)
+                if source in self.tafsir_sources:
+                    tafsir_results[source].append({
+                        "surah": str(r.surah) if r.surah else "?",
+                        "ayah": str(r.ayah) if r.ayah else "?",
+                        "text": r.text,
+                        "score": r.score,
+                        "chunk_id": r.chunk_id,  # Phase 5.5: Include chunk_id for provenance
+                        "verse_key": r.verse_key,
+                    })
+            
+            debug.sources_covered = list(sources_found & set(self.core_sources))
+            debug.core_sources_count = len(debug.sources_covered)
+            logging.info(f"[TAFSIR] Hybrid retriever: {len(hybrid_response.results)} results, {debug.core_sources_count}/5 core sources")
+        else:
+            # FALLBACK: Use stratified retriever if hybrid not available
+            debug.retrieval_mode = "stratified"
+            debug.add_fallback("tafsir: hybrid_retriever not available, using stratified fallback")
+            stratified_results = self.stratified_retriever.search(question, top_k_per_source=MIN_PER_SOURCE)
+            
+            for source in self.tafsir_sources:
+                source_results = stratified_results.get(source, [])
+                logging.info(f"[TAFSIR] {source}: {len(source_results)} results from stratified retriever")
+                for row in source_results:
+                    tafsir_results[source].append({
+                        "surah": str(row.get("surah", "?")),
+                        "ayah": str(row.get("ayah", "?")),
+                        "text": row.get("text", ""),
+                        "score": row.get("rrf_score", row.get("bm25_score", 0.5)),
+                    })
 
         # Deduplicate + trim per source
         for source in self.tafsir_sources:
