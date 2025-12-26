@@ -1,0 +1,105 @@
+{
+  "vocabulary_id": "entity_types_v1",
+  "version": "1.0",
+  "frozen_date": "2025-01-01",
+  "description": "Canonical entity typing for QBM. Prevents conflation of behaviors with agents/organs/states.",
+  "entity_types": {
+    "BEHAVIOR": {
+      "description": "Human actions, dispositions, and conduct patterns",
+      "id_prefix": "BEH_",
+      "source_vocab": "behavior_concepts.json",
+      "examples": ["صبر", "شكر", "تقوى", "كبر", "ظلم", "إحسان"]
+    },
+    "AGENT": {
+      "description": "Actors who perform behaviors (humans, angels, jinn, etc.)",
+      "id_prefix": "AGT_",
+      "source_vocab": "agents.json",
+      "examples": ["مؤمن", "كافر", "منافق", "نبي", "ملك", "شيطان"]
+    },
+    "ORGAN": {
+      "description": "Body parts that participate in behavior (physical or metaphorical)",
+      "id_prefix": "ORG_",
+      "source_vocab": "organs.json",
+      "examples": ["قلب", "لسان", "عين", "أذن", "يد", "رجل"]
+    },
+    "STATE": {
+      "description": "Spiritual/psychological states (not actions, but conditions)",
+      "id_prefix": "STA_",
+      "source_vocab": null,
+      "examples": ["إيمان", "كفر", "نفاق", "يقين", "شك", "غفلة"]
+    },
+    "AXIS_VALUE": {
+      "description": "Values from the 5-axis classification system",
+      "id_prefix": "AXV_",
+      "source_vocab": "axes.json",
+      "examples": ["ظاهري", "باطني", "فردي", "جماعي"]
+    }
+  },
+  "term_to_entity_type": {
+    "صبر": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_EMO_PATIENCE"},
+    "شكر": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_EMO_GRATITUDE"},
+    "تقوى": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_TAQWA"},
+    "توبة": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_REPENTANCE"},
+    "كبر": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_COG_ARROGANCE"},
+    "تواضع": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_COG_HUMILITY"},
+    "ظلم": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SOC_OPPRESSION"},
+    "عدل": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SOC_JUSTICE"},
+    "صدق": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPEECH_TRUTHFULNESS"},
+    "كذب": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPEECH_LYING"},
+    "غيبة": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPEECH_BACKBITING"},
+    "إخلاص": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_SINCERITY"},
+    "رياء": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_SHOWING_OFF"},
+    "حسد": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_EMO_ENVY"},
+    "توكل": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_TAWAKKUL"},
+    "خشية": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_EMO_FEAR_ALLAH"},
+    "خوف": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_EMO_FEAR_ALLAH"},
+    "رجاء": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_EMO_HOPE"},
+    "تفكر": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_COG_REFLECTION"},
+    "غفلة": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_COG_HEEDLESSNESS"},
+    "صلاة": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_PRAYER"},
+    "زكاة": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_FIN_ZAKAT"},
+    "صيام": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_FASTING"},
+    "حج": {"entity_type": "BEHAVIOR", "canonical_id": null},
+    "جهاد": {"entity_type": "BEHAVIOR", "canonical_id": null},
+    "دعاء": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPEECH_SUPPLICATION"},
+    "ذكر": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_REMEMBRANCE"},
+    "تلاوة": {"entity_type": "BEHAVIOR", "canonical_id": null},
+    "تدبر": {"entity_type": "BEHAVIOR", "canonical_id": null},
+    "رضا": {"entity_type": "BEHAVIOR", "canonical_id": null},
+    
+    "مؤمن": {"entity_type": "AGENT", "canonical_id": "AGT_BELIEVER"},
+    "كافر": {"entity_type": "AGENT", "canonical_id": "AGT_DISBELIEVER"},
+    "منافق": {"entity_type": "AGENT", "canonical_id": "AGT_HYPOCRITE"},
+    "مشرك": {"entity_type": "AGENT", "canonical_id": "AGT_POLYTHEIST"},
+    "نبي": {"entity_type": "AGENT", "canonical_id": "AGT_PROPHET_MESSENGER"},
+    "رسول": {"entity_type": "AGENT", "canonical_id": "AGT_PROPHET_MESSENGER"},
+    "ملك": {"entity_type": "AGENT", "canonical_id": "AGT_ANGEL"},
+    "شيطان": {"entity_type": "AGENT", "canonical_id": "AGT_JINN"},
+    "جن": {"entity_type": "AGENT", "canonical_id": "AGT_JINN"},
+    "إنسان": {"entity_type": "AGENT", "canonical_id": "AGT_HUMAN_GENERAL"},
+    
+    "قلب": {"entity_type": "ORGAN", "canonical_id": "ORG_HEART"},
+    "عين": {"entity_type": "ORGAN", "canonical_id": "ORG_EYE"},
+    "أذن": {"entity_type": "ORGAN", "canonical_id": "ORG_EAR"},
+    "لسان": {"entity_type": "ORGAN", "canonical_id": "ORG_TONGUE"},
+    "يد": {"entity_type": "ORGAN", "canonical_id": "ORG_HAND"},
+    "رجل": {"entity_type": "ORGAN", "canonical_id": "ORG_FOOT"},
+    "نفس": {"entity_type": "ORGAN", "canonical_id": "ORG_SOUL"},
+    "صدر": {"entity_type": "ORGAN", "canonical_id": "ORG_CHEST"},
+    "بصر": {"entity_type": "ORGAN", "canonical_id": "ORG_EYE"},
+    "سمع": {"entity_type": "ORGAN", "canonical_id": "ORG_EAR"},
+    
+    "إيمان": {"entity_type": "STATE", "canonical_id": "STA_IMAN"},
+    "كفر": {"entity_type": "STATE", "canonical_id": "STA_KUFR"},
+    "نفاق": {"entity_type": "STATE", "canonical_id": "STA_NIFAQ"},
+    "شرك": {"entity_type": "STATE", "canonical_id": "STA_SHIRK"},
+    "يقين": {"entity_type": "STATE", "canonical_id": "STA_YAQEEN"},
+    "شك": {"entity_type": "STATE", "canonical_id": "STA_SHAKK"}
+  },
+  "notes": [
+    "Some terms like إيمان can be both STATE (condition) and BEHAVIOR (act of believing).",
+    "Context determines which interpretation applies.",
+    "The router should detect entity_type but still route to CONCEPT_REF for retrieval.",
+    "This mapping is used for graph typing and concept index organization."
+  ]
+}

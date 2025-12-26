@@ -1,7 +1,7 @@
 """
 QueryRouter: Deterministic query classification for QBM.
 
-Phase 5.5: Routes queries to appropriate retrieval strategy.
+Phase 6.0: Routes queries to appropriate retrieval strategy with canonical entity typing.
 
 Query Intents:
 - AYAH_REF: Explicit verse reference (2:255, البقرة:255)
@@ -9,17 +9,36 @@ Query Intents:
 - CONCEPT_REF: Behavior/vocab term or ID (صبر, BEH_*, AGT_*)
 - FREE_TEXT: Open questions, multi-concept queries
 
+Entity Types (Phase 6.0):
+- BEHAVIOR: Actions and conduct patterns (صبر, تقوى, كبر)
+- AGENT: Actors who perform behaviors (مؤمن, كافر, نبي)
+- ORGAN: Body parts (قلب, لسان, عين)
+- STATE: Spiritual/psychological conditions (إيمان, كفر, نفاق)
+
 For AYAH_REF/SURAH_REF/CONCEPT_REF: deterministic retrieval
 For FREE_TEXT: hybrid semantic retrieval
 """
 
 import re
+import json
 import logging
 from enum import Enum
+from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass, field
 
 logger = logging.getLogger(__name__)
+
+# Load canonical entity types from vocab
+ENTITY_TYPES_FILE = Path("vocab/entity_types.json")
+
+
+def load_entity_types() -> Dict[str, Any]:
+    """Load canonical entity types mapping from vocab."""
+    if ENTITY_TYPES_FILE.exists():
+        with open(ENTITY_TYPES_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {"term_to_entity_type": {}, "entity_types": {}}
 
 
 class QueryIntent(Enum):
@@ -58,28 +77,20 @@ SURAH_NAMES = {
     'المسد': 111, 'الإخلاص': 112, 'الفلق': 113, 'الناس': 114,
 }
 
-# Common behavior/concept terms (Arabic)
-BEHAVIOR_TERMS = {
-    # Core behaviors
-    'إيمان', 'كفر', 'نفاق', 'شرك', 'توبة', 'استغفار',
-    'صبر', 'شكر', 'تقوى', 'خشية', 'رجاء', 'خوف',
-    'صدق', 'كذب', 'أمانة', 'خيانة', 'عدل', 'ظلم',
-    'تواضع', 'كبر', 'رياء', 'إخلاص', 'حسد', 'غيبة',
-    'صلاة', 'زكاة', 'صيام', 'حج', 'جهاد', 'دعاء',
-    'ذكر', 'تلاوة', 'تدبر', 'تفكر', 'توكل', 'رضا',
-    # Agent types
-    'مؤمن', 'كافر', 'منافق', 'مشرك', 'نبي', 'رسول',
-    'ملك', 'شيطان', 'جن', 'إنسان',
-    # Organs
-    'قلب', 'عين', 'أذن', 'لسان', 'يد', 'رجل',
-}
+# Phase 6.0: Load entity types from canonical vocab (replaces hardcoded BEHAVIOR_TERMS)
+_ENTITY_TYPES_DATA = load_entity_types()
+TERM_TO_ENTITY_TYPE = _ENTITY_TYPES_DATA.get("term_to_entity_type", {})
+
+# Build concept terms set from canonical vocab (all entity types are valid concepts)
+CONCEPT_TERMS = set(TERM_TO_ENTITY_TYPE.keys())
 
 # Concept ID patterns
 CONCEPT_ID_PATTERNS = [
     r'BEH_\w+',  # Behavior IDs
     r'AGT_\w+',  # Agent IDs
     r'ORG_\w+',  # Organ IDs
-    r'ACT_\w+',  # Action IDs
+    r'STA_\w+',  # State IDs
+    r'AXV_\w+',  # Axis Value IDs
 ]
 
 
@@ -93,6 +104,8 @@ class RouterResult:
     surah_num: Optional[int] = None
     ayah_num: Optional[int] = None
     concept_term: Optional[str] = None
+    entity_type: Optional[str] = None  # Phase 6.0: BEHAVIOR, AGENT, ORGAN, STATE
+    canonical_id: Optional[str] = None  # Phase 6.0: e.g., BEH_EMO_PATIENCE
     debug_info: Dict[str, Any] = field(default_factory=dict)
     
     def to_dict(self) -> Dict[str, Any]:
@@ -104,6 +117,8 @@ class RouterResult:
             'surah_num': self.surah_num,
             'ayah_num': self.ayah_num,
             'concept_term': self.concept_term,
+            'entity_type': self.entity_type,
+            'canonical_id': self.canonical_id,
             'debug_info': self.debug_info,
         }
 
@@ -112,12 +127,14 @@ class QueryRouter:
     """
     Deterministic query router for QBM.
     
-    Classifies queries into intents and extracts references.
+    Phase 6.0: Uses canonical entity types from vocab/entity_types.json.
+    Classifies queries into intents and extracts references with proper entity typing.
     """
     
     def __init__(self):
         self.surah_names = SURAH_NAMES
-        self.behavior_terms = BEHAVIOR_TERMS
+        self.concept_terms = CONCEPT_TERMS  # Phase 6.0: From canonical vocab
+        self.term_to_entity_type = TERM_TO_ENTITY_TYPE  # Phase 6.0: Entity type mapping
         self.concept_id_patterns = [re.compile(p) for p in CONCEPT_ID_PATTERNS]
     
     def route(self, query: str) -> RouterResult:
@@ -232,20 +249,40 @@ class QueryRouter:
         return None
     
     def _detect_concept_ref(self, query: str) -> Optional[RouterResult]:
-        """Detect behavior/vocab term or ID."""
-        # Pattern 1: Concept IDs (BEH_*, AGT_*, etc.)
+        """
+        Detect behavior/vocab term or ID.
+        
+        Phase 6.0: Uses canonical entity types and returns entity_type + canonical_id.
+        """
+        # Pattern 1: Concept IDs (BEH_*, AGT_*, ORG_*, STA_*, etc.)
         for pattern in self.concept_id_patterns:
             match = pattern.search(query)
             if match:
+                concept_id = match.group(0)
+                # Determine entity type from ID prefix
+                entity_type = None
+                if concept_id.startswith("BEH_"):
+                    entity_type = "BEHAVIOR"
+                elif concept_id.startswith("AGT_"):
+                    entity_type = "AGENT"
+                elif concept_id.startswith("ORG_"):
+                    entity_type = "ORGAN"
+                elif concept_id.startswith("STA_"):
+                    entity_type = "STATE"
+                elif concept_id.startswith("AXV_"):
+                    entity_type = "AXIS_VALUE"
+                
                 return RouterResult(
                     query=query,
                     intent=QueryIntent.CONCEPT_REF,
                     confidence=1.0,
-                    concept_term=match.group(0),
-                    debug_info={'pattern': 'concept_id', 'id': match.group(0)},
+                    concept_term=concept_id,
+                    entity_type=entity_type,
+                    canonical_id=concept_id,
+                    debug_info={'pattern': 'concept_id', 'id': concept_id},
                 )
         
-        # Pattern 2: Known behavior terms (with or without ال prefix)
+        # Pattern 2: Known concept terms from canonical vocab (with or without ال prefix)
         query_words = set(re.findall(r'[\u0600-\u06FF]+', query))
         
         # Also check words without ال prefix
@@ -255,15 +292,21 @@ class QueryRouter:
             if word.startswith('ال'):
                 query_words_normalized.add(word[2:])  # Remove ال
         
-        matched_terms = query_words_normalized & self.behavior_terms
+        # Phase 6.0: Match against canonical vocab terms
+        matched_terms = query_words_normalized & self.concept_terms
         
         if matched_terms:
             term = list(matched_terms)[0]  # Take first match
             
+            # Phase 6.0: Get entity type and canonical ID from vocab
+            entity_info = self.term_to_entity_type.get(term, {})
+            entity_type = entity_info.get("entity_type")
+            canonical_id = entity_info.get("canonical_id")
+            
             # Check if it's a focused query about the concept
             concept_keywords = ['معنى', 'تعريف', 'ما هو', 'ما هي', 'آيات', 'أحاديث', 'فضل', 'أنواع']
             is_concept_query = (
-                len(query_words) <= 3 or  # Short query with behavior term
+                len(query_words) <= 3 or  # Short query with concept term
                 any(kw in query for kw in concept_keywords)  # Has concept keyword
             )
             
@@ -273,7 +316,14 @@ class QueryRouter:
                     intent=QueryIntent.CONCEPT_REF,
                     confidence=0.85,
                     concept_term=term,
-                    debug_info={'pattern': 'behavior_term', 'term': term, 'all_matches': list(matched_terms)},
+                    entity_type=entity_type,
+                    canonical_id=canonical_id,
+                    debug_info={
+                        'pattern': 'canonical_vocab',
+                        'term': term,
+                        'all_matches': list(matched_terms),
+                        'entity_type': entity_type,
+                    },
                 )
         
         return None
@@ -308,11 +358,19 @@ if __name__ == "__main__":
         "الفاتحة",
         "ما هي سورة الكهف",
         
-        # CONCEPT_REF
+        # CONCEPT_REF - Behaviors
         "الصبر",
         "ما معنى التقوى",
-        "BEH_SABR",
+        "BEH_EMO_PATIENCE",
         "آيات الصبر",
+        
+        # CONCEPT_REF - Agents (Phase 6.0: should be typed as AGENT, not BEHAVIOR)
+        "المؤمن",
+        "AGT_BELIEVER",
+        
+        # CONCEPT_REF - Organs (Phase 6.0: should be typed as ORGAN, not BEHAVIOR)
+        "القلب",
+        "ORG_HEART",
         
         # FREE_TEXT
         "كيف أتعامل مع الابتلاء",
@@ -321,7 +379,7 @@ if __name__ == "__main__":
     ]
     
     print("\n" + "=" * 60)
-    print("Testing QueryRouter")
+    print("Testing QueryRouter (Phase 6.0 - Canonical Entity Types)")
     print("=" * 60)
     
     for query in test_queries:
@@ -333,3 +391,7 @@ if __name__ == "__main__":
             print(f"  Ref: {result.extracted_ref}")
         if result.concept_term:
             print(f"  Concept: {result.concept_term}")
+        if result.entity_type:
+            print(f"  Entity Type: {result.entity_type}")
+        if result.canonical_id:
+            print(f"  Canonical ID: {result.canonical_id}")
