@@ -251,10 +251,10 @@ class AnnotationWithProvenance(BaseModel):
 - Fetch real graph data from `/api/graph/semantic`
 
 **Acceptance Criteria:**
-- [ ] Causal queries use semantic graph only
-- [ ] Co-occurrence explicitly labeled as non-causal
-- [ ] Taxonomy has exactly 73 behaviors (or documented count)
-- [ ] Frontend shows real backend data, no random weights
+- [x] Causal queries use semantic graph only (semantic_graph_v1.json + _is_causal_path fix)
+- [x] Co-occurrence explicitly labeled as non-causal (cooccurrence_graph_v1.json description)
+- [x] Taxonomy has exactly 73 behaviors (canonical_entities.json, verified in tests)
+- [x] Frontend shows real backend data, no random weights (02fd8c3)
 
 ---
 
