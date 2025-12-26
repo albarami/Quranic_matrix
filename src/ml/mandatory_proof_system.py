@@ -38,6 +38,11 @@ class ProofDebug(BaseModel):
     primary_path_latency_ms: int = 0
     index_source: Literal["disk", "runtime_build"] = "disk"
     
+    # Phase 5: Retrieval mode tracking
+    retrieval_mode: Literal["hybrid", "stratified", "rag_only"] = "rag_only"
+    sources_covered: List[str] = Field(default_factory=list)
+    core_sources_count: int = 0
+    
     # Detailed fallback tracking per component
     quran_fallback: bool = False
     graph_fallback: bool = False
@@ -59,6 +64,9 @@ class ProofDebug(BaseModel):
             "retrieval_distribution": self.retrieval_distribution,
             "primary_path_latency_ms": self.primary_path_latency_ms,
             "index_source": self.index_source,
+            "retrieval_mode": self.retrieval_mode,
+            "sources_covered": self.sources_covered,
+            "core_sources_count": self.core_sources_count,
             "component_fallbacks": {
                 "quran": self.quran_fallback,
                 "graph": self.graph_fallback,
@@ -514,8 +522,18 @@ class MandatoryProofSystem:
     def __init__(self, full_power_system):
         self.system = full_power_system
         self.tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "muyassar", "baghawi"]
+        self.core_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
         
-        # Phase 4: Initialize stratified tafsir retriever for guaranteed results
+        # Phase 5: Initialize hybrid evidence retriever (deterministic + BM25)
+        self.hybrid_retriever = None
+        try:
+            from src.ml.hybrid_evidence_retriever import get_hybrid_retriever
+            self.hybrid_retriever = get_hybrid_retriever(use_bm25=True, use_dense=False)
+            logging.info("[PROOF] HybridEvidenceRetriever initialized successfully")
+        except Exception as e:
+            logging.warning(f"[PROOF] HybridEvidenceRetriever failed to initialize: {e}")
+        
+        # Phase 4: Initialize stratified tafsir retriever as fallback
         from src.ml.stratified_retriever import get_stratified_retriever, IndexNotFoundError
         try:
             self.stratified_retriever = get_stratified_retriever(fail_fast=True)
