@@ -106,3 +106,18 @@ class HealthResponse(BaseModel):
     status: str
     version: str
     dataset_loaded: bool
+
+
+class SurahSummary(BaseModel):
+    """Summary of a surah's behavioral annotations."""
+    surah_number: int
+    surah_name: Optional[str] = None
+    total_spans: int
+    behavior_forms: Dict[str, int] = Field(default_factory=dict)
+    agent_types: Dict[str, int] = Field(default_factory=dict)
+
+
+class SurahsResponse(BaseModel):
+    """Response containing surah summaries."""
+    total_surahs: int
+    surahs: List[SurahSummary]
