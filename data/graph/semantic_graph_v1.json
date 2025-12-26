@@ -1,0 +1,166 @@
+{
+  "graph_type": "semantic",
+  "version": "1.0",
+  "created_at": "2025-12-26T04:07:19.703620",
+  "description": "Semantic claim graph with typed edges. Every edge has evidence offsets.",
+  "allowed_edge_types": [
+    "CAUSES",
+    "LEADS_TO",
+    "PREVENTS",
+    "OPPOSITE_OF",
+    "COMPLEMENTS",
+    "CONDITIONAL_ON"
+  ],
+  "node_count": 8,
+  "edge_count": 4,
+  "edges": [
+    {
+      "source": "BEH_SPI_SINCERITY",
+      "target": "BEH_SPI_SHOWING_OFF",
+      "edge_type": "OPPOSITE_OF",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "source": "qurtubi",
+          "surah": 2,
+          "ayah": 41,
+          "chunk_id": "qurtubi_002_041_chunk03",
+          "char_start": 238,
+          "char_end": 243,
+          "quote": "اجب من الواجبات التي يحتاج فيها إلى نية التقرب والإخلاص فلا يؤخذ عليها أجرة كالصلاة والصيام ، وقد قال تعا"
+        },
+        {
+          "source": "qurtubi",
+          "surah": 2,
+          "ayah": 41,
+          "chunk_id": "qurtubi_002_041_chunk03",
+          "char_start": 530,
+          "char_end": 534,
+          "quote": "ول في المعلمين قال درهمهم حرام وثوبهم سحت وكلامهم رياء وروى عبادة بن الصامت قال : علمت ناسا من أهل الصفة"
+        },
+        {
+          "source": "baghawi",
+          "surah": 2,
+          "ayah": 25,
+          "chunk_id": "baghawi_002_025_chunk00",
+          "char_start": 404,
+          "char_end": 409,
+          "quote": "الح الذي فيه أربعة أشياء . العلم والنية والصبر والإخلاص . ( أن لهم جنات ) جمع الجنة والجنة البستان الذي ف"
+        }
+      ],
+      "extractor_version": "1.0"
+    },
+    {
+      "source": "BEH_SOC_JUSTICE",
+      "target": "BEH_SOC_OPPRESSION",
+      "edge_type": "OPPOSITE_OF",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "source": "tabari",
+          "surah": 1,
+          "ayah": 1,
+          "chunk_id": "tabari_001_001_chunk22",
+          "char_start": 328,
+          "char_end": 331,
+          "quote": "رحمانا ، تسويته [ ص: 129 ] بين جميعهم جل ذكره في عدله وقضايه ، فلا يظلم احدا منهم مثقال ذره ، وان تك ح"
+        },
+        {
+          "source": "tabari",
+          "surah": 1,
+          "ayah": 1,
+          "chunk_id": "tabari_001_001_chunk22",
+          "char_start": 347,
+          "char_end": 350,
+          "quote": "ص: 129 ] بين جميعهم جل ذكره في عدله وقضايه ، فلا يظلم احدا منهم مثقال ذره ، وان تك حسنه يضاعفها ويوت من"
+        },
+        {
+          "source": "tabari",
+          "surah": 2,
+          "ayah": 15,
+          "chunk_id": "tabari_002_015_chunk03",
+          "char_start": 140,
+          "char_end": 143,
+          "quote": "لاولي من صاحبها سييه، اذْ كانت منه لله تبارك وتعالي معصيه, وان الاخري عَدلٌ، لانها من الله جزاءٌ &; 1-3"
+        }
+      ],
+      "extractor_version": "1.0"
+    },
+    {
+      "source": "BEH_SPEECH_TRUTHFULNESS",
+      "target": "BEH_SPEECH_LYING",
+      "edge_type": "OPPOSITE_OF",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "source": "qurtubi",
+          "surah": 2,
+          "ayah": 1,
+          "chunk_id": "qurtubi_002_001_chunk08",
+          "char_start": 284,
+          "char_end": 287,
+          "quote": "لله تعالى ، وكان القوم في ذلك الزمان على صنفين : مصدق ، ومكذب ; فالمصدق يصدق بغير قسم ، والمكذب لا يصدق"
+        },
+        {
+          "source": "qurtubi",
+          "surah": 2,
+          "ayah": 1,
+          "chunk_id": "qurtubi_002_001_chunk08",
+          "char_start": 292,
+          "char_end": 295,
+          "quote": "ى ، وكان القوم في ذلك الزمان على صنفين : مصدق ، ومكذب ; فالمصدق يصدق بغير قسم ، والمكذب لا يصدق مع القس"
+        },
+        {
+          "source": "baghawi",
+          "surah": 2,
+          "ayah": 2,
+          "chunk_id": "baghawi_002_002_chunk00",
+          "char_start": 744,
+          "char_end": 747,
+          "quote": "ه}: أي لا شك فيه أنه من عند الله عز وجل وأنه الحق والصدق، وقيل: \"هو خبر بمعنى النهي أي لا ترتابوا فيه،"
+        }
+      ],
+      "extractor_version": "1.0"
+    },
+    {
+      "source": "STA_IMAN",
+      "target": "STA_KUFR",
+      "edge_type": "OPPOSITE_OF",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "source": "tabari",
+          "surah": 1,
+          "ayah": 1,
+          "chunk_id": "tabari_001_001_chunk21",
+          "char_start": 176,
+          "char_end": 181,
+          "quote": "جل الدنيا بما لطف بهم من توفيقه اياهم لطاعته ، والايمان به وبرسله ، واتباع امره واجتناب معاصيه ، مما خذل"
+        },
+        {
+          "source": "tabari",
+          "surah": 1,
+          "ayah": 1,
+          "chunk_id": "tabari_001_001_chunk21",
+          "char_start": 249,
+          "char_end": 252,
+          "quote": "ع امره واجتناب معاصيه ، مما خذل عنه من اشرك به ، وكفر وخالف ما امره به ، وركب معاصيه; وكان مع ذلك قد جع"
+        },
+        {
+          "source": "ibn_kathir",
+          "surah": 1,
+          "ayah": 2,
+          "chunk_id": "ibn_kathir_001_002_chunk06",
+          "char_start": 474,
+          "char_end": 479,
+          "quote": "ال اخرون : لا اله الا الله افضل لانها الفصل بين الايمان والكفر ، وعليها يقاتل الناس حتي يقولوا : لا اله ا"
+        }
+      ],
+      "extractor_version": "1.0"
+    }
+  ],
+  "hard_rules": [
+    "No semantic edge without evidence offsets",
+    "No causal chain may use co-occurrence edges"
+  ]
+}

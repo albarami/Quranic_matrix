@@ -1,0 +1,977 @@
+{
+  "graph_type": "cooccurrence",
+  "version": "1.0",
+  "created_at": "2025-12-26T04:07:19.683292",
+  "description": "Statistical co-occurrence graph. For discovery only, NOT for causal reasoning.",
+  "edge_type": "CO_OCCURS_WITH",
+  "node_count": 46,
+  "edge_count": 75,
+  "edges": [
+    {
+      "source": "AGT_POLYTHEIST",
+      "target": "STA_SHIRK",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 18,
+      "pmi": 1714.6783,
+      "sample_chunks": [
+        "qurtubi_001_007_chunk03",
+        "muyassar_002_001_chunk00",
+        "baghawi_002_003_chunk06",
+        "tabari_001_001_chunk25",
+        "qurtubi_002_001_chunk06"
+      ]
+    },
+    {
+      "source": "AGT_PROPHET_MESSENGER",
+      "target": "ORG_HAND",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 15,
+      "pmi": 2050.1589,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk06",
+        "ibn_kathir_001_001_chunk01",
+        "ibn_kathir_001_001_chunk12",
+        "ibn_kathir_001_001_chunk09",
+        "ibn_kathir_001_001_chunk15"
+      ]
+    },
+    {
+      "source": "BEH_SPI_PRAYER",
+      "target": "AGT_PROPHET_MESSENGER",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 10,
+      "pmi": 2418.1361,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk01",
+        "ibn_kathir_001_001_chunk17",
+        "ibn_kathir_001_001_chunk09",
+        "ibn_kathir_001_001_chunk05",
+        "ibn_kathir_001_001_chunk08"
+      ]
+    },
+    {
+      "source": "BEH_SPI_REMEMBRANCE",
+      "target": "AGT_PROPHET_MESSENGER",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 10,
+      "pmi": 898.1648,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk06",
+        "ibn_kathir_001_001_chunk01",
+        "ibn_kathir_001_001_chunk12",
+        "ibn_kathir_001_001_chunk17",
+        "ibn_kathir_001_001_chunk09"
+      ]
+    },
+    {
+      "source": "BEH_SPI_PRAYER",
+      "target": "ORG_HAND",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 9,
+      "pmi": 2460.1906,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk02",
+        "ibn_kathir_001_001_chunk01",
+        "ibn_kathir_001_001_chunk09",
+        "ibn_kathir_001_001_chunk05",
+        "ibn_kathir_001_001_chunk03"
+      ]
+    },
+    {
+      "source": "BEH_SPI_REMEMBRANCE",
+      "target": "ORG_HAND",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 9,
+      "pmi": 913.7851,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk06",
+        "ibn_kathir_001_001_chunk01",
+        "ibn_kathir_001_001_chunk12",
+        "ibn_kathir_001_001_chunk09",
+        "ibn_kathir_001_001_chunk20"
+      ]
+    },
+    {
+      "source": "BEH_EMO_GRATITUDE",
+      "target": "STA_SHAKK",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 8,
+      "pmi": 3846.2588,
+      "sample_chunks": [
+        "ibn_kathir_001_002_chunk01",
+        "ibn_kathir_001_002_chunk04",
+        "ibn_kathir_001_002_chunk03",
+        "ibn_kathir_001_002_chunk00",
+        "tabari_001_002_chunk00"
+      ]
+    },
+    {
+      "source": "BEH_SPI_REMEMBRANCE",
+      "target": "AGT_JINN",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 8,
+      "pmi": 778.4095,
+      "sample_chunks": [
+        "qurtubi_001_001_chunk22",
+        "ibn_kathir_001_001_chunk44",
+        "ibn_kathir_001_001_chunk41",
+        "ibn_kathir_001_001_chunk33",
+        "ibn_kathir_001_001_chunk28"
+      ]
+    },
+    {
+      "source": "BEH_FIN_ZAKAT",
+      "target": "STA_NIFAQ",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 7,
+      "pmi": 1589.2528,
+      "sample_chunks": [
+        "qurtubi_002_003_chunk30",
+        "tabari_002_003_chunk12",
+        "ibn_kathir_002_003_chunk08",
+        "saadi_002_003_chunk01",
+        "ibn_kathir_002_003_chunk09"
+      ]
+    },
+    {
+      "source": "BEH_SPI_REMEMBRANCE",
+      "target": "ORG_FOOT",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 7,
+      "pmi": 583.8071,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk44",
+        "ibn_kathir_001_001_chunk01",
+        "ibn_kathir_001_001_chunk12",
+        "qurtubi_001_001_chunk09",
+        "ibn_kathir_001_001_chunk28"
+      ]
+    },
+    {
+      "source": "AGT_PROPHET_MESSENGER",
+      "target": "ORG_EAR",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 7,
+      "pmi": 550.126,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk25",
+        "ibn_kathir_001_001_chunk27",
+        "ibn_kathir_001_001_chunk28",
+        "ibn_kathir_001_001_chunk13",
+        "ibn_kathir_001_001_chunk14"
+      ]
+    },
+    {
+      "source": "ORG_EAR",
+      "target": "ORG_FOOT",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 7,
+      "pmi": 510.8312,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk25",
+        "ibn_kathir_001_001_chunk44",
+        "qurtubi_001_001_chunk05",
+        "qurtubi_001_002_chunk38",
+        "ibn_kathir_001_001_chunk28"
+      ]
+    },
+    {
+      "source": "BEH_SPI_REMEMBRANCE",
+      "target": "ORG_EAR",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 6,
+      "pmi": 350.2843,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk44",
+        "qurtubi_001_001_chunk32",
+        "tabari_001_001_chunk03",
+        "ibn_kathir_001_001_chunk28",
+        "qurtubi_001_001_chunk13"
+      ]
+    },
+    {
+      "source": "AGT_PROPHET_MESSENGER",
+      "target": "ORG_FOOT",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 6,
+      "pmi": 673.6236,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk25",
+        "ibn_kathir_001_001_chunk26",
+        "ibn_kathir_001_001_chunk01",
+        "ibn_kathir_001_001_chunk12",
+        "ibn_kathir_001_001_chunk28"
+      ]
+    },
+    {
+      "source": "AGT_ANGEL",
+      "target": "ORG_EAR",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 6,
+      "pmi": 533.0413,
+      "sample_chunks": [
+        "qurtubi_001_002_chunk15",
+        "ibn_kathir_001_001_chunk44",
+        "tabari_001_002_chunk24",
+        "qurtubi_001_002_chunk38",
+        "ibn_kathir_001_001_chunk13"
+      ]
+    },
+    {
+      "source": "AGT_JINN",
+      "target": "ORG_FOOT",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 6,
+      "pmi": 729.7589,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk44",
+        "qurtubi_001_001_chunk05",
+        "qurtubi_001_001_chunk07",
+        "ibn_kathir_001_001_chunk28",
+        "qurtubi_001_001_chunk25"
+      ]
+    },
+    {
+      "source": "BEH_SPI_TAQWA",
+      "target": "STA_SHIRK",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 5,
+      "pmi": 773.9867,
+      "sample_chunks": [
+        "tabari_002_002_chunk12",
+        "baghawi_002_002_chunk01",
+        "qurtubi_002_002_chunk08",
+        "ibn_kathir_002_002_chunk04",
+        "tabari_002_002_chunk13"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_TRUTHFULNESS",
+      "target": "AGT_BELIEVER",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 5,
+      "pmi": 671.0427,
+      "sample_chunks": [
+        "qurtubi_002_003_chunk00",
+        "baghawi_002_003_chunk06",
+        "qurtubi_001_006_chunk01",
+        "qurtubi_002_002_chunk07",
+        "baghawi_002_003_chunk00"
+      ]
+    },
+    {
+      "source": "BEH_SPI_PRAYER",
+      "target": "BEH_SPI_REMEMBRANCE",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 5,
+      "pmi": 898.1648,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk01",
+        "ibn_kathir_001_001_chunk17",
+        "ibn_kathir_001_001_chunk09",
+        "ibn_kathir_001_001_chunk05",
+        "ibn_kathir_001_001_chunk18"
+      ]
+    },
+    {
+      "source": "AGT_DISBELIEVER",
+      "target": "STA_KUFR",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 5,
+      "pmi": 1135.1806,
+      "sample_chunks": [
+        "ibn_kathir_001_007_chunk07",
+        "qurtubi_002_006_chunk00",
+        "tabari_001_001_chunk22",
+        "tabari_001_001_chunk21",
+        "baghawi_002_006_chunk00"
+      ]
+    },
+    {
+      "source": "AGT_HYPOCRITE",
+      "target": "STA_NIFAQ",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 5,
+      "pmi": 1201.9559,
+      "sample_chunks": [
+        "qurtubi_002_003_chunk30",
+        "tabari_002_003_chunk08",
+        "ibn_kathir_002_007_chunk05",
+        "tabari_002_002_chunk13",
+        "ibn_kathir_002_008_chunk00"
+      ]
+    },
+    {
+      "source": "ORG_HEART",
+      "target": "ORG_TONGUE",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 5,
+      "pmi": 540.5622,
+      "sample_chunks": [
+        "tabari_001_007_chunk23",
+        "muyassar_002_003_chunk00",
+        "tabari_002_001_chunk25",
+        "baghawi_002_006_chunk00",
+        "baghawi_002_003_chunk00"
+      ]
+    },
+    {
+      "source": "ORG_HEART",
+      "target": "STA_NIFAQ",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 5,
+      "pmi": 756.787,
+      "sample_chunks": [
+        "qurtubi_002_003_chunk30",
+        "tabari_002_003_chunk08",
+        "saadi_002_003_chunk01",
+        "baghawi_002_006_chunk00",
+        "qurtubi_002_003_chunk32"
+      ]
+    },
+    {
+      "source": "ORG_EAR",
+      "target": "ORG_SOUL",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 5,
+      "pmi": 268.8586,
+      "sample_chunks": [
+        "tabari_001_004_chunk20",
+        "ibn_kathir_001_004_chunk01",
+        "tabari_001_001_chunk24",
+        "ibn_kathir_001_001_chunk14",
+        "ibn_kathir_001_001_chunk35"
+      ]
+    },
+    {
+      "source": "STA_NIFAQ",
+      "target": "STA_SHIRK",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 5,
+      "pmi": 619.1894,
+      "sample_chunks": [
+        "baghawi_002_003_chunk06",
+        "qurtubi_002_002_chunk08",
+        "baghawi_002_006_chunk00",
+        "tabari_002_002_chunk13",
+        "ibn_kathir_002_008_chunk00"
+      ]
+    },
+    {
+      "source": "BEH_SPI_TAQWA",
+      "target": "AGT_BELIEVER",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 973.0119,
+      "sample_chunks": [
+        "qurtubi_002_002_chunk09",
+        "baghawi_002_002_chunk01",
+        "qurtubi_002_003_chunk00",
+        "qurtubi_002_002_chunk07"
+      ]
+    },
+    {
+      "source": "BEH_COG_ARROGANCE",
+      "target": "AGT_PROPHET_MESSENGER",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 465.7151,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk17",
+        "ibn_kathir_001_001_chunk25",
+        "ibn_kathir_001_001_chunk20",
+        "ibn_kathir_001_001_chunk24"
+      ]
+    },
+    {
+      "source": "BEH_COG_ARROGANCE",
+      "target": "ORG_FOOT",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 432.4497,
+      "sample_chunks": [
+        "qurtubi_001_001_chunk02",
+        "qurtubi_001_002_chunk35",
+        "ibn_kathir_001_001_chunk25",
+        "ibn_kathir_001_002_chunk05"
+      ]
+    },
+    {
+      "source": "BEH_COG_ARROGANCE",
+      "target": "ORG_SOUL",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 318.6472,
+      "sample_chunks": [
+        "ibn_kathir_001_002_chunk03",
+        "ibn_kathir_001_004_chunk03",
+        "qurtubi_001_002_chunk35",
+        "tabari_001_001_chunk28"
+      ]
+    },
+    {
+      "source": "BEH_SOC_OPPRESSION",
+      "target": "BEH_EMO_FEAR_ALLAH",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 435.9093,
+      "sample_chunks": [
+        "baghawi_002_017_chunk00",
+        "jalalayn_002_017_chunk00",
+        "qurtubi_002_006_chunk01",
+        "baghawi_002_006_chunk00"
+      ]
+    },
+    {
+      "source": "BEH_SOC_OPPRESSION",
+      "target": "AGT_DISBELIEVER",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 726.5156,
+      "sample_chunks": [
+        "tabari_001_001_chunk22",
+        "tabari_002_006_chunk06",
+        "qurtubi_002_006_chunk01",
+        "baghawi_002_006_chunk00"
+      ]
+    },
+    {
+      "source": "BEH_SOC_JUSTICE",
+      "target": "ORG_HEART",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 417.5377,
+      "sample_chunks": [
+        "qurtubi_002_003_chunk32",
+        "tabari_002_001_chunk25",
+        "baghawi_002_003_chunk03",
+        "ibn_kathir_002_007_chunk02"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_TRUTHFULNESS",
+      "target": "STA_SHIRK",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 341.6217,
+      "sample_chunks": [
+        "baghawi_002_003_chunk06",
+        "baghawi_002_002_chunk00",
+        "tabari_001_001_chunk21",
+        "ibn_kathir_002_001_chunk25"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_LYING",
+      "target": "AGT_HUMAN_GENERAL",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 400.652,
+      "sample_chunks": [
+        "qurtubi_001_007_chunk02",
+        "qurtubi_002_001_chunk08",
+        "qurtubi_002_007_chunk11",
+        "qurtubi_002_007_chunk09"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_LYING",
+      "target": "ORG_CHEST",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 282.8131,
+      "sample_chunks": [
+        "qurtubi_002_010_chunk01",
+        "baghawi_002_010_chunk00",
+        "qurtubi_002_007_chunk11",
+        "baghawi_002_002_chunk00"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_SUPPLICATION",
+      "target": "AGT_BELIEVER",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 864.8995,
+      "sample_chunks": [
+        "baghawi_001_003_chunk00",
+        "baghawi_001_006_chunk00",
+        "qurtubi_001_001_chunk38",
+        "baghawi_001_001_chunk02"
+      ]
+    },
+    {
+      "source": "AGT_BELIEVER",
+      "target": "STA_IMAN",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 915.7759,
+      "sample_chunks": [
+        "baghawi_002_003_chunk00",
+        "baghawi_002_003_chunk03",
+        "baghawi_001_007_chunk00",
+        "qurtubi_002_001_chunk05"
+      ]
+    },
+    {
+      "source": "AGT_HYPOCRITE",
+      "target": "STA_SHIRK",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 582.7665,
+      "sample_chunks": [
+        "ibn_kathir_002_008_chunk00",
+        "tabari_002_006_chunk05",
+        "tabari_002_002_chunk13",
+        "qurtubi_001_007_chunk03"
+      ]
+    },
+    {
+      "source": "AGT_ANGEL",
+      "target": "ORG_FOOT",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 507.6584,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk26",
+        "qurtubi_001_002_chunk38",
+        "ibn_kathir_001_001_chunk44",
+        "ibn_kathir_001_002_chunk05"
+      ]
+    },
+    {
+      "source": "ORG_TONGUE",
+      "target": "STA_SHIRK",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 353.8225,
+      "sample_chunks": [
+        "baghawi_002_002_chunk00",
+        "ibn_kathir_001_007_chunk08",
+        "tabari_002_002_chunk13",
+        "baghawi_002_006_chunk00"
+      ]
+    },
+    {
+      "source": "ORG_FOOT",
+      "target": "STA_SHAKK",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 4,
+      "pmi": 686.8319,
+      "sample_chunks": [
+        "qurtubi_001_002_chunk09",
+        "ibn_kathir_001_002_chunk02",
+        "qurtubi_001_001_chunk07",
+        "tabari_001_001_chunk14"
+      ]
+    },
+    {
+      "source": "BEH_EMO_GRATITUDE",
+      "target": "ORG_SOUL",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 645.2605,
+      "sample_chunks": [
+        "ibn_kathir_001_002_chunk01",
+        "ibn_kathir_001_002_chunk03",
+        "tabari_001_002_chunk02"
+      ]
+    },
+    {
+      "source": "BEH_SPI_REPENTANCE",
+      "target": "BEH_EMO_FEAR_ALLAH",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 314.3577,
+      "sample_chunks": [
+        "ibn_kathir_002_019_chunk00",
+        "tabari_002_028_chunk12",
+        "tabari_002_020_chunk03"
+      ]
+    },
+    {
+      "source": "BEH_COG_ARROGANCE",
+      "target": "AGT_ANGEL",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 394.8454,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk42",
+        "qurtubi_001_002_chunk16",
+        "ibn_kathir_001_002_chunk05"
+      ]
+    },
+    {
+      "source": "BEH_COG_ARROGANCE",
+      "target": "ORG_EAR",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 227.0361,
+      "sample_chunks": [
+        "tabari_001_002_chunk22",
+        "ibn_kathir_001_001_chunk25",
+        "ibn_kathir_001_002_chunk10"
+      ]
+    },
+    {
+      "source": "BEH_SOC_OPPRESSION",
+      "target": "BEH_SOC_JUSTICE",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 338.2055,
+      "sample_chunks": [
+        "tabari_001_001_chunk22",
+        "tabari_002_015_chunk03",
+        "ibn_kathir_002_015_chunk01"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_TRUTHFULNESS",
+      "target": "BEH_FIN_ZAKAT",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 469.7299,
+      "sample_chunks": [
+        "ibn_kathir_002_003_chunk08",
+        "baghawi_002_003_chunk02",
+        "qurtubi_002_003_chunk31"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_TRUTHFULNESS",
+      "target": "AGT_POLYTHEIST",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 325.1976,
+      "sample_chunks": [
+        "baghawi_002_003_chunk06",
+        "baghawi_002_002_chunk00",
+        "ibn_kathir_002_001_chunk25"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_TRUTHFULNESS",
+      "target": "ORG_HEART",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 313.1533,
+      "sample_chunks": [
+        "muyassar_002_003_chunk00",
+        "qurtubi_001_006_chunk02",
+        "baghawi_002_003_chunk00"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_TRUTHFULNESS",
+      "target": "ORG_TONGUE",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 301.9692,
+      "sample_chunks": [
+        "muyassar_002_003_chunk00",
+        "baghawi_002_002_chunk00",
+        "baghawi_002_003_chunk00"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_TRUTHFULNESS",
+      "target": "STA_IMAN",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 497.3611,
+      "sample_chunks": [
+        "tabari_001_001_chunk21",
+        "baghawi_002_003_chunk00",
+        "baghawi_002_003_chunk02"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_TRUTHFULNESS",
+      "target": "STA_NIFAQ",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 422.7569,
+      "sample_chunks": [
+        "baghawi_002_003_chunk06",
+        "ibn_kathir_002_003_chunk08",
+        "qurtubi_002_003_chunk31"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_LYING",
+      "target": "AGT_POLYTHEIST",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 277.3744,
+      "sample_chunks": [
+        "tabari_001_001_chunk25",
+        "baghawi_002_002_chunk00",
+        "tabari_002_001_chunk07"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_LYING",
+      "target": "STA_SHIRK",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 218.5374,
+      "sample_chunks": [
+        "tabari_001_001_chunk25",
+        "baghawi_002_002_chunk00",
+        "tabari_002_001_chunk07"
+      ]
+    },
+    {
+      "source": "BEH_EMO_FEAR_ALLAH",
+      "target": "BEH_EMO_HOPE",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 185.7568,
+      "sample_chunks": [
+        "qurtubi_002_020_chunk02",
+        "qurtubi_002_020_chunk01",
+        "tabari_001_005_chunk00"
+      ]
+    },
+    {
+      "source": "BEH_SPI_PRAYER",
+      "target": "ORG_EAR",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 471.5365,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk14",
+        "ibn_kathir_001_001_chunk07",
+        "ibn_kathir_001_001_chunk08"
+      ]
+    },
+    {
+      "source": "BEH_FIN_ZAKAT",
+      "target": "ORG_HEART",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 504.5247,
+      "sample_chunks": [
+        "qurtubi_002_003_chunk32",
+        "qurtubi_002_003_chunk30",
+        "saadi_002_003_chunk01"
+      ]
+    },
+    {
+      "source": "BEH_SPEECH_SUPPLICATION",
+      "target": "ORG_EAR",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 340.5542,
+      "sample_chunks": [
+        "qurtubi_001_002_chunk36",
+        "qurtubi_001_002_chunk41",
+        "qurtubi_001_002_chunk42"
+      ]
+    },
+    {
+      "source": "AGT_BELIEVER",
+      "target": "ORG_HEART",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 432.4497,
+      "sample_chunks": [
+        "qurtubi_002_002_chunk09",
+        "baghawi_002_003_chunk00",
+        "baghawi_002_003_chunk03"
+      ]
+    },
+    {
+      "source": "AGT_BELIEVER",
+      "target": "ORG_SOUL",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 307.2669,
+      "sample_chunks": [
+        "qurtubi_001_004_chunk01",
+        "qurtubi_001_003_chunk00",
+        "baghawi_001_001_chunk01"
+      ]
+    },
+    {
+      "source": "AGT_DISBELIEVER",
+      "target": "AGT_HYPOCRITE",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 801.3039,
+      "sample_chunks": [
+        "ibn_kathir_002_004_chunk02",
+        "ibn_kathir_002_007_chunk05",
+        "tabari_002_003_chunk07"
+      ]
+    },
+    {
+      "source": "AGT_DISBELIEVER",
+      "target": "ORG_SOUL",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 358.4781,
+      "sample_chunks": [
+        "ibn_kathir_001_004_chunk01",
+        "tabari_001_001_chunk22",
+        "qurtubi_001_003_chunk00"
+      ]
+    },
+    {
+      "source": "AGT_HYPOCRITE",
+      "target": "AGT_POLYTHEIST",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 554.7489,
+      "sample_chunks": [
+        "ibn_kathir_002_008_chunk00",
+        "tabari_002_006_chunk05",
+        "qurtubi_001_007_chunk03"
+      ]
+    },
+    {
+      "source": "AGT_POLYTHEIST",
+      "target": "ORG_TONGUE",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 336.8118,
+      "sample_chunks": [
+        "baghawi_002_002_chunk00",
+        "ibn_kathir_001_007_chunk08",
+        "baghawi_002_006_chunk00"
+      ]
+    },
+    {
+      "source": "AGT_POLYTHEIST",
+      "target": "STA_NIFAQ",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 471.5365,
+      "sample_chunks": [
+        "baghawi_002_003_chunk06",
+        "ibn_kathir_002_008_chunk00",
+        "baghawi_002_006_chunk00"
+      ]
+    },
+    {
+      "source": "AGT_PROPHET_MESSENGER",
+      "target": "AGT_JINN",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 392.9471,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk21",
+        "ibn_kathir_001_001_chunk28",
+        "ibn_kathir_001_001_chunk34"
+      ]
+    },
+    {
+      "source": "AGT_JINN",
+      "target": "ORG_EAR",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 255.4156,
+      "sample_chunks": [
+        "ibn_kathir_001_001_chunk28",
+        "ibn_kathir_001_001_chunk44",
+        "qurtubi_001_001_chunk05"
+      ]
+    },
+    {
+      "source": "AGT_JINN",
+      "target": "STA_SHAKK",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 600.9779,
+      "sample_chunks": [
+        "ibn_kathir_001_002_chunk01",
+        "qurtubi_001_001_chunk21",
+        "qurtubi_001_001_chunk07"
+      ]
+    },
+    {
+      "source": "AGT_HUMAN_GENERAL",
+      "target": "ORG_HEART",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 378.3935,
+      "sample_chunks": [
+        "qurtubi_002_002_chunk09",
+        "saadi_002_003_chunk01",
+        "ibn_kathir_001_006_chunk04"
+      ]
+    },
+    {
+      "source": "ORG_HEART",
+      "target": "STA_IMAN",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 534.2026,
+      "sample_chunks": [
+        "baghawi_002_003_chunk00",
+        "qurtubi_002_002_chunk05",
+        "baghawi_002_003_chunk03"
+      ]
+    },
+    {
+      "source": "ORG_EYE",
+      "target": "ORG_HAND",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 410.0318,
+      "sample_chunks": [
+        "baghawi_001_001_chunk03",
+        "ibn_kathir_001_001_chunk13",
+        "baghawi_001_001_chunk01"
+      ]
+    },
+    {
+      "source": "ORG_TONGUE",
+      "target": "ORG_SOUL",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 230.4502,
+      "sample_chunks": [
+        "ibn_kathir_001_002_chunk01",
+        "tabari_001_002_chunk13",
+        "tabari_001_004_chunk15"
+      ]
+    },
+    {
+      "source": "ORG_SOUL",
+      "target": "ORG_CHEST",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 189.7825,
+      "sample_chunks": [
+        "tabari_001_001_chunk06",
+        "tabari_001_002_chunk18",
+        "tabari_001_002_chunk02"
+      ]
+    },
+    {
+      "source": "ORG_SOUL",
+      "target": "STA_KUFR",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 322.6303,
+      "sample_chunks": [
+        "qurtubi_001_004_chunk01",
+        "tabari_001_001_chunk22",
+        "tabari_001_001_chunk06"
+      ]
+    },
+    {
+      "source": "STA_IMAN",
+      "target": "STA_KUFR",
+      "edge_type": "CO_OCCURS_WITH",
+      "count": 3,
+      "pmi": 721.1735,
+      "sample_chunks": [
+        "tabari_001_001_chunk21",
+        "ibn_kathir_001_002_chunk06",
+        "qurtubi_002_001_chunk05"
+      ]
+    }
+  ]
+}
