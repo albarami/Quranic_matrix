@@ -1,0 +1,354 @@
+{
+  "vocabulary_id": "canonical_entities_v1",
+  "version": "1.0",
+  "frozen_date": "2025-01-01",
+  "description": "Complete canonical entity registry for QBM. Single source of truth for all entity types.",
+  "schema_version": "1.0",
+  
+  "entity_types": {
+    "BEHAVIOR": {
+      "description": "Human actions, dispositions, and conduct patterns (73 behaviors)",
+      "id_prefix": "BEH_",
+      "count": 73
+    },
+    "AGENT": {
+      "description": "Actors who perform behaviors",
+      "id_prefix": "AGT_",
+      "count": 14
+    },
+    "ORGAN": {
+      "description": "Body parts that participate in behavior",
+      "id_prefix": "ORG_",
+      "count": 26
+    },
+    "HEART_STATE": {
+      "description": "Spiritual/psychological states of the heart",
+      "id_prefix": "HRT_",
+      "count": 12
+    },
+    "CONSEQUENCE": {
+      "description": "Outcomes and results of behaviors",
+      "id_prefix": "CSQ_",
+      "count": 16
+    },
+    "AXIS_VALUE": {
+      "description": "Values from the 11-axis classification system",
+      "id_prefix": "AXV_",
+      "count": 45
+    }
+  },
+
+  "behaviors": [
+    {"id": "BEH_SPEECH_TRUTHFULNESS", "ar": "الصدق", "en": "Truthfulness", "category": "speech", "roots": ["ص-د-ق"]},
+    {"id": "BEH_SPEECH_LYING", "ar": "الكذب", "en": "Lying", "category": "speech", "roots": ["ك-ذ-ب"]},
+    {"id": "BEH_SPEECH_BACKBITING", "ar": "الغيبة", "en": "Backbiting", "category": "speech", "roots": ["غ-ي-ب"]},
+    {"id": "BEH_SPEECH_SLANDER", "ar": "البهتان", "en": "Slander", "category": "speech", "roots": ["ب-ه-ت", "ن-م-م"]},
+    {"id": "BEH_SPEECH_GOOD_WORD", "ar": "الكلمة الطيبة", "en": "Good Word", "category": "speech", "roots": ["ط-ي-ب"]},
+    {"id": "BEH_SPEECH_HARSH_WORD", "ar": "الفظاظة", "en": "Harsh Word", "category": "speech", "roots": ["ف-ظ-ظ"]},
+    {"id": "BEH_SPEECH_VAIN_TALK", "ar": "اللغو", "en": "Vain Talk", "category": "speech", "roots": ["ل-غ-و"]},
+    {"id": "BEH_SPEECH_REMEMBRANCE", "ar": "ذكر الله", "en": "Verbal Remembrance", "category": "speech", "roots": ["ذ-ك-ر"]},
+    {"id": "BEH_SPEECH_SUPPLICATION", "ar": "الدعاء", "en": "Supplication", "category": "speech", "roots": ["د-ع-و"]},
+    {"id": "BEH_SPEECH_TESTIMONY", "ar": "الشهادة", "en": "Testimony", "category": "speech", "roots": ["ش-ه-د"]},
+    
+    {"id": "BEH_FIN_CHARITY", "ar": "الصدقة", "en": "Charity", "category": "financial", "roots": ["ص-د-ق"]},
+    {"id": "BEH_FIN_ZAKAT", "ar": "الزكاة", "en": "Zakat", "category": "financial", "roots": ["ز-ك-و"]},
+    {"id": "BEH_FIN_SPENDING", "ar": "الإنفاق", "en": "Spending in Allah's Way", "category": "financial", "roots": ["ن-ف-ق"]},
+    {"id": "BEH_FIN_USURY", "ar": "الربا", "en": "Usury", "category": "financial", "roots": ["ر-ب-و"]},
+    {"id": "BEH_FIN_HOARDING", "ar": "البخل", "en": "Hoarding/Miserliness", "category": "financial", "roots": ["ب-خ-ل", "ك-ن-ز"]},
+    {"id": "BEH_FIN_FRAUD", "ar": "الغش", "en": "Fraud", "category": "financial", "roots": ["ط-ف-ف"]},
+    {"id": "BEH_FIN_FAIR_TRADE", "ar": "التجارة العادلة", "en": "Fair Trade", "category": "financial", "roots": ["ت-ج-ر"]},
+    {"id": "BEH_FIN_BRIBERY", "ar": "الرشوة", "en": "Bribery", "category": "financial", "roots": ["ر-ش-و"]},
+    
+    {"id": "BEH_EMO_GRATITUDE", "ar": "الشكر", "en": "Gratitude", "category": "emotional", "roots": ["ش-ك-ر"]},
+    {"id": "BEH_EMO_INGRATITUDE", "ar": "الكفران", "en": "Ingratitude", "category": "emotional", "roots": ["ك-ف-ر"]},
+    {"id": "BEH_EMO_PATIENCE", "ar": "الصبر", "en": "Patience", "category": "emotional", "roots": ["ص-ب-ر"]},
+    {"id": "BEH_EMO_IMPATIENCE", "ar": "الجزع", "en": "Impatience", "category": "emotional", "roots": ["ج-ز-ع"]},
+    {"id": "BEH_EMO_FEAR_ALLAH", "ar": "الخشية", "en": "Fear of Allah", "category": "emotional", "roots": ["خ-ش-ي", "خ-و-ف"]},
+    {"id": "BEH_EMO_HOPE", "ar": "الرجاء", "en": "Hope", "category": "emotional", "roots": ["ر-ج-و"]},
+    {"id": "BEH_EMO_LOVE", "ar": "المحبة", "en": "Love", "category": "emotional", "roots": ["ح-ب-ب"]},
+    {"id": "BEH_EMO_HATRED", "ar": "البغض", "en": "Hatred", "category": "emotional", "roots": ["ب-غ-ض"]},
+    {"id": "BEH_EMO_ENVY", "ar": "الحسد", "en": "Envy", "category": "emotional", "roots": ["ح-س-د"]},
+    {"id": "BEH_EMO_ANGER", "ar": "الغضب", "en": "Anger", "category": "emotional", "roots": ["غ-ض-ب"]},
+    {"id": "BEH_EMO_JOY", "ar": "الفرح", "en": "Joy", "category": "emotional", "roots": ["ف-ر-ح"]},
+    {"id": "BEH_EMO_GRIEF", "ar": "الحزن", "en": "Grief", "category": "emotional", "roots": ["ح-ز-ن"]},
+    
+    {"id": "BEH_SPI_FAITH", "ar": "الإيمان", "en": "Faith", "category": "spiritual", "roots": ["أ-م-ن"]},
+    {"id": "BEH_SPI_DISBELIEF", "ar": "الكفر", "en": "Disbelief", "category": "spiritual", "roots": ["ك-ف-ر"]},
+    {"id": "BEH_SPI_HYPOCRISY", "ar": "النفاق", "en": "Hypocrisy", "category": "spiritual", "roots": ["ن-ف-ق"]},
+    {"id": "BEH_SPI_SINCERITY", "ar": "الإخلاص", "en": "Sincerity", "category": "spiritual", "roots": ["خ-ل-ص"]},
+    {"id": "BEH_SPI_SHOWING_OFF", "ar": "الرياء", "en": "Showing Off", "category": "spiritual", "roots": ["ر-أ-ي"]},
+    {"id": "BEH_SPI_TAQWA", "ar": "التقوى", "en": "God-Consciousness", "category": "spiritual", "roots": ["و-ق-ي"]},
+    {"id": "BEH_SPI_TAWAKKUL", "ar": "التوكل", "en": "Trust in Allah", "category": "spiritual", "roots": ["و-ك-ل"]},
+    {"id": "BEH_SPI_REPENTANCE", "ar": "التوبة", "en": "Repentance", "category": "spiritual", "roots": ["ت-و-ب"]},
+    {"id": "BEH_SPI_WORSHIP", "ar": "العبادة", "en": "Worship", "category": "spiritual", "roots": ["ع-ب-د"]},
+    {"id": "BEH_SPI_PRAYER", "ar": "الصلاة", "en": "Prayer", "category": "spiritual", "roots": ["ص-ل-و"]},
+    {"id": "BEH_SPI_FASTING", "ar": "الصيام", "en": "Fasting", "category": "spiritual", "roots": ["ص-و-م"]},
+    {"id": "BEH_SPI_REMEMBRANCE", "ar": "الذكر", "en": "Remembrance", "category": "spiritual", "roots": ["ذ-ك-ر"]},
+    {"id": "BEH_SPI_HAJJ", "ar": "الحج", "en": "Pilgrimage", "category": "spiritual", "roots": ["ح-ج-ج"]},
+    {"id": "BEH_SPI_JIHAD", "ar": "الجهاد", "en": "Striving", "category": "spiritual", "roots": ["ج-ه-د"]},
+    {"id": "BEH_SPI_RECITATION", "ar": "التلاوة", "en": "Recitation", "category": "spiritual", "roots": ["ت-ل-و"]},
+    {"id": "BEH_SPI_CONTEMPLATION", "ar": "التدبر", "en": "Contemplation", "category": "spiritual", "roots": ["د-ب-ر"]},
+    {"id": "BEH_SPI_CONTENTMENT", "ar": "الرضا", "en": "Contentment", "category": "spiritual", "roots": ["ر-ض-ي"]},
+    
+    {"id": "BEH_SOC_JUSTICE", "ar": "العدل", "en": "Justice", "category": "social", "roots": ["ع-د-ل"]},
+    {"id": "BEH_SOC_OPPRESSION", "ar": "الظلم", "en": "Oppression", "category": "social", "roots": ["ظ-ل-م"]},
+    {"id": "BEH_SOC_KINDNESS_PARENTS", "ar": "بر الوالدين", "en": "Kindness to Parents", "category": "social", "roots": ["ب-ر-ر"]},
+    {"id": "BEH_SOC_DISOBEDIENCE_PARENTS", "ar": "عقوق الوالدين", "en": "Disobedience to Parents", "category": "social", "roots": ["ع-ق-ق"]},
+    {"id": "BEH_SOC_KINSHIP_TIES", "ar": "صلة الرحم", "en": "Maintaining Kinship", "category": "social", "roots": ["ر-ح-م", "و-ص-ل"]},
+    {"id": "BEH_SOC_SEVERING_TIES", "ar": "قطيعة الرحم", "en": "Severing Ties", "category": "social", "roots": ["ق-ط-ع"]},
+    {"id": "BEH_SOC_HOSPITALITY", "ar": "الضيافة", "en": "Hospitality", "category": "social", "roots": ["ض-ي-ف"]},
+    {"id": "BEH_SOC_HELPING_NEEDY", "ar": "مساعدة المحتاج", "en": "Helping the Needy", "category": "social", "roots": ["ع-و-ن"]},
+    {"id": "BEH_SOC_ORPHAN_CARE", "ar": "رعاية اليتيم", "en": "Orphan Care", "category": "social", "roots": ["ي-ت-م"]},
+    {"id": "BEH_SOC_ORPHAN_HARM", "ar": "أكل مال اليتيم", "en": "Harming Orphan", "category": "social", "roots": ["ي-ت-م"]},
+    {"id": "BEH_SOC_RECONCILIATION", "ar": "الإصلاح", "en": "Reconciliation", "category": "social", "roots": ["ص-ل-ح"]},
+    {"id": "BEH_SOC_CORRUPTION", "ar": "الفساد", "en": "Corruption", "category": "social", "roots": ["ف-س-د"]},
+    {"id": "BEH_SOC_IHSAN", "ar": "الإحسان", "en": "Excellence/Ihsan", "category": "social", "roots": ["ح-س-ن"]},
+    
+    {"id": "BEH_COG_REFLECTION", "ar": "التفكر", "en": "Reflection", "category": "cognitive", "roots": ["ف-ك-ر"]},
+    {"id": "BEH_COG_HEEDLESSNESS", "ar": "الغفلة", "en": "Heedlessness", "category": "cognitive", "roots": ["غ-ف-ل"]},
+    {"id": "BEH_COG_KNOWLEDGE", "ar": "العلم", "en": "Knowledge", "category": "cognitive", "roots": ["ع-ل-م"]},
+    {"id": "BEH_COG_IGNORANCE", "ar": "الجهل", "en": "Ignorance", "category": "cognitive", "roots": ["ج-ه-ل"]},
+    {"id": "BEH_COG_UNDERSTANDING", "ar": "الفقه", "en": "Understanding", "category": "cognitive", "roots": ["ف-ق-ه"]},
+    {"id": "BEH_COG_ARROGANCE", "ar": "الكبر", "en": "Arrogance", "category": "cognitive", "roots": ["ك-ب-ر"]},
+    {"id": "BEH_COG_HUMILITY", "ar": "التواضع", "en": "Humility", "category": "cognitive", "roots": ["و-ض-ع", "خ-ش-ع"]},
+    {"id": "BEH_COG_DOUBT", "ar": "الشك", "en": "Doubt", "category": "cognitive", "roots": ["ش-ك-ك"]},
+    {"id": "BEH_COG_CERTAINTY", "ar": "اليقين", "en": "Certainty", "category": "cognitive", "roots": ["ي-ق-ن"]},
+    {"id": "BEH_COG_FOLLOWING_DESIRE", "ar": "اتباع الهوى", "en": "Following Desire", "category": "cognitive", "roots": ["ه-و-ي"]},
+    
+    {"id": "BEH_PHY_LOWERING_GAZE", "ar": "غض البصر", "en": "Lowering Gaze", "category": "physical", "roots": ["غ-ض-ض"]},
+    {"id": "BEH_PHY_PROSTRATION", "ar": "السجود", "en": "Prostration", "category": "physical", "roots": ["س-ج-د"]},
+    {"id": "BEH_PHY_STANDING", "ar": "القيام", "en": "Standing", "category": "physical", "roots": ["ق-و-م"]}
+  ],
+
+  "agents": [
+    {"id": "AGT_BELIEVER", "ar": "مؤمن", "ar_plural": "مؤمنون", "en": "Believer"},
+    {"id": "AGT_DISBELIEVER", "ar": "كافر", "ar_plural": "كافرون", "en": "Disbeliever"},
+    {"id": "AGT_HYPOCRITE", "ar": "منافق", "ar_plural": "منافقون", "en": "Hypocrite"},
+    {"id": "AGT_POLYTHEIST", "ar": "مشرك", "ar_plural": "مشركون", "en": "Polytheist"},
+    {"id": "AGT_HUMAN_GENERAL", "ar": "إنسان", "ar_plural": "ناس", "en": "Human"},
+    {"id": "AGT_PROPHET_MESSENGER", "ar": "نبي/رسول", "ar_plural": "أنبياء/رسل", "en": "Prophet/Messenger"},
+    {"id": "AGT_ANGEL", "ar": "ملك", "ar_plural": "ملائكة", "en": "Angel"},
+    {"id": "AGT_JINN", "ar": "جن", "ar_plural": "جن", "en": "Jinn"},
+    {"id": "AGT_SHAYTAN", "ar": "شيطان", "ar_plural": "شياطين", "en": "Satan/Devil"},
+    {"id": "AGT_ANIMAL", "ar": "حيوان", "ar_plural": "دواب", "en": "Animal"},
+    {"id": "AGT_PEOPLE_OF_BOOK", "ar": "أهل الكتاب", "ar_plural": "", "en": "People of the Book"},
+    {"id": "AGT_RIGHTEOUS", "ar": "صالح", "ar_plural": "صالحون", "en": "Righteous"},
+    {"id": "AGT_WRONGDOER", "ar": "ظالم", "ar_plural": "ظالمون", "en": "Wrongdoer"},
+    {"id": "AGT_ALLAH", "ar": "الله", "ar_plural": "", "en": "Allah", "note": "Divine actor, not human"}
+  ],
+
+  "organs": [
+    {"id": "ORG_HEART", "ar": "قلب", "ar_plural": "قلوب", "en": "Heart", "domains": ["spiritual", "emotional", "cognitive"]},
+    {"id": "ORG_TONGUE", "ar": "لسان", "ar_plural": "ألسنة", "en": "Tongue", "domains": ["speech"]},
+    {"id": "ORG_EYE", "ar": "عين", "ar_plural": "أعين", "en": "Eye", "domains": ["perception"]},
+    {"id": "ORG_EAR", "ar": "أذن", "ar_plural": "آذان", "en": "Ear", "domains": ["perception"]},
+    {"id": "ORG_HAND", "ar": "يد", "ar_plural": "أيدي", "en": "Hand", "domains": ["action"]},
+    {"id": "ORG_FOOT", "ar": "رجل", "ar_plural": "أرجل", "en": "Foot", "domains": ["movement"]},
+    {"id": "ORG_CHEST", "ar": "صدر", "ar_plural": "صدور", "en": "Chest", "domains": ["emotional"]},
+    {"id": "ORG_SOUL", "ar": "نفس", "ar_plural": "أنفس", "en": "Soul", "domains": ["spiritual"]},
+    {"id": "ORG_BRAIN", "ar": "عقل", "ar_plural": "عقول", "en": "Mind/Intellect", "domains": ["cognitive"]},
+    {"id": "ORG_FACE", "ar": "وجه", "ar_plural": "وجوه", "en": "Face", "domains": ["expression"]},
+    {"id": "ORG_SKIN", "ar": "جلد", "ar_plural": "جلود", "en": "Skin", "domains": ["physical"]}
+  ],
+
+  "heart_states": [
+    {"id": "HRT_SALEEM", "ar": "قلب سليم", "en": "Sound Heart", "polarity": "positive"},
+    {"id": "HRT_MUNIB", "ar": "قلب منيب", "en": "Repentant Heart", "polarity": "positive"},
+    {"id": "HRT_MUTMAINN", "ar": "قلب مطمئن", "en": "Tranquil Heart", "polarity": "positive"},
+    {"id": "HRT_KHASHIA", "ar": "قلب خاشع", "en": "Humble Heart", "polarity": "positive"},
+    {"id": "HRT_WAJIL", "ar": "قلب وجل", "en": "Fearful Heart", "polarity": "positive"},
+    {"id": "HRT_QASI", "ar": "قلب قاسٍ", "en": "Hardened Heart", "polarity": "negative"},
+    {"id": "HRT_MARID", "ar": "قلب مريض", "en": "Diseased Heart", "polarity": "negative"},
+    {"id": "HRT_GHAFIL", "ar": "قلب غافل", "en": "Heedless Heart", "polarity": "negative"},
+    {"id": "HRT_MAKHTUM", "ar": "قلب مختوم", "en": "Sealed Heart", "polarity": "negative"},
+    {"id": "HRT_AAMA", "ar": "قلب أعمى", "en": "Blind Heart", "polarity": "negative"},
+    {"id": "HRT_MUNAFIQ", "ar": "قلب منافق", "en": "Hypocritical Heart", "polarity": "negative"},
+    {"id": "HRT_MUTAKABBIR", "ar": "قلب متكبر", "en": "Arrogant Heart", "polarity": "negative"}
+  ],
+
+  "consequences": [
+    {"id": "CSQ_JANNAH", "ar": "الجنة", "en": "Paradise", "temporal": "akhira", "polarity": "positive"},
+    {"id": "CSQ_NAAR", "ar": "النار", "en": "Hellfire", "temporal": "akhira", "polarity": "negative"},
+    {"id": "CSQ_RIDWAN", "ar": "رضوان الله", "en": "Allah's Pleasure", "temporal": "both", "polarity": "positive"},
+    {"id": "CSQ_GHADAB", "ar": "غضب الله", "en": "Allah's Wrath", "temporal": "both", "polarity": "negative"},
+    {"id": "CSQ_MAGHFIRA", "ar": "المغفرة", "en": "Forgiveness", "temporal": "both", "polarity": "positive"},
+    {"id": "CSQ_ADHAB", "ar": "العذاب", "en": "Punishment", "temporal": "both", "polarity": "negative"},
+    {"id": "CSQ_HIDAYA", "ar": "الهداية", "en": "Guidance", "temporal": "dunya", "polarity": "positive"},
+    {"id": "CSQ_DALAL", "ar": "الضلال", "en": "Misguidance", "temporal": "dunya", "polarity": "negative"},
+    {"id": "CSQ_BARAKAH", "ar": "البركة", "en": "Blessing", "temporal": "dunya", "polarity": "positive"},
+    {"id": "CSQ_BALAA", "ar": "البلاء", "en": "Trial/Affliction", "temporal": "dunya", "polarity": "neutral"},
+    {"id": "CSQ_RIZQ", "ar": "الرزق", "en": "Provision", "temporal": "dunya", "polarity": "positive"},
+    {"id": "CSQ_FAQR", "ar": "الفقر", "en": "Poverty", "temporal": "dunya", "polarity": "negative"},
+    {"id": "CSQ_IZZ", "ar": "العزة", "en": "Honor", "temporal": "both", "polarity": "positive"},
+    {"id": "CSQ_DHULL", "ar": "الذل", "en": "Humiliation", "temporal": "both", "polarity": "negative"},
+    {"id": "CSQ_SAKINA", "ar": "السكينة", "en": "Tranquility", "temporal": "dunya", "polarity": "positive"},
+    {"id": "CSQ_QALAQ", "ar": "القلق", "en": "Anxiety", "temporal": "dunya", "polarity": "negative"}
+  ],
+
+  "axes_11": {
+    "1_organic": {
+      "ar": "التصنيف العضوي",
+      "en": "Organic Classification",
+      "values": [
+        {"id": "AXV_ORG_EXTERNAL", "ar": "ظاهري", "en": "External"},
+        {"id": "AXV_ORG_INTERNAL", "ar": "باطني", "en": "Internal"},
+        {"id": "AXV_ORG_HEART", "ar": "قلبي", "en": "Heart-based"},
+        {"id": "AXV_ORG_TONGUE", "ar": "لساني", "en": "Tongue-based"},
+        {"id": "AXV_ORG_LIMBS", "ar": "جوارحي", "en": "Limbs-based"}
+      ]
+    },
+    "2_situational": {
+      "ar": "التصنيف الموقفي",
+      "en": "Situational Classification",
+      "values": [
+        {"id": "AXV_SIT_SELF", "ar": "النفس", "en": "Self"},
+        {"id": "AXV_SIT_HORIZONS", "ar": "الآفاق", "en": "Horizons"},
+        {"id": "AXV_SIT_CREATOR", "ar": "الخالق", "en": "Creator"},
+        {"id": "AXV_SIT_UNIVERSE", "ar": "الكون", "en": "Universe"},
+        {"id": "AXV_SIT_LIFE", "ar": "الحياة", "en": "Life"}
+      ]
+    },
+    "3_systemic": {
+      "ar": "التصنيف النسقي",
+      "en": "Systemic Classification",
+      "values": [
+        {"id": "AXV_SYS_HOME", "ar": "البيت", "en": "Home"},
+        {"id": "AXV_SYS_WORK", "ar": "العمل", "en": "Work"},
+        {"id": "AXV_SYS_PUBLIC", "ar": "مكان عام", "en": "Public"},
+        {"id": "AXV_SYS_MOSQUE", "ar": "المسجد", "en": "Mosque"}
+      ]
+    },
+    "4_spatial": {
+      "ar": "التصنيف المكاني",
+      "en": "Spatial Classification",
+      "values": [
+        {"id": "AXV_SPA_SACRED", "ar": "مقدس", "en": "Sacred"},
+        {"id": "AXV_SPA_PROFANE", "ar": "عادي", "en": "Ordinary"},
+        {"id": "AXV_SPA_PRIVATE", "ar": "خاص", "en": "Private"},
+        {"id": "AXV_SPA_PUBLIC", "ar": "عام", "en": "Public"}
+      ]
+    },
+    "5_temporal": {
+      "ar": "التصنيف الزماني",
+      "en": "Temporal Classification",
+      "values": [
+        {"id": "AXV_TMP_DUNYA", "ar": "الدنيا", "en": "This World"},
+        {"id": "AXV_TMP_AKHIRA", "ar": "الآخرة", "en": "Hereafter"},
+        {"id": "AXV_TMP_BOTH", "ar": "كلاهما", "en": "Both"}
+      ]
+    },
+    "6_agent": {
+      "ar": "التصنيف الفاعلي",
+      "en": "Agent Classification",
+      "values": [
+        {"id": "AXV_AGT_INDIVIDUAL", "ar": "فردي", "en": "Individual"},
+        {"id": "AXV_AGT_COLLECTIVE", "ar": "جماعي", "en": "Collective"},
+        {"id": "AXV_AGT_DIVINE", "ar": "إلهي", "en": "Divine"}
+      ]
+    },
+    "7_source": {
+      "ar": "التصنيف المصدري",
+      "en": "Source Classification",
+      "values": [
+        {"id": "AXV_SRC_NAFS", "ar": "النفس", "en": "Self/Nafs"},
+        {"id": "AXV_SRC_SHAYTAN", "ar": "الشيطان", "en": "Satan"},
+        {"id": "AXV_SRC_DIVINE", "ar": "إلهي", "en": "Divine Inspiration"}
+      ]
+    },
+    "8_evaluation": {
+      "ar": "التصنيف التقييمي",
+      "en": "Evaluation Classification",
+      "values": [
+        {"id": "AXV_EVL_WAJIB", "ar": "واجب", "en": "Obligatory"},
+        {"id": "AXV_EVL_MUSTAHAB", "ar": "مستحب", "en": "Recommended"},
+        {"id": "AXV_EVL_MUBAH", "ar": "مباح", "en": "Permissible"},
+        {"id": "AXV_EVL_MAKRUH", "ar": "مكروه", "en": "Disliked"},
+        {"id": "AXV_EVL_HARAM", "ar": "حرام", "en": "Forbidden"}
+      ]
+    },
+    "9_heart_impact": {
+      "ar": "تأثير القلب",
+      "en": "Heart Impact",
+      "values": [
+        {"id": "AXV_HRT_PURIFIES", "ar": "يزكي", "en": "Purifies"},
+        {"id": "AXV_HRT_HARDENS", "ar": "يقسي", "en": "Hardens"},
+        {"id": "AXV_HRT_SOFTENS", "ar": "يلين", "en": "Softens"},
+        {"id": "AXV_HRT_SEALS", "ar": "يختم", "en": "Seals"}
+      ]
+    },
+    "10_consequence": {
+      "ar": "العاقبة",
+      "en": "Consequence",
+      "values": [
+        {"id": "AXV_CSQ_REWARD", "ar": "ثواب", "en": "Reward"},
+        {"id": "AXV_CSQ_PUNISHMENT", "ar": "عقاب", "en": "Punishment"},
+        {"id": "AXV_CSQ_NEUTRAL", "ar": "محايد", "en": "Neutral"}
+      ]
+    },
+    "11_relationships": {
+      "ar": "العلاقات",
+      "en": "Relationships",
+      "values": [
+        {"id": "AXV_REL_CAUSAL", "ar": "سببية", "en": "Causal"},
+        {"id": "AXV_REL_OPPOSITE", "ar": "تضادية", "en": "Opposite"},
+        {"id": "AXV_REL_STRENGTHENS", "ar": "تعزيزية", "en": "Strengthening"},
+        {"id": "AXV_REL_CONDITIONAL", "ar": "شرطية", "en": "Conditional"}
+      ]
+    }
+  },
+
+  "term_to_entity": {
+    "صبر": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_EMO_PATIENCE"},
+    "شكر": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_EMO_GRATITUDE"},
+    "تقوى": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_TAQWA"},
+    "توبة": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_REPENTANCE"},
+    "كبر": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_COG_ARROGANCE"},
+    "تواضع": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_COG_HUMILITY"},
+    "ظلم": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SOC_OPPRESSION"},
+    "عدل": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SOC_JUSTICE"},
+    "صدق": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPEECH_TRUTHFULNESS"},
+    "كذب": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPEECH_LYING"},
+    "غيبة": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPEECH_BACKBITING"},
+    "إخلاص": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_SINCERITY"},
+    "رياء": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_SHOWING_OFF"},
+    "حسد": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_EMO_ENVY"},
+    "توكل": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SPI_TAWAKKUL"},
+    "خشية": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_EMO_FEAR_ALLAH"},
+    "رجاء": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_EMO_HOPE"},
+    "تفكر": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_COG_REFLECTION"},
+    "غفلة": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_COG_HEEDLESSNESS"},
+    "ربا": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_FIN_USURY"},
+    "إحسان": {"entity_type": "BEHAVIOR", "canonical_id": "BEH_SOC_IHSAN"},
+    
+    "مؤمن": {"entity_type": "AGENT", "canonical_id": "AGT_BELIEVER"},
+    "كافر": {"entity_type": "AGENT", "canonical_id": "AGT_DISBELIEVER"},
+    "منافق": {"entity_type": "AGENT", "canonical_id": "AGT_HYPOCRITE"},
+    "نبي": {"entity_type": "AGENT", "canonical_id": "AGT_PROPHET_MESSENGER"},
+    "رسول": {"entity_type": "AGENT", "canonical_id": "AGT_PROPHET_MESSENGER"},
+    "ملك": {"entity_type": "AGENT", "canonical_id": "AGT_ANGEL"},
+    "شيطان": {"entity_type": "AGENT", "canonical_id": "AGT_SHAYTAN"},
+    
+    "قلب": {"entity_type": "ORGAN", "canonical_id": "ORG_HEART"},
+    "لسان": {"entity_type": "ORGAN", "canonical_id": "ORG_TONGUE"},
+    "عين": {"entity_type": "ORGAN", "canonical_id": "ORG_EYE"},
+    "أذن": {"entity_type": "ORGAN", "canonical_id": "ORG_EAR"},
+    "يد": {"entity_type": "ORGAN", "canonical_id": "ORG_HAND"},
+    "نفس": {"entity_type": "ORGAN", "canonical_id": "ORG_SOUL"},
+    
+    "قلب سليم": {"entity_type": "HEART_STATE", "canonical_id": "HRT_SALEEM"},
+    "قلب قاسٍ": {"entity_type": "HEART_STATE", "canonical_id": "HRT_QASI"},
+    "قلب مريض": {"entity_type": "HEART_STATE", "canonical_id": "HRT_MARID"},
+    
+    "جنة": {"entity_type": "CONSEQUENCE", "canonical_id": "CSQ_JANNAH"},
+    "نار": {"entity_type": "CONSEQUENCE", "canonical_id": "CSQ_NAAR"},
+    "مغفرة": {"entity_type": "CONSEQUENCE", "canonical_id": "CSQ_MAGHFIRA"}
+  },
+
+  "notes": [
+    "This is the single source of truth for all entity types in QBM.",
+    "All IDs must be unique across the entire registry.",
+    "term_to_entity provides surface form → canonical mapping for router.",
+    "behaviors list contains 73 canonical behaviors.",
+    "axes_11 implements Bouzidani's 11-dimensional classification framework."
+  ]
+}
