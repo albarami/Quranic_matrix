@@ -1,0 +1,35 @@
+{
+  "version": "2.0",
+  "created_at": "2025-12-26T09:01:30.831286",
+  "concept_count": 126,
+  "total_chunks_searched": 81733,
+  "canonical_entities_version": "1.0",
+  "core_sources": [
+    "ibn_kathir",
+    "tabari",
+    "qurtubi",
+    "saadi",
+    "jalalayn"
+  ],
+  "completeness": {
+    "total_canonical_entities": 126,
+    "entities_in_index": 126,
+    "entities_with_evidence": 117,
+    "entities_without_evidence": 9,
+    "coverage_rate": 0.9285714285714286
+  },
+  "stats": {
+    "concepts_with_evidence": 117,
+    "concepts_without_evidence": 9,
+    "avg_mentions_per_concept": 4796.158730158731,
+    "concepts_by_entity_type": {
+      "BEHAVIOR": 73,
+      "AGENT": 14,
+      "ORGAN": 11,
+      "HEART_STATE": 12,
+      "CONSEQUENCE": 16
+    },
+    "concepts_with_5_sources": 96,
+    "concepts_with_3plus_sources": 113
+  }
+}
