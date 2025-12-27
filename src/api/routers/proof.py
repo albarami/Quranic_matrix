@@ -253,7 +253,7 @@ def apply_summary_mode(proof_data: dict, mode: str, max_chunks_per_source: int, 
         return proof_data
     
     # Summary mode: limit chunks per source
-    tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+    tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
     
     summarized = proof_data.copy()
     
@@ -293,7 +293,7 @@ def build_surah_summary(quran_verses: list, tafsir_data: dict, per_ayah: bool) -
             }
     
     # Add tafsir for each ayah (1 chunk per source)
-    tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+    tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
     for source in tafsir_sources:
         source_chunks = tafsir_data.get(source, [])
         for chunk in source_chunks:
@@ -354,6 +354,8 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
             "qurtubi": filter_tafsir(proof.qurtubi.quotes if proof else []),
             "saadi": filter_tafsir(proof.saadi.quotes if proof else []),
             "jalalayn": filter_tafsir(proof.jalalayn.quotes if proof else []),
+            "baghawi": filter_tafsir(getattr(proof, 'baghawi', None).quotes if getattr(proof, 'baghawi', None) else []),
+            "muyassar": filter_tafsir(getattr(proof, 'muyassar', None).quotes if getattr(proof, 'muyassar', None) else []),
         }
         
         # Phase 7.2: Apply mode-specific processing

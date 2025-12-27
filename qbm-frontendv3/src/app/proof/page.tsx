@@ -124,6 +124,8 @@ export default function ProofPage() {
       { id: 'qurtubi', label: 'القرطبي', icon: '📚' },
       { id: 'saadi', label: 'السعدي', icon: '📕' },
       { id: 'jalalayn', label: 'الجلالين', icon: '📗' },
+      { id: 'baghawi', label: 'البغوي', icon: '📙' },
+      { id: 'muyassar', label: 'الميسر', icon: '📘' },
     ];
 
     const currentTafsir = result?.proof[activeTafsir as keyof typeof result.proof] as Array<{ surah: string; ayah: string; text: string }> || [];
@@ -192,7 +194,7 @@ export default function ProofPage() {
             <span>🖥️ 8x A100 GPU</span>
             <span>📊 107,646 vectors</span>
             <span>🔗 736,302 relations</span>
-            <span>📚 5 tafsir sources</span>
+            <span>📚 7 tafsir sources</span>
           </div>
         </div>
 
@@ -331,7 +333,7 @@ export default function ProofPage() {
             </CollapsibleSection>
 
             {/* Tafsir Section */}
-            <CollapsibleSection id="tafsir" title="التفاسير الخمسة" badge="5 مصادر" icon="📚">
+            <CollapsibleSection id="tafsir" title="التفاسير السبعة" badge="7 مصادر" icon="📚">
               <TafsirTabs />
             </CollapsibleSection>
 
