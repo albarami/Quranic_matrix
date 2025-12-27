@@ -288,7 +288,7 @@ class TestGraphBackendTransparency:
         Without the env flag, no PyG import should be attempted.
         """
         import os
-        from src.ml.graph_reasoner import _is_pyg_enabled, _check_pyg_available
+        from src.ml.graph_reasoner import _is_pyg_enabled
         
         # Save original value
         original = os.environ.get("QBM_ENABLE_PYG")
@@ -301,13 +301,62 @@ class TestGraphBackendTransparency:
             # Should return False without attempting import
             assert _is_pyg_enabled() == False, "PyG should not be enabled without QBM_ENABLE_PYG=1"
             
-            # _check_pyg_available should also return False without import attempt
-            # (We can't easily verify no import was attempted, but we verify the flag check)
-            
         finally:
             # Restore original value
             if original is not None:
                 os.environ["QBM_ENABLE_PYG"] = original
+    
+    def test_no_pyg_import_attempt_when_flag_unset(self, monkeypatch):
+        """
+        Phase 10.1g: Prove that torch_geometric is NEVER imported when QBM_ENABLE_PYG is unset.
+        
+        This is the watertight version of the opt-in test. We monkeypatch
+        importlib.import_module to assert torch_geometric is never called.
+        """
+        import os
+        import importlib
+        import sys
+        
+        # Track import attempts
+        pyg_import_attempted = []
+        original_import = importlib.import_module
+        
+        def tracking_import(name, *args, **kwargs):
+            if "torch_geometric" in name:
+                pyg_import_attempted.append(name)
+            return original_import(name, *args, **kwargs)
+        
+        # Save original env value and unset it
+        original_env = os.environ.get("QBM_ENABLE_PYG")
+        if "QBM_ENABLE_PYG" in os.environ:
+            del os.environ["QBM_ENABLE_PYG"]
+        
+        # Clear any cached PyG state
+        # We need to reload the module to reset the global flags
+        if "src.ml.graph_reasoner" in sys.modules:
+            # Reset the global flags without reloading (to avoid import)
+            import src.ml.graph_reasoner as gr
+            gr.PYG_AVAILABLE = False
+            gr.PYG_ENABLED = False
+        
+        try:
+            monkeypatch.setattr(importlib, "import_module", tracking_import)
+            
+            # Now call _check_pyg_available - it should NOT attempt any PyG import
+            from src.ml.graph_reasoner import _check_pyg_available
+            result = _check_pyg_available()
+            
+            # Should return False
+            assert result == False, "Should return False when QBM_ENABLE_PYG is not set"
+            
+            # Should NOT have attempted to import torch_geometric
+            assert len(pyg_import_attempted) == 0, \
+                f"torch_geometric import was attempted when flag unset: {pyg_import_attempted}"
+            
+        finally:
+            # Restore original env value
+            if original_env is not None:
+                os.environ["QBM_ENABLE_PYG"] = original_env
     
     def test_backend_reason_present_when_not_pyg(self):
         """graph_backend_reason must be present and non-empty when backend != pyg."""
