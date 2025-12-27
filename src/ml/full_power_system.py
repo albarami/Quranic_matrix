@@ -445,7 +445,9 @@ class FullPowerQBMSystem:
                 sura_name = sura_data.get('name', '')
                 verses = sura_data.get('verses', {})
                 for ayah_num, verse_text in verses.items():
-                    if verse_text and len(verse_text) > 5:
+                    # Include ALL verses including muqattaʿāt (الم، طه، يس، etc.)
+                    # Previously excluded short verses with len>5, now include all
+                    if verse_text:
                         self.all_texts.append(verse_text)
                         self.all_metadata.append({
                             "type": "quran",
