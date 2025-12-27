@@ -13,6 +13,8 @@ import {
   X,
   Search,
   FileCheck,
+  Database,
+  ClipboardCheck,
 } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -22,9 +24,10 @@ const navItems = [
   { href: "/research", labelKey: "nav.research", icon: MessageSquare },
   { href: "/proof", labelKey: "nav.proof", icon: FileCheck },
   { href: "/explorer", labelKey: "nav.explorer", icon: Globe },
+  { href: "/genome", labelKey: "nav.genome", icon: Database },
+  { href: "/reviews", labelKey: "nav.reviews", icon: ClipboardCheck },
   { href: "/discovery", labelKey: "nav.discovery", icon: Search },
   { href: "/dashboard", labelKey: "nav.dashboard", icon: BarChart3 },
-  { href: "/insights", labelKey: "nav.insights", icon: Sparkles },
 ];
 
 export function Navigation() {

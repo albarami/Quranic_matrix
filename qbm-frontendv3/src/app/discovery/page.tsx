@@ -71,6 +71,7 @@ interface GraphLink {
   source: string;
   target: string;
   value: number;
+  type?: string;
 }
 
 interface GraphData {

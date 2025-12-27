@@ -21,6 +21,8 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.dashboard": "Dashboard",
     "nav.insights": "Insights",
     "nav.proof": "Proof",
+    "nav.genome": "Genome",
+    "nav.reviews": "Reviews",
     
     // Home page
     "home.title": "Quranic Behavioral Matrix",
@@ -146,6 +148,8 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.dashboard": "لوحة التحكم",
     "nav.insights": "الرؤى",
     "nav.proof": "الإثبات",
+    "nav.genome": "الجينوم",
+    "nav.reviews": "المراجعات",
     
     // Home page
     "home.title": "مصفوفة السلوك القرآني",
