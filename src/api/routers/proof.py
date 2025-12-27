@@ -171,19 +171,59 @@ def filter_quran_verses(verses, question):
 # Phase 7.2: Pagination and Summary Mode Helpers
 # =============================================================================
 
-def paginate_list(items: list, page: int, page_size: int) -> dict:
+def sort_deterministic(items: list, sort_key: str = "verse") -> list:
     """
-    Paginate a list of items.
+    Phase 7.2 Fix B: Ensure deterministic ordering with tie-breakers.
+    
+    Sort keys:
+    - "verse": Sort by (-score, surah, ayah, source, chunk_id)
+    - "surah": Sort by (surah, ayah, source, chunk_id)
+    - "score": Sort by (-score, verse_key, chunk_id)
+    
+    All orderings use chunk_id as final tie-breaker for stability.
+    """
+    if not items:
+        return items
+    
+    def get_sort_key(item):
+        score = item.get("score", 0) if isinstance(item.get("score"), (int, float)) else 0
+        surah = int(item.get("surah", 0)) if item.get("surah") else 0
+        ayah = int(item.get("ayah", 0)) if item.get("ayah") else 0
+        source = item.get("source", "") or ""
+        chunk_id = item.get("chunk_id", "") or item.get("id", "") or ""
+        verse_key = f"{surah:03d}:{ayah:03d}"
+        
+        if sort_key == "verse":
+            # Primary: -score (descending), then canonical verse order, then source, then chunk_id
+            return (-score, surah, ayah, source, chunk_id)
+        elif sort_key == "surah":
+            # Primary: canonical surah:ayah order, then source, then chunk_id
+            return (surah, ayah, source, chunk_id)
+        else:  # "score"
+            # Primary: -score (descending), then verse_key, then chunk_id
+            return (-score, verse_key, chunk_id)
+    
+    return sorted(items, key=get_sort_key)
+
+
+def paginate_list(items: list, page: int, page_size: int, sort_key: str = "verse") -> dict:
+    """
+    Paginate a list of items with deterministic ordering.
+    
+    Phase 7.2 Fix B: Ensures stable ordering across pages using tie-breakers.
     
     Returns:
         dict with items, page, page_size, total_items, total_pages, has_next, has_prev
     """
-    total_items = len(items)
+    # Apply deterministic sorting before pagination
+    sorted_items = sort_deterministic(items, sort_key)
+    
+    total_items = len(sorted_items)
     total_pages = (total_items + page_size - 1) // page_size if page_size > 0 else 1
     
     start_idx = (page - 1) * page_size
     end_idx = start_idx + page_size
-    page_items = items[start_idx:end_idx]
+    page_items = sorted_items[start_idx:end_idx]
     
     return {
         "items": page_items,
@@ -192,7 +232,8 @@ def paginate_list(items: list, page: int, page_size: int) -> dict:
         "total_items": total_items,
         "total_pages": total_pages,
         "has_next": page < total_pages,
-        "has_prev": page > 1
+        "has_prev": page > 1,
+        "sort_key": sort_key
     }
 
 
