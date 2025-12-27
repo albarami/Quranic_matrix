@@ -108,7 +108,8 @@ If `check_pyg_health.py` fails:
 
 1. **torch not found**: Install PyTorch first
    ```bash
-   pip install torch --index-url https://download.pytorch.org/whl/cu124
+   # Match your CUDA version (cu121 for CUDA 12.1, cu124 for CUDA 12.4)
+   pip install torch --index-url https://download.pytorch.org/whl/cu121
    ```
 
 2. **torch_geometric not found**: Install PyG
