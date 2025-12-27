@@ -1,7 +1,8 @@
 # Phase 7 Verification Report
 
 **Generated:** 2025-12-27T02:30:00Z  
-**Status:** COMPLETE  
+**Updated:** 2025-12-27T02:50:00Z  
+**Status:** COMPLETE (with fixes A, B, C applied)  
 
 ---
 
@@ -347,28 +348,87 @@ Invoke-RestMethod -Uri "http://localhost:8000/api/reviews/status" -Method GET
 |-------|--------|-------------|
 | 7.1 | cfb8f64 | Modular routers (no behavior change) |
 | 7.2 | 9be83c3 | Pagination + summary modes |
-| 7.3 | 8d58c64 | Genome export endpoint |
+| 7.3 | 8d58c64 | Genome export endpoint (scaffolding) |
 | 7.4 | 4ecb7b1 | Scholar review workflow |
+| Fix A | 59cc3f9 | Q25 genome from canonical entities + semantic graph |
+| Fix B | 122e8cf | Deterministic ordering + tie-breakers |
+| Fix C | fa22e06 | Reviews backend abstraction + edge/chunk references |
 
 ---
 
 ## 8. Non-Negotiables Checklist
 
-- [x] **No weakened tests** - All 21 API tests pass without modification
+- [x] **No weakened tests** - All 21 API tests + 23 genome tests + 8 pagination tests pass
 - [x] **No silent fallbacks** - `debug.graph_backend` explicitly shows mode
-- [x] **All changes committed + pushed** - 4 commits to main branch
+- [x] **All changes committed + pushed** - 7 commits to main branch (4 original + 3 fixes)
 - [x] **Parameterized queries** - SQL injection safe (SQLite with ? placeholders)
 - [x] **Audit trail** - `review_history` table logs all status changes
 
 ---
 
-## 9. Known Gaps (To Address in Phase 8+)
+## 9. Fixes Applied
 
-1. **Pagination tokens not yet implemented** - Currently using page numbers; `next_page_token` pattern deferred
-2. **Postgres migration** - Using SQLite for local dev; production Postgres migration pending
+### Fix A: Q25 Genome Export (59cc3f9)
+
+**Problem:** Original genome export used span fields, yielding `unique_behaviors=5`.
+
+**Solution:** Implemented real Q25 genome from:
+- `vocab/canonical_entities.json`: 73 behaviors, 14 agents, 11 organs, 12 heart states, 16 consequences
+- `data/graph/semantic_graph_v2.json`: 4460 evidence-backed semantic edges
+
+**New statistics:**
+```json
+{
+  "canonical_behaviors": 73,
+  "canonical_agents": 14,
+  "canonical_organs": 11,
+  "canonical_heart_states": 12,
+  "canonical_consequences": 16,
+  "semantic_edges": 4460
+}
+```
+
+**Tests added:** 23 tests in `tests/test_genome_q25.py`
+
+### Fix B: Deterministic Ordering (122e8cf)
+
+**Problem:** Pagination could skip/duplicate items when scores are equal.
+
+**Solution:** Added `sort_deterministic()` with tie-breakers:
+- verse: `(-score, surah, ayah, source, chunk_id)`
+- surah: `(surah, ayah, source, chunk_id)`
+- score: `(-score, verse_key, chunk_id)`
+
+**Tests added:** 8 tests in `tests/test_pagination_deterministic.py`
+
+### Fix C: Reviews Backend Abstraction (fa22e06)
+
+**Problem:** Reviews only supported span_id; no path to Postgres.
+
+**Solution:**
+- `ReviewStorageBackend` ABC for backend abstraction
+- `SQLiteReviewBackend` implementation
+- New fields: `edge_id`, `chunk_id`, `verse_key`, `review_type`
+- New endpoints: `/api/reviews/edge/{edge_id}`, `/api/reviews/chunk/{chunk_id}`
+
+**Schema:**
+```sql
+-- New columns
+edge_id TEXT,
+chunk_id TEXT,
+verse_key TEXT,
+review_type TEXT DEFAULT 'span'  -- span | edge | chunk
+```
+
+---
+
+## 10. Known Gaps (To Address in Phase 8+)
+
+1. **Pagination tokens** - Using page numbers; `next_page_token` pattern deferred
+2. **Postgres backend** - SQLite for dev; set `REVIEWS_DB_URL` for Postgres (not yet implemented)
 3. **Role-based controls** - Minimal `actor_id` tracking; full RBAC deferred
 4. **Frontend integration** - API ready, frontend wiring pending (Phase 8.1)
 
 ---
 
-**Verification Complete.** Phase 7 acceptance criteria met.
+**Verification Complete.** Phase 7 acceptance criteria met with all fixes applied.
