@@ -4,221 +4,209 @@ Genome Router - /api/genome/*
 Phase 7.3: Genome export endpoint (Q25 productization)
 
 Exports the complete Quranic Behavioral Genome artifact:
-- All behaviors (73+)
-- All agents, organs, heart states, consequences
-- All relationships (typed, evidence-backed)
-- Provenance for every edge and mapping
+- All 73 behaviors from canonical_entities.json
+- All agents, organs, heart states, consequences from canonical registry
+- All relationships from semantic_graph_v2.json (typed, evidence-backed)
+- Provenance for every edge (chunk_id, verse_key, source, char_start, char_end, quote)
 """
 
 import json
 import hashlib
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict, List, Any
 from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import JSONResponse
 
-from ..dependencies import get_all_spans, DATA_DIR
+from ..dependencies import DATA_DIR
 
 router = APIRouter(prefix="/api/genome", tags=["Genome"])
 
 # Genome version - increment when schema changes
-GENOME_VERSION = "1.0.0"
+GENOME_VERSION = "2.0.0"
+
+# Paths to canonical data sources
+CANONICAL_ENTITIES_PATH = Path("vocab/canonical_entities.json")
+SEMANTIC_GRAPH_PATH = DATA_DIR / "graph" / "semantic_graph_v2.json"
+
+# Cache for loaded data
+_canonical_entities_cache: Optional[Dict] = None
+_semantic_graph_cache: Optional[Dict] = None
 
 
-def build_genome_artifact(spans: list) -> dict:
+def load_canonical_entities() -> Dict:
+    """Load canonical entities from vocab/canonical_entities.json."""
+    global _canonical_entities_cache
+    if _canonical_entities_cache is not None:
+        return _canonical_entities_cache
+    
+    try:
+        with open(CANONICAL_ENTITIES_PATH, 'r', encoding='utf-8') as f:
+            _canonical_entities_cache = json.load(f)
+        return _canonical_entities_cache
+    except FileNotFoundError:
+        raise HTTPException(
+            status_code=503,
+            detail=f"Canonical entities file not found: {CANONICAL_ENTITIES_PATH}"
+        )
+
+
+def load_semantic_graph() -> Dict:
+    """Load semantic graph from data/graph/semantic_graph_v2.json."""
+    global _semantic_graph_cache
+    if _semantic_graph_cache is not None:
+        return _semantic_graph_cache
+    
+    try:
+        with open(SEMANTIC_GRAPH_PATH, 'r', encoding='utf-8') as f:
+            _semantic_graph_cache = json.load(f)
+        return _semantic_graph_cache
+    except FileNotFoundError:
+        raise HTTPException(
+            status_code=503,
+            detail=f"Semantic graph file not found: {SEMANTIC_GRAPH_PATH}"
+        )
+
+
+def build_q25_genome_artifact(mode: str = "full") -> dict:
     """
-    Build the complete Quranic Behavioral Genome artifact.
+    Build the Q25 Quranic Behavioral Genome artifact from canonical sources.
     
-    Returns a structured artifact with:
-    - All behaviors with verse evidence
-    - All agents (AGT_*) with mappings
-    - All organs (ORG_*) with mappings
-    - All heart states with mappings
-    - All relationships with provenance
+    Sources:
+    - vocab/canonical_entities.json: 73 behaviors, 14 agents, 26 organs, 12 heart states, 16 consequences
+    - data/graph/semantic_graph_v2.json: Evidence-backed semantic edges with provenance
+    
+    Args:
+        mode: "full" includes all evidence, "light" includes metadata only
+    
+    Returns:
+        Complete genome artifact with all canonical entities and semantic relationships
     """
-    # Initialize collections
-    behaviors = {}
-    agents = {}
-    organs = {}
-    heart_states = {}
-    consequences = {}
-    relationships = []
+    canonical = load_canonical_entities()
+    graph = load_semantic_graph()
     
-    # Process all spans
-    for span in spans:
-        # Extract behavior
-        behavior = span.get("behavior_form", "")
-        if behavior:
-            if behavior not in behaviors:
-                behaviors[behavior] = {
-                    "name": behavior,
-                    "verses": [],
-                    "evaluations": set(),
-                    "agents": set(),
-                    "count": 0
-                }
-            
-            ref = span.get("reference", {})
-            verse_ref = f"{ref.get('surah', '?')}:{ref.get('ayah', '?')}"
-            
-            behaviors[behavior]["verses"].append({
-                "surah": ref.get("surah"),
-                "ayah": ref.get("ayah"),
-                "surah_name": ref.get("surah_name", ""),
-                "text": span.get("text", "")[:200],  # Limit text length
-                "offset": span.get("offset", {})
-            })
-            behaviors[behavior]["count"] += 1
-            
-            # Track evaluation
-            evaluation = span.get("normative", {}).get("evaluation", "")
-            if evaluation:
-                behaviors[behavior]["evaluations"].add(evaluation)
+    # Extract canonical entities
+    behaviors = canonical.get("behaviors", [])
+    agents = canonical.get("agents", [])
+    organs = canonical.get("organs", [])
+    heart_states = canonical.get("heart_states", [])
+    consequences = canonical.get("consequences", [])
+    axes_11 = canonical.get("axes_11", {})
+    entity_types = canonical.get("entity_types", {})
+    
+    # Extract semantic graph data
+    graph_nodes = graph.get("nodes", [])
+    graph_edges = graph.get("edges", [])
+    
+    # Build edges with provenance
+    edges_with_provenance = []
+    for edge in graph_edges:
+        edge_entry = {
+            "source": edge.get("source"),
+            "target": edge.get("target"),
+            "edge_type": edge.get("edge_type"),
+            "confidence": edge.get("confidence"),
+            "evidence_count": edge.get("evidence_count", 0),
+            "sources_count": edge.get("sources_count", 0),
+            "cue_strength": edge.get("cue_strength"),
+            "validation": edge.get("validation", {})
+        }
         
-        # Extract agent
-        agent_data = span.get("agent", {})
-        agent_type = agent_data.get("type", "")
-        if agent_type:
-            if agent_type not in agents:
-                agents[agent_type] = {
-                    "type": agent_type,
-                    "behaviors": set(),
-                    "verses": [],
-                    "count": 0
+        if mode == "full":
+            # Include full evidence with provenance
+            evidence_list = edge.get("evidence", [])
+            edge_entry["evidence"] = [
+                {
+                    "source": ev.get("source"),
+                    "verse_key": ev.get("verse_key"),
+                    "chunk_id": ev.get("chunk_id"),
+                    "char_start": ev.get("char_start"),
+                    "char_end": ev.get("char_end"),
+                    "quote": ev.get("quote", "")[:300],  # Limit quote length
+                    "cue_phrase": ev.get("cue_phrase"),
+                    "endpoints_validated": ev.get("endpoints_validated", [])
                 }
-            agents[agent_type]["behaviors"].add(behavior)
-            agents[agent_type]["count"] += 1
-            
-            ref = span.get("reference", {})
-            agents[agent_type]["verses"].append({
-                "surah": ref.get("surah"),
-                "ayah": ref.get("ayah")
-            })
+                for ev in evidence_list[:5]  # Limit to 5 evidence items per edge
+            ]
         
-        # Extract organ
-        organ = span.get("organ", "")
-        if organ:
-            if organ not in organs:
-                organs[organ] = {
-                    "name": organ,
-                    "behaviors": set(),
-                    "count": 0
-                }
-            organs[organ]["behaviors"].add(behavior)
-            organs[organ]["count"] += 1
-        
-        # Extract heart state (from normative or context)
-        heart_state = span.get("normative", {}).get("heart_state", "")
-        if heart_state:
-            if heart_state not in heart_states:
-                heart_states[heart_state] = {
-                    "name": heart_state,
-                    "behaviors": set(),
-                    "count": 0
-                }
-            heart_states[heart_state]["behaviors"].add(behavior)
-            heart_states[heart_state]["count"] += 1
-        
-        # Extract consequence
-        consequence = span.get("consequence", "")
-        if consequence:
-            if consequence not in consequences:
-                consequences[consequence] = {
-                    "name": consequence,
-                    "behaviors": set(),
-                    "count": 0
-                }
-            consequences[consequence]["behaviors"].add(behavior)
-            consequences[consequence]["count"] += 1
-        
-        # Build relationships with evidence
-        if behavior and agent_type:
-            relationships.append({
-                "type": "AGENT_PERFORMS",
-                "source": agent_type,
-                "target": behavior,
-                "evidence": {
-                    "surah": ref.get("surah"),
-                    "ayah": ref.get("ayah"),
-                    "offset": span.get("offset", {})
-                }
-            })
+        edges_with_provenance.append(edge_entry)
     
-    # Convert sets to lists for JSON serialization
-    for b in behaviors.values():
-        b["evaluations"] = list(b["evaluations"])
-        b["agents"] = list(b.get("agents", set()))
+    # Calculate statistics from canonical registry
+    stats = {
+        "canonical_behaviors": len(behaviors),
+        "canonical_agents": len(agents),
+        "canonical_organs": len(organs),
+        "canonical_heart_states": len(heart_states),
+        "canonical_consequences": len(consequences),
+        "graph_nodes": len(graph_nodes),
+        "semantic_edges": len(graph_edges),
+        "axes_count": len(axes_11)
+    }
     
-    for a in agents.values():
-        a["behaviors"] = list(a["behaviors"])
-        # Limit verses to first 10
-        a["verses"] = a["verses"][:10]
+    # Build canonical payload for checksum
+    canonical_payload = {
+        "behaviors": [b["id"] for b in behaviors],
+        "agents": [a["id"] for a in agents],
+        "organs": [o["id"] for o in organs],
+        "heart_states": [h["id"] for h in heart_states],
+        "consequences": [c["id"] for c in consequences],
+        "edge_count": len(graph_edges)
+    }
+    checksum_input = json.dumps(canonical_payload, sort_keys=True)
+    checksum = hashlib.sha256(checksum_input.encode()).hexdigest()
     
-    for o in organs.values():
-        o["behaviors"] = list(o["behaviors"])
-    
-    for h in heart_states.values():
-        h["behaviors"] = list(h["behaviors"])
-    
-    for c in consequences.values():
-        c["behaviors"] = list(c["behaviors"])
-    
-    # Build artifact
     artifact = {
         "version": GENOME_VERSION,
         "generated_at": datetime.utcnow().isoformat() + "Z",
-        "statistics": {
-            "total_spans": len(spans),
-            "unique_behaviors": len(behaviors),
-            "unique_agents": len(agents),
-            "unique_organs": len(organs),
-            "unique_heart_states": len(heart_states),
-            "unique_consequences": len(consequences),
-            "total_relationships": len(relationships)
+        "mode": mode,
+        "checksum": checksum,
+        "source_versions": {
+            "canonical_entities": canonical.get("version", "unknown"),
+            "semantic_graph": graph.get("version", "unknown"),
+            "canonical_entities_frozen": canonical.get("frozen_date", "unknown")
         },
-        "behaviors": list(behaviors.values()),
-        "agents": list(agents.values()),
-        "organs": list(organs.values()),
-        "heart_states": list(heart_states.values()),
-        "consequences": list(consequences.values()),
-        "relationships": relationships[:1000]  # Limit to first 1000 for API response
+        "statistics": stats,
+        "entity_types": entity_types,
+        "behaviors": behaviors,
+        "agents": agents,
+        "organs": organs,
+        "heart_states": heart_states,
+        "consequences": consequences,
+        "axes_11": axes_11 if mode == "full" else {"count": len(axes_11)},
+        "semantic_edges": edges_with_provenance if mode == "full" else [],
+        "edge_types": graph.get("allowed_edge_types", []),
+        "causal_edge_types": graph.get("causal_edge_types", [])
     }
-    
-    # Generate checksum for reproducibility
-    content_str = json.dumps(artifact["statistics"], sort_keys=True)
-    artifact["checksum"] = hashlib.sha256(content_str.encode()).hexdigest()[:16]
     
     return artifact
 
 
 @router.get("/status")
 async def genome_status():
-    """Get genome export status and statistics."""
-    spans = get_all_spans()
+    """Get genome export status and statistics from canonical sources."""
+    canonical = load_canonical_entities()
+    graph = load_semantic_graph()
     
-    # Quick stats without full build
-    behaviors = set()
-    agents = set()
-    
-    for span in spans:
-        behavior = span.get("behavior_form", "")
-        if behavior:
-            behaviors.add(behavior)
-        agent = span.get("agent", {}).get("type", "")
-        if agent:
-            agents.add(agent)
+    entity_types = canonical.get("entity_types", {})
     
     return {
         "status": "ready",
         "version": GENOME_VERSION,
+        "source_versions": {
+            "canonical_entities": canonical.get("version", "unknown"),
+            "semantic_graph": graph.get("version", "unknown")
+        },
         "statistics": {
-            "total_spans": len(spans),
-            "unique_behaviors": len(behaviors),
-            "unique_agents": len(agents)
+            "canonical_behaviors": entity_types.get("BEHAVIOR", {}).get("count", 0),
+            "canonical_agents": entity_types.get("AGENT", {}).get("count", 0),
+            "canonical_organs": entity_types.get("ORGAN", {}).get("count", 0),
+            "canonical_heart_states": entity_types.get("HEART_STATE", {}).get("count", 0),
+            "canonical_consequences": entity_types.get("CONSEQUENCE", {}).get("count", 0),
+            "semantic_edges": len(graph.get("edges", []))
         },
         "endpoints": {
-            "full_export": "/api/genome/export",
+            "full_export": "/api/genome/export?mode=full",
+            "light_export": "/api/genome/export?mode=light",
             "behaviors_only": "/api/genome/behaviors",
             "agents_only": "/api/genome/agents",
             "relationships": "/api/genome/relationships"
@@ -228,135 +216,151 @@ async def genome_status():
 
 @router.get("/export")
 async def export_genome(
-    format: str = Query("json", description="Export format: json or jsonl"),
-    include_relationships: bool = Query(True, description="Include relationship edges")
+    mode: str = Query("full", description="Export mode: 'full' (with evidence) or 'light' (metadata only)")
 ):
     """
-    Export the complete Quranic Behavioral Genome artifact.
+    Export the complete Q25 Quranic Behavioral Genome artifact.
     
     Q25 productization: Returns versioned, reproducible artifact with:
-    - All behaviors with verse evidence
-    - All agents, organs, heart states, consequences
-    - All relationships with provenance
+    - All 73 canonical behaviors from vocab/canonical_entities.json
+    - All 14 agents, 26 organs, 12 heart states, 16 consequences
+    - All semantic edges from data/graph/semantic_graph_v2.json with provenance
+    - Full checksum for reproducibility verification
+    
+    Modes:
+    - full: Includes all evidence with provenance (chunk_id, verse_key, char_start, char_end, quote)
+    - light: Metadata only (counts, entity IDs, no evidence payloads)
     """
-    spans = get_all_spans()
-    artifact = build_genome_artifact(spans)
+    if mode not in ["full", "light"]:
+        raise HTTPException(status_code=400, detail="mode must be 'full' or 'light'")
     
-    if not include_relationships:
-        artifact["relationships"] = []
-        artifact["statistics"]["total_relationships"] = 0
-    
+    artifact = build_q25_genome_artifact(mode=mode)
     return artifact
 
 
 @router.get("/behaviors")
 async def get_behaviors(
-    limit: int = Query(100, ge=1, le=500, description="Max behaviors to return"),
-    min_count: int = Query(1, ge=1, description="Minimum verse count")
+    category: Optional[str] = Query(None, description="Filter by category (speech, financial, emotional, etc.)"),
+    limit: int = Query(100, ge=1, le=100, description="Max behaviors to return")
 ):
-    """Get all behaviors with verse counts."""
-    spans = get_all_spans()
+    """Get all 73 canonical behaviors from the registry."""
+    canonical = load_canonical_entities()
+    behaviors = canonical.get("behaviors", [])
     
-    behaviors = {}
-    for span in spans:
-        behavior = span.get("behavior_form", "")
-        if behavior:
-            if behavior not in behaviors:
-                behaviors[behavior] = {
-                    "name": behavior,
-                    "count": 0,
-                    "evaluations": set()
-                }
-            behaviors[behavior]["count"] += 1
-            eval_type = span.get("normative", {}).get("evaluation", "")
-            if eval_type:
-                behaviors[behavior]["evaluations"].add(eval_type)
+    if category:
+        behaviors = [b for b in behaviors if b.get("category") == category]
     
-    # Filter and convert
-    result = []
-    for b in behaviors.values():
-        if b["count"] >= min_count:
-            result.append({
-                "name": b["name"],
-                "count": b["count"],
-                "evaluations": list(b["evaluations"])
-            })
-    
-    # Sort by count descending
-    result.sort(key=lambda x: x["count"], reverse=True)
+    # Get unique categories
+    categories = list(set(b.get("category", "unknown") for b in canonical.get("behaviors", [])))
     
     return {
-        "total": len(result),
-        "behaviors": result[:limit]
+        "total": len(behaviors),
+        "categories": sorted(categories),
+        "behaviors": behaviors[:limit]
     }
 
 
 @router.get("/agents")
 async def get_agents():
-    """Get all agent types with behavior mappings."""
-    spans = get_all_spans()
-    
-    agents = {}
-    for span in spans:
-        agent = span.get("agent", {}).get("type", "")
-        behavior = span.get("behavior_form", "")
-        if agent:
-            if agent not in agents:
-                agents[agent] = {
-                    "type": agent,
-                    "behaviors": set(),
-                    "count": 0
-                }
-            agents[agent]["count"] += 1
-            if behavior:
-                agents[agent]["behaviors"].add(behavior)
-    
-    result = []
-    for a in agents.values():
-        result.append({
-            "type": a["type"],
-            "count": a["count"],
-            "unique_behaviors": len(a["behaviors"]),
-            "behaviors": list(a["behaviors"])[:20]  # Limit to 20
-        })
-    
-    result.sort(key=lambda x: x["count"], reverse=True)
+    """Get all 14 canonical agent types from the registry."""
+    canonical = load_canonical_entities()
+    agents = canonical.get("agents", [])
     
     return {
-        "total": len(result),
-        "agents": result
+        "total": len(agents),
+        "agents": agents
+    }
+
+
+@router.get("/organs")
+async def get_organs():
+    """Get all 26 canonical organs from the registry."""
+    canonical = load_canonical_entities()
+    organs = canonical.get("organs", [])
+    
+    return {
+        "total": len(organs),
+        "organs": organs
+    }
+
+
+@router.get("/heart-states")
+async def get_heart_states():
+    """Get all 12 canonical heart states from the registry."""
+    canonical = load_canonical_entities()
+    heart_states = canonical.get("heart_states", [])
+    
+    return {
+        "total": len(heart_states),
+        "heart_states": heart_states
+    }
+
+
+@router.get("/consequences")
+async def get_consequences():
+    """Get all 16 canonical consequences from the registry."""
+    canonical = load_canonical_entities()
+    consequences = canonical.get("consequences", [])
+    
+    return {
+        "total": len(consequences),
+        "consequences": consequences
     }
 
 
 @router.get("/relationships")
 async def get_relationships(
-    relationship_type: Optional[str] = Query(None, description="Filter by type"),
-    limit: int = Query(100, ge=1, le=1000, description="Max relationships")
+    edge_type: Optional[str] = Query(None, description="Filter by edge type (CAUSES, LEADS_TO, PREVENTS, etc.)"),
+    source: Optional[str] = Query(None, description="Filter by source node ID"),
+    target: Optional[str] = Query(None, description="Filter by target node ID"),
+    limit: int = Query(100, ge=1, le=1000, description="Max relationships to return")
 ):
-    """Get behavioral relationships with evidence."""
-    spans = get_all_spans()
+    """
+    Get semantic relationships with evidence from the graph.
     
-    relationships = []
-    for span in spans:
-        behavior = span.get("behavior_form", "")
-        agent = span.get("agent", {}).get("type", "")
-        ref = span.get("reference", {})
+    Edge types: CAUSES, LEADS_TO, PREVENTS, STRENGTHENS, OPPOSITE_OF, COMPLEMENTS, CONDITIONAL_ON
+    """
+    graph = load_semantic_graph()
+    edges = graph.get("edges", [])
+    
+    # Apply filters
+    if edge_type:
+        edges = [e for e in edges if e.get("edge_type") == edge_type]
+    if source:
+        edges = [e for e in edges if e.get("source") == source]
+    if target:
+        edges = [e for e in edges if e.get("target") == target]
+    
+    # Build response with limited evidence
+    result = []
+    for edge in edges[:limit]:
+        entry = {
+            "source": edge.get("source"),
+            "target": edge.get("target"),
+            "edge_type": edge.get("edge_type"),
+            "confidence": edge.get("confidence"),
+            "evidence_count": edge.get("evidence_count", 0),
+            "sources_count": edge.get("sources_count", 0),
+            "cue_strength": edge.get("cue_strength"),
+            "validation": edge.get("validation", {}),
+            "sample_evidence": []
+        }
         
-        if behavior and agent:
-            rel = {
-                "type": "AGENT_PERFORMS",
-                "source": agent,
-                "target": behavior,
-                "evidence": {
-                    "surah": ref.get("surah"),
-                    "ayah": ref.get("ayah")
-                }
-            }
-            
-            if relationship_type is None or rel["type"] == relationship_type:
-                relationships.append(rel)
+        # Include first 2 evidence items as samples
+        evidence_list = edge.get("evidence", [])[:2]
+        for ev in evidence_list:
+            entry["sample_evidence"].append({
+                "source": ev.get("source"),
+                "verse_key": ev.get("verse_key"),
+                "chunk_id": ev.get("chunk_id"),
+                "quote": ev.get("quote", "")[:200]
+            })
+        
+        result.append(entry)
     
     return {
-        "total": len(relationships),
-        "relationships": relationships[:limit]
+        "total_matching": len(edges),
+        "returned": len(result),
+        "edge_types": graph.get("allowed_edge_types", []),
+        "relationships": result
     }
