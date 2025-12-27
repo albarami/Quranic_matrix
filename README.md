@@ -64,8 +64,28 @@ npm run dev
 ### 3. Run Tests
 
 ```bash
-pytest tests/ -v
+# Run Tier A tests (CPU-only, works everywhere)
+pytest tests/ -v -m "not gpu and not slow and not tier_b"
+
+# Run all tests (requires GPU + FullPower index)
+QBM_FULLPOWER_READY=1 pytest tests/ -v
 ```
+
+### 4. Enable PyG (Optional, for GNN Reasoning)
+
+PyG (torch_geometric) is **opt-in only** to prevent Windows DLL crashes:
+
+```bash
+# Step 1: Validate environment
+python scripts/check_pyg_health.py
+
+# Step 2: Enable PyG (only if Step 1 succeeds)
+export QBM_ENABLE_PYG=1  # Linux/Mac
+# or
+$env:QBM_ENABLE_PYG='1'  # Windows PowerShell
+```
+
+See [docs/PyG_ENABLEMENT.md](docs/PyG_ENABLEMENT.md) for full details.
 
 ---
 

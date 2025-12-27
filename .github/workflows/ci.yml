@@ -1,5 +1,8 @@
 # =============================================================================
-# QBM CI Workflow - Phase 1
+# QBM CI Workflow - Phase 11
+# =============================================================================
+# Tier A tests run on every push/PR (CPU-only, no GPU, no PyG)
+# Tier B tests require self-hosted runner with GPU + QBM_FULLPOWER_READY=1
 # =============================================================================
 name: QBM CI
 
@@ -9,8 +12,19 @@ on:
   pull_request:
     branches: [main]
 
+env:
+  # Phase 10.1d: PyG is opt-in only - disabled in CI by default
+  # This prevents Windows DLL crashes and ensures clean builds
+  QBM_ENABLE_PYG: "0"
+  # Disable GPU for CI (Tier A tests are CPU-only)
+  CUDA_VISIBLE_DEVICES: ""
+
 jobs:
-  test:
+  # ===========================================================================
+  # Tier A: CPU/Fixture Tests (runs everywhere)
+  # ===========================================================================
+  tier-a-tests:
+    name: Tier A Tests (CPU-only)
     runs-on: ubuntu-latest
     
     strategy:
@@ -32,12 +46,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
-      - name: Run pytest (CPU-only, no GPU tests)
+      - name: Verify PyG is disabled
         run: |
-          python -m pytest tests/ -v --tb=short -m "not gpu and not slow" --ignore=tests/test_end_to_end.py
-        env:
-          # Disable GPU for CI
-          CUDA_VISIBLE_DEVICES: ""
+          echo "QBM_ENABLE_PYG=$QBM_ENABLE_PYG (should be 0)"
+          python -c "import os; assert os.getenv('QBM_ENABLE_PYG', '0') != '1', 'PyG should be disabled in CI'"
+      
+      - name: Run Tier A tests (CPU-only, no GPU, no PyG)
+        run: |
+          python -m pytest tests/ -v --tb=short \
+            -m "not gpu and not slow and not tier_b" \
+            --ignore=tests/test_end_to_end.py \
+            --ignore=tests/test_scholarly_spotcheck.py
       
       - name: Check test collection
         run: |
