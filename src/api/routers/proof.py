@@ -2,11 +2,14 @@
 Proof Router - /api/proof/*
 
 Phase 7.1: Modular API structure
+Phase 7.2: Pagination + summary modes for SURAH_REF / CONCEPT_REF / AYAH_REF
+
 Contains the Full Power proof system endpoints.
 """
 
 import time
-from fastapi import APIRouter, HTTPException, Request
+from typing import Optional, Literal
+from fastapi import APIRouter, HTTPException, Request, Query
 from pydantic import BaseModel, field_validator
 
 router = APIRouter(prefix="/api/proof", tags=["Proof"])
@@ -18,6 +21,12 @@ router = APIRouter(prefix="/api/proof", tags=["Proof"])
 class ProofQueryRequest(BaseModel):
     """Request model for proof queries with input validation."""
     question: str
+    # Phase 7.2: Pagination and summary mode parameters
+    mode: Literal["summary", "full"] = "summary"
+    page: int = 1
+    page_size: int = 20
+    per_ayah: bool = True  # For SURAH_REF: return per-ayah breakdown
+    max_chunks_per_source: int = 1  # In summary mode, limit chunks per tafsir source
     
     @field_validator('question')
     @classmethod
@@ -32,6 +41,20 @@ class ProofQueryRequest(BaseModel):
         for pattern in dangerous_patterns:
             if pattern in v_lower:
                 raise ValueError("Invalid characters in question")
+        return v
+    
+    @field_validator('page')
+    @classmethod
+    def validate_page(cls, v):
+        if v < 1:
+            raise ValueError("Page must be >= 1")
+        return v
+    
+    @field_validator('page_size')
+    @classmethod
+    def validate_page_size(cls, v):
+        if v < 1 or v > 100:
+            raise ValueError("page_size must be between 1 and 100")
         return v
 
 
@@ -145,6 +168,109 @@ def filter_quran_verses(verses, question):
 
 
 # =============================================================================
+# Phase 7.2: Pagination and Summary Mode Helpers
+# =============================================================================
+
+def paginate_list(items: list, page: int, page_size: int) -> dict:
+    """
+    Paginate a list of items.
+    
+    Returns:
+        dict with items, page, page_size, total_items, total_pages, has_next, has_prev
+    """
+    total_items = len(items)
+    total_pages = (total_items + page_size - 1) // page_size if page_size > 0 else 1
+    
+    start_idx = (page - 1) * page_size
+    end_idx = start_idx + page_size
+    page_items = items[start_idx:end_idx]
+    
+    return {
+        "items": page_items,
+        "page": page,
+        "page_size": page_size,
+        "total_items": total_items,
+        "total_pages": total_pages,
+        "has_next": page < total_pages,
+        "has_prev": page > 1
+    }
+
+
+def apply_summary_mode(proof_data: dict, mode: str, max_chunks_per_source: int, per_ayah: bool) -> dict:
+    """
+    Phase 7.2: Apply summary mode to proof data.
+    
+    Summary mode:
+    - Limits tafsir chunks per source to max_chunks_per_source
+    - Groups by ayah if per_ayah=True
+    - Never truncates silently - always shows totals
+    
+    Full mode:
+    - Returns all data (caller handles pagination)
+    """
+    if mode == "full":
+        return proof_data
+    
+    # Summary mode: limit chunks per source
+    tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+    
+    summarized = proof_data.copy()
+    
+    for source in tafsir_sources:
+        if source in summarized:
+            full_list = summarized[source]
+            summarized[source] = full_list[:max_chunks_per_source]
+            # Add metadata about truncation
+            if len(full_list) > max_chunks_per_source:
+                summarized[f"{source}_total"] = len(full_list)
+                summarized[f"{source}_truncated"] = True
+    
+    return summarized
+
+
+def build_surah_summary(quran_verses: list, tafsir_data: dict, per_ayah: bool) -> dict:
+    """
+    Phase 7.2: Build per-ayah summary for SURAH_REF queries.
+    
+    Returns:
+        dict with ayat list, each containing verse + 1 chunk per tafsir source
+    """
+    if not per_ayah:
+        return {"ayat": quran_verses, "grouped": False}
+    
+    # Group by ayah
+    ayah_map = {}
+    for verse in quran_verses:
+        ayah_key = f"{verse.get('surah')}:{verse.get('ayah')}"
+        if ayah_key not in ayah_map:
+            ayah_map[ayah_key] = {
+                "surah": verse.get("surah"),
+                "ayah": verse.get("ayah"),
+                "surah_name": verse.get("surah_name", ""),
+                "text": verse.get("text", ""),
+                "tafsir": {}
+            }
+    
+    # Add tafsir for each ayah (1 chunk per source)
+    tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+    for source in tafsir_sources:
+        source_chunks = tafsir_data.get(source, [])
+        for chunk in source_chunks:
+            ayah_key = f"{chunk.get('surah')}:{chunk.get('ayah')}"
+            if ayah_key in ayah_map and source not in ayah_map[ayah_key]["tafsir"]:
+                ayah_map[ayah_key]["tafsir"][source] = chunk.get("text", "")[:500]  # Limit text length in summary
+    
+    # Sort by ayah number
+    sorted_ayat = sorted(ayah_map.values(), key=lambda x: (int(x.get("surah", 0)), int(x.get("ayah", 0))))
+    
+    return {
+        "ayat": sorted_ayat,
+        "grouped": True,
+        "total_ayat": len(sorted_ayat)
+    }
+
+
+# =============================================================================
 # Endpoints
 # =============================================================================
 
@@ -154,8 +280,14 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
     Run a query through the Full Power QBM System.
     Returns answer with mandatory 13-component proof structure.
     
+    Phase 7.2: Supports pagination and summary modes:
+    - mode=summary (default): Returns per-ayah × per-source (1 chunk each)
+    - mode=full: Returns all deterministic chunks, paginated
+    - page, page_size: Pagination controls
+    - per_ayah: Group results by ayah (for SURAH_REF)
+    - max_chunks_per_source: Limit chunks per tafsir source in summary mode
+    
     This endpoint powers the /proof page in the frontend.
-    Achieves 100% validation score on all queries.
     """
     start_time = time.time()
     
@@ -168,45 +300,130 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
         # Extract proof components from dataclass
         proof = result.get("proof")
         
+        # Get query intent from debug info
+        debug_info = result.get("debug", {})
+        intent = debug_info.get("intent", "FREE_TEXT")
+        
+        # Phase 7.2: Build base proof data
+        quran_verses = filter_quran_verses(proof.quran.verses if proof else [], request_body.question)
+        
+        tafsir_data = {
+            "ibn_kathir": filter_tafsir(proof.ibn_kathir.quotes if proof else []),
+            "tabari": filter_tafsir(proof.tabari.quotes if proof else []),
+            "qurtubi": filter_tafsir(proof.qurtubi.quotes if proof else []),
+            "saadi": filter_tafsir(proof.saadi.quotes if proof else []),
+            "jalalayn": filter_tafsir(proof.jalalayn.quotes if proof else []),
+        }
+        
+        # Phase 7.2: Apply mode-specific processing
+        if intent == "SURAH_REF" and request_body.per_ayah:
+            # SURAH_REF summary: per-ayah × per-source breakdown
+            surah_summary = build_surah_summary(quran_verses, tafsir_data, request_body.per_ayah)
+            
+            if request_body.mode == "summary":
+                # Paginate the ayat
+                paginated = paginate_list(
+                    surah_summary["ayat"],
+                    request_body.page,
+                    request_body.page_size
+                )
+                proof_output = {
+                    "quran": paginated,
+                    "mode": "surah_summary",
+                    "intent": intent,
+                }
+                # Add limited tafsir in summary mode
+                for source, chunks in tafsir_data.items():
+                    proof_output[source] = chunks[:request_body.max_chunks_per_source]
+                    if len(chunks) > request_body.max_chunks_per_source:
+                        proof_output[f"{source}_total"] = len(chunks)
+            else:
+                # Full mode: all ayat paginated
+                paginated = paginate_list(
+                    surah_summary["ayat"],
+                    request_body.page,
+                    request_body.page_size
+                )
+                proof_output = {
+                    "quran": paginated,
+                    "mode": "surah_full",
+                    "intent": intent,
+                    **tafsir_data
+                }
+        
+        elif intent == "CONCEPT_REF":
+            # CONCEPT_REF: deterministic verse list + tafsir
+            if request_body.mode == "summary":
+                proof_output = {
+                    "quran": quran_verses[:request_body.page_size],
+                    "quran_total": len(quran_verses),
+                    "mode": "concept_summary",
+                    "intent": intent,
+                }
+                for source, chunks in tafsir_data.items():
+                    proof_output[source] = chunks[:request_body.max_chunks_per_source]
+                    if len(chunks) > request_body.max_chunks_per_source:
+                        proof_output[f"{source}_total"] = len(chunks)
+            else:
+                paginated = paginate_list(quran_verses, request_body.page, request_body.page_size)
+                proof_output = {
+                    "quran": paginated,
+                    "mode": "concept_full",
+                    "intent": intent,
+                    **tafsir_data
+                }
+        
+        else:
+            # FREE_TEXT or AYAH_REF: standard output
+            proof_output = {
+                "quran": quran_verses,
+                "mode": request_body.mode,
+                "intent": intent,
+                **tafsir_data
+            }
+        
+        # Add remaining proof components
+        proof_output.update({
+            "graph": {
+                "nodes": proof.graph.nodes if proof else [],
+                "edges": proof.graph.edges if proof else [],
+                "paths": proof.graph.paths if proof else []
+            },
+            "embeddings": {
+                "similarities": proof.embeddings.similarities if proof else [],
+                "clusters": proof.embeddings.clusters if proof else [],
+                "nearest_neighbors": proof.embeddings.nearest_neighbors if proof else []
+            },
+            "rag_retrieval": {
+                "query": proof.rag.query if proof else "",
+                "retrieved_docs": proof.rag.retrieved_docs[:10] if proof else [],
+                "sources_breakdown": proof.rag.sources_breakdown if proof else {}
+            },
+            "taxonomy": {
+                "behaviors": proof.taxonomy.behaviors if proof else [],
+                "dimensions": proof.taxonomy.dimensions if proof else {}
+            },
+            "statistics": {
+                "counts": proof.statistics.counts if proof else {},
+                "percentages": proof.statistics.percentages if proof else {}
+            }
+        })
+        
         return {
             "question": request_body.question,
             "answer": result.get("answer", ""),
-            "proof": {
-                "quran": filter_quran_verses(proof.quran.verses if proof else [], request_body.question),
-                "ibn_kathir": filter_tafsir(proof.ibn_kathir.quotes if proof else []),
-                "tabari": filter_tafsir(proof.tabari.quotes if proof else []),
-                "qurtubi": filter_tafsir(proof.qurtubi.quotes if proof else []),
-                "saadi": filter_tafsir(proof.saadi.quotes if proof else []),
-                "jalalayn": filter_tafsir(proof.jalalayn.quotes if proof else []),
-                "graph": {
-                    "nodes": proof.graph.nodes if proof else [],
-                    "edges": proof.graph.edges if proof else [],
-                    "paths": proof.graph.paths if proof else []
-                },
-                "embeddings": {
-                    "similarities": proof.embeddings.similarities if proof else [],
-                    "clusters": proof.embeddings.clusters if proof else [],
-                    "nearest_neighbors": proof.embeddings.nearest_neighbors if proof else []
-                },
-                "rag_retrieval": {
-                    "query": proof.rag.query if proof else "",
-                    "retrieved_docs": proof.rag.retrieved_docs[:10] if proof else [],
-                    "sources_breakdown": proof.rag.sources_breakdown if proof else {}
-                },
-                "taxonomy": {
-                    "behaviors": proof.taxonomy.behaviors if proof else [],
-                    "dimensions": proof.taxonomy.dimensions if proof else {}
-                },
-                "statistics": {
-                    "counts": proof.statistics.counts if proof else {},
-                    "percentages": proof.statistics.percentages if proof else {}
-                }
-            },
+            "proof": proof_output,
             "validation": result.get("validation", {}),
             "processing_time_ms": round(processing_time, 2),
+            "pagination": {
+                "mode": request_body.mode,
+                "page": request_body.page,
+                "page_size": request_body.page_size,
+                "per_ayah": request_body.per_ayah,
+                "max_chunks_per_source": request_body.max_chunks_per_source
+            },
             "debug": {
-                **result.get("debug", {}),
-                # Phase 10.1b: Expose graph backend mode explicitly
+                **debug_info,
                 "graph_backend": getattr(system, 'graph_backend', 'unknown'),
                 "graph_backend_reason": getattr(system, 'graph_backend_reason', ''),
             }

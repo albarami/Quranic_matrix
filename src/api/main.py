@@ -2043,7 +2043,7 @@ from pydantic import BaseModel, Field, field_validator
 from typing import Dict, Any
 
 class ProofQueryRequest(BaseModel):
-    """Request model for proof queries with input validation (Phase 2)"""
+    """Request model for proof queries with input validation."""
     question: str = Field(
         ...,
         min_length=2,
@@ -2051,6 +2051,12 @@ class ProofQueryRequest(BaseModel):
         description="Question to analyze (Arabic or English)"
     )
     include_proof: bool = True
+    # Phase 7.2: Pagination and summary mode parameters
+    mode: str = Field(default="summary", description="summary or full")
+    page: int = Field(default=1, ge=1, description="Page number")
+    page_size: int = Field(default=20, ge=1, le=100, description="Items per page")
+    per_ayah: bool = Field(default=True, description="Group by ayah for SURAH_REF")
+    max_chunks_per_source: int = Field(default=1, ge=1, le=20, description="Max tafsir chunks per source in summary mode")
     
     @field_validator('question')
     @classmethod
@@ -2239,6 +2245,14 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
             },
             "validation": result.get("validation", {}),
             "processing_time_ms": round(processing_time, 2),
+            # Phase 7.2: Pagination metadata
+            "pagination": {
+                "mode": request_body.mode,
+                "page": request_body.page,
+                "page_size": request_body.page_size,
+                "per_ayah": request_body.per_ayah,
+                "max_chunks_per_source": request_body.max_chunks_per_source
+            },
             "debug": {
                 **result.get("debug", {}),
                 # Phase 10.1b: Expose graph backend mode explicitly
