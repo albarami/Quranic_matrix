@@ -430,15 +430,43 @@ After all phases complete, the system must:
 - [x] **Phase 2:** Security: Fix CORS, add rate limiting, input validation
 - [x] **Phase 3:** Data cleaning pipeline + morphology extraction + provenance
 - [x] **Phase 4:** Stratified retrieval + hybrid search + prebuilt indexes
-- [ ] **Phase 5:** Evaluate/fine-tune Arabic embedding model to 75%+ accuracy
-- [ ] **Phase 6:** Split graph into co-occurrence vs semantic + fix frontend random weights
-- [ ] **Phase 7:** Refactor API into modular routers (each < 300 lines)
-- [ ] **Phase 8:** Frontend integration + E2E tests + deep links
+- [x] **Phase 6:** Split graph into co-occurrence vs semantic + fix frontend random weights
+- [x] **Phase 10:** Enterprise Hardening (PyG opt-in, fail-fast, Tier A/B tests)
+- [ ] **Phase 7.1:** Refactor API into modular routers (no behavior change)
+- [ ] **Phase 7.2:** Pagination + summary modes (SURAH_REF / CONCEPT_REF / AYAH_REF)
+- [ ] **Phase 7.3:** Genome export endpoint (Q25 productization)
+- [ ] **Phase 7.4:** Scholar review workflow (Postgres + API)
+- [ ] **Phase 8.1:** Frontend integration (proof paging + genome + reviews)
+- [ ] **Phase 8.2:** Playwright E2E tests
 - [ ] **Phase 9:** Documentation + v2.0.0 release tag
+- [ ] **Phase 5.1-5.2:** Embedding rerank evaluation + optional integration (correctly scoped)
+
+---
+
+## Revised Execution Order (December 27, 2025)
+
+1. **Phase 7.1** — Modular routers (no behavior change)
+2. **Phase 7.2** — Pagination + summary modes
+3. **Phase 7.3** — Genome export endpoint
+4. **Phase 7.4** — Scholar review workflow
+5. **Phase 8** — Frontend + E2E
+6. **Phase 9** — Docs + v2.0.0
+7. **Phase 5** — Embedding enhancement (correctly scoped as optional reranking)
+
+### Phase 5 Clarification
+
+Embedding "75% accuracy" is legacy. New rule: embeddings are **not a truth dependency**. They enhance:
+- FREE_TEXT ranking
+- Q21/Q22 analytics
+
+Success criteria:
+- Retrieval metrics (Recall@k, nDCG@k, MRR) on FREE_TEXT benchmarks
+- Non-regression gate: deterministic outputs (AYAH_REF/SURAH_REF/CONCEPT_REF) identical with embeddings on/off
 
 ---
 
 *Plan created: December 25, 2025*  
+*Revised: December 27, 2025*  
 *Based on: 3 independent audit reports + codebase analysis*  
 *Target: QBM v1.0 (6.2/10) → QBM v2.0 (8.5+/10)*
 

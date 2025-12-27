@@ -129,21 +129,6 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 from .discovery_routes import router as discovery_router
 app.include_router(discovery_router)
 
-# =============================================================================
-# Phase 7.1: Include Modular Routers
-# =============================================================================
-# These routers provide the new modular structure while existing endpoints
-# remain active for backward compatibility. Routers will gradually replace
-# the inline endpoints.
-
-from .routers.health import router as health_router
-from .routers.genome import router as genome_router
-from .routers.reviews import router as reviews_router
-
-app.include_router(health_router, tags=["Health"])
-app.include_router(genome_router)  # Phase 7.3 placeholder
-app.include_router(reviews_router)  # Phase 7.4 placeholder
-
 # Data paths
 DATA_DIR = Path(__file__).parent.parent.parent / "data"
 EXPORTS_DIR = DATA_DIR / "exports"
