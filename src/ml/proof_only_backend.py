@@ -9,14 +9,21 @@ This module provides a minimal proof pipeline that does NOT initialize:
 
 It uses only:
 - evidence_index_v2_chunked.jsonl (deterministic verse-key lookup)
-- semantic_graph_v2.json (JSON graph)
-- concept_index_v2.jsonl (concept-to-verse mapping)
 
-Target: <5 seconds for structured intent queries (SURAH_REF, AYAH_REF, CONCEPT_REF)
+Supported intents:
+- SURAH_REF: Full surah tafsir retrieval by surah number/name
+- AYAH_REF: Single verse tafsir retrieval by verse reference (e.g., 2:255)
+
+Not yet implemented:
+- CONCEPT_REF: Would require concept_index_v2.jsonl integration
+- FREE_TEXT: Falls back to empty results (use FullPower for semantic search)
+
+Target: <5 seconds for structured intent queries (SURAH_REF, AYAH_REF)
 """
 
 import json
 import logging
+import os
 import time
 from pathlib import Path
 from typing import Dict, Any, List, Optional
@@ -53,19 +60,70 @@ class LightweightProofDebug:
         }
 
 
+def _get_data_dir() -> Path:
+    """Get data directory path, robust to different working directories.
+    
+    Resolution order:
+    1. QBM_DATA_DIR environment variable (absolute path)
+    2. Relative to this module's location (../../data from src/ml/)
+    3. Fallback to 'data' relative to CWD
+    """
+    # Check environment variable first
+    env_path = os.environ.get("QBM_DATA_DIR")
+    if env_path:
+        return Path(env_path)
+    
+    # Resolve relative to module location
+    module_dir = Path(__file__).resolve().parent  # src/ml/
+    repo_root = module_dir.parent.parent  # repo root
+    data_path = repo_root / "data"
+    
+    if data_path.exists():
+        return data_path
+    
+    # Fallback to CWD-relative (for tests)
+    return Path("data")
+
+
+# Complete surah name mapping (all 114 surahs)
+SURAH_NAMES = {
+    "الفاتحة": 1, "البقرة": 2, "آل عمران": 3, "ال عمران": 3, "النساء": 4, "المائدة": 5,
+    "الأنعام": 6, "الانعام": 6, "الأعراف": 7, "الاعراف": 7, "الأنفال": 8, "الانفال": 8,
+    "التوبة": 9, "يونس": 10, "هود": 11, "يوسف": 12, "الرعد": 13, "إبراهيم": 14, "ابراهيم": 14,
+    "الحجر": 15, "النحل": 16, "الإسراء": 17, "الاسراء": 17, "الكهف": 18, "مريم": 19, "طه": 20,
+    "الأنبياء": 21, "الانبياء": 21, "الحج": 22, "المؤمنون": 23, "المؤمنين": 23, "النور": 24,
+    "الفرقان": 25, "الشعراء": 26, "النمل": 27, "القصص": 28, "العنكبوت": 29, "الروم": 30,
+    "لقمان": 31, "السجدة": 32, "الأحزاب": 33, "الاحزاب": 33, "سبأ": 34, "سبا": 34,
+    "فاطر": 35, "يس": 36, "الصافات": 37, "ص": 38, "الزمر": 39, "غافر": 40,
+    "فصلت": 41, "الشورى": 42, "الزخرف": 43, "الدخان": 44, "الجاثية": 45, "الأحقاف": 46, "الاحقاف": 46,
+    "محمد": 47, "الفتح": 48, "الحجرات": 49, "ق": 50, "الذاريات": 51, "الطور": 52,
+    "النجم": 53, "القمر": 54, "الرحمن": 55, "الواقعة": 56, "الحديد": 57, "المجادلة": 58,
+    "الحشر": 59, "الممتحنة": 60, "الصف": 61, "الجمعة": 62, "المنافقون": 63, "التغابن": 64,
+    "الطلاق": 65, "التحريم": 66, "الملك": 67, "القلم": 68, "الحاقة": 69, "المعارج": 70,
+    "نوح": 71, "الجن": 72, "المزمل": 73, "المدثر": 74, "القيامة": 75, "الإنسان": 76, "الانسان": 76,
+    "المرسلات": 77, "النبأ": 78, "النازعات": 79, "عبس": 80, "التكوير": 81, "الانفطار": 82,
+    "المطففين": 83, "الانشقاق": 84, "البروج": 85, "الطارق": 86, "الأعلى": 87, "الاعلى": 87,
+    "الغاشية": 88, "الفجر": 89, "البلد": 90, "الشمس": 91, "الليل": 92, "الضحى": 93,
+    "الشرح": 94, "الانشراح": 94, "التين": 95, "العلق": 96, "القدر": 97, "البينة": 98,
+    "الزلزلة": 99, "العاديات": 100, "القارعة": 101, "التكاثر": 102, "العصر": 103,
+    "الهمزة": 104, "الفيل": 105, "قريش": 106, "الماعون": 107, "الكوثر": 108,
+    "الكافرون": 109, "النصر": 110, "المسد": 111, "اللهب": 111, "الإخلاص": 112, "الاخلاص": 112,
+    "الفلق": 113, "الناس": 114,
+}
+
+
 class LightweightProofBackend:
     """
     Minimal proof backend for Tier-A tests.
     
     Does NOT initialize GPU components. Uses only JSON files.
+    Paths are resolved robustly via QBM_DATA_DIR env var or module-relative paths.
     """
     
-    def __init__(self, data_dir: str = "data"):
-        self.data_dir = Path(data_dir)
+    def __init__(self, data_dir: Optional[Path] = None):
+        self.data_dir = data_dir or _get_data_dir()
         self._evidence_index: Optional[Dict[str, List[Dict]]] = None
-        self._semantic_graph: Optional[Dict] = None
-        self._concept_index: Optional[Dict] = None
-        self._quran_data: Optional[Dict] = None
+        self._quran_verses: Optional[Dict[str, str]] = None  # verse_key -> text
         
     def _load_evidence_index(self) -> Dict[str, List[Dict]]:
         """Load chunked evidence index (verse_key -> chunks)."""
@@ -90,44 +148,46 @@ class LightweightProofBackend:
         logging.info(f"[LightweightProof] Loaded {len(self._evidence_index)} verse keys from chunked index")
         return self._evidence_index
     
-    def _load_semantic_graph(self) -> Dict:
-        """Load semantic graph."""
-        if self._semantic_graph is not None:
-            return self._semantic_graph
-            
-        graph_path = self.data_dir / "graph" / "semantic_graph_v2.json"
-        if not graph_path.exists():
-            logging.warning(f"Semantic graph not found: {graph_path}")
-            return {"nodes": [], "edges": []}
-            
-        with open(graph_path, "r", encoding="utf-8") as f:
-            self._semantic_graph = json.load(f)
+    def _load_quran_verses(self) -> Dict[str, str]:
+        """Load Quran verse texts from quran_index.source.json.
         
-        logging.info(f"[LightweightProof] Loaded semantic graph with {len(self._semantic_graph.get('nodes', []))} nodes")
-        return self._semantic_graph
+        Returns dict mapping verse_key (e.g., '2:255') to Arabic text.
+        If source file is not found, returns empty dict and verses will show as placeholders.
+        """
+        if self._quran_verses is not None:
+            return self._quran_verses
+        
+        self._quran_verses = {}
+        
+        # Try to load from quran_index.source.json
+        quran_path = self.data_dir / "quran" / "_incoming" / "quran_index.source.json"
+        if quran_path.exists():
+            try:
+                with open(quran_path, "r", encoding="utf-8") as f:
+                    quran_data = json.load(f)
+                
+                # Extract verse texts from the structure
+                for surah in quran_data.get("surahs", []):
+                    surah_num = surah.get("number", 0)
+                    for ayah in surah.get("ayahs", []):
+                        ayah_num = ayah.get("number", 0)
+                        text = ayah.get("text", "")
+                        if surah_num and ayah_num and text:
+                            verse_key = f"{surah_num}:{ayah_num}"
+                            self._quran_verses[verse_key] = text
+                
+                logging.info(f"[LightweightProof] Loaded {len(self._quran_verses)} Quran verses")
+            except Exception as e:
+                logging.warning(f"[LightweightProof] Failed to load Quran verses: {e}")
+        else:
+            logging.info(f"[LightweightProof] Quran source not found at {quran_path}, verse text will be placeholders")
+        
+        return self._quran_verses
     
-    def _load_quran_data(self) -> Dict:
-        """Load Quran text data from XML or build from evidence index."""
-        if self._quran_data is not None:
-            return self._quran_data
-        
-        # Try to load from evidence index (extract unique verse texts)
-        # This is a fallback since we have verse_key in the evidence index
-        self._quran_data = {"surahs": {}}
-        
-        # Build verse data from evidence index
-        evidence_index = self._load_evidence_index()
-        for verse_key, chunks in evidence_index.items():
-            if ":" in verse_key:
-                surah_str, ayah_str = verse_key.split(":", 1)
-                surah_num = surah_str
-                if surah_num not in self._quran_data["surahs"]:
-                    self._quran_data["surahs"][surah_num] = {"verses": {}}
-                # We don't have verse text in evidence index, but we have the verse_key
-                # For proof_only mode, we just need to know the verse exists
-                self._quran_data["surahs"][surah_num]["verses"][ayah_str] = f"[Verse {verse_key}]"
-        
-        return self._quran_data
+    def _get_verse_text(self, verse_key: str) -> str:
+        """Get verse text, with placeholder fallback."""
+        verses = self._load_quran_verses()
+        return verses.get(verse_key, f"[Verse {verse_key} - text not loaded in proof_only mode]")
     
     def _route_query(self, question: str) -> Dict[str, Any]:
         """Route query to determine intent."""
@@ -160,17 +220,11 @@ class LightweightProofBackend:
         return {"intent": "FREE_TEXT"}
     
     def _get_surah_number(self, surah_ref: str) -> Optional[int]:
-        """Convert surah reference to number."""
-        surah_names = {
-            "الفاتحة": 1, "البقرة": 2, "آل عمران": 3, "النساء": 4, "المائدة": 5,
-            "الأنعام": 6, "الأعراف": 7, "الأنفال": 8, "التوبة": 9, "يونس": 10,
-            "هود": 11, "يوسف": 12, "الرعد": 13, "إبراهيم": 14, "الحجر": 15,
-            "النحل": 16, "الإسراء": 17, "الكهف": 18, "مريم": 19, "طه": 20,
-        }
-        
+        """Convert surah reference (name or number) to surah number."""
         if surah_ref.isdigit():
-            return int(surah_ref)
-        return surah_names.get(surah_ref)
+            num = int(surah_ref)
+            return num if 1 <= num <= 114 else None
+        return SURAH_NAMES.get(surah_ref)
     
     def get_deterministic_evidence(self, question: str) -> Dict[str, Any]:
         """
@@ -188,9 +242,8 @@ class LightweightProofBackend:
         intent = route_result.get("intent", "FREE_TEXT")
         debug.intent = intent
         
-        # Load data
+        # Load evidence index (cached singleton)
         evidence_index = self._load_evidence_index()
-        quran_data = self._load_quran_data()
         
         # Initialize tafsir results
         tafsir_results = {src: [] for src in CORE_TAFSIR_SOURCES}
@@ -199,15 +252,20 @@ class LightweightProofBackend:
         if intent == "SURAH_REF":
             surah_num = self._get_surah_number(route_result.get("surah", ""))
             if surah_num:
-                # Get all verses for this surah
-                surah_data = quran_data.get("surahs", {}).get(str(surah_num), {})
-                verses = surah_data.get("verses", {})
+                # Get all verse_keys for this surah from evidence index
+                surah_prefix = f"{surah_num}:"
+                surah_verse_keys = sorted(
+                    [k for k in evidence_index.keys() if k.startswith(surah_prefix)],
+                    key=lambda k: int(k.split(":")[1])
+                )
                 
-                for ayah_num, verse_text in verses.items():
-                    verse_key = f"{surah_num}:{ayah_num}"
+                for verse_key in surah_verse_keys:
+                    ayah_num = int(verse_key.split(":")[1])
+                    verse_text = self._get_verse_text(verse_key)
+                    
                     quran_verses.append({
                         "surah": surah_num,
-                        "ayah": int(ayah_num),
+                        "ayah": ayah_num,
                         "text": verse_text,
                         "relevance": 1.0,
                     })
@@ -219,8 +277,8 @@ class LightweightProofBackend:
                         if source in tafsir_results:
                             tafsir_results[source].append({
                                 "surah": surah_num,
-                                "ayah": int(ayah_num),
-                                "text": chunk.get("text", ""),
+                                "ayah": ayah_num,
+                                "text": chunk.get("text_clean", chunk.get("text", "")),
                                 "score": chunk.get("score", 1.0),
                                 "chunk_id": chunk.get("chunk_id", ""),
                             })
@@ -229,23 +287,20 @@ class LightweightProofBackend:
                 
         elif intent == "AYAH_REF":
             surah_ref = route_result.get("surah", "")
-            ayah_num = route_result.get("ayah", "")
+            ayah_str = route_result.get("ayah", "")
             surah_num = self._get_surah_number(surah_ref)
             
-            if surah_num and ayah_num:
+            if surah_num and ayah_str:
+                ayah_num = int(ayah_str)
                 verse_key = f"{surah_num}:{ayah_num}"
+                verse_text = self._get_verse_text(verse_key)
                 
-                # Get verse text
-                surah_data = quran_data.get("surahs", {}).get(str(surah_num), {})
-                verse_text = surah_data.get("verses", {}).get(str(ayah_num), "")
-                
-                if verse_text:
-                    quran_verses.append({
-                        "surah": surah_num,
-                        "ayah": int(ayah_num),
-                        "text": verse_text,
-                        "relevance": 1.0,
-                    })
+                quran_verses.append({
+                    "surah": surah_num,
+                    "ayah": ayah_num,
+                    "text": verse_text,
+                    "relevance": 1.0,
+                })
                 
                 # Get tafsir chunks
                 chunks = evidence_index.get(verse_key, [])
@@ -254,8 +309,8 @@ class LightweightProofBackend:
                     if source in tafsir_results:
                         tafsir_results[source].append({
                             "surah": surah_num,
-                            "ayah": int(ayah_num),
-                            "text": chunk.get("text", ""),
+                            "ayah": ayah_num,
+                            "text": chunk.get("text_clean", chunk.get("text", "")),
                             "score": chunk.get("score", 1.0),
                             "chunk_id": chunk.get("chunk_id", ""),
                         })

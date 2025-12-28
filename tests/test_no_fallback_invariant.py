@@ -159,13 +159,15 @@ class TestSevenSourceSubstrate:
             assert tafsir_fallbacks.get(source) == False, \
                 f"Fallback used for {source}: {tafsir_fallbacks.get(source)}"
         
-        # Proof must contain baghawi and muyassar sections
-        assert "baghawi" in proof, "Proof missing baghawi section"
-        assert "muyassar" in proof, "Proof missing muyassar section"
+        # Proof must contain tafsir with baghawi and muyassar sections
+        # Handle both proof_only (nested tafsir) and full response (flat) structures
+        tafsir = proof.get("tafsir", proof)  # Fallback to proof itself for flat structure
+        assert "baghawi" in tafsir or "baghawi" in proof, "Proof missing baghawi section"
+        assert "muyassar" in tafsir or "muyassar" in proof, "Proof missing muyassar section"
         
         # Baghawi and muyassar must have content (not empty)
-        baghawi_content = proof.get("baghawi", [])
-        muyassar_content = proof.get("muyassar", [])
+        baghawi_content = tafsir.get("baghawi", proof.get("baghawi", []))
+        muyassar_content = tafsir.get("muyassar", proof.get("muyassar", []))
         assert len(baghawi_content) > 0 or proof.get("baghawi_total", 0) > 0, \
             "Baghawi section is empty"
         assert len(muyassar_content) > 0 or proof.get("muyassar_total", 0) > 0, \

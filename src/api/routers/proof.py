@@ -348,13 +348,13 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
             
             processing_time = (time.time() - start_time) * 1000
             
-            # Return lightweight result directly
+            # Return lightweight result with consistent API contract
             return {
                 "question": request_body.question,
                 "answer": lightweight_result.get("answer", "[proof_only mode]"),
                 "proof": {
                     "quran": lightweight_result.get("quran", []),
-                    **lightweight_result.get("tafsir", {}),
+                    "tafsir": lightweight_result.get("tafsir", {}),  # Keep tafsir as nested object
                     "intent": lightweight_result.get("debug", {}).get("intent", "FREE_TEXT"),
                     "mode": request_body.mode,
                 },
