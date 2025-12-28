@@ -280,6 +280,28 @@ If you encounter:
 
 Please submit a scholar review through the `/reviews` interface or contact the development team.
 
+## proof_only Mode Limitations (v2.0.1+)
+
+When using `proof_only=true`:
+
+1. **No LLM Answer**: The `answer` field contains a placeholder, not a generated response
+2. **Structured Intents Only**: Works best with SURAH_REF and AYAH_REF queries
+3. **No Semantic Search**: FREE_TEXT queries return empty results (use full mode)
+4. **No Graph Traversal**: Graph evidence is not included
+5. **Quran Text**: May show placeholder text if source file not available
+
+This mode is designed for fast evidence retrieval, not complete proof generation.
+
+## 7-Source Tafsir Guarantee
+
+For structured intents (SURAH_REF, AYAH_REF), the system guarantees retrieval from all 7 tafsir sources:
+- ibn_kathir, tabari, qurtubi, saadi, jalalayn, baghawi, muyassar
+
+This guarantee does NOT apply to:
+- FREE_TEXT queries (semantic search may not find all sources)
+- CONCEPT_REF queries (depends on concept coverage)
+- Verses with genuinely missing tafsir in source texts
+
 ## Version
 
-This document reflects QBM v2.0.0 limitations. Future versions may address some of these issues.
+This document reflects QBM v2.0.1 limitations. Future versions may address some of these issues.

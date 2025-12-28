@@ -58,7 +58,8 @@ Submit a proof query and receive evidence from all layers.
   "include_proof": true,
   "mode": "summary",
   "per_ayah": true,
-  "max_chunks_per_source": 3
+  "max_chunks_per_source": 3,
+  "proof_only": false
 }
 ```
 
@@ -69,6 +70,17 @@ Submit a proof query and receive evidence from all layers.
 | `mode` | string | "full" | "summary" or "full" |
 | `per_ayah` | boolean | false | Group results by ayah |
 | `max_chunks_per_source` | integer | 5 | Limit chunks per tafsir source |
+| `proof_only` | boolean | false | Skip LLM answer generation for fast retrieval (v2.0.1+) |
+
+**Query Intent Detection:**
+
+The system automatically detects query intent:
+- **SURAH_REF**: "سورة الفاتحة", "surah 1" → Full surah tafsir retrieval
+- **AYAH_REF**: "2:255", "البقرة:255" → Single verse tafsir retrieval
+- **CONCEPT_REF**: Behavior/concept queries → Semantic search
+- **FREE_TEXT**: General queries → Hybrid retrieval
+
+For structured intents (SURAH_REF, AYAH_REF), retrieval is deterministic from the 7-source chunked index.
 
 **Response:**
 ```json
@@ -84,11 +96,15 @@ Submit a proof query and receive evidence from all layers.
         "relevance": 0.95
       }
     ],
-    "ibn_kathir": [...],
-    "tabari": [...],
-    "qurtubi": [...],
-    "saadi": [...],
-    "jalalayn": [...],
+    "tafsir": {
+      "ibn_kathir": [...],
+      "tabari": [...],
+      "qurtubi": [...],
+      "saadi": [...],
+      "jalalayn": [...],
+      "baghawi": [...],
+      "muyassar": [...]
+    },
     "graph": {
       "nodes": [...],
       "edges": [...],
@@ -110,14 +126,45 @@ Submit a proof query and receive evidence from all layers.
     "checks": {...}
   },
   "debug": {
-    "query_type": "CONCEPT_REF",
+    "intent": "SURAH_REF",
     "fallback_used": false,
-    "retrieval_mode": "hybrid",
-    "graph_backend": "semantic_v2"
+    "fallback_reasons": [],
+    "retrieval_mode": "deterministic_chunked",
+    "retrieval_distribution": {"ibn_kathir": 7, "tabari": 7, ...},
+    "sources_covered": ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"],
+    "core_sources_count": 7,
+    "component_fallbacks": {
+      "quran": false,
+      "graph": false,
+      "taxonomy": false,
+      "tafsir": {"ibn_kathir": false, "tabari": false, ...}
+    },
+    "fullpower_used": true,
+    "index_source": "disk",
+    "primary_path_latency_ms": 145
   },
   "processing_time_ms": 145
 }
 ```
+
+**proof_only Mode (v2.0.1+):**
+
+When `proof_only=true`, the system uses a lightweight backend that:
+- Does NOT initialize GPU embedding pipeline
+- Does NOT call LLM for answer generation
+- Uses only JSON files for deterministic retrieval
+- Returns `debug.fullpower_used = false`
+- Target latency: <5 seconds for structured intents
+
+This mode is ideal for:
+- Fast Tier-A tests
+- Batch evidence retrieval
+- Clients that generate their own answers
+
+Response differences in `proof_only` mode:
+- `answer` will be `"[proof_only mode - LLM answer skipped]"`
+- `debug.fullpower_used` will be `false`
+- `debug.index_source` will be `"json_chunked"`
 
 ### GET /api/proof/status
 
