@@ -78,6 +78,14 @@ class StatsResponse(BaseModel):
     total_spans: int
     unique_surahs: int
     unique_ayat: int
+    total_ayat: Optional[int] = None
+    coverage_pct: Optional[float] = None
+    dataset_tier: Optional[str] = None
+    dataset_version: Optional[str] = None
+    exported_at: Optional[str] = None
+    tafsir_sources: Optional[List[str]] = None
+    tafsir_sources_count: Optional[int] = None
+    top_surahs: Optional[List[Dict[str, Any]]] = None
     agent_types: Dict[str, int]
     behavior_forms: Dict[str, int]
     evaluations: Dict[str, int]

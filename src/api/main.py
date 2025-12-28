@@ -187,8 +187,8 @@ import os
 if os.getenv("QBM_CHECK_ROUTES", "1") == "1":
     _check_no_duplicate_routes()
 
-# Data paths
-DATA_DIR = Path(__file__).parent.parent.parent / "data"
+# Data paths - use QBM_DATA_DIR env var if set, otherwise module-relative
+DATA_DIR = Path(os.getenv("QBM_DATA_DIR", Path(__file__).parent.parent.parent / "data"))
 EXPORTS_DIR = DATA_DIR / "exports"
 VOCAB_DIR = DATA_DIR / "vocab"
 
@@ -499,13 +499,13 @@ _tafsir_cache = {}
 
 def get_tafsir_sources() -> List[str]:
     """List available tafsir sources from data/tafsir."""
-    # Canonical 5 tafsir sources
-    CANONICAL_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+    # Canonical 7 tafsir sources (updated for Phase 9.10E)
+    CANONICAL_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
     
-    # Check which sources actually exist
+    # Check which sources actually exist - check .ar.jsonl first (most common)
     available = []
     for source in CANONICAL_SOURCES:
-        for ext in [".json", ".jsonl", ".ar.json", ".ar.jsonl"]:
+        for ext in [".ar.jsonl", ".ar.json", ".jsonl", ".json"]:
             if (TAFSIR_DIR / f"{source}{ext}").exists():
                 available.append(source)
                 break
