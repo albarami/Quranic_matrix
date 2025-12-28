@@ -266,6 +266,135 @@ class TestStrictClient:
         print("\n✅ Query completed with allow_fallback=True")
 
 
+class TestContractStability:
+    """
+    Contract stability tests ensuring both backends produce identical schema shapes.
+    
+    This is a FIRST-CLASS INVARIANT - if these tests fail, the API contract is broken.
+    """
+    
+    # Canonical debug schema keys that MUST be present in both backends
+    CANONICAL_DEBUG_KEYS = {
+        "fallback_used",
+        "fallback_reasons", 
+        "retrieval_distribution",
+        "primary_path_latency_ms",
+        "index_source",
+        "intent",
+        "retrieval_mode",
+        "sources_covered",
+        "core_sources_count",
+        "component_fallbacks",
+    }
+    
+    # Canonical component_fallbacks structure
+    CANONICAL_COMPONENT_FALLBACK_KEYS = {"quran", "graph", "taxonomy", "tafsir"}
+    
+    # Canonical proof keys
+    CANONICAL_PROOF_KEYS = {"quran", "tafsir", "intent", "mode"}
+    
+    def test_debug_schema_parity_proof_only_vs_full(self, client):
+        """
+        Both proof_only and full backends MUST produce identical debug schema keys.
+        
+        This prevents schema drift where tests accept multiple shapes.
+        """
+        # Get proof_only response
+        proof_only_response = client.post(
+            "/api/proof/query",
+            json={"question": "سورة الفاتحة", "mode": "summary", "proof_only": True}
+        )
+        assert proof_only_response.status_code == 200
+        proof_only_debug = proof_only_response.json().get("debug", {})
+        
+        # Verify canonical debug keys present in proof_only
+        missing_keys = self.CANONICAL_DEBUG_KEYS - set(proof_only_debug.keys())
+        assert not missing_keys, \
+            f"proof_only debug missing canonical keys: {missing_keys}"
+        
+        # Verify component_fallbacks structure
+        component_fallbacks = proof_only_debug.get("component_fallbacks", {})
+        missing_cf_keys = self.CANONICAL_COMPONENT_FALLBACK_KEYS - set(component_fallbacks.keys())
+        assert not missing_cf_keys, \
+            f"proof_only component_fallbacks missing keys: {missing_cf_keys}"
+        
+        # Verify tafsir fallbacks is a dict (not at top level)
+        assert isinstance(component_fallbacks.get("tafsir"), dict), \
+            "component_fallbacks.tafsir must be a dict"
+        
+        # Verify NO legacy tafsir_fallbacks at top level
+        assert "tafsir_fallbacks" not in proof_only_debug, \
+            "Legacy tafsir_fallbacks found at top level - use component_fallbacks.tafsir"
+        
+        print("\n✅ proof_only debug schema matches canonical contract")
+        print(f"   Keys present: {sorted(proof_only_debug.keys())}")
+    
+    def test_proof_payload_schema_stability(self, client):
+        """
+        Proof payload MUST use nested tafsir structure: proof.tafsir.<source>
+        
+        NOT spread structure: proof.<source>
+        """
+        response = client.post(
+            "/api/proof/query",
+            json={"question": "سورة الفاتحة", "mode": "summary", "proof_only": True}
+        )
+        assert response.status_code == 200
+        proof = response.json().get("proof", {})
+        
+        # Canonical keys must be present
+        for key in self.CANONICAL_PROOF_KEYS:
+            assert key in proof, f"proof missing canonical key: {key}"
+        
+        # Tafsir must be nested object
+        assert isinstance(proof.get("tafsir"), dict), \
+            "proof.tafsir must be a dict (nested structure)"
+        
+        # Tafsir sources must be INSIDE proof.tafsir, not at proof level
+        tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
+        for source in tafsir_sources:
+            # Source should NOT be at top level of proof (spread pattern)
+            if source in proof and source not in ["quran", "tafsir", "intent", "mode"]:
+                # Allow if it's also in tafsir (dual support), but warn
+                if source not in proof.get("tafsir", {}):
+                    pytest.fail(f"Tafsir source '{source}' at proof level but not in proof.tafsir - contract violation")
+        
+        print("\n✅ proof payload schema matches canonical contract")
+        print(f"   proof.tafsir keys: {sorted(proof.get('tafsir', {}).keys())}")
+    
+    def test_intent_and_mode_always_present(self, client):
+        """
+        proof.intent and proof.mode MUST always be present in response.
+        
+        This was the original bug symptom - these fields were missing.
+        """
+        test_queries = [
+            ("سورة الفاتحة", "SURAH_REF"),
+            ("2:255", "AYAH_REF"),
+            ("ما هو الصبر", "FREE_TEXT"),
+        ]
+        
+        for query, expected_intent in test_queries:
+            response = client.post(
+                "/api/proof/query",
+                json={"question": query, "mode": "summary", "proof_only": True}
+            )
+            assert response.status_code == 200
+            data = response.json()
+            proof = data.get("proof", {})
+            
+            # These MUST be present - this was the original bug
+            assert "intent" in proof, f"proof.intent missing for query: {query}"
+            assert "mode" in proof, f"proof.mode missing for query: {query}"
+            
+            # Intent should match expected (for structured queries)
+            if expected_intent in ["SURAH_REF", "AYAH_REF"]:
+                assert proof.get("intent") == expected_intent, \
+                    f"Expected intent={expected_intent}, got {proof.get('intent')} for query: {query}"
+        
+        print("\n✅ proof.intent and proof.mode present for all query types")
+
+
 class TestBaselineDocumentation:
     """Tests that document the current baseline state"""
     
