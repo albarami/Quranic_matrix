@@ -153,7 +153,8 @@ class TestSevenSourceSubstrate:
             f"Expected all 7 sources, got {sources_covered}"
         
         # No tafsir fallbacks for any source
-        tafsir_fallbacks = debug.get("component_fallbacks", {}).get("tafsir", {})
+        # Handle both lightweight backend (tafsir_fallbacks) and full backend (component_fallbacks.tafsir)
+        tafsir_fallbacks = debug.get("tafsir_fallbacks", debug.get("component_fallbacks", {}).get("tafsir", {}))
         for source in expected_sources:
             assert tafsir_fallbacks.get(source) == False, \
                 f"Fallback used for {source}: {tafsir_fallbacks.get(source)}"
@@ -195,10 +196,51 @@ class TestSevenSourceSubstrate:
                 f"AYAH_REF should use deterministic_chunked, got {debug.get('retrieval_mode')}"
             
             # No tafsir fallbacks
-            tafsir_fallbacks = debug.get("component_fallbacks", {}).get("tafsir", {})
+            # Handle both lightweight backend (tafsir_fallbacks) and full backend (component_fallbacks.tafsir)
+            tafsir_fallbacks = debug.get("tafsir_fallbacks", debug.get("component_fallbacks", {}).get("tafsir", {}))
             for source in ["baghawi", "muyassar"]:
                 assert tafsir_fallbacks.get(source) == False, \
                     f"Fallback used for {source} in AYAH_REF"
+    
+    def test_proof_only_does_not_initialize_fullpower(self, client):
+        """
+        Phase 9.10E: proof_only=True must NOT initialize FullPower GPU components.
+        
+        Asserts:
+        - debug.fullpower_used == False
+        - debug.index_source != "runtime_build"
+        - Response time < 5 seconds (no GPU init overhead)
+        """
+        import time
+        start = time.time()
+        
+        response = client.post(
+            "/api/proof/query",
+            json={"question": "سورة الفاتحة", "mode": "summary", "proof_only": True}
+        )
+        
+        elapsed = time.time() - start
+        assert response.status_code == 200
+        data = response.json()
+        
+        debug = data.get("debug", {})
+        
+        # Must NOT use FullPower
+        assert debug.get("fullpower_used") == False, \
+            f"proof_only should not use FullPower, got fullpower_used={debug.get('fullpower_used')}"
+        
+        # Must NOT do runtime index build
+        assert debug.get("index_source") != "runtime_build", \
+            f"proof_only should not build index at runtime, got index_source={debug.get('index_source')}"
+        
+        # Should be fast (< 5 seconds) - no GPU init overhead
+        assert elapsed < 5.0, \
+            f"proof_only should complete in <5s, took {elapsed:.2f}s"
+        
+        print(f"\n✅ proof_only test passed in {elapsed:.2f}s")
+        print(f"   fullpower_used: {debug.get('fullpower_used')}")
+        print(f"   index_source: {debug.get('index_source')}")
+        print(f"   retrieval_mode: {debug.get('retrieval_mode')}")
 
 
 class TestStrictClient:

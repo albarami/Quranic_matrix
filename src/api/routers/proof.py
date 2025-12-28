@@ -340,11 +340,33 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
     start_time = time.time()
     
     try:
+        # Phase 9.10E: Use lightweight backend for proof_only mode (no FullPower init)
+        if request_body.proof_only:
+            from src.ml.proof_only_backend import get_lightweight_backend
+            backend = get_lightweight_backend()
+            lightweight_result = backend.get_deterministic_evidence(request_body.question)
+            
+            processing_time = (time.time() - start_time) * 1000
+            
+            # Return lightweight result directly
+            return {
+                "question": request_body.question,
+                "answer": lightweight_result.get("answer", "[proof_only mode]"),
+                "proof": {
+                    "quran": lightweight_result.get("quran", []),
+                    **lightweight_result.get("tafsir", {}),
+                    "intent": lightweight_result.get("debug", {}).get("intent", "FREE_TEXT"),
+                    "mode": request_body.mode,
+                },
+                "debug": lightweight_result.get("debug", {}),
+                "processing_time_ms": processing_time,
+            }
+        
+        # Full FullPower path for non-proof_only requests
         system = get_full_power_system()
-        # Phase 9.10A: proof_only mode skips LLM answer generation for fast Tier-A tests
         result = system.answer_with_full_proof(
             request_body.question,
-            proof_only=request_body.proof_only
+            proof_only=False  # Always False here since we handled proof_only above
         )
         
         processing_time = (time.time() - start_time) * 1000
