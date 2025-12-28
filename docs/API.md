@@ -147,6 +147,22 @@ For structured intents (SURAH_REF, AYAH_REF), retrieval is deterministic from th
 }
 ```
 
+### API Contract Invariants (v2.0.1+)
+
+The following invariants are **non-negotiable** and enforced by automated tests:
+
+| Invariant | Description | Test Class |
+|-----------|-------------|------------|
+| `proof.intent` always present | Query intent (SURAH_REF, AYAH_REF, CONCEPT_REF, FREE_TEXT) | `TestContractStability` |
+| `proof.mode` always present | Response mode (summary, full) | `TestContractStability` |
+| `proof.tafsir.<source>` nesting | Tafsir evidence is nested, NOT spread at proof level | `TestCanonicalSchemaValidation` |
+| `debug.component_fallbacks.tafsir` | Tafsir fallbacks nested under component_fallbacks | `TestContractStability` |
+| No `debug.tafsir_fallbacks` | Legacy top-level key forbidden | `TestCanonicalSchemaValidation` |
+| 7-source guarantee (structured) | SURAH_REF/AYAH_REF get all 7 tafsir sources | `TestSevenSourceDeterministicSubstrate` |
+| Single route registration | Exactly one handler per canonical route | `TestProofRouterIsCanonical` |
+
+**Canonical Schema:** See `schemas/proof_response_v2.py` for the Pydantic models that define the contract.
+
 **proof_only Mode (v2.0.1+):**
 
 When `proof_only=true`, the system uses a lightweight backend that:

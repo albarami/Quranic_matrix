@@ -266,6 +266,58 @@ class TestStrictClient:
         print("\n✅ Query completed with allow_fallback=True")
 
 
+class TestCanonicalSchemaValidation:
+    """
+    Validate responses against the canonical Pydantic schema.
+    
+    This is the SINGLE SOURCE OF TRUTH test - both backends must produce
+    responses that validate against schemas/proof_response_v2.py
+    """
+    
+    def test_proof_only_validates_against_canonical_schema(self, client):
+        """proof_only response must validate against ProofResponseV2 schema."""
+        from schemas.proof_response_v2 import validate_response_against_contract
+        
+        response = client.post(
+            "/api/proof/query",
+            json={"question": "سورة الفاتحة", "mode": "summary", "proof_only": True}
+        )
+        assert response.status_code == 200
+        data = response.json()
+        
+        is_valid, issues = validate_response_against_contract(data)
+        
+        if not is_valid:
+            print(f"\n❌ Schema validation failed:")
+            for issue in issues:
+                print(f"   - {issue}")
+        
+        assert is_valid, f"proof_only response violates canonical schema: {issues}"
+        print("\n✅ proof_only response validates against canonical schema")
+    
+    def test_structured_intent_validates_against_schema(self, client):
+        """SURAH_REF and AYAH_REF responses must validate against schema."""
+        from schemas.proof_response_v2 import validate_response_against_contract
+        
+        test_cases = [
+            ("سورة الفاتحة", "SURAH_REF"),
+            ("2:255", "AYAH_REF"),
+        ]
+        
+        for query, expected_intent in test_cases:
+            response = client.post(
+                "/api/proof/query",
+                json={"question": query, "mode": "summary", "proof_only": True}
+            )
+            assert response.status_code == 200
+            data = response.json()
+            
+            is_valid, issues = validate_response_against_contract(data)
+            assert is_valid, f"{expected_intent} response violates schema: {issues}"
+        
+        print("\n✅ All structured intent responses validate against canonical schema")
+
+
 class TestContractStability:
     """
     Contract stability tests ensuring both backends produce identical schema shapes.

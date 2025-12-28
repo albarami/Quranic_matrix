@@ -146,6 +146,47 @@ app.include_router(genome_router)  # Phase 7.3 placeholder
 app.include_router(reviews_router)  # Phase 7.4 placeholder
 app.include_router(proof_router)  # Phase 7.2 (canonical /api/proof/*)
 
+# =============================================================================
+# STARTUP CHECK: Prevent duplicate route registrations (Phase 9.10E+)
+# =============================================================================
+# This check runs at import time and fails fast if duplicate routes are detected.
+# Prevents the route shadowing bug where legacy endpoints shadow modular routers.
+
+def _check_no_duplicate_routes():
+    """
+    Fail fast if any canonical route is registered more than once.
+    
+    This prevents the route shadowing bug where multiple handlers compete
+    for the same path, causing silent failures.
+    """
+    from collections import defaultdict
+    
+    # Critical routes that must be unique
+    critical_prefixes = ["/api/proof/"]
+    
+    route_counts = defaultdict(list)
+    for route in app.routes:
+        path = getattr(route, 'path', None)
+        methods = getattr(route, 'methods', set())
+        if path:
+            for prefix in critical_prefixes:
+                if path.startswith(prefix) and '-legacy' not in path:
+                    for method in methods:
+                        route_counts[(method, path)].append(route)
+    
+    duplicates = {k: v for k, v in route_counts.items() if len(v) > 1}
+    if duplicates:
+        dup_info = ", ".join([f"{m} {p} ({len(r)} handlers)" for (m, p), r in duplicates.items()])
+        raise RuntimeError(
+            f"ROUTE SHADOWING DETECTED: Duplicate route registrations found: {dup_info}. "
+            f"This causes silent failures. Move legacy endpoints to -legacy paths."
+        )
+
+# Run check at import time (non-prod only to avoid startup overhead)
+import os
+if os.getenv("QBM_CHECK_ROUTES", "1") == "1":
+    _check_no_duplicate_routes()
+
 # Data paths
 DATA_DIR = Path(__file__).parent.parent.parent / "data"
 EXPORTS_DIR = DATA_DIR / "exports"
