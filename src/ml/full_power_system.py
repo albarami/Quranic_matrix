@@ -200,10 +200,19 @@ class FullPowerQBMSystem:
     - Claude/GPT-5 API for reasoning
     """
     
-    def __init__(self):
+    def __init__(self, use_fixture: bool = False):
+        """
+        Initialize the Full Power QBM System.
+        
+        Args:
+            use_fixture: If True, use minimal fixture data for fast testing.
+                        Skips full index building and uses pre-built fixtures.
+        """
         logger.info("=" * 70)
         logger.info("INITIALIZING FULL POWER QBM SYSTEM")
         logger.info("=" * 70)
+        
+        self.use_fixture = use_fixture
         
         # Get GPU config
         self.gpu_config = get_gpu_config()
@@ -355,8 +364,8 @@ class FullPowerQBMSystem:
         return sura_data.get('name', "")
     
     def _load_tafsir(self):
-        """Load all 5 tafsir sources."""
-        sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+        """Load all 7 tafsir sources."""
+        sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
         
         for source in sources:
             filepath = TAFSIR_DIR / f"{source}.ar.jsonl"
@@ -435,7 +444,7 @@ class FullPowerQBMSystem:
         self.all_metadata = []
         
         # SOURCE-TO-INDEX MAPPING: Track which indices belong to each source
-        self.source_indices = {s: [] for s in ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "quran"]}
+        self.source_indices = {s: [] for s in ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar", "quran"]}
         
         # Add Quran verses FIRST - these are the actual Arabic verses
         quran_count = 0
@@ -567,6 +576,83 @@ class FullPowerQBMSystem:
             "index_path": str(index_path),
         }
 
+    def load_index(self, path: Optional[str] = None, load_to_gpu: bool = True) -> Dict[str, Any]:
+        """
+        Load a prebuilt vector index from disk.
+
+        This avoids the expensive full embedding rebuild in `build_index()` and
+        enables fast startup in API/tests when `data/indexes/full_power_index.npy`
+        already exists.
+        """
+        index_path = Path(path) if path else (INDEX_DIR / "full_power_index.npy")
+        if not index_path.exists():
+            raise FileNotFoundError(f"Index file not found: {index_path}")
+
+        if not self.vector_search:
+            raise RuntimeError("Vector search not initialized; cannot load index.")
+
+        start_time = time.time()
+
+        try:
+            self.vector_search.load_index(str(index_path), load_to_gpu=load_to_gpu)
+        except TypeError:
+            # TorchGPUVectorSearch.load_index(path) has no load_to_gpu argument.
+            self.vector_search.load_index(str(index_path))
+
+        # Keep system metadata in sync with the loaded index.
+        self.all_metadata = list(getattr(self.vector_search, "metadata", []) or [])
+
+        # Rebuild source index mappings/tensors used for source-restricted retrieval.
+        sources = [
+            "ibn_kathir",
+            "tabari",
+            "qurtubi",
+            "saadi",
+            "jalalayn",
+            "quran",
+            "baghawi",
+            "muyassar",
+        ]
+        self.source_indices = {source: [] for source in sources}
+        for idx, meta in enumerate(self.all_metadata):
+            if not isinstance(meta, dict):
+                continue
+            source = meta.get("source")
+            if not source and isinstance(meta.get("metadata"), dict):
+                source = meta["metadata"].get("source")
+            if source in self.source_indices:
+                self.source_indices[source].append(idx)
+
+        self.source_idx_tensors = {}
+        try:
+            import torch
+
+            device = getattr(self.vector_search, "device", None)
+            if device is not None:
+                for source, idx_list in self.source_indices.items():
+                    if idx_list:
+                        self.source_idx_tensors[source] = torch.tensor(
+                            idx_list, dtype=torch.long, device=device
+                        )
+        except Exception as e:
+            logger.warning(f"Failed to build source_idx_tensors after index load: {e}")
+
+        self.index_source = "disk"
+
+        elapsed = time.time() - start_time
+        total_vectors = (
+            int(getattr(self.vector_search.index_vectors, "shape", [0])[0])
+            if getattr(self.vector_search, "index_vectors", None) is not None
+            else len(self.all_metadata)
+        )
+        logger.info(f"Index loaded from disk in {elapsed:.2f}s ({total_vectors} vectors)")
+        return {
+            "total_vectors": total_vectors,
+            "time_seconds": round(elapsed, 2),
+            "index_path": str(index_path),
+            "index_source": self.index_source,
+        }
+
     def _vector_search_subset(
         self,
         query_embedding: np.ndarray,
@@ -646,7 +732,7 @@ class FullPowerQBMSystem:
         if not self.embedder or not self.vector_search:
             return {}
 
-        tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+        tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
 
         query_embedding = self.embedder.embed_texts([query], show_progress=False)
 
@@ -792,7 +878,7 @@ class FullPowerQBMSystem:
         logger.info(f"[DIVERSITY] ensure_source_diversity={ensure_source_diversity}, has_tensors={hasattr(self, 'source_idx_tensors')}, tensors_len={len(getattr(self, 'source_idx_tensors', {}))}")
         if ensure_source_diversity and hasattr(self, "source_idx_tensors") and self.source_idx_tensors:
             # Include quran source for actual verse retrieval
-            all_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "quran"]
+            all_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar", "quran"]
             per_source_hint = 2 if top_k >= len(all_sources) * 2 else 1
             per_source_candidate_k = max(per_source_hint * 10, 25)
             logger.info(f"[DIVERSITY] source_idx_tensors keys: {list(self.source_idx_tensors.keys())}")
@@ -821,7 +907,7 @@ class FullPowerQBMSystem:
 
         # 4. Rerank a bounded pool (but force-in a few per source including quran)
         if self.reranker and candidates:
-            all_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "quran"]
+            all_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar", "quran"]
             rerank_max = min(len(candidates), max(top_k * 15, 250))
 
             pool: List[Dict[str, Any]] = []
@@ -867,7 +953,7 @@ class FullPowerQBMSystem:
         
         # 5. Final selection: keep relevance, but force a small, bounded tafsir diversity
         if ensure_source_diversity:
-            tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+            tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
             per_source_target = 2 if top_k >= len(tafsir_sources) * 2 else 1
 
             selected: List[Dict[str, Any]] = []

@@ -11,7 +11,7 @@ class TestStratifiedRetriever:
     """Test stratified tafsir retrieval"""
     
     def test_retriever_initialization(self):
-        """Retriever should initialize with all 5 sources"""
+        """Retriever should initialize with all 7 sources"""
         from src.ml.stratified_retriever import StratifiedTafsirRetriever, TAFSIR_SOURCES
         
         retriever = StratifiedTafsirRetriever(fail_fast=False)
@@ -21,7 +21,7 @@ class TestStratifiedRetriever:
         assert len(retriever.source_indexes) == len(TAFSIR_SOURCES)
     
     def test_all_sources_have_data(self):
-        """All 5 tafsir sources should have documents"""
+        """All 7 tafsir sources should have documents"""
         from src.ml.stratified_retriever import StratifiedTafsirRetriever, TAFSIR_SOURCES
         
         retriever = StratifiedTafsirRetriever(fail_fast=False)
@@ -32,7 +32,7 @@ class TestStratifiedRetriever:
             assert len(retriever.source_indexes[source]) > 0, f"{source} has no documents"
     
     def test_search_returns_all_sources(self):
-        """Search should return results from all 5 sources"""
+        """Search should return results from all 7 sources"""
         from src.ml.stratified_retriever import StratifiedTafsirRetriever, TAFSIR_SOURCES
         
         retriever = StratifiedTafsirRetriever(fail_fast=False)
@@ -126,7 +126,7 @@ class TestIndexPersistence:
         
         # Should load successfully if indexes exist
         if loaded:
-            assert len(retriever.source_indexes) == 5
+            assert len(retriever.source_indexes) == 7
 
 
 class TestFailFastBehavior:

@@ -289,6 +289,14 @@ def standard_queries():
     return STANDARD_QUERIES
 
 
+@pytest.fixture(scope="session")
+def client():
+    """FastAPI TestClient for API endpoint testing."""
+    from fastapi.testclient import TestClient
+    from src.api.main import app
+    return TestClient(app)
+
+
 # =============================================================================
 # BASELINE REPORT GENERATION
 # =============================================================================

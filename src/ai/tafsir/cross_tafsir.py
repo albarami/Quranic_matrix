@@ -42,6 +42,7 @@ class CrossTafsirAnalyzer:
         self,
         cache_dir: str = "data/tafsir_cache",
         api_base: Optional[str] = None,
+        data_dir: Optional[str] = None,  # Alias for cache_dir (backward compatibility)
     ):
         """
         Initialize the cross-tafsir analyzer.
@@ -49,8 +50,11 @@ class CrossTafsirAnalyzer:
         Args:
             cache_dir: Directory for caching tafsir data.
             api_base: Base URL for Quran API.
+            data_dir: Alias for cache_dir (backward compatibility).
         """
-        self.cache_dir = Path(cache_dir)
+        # Use data_dir if provided, otherwise use cache_dir
+        effective_dir = data_dir if data_dir is not None else cache_dir
+        self.cache_dir = Path(effective_dir)
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self.api_base = api_base or os.getenv("QURAN_API_BASE", "https://api.quran.com/api/v4")
 

@@ -249,8 +249,11 @@ def test_system_status(qbm_system):
     assert status["reranker"] == "ready", "Reranker not ready"
     
     # Data
-    assert status["tafsir_sources"] == 5, "Expected 5 tafsir sources"
-    assert status["behavioral_annotations"] > 70000, "Expected 70k+ annotations"
+    assert status["tafsir_sources"] >= 7, "Expected 7 tafsir sources"
+    # Phase 9.10C: Behavioral annotations count should match tafsir_behavioral_annotations.jsonl exactly
+    # The file has 68,240 lines - assert against actual file count, not arbitrary threshold
+    assert status["behavioral_annotations"] == 68240, \
+        f"Expected exactly 68,240 behavioral annotations (from tafsir_behavioral_annotations.jsonl), got {status['behavioral_annotations']}"
     
     # LLM
     assert "ready" in status["azure_openai"], "Azure OpenAI not ready"

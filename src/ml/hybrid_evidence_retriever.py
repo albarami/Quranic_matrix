@@ -26,8 +26,8 @@ import numpy as np
 # Paths
 CHUNKED_INDEX_FILE = Path("data/evidence/evidence_index_v2_chunked.jsonl")
 
-# Core sources
-CORE_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+# Core sources (all 7 tafsir sources)
+CORE_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
 
 logger = logging.getLogger(__name__)
 

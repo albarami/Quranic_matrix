@@ -27,6 +27,8 @@ class ProofQueryRequest(BaseModel):
     page_size: int = 20
     per_ayah: bool = True  # For SURAH_REF: return per-ayah breakdown
     max_chunks_per_source: int = 1  # In summary mode, limit chunks per tafsir source
+    # Phase 9.10A: Proof-only mode for fast Tier-A tests (skips LLM/GPU index builds)
+    proof_only: bool = False  # If True, skip LLM answer generation and GPU-heavy operations
     
     @field_validator('question')
     @classmethod
@@ -93,7 +95,10 @@ def get_full_power_system():
         from src.ml.full_power_system import FullPowerQBMSystem
         from src.ml.mandatory_proof_system import integrate_with_system
         _full_power_system = FullPowerQBMSystem()
-        _full_power_system.build_index()
+        if index_path.exists():
+            _full_power_system.load_index(str(index_path))
+        else:
+            _full_power_system.build_index()
         _full_power_system.build_graph()
         _full_power_system = integrate_with_system(_full_power_system)
     return _full_power_system
@@ -321,6 +326,8 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
     Run a query through the Full Power QBM System.
     Returns answer with mandatory 13-component proof structure.
     
+    BLOCKER 2A: This endpoint now injects intent/mode into proof payload.
+    
     Phase 7.2: Supports pagination and summary modes:
     - mode=summary (default): Returns per-ayah × per-source (1 chunk each)
     - mode=full: Returns all deterministic chunks, paginated
@@ -334,7 +341,11 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
     
     try:
         system = get_full_power_system()
-        result = system.answer_with_full_proof(request_body.question)
+        # Phase 9.10A: proof_only mode skips LLM answer generation for fast Tier-A tests
+        result = system.answer_with_full_proof(
+            request_body.question,
+            proof_only=request_body.proof_only
+        )
         
         processing_time = (time.time() - start_time) * 1000
         
@@ -452,6 +463,14 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
             }
         })
         
+        # BLOCKER 2A: Ensure intent/mode exist in proof payload (API contract requirement)
+        # Do not override branch-specific modes like "surah_summary"/"concept_summary".
+        proof_output.setdefault("intent", intent)
+        proof_output.setdefault("mode", request_body.mode)
+        
+        import logging
+        logging.info(f"[PROOF ROUTER] FINAL proof_output keys: {list(proof_output.keys())}, intent={proof_output.get('intent')}, mode={proof_output.get('mode')}")
+        
         return {
             "question": request_body.question,
             "answer": result.get("answer", ""),
@@ -497,8 +516,26 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
 
 @router.get("/status")
 async def proof_system_status():
-    """Check if Full Power System is initialized and ready"""
+    """
+    Check if Full Power System is initialized and ready.
+    
+    Phase 9.10C: Reports annotation counts by type from actual JSONL files.
+    """
+    from pathlib import Path
+    
     global _full_power_system
+    
+    # Phase 9.10C: Count annotations from actual files
+    annotations_dir = Path("data/annotations")
+    
+    def count_lines(filepath: Path) -> int:
+        if filepath.exists():
+            return sum(1 for _ in open(filepath, encoding="utf-8"))
+        return 0
+    
+    all_annotations_count = count_lines(annotations_dir / "tafsir_annotations.jsonl")
+    behavior_annotations_count = count_lines(annotations_dir / "tafsir_behavioral_annotations.jsonl")
+    
     return {
         "initialized": _full_power_system is not None,
         "ready": _full_power_system is not None,
@@ -506,7 +543,15 @@ async def proof_system_status():
             "gpu_count": 8,
             "vector_index": "107,646 vectors",
             "graph": "736,302 behavioral relations",
-            "tafsir_sources": 5,
-            "behaviors": 46
+            "tafsir_sources": 7,  # Phase 9.9B: Now 7 sources
+            "behaviors": 73  # Canonical count
+        },
+        "annotations": {
+            "all_annotations_count": all_annotations_count,
+            "behavior_annotations_count": behavior_annotations_count,
+            "source_files": {
+                "all": "data/annotations/tafsir_annotations.jsonl",
+                "behavioral": "data/annotations/tafsir_behavioral_annotations.jsonl"
+            }
         }
     }

@@ -41,6 +41,9 @@ class ProofDebug(BaseModel):
     primary_path_latency_ms: int = 0
     index_source: Literal["disk", "runtime_build"] = "disk"
     
+    # Phase 7.2: Query intent tracking
+    intent: str = "FREE_TEXT"  # SURAH_REF, AYAH_REF, CONCEPT_REF, FREE_TEXT
+    
     # Phase 5: Retrieval mode tracking
     retrieval_mode: Literal["hybrid", "stratified", "rag_only"] = "rag_only"
     sources_covered: List[str] = Field(default_factory=list)
@@ -67,6 +70,7 @@ class ProofDebug(BaseModel):
             "retrieval_distribution": self.retrieval_distribution,
             "primary_path_latency_ms": self.primary_path_latency_ms,
             "index_source": self.index_source,
+            "intent": self.intent,
             "retrieval_mode": self.retrieval_mode,
             "sources_covered": self.sources_covered,
             "core_sources_count": self.core_sources_count,
@@ -352,13 +356,15 @@ class ReasoningChain:
 
 @dataclass
 class CompleteProof:
-    """Complete proof from all 13 components"""
+    """Complete proof from all 15 components (7 tafsir sources + 8 other components)"""
     quran: QuranEvidence = field(default_factory=QuranEvidence)
     ibn_kathir: TafsirEvidence = field(default_factory=lambda: TafsirEvidence(source="ibn_kathir"))
     tabari: TafsirEvidence = field(default_factory=lambda: TafsirEvidence(source="tabari"))
     qurtubi: TafsirEvidence = field(default_factory=lambda: TafsirEvidence(source="qurtubi"))
     saadi: TafsirEvidence = field(default_factory=lambda: TafsirEvidence(source="saadi"))
     jalalayn: TafsirEvidence = field(default_factory=lambda: TafsirEvidence(source="jalalayn"))
+    baghawi: TafsirEvidence = field(default_factory=lambda: TafsirEvidence(source="baghawi"))
+    muyassar: TafsirEvidence = field(default_factory=lambda: TafsirEvidence(source="muyassar"))
     cross_tafsir: CrossTafsirAnalysis = field(default_factory=CrossTafsirAnalysis)
     graph: GraphEvidence = field(default_factory=GraphEvidence)
     embeddings: EmbeddingEvidence = field(default_factory=EmbeddingEvidence)
@@ -376,6 +382,8 @@ class CompleteProof:
             "## 4️⃣ تفسير القرطبي\n" + self.qurtubi.to_proof(),
             "## 5️⃣ تفسير السعدي\n" + self.saadi.to_proof(),
             "## 6️⃣ تفسير الجلالين\n" + self.jalalayn.to_proof(),
+            "## 7️⃣ تفسير البغوي\n" + self.baghawi.to_proof(),
+            "## 8️⃣ التفسير الميسر\n" + self.muyassar.to_proof(),
             self.cross_tafsir.to_proof(),
             self.graph.to_proof(),
             self.embeddings.to_proof(),
@@ -395,6 +403,8 @@ class CompleteProof:
             "qurtubi": len(self.qurtubi.quotes) > 0,
             "saadi": len(self.saadi.quotes) > 0,
             "jalalayn": len(self.jalalayn.quotes) > 0,
+            "baghawi": len(self.baghawi.quotes) > 0,
+            "muyassar": len(self.muyassar.quotes) > 0,
             "graph_nodes": len(self.graph.nodes) > 0,
             "graph_edges": len(self.graph.edges) > 0,
             "graph_paths": len(self.graph.paths) > 0,
@@ -524,8 +534,8 @@ class MandatoryProofSystem:
     
     def __init__(self, full_power_system):
         self.system = full_power_system
-        self.tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "muyassar", "baghawi"]
-        self.core_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+        self.tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
+        self.core_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
         
         # Phase 10.2: Load concept index for deterministic Quran evidence
         self.concept_index = self._load_concept_index()
@@ -686,8 +696,15 @@ class MandatoryProofSystem:
         # FREE_TEXT returns empty - caller should use RAG
         return quran_results
     
-    def answer_with_full_proof(self, question: str) -> Dict[str, Any]:
-        """Answer with mandatory proof from all 13 components"""
+    def answer_with_full_proof(self, question: str, proof_only: bool = False) -> Dict[str, Any]:
+        """
+        Answer with mandatory proof from all 15 components (7 tafsir + 8 other).
+        
+        Args:
+            question: The query to answer
+            proof_only: If True, skip LLM answer generation and GPU-heavy operations.
+                       Used for fast Tier-A tests that only need to verify proof structure.
+        """
         start_time = time.time()
         
         # Phase 0: Initialize debug tracking
@@ -699,6 +716,7 @@ class MandatoryProofSystem:
         # Phase 10.2: Route query to determine intent (CONCEPT_REF, SURAH_REF, AYAH_REF, FREE_TEXT)
         route_result = self._route_query(question)
         intent = route_result.get("intent", "FREE_TEXT")
+        debug.intent = intent  # Phase 7.2: Track intent in debug
         logging.info(f"[PROOF] Query intent: {intent}, route_result: {route_result}")
         
         # Phase 10.2: Get deterministic Quran evidence for structured queries
@@ -854,8 +872,10 @@ class MandatoryProofSystem:
             total_used=min(20, len(quran_results)),
         )
         
-        # 4. Build Tafsir Evidence for all 5 sources
-        # Phase 5.5: Use HybridEvidenceRetriever as PRIMARY tafsir retrieval
+        # 4. Build Tafsir Evidence for all 7 sources
+        # Phase 9.9B: Use HybridEvidenceRetriever as PRIMARY tafsir retrieval for structured intents
+        # For SURAH_REF/AYAH_REF/CONCEPT_REF: deterministic 7-source retrieval (no stratified fallback)
+        # For FREE_TEXT: hybrid retrieval with best-effort coverage
         MIN_PER_SOURCE = 10
         
         if self.hybrid_retriever:
@@ -880,7 +900,12 @@ class MandatoryProofSystem:
             
             debug.sources_covered = list(sources_found & set(self.core_sources))
             debug.core_sources_count = len(debug.sources_covered)
-            logging.info(f"[TAFSIR] Hybrid retriever: {len(hybrid_response.results)} results, {debug.core_sources_count}/5 core sources")
+            
+            # Phase 9.9B: For structured intents, set retrieval_mode to deterministic_chunked
+            if intent in ("SURAH_REF", "AYAH_REF", "CONCEPT_REF"):
+                debug.retrieval_mode = "deterministic_chunked"
+            
+            logging.info(f"[TAFSIR] Hybrid retriever: {len(hybrid_response.results)} results, {debug.core_sources_count}/7 core sources")
         else:
             # FALLBACK: Use stratified retriever if hybrid not available
             debug.retrieval_mode = "stratified"
@@ -918,6 +943,8 @@ class MandatoryProofSystem:
         qurtubi = TafsirEvidence(source="qurtubi", quotes=tafsir_results["qurtubi"][:15])
         saadi = TafsirEvidence(source="saadi", quotes=tafsir_results["saadi"][:15])
         jalalayn = TafsirEvidence(source="jalalayn", quotes=tafsir_results["jalalayn"][:15])
+        baghawi = TafsirEvidence(source="baghawi", quotes=tafsir_results["baghawi"][:15])
+        muyassar = TafsirEvidence(source="muyassar", quotes=tafsir_results["muyassar"][:15])
         
         # 5. Cross-tafsir analysis
         cross_tafsir = CrossTafsirAnalysis(
@@ -1129,12 +1156,12 @@ class MandatoryProofSystem:
         reasoning = ReasoningChain(steps=[
             {"step_num": 1, "description": "فهم السؤال", "action": "تحليل السؤال واستخراج المفاهيم", "output": f"المفاهيم: {question[:30]}..."},
             {"step_num": 2, "description": "استرجاع RAG", "action": f"البحث في {len(self.system.all_texts)} نص", "output": f"استرجاع {len(rag_results)} نتيجة"},
-            {"step_num": 3, "description": "جمع التفاسير", "action": "البحث في 5 مصادر", "output": "تم جمع التفاسير"},
+            {"step_num": 3, "description": "جمع التفاسير", "action": "البحث في 7 مصادر", "output": "تم جمع التفاسير"},
             {"step_num": 4, "description": "تحليل الشبكة", "action": "استكشاف العقد والروابط", "output": f"{len(graph_nodes)} عقدة"},
             {"step_num": 5, "description": "التركيب النهائي", "action": "دمج الأدلة", "output": "الإجابة جاهزة"},
         ])
         
-        # 12. Build Complete Proof
+        # 12. Build Complete Proof (7 tafsir sources + 8 other components)
         proof = CompleteProof(
             quran=quran_evidence,
             ibn_kathir=ibn_kathir,
@@ -1142,6 +1169,8 @@ class MandatoryProofSystem:
             qurtubi=qurtubi,
             saadi=saadi,
             jalalayn=jalalayn,
+            baghawi=baghawi,
+            muyassar=muyassar,
             cross_tafsir=cross_tafsir,
             graph=graph_evidence,
             embeddings=embedding_evidence,
@@ -1151,14 +1180,18 @@ class MandatoryProofSystem:
             reasoning=reasoning,
         )
         
-        # 13. Generate Answer with LLM
-        context = proof.to_markdown()
-        
-        # Call LLM with proof context
-        answer = self.system._call_llm(
-            f"{question}\n\nاستخدم كل الأدلة التالية في إجابتك:\n{context[:8000]}",
-            ""  # Context already in question
-        )
+        # 13. Generate Answer with LLM (skip if proof_only mode)
+        if proof_only:
+            # Phase 9.10A: Skip LLM for fast Tier-A tests
+            answer = "[proof_only mode - LLM answer skipped]"
+            logging.info("[PROOF] proof_only=True, skipping LLM answer generation")
+        else:
+            context = proof.to_markdown()
+            # Call LLM with proof context
+            answer = self.system._call_llm(
+                f"{question}\n\nاستخدم كل الأدلة التالية في إجابتك:\n{context[:8000]}",
+                ""  # Context already in question
+            )
         
         elapsed = time.time() - start_time
         

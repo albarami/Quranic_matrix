@@ -216,3 +216,39 @@ class TestDeprecatedStoresNotInProdPath:
         for pattern in self.DEPRECATED_PATTERNS:
             assert pattern not in source_code, \
                 f"Proof router references deprecated store: {pattern}"
+
+
+class TestProofRouterIsCanonical:
+    """Ensure /api/proof/query is served by the canonical router, not legacy inline handlers."""
+    
+    def test_proof_query_served_by_modular_router(self):
+        """
+        /api/proof/query must be served by src/api/routers/proof.py, not main.py.
+        This prevents the routing conflict bug where legacy inline endpoints shadow modular routers.
+        """
+        import inspect
+        from src.api.main import app
+        
+        # Find all routes matching /api/proof/query
+        hits = [r for r in app.routes if getattr(r, 'path', None) == '/api/proof/query']
+        
+        assert len(hits) == 1, f"Expected exactly 1 route for /api/proof/query, found {len(hits)}"
+        
+        endpoint_file = inspect.getsourcefile(hits[0].endpoint)
+        assert 'routers/proof.py' in endpoint_file or 'routers\\proof.py' in endpoint_file, \
+            f"/api/proof/query must be served by routers/proof.py, not {endpoint_file}"
+    
+    def test_legacy_endpoints_not_shadowing(self):
+        """Legacy endpoints should be at different paths (e.g., /api/proof/query-legacy)."""
+        from src.api.main import app
+        
+        # Check that legacy path exists but doesn't conflict
+        legacy_hits = [r for r in app.routes if getattr(r, 'path', None) == '/api/proof/query-legacy']
+        canonical_hits = [r for r in app.routes if getattr(r, 'path', None) == '/api/proof/query']
+        
+        # Canonical must exist
+        assert len(canonical_hits) == 1, "Canonical /api/proof/query route missing"
+        
+        # If legacy exists, it must be at a different path
+        if legacy_hits:
+            assert len(legacy_hits) == 1, "Multiple legacy routes found"

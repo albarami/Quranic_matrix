@@ -139,10 +139,12 @@ app.include_router(discovery_router)
 from .routers.health import router as health_router
 from .routers.genome import router as genome_router
 from .routers.reviews import router as reviews_router
+from .routers.proof import router as proof_router
 
 app.include_router(health_router, tags=["Health"])
 app.include_router(genome_router)  # Phase 7.3 placeholder
 app.include_router(reviews_router)  # Phase 7.4 placeholder
+app.include_router(proof_router)  # Phase 7.2 (canonical /api/proof/*)
 
 # Data paths
 DATA_DIR = Path(__file__).parent.parent.parent / "data"
@@ -2105,15 +2107,18 @@ def get_full_power_system():
         from src.ml.full_power_system import FullPowerQBMSystem
         from src.ml.mandatory_proof_system import integrate_with_system
         _full_power_system = FullPowerQBMSystem()
-        _full_power_system.build_index()
+        if index_path.exists():
+            _full_power_system.load_index(str(index_path))
+        else:
+            _full_power_system.build_index()
         _full_power_system.build_graph()
         _full_power_system = integrate_with_system(_full_power_system)
     return _full_power_system
 
 
-@app.post("/api/proof/query")
+@app.post("/api/proof/query-legacy")
 @limiter.limit("30/minute")
-async def proof_query(request: Request, request_body: ProofQueryRequest):
+async def proof_query_legacy(request: Request, request_body: ProofQueryRequest):
     """
     Run a query through the Full Power QBM System.
     Returns answer with mandatory 13-component proof structure.
@@ -2284,8 +2289,8 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
         )
 
 
-@app.get("/api/proof/status")
-async def proof_system_status():
+@app.get("/api/proof/status-legacy")
+async def proof_system_status_legacy():
     """Check if Full Power System is initialized and ready"""
     global _full_power_system
     return {

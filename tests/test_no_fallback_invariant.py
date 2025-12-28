@@ -46,7 +46,7 @@ class TestNoFallbackInvariant:
                 )
     
     def test_source_distribution_invariant(self, qbm_system):
-        """All 5 tafsir sources must have >= min_per_source results"""
+        """All 7 tafsir sources must have >= min_per_source results"""
         response = qbm_system.answer_with_full_proof("ما هو الكبر؟")
         
         debug = response.get("debug", {})
@@ -54,7 +54,7 @@ class TestNoFallbackInvariant:
         
         print(f"\nRetrieval distribution: {dist}")
         
-        required_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+        required_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
         min_per_source = 5
         
         missing = []
@@ -99,7 +99,7 @@ class TestNoFallbackInvariant:
         assert "tafsir" in components, "Missing tafsir fallback tracking"
         
         tafsir = components.get("tafsir", {})
-        for source in ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]:
+        for source in ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]:
             assert source in tafsir, f"Missing {source} fallback tracking"
         
         print("\n✅ Component fallback tracking verified")
@@ -107,6 +107,98 @@ class TestNoFallbackInvariant:
         print(f"  graph_fallback: {components.get('graph')}")
         print(f"  taxonomy_fallback: {components.get('taxonomy')}")
         print(f"  tafsir_fallbacks: {tafsir}")
+
+
+class TestSevenSourceSubstrate:
+    """
+    Phase 9.9D: Truth assertion tests for 7-source substrate.
+    These tests prove the real 7-source retrieval is used for structured intents.
+    """
+    
+    def test_surah_ref_uses_deterministic_chunked_7_sources(self, client):
+        """
+        For SURAH_REF الفاتحة, assert:
+        - debug.intent == "SURAH_REF"
+        - debug.retrieval_mode == "deterministic_chunked"
+        - debug.component_fallbacks.tafsir.baghawi == False
+        - debug.component_fallbacks.tafsir.muyassar == False
+        - proof contains baghawi and muyassar sections populated
+        """
+        response = client.post(
+            "/api/proof/query",
+            json={"question": "سورة الفاتحة", "mode": "summary", "per_ayah": True, "proof_only": True}
+        )
+        assert response.status_code == 200
+        data = response.json()
+        
+        debug = data.get("debug", {})
+        proof = data.get("proof", {})
+        
+        # Intent must be SURAH_REF
+        assert debug.get("intent") == "SURAH_REF", \
+            f"Expected intent=SURAH_REF, got {debug.get('intent')}"
+        
+        # Retrieval mode must be deterministic_chunked for structured intents
+        assert debug.get("retrieval_mode") == "deterministic_chunked", \
+            f"Expected retrieval_mode=deterministic_chunked, got {debug.get('retrieval_mode')}"
+        
+        # Core sources count must be 7
+        assert debug.get("core_sources_count") == 7, \
+            f"Expected core_sources_count=7, got {debug.get('core_sources_count')}"
+        
+        # All 7 sources must be covered
+        sources_covered = set(debug.get("sources_covered", []))
+        expected_sources = {"ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"}
+        assert sources_covered == expected_sources, \
+            f"Expected all 7 sources, got {sources_covered}"
+        
+        # No tafsir fallbacks for any source
+        tafsir_fallbacks = debug.get("component_fallbacks", {}).get("tafsir", {})
+        for source in expected_sources:
+            assert tafsir_fallbacks.get(source) == False, \
+                f"Fallback used for {source}: {tafsir_fallbacks.get(source)}"
+        
+        # Proof must contain baghawi and muyassar sections
+        assert "baghawi" in proof, "Proof missing baghawi section"
+        assert "muyassar" in proof, "Proof missing muyassar section"
+        
+        # Baghawi and muyassar must have content (not empty)
+        baghawi_content = proof.get("baghawi", [])
+        muyassar_content = proof.get("muyassar", [])
+        assert len(baghawi_content) > 0 or proof.get("baghawi_total", 0) > 0, \
+            "Baghawi section is empty"
+        assert len(muyassar_content) > 0 or proof.get("muyassar_total", 0) > 0, \
+            "Muyassar section is empty"
+        
+        print("\n✅ 7-source substrate verified for SURAH_REF")
+        print(f"  intent: {debug.get('intent')}")
+        print(f"  retrieval_mode: {debug.get('retrieval_mode')}")
+        print(f"  core_sources_count: {debug.get('core_sources_count')}")
+        print(f"  sources_covered: {sources_covered}")
+        print(f"  baghawi_count: {len(baghawi_content)}")
+        print(f"  muyassar_count: {len(muyassar_content)}")
+    
+    def test_ayah_ref_uses_deterministic_7_sources(self, client):
+        """AYAH_REF must also use deterministic 7-source retrieval."""
+        response = client.post(
+            "/api/proof/query",
+            json={"question": "2:255", "mode": "summary", "proof_only": True}
+        )
+        assert response.status_code == 200
+        data = response.json()
+        
+        debug = data.get("debug", {})
+        
+        # For AYAH_REF, should use deterministic_chunked
+        if debug.get("intent") == "AYAH_REF":
+            assert debug.get("retrieval_mode") == "deterministic_chunked", \
+                f"AYAH_REF should use deterministic_chunked, got {debug.get('retrieval_mode')}"
+            
+            # No tafsir fallbacks
+            tafsir_fallbacks = debug.get("component_fallbacks", {}).get("tafsir", {})
+            for source in ["baghawi", "muyassar"]:
+                assert tafsir_fallbacks.get(source) == False, \
+                    f"Fallback used for {source} in AYAH_REF"
 
 
 class TestStrictClient:

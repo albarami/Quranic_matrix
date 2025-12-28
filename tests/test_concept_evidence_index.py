@@ -96,7 +96,8 @@ class TestConceptIndexContent:
     
     def test_entity_types_are_valid(self, concept_index):
         """All entries must have valid entity_type."""
-        valid_types = {"BEHAVIOR", "AGENT", "ORGAN", "STATE", "AXIS_VALUE"}
+        # Updated to include HEART_STATE and CONSEQUENCE per canonical_entities.json
+        valid_types = {"BEHAVIOR", "AGENT", "ORGAN", "STATE", "HEART_STATE", "CONSEQUENCE", "AXIS_VALUE"}
         
         for concept_id, entry in concept_index.items():
             assert entry.get('entity_type') in valid_types, \

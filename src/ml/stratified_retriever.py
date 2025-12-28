@@ -36,7 +36,7 @@ TAFSIR_DIR = DATA_DIR / "tafsir"
 TAFSIR_DB = TAFSIR_DIR / "tafsir_cleaned.db"
 TAFSIR_DB_ORIGINAL = TAFSIR_DIR / "tafsir.db"
 
-TAFSIR_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+TAFSIR_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
 
 # Common Arabic stopwords to drop from BM25 queries (Phase 4: BM25-only)
 # Keep this small and conservative to avoid removing meaningful terms.
