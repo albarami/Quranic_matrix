@@ -252,3 +252,38 @@ class TestProofRouterIsCanonical:
         # If legacy exists, it must be at a different path
         if legacy_hits:
             assert len(legacy_hits) == 1, "Multiple legacy routes found"
+    
+    def test_no_duplicate_route_registrations(self):
+        """
+        Ensure each canonical proof route is registered exactly once.
+        This prevents route shadowing bugs where multiple handlers compete.
+        """
+        from src.api.main import app
+        
+        # Critical proof routes that must be unique
+        critical_routes = [
+            "/api/proof/query",
+            "/api/proof/status",
+        ]
+        
+        for route_path in critical_routes:
+            hits = [r for r in app.routes if getattr(r, 'path', None) == route_path]
+            assert len(hits) == 1, \
+                f"Route {route_path} registered {len(hits)} times (expected exactly 1). " \
+                f"This causes route shadowing bugs."
+    
+    def test_proof_routes_served_by_canonical_module(self):
+        """All /api/proof/* routes must be served by routers/proof.py."""
+        import inspect
+        from src.api.main import app
+        
+        proof_routes = [r for r in app.routes if getattr(r, 'path', '').startswith('/api/proof/')]
+        
+        for route in proof_routes:
+            # Skip legacy routes (they're allowed to be elsewhere)
+            if '-legacy' in route.path:
+                continue
+            
+            endpoint_file = inspect.getsourcefile(route.endpoint)
+            assert 'routers/proof.py' in endpoint_file or 'routers\\proof.py' in endpoint_file, \
+                f"Route {route.path} must be in routers/proof.py, found in {endpoint_file}"

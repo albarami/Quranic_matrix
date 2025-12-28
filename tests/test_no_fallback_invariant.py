@@ -152,9 +152,8 @@ class TestSevenSourceSubstrate:
         assert sources_covered == expected_sources, \
             f"Expected all 7 sources, got {sources_covered}"
         
-        # No tafsir fallbacks for any source
-        # Handle both lightweight backend (tafsir_fallbacks) and full backend (component_fallbacks.tafsir)
-        tafsir_fallbacks = debug.get("tafsir_fallbacks", debug.get("component_fallbacks", {}).get("tafsir", {}))
+        # No tafsir fallbacks for any source (canonical path: component_fallbacks.tafsir)
+        tafsir_fallbacks = debug.get("component_fallbacks", {}).get("tafsir", {})
         for source in expected_sources:
             assert tafsir_fallbacks.get(source) == False, \
                 f"Fallback used for {source}: {tafsir_fallbacks.get(source)}"
@@ -197,9 +196,8 @@ class TestSevenSourceSubstrate:
             assert debug.get("retrieval_mode") == "deterministic_chunked", \
                 f"AYAH_REF should use deterministic_chunked, got {debug.get('retrieval_mode')}"
             
-            # No tafsir fallbacks
-            # Handle both lightweight backend (tafsir_fallbacks) and full backend (component_fallbacks.tafsir)
-            tafsir_fallbacks = debug.get("tafsir_fallbacks", debug.get("component_fallbacks", {}).get("tafsir", {}))
+            # No tafsir fallbacks (canonical path: component_fallbacks.tafsir)
+            tafsir_fallbacks = debug.get("component_fallbacks", {}).get("tafsir", {})
             for source in ["baghawi", "muyassar"]:
                 assert tafsir_fallbacks.get(source) == False, \
                     f"Fallback used for {source} in AYAH_REF"

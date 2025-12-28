@@ -37,26 +37,55 @@ CORE_TAFSIR_SOURCES = [
 
 @dataclass
 class LightweightProofDebug:
-    """Debug info for lightweight proof-only backend."""
-    intent: str = "FREE_TEXT"
-    retrieval_mode: str = "lightweight_chunked"
-    fullpower_used: bool = False  # Always False for this backend
-    index_source: str = "json_chunked"
-    core_sources_count: int = 7
-    sources_covered: List[str] = field(default_factory=list)
-    tafsir_fallbacks: Dict[str, bool] = field(default_factory=dict)
+    """
+    Debug info for lightweight proof-only backend.
+    
+    IMPORTANT: This schema MUST match ProofDebug.to_dict() from mandatory_proof_system.py
+    to ensure API contract parity between full and lightweight backends.
+    """
+    # Core fields (match ProofDebug)
+    fallback_used: bool = False
+    fallback_reasons: List[str] = field(default_factory=list)
+    retrieval_distribution: Dict[str, int] = field(default_factory=dict)
     primary_path_latency_ms: int = 0
+    index_source: str = "json_chunked"  # "disk" | "runtime_build" | "json_chunked"
+    intent: str = "FREE_TEXT"
+    retrieval_mode: str = "deterministic_chunked"  # "hybrid" | "stratified" | "rag_only" | "deterministic_chunked"
+    sources_covered: List[str] = field(default_factory=list)
+    core_sources_count: int = 7
+    
+    # Component fallbacks (match ProofDebug.component_fallbacks structure)
+    quran_fallback: bool = False
+    graph_fallback: bool = False
+    taxonomy_fallback: bool = False
+    tafsir_fallbacks: Dict[str, bool] = field(default_factory=dict)
+    
+    # Lightweight-specific fields
+    fullpower_used: bool = False  # Always False for this backend
     
     def to_dict(self) -> Dict[str, Any]:
+        """
+        Convert to dictionary matching ProofDebug.to_dict() schema exactly.
+        This ensures API contract parity between backends.
+        """
         return {
+            "fallback_used": self.fallback_used,
+            "fallback_reasons": self.fallback_reasons,
+            "retrieval_distribution": self.retrieval_distribution,
+            "primary_path_latency_ms": self.primary_path_latency_ms,
+            "index_source": self.index_source,
             "intent": self.intent,
             "retrieval_mode": self.retrieval_mode,
-            "fullpower_used": self.fullpower_used,
-            "index_source": self.index_source,
-            "core_sources_count": self.core_sources_count,
             "sources_covered": self.sources_covered,
-            "tafsir_fallbacks": self.tafsir_fallbacks,
-            "primary_path_latency_ms": self.primary_path_latency_ms,
+            "core_sources_count": self.core_sources_count,
+            "component_fallbacks": {
+                "quran": self.quran_fallback,
+                "graph": self.graph_fallback,
+                "taxonomy": self.taxonomy_fallback,
+                "tafsir": self.tafsir_fallbacks,
+            },
+            # Lightweight-specific (additive, not breaking)
+            "fullpower_used": self.fullpower_used,
         }
 
 
