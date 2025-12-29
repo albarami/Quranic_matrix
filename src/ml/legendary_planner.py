@@ -123,6 +123,10 @@ QUESTION_PATTERNS = {
     QuestionClass.NETWORK_CENTRALITY: [
         r'مركزية', r'أهم\s*سلوك',
         r'central', r'important.*behavior',
+        # PHASE 4: Graph metrics patterns (entity-free)
+        r'node\s*count', r'edge\s*count', r'density', r'diameter',
+        r'clustering\s*coefficient', r'average\s*degree', r'graph\s*statistic',
+        r'network\s*statistic', r'behavioral\s*graph',
     ],
     QuestionClass.COMMUNITY_DETECTION: [
         r'مجموعة', r'تصنيف',

@@ -551,20 +551,28 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
             from src.ml.proof_only_backend import get_lightweight_backend
             backend = get_lightweight_backend()
             lightweight_result = backend.get_deterministic_evidence(request_body.question)
-            
+
             processing_time = (time.time() - start_time) * 1000
-            
+
+            # PHASE 4: Include graph data in proof response for graph-only queries
+            proof_payload = {
+                "quran": lightweight_result.get("quran", []),
+                "tafsir": lightweight_result.get("tafsir", {}),  # Keep tafsir as nested object
+                "intent": lightweight_result.get("debug", {}).get("intent", "FREE_TEXT"),
+                "mode": request_body.mode,
+            }
+
+            # Include graph data if available (GRAPH_METRICS, GRAPH_CAUSAL queries)
+            graph_data = lightweight_result.get("graph", {})
+            if graph_data:
+                proof_payload["graph"] = graph_data
+
             # Return lightweight result with consistent API contract
             return {
                 "question": request_body.question,
                 "answer": lightweight_result.get("answer", "[proof_only mode]"),
                 "status": lightweight_result.get("status", "ok"),
-                "proof": {
-                    "quran": lightweight_result.get("quran", []),
-                    "tafsir": lightweight_result.get("tafsir", {}),  # Keep tafsir as nested object
-                    "intent": lightweight_result.get("debug", {}).get("intent", "FREE_TEXT"),
-                    "mode": request_body.mode,
-                },
+                "proof": proof_payload,
                 "debug": lightweight_result.get("debug", {}),
                 "processing_time_ms": processing_time,
             }

@@ -485,70 +485,81 @@ class LightweightProofBackend:
             from src.ml.legendary_planner import get_legendary_planner
             planner = get_legendary_planner()
             planner_results, planner_debug = planner.query(question)
-            
+
             # Extract evidence from planner results
             debug.retrieval_mode = "legendary_planner"
-            
-            # Get verse keys from evidence (entity-specific queries)
-            verse_keys = set()
-            for ev in planner_results.get("evidence", []):
-                verse_keys.update(ev.get("verse_keys", []))
-            
-            # PHASE 4A: For entity-free queries, extract verse keys from graph edge provenance
+
+            # PHASE 4A: Get graph data first (always needed for benchmark intents)
             graph_data_result = planner_results.get("graph_data", {})
-            
-            # Extract from cycles (entity-free)
-            for cycle in graph_data_result.get("cycles", []):
-                for edge in cycle.get("edges", []):
-                    if isinstance(edge, dict):
-                        for ev in edge.get("evidence", []):
-                            vk = ev.get("verse_key", "")
-                            if vk:
-                                verse_keys.add(vk)
-            
-            # Extract from causal_density top nodes (entity-free)
-            causal_density = graph_data_result.get("causal_density", {})
-            for node_info in causal_density.get("outgoing_top10", []) + causal_density.get("incoming_top10", []):
-                node_id = node_info.get("id", "")
-                if node_id:
-                    # Get evidence for this node from concept index
-                    node_evidence = planner.get_concept_evidence(node_id)
-                    verse_keys.update(node_evidence.get("verse_keys", [])[:5])
-            
-            # Extract from paths (entity-specific)
-            for path in graph_data_result.get("paths", []):
-                if isinstance(path, list):
-                    for edge in path:
+
+            # PHASE 4B: For GRAPH_METRICS, the graph data IS the evidence.
+            # Do NOT extract verse evidence - it would be irrelevant and cause generic_opening_verses_default
+            if intent_result.intent == IntentType.GRAPH_METRICS:
+                # Graph metrics queries don't need verse evidence
+                # The graph data (nodes, edges, centrality, etc.) IS the proof
+                graph_data = graph_data_result if graph_data_result else graph_data
+                extra_data["planner_results"] = planner_results
+                # Skip verse extraction - continue to the final return
+            else:
+                # For other benchmark intents, extract verse evidence normally
+                # Get verse keys from evidence (entity-specific queries)
+                verse_keys = set()
+                for ev in planner_results.get("evidence", []):
+                    verse_keys.update(ev.get("verse_keys", []))
+
+                # Extract from cycles (entity-free)
+                for cycle in graph_data_result.get("cycles", []):
+                    for edge in cycle.get("edges", []):
                         if isinstance(edge, dict):
                             for ev in edge.get("evidence", []):
                                 vk = ev.get("verse_key", "")
                                 if vk:
                                     verse_keys.add(vk)
-            
-            # Build quran_verses from verse_keys
-            for vk in sorted(verse_keys)[:20]:  # Limit to 20 verses
-                parts = vk.split(":")
-                if len(parts) == 2:
-                    try:
-                        surah_num = int(parts[0])
-                        ayah_num = int(parts[1])
-                        quran_verses.append({
-                            "surah": surah_num,
-                            "ayah": ayah_num,
-                            "verse_key": vk,
-                            "text": self._get_verse_text(vk),
-                            "relevance": 1.0,
-                        })
-                    except ValueError:
-                        pass
-            
-            # Get tafsir for these verses
-            if verse_keys:
-                tafsir_results = self._get_tafsir_for_verses(list(verse_keys)[:20])
-            
-            # Include graph data if available
-            graph_data = graph_data_result if graph_data_result else graph_data
-            extra_data["planner_results"] = planner_results
+
+                # Extract from causal_density top nodes (entity-free) - ONLY for causal queries
+                if intent_result.intent == IntentType.GRAPH_CAUSAL:
+                    causal_density = graph_data_result.get("causal_density", {})
+                    for node_info in causal_density.get("outgoing_top10", []) + causal_density.get("incoming_top10", []):
+                        node_id = node_info.get("id", "")
+                        if node_id:
+                            # Get evidence for this node from concept index
+                            node_evidence = planner.get_concept_evidence(node_id)
+                            verse_keys.update(node_evidence.get("verse_keys", [])[:5])
+
+                # Extract from paths (entity-specific)
+                for path in graph_data_result.get("paths", []):
+                    if isinstance(path, list):
+                        for edge in path:
+                            if isinstance(edge, dict):
+                                for ev in edge.get("evidence", []):
+                                    vk = ev.get("verse_key", "")
+                                    if vk:
+                                        verse_keys.add(vk)
+
+                # Build quran_verses from verse_keys
+                for vk in sorted(verse_keys)[:20]:  # Limit to 20 verses
+                    parts = vk.split(":")
+                    if len(parts) == 2:
+                        try:
+                            surah_num = int(parts[0])
+                            ayah_num = int(parts[1])
+                            quran_verses.append({
+                                "surah": surah_num,
+                                "ayah": ayah_num,
+                                "verse_key": vk,
+                                "text": self._get_verse_text(vk),
+                                "relevance": 1.0,
+                            })
+                        except ValueError:
+                            pass
+
+                # Get tafsir for these verses
+                if verse_keys:
+                    tafsir_results = self._get_tafsir_for_verses(list(verse_keys)[:20])
+
+                # Include graph data if available
+                graph_data = graph_data_result if graph_data_result else graph_data
+                extra_data["planner_results"] = planner_results
             
         elif intent_result.intent == IntentType.SURAH_REF:
             surah_ref = intent_result.extracted_entities.get("surah", "")

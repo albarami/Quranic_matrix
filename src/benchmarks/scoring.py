@@ -530,12 +530,33 @@ def score_benchmark_item(
             missing.append("embeddings_missing")
 
     # If there is absolutely no evidence, mark FAIL (fail-closed).
+    # PHASE 4: Graph-only queries (GRAPH_METRICS) can have valid graph data without quran/tafsir
     quran_count = len(quran_verses) if isinstance(quran_verses, list) else 0
     tafsir_chunks_total = sum(1 for _ in _iter_tafsir_chunks(tafsir if isinstance(tafsir, dict) else {}))
     result.metrics.update({"quran_verses": quran_count, "tafsir_chunks": tafsir_chunks_total})
-    if quran_count == 0 and tafsir_chunks_total == 0:
-        result.reasons.append("no_evidence")
-        return result.to_dict()
+
+    # Check for graph-only evidence (valid for GRAPH_METRICS and GRAPH_CAUSAL)
+    graph = proof.get("graph", {}) if isinstance(proof, dict) else {}
+    has_graph_evidence = bool(
+        graph.get("nodes") or
+        graph.get("edges") or
+        graph.get("paths") or
+        graph.get("centrality") or
+        graph.get("causal_density") or
+        graph.get("cycles")
+    )
+    result.metrics["has_graph_evidence"] = has_graph_evidence
+
+    # For GRAPH_METRICS, accept graph-only evidence
+    if "GRAPH_METRICS" in capabilities or "SEMANTIC_GRAPH_V2" in capabilities:
+        if quran_count == 0 and tafsir_chunks_total == 0 and not has_graph_evidence:
+            result.reasons.append("no_evidence")
+            return result.to_dict()
+    else:
+        # Non-graph queries still require quran/tafsir evidence
+        if quran_count == 0 and tafsir_chunks_total == 0:
+            result.reasons.append("no_evidence")
+            return result.to_dict()
 
     # Phase 2: Required sections check (must_include)
     if must_include:
