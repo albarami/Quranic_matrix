@@ -258,18 +258,28 @@ class LegendaryPlanner:
         logger.info("Truth layer components loaded")
     
     def _build_term_mapping(self):
-        """Build term to entity ID mapping."""
+        """Build term to entity ID mapping (Arabic + English)."""
         if not self.canonical_entities:
             return
         
         for section in ["behaviors", "agents", "organs", "heart_states", "consequences"]:
             for item in self.canonical_entities.get(section, []):
+                entity_id = item.get("id", "")
+                if not entity_id:
+                    continue
+                    
+                # Arabic terms
                 ar_term = item.get("ar", "")
                 if ar_term:
-                    self.term_to_entity[ar_term] = item["id"]
+                    self.term_to_entity[ar_term] = entity_id
                     # Also add without ال
                     if ar_term.startswith("ال"):
-                        self.term_to_entity[ar_term[2:]] = item["id"]
+                        self.term_to_entity[ar_term[2:]] = entity_id
+                
+                # English terms (lowercase for case-insensitive matching)
+                en_term = item.get("en", "")
+                if en_term:
+                    self.term_to_entity[en_term.lower()] = entity_id
     
     def detect_question_class(self, query: str) -> QuestionClass:
         """Detect the question class from query text."""
@@ -283,22 +293,28 @@ class LegendaryPlanner:
         return QuestionClass.FREE_TEXT
     
     def resolve_entities(self, query: str) -> Dict[str, Any]:
-        """Resolve entities mentioned in the query."""
+        """Resolve entities mentioned in the query (Arabic + English)."""
         resolved = {
             "entities": [],
             "unresolved_terms": [],
         }
         
+        query_lower = query.lower()
+        seen_ids = set()
+        
         for term, entity_id in self.term_to_entity.items():
-            if term in query:
-                entity_info = self.concept_index.get(entity_id, {})
-                resolved["entities"].append({
-                    "term": term,
-                    "entity_id": entity_id,
-                    "entity_type": entity_info.get("entity_type", "UNKNOWN"),
-                    "status": entity_info.get("status", "unknown"),
-                    "total_mentions": entity_info.get("total_mentions", 0),
-                })
+            # Check both original query (for Arabic) and lowercase (for English)
+            if term in query or term in query_lower:
+                if entity_id not in seen_ids:
+                    seen_ids.add(entity_id)
+                    entity_info = self.concept_index.get(entity_id, {})
+                    resolved["entities"].append({
+                        "term": term,
+                        "entity_id": entity_id,
+                        "entity_type": entity_info.get("entity_type", "UNKNOWN"),
+                        "status": entity_info.get("status", "unknown"),
+                        "total_mentions": entity_info.get("total_mentions", 0),
+                    })
         
         return resolved
     
