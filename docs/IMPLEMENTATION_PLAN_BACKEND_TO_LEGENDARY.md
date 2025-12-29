@@ -507,7 +507,7 @@ python -m pytest tests/test_no_generic_default_verses.py -v  # 12/12 PASSED
 
 **Test Output**: All 18 tests PASSED
 
-**Commit Hash**: _To be filled_
+**Commit Hash**: f3179098700b77fe4d9f5059c150636c2eb58015
 
 ---
 
@@ -528,7 +528,7 @@ python -m pytest tests/test_router_classification.py -v  # 27/27 PASSED
 
 **Test Output**: All 27 tests PASSED
 
-**Commit Hash**: _To be filled_
+**Commit Hash**: f3179098700b77fe4d9f5059c150636c2eb58015
 
 ---
 
@@ -552,7 +552,7 @@ python -m pytest tests/test_answer_generation_deterministic.py tests/test_scorin
 > - `reports/test_runs/phase2_test_scoring_depth_20251229.txt`
 > - Result: 58 passed
 
-**Commit Hash**: _To be filled_
+**Commit Hash**: f3179098700b77fe4d9f5059c150636c2eb58015
 
 ---
 
@@ -578,7 +578,7 @@ python -m pytest tests/test_planners_smoke.py tests/test_no_fabrication_all_plan
 > - `reports/test_runs/phase3_test_planners_integration_real_20251229.txt`
 > - Result: 75 passed
 
-**Commit Hash**: _To be filled_
+**Commit Hash**: f3179098700b77fe4d9f5059c150636c2eb58015
 
 ---
 
