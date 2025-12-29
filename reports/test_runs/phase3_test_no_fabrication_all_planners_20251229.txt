@@ -1,0 +1,40 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.11.8, pytest-8.3.4, pluggy-1.6.0 -- C:\Program Files\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Quran_matrix
+configfile: pytest.ini
+plugins: anyio-4.11.0, Faker-37.8.0, langsmith-0.4.41, asyncio-1.2.0, cov-7.0.0, mock-3.15.1, requests-mock-1.12.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 29 items
+
+tests/test_no_fabrication_all_planners.py::TestCausalChainNoFabrication::test_no_paths_returns_empty_paths_list PASSED [  3%]
+tests/test_no_fabrication_all_planners.py::TestCausalChainNoFabrication::test_insufficient_entities_returns_gap PASSED [  6%]
+tests/test_no_fabrication_all_planners.py::TestCrossTafsirNoFabrication::test_no_evidence_returns_empty_sources PASSED [ 10%]
+tests/test_no_fabrication_all_planners.py::TestCrossTafsirNoFabrication::test_not_found_records_gap PASSED [ 13%]
+tests/test_no_fabrication_all_planners.py::TestProfile11DNoFabrication::test_no_evidence_returns_empty_dimensions PASSED [ 17%]
+tests/test_no_fabrication_all_planners.py::TestProfile11DNoFabrication::test_missing_dimensions_recorded_as_gaps PASSED [ 20%]
+tests/test_no_fabrication_all_planners.py::TestGraphMetricsNoFabrication::test_no_graph_returns_empty_metrics PASSED [ 24%]
+tests/test_no_fabrication_all_planners.py::TestGraphMetricsNoFabrication::test_entity_not_in_graph_records_gap PASSED [ 27%]
+tests/test_no_fabrication_all_planners.py::TestHeartStateNoFabrication::test_no_entities_returns_empty_states PASSED [ 31%]
+tests/test_no_fabrication_all_planners.py::TestHeartStateNoFabrication::test_specific_state_not_found_records_gap PASSED [ 34%]
+tests/test_no_fabrication_all_planners.py::TestAgentNoFabrication::test_no_entities_returns_empty_agents PASSED [ 37%]
+tests/test_no_fabrication_all_planners.py::TestAgentNoFabrication::test_specific_agent_not_found_records_gap PASSED [ 41%]
+tests/test_no_fabrication_all_planners.py::TestAgentNoFabrication::test_no_behavior_attribution_records_gap PASSED [ 44%]
+tests/test_no_fabrication_all_planners.py::TestTemporalSpatialNoFabrication::test_no_evidence_returns_zero_mentions PASSED [ 48%]
+tests/test_no_fabrication_all_planners.py::TestTemporalSpatialNoFabrication::test_no_context_for_behavior_records_gap PASSED [ 51%]
+tests/test_no_fabrication_all_planners.py::TestConsequenceNoFabrication::test_no_entities_returns_empty_consequences PASSED [ 55%]
+tests/test_no_fabrication_all_planners.py::TestConsequenceNoFabrication::test_specific_consequence_not_found_records_gap PASSED [ 58%]
+tests/test_no_fabrication_all_planners.py::TestConsequenceNoFabrication::test_no_consequences_for_behavior_records_gap PASSED [ 62%]
+tests/test_no_fabrication_all_planners.py::TestEmbeddingsNoFabrication::test_no_model_records_gap PASSED [ 65%]
+tests/test_no_fabrication_all_planners.py::TestEmbeddingsNoFabrication::test_limitation_disclosure_always_has_limitations PASSED [ 68%]
+tests/test_no_fabrication_all_planners.py::TestEmbeddingsNoFabrication::test_search_without_model_records_gap PASSED [ 72%]
+tests/test_no_fabrication_all_planners.py::TestIntegrationNoFabrication::test_aggregates_all_component_gaps PASSED [ 75%]
+tests/test_no_fabrication_all_planners.py::TestIntegrationNoFabrication::test_partial_status_when_some_components_fail PASSED [ 79%]
+tests/test_no_fabrication_all_planners.py::TestCrossplannerNoFabrication::test_nonexistent_entity_no_fabrication[CausalChainPlanner-find_causal_chains-args0] PASSED [ 82%]
+tests/test_no_fabrication_all_planners.py::TestCrossplannerNoFabrication::test_nonexistent_entity_no_fabrication[CrossTafsirPlanner-compare_tafsir_for_entity-args1] PASSED [ 86%]
+tests/test_no_fabrication_all_planners.py::TestCrossplannerNoFabrication::test_nonexistent_entity_no_fabrication[Profile11DPlanner-profile_behavior-args2] PASSED [ 89%]
+tests/test_no_fabrication_all_planners.py::TestCrossplannerNoFabrication::test_nonexistent_entity_no_fabrication[HeartStatePlanner-analyze_heart_state-args3] PASSED [ 93%]
+tests/test_no_fabrication_all_planners.py::TestCrossplannerNoFabrication::test_nonexistent_entity_no_fabrication[AgentPlanner-analyze_agent-args4] PASSED [ 96%]
+tests/test_no_fabrication_all_planners.py::TestCrossplannerNoFabrication::test_nonexistent_entity_no_fabrication[ConsequencePlanner-analyze_consequence-args5] PASSED [100%]
+
+============================= 29 passed in 9.15s ==============================

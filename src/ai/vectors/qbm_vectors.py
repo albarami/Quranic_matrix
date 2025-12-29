@@ -70,6 +70,11 @@ class QBMVectorStore:
             print("Warning: sentence-transformers not available. Using mock embeddings.")
             return
 
+        # CI/offline mode: avoid downloading large embedding models.
+        if os.getenv("CI") or os.getenv("QBM_OFFLINE") == "1":
+            print("CI/offline mode: skipping embedding model load. Using mock embeddings.")
+            return
+
         models_to_try = [model_name] if model_name else self.EMBEDDING_MODELS
 
         for model in models_to_try:

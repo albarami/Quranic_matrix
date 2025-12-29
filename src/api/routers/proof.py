@@ -8,9 +8,11 @@ Contains the Full Power proof system endpoints.
 """
 
 import time
-from typing import Optional, Literal
+from typing import Optional, Literal, Dict, Any
 from fastapi import APIRouter, HTTPException, Request, Query
 from pydantic import BaseModel, field_validator
+
+from src.ml.tafsir_constants import CANONICAL_TAFSIR_SOURCES
 
 router = APIRouter(prefix="/api/proof", tags=["Proof"])
 
@@ -118,12 +120,19 @@ def filter_tafsir(quotes):
         # Skip placeholder/empty entries
         if not text or "لا يوجد تفسير" in text or len(text.strip()) < 10:
             continue
-        filtered.append({
-            "surah": q.get("surah", "?"),
-            "ayah": q.get("ayah", "?"),
-            "text": text,
-            "score": q.get("score", 0)
-        })
+        filtered.append(
+            {
+                "surah": q.get("surah", "?"),
+                "ayah": q.get("ayah", "?"),
+                "verse_key": q.get("verse_key") or None,
+                "chunk_id": q.get("chunk_id") or None,
+                "char_start": q.get("char_start"),
+                "char_end": q.get("char_end"),
+                "source": q.get("source") or None,
+                "text": text,
+                "score": q.get("score", 0),
+            }
+        )
     return filtered
 
 
@@ -160,12 +169,20 @@ def filter_quran_verses(verses, question):
         relevance = v.get("relevance", 0)
         
         # Include all verses - filtering is now handled upstream by deterministic logic
-        filtered.append({
-            "surah": v.get("surah"),
-            "ayah": v.get("ayah"),
-            "text": text,
-            "relevance": relevance
-        })
+        surah = v.get("surah")
+        ayah = v.get("ayah")
+        verse_key = v.get("verse_key")
+        if not verse_key and surah and ayah:
+            verse_key = f"{surah}:{ayah}"
+        filtered.append(
+            {
+                "surah": surah,
+                "ayah": ayah,
+                "verse_key": verse_key,
+                "text": text,
+                "relevance": relevance,
+            }
+        )
     
     # Sort by relevance descending
     filtered.sort(key=lambda x: x.get("relevance", 0), reverse=True)
@@ -258,7 +275,7 @@ def apply_summary_mode(proof_data: dict, mode: str, max_chunks_per_source: int, 
         return proof_data
     
     # Summary mode: limit chunks per source
-    tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
+    tafsir_sources = CANONICAL_TAFSIR_SOURCES
     
     summarized = proof_data.copy()
     
@@ -298,7 +315,7 @@ def build_surah_summary(quran_verses: list, tafsir_data: dict, per_ayah: bool) -
             }
     
     # Add tafsir for each ayah (1 chunk per source)
-    tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
+    tafsir_sources = CANONICAL_TAFSIR_SOURCES
     for source in tafsir_sources:
         source_chunks = tafsir_data.get(source, [])
         for chunk in source_chunks:
@@ -340,6 +357,195 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
     start_time = time.time()
     
     try:
+        # Phase 11: Check for CROSS_CONTEXT_BEHAVIOR intent FIRST
+        # This is a first-class intent that bypasses generic retrieval
+        from src.ml.query_router import get_query_router, QueryIntent
+        
+        router = get_query_router()
+        router_result = router.route(request_body.question)
+        
+        if router_result.intent == QueryIntent.CROSS_CONTEXT_BEHAVIOR:
+            try:
+                from src.ml.cross_context_behavior_handler import get_cross_context_handler
+            except Exception as e:
+                processing_time = (time.time() - start_time) * 1000
+                core_sources = CANONICAL_TAFSIR_SOURCES
+                empty_tafsir = {src: [] for src in core_sources}
+                retrieval_distribution = {src: 0 for src in core_sources}
+
+                return {
+                    "question": request_body.question,
+                    "answer": "Cross-context behavior handler not available in this deployment.",
+                    "status": "not_ready",
+                    "message_ar": "خدمة تحليل السلوك عبر السياقات غير متاحة حالياً.",
+                    "message_en": "Cross-context behavior analysis is not available right now.",
+                    "candidate_behaviors": [],
+                    "proof": {
+                        "intent": "CROSS_CONTEXT_BEHAVIOR",
+                        "mode": "not_ready",
+                        "quran": [],
+                        "tafsir": empty_tafsir,
+                        "graph": {"nodes": [], "edges": [], "status": "not_ready"},
+                    },
+                    "validation": {"score": 0, "passed": False},
+                    "processing_time_ms": round(processing_time, 2),
+                    "debug": {
+                        "fallback_used": False,
+                        "fallback_reasons": [],
+                        "retrieval_distribution": retrieval_distribution,
+                        "primary_path_latency_ms": int(round(processing_time)),
+                        "index_source": "json_chunked",
+                        "intent": "CROSS_CONTEXT_BEHAVIOR",
+                        "retrieval_mode": "deterministic_chunked",
+                        "sources_covered": [],
+                        "core_sources_count": 0,
+                        "fail_closed_reason": "cross_context_handler_missing",
+                        "component_fallbacks": {
+                            "quran": False,
+                            "graph": False,
+                            "taxonomy": False,
+                            "tafsir": {src: True for src in core_sources},
+                        },
+                        "router": router_result.to_dict(),
+                        "handler_import_error": f"{type(e).__name__}: {e}",
+                    },
+                }
+
+            handler = get_cross_context_handler()
+            cross_context_result = handler.handle(request_body.question)
+            
+            processing_time = (time.time() - start_time) * 1000
+            
+            core_sources = CANONICAL_TAFSIR_SOURCES
+
+            def build_debug(*, tafsir_payload: Dict[str, Any], extra: Dict[str, Any]) -> Dict[str, Any]:
+                retrieval_distribution = {src: len(tafsir_payload.get(src, []) or []) for src in core_sources}
+                sources_covered = [src for src, n in retrieval_distribution.items() if n > 0]
+                return {
+                    "fallback_used": False,
+                    "fallback_reasons": [],
+                    "retrieval_distribution": retrieval_distribution,
+                    "primary_path_latency_ms": int(round(processing_time)),
+                    "index_source": "json_chunked",
+                    "intent": "CROSS_CONTEXT_BEHAVIOR",
+                    "retrieval_mode": "deterministic_chunked",
+                    "sources_covered": sources_covered,
+                    "core_sources_count": len(sources_covered),
+                    "component_fallbacks": {
+                        "quran": False,
+                        "graph": False,
+                        "taxonomy": False,
+                        "tafsir": {src: retrieval_distribution.get(src, 0) == 0 for src in core_sources},
+                    },
+                    **extra,
+                }
+
+            # Build response based on handler result (contract-compliant)
+            if cross_context_result.status == "need_behavior":
+                empty_tafsir = {src: [] for src in core_sources}
+                return {
+                    "question": request_body.question,
+                    "answer": cross_context_result.message_ar,
+                    "status": "need_behavior",
+                    "message_ar": cross_context_result.message_ar,
+                    "message_en": cross_context_result.message_en,
+                    "candidate_behaviors": cross_context_result.candidate_behaviors,
+                    "proof": {
+                        "intent": "CROSS_CONTEXT_BEHAVIOR",
+                        "mode": "need_behavior",
+                        "quran": [],  # HARD RULE: 0 verses when need_behavior
+                        "tafsir": empty_tafsir,
+                        "graph": {"nodes": [], "edges": [], "status": "awaiting_behavior"},
+                    },
+                    "validation": {"score": 0, "passed": False},
+                    "processing_time_ms": round(processing_time, 2),
+                    "debug": build_debug(
+                        tafsir_payload=empty_tafsir,
+                        extra={
+                            "router": router_result.to_dict(),
+                            "handler_status": cross_context_result.status,
+                        },
+                    ),
+                }
+
+            elif cross_context_result.status in ["success", "partial", "no_evidence"]:
+                quran_verses = []
+                tafsir_data = {src: [] for src in core_sources}
+
+                for ve in cross_context_result.selected_verses:
+                    quran_verses.append(
+                        {
+                            "surah": ve.surah,
+                            "ayah": ve.ayah,
+                            "verse_key": ve.verse_key,
+                            "text": ve.text,
+                            "relevance": ve.confidence,  # Deterministic confidence (not 1.0)
+                            "context": ve.context.to_dict(),
+                        }
+                    )
+
+                    # Aggregate tafsir (verse-locked)
+                    for src, chunks in ve.tafsir.items():
+                        if src in tafsir_data:
+                            tafsir_data[src].extend(chunks)
+
+                return {
+                    "question": request_body.question,
+                    "answer": cross_context_result.message_ar,
+                    "status": cross_context_result.status,
+                    "behavior_id": cross_context_result.behavior_id,
+                    "behavior_term": cross_context_result.behavior_term,
+                    "behavior_term_en": cross_context_result.behavior_term_en,
+                    "context_groups": cross_context_result.context_groups,
+                    "proof": {
+                        "intent": "CROSS_CONTEXT_BEHAVIOR",
+                        "mode": "cross_context",
+                        "quran": quran_verses,
+                        "tafsir": tafsir_data,
+                        "graph": cross_context_result.graph,
+                    },
+                    "validation": {
+                        "score": cross_context_result.verification_pct,
+                        "passed": cross_context_result.verification_pct >= 50,
+                    },
+                    "processing_time_ms": round(processing_time, 2),
+                    "debug": build_debug(
+                        tafsir_payload=tafsir_data,
+                        extra={
+                            "router": router_result.to_dict(),
+                            "handler_status": cross_context_result.status,
+                            "context_groups_count": len(cross_context_result.context_groups),
+                            "selected_verses_count": len(cross_context_result.selected_verses),
+                        },
+                    ),
+                }
+
+            else:
+                empty_tafsir = {src: [] for src in core_sources}
+                return {
+                    "question": request_body.question,
+                    "answer": cross_context_result.message_en or cross_context_result.message_ar,
+                    "status": "error",
+                    "message_ar": cross_context_result.message_ar,
+                    "message_en": cross_context_result.message_en,
+                    "proof": {
+                        "intent": "CROSS_CONTEXT_BEHAVIOR",
+                        "mode": "error",
+                        "quran": [],
+                        "tafsir": empty_tafsir,
+                        "graph": {"nodes": [], "edges": [], "status": "error"},
+                    },
+                    "validation": {"score": 0, "passed": False},
+                    "processing_time_ms": round(processing_time, 2),
+                    "debug": build_debug(
+                        tafsir_payload=empty_tafsir,
+                        extra={
+                            "router": router_result.to_dict(),
+                            "handler_status": cross_context_result.status,
+                        },
+                    ),
+                }
+        
         # Phase 9.10E: Use lightweight backend for proof_only mode (no FullPower init)
         if request_body.proof_only:
             from src.ml.proof_only_backend import get_lightweight_backend
@@ -352,6 +558,7 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
             return {
                 "question": request_body.question,
                 "answer": lightweight_result.get("answer", "[proof_only mode]"),
+                "status": lightweight_result.get("status", "ok"),
                 "proof": {
                     "quran": lightweight_result.get("quran", []),
                     "tafsir": lightweight_result.get("tafsir", {}),  # Keep tafsir as nested object
@@ -390,6 +597,12 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
             "baghawi": filter_tafsir(getattr(proof, 'baghawi', None).quotes if getattr(proof, 'baghawi', None) else []),
             "muyassar": filter_tafsir(getattr(proof, 'muyassar', None).quotes if getattr(proof, 'muyassar', None) else []),
         }
+
+        # Phase 0: Fail-closed status for no-evidence responses
+        tafsir_chunks_total = sum(len(v or []) for v in tafsir_data.values())
+        status = "ok" if (len(quran_verses) > 0 or tafsir_chunks_total > 0) else "no_evidence"
+        if status == "no_evidence" and not debug_info.get("fail_closed_reason"):
+            debug_info["fail_closed_reason"] = "no_evidence"
         
         # Phase 7.2: Apply mode-specific processing
         if intent == "SURAH_REF" and request_body.per_ayah:
@@ -496,6 +709,7 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
         return {
             "question": request_body.question,
             "answer": result.get("answer", ""),
+            "status": status,
             "proof": proof_output,
             "validation": result.get("validation", {}),
             "processing_time_ms": round(processing_time, 2),

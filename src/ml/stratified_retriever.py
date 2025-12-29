@@ -1,6 +1,6 @@
 """
 QBM Stratified Tafsir Retriever - Phase 4
-Guarantees results from all 5 tafsir sources without fallbacks.
+Guarantees results from all 7 tafsir sources without fallbacks.
 
 Architecture:
 1. Per-source BM25 indexes for exact Arabic term matching
@@ -22,6 +22,8 @@ from dataclasses import dataclass, field
 import numpy as np
 import unicodedata
 
+from src.ml.tafsir_constants import CANONICAL_TAFSIR_SOURCES
+
 try:
     from rank_bm25 import BM25Okapi
 except ImportError:
@@ -36,7 +38,7 @@ TAFSIR_DIR = DATA_DIR / "tafsir"
 TAFSIR_DB = TAFSIR_DIR / "tafsir_cleaned.db"
 TAFSIR_DB_ORIGINAL = TAFSIR_DIR / "tafsir.db"
 
-TAFSIR_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
+TAFSIR_SOURCES = CANONICAL_TAFSIR_SOURCES
 
 # Common Arabic stopwords to drop from BM25 queries (Phase 4: BM25-only)
 # Keep this small and conservative to avoid removing meaningful terms.
@@ -110,7 +112,7 @@ class IndexNotFoundError(Exception):
 
 class StratifiedTafsirRetriever:
     """
-    Stratified retriever guaranteeing results from all 5 tafsir sources.
+    Stratified retriever guaranteeing results from all 7 tafsir sources.
     
     This is the Phase 4 solution to source collapse. Instead of a single
     global index where some sources get drowned out, we maintain separate

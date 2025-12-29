@@ -1,7 +1,7 @@
 """
 Layer 6: Cross-Tafsir Semantic Alignment
 
-Semantic alignment across 5 tafsir sources.
+Semantic alignment across 7 tafsir sources.
 Finds agreement, disagreement, and unique insights.
 
 Current (BAD):  if keyword in tafsir1 and keyword in tafsir2 → "agrees"
@@ -16,6 +16,8 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+from src.ml.tafsir_constants import CANONICAL_TAFSIR_SOURCES
 
 try:
     import numpy as np
@@ -44,7 +46,7 @@ DATA_DIR = Path(__file__).parent.parent.parent / "data"
 TAFSIR_DIR = DATA_DIR / "tafsir"
 MODELS_DIR = DATA_DIR / "models"
 
-TAFSIR_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+TAFSIR_SOURCES = CANONICAL_TAFSIR_SOURCES
 
 TAFSIR_NAMES_AR = {
     "ibn_kathir": "ابن كثير",
@@ -61,10 +63,10 @@ TAFSIR_NAMES_AR = {
 
 class TafsirAligner:
     """
-    Semantic alignment across 5 tafsir sources.
+    Semantic alignment across 7 tafsir sources.
     
     Capabilities:
-    1. Find where all 5 scholars agree
+    1. Find where all 7 scholars agree
     2. Find where they disagree
     3. Extract unique insights per scholar
     4. Build behavioral consensus
@@ -82,7 +84,7 @@ class TafsirAligner:
         self._load_tafsir()
     
     def _load_tafsir(self):
-        """Load all 5 tafsir sources."""
+        """Load all 7 tafsir sources."""
         for source in TAFSIR_SOURCES:
             filepath = TAFSIR_DIR / f"{source}.ar.jsonl"
             if filepath.exists():
@@ -116,7 +118,7 @@ class TafsirAligner:
     
     def align_verse(self, surah: int, ayah: int) -> Dict[str, Any]:
         """
-        Align interpretations for a specific verse across all 5 sources.
+        Align interpretations for a specific verse across all 7 sources.
         
         Returns:
             {
@@ -211,7 +213,7 @@ class TafsirAligner:
     
     def find_behavioral_consensus(self, behavior: str) -> Dict[str, Any]:
         """
-        Find consensus across 5 tafsir sources for a specific behavior.
+        Find consensus across 7 tafsir sources for a specific behavior.
         
         Example: find_behavioral_consensus("الكبر")
         Returns where all scholars agree/disagree on الكبر
@@ -285,7 +287,7 @@ class TafsirAligner:
         for source in TAFSIR_SOURCES:
             texts = scholar_texts[source]
             if texts:
-                result["scholar_perspectives"][TAFSIR_NAMES_AR[source]] = {
+                result["scholar_perspectives"][TAFSIR_NAMES_AR.get(source, source)] = {
                     "mention_count": len(texts),
                     "sample": texts[0] if texts else "",
                 }
@@ -309,7 +311,7 @@ class TafsirAligner:
     
     def get_verse_synthesis(self, surah: int, ayah: int) -> Dict[str, Any]:
         """
-        Synthesize all 5 tafsir into a unified understanding.
+        Synthesize all 7 tafsir into a unified understanding.
         
         Not just listing - actual synthesis of perspectives.
         """
@@ -351,7 +353,7 @@ class TafsirAligner:
                                 })
                         elif appears_in_others == 0:
                             synthesis["synthesis"]["unique_insights"].append({
-                                "source": TAFSIR_NAMES_AR[source],
+                                "source": TAFSIR_NAMES_AR.get(source, source),
                                 "text": sent.strip()[:150],
                             })
         

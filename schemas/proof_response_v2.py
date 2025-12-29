@@ -84,6 +84,7 @@ class ProofDebugV2(BaseModel):
     retrieval_distribution: Dict[str, int] = Field(default_factory=dict)
     primary_path_latency_ms: int = 0
     index_source: str = Field(..., description="disk | runtime_build | json_chunked")
+    fail_closed_reason: Optional[str] = Field(None, description="If fail-closed, machine-readable reason string")
     
     # Intent tracking
     intent: str = Field(..., description="SURAH_REF | AYAH_REF | CONCEPT_REF | FREE_TEXT")
@@ -102,7 +103,14 @@ class ProofDebugV2(BaseModel):
     @field_validator('intent')
     @classmethod
     def validate_intent(cls, v):
-        valid_intents = {"SURAH_REF", "AYAH_REF", "CONCEPT_REF", "FREE_TEXT"}
+        valid_intents = {
+            # Standard intents
+            "SURAH_REF", "AYAH_REF", "CONCEPT_REF", "CROSS_CONTEXT_BEHAVIOR", "FREE_TEXT",
+            # Benchmark intents (Sections A-J)
+            "GRAPH_CAUSAL", "CROSS_TAFSIR_ANALYSIS", "PROFILE_11D", "GRAPH_METRICS",
+            "HEART_STATE", "AGENT_ANALYSIS", "TEMPORAL_SPATIAL", "CONSEQUENCE_ANALYSIS",
+            "EMBEDDINGS_ANALYSIS", "INTEGRATION_E2E",
+        }
         if v not in valid_intents:
             raise ValueError(f"intent must be one of {valid_intents}, got {v}")
         return v
@@ -298,10 +306,17 @@ CANONICAL_TAFSIR_SOURCES = [
 ]
 
 # Valid query intents
-CANONICAL_INTENTS = ["SURAH_REF", "AYAH_REF", "CONCEPT_REF", "FREE_TEXT"]
+CANONICAL_INTENTS = [
+    # Standard intents
+    "SURAH_REF", "AYAH_REF", "CONCEPT_REF", "CROSS_CONTEXT_BEHAVIOR", "FREE_TEXT",
+    # Benchmark intents (Sections A-J)
+    "GRAPH_CAUSAL", "CROSS_TAFSIR_ANALYSIS", "PROFILE_11D", "GRAPH_METRICS",
+    "HEART_STATE", "AGENT_ANALYSIS", "TEMPORAL_SPATIAL", "CONSEQUENCE_ANALYSIS",
+    "EMBEDDINGS_ANALYSIS", "INTEGRATION_E2E",
+]
 
 # Valid retrieval modes
-CANONICAL_RETRIEVAL_MODES = ["hybrid", "stratified", "rag_only", "deterministic_chunked"]
+CANONICAL_RETRIEVAL_MODES = ["hybrid", "stratified", "rag_only", "deterministic_chunked", "legendary_planner"]
 
 # Structured intents that get 7-source guarantee
 STRUCTURED_INTENTS = ["SURAH_REF", "AYAH_REF"]

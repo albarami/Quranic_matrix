@@ -1,0 +1,43 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.11.8, pytest-8.3.4, pluggy-1.6.0 -- C:\Program Files\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Quran_matrix
+configfile: pytest.ini
+plugins: anyio-4.11.0, Faker-37.8.0, langsmith-0.4.41, asyncio-1.2.0, cov-7.0.0, mock-3.15.1, requests-mock-1.12.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 32 items
+
+tests/test_scoring_depth_rules.py::TestPlaceholderAnswerDetection::test_empty_string_is_placeholder PASSED [  3%]
+tests/test_scoring_depth_rules.py::TestPlaceholderAnswerDetection::test_whitespace_only_is_placeholder PASSED [  6%]
+tests/test_scoring_depth_rules.py::TestPlaceholderAnswerDetection::test_proof_only_marker_is_placeholder PASSED [  9%]
+tests/test_scoring_depth_rules.py::TestPlaceholderAnswerDetection::test_short_answer_is_placeholder PASSED [ 12%]
+tests/test_scoring_depth_rules.py::TestPlaceholderAnswerDetection::test_valid_answer_is_not_placeholder PASSED [ 15%]
+tests/test_scoring_depth_rules.py::TestRequiredSectionsCheck::test_no_must_include_passes PASSED [ 18%]
+tests/test_scoring_depth_rules.py::TestRequiredSectionsCheck::test_edge_provenance_missing PASSED [ 21%]
+tests/test_scoring_depth_rules.py::TestRequiredSectionsCheck::test_edge_provenance_present PASSED [ 25%]
+tests/test_scoring_depth_rules.py::TestRequiredSectionsCheck::test_verse_keys_per_link_present PASSED [ 28%]
+tests/test_scoring_depth_rules.py::TestRequiredSectionsCheck::test_derivations_missing PASSED [ 31%]
+tests/test_scoring_depth_rules.py::TestRequiredSectionsCheck::test_derivations_present PASSED [ 34%]
+tests/test_scoring_depth_rules.py::TestDisallowViolationsCheck::test_no_disallow_passes PASSED [ 37%]
+tests/test_scoring_depth_rules.py::TestDisallowViolationsCheck::test_fallback_used_violation PASSED [ 40%]
+tests/test_scoring_depth_rules.py::TestDisallowViolationsCheck::test_empty_evidence_violation PASSED [ 43%]
+tests/test_scoring_depth_rules.py::TestFabricatedNumbersDetection::test_no_fabrication_with_derivations PASSED [ 46%]
+tests/test_scoring_depth_rules.py::TestFabricatedNumbersDetection::test_fabrication_detected PASSED [ 50%]
+tests/test_scoring_depth_rules.py::TestFabricatedNumbersDetection::test_no_derivations_no_check PASSED [ 53%]
+tests/test_scoring_depth_rules.py::TestFabricatedNumbersDetection::test_common_numbers_allowed PASSED [ 56%]
+tests/test_scoring_depth_rules.py::TestScoreBenchmarkItemPass::test_minimal_valid_passes PASSED [ 59%]
+tests/test_scoring_depth_rules.py::TestScoreBenchmarkItemPass::test_causal_with_paths_passes PASSED [ 62%]
+tests/test_scoring_depth_rules.py::TestScoreBenchmarkItemFail::test_http_error_fails PASSED [ 65%]
+tests/test_scoring_depth_rules.py::TestScoreBenchmarkItemFail::test_schema_invalid_fails PASSED [ 68%]
+tests/test_scoring_depth_rules.py::TestScoreBenchmarkItemFail::test_fallback_for_structured_intent_fails PASSED [ 71%]
+tests/test_scoring_depth_rules.py::TestScoreBenchmarkItemFail::test_no_evidence_fails PASSED [ 75%]
+tests/test_scoring_depth_rules.py::TestScoreBenchmarkItemFail::test_placeholder_answer_fails PASSED [ 78%]
+tests/test_scoring_depth_rules.py::TestScoreBenchmarkItemFail::test_placeholder_answer_allowed_in_proof_only PASSED [ 81%]
+tests/test_scoring_depth_rules.py::TestScoreBenchmarkItemPartial::test_missing_required_source_partial PASSED [ 84%]
+tests/test_scoring_depth_rules.py::TestScoreBenchmarkItemPartial::test_missing_graph_paths_partial PASSED [ 87%]
+tests/test_scoring_depth_rules.py::TestScoreBenchmarkItemPartial::test_insufficient_hops_partial PASSED [ 90%]
+tests/test_scoring_depth_rules.py::TestMetricsTracking::test_metrics_include_source_count PASSED [ 93%]
+tests/test_scoring_depth_rules.py::TestMetricsTracking::test_metrics_include_verse_count PASSED [ 96%]
+tests/test_scoring_depth_rules.py::TestMetricsTracking::test_metrics_include_multihop_count PASSED [100%]
+
+============================= 32 passed in 0.34s ==============================

@@ -1,0 +1,23 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.11.8, pytest-8.3.4, pluggy-1.6.0 -- C:\Program Files\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Quran_matrix
+configfile: pytest.ini
+plugins: anyio-4.11.0, Faker-37.8.0, langsmith-0.4.41, asyncio-1.2.0, cov-7.0.0, mock-3.15.1, requests-mock-1.12.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 12 items
+
+tests/test_no_generic_default_verses.py::TestNoGenericDefaultVerses::test_generic_default_verses_set_defined PASSED [  8%]
+tests/test_no_generic_default_verses.py::TestNoGenericDefaultVerses::test_scoring_has_generic_default_check PASSED [ 16%]
+tests/test_no_generic_default_verses.py::TestNoGenericDefaultVerses::test_fail_closed_no_verses_for_nonsense_query PASSED [ 25%]
+tests/test_no_generic_default_verses.py::TestNoGenericDefaultVerses::test_generic_verses_detected_as_fail PASSED [ 33%]
+tests/test_no_generic_default_verses.py::TestNoGenericDefaultVerses::test_fatiha_query_allows_fatiha_verses PASSED [ 41%]
+tests/test_no_generic_default_verses.py::TestNoGenericDefaultVerses::test_ayah_ref_allows_specific_verses PASSED [ 50%]
+tests/test_no_generic_default_verses.py::TestNoGenericDefaultVerses::test_fallback_used_for_structured_intent_fails PASSED [ 58%]
+tests/test_no_generic_default_verses.py::TestHybridRetrieverFailClosed::test_retriever_returns_empty_on_no_match PASSED [ 66%]
+tests/test_no_generic_default_verses.py::TestMandatoryProofSystemFailClosed::test_proof_debug_has_fail_closed_fields PASSED [ 75%]
+tests/test_no_generic_default_verses.py::TestIntentClassifierRouting::test_analytical_queries_not_free_text PASSED [ 83%]
+tests/test_no_generic_default_verses.py::TestIntentClassifierRouting::test_surah_ref_detection PASSED [ 91%]
+tests/test_no_generic_default_verses.py::TestIntentClassifierRouting::test_ayah_ref_detection PASSED [100%]
+
+============================= 12 passed in 19.05s =============================

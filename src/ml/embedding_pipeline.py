@@ -21,6 +21,8 @@ from dataclasses import dataclass, field
 from collections import defaultdict
 import time
 
+from src.ml.tafsir_constants import CANONICAL_TAFSIR_SOURCES
+
 # ML imports (with fallbacks)
 try:
     import numpy as np
@@ -72,7 +74,7 @@ RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
 # Batch sizes
 EMBEDDING_BATCH_SIZE = 64 if TORCH_AVAILABLE else 16
-TAFSIR_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "muyassar", "baghawi"]
+TAFSIR_SOURCES = CANONICAL_TAFSIR_SOURCES
 
 
 # =============================================================================

@@ -22,12 +22,13 @@ from dataclasses import dataclass, field
 from collections import defaultdict
 
 import numpy as np
+from src.ml.tafsir_constants import CANONICAL_TAFSIR_SOURCES
 
 # Paths
 CHUNKED_INDEX_FILE = Path("data/evidence/evidence_index_v2_chunked.jsonl")
 
 # Core sources (all 7 tafsir sources)
-CORE_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
+CORE_SOURCES = CANONICAL_TAFSIR_SOURCES
 
 logger = logging.getLogger(__name__)
 

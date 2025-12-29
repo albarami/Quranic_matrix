@@ -24,7 +24,8 @@ class CrossTafsirAnalyzer:
         "saadi": {"id": "ar-tafsir-al-saadi", "name_ar": "تفسير السعدي", "name_en": "Al-Saadi"},
         "jalalayn": {"id": "ar-tafsir-al-jalalayn", "name_ar": "تفسير الجلالين", "name_en": "Al-Jalalayn"},
         "muyassar": {"id": "ar-tafsir-muyassar", "name_ar": "التفسير الميسر", "name_en": "Al-Muyassar"},
-        "baghawy": {"id": "ar-tafsir-al-baghawy", "name_ar": "تفسير البغوي", "name_en": "Al-Baghawy"},
+        # Canonical key is baghawi (not baghawy) to align with vocab/tafsir_sources.json
+        "baghawi": {"id": "ar-tafsir-al-baghawy", "name_ar": "تفسير البغوي", "name_en": "Al-Baghawi"},
     }
 
     # Surah ayah counts
@@ -98,9 +99,24 @@ class CrossTafsirAnalyzer:
 
         # Check cache first
         cache_path = self.cache_dir / source / f"{surah}_{ayah}.json"
+        if not cache_path.exists() and source == "baghawi":
+            # Backward-compatibility for older cache directory name
+            legacy_path = self.cache_dir / "baghawy" / f"{surah}_{ayah}.json"
+            if legacy_path.exists():
+                cache_path = legacy_path
         if cache_path.exists():
             with open(cache_path, "r", encoding="utf-8") as f:
                 return json.load(f)
+
+        # CI/offline mode: never hit external APIs during tests or gated runs.
+        if os.getenv("CI") or os.getenv("QBM_OFFLINE") == "1":
+            return {
+                "surah": surah,
+                "ayah": ayah,
+                "source": source,
+                "source_name": self.TAFSIR_SOURCES[source]["name_ar"],
+                "text": "",
+            }
 
         # Fetch from API
         tafsir_id = self.TAFSIR_SOURCES[source]["id"]

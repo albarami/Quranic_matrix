@@ -1,0 +1,37 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.11.8, pytest-8.3.4, pluggy-1.6.0 -- C:\Program Files\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Quran_matrix
+configfile: pytest.ini
+plugins: anyio-4.11.0, Faker-37.8.0, langsmith-0.4.41, asyncio-1.2.0, cov-7.0.0, mock-3.15.1, requests-mock-1.12.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 26 items
+
+tests/test_answer_generation_deterministic.py::TestAnalysisPayloadBuilder::test_build_payload_from_proof PASSED [  3%]
+tests/test_answer_generation_deterministic.py::TestAnalysisPayloadBuilder::test_entities_extracted PASSED [  7%]
+tests/test_answer_generation_deterministic.py::TestAnalysisPayloadBuilder::test_quran_evidence_extracted PASSED [ 11%]
+tests/test_answer_generation_deterministic.py::TestAnalysisPayloadBuilder::test_tafsir_evidence_extracted PASSED [ 15%]
+tests/test_answer_generation_deterministic.py::TestAnalysisPayloadBuilder::test_computed_numbers_populated PASSED [ 19%]
+tests/test_answer_generation_deterministic.py::TestAnalysisPayloadBuilder::test_gaps_identified_for_missing_tafsir PASSED [ 23%]
+tests/test_answer_generation_deterministic.py::TestAnalysisPayloadBuilder::test_graph_output_from_proof PASSED [ 26%]
+tests/test_answer_generation_deterministic.py::TestAnalysisPayloadBuilder::test_get_all_numbers_includes_payload_numbers PASSED [ 30%]
+tests/test_answer_generation_deterministic.py::TestAnswerGenerator::test_generate_answer_produces_output PASSED [ 34%]
+tests/test_answer_generation_deterministic.py::TestAnswerGenerator::test_generate_answer_includes_statistics PASSED [ 38%]
+tests/test_answer_generation_deterministic.py::TestAnswerGenerator::test_generate_answer_includes_evidence PASSED [ 42%]
+tests/test_answer_generation_deterministic.py::TestAnswerGenerator::test_generate_answer_without_evidence PASSED [ 46%]
+tests/test_answer_generation_deterministic.py::TestValidatorGate::test_validate_accepts_payload_numbers PASSED [ 50%]
+tests/test_answer_generation_deterministic.py::TestValidatorGate::test_validate_rejects_fabricated_numbers PASSED [ 53%]
+tests/test_answer_generation_deterministic.py::TestValidatorGate::test_validate_allows_common_numbers PASSED [ 57%]
+tests/test_answer_generation_deterministic.py::TestValidatorGate::test_validate_allows_verse_references PASSED [ 61%]
+tests/test_answer_generation_deterministic.py::TestValidatorGate::test_validate_empty_output PASSED [ 65%]
+tests/test_answer_generation_deterministic.py::TestLLMRewriteWithValidation::test_rewrite_without_llm PASSED [ 69%]
+tests/test_answer_generation_deterministic.py::TestLLMRewriteWithValidation::test_rewrite_with_valid_llm PASSED [ 73%]
+tests/test_answer_generation_deterministic.py::TestLLMRewriteWithValidation::test_rewrite_with_invalid_llm_strict PASSED [ 76%]
+tests/test_answer_generation_deterministic.py::TestDerivationsTrace::test_derivations_include_entity_ids PASSED [ 80%]
+tests/test_answer_generation_deterministic.py::TestDerivationsTrace::test_derivations_include_verse_count PASSED [ 84%]
+tests/test_answer_generation_deterministic.py::TestDerivationsTrace::test_derivations_include_tafsir_counts PASSED [ 88%]
+tests/test_answer_generation_deterministic.py::TestDerivationsTrace::test_derivations_include_gaps PASSED [ 92%]
+tests/test_answer_generation_deterministic.py::TestPayloadSerialization::test_to_dict_produces_valid_dict PASSED [ 96%]
+tests/test_answer_generation_deterministic.py::TestPayloadSerialization::test_to_dict_is_json_serializable PASSED [100%]
+
+============================= 26 passed in 9.18s ==============================

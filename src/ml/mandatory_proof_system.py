@@ -40,6 +40,7 @@ class ProofDebug(BaseModel):
     retrieval_distribution: Dict[str, int] = Field(default_factory=dict)
     primary_path_latency_ms: int = 0
     index_source: Literal["disk", "runtime_build"] = "disk"
+    fail_closed_reason: Optional[str] = None
     
     # Phase 7.2: Query intent tracking
     intent: str = "FREE_TEXT"  # SURAH_REF, AYAH_REF, CONCEPT_REF, FREE_TEXT
@@ -70,6 +71,7 @@ class ProofDebug(BaseModel):
             "retrieval_distribution": self.retrieval_distribution,
             "primary_path_latency_ms": self.primary_path_latency_ms,
             "index_source": self.index_source,
+            "fail_closed_reason": self.fail_closed_reason,
             "intent": self.intent,
             "retrieval_mode": self.retrieval_mode,
             "sources_covered": self.sources_covered,
@@ -939,6 +941,7 @@ class MandatoryProofSystem:
         }
         
         planner_results = None
+        planner_debug = None
         if intent in benchmark_intents:
             from src.ml.legendary_planner import get_legendary_planner
             planner = get_legendary_planner()
@@ -1368,31 +1371,86 @@ class MandatoryProofSystem:
             reasoning=reasoning,
         )
         
-        # 13. Generate Answer with LLM (skip if proof_only mode)
-        # Phase 2: Extract payload numbers for validator gate
-        payload_numbers = self._extract_payload_numbers(statistics_evidence)
+        # 13. Generate deterministic answer from computed payload (Phase 2)
+        # Backend computes all numbers; LLM (optional) may ONLY rephrase and must pass validator gate.
+        analysis_payload = None
+        llm_validation_passed = True
+        llm_violations: List[str] = []
         
         if proof_only:
             # Phase 9.10A: Skip LLM for fast Tier-A tests
             answer = "[proof_only mode - LLM answer skipped]"
             logging.info("[PROOF] proof_only=True, skipping LLM answer generation")
         else:
-            context = proof.to_markdown()
-            # Call LLM with proof context
-            raw_answer = self.system._call_llm(
-                f"{question}\n\nاستخدم كل الأدلة التالية في إجابتك:\n{context[:8000]}",
-                ""  # Context already in question
-            )
+            try:
+                from src.benchmarks.analysis_payload import build_analysis_payload
+                from src.benchmarks.answer_generator import generate_answer_with_llm_rewrite
+                
+                question_class = route_result.get("question_class", "free_text")
+                
+                # Convert internal proof components into the Phase 2 payload proof shape.
+                proof_for_payload = {
+                    "quran": quran_results,
+                    "tafsir": tafsir_results,
+                    "graph": {
+                        "paths": graph_evidence.paths,
+                        "cycles": [],
+                        "centrality": {
+                            "total_nodes": len(graph_evidence.nodes),
+                            "total_edges": len(graph_evidence.edges),
+                        },
+                    },
+                    "statistics": {
+                        "counts": statistics_evidence.counts,
+                        "percentages": statistics_evidence.percentages,
+                    },
+                }
+                
+                payload_debug: Dict[str, Any] = {}
+                if planner_debug is not None:
+                    try:
+                        payload_debug = planner_debug.to_dict()
+                    except Exception:
+                        payload_debug = {}
+                payload_debug.setdefault("intent", intent)
+                
+                analysis_payload = build_analysis_payload(
+                    question=question,
+                    question_class=question_class,
+                    proof=proof_for_payload,
+                    debug=payload_debug,
+                )
+                
+                context = proof.to_markdown()
+                
+                def llm_rewriter(text: str) -> str:
+                    prompt = (
+                        f"{question}\n\n"
+                        "هذه إجابة أولية مولّدة حتميًا من بيانات محسوبة. "
+                        "أعد صياغتها عربيًا بإيجاز ووضوح مع الحفاظ على نفس المعنى والبنية. "
+                        "ممنوع إضافة أرقام/نِسَب/حقائق جديدة أو تغيير أي رقم.\n\n"
+                        f"{text}\n\n"
+                        "الأدلة (للاستئناس فقط دون إدخال أرقام جديدة):\n"
+                        f"{context[:8000]}"
+                    )
+                    return self.system._call_llm(prompt, "")
+                
+                answer, llm_validation_passed, llm_violations = generate_answer_with_llm_rewrite(
+                    analysis_payload,
+                    llm_rewriter=llm_rewriter,
+                    strict_validation=True,
+                )
+                
+                if llm_violations:
+                    debug.add_fallback(f"llm_validator_violations: {llm_violations}")
+                    logging.warning(f"[PROOF] LLM rewrite rejected: {llm_violations}")
             
-            # Phase 2: Validator gate - ensure LLM didn't invent numbers
-            is_valid, violations = self._validate_no_new_claims(payload_numbers, raw_answer)
-            if is_valid:
-                answer = raw_answer
-            else:
-                # Log violations but still use answer (with warning in debug)
-                answer = raw_answer
-                debug.add_fallback(f"llm_validator_violations: {violations}")
-                logging.warning(f"[PROOF] LLM answer has unverified claims: {violations}")
+            except Exception as e:
+                logging.exception(f"[PROOF] Phase 2 payload/answer generation failed: {e}")
+                debug.add_fallback(f"phase2_payload_generation_failed: {type(e).__name__}")
+                
+                # Last-resort fallback: return a deterministic minimal answer (no LLM).
+                answer = "تعذر توليد إجابة مُحكَمة من الحمولة التحليلية لهذه الاستعلامة."
         
         elapsed = time.time() - start_time
         
@@ -1411,18 +1469,31 @@ class MandatoryProofSystem:
             if len(tafsir_results.get(source, [])) == 0:
                 debug.tafsir_fallbacks[source] = True
                 debug.add_fallback(f"tafsir_{source}: stratified retrieval returned 0 results")
+
+        # Phase 0: Fail-closed status (no evidence)
+        tafsir_chunks_total = sum(len(tafsir_results.get(src, [])) for src in self.tafsir_sources)
+        status = "ok"
+        if len(quran_results) == 0 and tafsir_chunks_total == 0:
+            status = "no_evidence"
+            if debug.fail_closed_reason is None:
+                debug.fail_closed_reason = "no_evidence"
         
-        # Phase 2: Add derivations for percent claim validation
+        # Phase 2: Attach payload derivations for audit/validator trace
         debug_dict = debug.to_dict()
-        debug_dict["derivations"] = {
-            "payload_numbers": list(payload_numbers),
-            "statistics_counts": statistics_evidence.counts if hasattr(statistics_evidence, 'counts') else {},
-            "statistics_percentages": statistics_evidence.percentages if hasattr(statistics_evidence, 'percentages') else {},
-        }
+        if analysis_payload is not None:
+            try:
+                debug_dict["derivations"] = analysis_payload.derivations
+                debug_dict["gaps"] = analysis_payload.gaps
+                debug_dict["computed_numbers"] = analysis_payload.computed_numbers
+                debug_dict["llm_validation_passed"] = llm_validation_passed
+                debug_dict["llm_violations"] = llm_violations
+            except Exception:
+                pass
         
         return {
             "question": question,
             "answer": answer,
+            "status": status,
             "proof": proof,
             "proof_markdown": proof.to_markdown(),
             "validation": validation,

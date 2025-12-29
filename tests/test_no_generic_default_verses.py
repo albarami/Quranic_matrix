@@ -291,11 +291,13 @@ class TestMandatoryProofSystemFailClosed:
         assert hasattr(debug, 'quran_fallback')
         assert hasattr(debug, 'graph_fallback')
         assert hasattr(debug, 'taxonomy_fallback')
+        assert hasattr(debug, 'fail_closed_reason')
         
         # Default should be no fallback
         assert debug.fallback_used == False
         assert debug.fallback_reasons == []
         assert debug.quran_fallback == False
+        assert debug.fail_closed_reason is None
 
 
 class TestIntentClassifierRouting:

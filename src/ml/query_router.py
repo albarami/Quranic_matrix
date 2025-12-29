@@ -46,6 +46,7 @@ class QueryIntent(Enum):
     AYAH_REF = "ayah_ref"      # Explicit verse reference
     SURAH_REF = "surah_ref"    # Explicit surah reference
     CONCEPT_REF = "concept_ref"  # Behavior/vocab term or ID
+    CROSS_CONTEXT_BEHAVIOR = "cross_context_behavior"  # Same behavior in different contexts
     FREE_TEXT = "free_text"    # Open question
 
 
@@ -142,35 +143,98 @@ class QueryRouter:
         Route a query to the appropriate intent.
         
         Priority order:
-        1. AYAH_REF (explicit verse reference - highest priority)
-        2. CONCEPT_REF (behavior/vocab term or ID - before surah to avoid false matches)
-        3. SURAH_REF (explicit surah reference - only if "سورة" keyword present or exact match)
-        4. FREE_TEXT (fallback)
+        1. CROSS_CONTEXT_BEHAVIOR (highest - first-class intent for cross-context queries)
+        2. AYAH_REF (explicit verse reference)
+        3. CONCEPT_REF (behavior/vocab term or ID - before surah to avoid false matches)
+        4. SURAH_REF (explicit surah reference - only if "سورة" keyword present or exact match)
+        5. FREE_TEXT (fallback)
         """
         query = query.strip()
         
-        # 1. Check for AYAH_REF (verse reference) - highest priority
+        # 1. Check for CROSS_CONTEXT_BEHAVIOR - first-class intent (highest priority)
+        cross_context_result = self._detect_cross_context_behavior(query)
+        if cross_context_result:
+            return cross_context_result
+        
+        # 2. Check for AYAH_REF (verse reference)
         ayah_result = self._detect_ayah_ref(query)
         if ayah_result:
             return ayah_result
         
-        # 2. Check for CONCEPT_REF (behavior/vocab) - before surah to avoid false matches
+        # 3. Check for CONCEPT_REF (behavior/vocab) - before surah to avoid false matches
         concept_result = self._detect_concept_ref(query)
         if concept_result:
             return concept_result
         
-        # 3. Check for SURAH_REF (surah reference) - only explicit references
+        # 4. Check for SURAH_REF (surah reference) - only explicit references
         surah_result = self._detect_surah_ref(query)
         if surah_result:
             return surah_result
         
-        # 4. Fallback to FREE_TEXT
+        # 5. Fallback to FREE_TEXT
         return RouterResult(
             query=query,
             intent=QueryIntent.FREE_TEXT,
             confidence=1.0,
             debug_info={'reason': 'no_specific_reference_detected'},
         )
+    
+    def _detect_cross_context_behavior(self, query: str) -> Optional[RouterResult]:
+        """
+        Detect CROSS_CONTEXT_BEHAVIOR intent.
+        
+        Trigger patterns (Arabic):
+        - نفس السلوك
+        - سياقات مختلفة
+        - في سياقات
+        - نفس (السلوك|الفعل|الصفة) .* (مختلف|متعدد)
+        
+        HARD RULE: If detected, do NOT fall back to generic verse retrieval.
+        """
+        query_lower = query.lower()
+        
+        # Arabic trigger patterns
+        ar_patterns = [
+            r"نفس\s+السلوك",
+            r"سياقات\s+مختلفة",
+            r"في\s+سياقات",
+            r"في\s+سياقات\s+متعددة",
+            r"اختلاف\s+السياق",
+            r"نفس\s+(السلوك|الفعل|الصفة)\s*.*(مختلف|متعدد)",
+            r"السلوك\s+في\s+سياقات",
+            r"تكرار\s+السلوك",
+            r"السلوك\s+المتكرر",
+        ]
+        
+        # English trigger patterns
+        en_patterns = [
+            r"same\s+behavior",
+            r"different\s+contexts",
+            r"across\s+contexts",
+            r"behavior\s+in\s+(different|multiple|various)\s+contexts",
+            r"repeated\s+behavior",
+            r"recurring\s+behavior",
+        ]
+        
+        # Check Arabic patterns
+        for pattern in ar_patterns:
+            if re.search(pattern, query):
+                return RouterResult(
+                    query=query,
+                    intent=QueryIntent.CROSS_CONTEXT_BEHAVIOR,
+                    confidence=0.95,
+                    debug_info={'pattern': 'cross_context_ar', 'matched': pattern},
+                )
+        
+        # Check English patterns
+        for pattern in en_patterns:
+            if re.search(pattern, query_lower):
+                return RouterResult(
+                    query=query,
+                    intent=QueryIntent.CROSS_CONTEXT_BEHAVIOR,
+                    confidence=0.95,
+                    debug_info={'pattern': 'cross_context_en', 'matched': pattern},
+                )
     
     def _detect_ayah_ref(self, query: str) -> Optional[RouterResult]:
         """Detect explicit verse reference."""

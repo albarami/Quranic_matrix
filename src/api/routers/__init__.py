@@ -3,6 +3,7 @@ QBM API Routers - Phase 7.1 Modular Structure
 
 Routers:
 - health: Health check endpoints
+- metrics: /api/metrics/* - deterministic truth metrics
 - proof: /api/proof/* - Full Power proof system
 - quran: /api/quran/* - Quran verse endpoints  
 - tafsir: /api/tafsir/* - Tafsir endpoints

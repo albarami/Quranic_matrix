@@ -1,0 +1,35 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.11.8, pytest-8.3.4, pluggy-1.6.0 -- C:\Program Files\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Quran_matrix
+configfile: pytest.ini
+plugins: anyio-4.11.0, Faker-37.8.0, langsmith-0.4.41, asyncio-1.2.0, cov-7.0.0, mock-3.15.1, requests-mock-1.12.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 24 items
+
+tests/test_planners_smoke.py::TestCausalChainPlannerSmoke::test_instantiation PASSED [  4%]
+tests/test_planners_smoke.py::TestCausalChainPlannerSmoke::test_find_causal_chains_returns_valid_structure PASSED [  8%]
+tests/test_planners_smoke.py::TestCausalChainPlannerSmoke::test_to_dict_produces_serializable_output PASSED [ 12%]
+tests/test_planners_smoke.py::TestCrossTafsirPlannerSmoke::test_instantiation PASSED [ 16%]
+tests/test_planners_smoke.py::TestCrossTafsirPlannerSmoke::test_compare_tafsir_for_entity_returns_valid_structure PASSED [ 20%]
+tests/test_planners_smoke.py::TestProfile11DPlannerSmoke::test_instantiation PASSED [ 25%]
+tests/test_planners_smoke.py::TestProfile11DPlannerSmoke::test_profile_behavior_returns_valid_structure PASSED [ 29%]
+tests/test_planners_smoke.py::TestGraphMetricsPlannerSmoke::test_instantiation PASSED [ 33%]
+tests/test_planners_smoke.py::TestGraphMetricsPlannerSmoke::test_compute_graph_metrics_returns_valid_structure PASSED [ 37%]
+tests/test_planners_smoke.py::TestHeartStatePlannerSmoke::test_instantiation PASSED [ 41%]
+tests/test_planners_smoke.py::TestHeartStatePlannerSmoke::test_get_inventory_returns_valid_structure PASSED [ 45%]
+tests/test_planners_smoke.py::TestAgentPlannerSmoke::test_instantiation PASSED [ 50%]
+tests/test_planners_smoke.py::TestAgentPlannerSmoke::test_get_inventory_returns_valid_structure PASSED [ 54%]
+tests/test_planners_smoke.py::TestTemporalSpatialPlannerSmoke::test_instantiation PASSED [ 58%]
+tests/test_planners_smoke.py::TestTemporalSpatialPlannerSmoke::test_get_temporal_mapping_returns_valid_structure PASSED [ 62%]
+tests/test_planners_smoke.py::TestTemporalSpatialPlannerSmoke::test_get_spatial_mapping_returns_valid_structure PASSED [ 66%]
+tests/test_planners_smoke.py::TestConsequencePlannerSmoke::test_instantiation PASSED [ 70%]
+tests/test_planners_smoke.py::TestConsequencePlannerSmoke::test_get_inventory_returns_valid_structure PASSED [ 75%]
+tests/test_planners_smoke.py::TestEmbeddingsPlannerSmoke::test_instantiation PASSED [ 79%]
+tests/test_planners_smoke.py::TestEmbeddingsPlannerSmoke::test_get_model_info_returns_valid_structure PASSED [ 83%]
+tests/test_planners_smoke.py::TestEmbeddingsPlannerSmoke::test_get_limitation_disclosure_returns_limitations PASSED [ 87%]
+tests/test_planners_smoke.py::TestIntegrationPlannerSmoke::test_instantiation PASSED [ 91%]
+tests/test_planners_smoke.py::TestIntegrationPlannerSmoke::test_run_full_analysis_returns_valid_structure PASSED [ 95%]
+tests/test_planners_smoke.py::TestAllPlannersImport::test_all_planners_importable PASSED [100%]
+
+============================= 24 passed in 40.51s =============================

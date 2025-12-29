@@ -432,14 +432,125 @@ After all phases complete, the system must:
 - [x] **Phase 4:** Stratified retrieval + hybrid search + prebuilt indexes
 - [x] **Phase 6:** Split graph into co-occurrence vs semantic + fix frontend random weights
 - [x] **Phase 10:** Enterprise Hardening (PyG opt-in, fail-fast, Tier A/B tests)
-- [ ] **Phase 7.1:** Refactor API into modular routers (no behavior change)
-- [ ] **Phase 7.2:** Pagination + summary modes (SURAH_REF / CONCEPT_REF / AYAH_REF)
-- [ ] **Phase 7.3:** Genome export endpoint (Q25 productization)
-- [ ] **Phase 7.4:** Scholar review workflow (Postgres + API)
-- [ ] **Phase 8.1:** Frontend integration (proof paging + genome + reviews)
-- [ ] **Phase 8.2:** Playwright E2E tests
-- [ ] **Phase 9:** Documentation + v2.0.0 release tag
-- [ ] **Phase 5.1-5.2:** Embedding rerank evaluation + optional integration (correctly scoped)
+- [x] **Phase 7.1:** Refactor API into modular routers (8 routers created, main.py still large - needs cleanup)
+- [x] **Phase 7.2:** Pagination + summary modes (SURAH_REF / CONCEPT_REF / AYAH_REF)
+- [x] **Phase 7.3:** Genome export endpoint (Q25 productization)
+- [x] **Phase 7.4:** Scholar review workflow (Postgres + API)
+- [x] **Phase 8.1:** Frontend integration (proof paging + genome + reviews)
+- [x] **Phase 8.2:** Playwright E2E tests (qbm-frontendv3/e2e/)
+- [x] **Phase 9:** Documentation (ARCHITECTURE.md, API.md, DEPLOYMENT.md, KNOWN_LIMITATIONS.md)
+- [x] **Phase 11:** CROSS_CONTEXT_BEHAVIOR first-class intent (2025-12-28)
+  - [x] Intent detection in QueryRouter with Arabic/English trigger patterns
+  - [x] Fail-closed: returns `need_behavior` + 0 verses when no behavior specified
+  - [x] Candidate behaviors list (top 10 by occurrence)
+  - [x] Deterministic pipeline: behavior → verses → context clustering → representatives
+  - [x] Verse-locked tafsir (no cross-verse citations)
+  - [x] Computed confidence (not hardcoded 1.0)
+  - [x] Canonical graph IDs (BEH_*, not BHV_*)
+  - [x] Wired into /api/proof/query with guard against FREE_TEXT fallback
+  - [x] 5 regression tests passing
+- [ ] **Phase 5.1-5.2:** Embedding rerank evaluation + optional integration (DEFERRED until after Phase 12)
+
+---
+
+## Phase 12: Backend to Legendary - Planners & 180/200 Benchmark
+
+**Priority:** PLANNERS FIRST (build capability, then cleanup)  
+**Added:** 2025-12-29  
+**Target:** ≥180/200 PASS on qbm_legendary_200.v1.jsonl benchmark
+
+### Phase 12.0: Lock the Rules (No Fabrication, Fail-Closed)
+- [ ] Kill generic default verses in `src/ml/mandatory_proof_system.py`
+- [ ] Add `fail_closed_reason` field to ProofDebug
+- [ ] Create `tests/test_no_generic_default_verses.py`
+- [ ] Commit: `fix(truth): remove generic default verses; enforce fail-closed no-evidence`
+
+### Phase 12.1: Unify Routing
+- [ ] Create `src/ml/question_class_router.py` (canonical router using IntentType)
+- [ ] Update MandatoryProofSystem to route analytical queries to planners (not FREE_TEXT)
+- [ ] Create `tests/test_router_classification.py` (2 variants per class: Arabic + English)
+- [ ] Commit: `feat(router): unify question-class routing for analytical queries`
+
+### Phase 12.2: Analysis Payload & Answer Generator
+- [ ] Create `src/benchmark/analysis_payload.py` (build_analysis_payload function)
+- [ ] Create `src/benchmark/answer_generator.py` (generate_answer from payload)
+- [ ] Update `src/benchmarks/scoring.py` with depth + correctness checks
+- [ ] Create `tests/test_answer_generation_deterministic.py`
+- [ ] Create `tests/test_scoring_depth_rules.py`
+- [ ] Commit: `feat(benchmark): deterministic analysis payload + answer generator + depth-based scoring`
+
+### Phase 12.3: Implement 10 Planners (using existing assets)
+
+**Assets to leverage:**
+- `data/graph/semantic_graph_v2.json` - Causal chains, relationships
+- `data/evidence/concept_index_v2.jsonl` - Behavior-to-verse mappings
+- `data/evidence/evidence_index_v2_chunked.jsonl` - Chunked tafsir with provenance
+- `vocab/canonical_entities.json` - 73 behaviors, 14 agents, 12 heart states, 16 consequences
+- `src/ml/qbm_bouzidani_taxonomy.py` - 11-axis classification
+
+**Planners to implement:**
+- [ ] Create `src/ml/planners/` directory
+- [ ] Create `src/ml/planners/causal_chain_planner.py` (semantic_graph_v2, 73 behaviors, multi-hop chains)
+- [ ] Create `src/ml/planners/cross_tafsir_planner.py` (7-source tafsir, agreement/disagreement metrics)
+- [ ] Create `src/ml/planners/profile_11d_planner.py` (qbm_bouzidani_taxonomy.py, 11 axes)
+- [ ] Create `src/ml/planners/graph_metrics_planner.py` (networkx, centrality, communities)
+- [ ] Create `src/ml/planners/heart_state_planner.py` (12 heart states from canonical)
+- [ ] Create `src/ml/planners/agent_planner.py` (14 agents, exclusivity mapping)
+- [ ] Create `src/ml/planners/temporal_spatial_planner.py` (vocab axes, heatmaps)
+- [ ] Create `src/ml/planners/consequence_planner.py` (16 consequences)
+- [ ] Create `src/ml/planners/embeddings_planner.py` (cite registry, explicit limitations)
+- [ ] Create `src/ml/planners/integration_planner.py` (combines outputs, consistency checks)
+- [ ] Create `tests/test_planners_smoke.py` (one sample per planner)
+- [ ] Create `tests/test_no_fabrication_all_planners.py`
+- [ ] Commits: one per planner or planner group
+
+### Phase 12.4: Benchmark Loop Until LEGENDARY
+
+**Commands:**
+```bash
+# Smoke (20 items - 2 per section)
+python scripts/run_qbm_benchmark.py --dataset data/benchmarks/qbm_legendary_200.v1.jsonl --smoke --ci
+
+# Full (200 items)
+python scripts/run_qbm_benchmark.py --dataset data/benchmarks/qbm_legendary_200.v1.jsonl
+```
+
+**Acceptance Gate:**
+- [ ] Smoke: 20/20 PASS
+- [ ] Full: ≥180/200 PASS
+- [ ] 0 "generic_opening_verses_default"
+- [ ] 0 "fallback_used_for_structured_intent"
+- [ ] 0 fabricated numbers
+- [ ] Commits per remediation batch: `fix(benchmark): improve <planner> for <question_class>`
+
+### Phase 12.5: Legacy Cleanup (AFTER benchmark goals met)
+- [ ] Create `src/api/routers/legacy.py` - quarantine remaining inline endpoints from main.py
+- [ ] Reduce main.py to <100 lines (app init + router includes only)
+- [ ] Unify 7-source tafsir list everywhere (remove 5-source references)
+- [ ] Add invariant test scanning for hardcoded source lists
+- [ ] Fix doc paths: uthmani_hafs_v1.tok_v1.json, evidence_index_v2_chunked.jsonl
+- [ ] Make Playwright E2E a hard gate (remove continue-on-error)
+- [ ] Commit: `refactor(api): quarantine legacy endpoints; main.py minimal`
+
+### Phase 12.6: Frontend Integration (AFTER backend is LEGENDARY)
+- [ ] UI renders from `/api/metrics/overview`, `/api/proof/query`, `/api/genome/*`
+- [ ] Playwright E2E tests pass and block CI
+- [ ] Commit: `feat(frontend): render proof/metrics with styled components + E2E gates`
+
+---
+
+## Phase 12 Definition of Done
+
+| Criterion | Target |
+|-----------|--------|
+| Benchmark PASS rate | ≥180/200 (90%) |
+| Generic default verses | 0 |
+| Fallback for structured intent | 0 |
+| Fabricated numbers | 0 |
+| All planners implemented | 10/10 |
+| Depth-based scoring | Active |
+| main.py lines | <100 |
+| E2E gate | Hard (no continue-on-error) |
 
 ---
 

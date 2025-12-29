@@ -29,6 +29,7 @@
 
 ## Completed
 
+- **2025-12-28**: Implement CROSS_CONTEXT_BEHAVIOR first-class intent for cross-context behavioral analysis queries. Includes fail-closed behavior (need_behavior status), deterministic context clustering, verse-locked tafsir, computed confidence scores, canonical graph IDs. 5 regression tests passing.
 - **2025-12-20**: Align Label Studio task JSON format to `{"id":..., "data":{...}}` (pilot + sample tasks); add tests; push to GitHub.
 - **2025-12-20**: Add pilot_50 tokenized selection dataset + validation/build tooling; push to GitHub.
 - **2025-12-20**: Create Qur’anic Human‑Behavior Classification Matrix documentation files (`.md` + `.doc`/RTF) and place under `docs/`.

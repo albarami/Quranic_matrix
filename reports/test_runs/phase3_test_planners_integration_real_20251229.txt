@@ -1,0 +1,33 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.11.8, pytest-8.3.4, pluggy-1.6.0 -- C:\Program Files\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Quran_matrix
+configfile: pytest.ini
+plugins: anyio-4.11.0, Faker-37.8.0, langsmith-0.4.41, asyncio-1.2.0, cov-7.0.0, mock-3.15.1, requests-mock-1.12.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 22 items
+
+tests/test_planners_integration_real.py::TestCausalChainPlannerReal::test_find_chains_with_real_entities PASSED [  4%]
+tests/test_planners_integration_real.py::TestCausalChainPlannerReal::test_to_dict_serializable PASSED [  9%]
+tests/test_planners_integration_real.py::TestCrossTafsirPlannerReal::test_compare_tafsir_with_real_entity PASSED [ 13%]
+tests/test_planners_integration_real.py::TestCrossTafsirPlannerReal::test_agreement_ratio_in_valid_range PASSED [ 18%]
+tests/test_planners_integration_real.py::TestProfile11DPlannerReal::test_profile_real_behavior PASSED [ 22%]
+tests/test_planners_integration_real.py::TestProfile11DPlannerReal::test_all_11_dimensions_present PASSED [ 27%]
+tests/test_planners_integration_real.py::TestGraphMetricsPlannerReal::test_compute_metrics_from_real_graph PASSED [ 31%]
+tests/test_planners_integration_real.py::TestGraphMetricsPlannerReal::test_node_metrics_for_real_entity PASSED [ 36%]
+tests/test_planners_integration_real.py::TestHeartStatePlannerReal::test_get_real_heart_state_inventory PASSED [ 40%]
+tests/test_planners_integration_real.py::TestHeartStatePlannerReal::test_analyze_real_heart_state PASSED [ 45%]
+tests/test_planners_integration_real.py::TestAgentPlannerReal::test_get_real_agent_inventory PASSED [ 50%]
+tests/test_planners_integration_real.py::TestAgentPlannerReal::test_analyze_real_agent PASSED [ 54%]
+tests/test_planners_integration_real.py::TestTemporalSpatialPlannerReal::test_get_real_temporal_mapping PASSED [ 59%]
+tests/test_planners_integration_real.py::TestTemporalSpatialPlannerReal::test_get_real_spatial_mapping PASSED [ 63%]
+tests/test_planners_integration_real.py::TestConsequencePlannerReal::test_get_real_consequence_inventory PASSED [ 68%]
+tests/test_planners_integration_real.py::TestConsequencePlannerReal::test_analyze_real_consequence PASSED [ 72%]
+tests/test_planners_integration_real.py::TestEmbeddingsPlannerReal::test_get_real_model_info PASSED [ 77%]
+tests/test_planners_integration_real.py::TestEmbeddingsPlannerReal::test_limitation_disclosure_truthful PASSED [ 81%]
+tests/test_planners_integration_real.py::TestIntegrationPlannerReal::test_full_analysis_with_real_entity PASSED [ 86%]
+tests/test_planners_integration_real.py::TestIntegrationPlannerReal::test_consistency_checks_run PASSED [ 90%]
+tests/test_planners_integration_real.py::TestCrossPlannerConsistency::test_canonical_entity_counts_match PASSED [ 95%]
+tests/test_planners_integration_real.py::TestCrossPlannerConsistency::test_tafsir_sources_count PASSED [100%]
+
+============================= 22 passed in 9.00s ==============================

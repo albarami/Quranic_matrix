@@ -408,6 +408,233 @@ class LegendaryPlanner:
         
         return paths
     
+    # =========================================================================
+    # PHASE 4A: GLOBAL/CORPUS-WIDE ENTITY-FREE ANALYTICS
+    # These methods operate over the entire graph without requiring resolved entities
+    # =========================================================================
+    
+    def compute_global_causal_density(self) -> Dict[str, Any]:
+        """
+        Compute causal density for ALL nodes in the graph.
+        Returns top nodes by outgoing (causes) and incoming (caused by) edges.
+        Entity-free: operates over entire semantic graph.
+        """
+        if not self.semantic_graph:
+            return {"status": "no_graph", "outgoing_top10": [], "incoming_top10": []}
+        
+        causal_types = {"CAUSES", "LEADS_TO", "STRENGTHENS"}
+        outgoing = {}  # node -> count of outgoing causal edges
+        incoming = {}  # node -> count of incoming causal edges
+        edge_provenance = {}  # (src, tgt) -> edge with evidence
+        
+        for edge in self.semantic_graph.get("edges", []):
+            if edge.get("edge_type") in causal_types:
+                src = edge["source"]
+                tgt = edge["target"]
+                outgoing[src] = outgoing.get(src, 0) + 1
+                incoming[tgt] = incoming.get(tgt, 0) + 1
+                edge_provenance[(src, tgt)] = edge
+        
+        # Get node labels
+        node_labels = {n["id"]: {"ar": n.get("ar", ""), "en": n.get("en", "")} 
+                       for n in self.semantic_graph.get("nodes", [])}
+        
+        # Top 10 by outgoing (highest causal influence)
+        top_outgoing = sorted(outgoing.items(), key=lambda x: -x[1])[:10]
+        top_incoming = sorted(incoming.items(), key=lambda x: -x[1])[:10]
+        
+        pairs = list(edge_provenance.keys())
+        return {
+            "status": "computed",
+            "total_causal_edges": sum(outgoing.values()),
+            "outgoing_top10": [
+                {"id": nid, "label": node_labels.get(nid, {}), "count": cnt,
+                 "sample_targets": [t for (s, t) in pairs if s == nid][:3]}
+                for nid, cnt in top_outgoing
+            ],
+            "incoming_top10": [
+                {"id": nid, "label": node_labels.get(nid, {}), "count": cnt,
+                 "sample_sources": [s for (s, t) in pairs if t == nid][:3]}
+                for nid, cnt in top_incoming
+            ],
+        }
+    
+    def find_all_cycles(self, min_length: int = 3, max_length: int = 5) -> Dict[str, Any]:
+        """
+        Find ALL reinforcement cycles in the graph (A→B→C→A patterns).
+        Entity-free: operates over entire semantic graph.
+        """
+        if not self.semantic_graph:
+            return {"status": "no_graph", "cycles": []}
+        
+        causal_types = {"CAUSES", "LEADS_TO", "STRENGTHENS"}
+        
+        # Build adjacency
+        adj = {}
+        edge_info = {}
+        for edge in self.semantic_graph.get("edges", []):
+            if edge.get("edge_type") in causal_types:
+                src = edge["source"]
+                tgt = edge["target"]
+                if src not in adj:
+                    adj[src] = []
+                adj[src].append(tgt)
+                edge_info[(src, tgt)] = edge
+        
+        # Find cycles using DFS from each node
+        cycles = []
+        visited_cycles = set()
+        
+        for start_node in adj.keys():
+            stack = [(start_node, [start_node], [])]
+            
+            while stack and len(cycles) < 50:  # Limit to 50 cycles
+                current, path, edges = stack.pop()
+                
+                for neighbor in adj.get(current, []):
+                    if neighbor == start_node and len(path) >= min_length:
+                        # Found a cycle back to start
+                        edge = edge_info.get((current, neighbor))
+                        cycle_edges = edges + [edge] if edge else edges
+                        
+                        # Normalize cycle to avoid duplicates
+                        cycle_key = tuple(sorted(path))
+                        if cycle_key not in visited_cycles:
+                            visited_cycles.add(cycle_key)
+                            cycles.append({
+                                "nodes": path + [start_node],
+                                "length": len(path),
+                                "edges": cycle_edges,
+                                "total_evidence": sum(e.get("evidence_count", 0) for e in cycle_edges),
+                            })
+                    elif neighbor not in path and len(path) < max_length:
+                        edge = edge_info.get((current, neighbor))
+                        stack.append((neighbor, path + [neighbor], edges + [edge] if edge else edges))
+        
+        return {
+            "status": "computed",
+            "total_cycles_found": len(cycles),
+            "cycles": sorted(cycles, key=lambda x: -x["total_evidence"])[:20],
+        }
+    
+    def compute_chain_length_distribution(self) -> Dict[str, Any]:
+        """
+        Compute distribution of causal chain lengths in the graph.
+        Entity-free: operates over entire semantic graph.
+        """
+        if not self.semantic_graph:
+            return {"status": "no_graph", "distribution": {}}
+        
+        causal_types = {"CAUSES", "LEADS_TO", "STRENGTHENS"}
+        
+        # Build adjacency
+        adj = {}
+        for edge in self.semantic_graph.get("edges", []):
+            if edge.get("edge_type") in causal_types:
+                src = edge["source"]
+                tgt = edge["target"]
+                if src not in adj:
+                    adj[src] = []
+                adj[src].append(tgt)
+        
+        # Find longest path from each node using DFS
+        max_depths = {}
+        
+        def dfs_depth(node: str, visited: Set[str]) -> int:
+            if node in visited:
+                return 0
+            visited.add(node)
+            max_child = 0
+            for neighbor in adj.get(node, []):
+                max_child = max(max_child, dfs_depth(neighbor, visited.copy()))
+            return 1 + max_child
+        
+        for node in adj.keys():
+            max_depths[node] = dfs_depth(node, set())
+        
+        # Distribution of max chain lengths
+        distribution = {}
+        for depth in max_depths.values():
+            distribution[depth] = distribution.get(depth, 0) + 1
+        
+        # Find longest chains
+        longest_depth = max(max_depths.values()) if max_depths else 0
+        longest_starts = [n for n, d in max_depths.items() if d == longest_depth][:5]
+        
+        return {
+            "status": "computed",
+            "total_nodes_with_outgoing": len(adj),
+            "distribution": distribution,
+            "longest_chain_length": longest_depth,
+            "longest_chain_starts": longest_starts,
+            "average_chain_length": sum(max_depths.values()) / len(max_depths) if max_depths else 0,
+        }
+    
+    def enumerate_canonical_inventory(self, entity_type: str) -> Dict[str, Any]:
+        """
+        Enumerate all canonical entities of a given type with their evidence.
+        Entity-free: returns complete inventory from canonical_entities.json.
+        
+        Args:
+            entity_type: One of "behaviors", "agents", "organs", "heart_states", "consequences"
+        """
+        if not self.canonical_entities:
+            return {"status": "no_entities", "items": []}
+        
+        items = self.canonical_entities.get(entity_type, [])
+        enriched = []
+        
+        for item in items:
+            entity_id = item.get("id", "")
+            evidence = self.get_concept_evidence(entity_id)
+            enriched.append({
+                "id": entity_id,
+                "ar": item.get("ar", ""),
+                "en": item.get("en", ""),
+                "category": item.get("category", ""),
+                "total_mentions": evidence.get("total_mentions", 0),
+                "verse_count": len(evidence.get("verse_keys", [])),
+                "sample_verses": evidence.get("verse_keys", [])[:3],
+            })
+        
+        return {
+            "status": "computed",
+            "entity_type": entity_type,
+            "total_count": len(enriched),
+            "items": sorted(enriched, key=lambda x: -x["total_mentions"]),
+        }
+    
+    def compute_global_tafsir_coverage(self) -> Dict[str, Any]:
+        """
+        Compute tafsir source coverage across all concepts.
+        Entity-free: aggregates from concept_index.
+        """
+        if not self.concept_index:
+            return {"status": "no_index", "coverage": {}}
+        
+        source_counts = {src: 0 for src in CORE_SOURCES}
+        source_concepts = {src: set() for src in CORE_SOURCES}
+        
+        for entity_id, data in self.concept_index.items():
+            for evidence in data.get("sample_evidence", []):
+                source = evidence.get("source", "")
+                if source in source_counts:
+                    source_counts[source] += 1
+                    source_concepts[source].add(entity_id)
+        
+        return {
+            "status": "computed",
+            "total_concepts": len(self.concept_index),
+            "source_coverage": {
+                src: {
+                    "chunk_count": cnt,
+                    "concept_count": len(source_concepts[src]),
+                    "coverage_pct": round(len(source_concepts[src]) / len(self.concept_index) * 100, 1) if self.concept_index else 0,
+                }
+                for src, cnt in source_counts.items()
+            },
+        }
+    
     def create_plan(self, query: str, question_class: QuestionClass) -> List[PlanStep]:
         """Create execution plan for a question class."""
         steps = []
@@ -617,6 +844,7 @@ class LegendaryPlanner:
                 
                 elif step.action == "find_causal_paths":
                     if len(resolved_entities) >= 2:
+                        # Entity-specific: find paths between two resolved entities
                         from_id = resolved_entities[0]["entity_id"]
                         to_id = resolved_entities[1]["entity_id"]
                         paths = self.find_causal_paths(from_id, to_id)
@@ -628,36 +856,61 @@ class LegendaryPlanner:
                             "paths_found": len(paths),
                         })
                         step.output_summary = f"Found {len(paths)} causal paths"
+                    else:
+                        # PHASE 4A: Entity-free - find ALL cycles in the graph
+                        cycles_result = self.find_all_cycles()
+                        results["graph_data"]["cycles"] = cycles_result.get("cycles", [])
+                        results["graph_data"]["total_cycles"] = cycles_result.get("total_cycles_found", 0)
+                        
+                        # Also compute chain length distribution
+                        chain_dist = self.compute_chain_length_distribution()
+                        results["graph_data"]["chain_distribution"] = chain_dist
+                        
+                        debug.graph_traversals.append({
+                            "action": "global_cycle_detection",
+                            "cycles_found": cycles_result.get("total_cycles_found", 0),
+                            "entity_free": True,
+                        })
+                        step.output_summary = f"Found {cycles_result.get('total_cycles_found', 0)} cycles (entity-free)"
                 
                 elif step.action == "cross_tafsir_comparison":
-                    # Phase 3: Cross-tafsir comparison using 7 canonical sources
-                    source_counts = {src: 0 for src in CORE_SOURCES}
-                    source_evidence = {src: [] for src in CORE_SOURCES}
-                    
-                    for entity in resolved_entities:
-                        evidence = self.get_concept_evidence(entity["entity_id"])
-                        for chunk in evidence.get("sample_evidence", []):
-                            source = chunk.get("source", "")
-                            if source in source_counts:
-                                source_counts[source] += 1
-                                source_evidence[source].append(chunk)
-                    
-                    # Compute agreement metrics
-                    sources_with_evidence = sum(1 for c in source_counts.values() if c > 0)
-                    total_chunks = sum(source_counts.values())
-                    
-                    results["cross_tafsir"] = {
-                        "sources_count": sources_with_evidence,
-                        "total_sources": len(CORE_SOURCES),
-                        "source_distribution": source_counts,
-                        "agreement_ratio": sources_with_evidence / len(CORE_SOURCES) if CORE_SOURCES else 0,
-                        "sample_by_source": {s: e[:2] for s, e in source_evidence.items() if e},
-                    }
-                    debug.cross_tafsir_stats = results["cross_tafsir"]
-                    step.output_summary = f"Compared {sources_with_evidence}/{len(CORE_SOURCES)} sources"
+                    if resolved_entities:
+                        # Entity-specific: compare tafsir for resolved entities
+                        source_counts = {src: 0 for src in CORE_SOURCES}
+                        source_evidence = {src: [] for src in CORE_SOURCES}
+                        
+                        for entity in resolved_entities:
+                            evidence = self.get_concept_evidence(entity["entity_id"])
+                            for chunk in evidence.get("sample_evidence", []):
+                                source = chunk.get("source", "")
+                                if source in source_counts:
+                                    source_counts[source] += 1
+                                    source_evidence[source].append(chunk)
+                        
+                        sources_with_evidence = sum(1 for c in source_counts.values() if c > 0)
+                        
+                        results["cross_tafsir"] = {
+                            "sources_count": sources_with_evidence,
+                            "total_sources": len(CORE_SOURCES),
+                            "source_distribution": source_counts,
+                            "agreement_ratio": sources_with_evidence / len(CORE_SOURCES) if CORE_SOURCES else 0,
+                            "sample_by_source": {s: e[:2] for s, e in source_evidence.items() if e},
+                        }
+                        debug.cross_tafsir_stats = results["cross_tafsir"]
+                        step.output_summary = f"Compared {sources_with_evidence}/{len(CORE_SOURCES)} sources"
+                    else:
+                        # PHASE 4A: Entity-free - compute global tafsir coverage
+                        global_coverage = self.compute_global_tafsir_coverage()
+                        results["cross_tafsir"] = {
+                            "entity_free": True,
+                            "total_concepts": global_coverage.get("total_concepts", 0),
+                            "source_coverage": global_coverage.get("source_coverage", {}),
+                        }
+                        debug.cross_tafsir_stats = results["cross_tafsir"]
+                        step.output_summary = f"Computed global tafsir coverage (entity-free)"
                 
                 elif step.action == "compute_centrality":
-                    # Phase 3: Graph metrics using semantic graph
+                    # PHASE 4A: Global graph metrics - always entity-free
                     if self.semantic_graph:
                         nodes = self.semantic_graph.get("nodes", [])
                         edges = self.semantic_graph.get("edges", [])
@@ -677,7 +930,18 @@ class LegendaryPlanner:
                             "total_edges": len(edges),
                             "top_by_degree": [{"id": n, "degree": d} for n, d in top_nodes],
                         }
-                        step.output_summary = f"Computed centrality for {len(nodes)} nodes"
+                        
+                        # PHASE 4A: Also compute causal density (entity-free)
+                        causal_density = self.compute_global_causal_density()
+                        results["graph_data"]["causal_density"] = causal_density
+                        
+                        debug.graph_traversals.append({
+                            "action": "global_centrality",
+                            "total_nodes": len(nodes),
+                            "total_edges": len(edges),
+                            "entity_free": True,
+                        })
+                        step.output_summary = f"Computed centrality for {len(nodes)} nodes (entity-free)"
                 
                 elif step.action == "validate_path_evidence":
                     # Phase 3: Validate each edge in paths has evidence

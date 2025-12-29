@@ -138,11 +138,13 @@ app.include_router(discovery_router)
 
 from .routers.health import router as health_router
 from .routers.genome import router as genome_router
+from .routers.metrics import router as metrics_router
 from .routers.reviews import router as reviews_router
 from .routers.proof import router as proof_router
 
 app.include_router(health_router, tags=["Health"])
 app.include_router(genome_router)  # Phase 7.3 placeholder
+app.include_router(metrics_router)
 app.include_router(reviews_router)  # Phase 7.4 placeholder
 app.include_router(proof_router)  # Phase 7.2 (canonical /api/proof/*)
 

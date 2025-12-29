@@ -1,0 +1,17 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.11.8, pytest-8.3.4, pluggy-1.6.0 -- C:\Program Files\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Quran_matrix
+configfile: pytest.ini
+plugins: anyio-4.11.0, Faker-37.8.0, langsmith-0.4.41, asyncio-1.2.0, cov-7.0.0, mock-3.15.1, requests-mock-1.12.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 6 items
+
+tests/test_tafsir_source_count.py::TestCanonicalTafsirSources::test_tafsir_constants_has_7_sources PASSED [ 16%]
+tests/test_tafsir_source_count.py::TestCanonicalTafsirSources::test_all_sources_with_quran_has_8 PASSED [ 33%]
+tests/test_tafsir_source_count.py::TestCanonicalTafsirSources::test_legendary_planner_uses_7_sources PASSED [ 50%]
+tests/test_tafsir_source_count.py::TestCanonicalTafsirSources::test_vocab_tafsir_sources_json_has_7 PASSED [ 66%]
+tests/test_tafsir_source_count.py::TestNoHardcodedFiveSourceLists::test_mandatory_proof_system_uses_shared_constant PASSED [ 83%]
+tests/test_tafsir_source_count.py::TestNoHardcodedFiveSourceLists::test_full_power_system_uses_shared_constant PASSED [100%]
+
+============================== 6 passed in 9.08s ==============================

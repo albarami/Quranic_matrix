@@ -1,0 +1,38 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.11.8, pytest-8.3.4, pluggy-1.6.0 -- C:\Program Files\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Quran_matrix
+configfile: pytest.ini
+plugins: anyio-4.11.0, Faker-37.8.0, langsmith-0.4.41, asyncio-1.2.0, cov-7.0.0, mock-3.15.1, requests-mock-1.12.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 27 items
+
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_causal_chain_english PASSED [  3%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_causal_chain_arabic PASSED [  7%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_cross_tafsir_english PASSED [ 11%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_cross_tafsir_arabic PASSED [ 14%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_profile_11d_english PASSED [ 18%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_profile_11d_arabic PASSED [ 22%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_graph_metrics_english PASSED [ 25%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_graph_metrics_arabic PASSED [ 29%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_heart_state_english PASSED [ 33%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_heart_state_arabic PASSED [ 37%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_agent_analysis_english PASSED [ 40%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_agent_analysis_arabic PASSED [ 44%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_temporal_spatial_english PASSED [ 48%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_temporal_spatial_arabic PASSED [ 51%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_consequence_english PASSED [ 55%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_consequence_arabic PASSED [ 59%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_embeddings_english PASSED [ 62%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_integration_english PASSED [ 66%]
+tests/test_router_classification.py::TestAnalyticalQuestionsNotFreeText::test_integration_arabic PASSED [ 70%]
+tests/test_router_classification.py::TestDeterministicRetrievalRouting::test_surah_ref_routes_to_free_text PASSED [ 74%]
+tests/test_router_classification.py::TestDeterministicRetrievalRouting::test_ayah_ref_routes_to_free_text PASSED [ 77%]
+tests/test_router_classification.py::TestConceptRefRouting::test_concept_ref_routes_to_profile PASSED [ 81%]
+tests/test_router_classification.py::TestHelperFunctions::test_is_analytical_question_true PASSED [ 85%]
+tests/test_router_classification.py::TestHelperFunctions::test_is_analytical_question_false PASSED [ 88%]
+tests/test_router_classification.py::TestHelperFunctions::test_get_planner_for_question PASSED [ 92%]
+tests/test_router_classification.py::TestRouterResultStructure::test_router_result_has_all_fields PASSED [ 96%]
+tests/test_router_classification.py::TestRouterResultStructure::test_router_result_to_dict PASSED [100%]
+
+============================= 27 passed in 8.95s ==============================
