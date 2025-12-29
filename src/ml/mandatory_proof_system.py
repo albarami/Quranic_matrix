@@ -534,8 +534,10 @@ class MandatoryProofSystem:
     
     def __init__(self, full_power_system):
         self.system = full_power_system
-        self.tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
-        self.core_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
+        # Use canonical 7 tafsir sources from shared constant
+        from src.ml.tafsir_constants import CANONICAL_TAFSIR_SOURCES
+        self.tafsir_sources = CANONICAL_TAFSIR_SOURCES
+        self.core_sources = CANONICAL_TAFSIR_SOURCES
         
         # Phase 10.2: Load concept index for deterministic Quran evidence
         self.concept_index = self._load_concept_index()
@@ -571,54 +573,152 @@ class MandatoryProofSystem:
             logging.info(f"[PROOF] Loaded {len(concept_index)} concepts from index")
         return concept_index
     
+    def _load_canonical_entities(self) -> Dict[str, Any]:
+        """Load canonical entities for general entity extraction."""
+        entities_file = Path("vocab/canonical_entities.json")
+        if entities_file.exists():
+            with open(entities_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        return {}
+    
+    def _extract_all_entities(self, question: str) -> Dict[str, List[str]]:
+        """
+        Extract ALL entities from a question - general purpose, works for any question type.
+        
+        Returns dict with entity_type -> list of matched terms
+        """
+        entities = self._load_canonical_entities()
+        found = {
+            "behaviors": [],
+            "heart_states": [],
+            "agents": [],
+            "organs": [],
+            "consequences": [],
+        }
+        
+        # Check behaviors
+        for beh in entities.get("behaviors", []):
+            ar_term = beh.get("ar", "")
+            en_term = beh.get("en", "").lower()
+            if ar_term and ar_term in question:
+                found["behaviors"].append(beh)
+            elif en_term and en_term in question.lower():
+                found["behaviors"].append(beh)
+        
+        # Check heart states
+        for hs in entities.get("heart_states", []):
+            ar_term = hs.get("ar", "")
+            en_term = hs.get("en", "").lower()
+            if ar_term and ar_term in question:
+                found["heart_states"].append(hs)
+            elif en_term and en_term in question.lower():
+                found["heart_states"].append(hs)
+        
+        # Check agents
+        for agent in entities.get("agents", []):
+            ar_term = agent.get("ar", "")
+            en_term = agent.get("en", "").lower()
+            if ar_term and ar_term in question:
+                found["agents"].append(agent)
+            elif en_term and en_term in question.lower():
+                found["agents"].append(agent)
+        
+        # Check organs
+        for organ in entities.get("organs", []):
+            ar_term = organ.get("ar", "")
+            en_term = organ.get("en", "").lower()
+            if ar_term and ar_term in question:
+                found["organs"].append(organ)
+            elif en_term and en_term in question.lower():
+                found["organs"].append(organ)
+        
+        # Check consequences
+        for csq in entities.get("consequences", []):
+            ar_term = csq.get("ar", "")
+            en_term = csq.get("en", "").lower()
+            if ar_term and ar_term in question:
+                found["consequences"].append(csq)
+            elif en_term and en_term in question.lower():
+                found["consequences"].append(csq)
+        
+        # Special: detect entity TYPE requests (e.g., "all heart states", "all agents")
+        heart_keywords = ["heart state", "قلب سليم", "قلب قاس", "قلب مريض", "حالات القلب", "heart"]
+        agent_keywords = ["agent type", "agent", "الفاعل", "وكيل", "exclusive to"]
+        
+        for kw in heart_keywords:
+            if kw in question.lower() or kw in question:
+                # Return ALL heart states for heart-related questions
+                if not found["heart_states"]:
+                    found["heart_states"] = entities.get("heart_states", [])
+                break
+        
+        for kw in agent_keywords:
+            if kw in question.lower() or kw in question:
+                if not found["agents"]:
+                    found["agents"] = entities.get("agents", [])
+                break
+        
+        return found
+    
     def _route_query(self, question: str) -> Dict[str, Any]:
         """
         Phase 10.2: Route query to determine intent and extract entities.
+        Uses the deterministic intent classifier for benchmark questions.
         
         Returns:
             dict with keys: intent, concept, surah, ayah
         """
         import re
+        from src.ml.intent_classifier import classify_intent, IntentType
         
-        result = {"intent": "FREE_TEXT", "concept": None, "surah": None, "ayah": None}
+        # Use the deterministic intent classifier first
+        intent_result = classify_intent(question)
+        intent_type = intent_result.intent
         
-        # Check for AYAH_REF (e.g., "2:255", "البقرة:255")
-        ayah_pattern = r'(\d+):(\d+)'
-        ayah_match = re.search(ayah_pattern, question)
-        if ayah_match:
-            result["intent"] = "AYAH_REF"
-            result["surah"] = int(ayah_match.group(1))
-            result["ayah"] = int(ayah_match.group(2))
+        result = {
+            "intent": intent_type.value,
+            "concept": None,
+            "surah": None,
+            "ayah": None,
+            "extracted_entities": {
+                **intent_result.extracted_entities,
+                "question": question,  # Pass question for entity extraction
+            },
+        }
+        
+        # For SURAH_REF and AYAH_REF, extract the specific references
+        if intent_type == IntentType.SURAH_REF:
+            result["surah"] = intent_result.extracted_entities.get("surah")
             return result
         
-        # Check for SURAH_REF (e.g., "سورة البقرة")
-        surah_names = {
-            'الفاتحة': 1, 'البقرة': 2, 'آل عمران': 3, 'النساء': 4, 'المائدة': 5,
-            'الأنعام': 6, 'الأعراف': 7, 'الأنفال': 8, 'التوبة': 9, 'يونس': 10,
-            'هود': 11, 'يوسف': 12, 'الرعد': 13, 'إبراهيم': 14, 'الحجر': 15,
-            'النحل': 16, 'الإسراء': 17, 'الكهف': 18, 'مريم': 19, 'طه': 20,
-            'الأنبياء': 21, 'الحج': 22, 'المؤمنون': 23, 'النور': 24, 'الفرقان': 25,
-            'الشعراء': 26, 'النمل': 27, 'القصص': 28, 'العنكبوت': 29, 'الروم': 30,
-            'لقمان': 31, 'السجدة': 32, 'الأحزاب': 33, 'سبأ': 34, 'فاطر': 35,
-            'يس': 36, 'الصافات': 37, 'ص': 38, 'الزمر': 39, 'غافر': 40,
-            'فصلت': 41, 'الشورى': 42, 'الزخرف': 43, 'الدخان': 44, 'الجاثية': 45,
-            'الأحقاف': 46, 'محمد': 47, 'الفتح': 48, 'الحجرات': 49, 'ق': 50,
-        }
-        surah_pattern = r'سورة\s*(\S+)'
-        surah_match = re.search(surah_pattern, question)
-        if surah_match:
-            surah_name = surah_match.group(1)
-            if surah_name in surah_names:
-                result["intent"] = "SURAH_REF"
-                result["surah"] = surah_names[surah_name]
-                return result
+        if intent_type == IntentType.AYAH_REF:
+            result["surah"] = intent_result.extracted_entities.get("surah")
+            result["ayah"] = intent_result.extracted_entities.get("ayah")
+            return result
         
-        # Check for CONCEPT_REF (behavior/concept term in concept index)
-        for term in self.concept_index.keys():
-            if term in question:
-                result["intent"] = "CONCEPT_REF"
-                result["concept"] = term
-                return result
+        # For CONCEPT_REF, extract the concept term
+        if intent_type == IntentType.CONCEPT_REF:
+            # Try to find a concept in the question
+            for term in self.concept_index.keys():
+                if term in question:
+                    result["concept"] = term
+                    return result
+        
+        # For benchmark intents, keep the intent but also try to extract concepts
+        benchmark_intents = {
+            IntentType.GRAPH_CAUSAL, IntentType.CROSS_TAFSIR_ANALYSIS,
+            IntentType.PROFILE_11D, IntentType.GRAPH_METRICS,
+            IntentType.HEART_STATE, IntentType.AGENT_ANALYSIS,
+            IntentType.TEMPORAL_SPATIAL, IntentType.CONSEQUENCE_ANALYSIS,
+            IntentType.EMBEDDINGS_ANALYSIS, IntentType.INTEGRATION_E2E,
+        }
+        
+        if intent_type in benchmark_intents:
+            # Extract any concepts mentioned for evidence retrieval
+            for term in self.concept_index.keys():
+                if term in question:
+                    result["concept"] = term
+                    break
         
         return result
     
@@ -629,13 +729,15 @@ class MandatoryProofSystem:
         - CONCEPT_REF: verses from concept index
         - SURAH_REF: verses from that surah
         - AYAH_REF: that specific ayah
+        - Benchmark intents: use concept if extracted, otherwise use RAG
         - FREE_TEXT: returns empty (caller should use RAG)
         """
         intent = route_result.get("intent", "FREE_TEXT")
         quran_results = []
         
-        if intent == "CONCEPT_REF":
-            concept_term = route_result.get("concept")
+        # Helper function to get verses from concept index
+        def get_verses_from_concept(concept_term: str) -> List[Dict]:
+            results = []
             if concept_term and concept_term in self.concept_index:
                 concept_data = self.concept_index[concept_term]
                 verses = concept_data.get("verses", [])
@@ -648,15 +750,73 @@ class MandatoryProofSystem:
                         if not verse_text:
                             verse_text = surah_data.get('verses', {}).get(str(ayah), "")
                         if verse_text:
-                            quran_results.append({
+                            results.append({
                                 "surah": str(surah),
                                 "ayah": str(ayah),
                                 "surah_name": surah_data.get('name', ''),
                                 "text": verse_text,
-                                "relevance": 1.0,  # Deterministic = full relevance
+                                "relevance": 1.0,
                                 "source": "concept_index",
                             })
-                logging.info(f"[PROOF] CONCEPT_REF '{concept_term}': {len(quran_results)} verses from concept index")
+            return results
+        
+        # Benchmark intents that should use general entity extraction
+        benchmark_intents = {
+            "GRAPH_CAUSAL", "CROSS_TAFSIR_ANALYSIS", "PROFILE_11D", "GRAPH_METRICS",
+            "HEART_STATE", "AGENT_ANALYSIS", "TEMPORAL_SPATIAL", "CONSEQUENCE_ANALYSIS",
+            "EMBEDDINGS_ANALYSIS", "INTEGRATION_E2E",
+        }
+        
+        if intent == "CONCEPT_REF":
+            concept_term = route_result.get("concept")
+            quran_results = get_verses_from_concept(concept_term)
+            logging.info(f"[PROOF] CONCEPT_REF concept='{concept_term}': {len(quran_results)} verses from concept index")
+        
+        elif intent in benchmark_intents:
+            # Use general entity extraction for benchmark intents
+            question = route_result.get("extracted_entities", {}).get("question", "")
+            if not question:
+                # Fallback to concept if available
+                concept_term = route_result.get("concept")
+                if concept_term:
+                    quran_results = get_verses_from_concept(concept_term)
+            
+            # Extract ALL relevant entities from the question
+            extracted = self._extract_all_entities(question) if question else {}
+            
+            # Collect verses from all extracted entities
+            seen_verses = set()
+            all_terms = []
+            
+            # Prioritize based on intent type
+            if intent == "HEART_STATE":
+                for hs in extracted.get("heart_states", []):
+                    all_terms.append(hs.get("ar", ""))
+            elif intent == "AGENT_ANALYSIS":
+                for agent in extracted.get("agents", []):
+                    all_terms.append(agent.get("ar", ""))
+            elif intent == "CONSEQUENCE_ANALYSIS":
+                for csq in extracted.get("consequences", []):
+                    all_terms.append(csq.get("ar", ""))
+            else:
+                # For other intents, use behaviors first
+                for beh in extracted.get("behaviors", []):
+                    all_terms.append(beh.get("ar", ""))
+            
+            # Get verses for each term
+            for term in all_terms[:5]:  # Limit to 5 terms
+                term_verses = get_verses_from_concept(term)
+                for v in term_verses:
+                    verse_key = f"{v['surah']}:{v['ayah']}"
+                    if verse_key not in seen_verses:
+                        seen_verses.add(verse_key)
+                        quran_results.append(v)
+                        if len(quran_results) >= top_k:
+                            break
+                if len(quran_results) >= top_k:
+                    break
+            
+            logging.info(f"[PROOF] {intent}: {len(quran_results)} verses from {len(all_terms)} extracted entities")
         
         elif intent == "SURAH_REF":
             surah_num = route_result.get("surah")
@@ -719,8 +879,46 @@ class MandatoryProofSystem:
         debug.intent = intent  # Phase 7.2: Track intent in debug
         logging.info(f"[PROOF] Query intent: {intent}, route_result: {route_result}")
         
+        # Use LegendaryPlanner for analytical question classes (benchmark intents)
+        # This handles causal chains, cross-tafsir, graph metrics, etc. deterministically
+        benchmark_intents = {
+            "GRAPH_CAUSAL", "CROSS_TAFSIR_ANALYSIS", "PROFILE_11D", "GRAPH_METRICS",
+            "HEART_STATE", "AGENT_ANALYSIS", "TEMPORAL_SPATIAL", "CONSEQUENCE_ANALYSIS",
+            "EMBEDDINGS_ANALYSIS", "INTEGRATION_E2E",
+        }
+        
+        planner_results = None
+        if intent in benchmark_intents:
+            from src.ml.legendary_planner import get_legendary_planner
+            planner = get_legendary_planner()
+            planner_results, planner_debug = planner.query(question)
+            debug.retrieval_mode = "legendary_planner"
+            logging.info(f"[PROOF] Using LegendaryPlanner for {intent}")
+        
         # Phase 10.2: Get deterministic Quran evidence for structured queries
         quran_results = self._get_deterministic_quran_evidence(route_result, top_k=20)
+        
+        # If planner returned evidence, use it
+        if planner_results and planner_results.get("evidence"):
+            for ev in planner_results["evidence"]:
+                for vk in ev.get("verse_keys", []):
+                    parts = vk.split(":")
+                    if len(parts) == 2:
+                        surah_num, ayah_num = parts
+                        # Get verse text
+                        if hasattr(self.system, 'quran_verses'):
+                            surah_data = self.system.quran_verses.get(int(surah_num), {})
+                            verse_text = surah_data.get('verses', {}).get(int(ayah_num), "")
+                            if verse_text:
+                                quran_results.append({
+                                    "surah": surah_num,
+                                    "ayah": ayah_num,
+                                    "verse_key": vk,
+                                    "text": verse_text,
+                                    "relevance": 1.0,
+                                    "source": "legendary_planner",
+                                })
+        
         seen_verses = {f"{v['surah']}:{v['ayah']}" for v in quran_results}
         
         # 1. RAG Retrieval - MUST use ensure_source_diversity=True to get Quran verses and all tafsir sources
@@ -797,74 +995,13 @@ class MandatoryProofSystem:
             if meta.get("type") == "behavior" or meta.get("behavior"):
                 behavior_results.append(meta)
         
-        # 3. Build Quran Evidence - with fallback to fetch actual verses if ML didn't return any
-        if not quran_results and hasattr(self.system, 'quran_verses') and self.system.quran_verses:
-            # FALLBACK DETECTED: Primary retrieval did not return Quran verses
-            debug.quran_fallback = True
-            debug.add_fallback("quran: primary retrieval returned 0 verses, using surah name extraction")
-            import re
-            surah_names = {
-                'الفاتحة': 1, 'البقرة': 2, 'آل عمران': 3, 'النساء': 4, 'المائدة': 5,
-                'الأنعام': 6, 'الأعراف': 7, 'الأنفال': 8, 'التوبة': 9, 'يونس': 10,
-                'هود': 11, 'يوسف': 12, 'الرعد': 13, 'إبراهيم': 14, 'الحجر': 15,
-                'النحل': 16, 'الإسراء': 17, 'الكهف': 18, 'مريم': 19, 'طه': 20,
-                'الأنبياء': 21, 'الحج': 22, 'المؤمنون': 23, 'النور': 24, 'الفرقان': 25,
-                'الشعراء': 26, 'النمل': 27, 'القصص': 28, 'العنكبوت': 29, 'الروم': 30,
-                'لقمان': 31, 'السجدة': 32, 'الأحزاب': 33, 'سبأ': 34, 'فاطر': 35,
-                'يس': 36, 'الصافات': 37, 'ص': 38, 'الزمر': 39, 'غافر': 40,
-                'فصلت': 41, 'الشورى': 42, 'الزخرف': 43, 'الدخان': 44, 'الجاثية': 45,
-                'الأحقاف': 46, 'محمد': 47, 'الفتح': 48, 'الحجرات': 49, 'ق': 50,
-            }
-            mentioned_surahs = set()
-            for name, num in surah_names.items():
-                if name in question:
-                    mentioned_surahs.add(num)
-            
-            # Also check numeric references
-            num_matches = re.findall(r'سورة\s*(\d+)|surah\s*(\d+)', question.lower())
-            for match in num_matches:
-                for m in match:
-                    if m:
-                        mentioned_surahs.add(int(m))
-            
-            # Fetch verses from mentioned surahs
-            for surah_num in list(mentioned_surahs)[:2]:  # Limit to 2 surahs
-                surah_data = self.system.quran_verses.get(surah_num, {})
-                surah_name = surah_data.get('name', '')
-                verses = surah_data.get('verses', {})
-                for ayah_num, verse_text in list(verses.items())[:10]:  # First 10 verses
-                    quran_results.append({
-                        "surah": str(surah_num),
-                        "ayah": str(ayah_num),
-                        "surah_name": surah_name,
-                        "text": verse_text,
-                        "relevance": 0.5,  # Default relevance for fallback
-                    })
-            
-            # If still no results, get verses from behavioral annotations
-            if not quran_results and hasattr(self.system, 'behavioral_data'):
-                seen_verses = set()
-                for ann in self.system.behavioral_data[:100]:  # Check first 100 annotations
-                    surah = ann.get('surah')
-                    ayah = ann.get('ayah')
-                    if surah and ayah:
-                        verse_key = f"{surah}:{ayah}"
-                        if verse_key not in seen_verses:
-                            seen_verses.add(verse_key)
-                            # Get actual verse text from quran_verses
-                            surah_data = self.system.quran_verses.get(int(surah), {})
-                            verses = surah_data.get('verses', {})
-                            verse_text = verses.get(int(ayah), verses.get(str(ayah), ""))
-                            if verse_text:
-                                quran_results.append({
-                                    "surah": str(surah),
-                                    "ayah": str(ayah),
-                                    "surah_name": surah_data.get('name', ''),
-                                    "text": verse_text,
-                                    "relevance": 0.3,
-                                })
-                            if len(quran_results) >= 10:
-                                break
+        # 3. Build Quran Evidence - FAIL-CLOSED: No generic fallback verses
+        # If retrieval fails, we do NOT insert generic verses. That is forbidden.
+        if not quran_results:
+            # FAIL-CLOSED: Primary retrieval returned 0 verses
+            debug.quran_fallback = False  # No fallback used
+            debug.fail_closed_reason = "no_quran_evidence_retrieved"
+            logging.warning(f"[PROOF] FAIL-CLOSED: No Quran verses retrieved for intent={intent}. No generic fallback.")
         
         quran_evidence = QuranEvidence(
             verses=quran_results[:20],

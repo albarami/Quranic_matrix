@@ -365,7 +365,8 @@ class FullPowerQBMSystem:
     
     def _load_tafsir(self):
         """Load all 7 tafsir sources."""
-        sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
+        from src.ml.tafsir_constants import CANONICAL_TAFSIR_SOURCES
+        sources = CANONICAL_TAFSIR_SOURCES
         
         for source in sources:
             filepath = TAFSIR_DIR / f"{source}.ar.jsonl"
@@ -444,7 +445,8 @@ class FullPowerQBMSystem:
         self.all_metadata = []
         
         # SOURCE-TO-INDEX MAPPING: Track which indices belong to each source
-        self.source_indices = {s: [] for s in ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar", "quran"]}
+        from src.ml.tafsir_constants import ALL_SOURCES_WITH_QURAN
+        self.source_indices = {s: [] for s in ALL_SOURCES_WITH_QURAN}
         
         # Add Quran verses FIRST - these are the actual Arabic verses
         quran_count = 0
@@ -732,7 +734,8 @@ class FullPowerQBMSystem:
         if not self.embedder or not self.vector_search:
             return {}
 
-        tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
+        from src.ml.tafsir_constants import CANONICAL_TAFSIR_SOURCES
+        tafsir_sources = CANONICAL_TAFSIR_SOURCES
 
         query_embedding = self.embedder.embed_texts([query], show_progress=False)
 
@@ -878,7 +881,8 @@ class FullPowerQBMSystem:
         logger.info(f"[DIVERSITY] ensure_source_diversity={ensure_source_diversity}, has_tensors={hasattr(self, 'source_idx_tensors')}, tensors_len={len(getattr(self, 'source_idx_tensors', {}))}")
         if ensure_source_diversity and hasattr(self, "source_idx_tensors") and self.source_idx_tensors:
             # Include quran source for actual verse retrieval
-            all_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar", "quran"]
+            from src.ml.tafsir_constants import ALL_SOURCES_WITH_QURAN
+            all_sources = ALL_SOURCES_WITH_QURAN
             per_source_hint = 2 if top_k >= len(all_sources) * 2 else 1
             per_source_candidate_k = max(per_source_hint * 10, 25)
             logger.info(f"[DIVERSITY] source_idx_tensors keys: {list(self.source_idx_tensors.keys())}")
@@ -907,7 +911,8 @@ class FullPowerQBMSystem:
 
         # 4. Rerank a bounded pool (but force-in a few per source including quran)
         if self.reranker and candidates:
-            all_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar", "quran"]
+            from src.ml.tafsir_constants import ALL_SOURCES_WITH_QURAN
+            all_sources = ALL_SOURCES_WITH_QURAN
             rerank_max = min(len(candidates), max(top_k * 15, 250))
 
             pool: List[Dict[str, Any]] = []
@@ -953,7 +958,8 @@ class FullPowerQBMSystem:
         
         # 5. Final selection: keep relevance, but force a small, bounded tafsir diversity
         if ensure_source_diversity:
-            tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
+            from src.ml.tafsir_constants import CANONICAL_TAFSIR_SOURCES
+            tafsir_sources = CANONICAL_TAFSIR_SOURCES
             per_source_target = 2 if top_k >= len(tafsir_sources) * 2 else 1
 
             selected: List[Dict[str, Any]] = []

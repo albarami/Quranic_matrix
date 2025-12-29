@@ -35,7 +35,10 @@ SEMANTIC_GRAPH_FILE = Path("data/graph/semantic_graph_v2.json")
 COOCCURRENCE_GRAPH_FILE = Path("data/graph/cooccurrence_graph_v1.json")
 TAFSIR_SOURCES_FILE = Path("vocab/tafsir_sources.json")
 
-CORE_SOURCES = ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn"]
+# Import canonical tafsir sources from shared constant (7 sources)
+from src.ml.tafsir_constants import CANONICAL_TAFSIR_SOURCES
+
+CORE_SOURCES = CANONICAL_TAFSIR_SOURCES  # 7 sources from vocab/tafsir_sources.json
 
 
 class QuestionClass(Enum):
