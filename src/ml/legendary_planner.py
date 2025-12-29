@@ -613,6 +613,71 @@ class LegendaryPlanner:
                         })
                         step.output_summary = f"Found {len(paths)} causal paths"
                 
+                elif step.action == "cross_tafsir_comparison":
+                    # Phase 3: Cross-tafsir comparison using 7 canonical sources
+                    source_counts = {src: 0 for src in CORE_SOURCES}
+                    source_evidence = {src: [] for src in CORE_SOURCES}
+                    
+                    for entity in resolved_entities:
+                        evidence = self.get_concept_evidence(entity["entity_id"])
+                        for chunk in evidence.get("sample_evidence", []):
+                            source = chunk.get("source", "")
+                            if source in source_counts:
+                                source_counts[source] += 1
+                                source_evidence[source].append(chunk)
+                    
+                    # Compute agreement metrics
+                    sources_with_evidence = sum(1 for c in source_counts.values() if c > 0)
+                    total_chunks = sum(source_counts.values())
+                    
+                    results["cross_tafsir"] = {
+                        "sources_count": sources_with_evidence,
+                        "total_sources": len(CORE_SOURCES),
+                        "source_distribution": source_counts,
+                        "agreement_ratio": sources_with_evidence / len(CORE_SOURCES) if CORE_SOURCES else 0,
+                        "sample_by_source": {s: e[:2] for s, e in source_evidence.items() if e},
+                    }
+                    debug.cross_tafsir_stats = results["cross_tafsir"]
+                    step.output_summary = f"Compared {sources_with_evidence}/{len(CORE_SOURCES)} sources"
+                
+                elif step.action == "compute_centrality":
+                    # Phase 3: Graph metrics using semantic graph
+                    if self.semantic_graph:
+                        nodes = self.semantic_graph.get("nodes", [])
+                        edges = self.semantic_graph.get("edges", [])
+                        
+                        # Compute degree centrality
+                        degree = {}
+                        for edge in edges:
+                            src, tgt = edge["source"], edge["target"]
+                            degree[src] = degree.get(src, 0) + 1
+                            degree[tgt] = degree.get(tgt, 0) + 1
+                        
+                        # Top 10 by degree
+                        top_nodes = sorted(degree.items(), key=lambda x: -x[1])[:10]
+                        
+                        results["graph_data"]["centrality"] = {
+                            "total_nodes": len(nodes),
+                            "total_edges": len(edges),
+                            "top_by_degree": [{"id": n, "degree": d} for n, d in top_nodes],
+                        }
+                        step.output_summary = f"Computed centrality for {len(nodes)} nodes"
+                
+                elif step.action == "validate_path_evidence":
+                    # Phase 3: Validate each edge in paths has evidence
+                    validated_paths = []
+                    for path in results["graph_data"].get("paths", []):
+                        path_valid = True
+                        for edge in path:
+                            if edge.get("evidence_count", 0) == 0:
+                                path_valid = False
+                                break
+                        if path_valid:
+                            validated_paths.append(path)
+                    
+                    results["graph_data"]["validated_paths"] = validated_paths
+                    step.output_summary = f"Validated {len(validated_paths)} paths with evidence"
+                
                 elif step.action == "bundle_provenance":
                     # Compile provenance summary
                     all_sources = set()
