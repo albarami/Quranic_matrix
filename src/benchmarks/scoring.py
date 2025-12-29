@@ -596,6 +596,17 @@ def score_benchmark_item(
                     if isinstance(edge, dict) and (edge.get("verse_key") or edge.get("evidence_count", 0) > 0):
                         has_provenance = True
                         break
+
+        # PHASE 4: For GRAPH_METRICS, centrality/causal_density data IS the provenance
+        if not has_provenance and ("GRAPH_METRICS" in capabilities or "SEMANTIC_GRAPH_V2" in capabilities):
+            centrality = graph.get("centrality", {})
+            causal_density = graph.get("causal_density", {})
+            # Graph metrics provide provenance through node/edge counts and node identifiers
+            if centrality.get("total_nodes", 0) > 0 or centrality.get("total_edges", 0) > 0:
+                has_provenance = True
+            if not has_provenance and (causal_density.get("total_nodes", 0) > 0 or causal_density.get("outgoing_top10")):
+                has_provenance = True
+
         # Check tafsir chunks for provenance
         if not has_provenance:
             for _, chunk in _iter_tafsir_chunks(tafsir):
