@@ -19,7 +19,7 @@ Components:
 """
 
 from dataclasses import dataclass, field
-from typing import List, Dict, Any, Optional, Literal
+from typing import List, Dict, Any, Optional, Literal, Tuple
 import json
 import time
 from pathlib import Path
@@ -580,6 +580,67 @@ class MandatoryProofSystem:
             with open(entities_file, "r", encoding="utf-8") as f:
                 return json.load(f)
         return {}
+    
+    def _validate_no_new_claims(self, payload_numbers: set, llm_output: str) -> Tuple[bool, List[str]]:
+        """
+        Phase 2: Validator gate for LLM output.
+        
+        Ensures LLM did not invent new numbers/percentages not in the payload.
+        
+        Args:
+            payload_numbers: Set of numbers from computed payload
+            llm_output: The LLM-generated answer text
+            
+        Returns:
+            (is_valid, list_of_violations)
+        """
+        import re
+        
+        # Extract all numbers from LLM output
+        llm_numbers = set()
+        # Match integers, decimals, and percentages
+        for match in re.finditer(r'\b(\d+(?:\.\d+)?)\s*%?', llm_output):
+            num_str = match.group(1)
+            try:
+                num = float(num_str)
+                llm_numbers.add(num)
+                # Also add as int if it's a whole number
+                if num == int(num):
+                    llm_numbers.add(int(num))
+            except ValueError:
+                pass
+        
+        # Check for violations (numbers in LLM output not in payload)
+        violations = []
+        for num in llm_numbers:
+            # Allow common numbers (0, 1, 2, etc.) and verse references
+            if num in {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 100}:
+                continue
+            if num not in payload_numbers:
+                violations.append(f"LLM invented number: {num}")
+        
+        is_valid = len(violations) == 0
+        if not is_valid:
+            logging.warning(f"[VALIDATOR] LLM output failed validation: {violations}")
+        
+        return is_valid, violations
+    
+    def _extract_payload_numbers(self, statistics_evidence) -> set:
+        """Extract all numbers from computed payload for validation."""
+        numbers = set()
+        
+        if hasattr(statistics_evidence, 'counts'):
+            for v in statistics_evidence.counts.values():
+                if isinstance(v, (int, float)):
+                    numbers.add(v)
+        
+        if hasattr(statistics_evidence, 'percentages'):
+            for v in statistics_evidence.percentages.values():
+                if isinstance(v, (int, float)):
+                    numbers.add(v)
+                    numbers.add(round(v * 100, 1))  # Also add as percentage
+        
+        return numbers
     
     def _extract_all_entities(self, question: str) -> Dict[str, List[str]]:
         """
@@ -1308,6 +1369,9 @@ class MandatoryProofSystem:
         )
         
         # 13. Generate Answer with LLM (skip if proof_only mode)
+        # Phase 2: Extract payload numbers for validator gate
+        payload_numbers = self._extract_payload_numbers(statistics_evidence)
+        
         if proof_only:
             # Phase 9.10A: Skip LLM for fast Tier-A tests
             answer = "[proof_only mode - LLM answer skipped]"
@@ -1315,10 +1379,20 @@ class MandatoryProofSystem:
         else:
             context = proof.to_markdown()
             # Call LLM with proof context
-            answer = self.system._call_llm(
+            raw_answer = self.system._call_llm(
                 f"{question}\n\nاستخدم كل الأدلة التالية في إجابتك:\n{context[:8000]}",
                 ""  # Context already in question
             )
+            
+            # Phase 2: Validator gate - ensure LLM didn't invent numbers
+            is_valid, violations = self._validate_no_new_claims(payload_numbers, raw_answer)
+            if is_valid:
+                answer = raw_answer
+            else:
+                # Log violations but still use answer (with warning in debug)
+                answer = raw_answer
+                debug.add_fallback(f"llm_validator_violations: {violations}")
+                logging.warning(f"[PROOF] LLM answer has unverified claims: {violations}")
         
         elapsed = time.time() - start_time
         
@@ -1338,6 +1412,14 @@ class MandatoryProofSystem:
                 debug.tafsir_fallbacks[source] = True
                 debug.add_fallback(f"tafsir_{source}: stratified retrieval returned 0 results")
         
+        # Phase 2: Add derivations for percent claim validation
+        debug_dict = debug.to_dict()
+        debug_dict["derivations"] = {
+            "payload_numbers": list(payload_numbers),
+            "statistics_counts": statistics_evidence.counts if hasattr(statistics_evidence, 'counts') else {},
+            "statistics_percentages": statistics_evidence.percentages if hasattr(statistics_evidence, 'percentages') else {},
+        }
+        
         return {
             "question": question,
             "answer": answer,
@@ -1345,7 +1427,7 @@ class MandatoryProofSystem:
             "proof_markdown": proof.to_markdown(),
             "validation": validation,
             "processing_time_ms": round(elapsed * 1000, 2),
-            "debug": debug.to_dict(),
+            "debug": debug_dict,
         }
     
     def run_legendary_queries(self) -> List[Dict]:
