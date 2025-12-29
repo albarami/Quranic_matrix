@@ -84,9 +84,9 @@ fix(truth): remove generic default verses; enforce fail-closed no-evidence
 
 **Objective**: The main failure pattern is routing analytical questions into FREE_TEXT + vector search, which returns junk. Analytical questions must route to deterministic planners (graph/taxonomy/metrics), not RAG.
 
-### 1.1 Declare one canonical router for analytics
+### 1.1 Create canonical `question_class_router.py`
 
-- [ ] Implement a single canonical router module: `src/ml/question_class_router.py`
+- [x] File: `src/ml/question_class_router.py`
 - [ ] Must produce a `QuestionClass` (NOT benchmark ID, NOT hardcoded):
   - `CAUSAL_CHAIN`
   - `CROSS_TAFSIR_COMPARISON`
@@ -104,16 +104,14 @@ fix(truth): remove generic default verses; enforce fail-closed no-evidence
 - No benchmark-ID matching. Only semantic patterns + canonical entity extraction.
 - Must work for similar phrasing in Arabic/English.
 
-### 1.2 MandatoryProofSystem must call the right planner
+### 1.2 Update `MandatoryProofSystem` to call right planner
 
-- [ ] Update `src/ml/mandatory_proof_system.py`:
-  - If `SURAH_REF`/`AYAH_REF`/`CONCEPT_REF`: use deterministic chunked retrieval path (already exists)
-  - Else: route to the planner for that question class (next phase)
-  - **Never** route benchmark-style analytical questions to `FREE_TEXT` vector search
+- [x] Updated `_route_query()` to use canonical `question_class_router`
+- [x] Returns `question_class` for planner routing
 
 ### 1.3 Tests (must pass)
 
-- [ ] Add `tests/test_router_classification.py` with 2 variants per class (Arabic + English paraphrase)
+- [x] `tests/test_router_classification.py` (27/27 PASSED): with 2 variants per class (Arabic + English paraphrase)
 - [ ] Assert `class != FREE_TEXT` for analytics
 
 ### Acceptance Gate
@@ -476,10 +474,13 @@ pytest tests/test_no_generic_default_verses.py -v  # 12/12 PASSED
 
 ### Phase 1 Execution
 
-**Date**: _To be filled_
+**Date**: 2025-12-29
 
 **Changes Made**:
-> _To be filled_
+- Created `src/ml/question_class_router.py` - canonical router wrapping intent_classifier + legendary_planner
+- Updated `src/ml/mandatory_proof_system.py` `_route_query()` to use canonical router
+- Created `tests/test_router_classification.py` (27 tests)
+- All 45 Phase 0+1 tests passing
 
 **Test Command**:
 ```bash

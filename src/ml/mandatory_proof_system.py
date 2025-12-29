@@ -662,59 +662,49 @@ class MandatoryProofSystem:
     
     def _route_query(self, question: str) -> Dict[str, Any]:
         """
-        Phase 10.2: Route query to determine intent and extract entities.
-        Uses the deterministic intent classifier for benchmark questions.
+        Phase 1: Route query using canonical question_class_router.
         
         Returns:
-            dict with keys: intent, concept, surah, ayah
+            dict with keys: intent, question_class, concept, surah, ayah, routing_reason
         """
-        import re
-        from src.ml.intent_classifier import classify_intent, IntentType
+        from src.ml.question_class_router import route_question
+        from src.ml.intent_classifier import IntentType
         
-        # Use the deterministic intent classifier first
-        intent_result = classify_intent(question)
-        intent_type = intent_result.intent
+        # Use the canonical router (wraps intent_classifier + legendary_planner patterns)
+        router_result = route_question(question)
         
         result = {
-            "intent": intent_type.value,
+            "intent": router_result.intent_type.value,
+            "question_class": router_result.question_class.value,
             "concept": None,
             "surah": None,
             "ayah": None,
+            "routing_reason": router_result.routing_reason,
             "extracted_entities": {
-                **intent_result.extracted_entities,
-                "question": question,  # Pass question for entity extraction
+                **router_result.extracted_entities,
+                "question": question,
             },
         }
         
         # For SURAH_REF and AYAH_REF, extract the specific references
-        if intent_type == IntentType.SURAH_REF:
-            result["surah"] = intent_result.extracted_entities.get("surah")
+        if router_result.intent_type == IntentType.SURAH_REF:
+            result["surah"] = router_result.extracted_entities.get("surah")
             return result
         
-        if intent_type == IntentType.AYAH_REF:
-            result["surah"] = intent_result.extracted_entities.get("surah")
-            result["ayah"] = intent_result.extracted_entities.get("ayah")
+        if router_result.intent_type == IntentType.AYAH_REF:
+            result["surah"] = router_result.extracted_entities.get("surah")
+            result["ayah"] = router_result.extracted_entities.get("ayah")
             return result
         
         # For CONCEPT_REF, extract the concept term
-        if intent_type == IntentType.CONCEPT_REF:
-            # Try to find a concept in the question
+        if router_result.intent_type == IntentType.CONCEPT_REF:
             for term in self.concept_index.keys():
                 if term in question:
                     result["concept"] = term
                     return result
         
-        # For benchmark intents, keep the intent but also try to extract concepts
-        benchmark_intents = {
-            IntentType.GRAPH_CAUSAL, IntentType.CROSS_TAFSIR_ANALYSIS,
-            IntentType.PROFILE_11D, IntentType.GRAPH_METRICS,
-            IntentType.HEART_STATE, IntentType.AGENT_ANALYSIS,
-            IntentType.TEMPORAL_SPATIAL, IntentType.CONSEQUENCE_ANALYSIS,
-            IntentType.EMBEDDINGS_ANALYSIS, IntentType.INTEGRATION_E2E,
-        }
-        
-        if intent_type in benchmark_intents:
-            # Extract any concepts mentioned for evidence retrieval
+        # For analytical intents, extract any concepts mentioned
+        if router_result.question_class.value != "free_text":
             for term in self.concept_index.keys():
                 if term in question:
                     result["concept"] = term
