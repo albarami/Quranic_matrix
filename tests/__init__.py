@@ -1,1 +1,1 @@
-"""QBM test suite."""
+# Tests package

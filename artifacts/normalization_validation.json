@@ -1,0 +1,181 @@
+{
+  "phase": 1,
+  "description": "Arabic Normalization + QuranStore",
+  "tests": {
+    "known_normalizations": {
+      "test_count": 10,
+      "passed_count": 10,
+      "failed_count": 0,
+      "all_passed": true,
+      "results": [
+        {
+          "uthmani": "بِٱلصَّبْرِ",
+          "expected": "بالصبر",
+          "actual": "بالصبر",
+          "passed": true
+        },
+        {
+          "uthmani": "ٱلصَّـٰبِرِينَ",
+          "expected": "الصابرين",
+          "actual": "الصابرين",
+          "passed": true
+        },
+        {
+          "uthmani": "وَٱسْتَعِينُوا۟",
+          "expected": "واستعينوا",
+          "actual": "واستعينوا",
+          "passed": true
+        },
+        {
+          "uthmani": "ٱصْبِرُوا۟",
+          "expected": "اصبروا",
+          "actual": "اصبروا",
+          "passed": true
+        },
+        {
+          "uthmani": "صَابِرُوا۟",
+          "expected": "صابروا",
+          "actual": "صابروا",
+          "passed": true
+        },
+        {
+          "uthmani": "ٱلصَّلَوٰةِ",
+          "expected": "الصلواة",
+          "actual": "الصلواة",
+          "passed": true
+        },
+        {
+          "uthmani": "ٱلْخَـٰشِعِينَ",
+          "expected": "الخاشعين",
+          "actual": "الخاشعين",
+          "passed": true
+        },
+        {
+          "uthmani": "إِلَّا",
+          "expected": "الا",
+          "actual": "الا",
+          "passed": true
+        },
+        {
+          "uthmani": "أَن",
+          "expected": "ان",
+          "actual": "ان",
+          "passed": true
+        },
+        {
+          "uthmani": "ءَامَنُوا۟",
+          "expected": "ءامنوا",
+          "actual": "ءامنوا",
+          "passed": true
+        }
+      ]
+    },
+    "quran_store_load": {
+      "loaded": true,
+      "total_surahs": 114,
+      "total_verses": 6236,
+      "total_tokens": 81812,
+      "surahs_valid": true,
+      "verses_valid": true,
+      "tokens_valid": true,
+      "all_valid": true
+    },
+    "sabr_detection": {
+      "required_verses": 5,
+      "found_count": 5,
+      "all_found": true,
+      "results": [
+        {
+          "verse_key": "2:45",
+          "found_verse": true,
+          "found_sabr": true,
+          "tokens_norm": [
+            "واستعينوا",
+            "بالصبر",
+            "والصلواة",
+            "",
+            "وانها"
+          ],
+          "text_norm_preview": "واستعينوا بالصبر والصلواة  وانها لكبيرة الا علي الخاشعين"
+        },
+        {
+          "verse_key": "2:153",
+          "found_verse": true,
+          "found_sabr": true,
+          "tokens_norm": [
+            "يآايها",
+            "الذين",
+            "ءامنوا",
+            "استعينوا",
+            "بالصبر"
+          ],
+          "text_norm_preview": "يآايها الذين ءامنوا استعينوا بالصبر والصلواة  ان الله مع ال"
+        },
+        {
+          "verse_key": "3:200",
+          "found_verse": true,
+          "found_sabr": true,
+          "tokens_norm": [
+            "يآايها",
+            "الذين",
+            "ءامنوا",
+            "اصبروا",
+            "وصابروا"
+          ],
+          "text_norm_preview": "يآايها الذين ءامنوا اصبروا وصابروا ورابطوا واتقوا الله لعلك"
+        },
+        {
+          "verse_key": "39:10",
+          "found_verse": true,
+          "found_sabr": true,
+          "tokens_norm": [
+            "قل",
+            "ياعباد",
+            "الذين",
+            "ءامنوا",
+            "اتقوا"
+          ],
+          "text_norm_preview": "قل ياعباد الذين ءامنوا اتقوا ربكم  للذين احسنوا في هاذه الدن"
+        },
+        {
+          "verse_key": "103:3",
+          "found_verse": true,
+          "found_sabr": true,
+          "tokens_norm": [
+            "الا",
+            "الذين",
+            "ءامنوا",
+            "وعملوا",
+            "الصالحات"
+          ],
+          "text_norm_preview": "الا الذين ءامنوا وعملوا الصالحات وتواصوا بالحق وتواصوا بالصب"
+        }
+      ]
+    },
+    "sabr_total_count": {
+      "token_matches": 96,
+      "unique_verses": 86,
+      "expected_min": 80,
+      "expected_max": 120,
+      "in_range": true,
+      "sample_verses": [
+        "103:3",
+        "10:109",
+        "11:11",
+        "11:115",
+        "11:49",
+        "12:18",
+        "12:83",
+        "12:90",
+        "13:22",
+        "13:24",
+        "14:12",
+        "14:21",
+        "16:110",
+        "16:126",
+        "16:127"
+      ]
+    }
+  },
+  "all_passed": true
+}
