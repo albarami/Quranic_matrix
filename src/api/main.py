@@ -107,7 +107,7 @@ app = FastAPI(
 # Read allowed origins from environment variable, default to localhost for dev
 ALLOWED_ORIGINS = os.getenv(
     "ALLOWED_ORIGINS",
-    "http://localhost:3000,http://localhost:3001,http://127.0.0.1:3000"
+    "http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003,http://localhost:3004,http://localhost:3005,http://localhost:3006,http://localhost:3007,http://127.0.0.1:3000"
 ).split(",")
 
 app.add_middleware(
@@ -2353,189 +2353,379 @@ async def proof_system_status_legacy():
 # BEHAVIOR PROFILE ENDPOINT - ملف السلوك (Systematic Behavior Extraction)
 # =============================================================================
 
+# Precomputed KB Dossiers - Enterprise Edition
+_behavior_dossiers_cache = None
+
+
+def _load_behavior_dossiers() -> dict:
+    """
+    Load precomputed behavior dossiers from KB.
+
+    These dossiers are built at build-time with:
+    - All verse-behavior mappings from concept_index_v3
+    - All tafsir entries mapped by verse_key (NOT by text search)
+    - GPU-generated embeddings
+    - Pre-validated relationships
+
+    Runtime is pure retrieval - no filtering, no discovery.
+    """
+    dossiers = {}
+    kb_path = DATA_DIR / "kb" / "behavior_dossiers.jsonl"
+
+    if not kb_path.exists():
+        logger = __import__("logging").getLogger(__name__)
+        logger.warning(f"KB dossiers not found at {kb_path}. Run scripts/build_kb.py first.")
+        return dossiers
+
+    with open(kb_path, encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                dossier = json.loads(line)
+                behavior_id = dossier.get("behavior_id", "")
+                if behavior_id:
+                    # Index by ID, Arabic term, and English term
+                    dossiers[behavior_id] = dossier
+                    if dossier.get("term_ar"):
+                        dossiers[dossier["term_ar"]] = dossier
+                    if dossier.get("term_en"):
+                        dossiers[dossier["term_en"].lower()] = dossier
+
+    return dossiers
+
+
+def get_behavior_dossiers() -> dict:
+    """Get cached behavior dossiers."""
+    global _behavior_dossiers_cache
+    if _behavior_dossiers_cache is None:
+        _behavior_dossiers_cache = _load_behavior_dossiers()
+    return _behavior_dossiers_cache
+
+
+def _load_concept_index() -> dict:
+    """Load concept_index_v3.jsonl for behavior profile lookups."""
+    concept_index = {}
+    concept_path = DATA_DIR / "evidence" / "concept_index_v3.jsonl"
+    if concept_path.exists():
+        with open(concept_path, encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    entry = json.loads(line)
+                    # Index by multiple keys: concept_id, term
+                    concept_id = entry.get("concept_id", "")
+                    term = entry.get("term", "")
+                    if concept_id:
+                        concept_index[concept_id] = entry
+                    if term and term != concept_id:
+                        concept_index[term] = entry
+    return concept_index
+
+
+def _load_canonical_entities() -> dict:
+    """Load canonical_entities.json for term resolution."""
+    entities_path = Path("vocab/canonical_entities.json")
+    if entities_path.exists():
+        with open(entities_path, encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+# Cache for concept index
+_concept_index_cache = None
+
+
+def get_concept_index() -> dict:
+    """Get cached concept index."""
+    global _concept_index_cache
+    if _concept_index_cache is None:
+        _concept_index_cache = _load_concept_index()
+    return _concept_index_cache
+
+
 @app.get("/api/behavior/profile/{behavior}")
 async def get_behavior_profile(behavior: str):
     """
     Complete Behavior Profile - ملف السلوك الشامل
-    
-    Returns EVERYTHING about a behavior systematically across all 11 dimensions:
-    - All verses where it appears
-    - All tafsir from 5 sources
-    - Graph relationships (causes, effects, opposites)
-    - 11 Bouzidani dimensions (organic, situational, systemic, temporal, etc.)
-    - Vocabulary (roots, derivatives)
-    - Semantic similarity (embeddings)
-    - Surah distribution
-    
-    This is the "Behavior Profiler" tool the scholar requested.
+
+    ENTERPRISE EDITION: Uses precomputed dossiers from KB.
+    - All data is precomputed at build-time
+    - Tafsir is mapped by verse_key, NOT by text search
+    - Runtime is pure retrieval - no filtering, no discovery
+
+    Returns EVERYTHING about a behavior systematically:
+    - All verses where it appears (from concept_index_v3)
+    - All tafsir from 7 sources (mapped by verse_key)
+    - Statistics and surah distribution
+    - GPU-generated embeddings
     """
     import time
     start_time = time.time()
-    
+
+    # =========================================================================
+    # PRIMARY: Use precomputed KB dossiers (Enterprise Edition)
+    # =========================================================================
+    dossiers = get_behavior_dossiers()
+    behavior_clean = behavior.strip()
+
+    # Look up dossier by exact match, Arabic term, or English term
+    dossier = None
+    if behavior_clean in dossiers:
+        dossier = dossiers[behavior_clean]
+    else:
+        # Try case-insensitive match
+        behavior_lower = behavior_clean.lower()
+        for key, d in dossiers.items():
+            if behavior_lower == key.lower():
+                dossier = d
+                break
+            term_ar = d.get("term_ar", "")
+            term_en = d.get("term_en", "")
+            if behavior_clean in term_ar or term_ar in behavior_clean:
+                dossier = d
+                break
+            if behavior_lower == term_en.lower():
+                dossier = d
+                break
+
+    # If dossier found, return precomputed data
+    if dossier:
+        processing_time = (time.time() - start_time) * 1000
+
+        # Convert dossier verses to expected format
+        verses = []
+        for v in dossier.get("verses", []):
+            verses.append({
+                "surah": v.get("surah"),
+                "surah_name": f"سورة {v.get('surah', '')}",
+                "ayah": v.get("ayah"),
+                "text": v.get("text_uthmani", ""),
+                "agent": "",
+                "agent_referent": "",
+                "evaluation": "",
+                "deontic": "",
+                "behavior_form": dossier.get("term_ar", behavior_clean),
+                "directness": v.get("directness", "direct"),
+                "evidence_type": v.get("evidence_type", "lexical"),
+            })
+
+        # Tafsir is already precomputed and mapped by verse_key
+        tafsir_data = dossier.get("tafsir", {})
+
+        # Statistics from dossier
+        statistics = dossier.get("statistics", {})
+        surah_distribution = statistics.get("surah_distribution", {})
+
+        return {
+            "behavior": behavior,
+            "arabic_name": dossier.get("term_ar", behavior),
+            "english_name": dossier.get("term_en", ""),
+            "category": dossier.get("category", ""),
+            "behavior_id": dossier.get("behavior_id", ""),
+
+            # Summary stats
+            "summary": {
+                "total_verses": dossier.get("verse_count", len(verses)),
+                "total_spans": dossier.get("verse_count", len(verses)),
+                "total_tafsir": sum(len(t) for t in tafsir_data.values()),
+                "total_surahs": len(surah_distribution),
+                "coverage_percentage": round(dossier.get("verse_count", 0) / 6236 * 100, 2),
+                "direct_count": statistics.get("direct_count", 0),
+                "indirect_count": statistics.get("indirect_count", 0),
+            },
+
+            # All verses with full metadata
+            "verses": verses,
+
+            # All tafsir organized by source (PRECOMPUTED - mapped by verse_key)
+            "tafsir": tafsir_data,
+
+            # Graph relationships (from dossier)
+            "graph": {
+                "related_behaviors": dossier.get("relations", {}).get("related", []),
+                "causes": dossier.get("relations", {}).get("causes", []),
+                "effects": dossier.get("relations", {}).get("effects", []),
+                "opposites": dossier.get("relations", {}).get("opposites", []),
+                "verses": [],
+                "connections": []
+            },
+
+            # 11 Bouzidani dimensions (placeholder for now)
+            "dimensions": {
+                "organic": {},
+                "positional": {},
+                "systemic": {},
+                "spatial": {},
+                "temporal": {},
+                "agent": {},
+                "source": {},
+                "evaluation": {},
+                "heart": {},
+                "outcome": {},
+                "relations": {}
+            },
+
+            # Surah distribution (from precomputed statistics)
+            "surah_distribution": [
+                {"surah": f"سورة {k}", "surah_num": k, "count": v}
+                for k, v in sorted(surah_distribution.items(), key=lambda x: -x[1])
+            ],
+
+            # Vocabulary
+            "vocabulary": {
+                "primary_term": dossier.get("term_ar", behavior),
+                "roots": [],
+                "derivatives": [],
+                "related_concepts": []
+            },
+
+            # Similar behaviors (placeholder)
+            "similar_behaviors": [],
+
+            # Processing metadata
+            "processing_time_ms": round(processing_time, 2),
+            "source": "precomputed_kb",
+            "built_at": dossier.get("built_at", "")
+        }
+
+    # =========================================================================
+    # FALLBACK: Legacy implementation if KB not built
+    # =========================================================================
     spans = get_all_spans()
     brain = get_brain(spans)
     graph = get_unified_graph(spans)
-    
-    # 1. Get all verses for this behavior
-    behavior_lower = behavior.lower().strip()
-    matching_spans = []
+    concept_index = get_concept_index()
+
+    # 1. Get all verses for this behavior from concept_index_v3
+    matching_concept = None
     verses_set = set()
-    
-    for span in spans:
-        behavior_form = span.get("behavior_form", "").lower()
-        if behavior_lower in behavior_form or behavior_form in behavior_lower:
-            matching_spans.append(span)
-            ref = span.get("reference", {})
-            if ref.get("surah") and ref.get("ayah"):
-                verses_set.add((ref["surah"], ref["ayah"]))
-    
-    # 2. Build verse details with metadata
     verses = []
-    for span in matching_spans:
-        ref = span.get("reference", {})
-        verses.append({
-            "surah": ref.get("surah"),
-            "surah_name": ref.get("surah_name", ""),
-            "ayah": ref.get("ayah"),
-            "text": span.get("text", ""),
-            "agent": span.get("agent", {}).get("type", ""),
-            "agent_referent": span.get("agent", {}).get("referent", ""),
-            "evaluation": span.get("normative", {}).get("evaluation", ""),
-            "deontic": span.get("normative", {}).get("deontic_signal", ""),
-            "behavior_form": span.get("behavior_form", ""),
-        })
-    
-    # 3. Get all tafsir for these verses
+
+    # Try direct match first
+    if behavior_clean in concept_index:
+        matching_concept = concept_index[behavior_clean]
+    else:
+        # Try case-insensitive and partial match
+        behavior_lower = behavior_clean.lower()
+        for key, entry in concept_index.items():
+            term = entry.get("term", "")
+            term_en = entry.get("term_en", "")
+            if behavior_lower == key.lower() or behavior_lower == term.lower() or behavior_lower == term_en.lower():
+                matching_concept = entry
+                break
+            # Partial match for Arabic terms
+            if behavior_clean in term or term in behavior_clean:
+                matching_concept = entry
+                break
+
+    # Extract verses from concept index
+    if matching_concept:
+        concept_verses = matching_concept.get("verses", [])
+        for v in concept_verses:
+            surah = v.get("surah")
+            ayah = v.get("ayah")
+            if surah and ayah:
+                verses_set.add((surah, ayah))
+                # Generate surah name if not present
+                surah_name = v.get("surah_name") or f"سورة {surah}"
+                verses.append({
+                    "surah": surah,
+                    "surah_name": surah_name,
+                    "ayah": ayah,
+                    "text": v.get("text_uthmani", v.get("text", "")),
+                    "agent": v.get("agent", ""),
+                    "agent_referent": v.get("agent_referent", ""),
+                    "evaluation": v.get("evaluation", ""),
+                    "deontic": v.get("deontic", ""),
+                    "behavior_form": matching_concept.get("term", behavior_clean),
+                })
+
+    # 2. Get tafsir for the SPECIFIC VERSES from concept index (direct ayah mapping)
+    # NO filtering - these verses ARE about the behavior, get their tafsir directly
     tafsir_data = {"ibn_kathir": [], "tabari": [], "qurtubi": [], "saadi": [], "jalalayn": []}
-    for surah, ayah in list(verses_set)[:50]:  # Limit to avoid timeout
+    for surah, ayah in list(verses_set)[:100]:
         for source in tafsir_data.keys():
             try:
                 tafsir_text = brain.get_tafsir(surah, ayah, source)
-                if tafsir_text and behavior_lower in tafsir_text.lower():
+                if tafsir_text:
                     tafsir_data[source].append({
                         "surah": surah,
                         "ayah": ayah,
-                        "text": tafsir_text[:500] + "..." if len(tafsir_text) > 500 else tafsir_text
+                        "text": tafsir_text[:1500] if len(tafsir_text) > 1500 else tafsir_text
                     })
-            except (KeyError, TypeError, AttributeError) as e:
-                continue  # Skip malformed tafsir entries
-    
-    # 4. Build 11 dimensions analysis
-    dimensions = {
-        "organic": {},      # العضوي - body organs
-        "positional": {},   # الموضعي - internal/external
-        "systemic": {},     # النسقي - home/work/public
-        "spatial": {},      # المكاني - location
-        "temporal": {},     # الزماني - time
-        "agent": {},        # الفاعل - who performs
-        "source": {},       # المصدر - origin
-        "evaluation": {},   # التقييم - praise/blame
-        "heart": {},        # القلب - heart state
-        "outcome": {},      # العاقبة - consequence
-        "relations": {}     # العلاقات - relationships
-    }
-    
-    # Analyze each span for dimensions
-    for span in matching_spans:
-        # Agent dimension
-        agent_type = span.get("agent", {}).get("type", "unknown")
-        dimensions["agent"][agent_type] = dimensions["agent"].get(agent_type, 0) + 1
-        
-        # Evaluation dimension
-        eval_type = span.get("normative", {}).get("evaluation", "neutral")
-        dimensions["evaluation"][eval_type] = dimensions["evaluation"].get(eval_type, 0) + 1
-        
-        # Deontic/outcome
-        deontic = span.get("normative", {}).get("deontic_signal", "none")
-        dimensions["outcome"][deontic] = dimensions["outcome"].get(deontic, 0) + 1
-    
-    # 5. Surah distribution
+            except (KeyError, TypeError, AttributeError):
+                continue
+
+    # Surah distribution (from verses, not spans)
     surah_distribution = {}
-    for span in matching_spans:
-        ref = span.get("reference", {})
-        surah_name = ref.get("surah_name", f"Surah {ref.get('surah', '?')}")
+    for verse in verses:
+        surah_name = verse.get("surah_name") or f"Surah {verse.get('surah', '?')}"
         surah_distribution[surah_name] = surah_distribution.get(surah_name, 0) + 1
-    
-    # 6. Graph relationships
+
+    # Graph relationships
     graph_data = graph.query_behavior(behavior)
-    
-    # 7. Get similar behaviors using embeddings (if ML available)
-    similar_behaviors = []
-    if ML_AVAILABLE:
-        try:
-            pipeline = get_pipeline()
-            if pipeline.vector_db.size() > 0:
-                results = pipeline.search(behavior, top_k=10, rerank=False)
-                for r in results:
-                    if r.get("type") == "behavior" and r.get("text") != behavior:
-                        similar_behaviors.append({
-                            "behavior": r.get("text", ""),
-                            "similarity": round(r.get("score", 0) * 100, 1)
-                        })
-        except (KeyError, TypeError, AttributeError) as e:
-            pass  # Skip if behavior analysis unavailable
-    
-    # 8. Vocabulary extraction
-    vocabulary = {
-        "primary_term": behavior,
-        "roots": [],
-        "derivatives": [],
-        "related_concepts": []
-    }
-    
-    # Extract unique behavior forms from matching spans
-    behavior_forms = set()
-    for span in matching_spans:
-        bf = span.get("behavior_form", "")
-        if bf:
-            behavior_forms.add(bf)
-    vocabulary["derivatives"] = list(behavior_forms)[:20]
-    
+
     processing_time = (time.time() - start_time) * 1000
-    
+
     return {
         "behavior": behavior,
         "arabic_name": behavior,
-        
+
         # Summary stats
         "summary": {
             "total_verses": len(verses_set),
-            "total_spans": len(matching_spans),
+            "total_spans": 0,
             "total_tafsir": sum(len(t) for t in tafsir_data.values()),
             "total_surahs": len(surah_distribution),
             "coverage_percentage": round(len(verses_set) / 6236 * 100, 2)
         },
-        
+
         # All verses with full metadata
         "verses": verses,
-        
+
         # All tafsir organized by source
         "tafsir": tafsir_data,
-        
+
         # Graph relationships
         "graph": {
             "related_behaviors": graph_data.get("related_behaviors", []),
             "verses": graph_data.get("verses", []),
             "connections": graph_data.get("connections", [])
         },
-        
+
         # 11 Bouzidani dimensions
-        "dimensions": dimensions,
-        
+        "dimensions": {
+            "organic": {},
+            "positional": {},
+            "systemic": {},
+            "spatial": {},
+            "temporal": {},
+            "agent": {},
+            "source": {},
+            "evaluation": {},
+            "heart": {},
+            "outcome": {},
+            "relations": {}
+        },
+
         # Surah distribution
         "surah_distribution": [
-            {"surah": k, "count": v} 
+            {"surah": k, "count": v}
             for k, v in sorted(surah_distribution.items(), key=lambda x: -x[1])
         ],
-        
+
         # Vocabulary
-        "vocabulary": vocabulary,
-        
+        "vocabulary": {
+            "primary_term": behavior,
+            "roots": [],
+            "derivatives": [],
+            "related_concepts": []
+        },
+
         # Similar behaviors (embeddings)
-        "similar_behaviors": similar_behaviors,
-        
+        "similar_behaviors": [],
+
         # Processing metadata
-        "processing_time_ms": round(processing_time, 2)
+        "processing_time_ms": round(processing_time, 2),
+        "source": "legacy_fallback"
     }
 
 

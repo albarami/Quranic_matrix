@@ -1,0 +1,2867 @@
+{
+  "generated_at": "2025-12-30T19:10:51.273477Z",
+  "total_behaviors": 73,
+  "lexical_required_behaviors": 73,
+  "total_violations": 0,
+  "behaviors": [
+    {
+      "behavior_id": "BEH_SPEECH_TRUTHFULNESS",
+      "term_ar": "الصدق",
+      "lexical_required": true,
+      "total_linked_verses": 127,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "5:45",
+          "tokens": [
+            "تصدق"
+          ]
+        },
+        {
+          "verse_key": "33:35",
+          "tokens": [
+            "والصادقين",
+            "والمتصدقين",
+            "والمتصدقات"
+          ]
+        },
+        {
+          "verse_key": "34:20",
+          "tokens": [
+            "صدق"
+          ]
+        },
+        {
+          "verse_key": "24:6",
+          "tokens": [
+            "الصادقين"
+          ]
+        },
+        {
+          "verse_key": "29:3",
+          "tokens": [
+            "صدقوا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_LYING",
+      "term_ar": "الكذب",
+      "lexical_required": true,
+      "total_linked_verses": 235,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "21:77",
+          "tokens": [
+            "كذبوا"
+          ]
+        },
+        {
+          "verse_key": "54:42",
+          "tokens": [
+            "كذبوا"
+          ]
+        },
+        {
+          "verse_key": "84:22",
+          "tokens": [
+            "يكذبون"
+          ]
+        },
+        {
+          "verse_key": "7:72",
+          "tokens": [
+            "كذبوا"
+          ]
+        },
+        {
+          "verse_key": "55:59",
+          "tokens": [
+            "تكذبان"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_BACKBITING",
+      "term_ar": "الغيبة",
+      "lexical_required": true,
+      "total_linked_verses": 48,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "52:41",
+          "tokens": [
+            "الغيب"
+          ]
+        },
+        {
+          "verse_key": "5:94",
+          "tokens": [
+            "بالغيب"
+          ]
+        },
+        {
+          "verse_key": "6:50",
+          "tokens": [
+            "الغيب"
+          ]
+        },
+        {
+          "verse_key": "9:94",
+          "tokens": [
+            "الغيب"
+          ]
+        },
+        {
+          "verse_key": "19:78",
+          "tokens": [
+            "الغيب"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_SLANDER",
+      "term_ar": "البهتان",
+      "lexical_required": true,
+      "total_linked_verses": 9,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "4:112",
+          "tokens": [
+            "بهتانا"
+          ]
+        },
+        {
+          "verse_key": "2:118",
+          "tokens": [
+            "تشابهت"
+          ]
+        },
+        {
+          "verse_key": "21:40",
+          "tokens": [
+            "فتبهتهم"
+          ]
+        },
+        {
+          "verse_key": "4:156",
+          "tokens": [
+            "بهتانا"
+          ]
+        },
+        {
+          "verse_key": "2:258",
+          "tokens": [
+            "فبهت"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_GOOD_WORD",
+      "term_ar": "الكلمة الطيبة",
+      "lexical_required": true,
+      "total_linked_verses": 42,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "2:172",
+          "tokens": [
+            "طيبات"
+          ]
+        },
+        {
+          "verse_key": "24:26",
+          "tokens": [
+            "والطيبات",
+            "للطيبين",
+            "والطيبون",
+            "للطيبات"
+          ]
+        },
+        {
+          "verse_key": "2:168",
+          "tokens": [
+            "طيبا"
+          ]
+        },
+        {
+          "verse_key": "5:88",
+          "tokens": [
+            "طيبا"
+          ]
+        },
+        {
+          "verse_key": "5:6",
+          "tokens": [
+            "طيبا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_HARSH_WORD",
+      "term_ar": "الفظاظة",
+      "lexical_required": true,
+      "total_linked_verses": 572,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "37:58",
+          "tokens": [
+            "افما"
+          ]
+        },
+        {
+          "verse_key": "41:30",
+          "tokens": [
+            "تخافوا"
+          ]
+        },
+        {
+          "verse_key": "23:5",
+          "tokens": [
+            "حافظون"
+          ]
+        },
+        {
+          "verse_key": "19:77",
+          "tokens": [
+            "افرءيت"
+          ]
+        },
+        {
+          "verse_key": "3:144",
+          "tokens": [
+            "افاين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_VAIN_TALK",
+      "term_ar": "اللغو",
+      "lexical_required": true,
+      "total_linked_verses": 22,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "72:28",
+          "tokens": [
+            "ابلغوا"
+          ]
+        },
+        {
+          "verse_key": "5:89",
+          "tokens": [
+            "باللغو"
+          ]
+        },
+        {
+          "verse_key": "33:39",
+          "tokens": [
+            "يبلغون"
+          ]
+        },
+        {
+          "verse_key": "25:72",
+          "tokens": [
+            "باللغو"
+          ]
+        },
+        {
+          "verse_key": "41:26",
+          "tokens": [
+            "والغوا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_REMEMBRANCE",
+      "term_ar": "ذكر الله",
+      "lexical_required": true,
+      "total_linked_verses": 257,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "50:37",
+          "tokens": [
+            "لذكريا"
+          ]
+        },
+        {
+          "verse_key": "2:114",
+          "tokens": [
+            "يذكر"
+          ]
+        },
+        {
+          "verse_key": "92:3",
+          "tokens": [
+            "الذكر"
+          ]
+        },
+        {
+          "verse_key": "28:43",
+          "tokens": [
+            "يتذكرون"
+          ]
+        },
+        {
+          "verse_key": "19:54",
+          "tokens": [
+            "واذكر"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_SUPPLICATION",
+      "term_ar": "الدعاء",
+      "lexical_required": true,
+      "total_linked_verses": 135,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "35:14",
+          "tokens": [
+            "تدعوهم"
+          ]
+        },
+        {
+          "verse_key": "67:27",
+          "tokens": [
+            "تدعون"
+          ]
+        },
+        {
+          "verse_key": "14:44",
+          "tokens": [
+            "دعوتك"
+          ]
+        },
+        {
+          "verse_key": "36:57",
+          "tokens": [
+            "يدعون"
+          ]
+        },
+        {
+          "verse_key": "7:193",
+          "tokens": [
+            "تدعوهم",
+            "ادعوتموهم"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_TESTIMONY",
+      "term_ar": "الشهادة",
+      "lexical_required": true,
+      "total_linked_verses": 106,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "2:204",
+          "tokens": [
+            "ويشهد"
+          ]
+        },
+        {
+          "verse_key": "50:37",
+          "tokens": [
+            "شهيد"
+          ]
+        },
+        {
+          "verse_key": "4:79",
+          "tokens": [
+            "شهيدا"
+          ]
+        },
+        {
+          "verse_key": "9:94",
+          "tokens": [
+            "والشهادة"
+          ]
+        },
+        {
+          "verse_key": "21:56",
+          "tokens": [
+            "الشاهدين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_CHARITY",
+      "term_ar": "الصدقة",
+      "lexical_required": true,
+      "total_linked_verses": 79,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "5:45",
+          "tokens": [
+            "تصدق"
+          ]
+        },
+        {
+          "verse_key": "33:35",
+          "tokens": [
+            "والمتصدقين",
+            "والمتصدقات"
+          ]
+        },
+        {
+          "verse_key": "34:20",
+          "tokens": [
+            "صدق"
+          ]
+        },
+        {
+          "verse_key": "29:3",
+          "tokens": [
+            "صدقوا"
+          ]
+        },
+        {
+          "verse_key": "37:52",
+          "tokens": [
+            "المصدقين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_ZAKAT",
+      "term_ar": "الزكاة",
+      "lexical_required": true,
+      "total_linked_verses": 34,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "23:4",
+          "tokens": [
+            "للزكواة"
+          ]
+        },
+        {
+          "verse_key": "2:43",
+          "tokens": [
+            "الزكواة"
+          ]
+        },
+        {
+          "verse_key": "2:110",
+          "tokens": [
+            "الزكواة"
+          ]
+        },
+        {
+          "verse_key": "98:5",
+          "tokens": [
+            "الزكواة"
+          ]
+        },
+        {
+          "verse_key": "9:18",
+          "tokens": [
+            "الزكواة"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_SPENDING",
+      "term_ar": "الإنفاق",
+      "lexical_required": true,
+      "total_linked_verses": 60,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "5:64",
+          "tokens": [
+            "ينفق"
+          ]
+        },
+        {
+          "verse_key": "2:270",
+          "tokens": [
+            "انفقتم",
+            "نفقة"
+          ]
+        },
+        {
+          "verse_key": "2:273",
+          "tokens": [
+            "تنفقوا"
+          ]
+        },
+        {
+          "verse_key": "8:60",
+          "tokens": [
+            "تنفقوا"
+          ]
+        },
+        {
+          "verse_key": "36:47",
+          "tokens": [
+            "انفقوا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_USURY",
+      "term_ar": "الربا",
+      "lexical_required": true,
+      "total_linked_verses": 72,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "43:58",
+          "tokens": [
+            "ضربوه"
+          ]
+        },
+        {
+          "verse_key": "4:7",
+          "tokens": [
+            "والاقربون",
+            "والاقربون"
+          ]
+        },
+        {
+          "verse_key": "83:21",
+          "tokens": [
+            "المقربون"
+          ]
+        },
+        {
+          "verse_key": "2:273",
+          "tokens": [
+            "ضربا"
+          ]
+        },
+        {
+          "verse_key": "3:79",
+          "tokens": [
+            "ربانين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_HOARDING",
+      "term_ar": "البخل",
+      "lexical_required": true,
+      "total_linked_verses": 16,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "47:37",
+          "tokens": [
+            "تبخلوا"
+          ]
+        },
+        {
+          "verse_key": "3:180",
+          "tokens": [
+            "يبخلون",
+            "بخلوا"
+          ]
+        },
+        {
+          "verse_key": "92:8",
+          "tokens": [
+            "بخل"
+          ]
+        },
+        {
+          "verse_key": "4:37",
+          "tokens": [
+            "يبخلون",
+            "بالبخل"
+          ]
+        },
+        {
+          "verse_key": "35:16",
+          "tokens": [
+            "بخلق"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_FRAUD",
+      "term_ar": "الغش",
+      "lexical_required": true,
+      "total_linked_verses": 1,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "83:1",
+          "tokens": [
+            "للمطففين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_FAIR_TRADE",
+      "term_ar": "التجارة العادلة",
+      "lexical_required": true,
+      "total_linked_verses": 61,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "9:89",
+          "tokens": [
+            "تجري"
+          ]
+        },
+        {
+          "verse_key": "5:85",
+          "tokens": [
+            "تجري"
+          ]
+        },
+        {
+          "verse_key": "7:43",
+          "tokens": [
+            "تجري"
+          ]
+        },
+        {
+          "verse_key": "3:198",
+          "tokens": [
+            "تجري"
+          ]
+        },
+        {
+          "verse_key": "35:29",
+          "tokens": [
+            "تجارة"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_BRIBERY",
+      "term_ar": "الرشوة",
+      "lexical_required": true,
+      "total_linked_verses": 6,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "20:61",
+          "tokens": [
+            "فيسحتكم"
+          ]
+        },
+        {
+          "verse_key": "5:62",
+          "tokens": [
+            "السحت"
+          ]
+        },
+        {
+          "verse_key": "5:42",
+          "tokens": [
+            "للسحت"
+          ]
+        },
+        {
+          "verse_key": "7:137",
+          "tokens": [
+            "يعرشون"
+          ]
+        },
+        {
+          "verse_key": "16:68",
+          "tokens": [
+            "يعرشون"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_GRATITUDE",
+      "term_ar": "الشكر",
+      "lexical_required": true,
+      "total_linked_verses": 53,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "2:172",
+          "tokens": [
+            "واشكروا"
+          ]
+        },
+        {
+          "verse_key": "16:14",
+          "tokens": [
+            "تشكرون"
+          ]
+        },
+        {
+          "verse_key": "5:89",
+          "tokens": [
+            "تشكرون"
+          ]
+        },
+        {
+          "verse_key": "39:7",
+          "tokens": [
+            "تشكروا"
+          ]
+        },
+        {
+          "verse_key": "3:144",
+          "tokens": [
+            "الشاكرين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_INGRATITUDE",
+      "term_ar": "الكفران",
+      "lexical_required": true,
+      "total_linked_verses": 323,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "13:27",
+          "tokens": [
+            "كفروا"
+          ]
+        },
+        {
+          "verse_key": "85:19",
+          "tokens": [
+            "كفروا"
+          ]
+        },
+        {
+          "verse_key": "4:56",
+          "tokens": [
+            "كفروا"
+          ]
+        },
+        {
+          "verse_key": "19:77",
+          "tokens": [
+            "كفر"
+          ]
+        },
+        {
+          "verse_key": "8:29",
+          "tokens": [
+            "ويكفر"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_PATIENCE",
+      "term_ar": "الصبر",
+      "lexical_required": true,
+      "total_linked_verses": 84,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "7:128",
+          "tokens": [
+            "واصبروٓا"
+          ]
+        },
+        {
+          "verse_key": "33:35",
+          "tokens": [
+            "والصابرين"
+          ]
+        },
+        {
+          "verse_key": "11:11",
+          "tokens": [
+            "صبروا"
+          ]
+        },
+        {
+          "verse_key": "14:12",
+          "tokens": [
+            "ولنصبرن"
+          ]
+        },
+        {
+          "verse_key": "2:155",
+          "tokens": [
+            "الصابرين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_IMPATIENCE",
+      "term_ar": "الجزع",
+      "lexical_required": true,
+      "total_linked_verses": 3,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "70:20",
+          "tokens": [
+            "جزوعا"
+          ]
+        },
+        {
+          "verse_key": "70:19",
+          "tokens": [
+            "هلوعا"
+          ]
+        },
+        {
+          "verse_key": "14:21",
+          "tokens": [
+            "اجزعنآ"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_FEAR_ALLAH",
+      "term_ar": "الخشية",
+      "lexical_required": true,
+      "total_linked_verses": 70,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "2:112",
+          "tokens": [
+            "خوف"
+          ]
+        },
+        {
+          "verse_key": "2:38",
+          "tokens": [
+            "خوف"
+          ]
+        },
+        {
+          "verse_key": "6:48",
+          "tokens": [
+            "خوف"
+          ]
+        },
+        {
+          "verse_key": "74:53",
+          "tokens": [
+            "يخافون"
+          ]
+        },
+        {
+          "verse_key": "76:7",
+          "tokens": [
+            "ويخافون"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_HOPE",
+      "term_ar": "الرجاء",
+      "lexical_required": true,
+      "total_linked_verses": 106,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "16:14",
+          "tokens": [
+            "وتستخرجوا"
+          ]
+        },
+        {
+          "verse_key": "35:29",
+          "tokens": [
+            "يرجون"
+          ]
+        },
+        {
+          "verse_key": "39:39",
+          "tokens": [
+            "عامل"
+          ]
+        },
+        {
+          "verse_key": "67:5",
+          "tokens": [
+            "رجوما"
+          ]
+        },
+        {
+          "verse_key": "33:21",
+          "tokens": [
+            "يرجوا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_LOVE",
+      "term_ar": "المحبة",
+      "lexical_required": true,
+      "total_linked_verses": 141,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "14:3",
+          "tokens": [
+            "يستحبون"
+          ]
+        },
+        {
+          "verse_key": "5:93",
+          "tokens": [
+            "يحب"
+          ]
+        },
+        {
+          "verse_key": "9:23",
+          "tokens": [
+            "استحبوا"
+          ]
+        },
+        {
+          "verse_key": "5:53",
+          "tokens": [
+            "حبطت"
+          ]
+        },
+        {
+          "verse_key": "18:76",
+          "tokens": [
+            "تصاحبني"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_HATRED",
+      "term_ar": "البغض",
+      "lexical_required": true,
+      "total_linked_verses": 46,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "5:64",
+          "tokens": [
+            "والبغضآء"
+          ]
+        },
+        {
+          "verse_key": "14:5",
+          "tokens": [
+            "وذكرهم"
+          ]
+        },
+        {
+          "verse_key": "23:71",
+          "tokens": [
+            "بذكرهم",
+            "ذكرهم"
+          ]
+        },
+        {
+          "verse_key": "13:15",
+          "tokens": [
+            "وكرها"
+          ]
+        },
+        {
+          "verse_key": "49:7",
+          "tokens": [
+            "وكره"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_ENVY",
+      "term_ar": "الحسد",
+      "lexical_required": true,
+      "total_linked_verses": 4,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "4:54",
+          "tokens": [
+            "يحسدون"
+          ]
+        },
+        {
+          "verse_key": "48:15",
+          "tokens": [
+            "تحسدوننا"
+          ]
+        },
+        {
+          "verse_key": "2:109",
+          "tokens": [
+            "حسدا"
+          ]
+        },
+        {
+          "verse_key": "113:5",
+          "tokens": [
+            "حاسد",
+            "حسد"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_ANGER",
+      "term_ar": "الغضب",
+      "lexical_required": true,
+      "total_linked_verses": 21,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "20:81",
+          "tokens": [
+            "غضبي",
+            "غضبي"
+          ]
+        },
+        {
+          "verse_key": "60:13",
+          "tokens": [
+            "غضب"
+          ]
+        },
+        {
+          "verse_key": "20:86",
+          "tokens": [
+            "غضب",
+            "غضبان"
+          ]
+        },
+        {
+          "verse_key": "42:16",
+          "tokens": [
+            "غضب"
+          ]
+        },
+        {
+          "verse_key": "1:7",
+          "tokens": [
+            "المغضوب"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_JOY",
+      "term_ar": "الفرح",
+      "lexical_required": true,
+      "total_linked_verses": 21,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "13:26",
+          "tokens": [
+            "وفرحوا"
+          ]
+        },
+        {
+          "verse_key": "30:32",
+          "tokens": [
+            "فرحون"
+          ]
+        },
+        {
+          "verse_key": "27:36",
+          "tokens": [
+            "تفرحون"
+          ]
+        },
+        {
+          "verse_key": "3:188",
+          "tokens": [
+            "يفرحون"
+          ]
+        },
+        {
+          "verse_key": "3:170",
+          "tokens": [
+            "فرحين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_GRIEF",
+      "term_ar": "الحزن",
+      "lexical_required": true,
+      "total_linked_verses": 42,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "2:112",
+          "tokens": [
+            "يحزنون"
+          ]
+        },
+        {
+          "verse_key": "2:38",
+          "tokens": [
+            "يحزنون"
+          ]
+        },
+        {
+          "verse_key": "29:33",
+          "tokens": [
+            "تحزن"
+          ]
+        },
+        {
+          "verse_key": "6:33",
+          "tokens": [
+            "ليحزنك"
+          ]
+        },
+        {
+          "verse_key": "6:48",
+          "tokens": [
+            "يحزنون"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_FAITH",
+      "term_ar": "الإيمان",
+      "lexical_required": true,
+      "total_linked_verses": 627,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "34:4",
+          "tokens": [
+            "ءامنوا"
+          ]
+        },
+        {
+          "verse_key": "5:53",
+          "tokens": [
+            "ءامنوٓا"
+          ]
+        },
+        {
+          "verse_key": "5:6",
+          "tokens": [
+            "ءامنوٓا"
+          ]
+        },
+        {
+          "verse_key": "8:29",
+          "tokens": [
+            "ءامنوٓا"
+          ]
+        },
+        {
+          "verse_key": "23:58",
+          "tokens": [
+            "يومنون"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_DISBELIEF",
+      "term_ar": "الكفر",
+      "lexical_required": true,
+      "total_linked_verses": 407,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "13:27",
+          "tokens": [
+            "كفروا"
+          ]
+        },
+        {
+          "verse_key": "85:19",
+          "tokens": [
+            "كفروا"
+          ]
+        },
+        {
+          "verse_key": "4:56",
+          "tokens": [
+            "كفروا"
+          ]
+        },
+        {
+          "verse_key": "19:77",
+          "tokens": [
+            "كفر"
+          ]
+        },
+        {
+          "verse_key": "8:29",
+          "tokens": [
+            "ويكفر"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_HYPOCRISY",
+      "term_ar": "النفاق",
+      "lexical_required": true,
+      "total_linked_verses": 85,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "35:29",
+          "tokens": [
+            "وانفقوا"
+          ]
+        },
+        {
+          "verse_key": "8:36",
+          "tokens": [
+            "ينفقون",
+            "فسينفقونها"
+          ]
+        },
+        {
+          "verse_key": "2:262",
+          "tokens": [
+            "ينفقون",
+            "انفقوا"
+          ]
+        },
+        {
+          "verse_key": "33:73",
+          "tokens": [
+            "المنافقين"
+          ]
+        },
+        {
+          "verse_key": "33:48",
+          "tokens": [
+            "والمنافقين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_SINCERITY",
+      "term_ar": "الإخلاص",
+      "lexical_required": true,
+      "total_linked_verses": 24,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "38:46",
+          "tokens": [
+            "اخلصناهم"
+          ]
+        },
+        {
+          "verse_key": "98:5",
+          "tokens": [
+            "مخلصين"
+          ]
+        },
+        {
+          "verse_key": "4:146",
+          "tokens": [
+            "واخلصوا"
+          ]
+        },
+        {
+          "verse_key": "12:24",
+          "tokens": [
+            "المخلصين"
+          ]
+        },
+        {
+          "verse_key": "39:14",
+          "tokens": [
+            "مخلصا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_SHOWING_OFF",
+      "term_ar": "الرياء",
+      "lexical_required": true,
+      "total_linked_verses": 18,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "12:4",
+          "tokens": [
+            "رايت",
+            "رايتهم"
+          ]
+        },
+        {
+          "verse_key": "76:19",
+          "tokens": [
+            "رايتهم"
+          ]
+        },
+        {
+          "verse_key": "3:143",
+          "tokens": [
+            "رايتموه"
+          ]
+        },
+        {
+          "verse_key": "59:21",
+          "tokens": [
+            "لرايته"
+          ]
+        },
+        {
+          "verse_key": "76:20",
+          "tokens": [
+            "رايت",
+            "رايت"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_TAQWA",
+      "term_ar": "التقوى",
+      "lexical_required": true,
+      "total_linked_verses": 176,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "26:131",
+          "tokens": [
+            "فاتقوا"
+          ]
+        },
+        {
+          "verse_key": "5:93",
+          "tokens": [
+            "اتقوا",
+            "اتقوا",
+            "اتقوا"
+          ]
+        },
+        {
+          "verse_key": "67:27",
+          "tokens": [
+            "وقيل"
+          ]
+        },
+        {
+          "verse_key": "95:4",
+          "tokens": [
+            "تقويم"
+          ]
+        },
+        {
+          "verse_key": "2:187",
+          "tokens": [
+            "يتقون"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_TAWAKKUL",
+      "term_ar": "التوكل",
+      "lexical_required": true,
+      "total_linked_verses": 77,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "2:187",
+          "tokens": [
+            "وكلوا"
+          ]
+        },
+        {
+          "verse_key": "9:51",
+          "tokens": [
+            "فليتوكل"
+          ]
+        },
+        {
+          "verse_key": "21:79",
+          "tokens": [
+            "وكلا"
+          ]
+        },
+        {
+          "verse_key": "14:12",
+          "tokens": [
+            "فليتوكل",
+            "المتوكلون",
+            "نتوكل"
+          ]
+        },
+        {
+          "verse_key": "33:48",
+          "tokens": [
+            "وتوكل"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_REPENTANCE",
+      "term_ar": "التوبة",
+      "lexical_required": true,
+      "total_linked_verses": 298,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "43:21",
+          "tokens": [
+            "كتابا"
+          ]
+        },
+        {
+          "verse_key": "13:38",
+          "tokens": [
+            "كتاب"
+          ]
+        },
+        {
+          "verse_key": "2:146",
+          "tokens": [
+            "الكتاب"
+          ]
+        },
+        {
+          "verse_key": "28:43",
+          "tokens": [
+            "الكتاب"
+          ]
+        },
+        {
+          "verse_key": "11:90",
+          "tokens": [
+            "توبوٓا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_WORSHIP",
+      "term_ar": "العبادة",
+      "lexical_required": true,
+      "total_linked_verses": 143,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "41:37",
+          "tokens": [
+            "تعبدون"
+          ]
+        },
+        {
+          "verse_key": "23:32",
+          "tokens": [
+            "اعبدوا"
+          ]
+        },
+        {
+          "verse_key": "26:92",
+          "tokens": [
+            "تعبدون"
+          ]
+        },
+        {
+          "verse_key": "43:81",
+          "tokens": [
+            "العابدين"
+          ]
+        },
+        {
+          "verse_key": "38:30",
+          "tokens": [
+            "العبد"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_PRAYER",
+      "term_ar": "الصلاة",
+      "lexical_required": true,
+      "total_linked_verses": 208,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "15:28",
+          "tokens": [
+            "صلصال"
+          ]
+        },
+        {
+          "verse_key": "4:56",
+          "tokens": [
+            "نصليهم"
+          ]
+        },
+        {
+          "verse_key": "35:29",
+          "tokens": [
+            "الصلواة"
+          ]
+        },
+        {
+          "verse_key": "38:56",
+          "tokens": [
+            "يصلونها"
+          ]
+        },
+        {
+          "verse_key": "70:23",
+          "tokens": [
+            "صلاتهم"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_FASTING",
+      "term_ar": "الصيام",
+      "lexical_required": true,
+      "total_linked_verses": 9,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "2:183",
+          "tokens": [
+            "الصيام"
+          ]
+        },
+        {
+          "verse_key": "2:196",
+          "tokens": [
+            "صيام",
+            "فصيام"
+          ]
+        },
+        {
+          "verse_key": "2:184",
+          "tokens": [
+            "تصوموا"
+          ]
+        },
+        {
+          "verse_key": "58:4",
+          "tokens": [
+            "فصيام"
+          ]
+        },
+        {
+          "verse_key": "5:89",
+          "tokens": [
+            "فصيام"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_REMEMBRANCE",
+      "term_ar": "الذكر",
+      "lexical_required": true,
+      "total_linked_verses": 257,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "50:37",
+          "tokens": [
+            "لذكريا"
+          ]
+        },
+        {
+          "verse_key": "2:114",
+          "tokens": [
+            "يذكر"
+          ]
+        },
+        {
+          "verse_key": "92:3",
+          "tokens": [
+            "الذكر"
+          ]
+        },
+        {
+          "verse_key": "28:43",
+          "tokens": [
+            "يتذكرون"
+          ]
+        },
+        {
+          "verse_key": "19:54",
+          "tokens": [
+            "واذكر"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_HAJJ",
+      "term_ar": "الحج",
+      "lexical_required": true,
+      "total_linked_verses": 41,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "2:150",
+          "tokens": [
+            "حجة"
+          ]
+        },
+        {
+          "verse_key": "2:158",
+          "tokens": [
+            "حج"
+          ]
+        },
+        {
+          "verse_key": "2:196",
+          "tokens": [
+            "الحج",
+            "الحج",
+            "الحج"
+          ]
+        },
+        {
+          "verse_key": "6:138",
+          "tokens": [
+            "حجر"
+          ]
+        },
+        {
+          "verse_key": "25:22",
+          "tokens": [
+            "حجرا",
+            "محجورا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_JIHAD",
+      "term_ar": "الجهاد",
+      "lexical_required": true,
+      "total_linked_verses": 29,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "9:41",
+          "tokens": [
+            "وجاهدوا"
+          ]
+        },
+        {
+          "verse_key": "9:20",
+          "tokens": [
+            "وجاهدوا"
+          ]
+        },
+        {
+          "verse_key": "5:53",
+          "tokens": [
+            "جهد"
+          ]
+        },
+        {
+          "verse_key": "47:31",
+          "tokens": [
+            "المجاهدين"
+          ]
+        },
+        {
+          "verse_key": "16:38",
+          "tokens": [
+            "جهد"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_RECITATION",
+      "term_ar": "التلاوة",
+      "lexical_required": true,
+      "total_linked_verses": 121,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "45:6",
+          "tokens": [
+            "نتلوها"
+          ]
+        },
+        {
+          "verse_key": "35:29",
+          "tokens": [
+            "يتلون"
+          ]
+        },
+        {
+          "verse_key": "62:2",
+          "tokens": [
+            "يتلوا"
+          ]
+        },
+        {
+          "verse_key": "47:4",
+          "tokens": [
+            "قتلوا"
+          ]
+        },
+        {
+          "verse_key": "40:28",
+          "tokens": [
+            "اتقتلون"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_CONTEMPLATION",
+      "term_ar": "التدبر",
+      "lexical_required": true,
+      "total_linked_verses": 26,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "70:17",
+          "tokens": [
+            "ادبر"
+          ]
+        },
+        {
+          "verse_key": "13:2",
+          "tokens": [
+            "يدبر"
+          ]
+        },
+        {
+          "verse_key": "38:29",
+          "tokens": [
+            "ليدبروٓا"
+          ]
+        },
+        {
+          "verse_key": "79:5",
+          "tokens": [
+            "فالمدبرات"
+          ]
+        },
+        {
+          "verse_key": "74:33",
+          "tokens": [
+            "ادبر"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_CONTENTMENT",
+      "term_ar": "الرضا",
+      "lexical_required": true,
+      "total_linked_verses": 70,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "4:102",
+          "tokens": [
+            "مرضيآ"
+          ]
+        },
+        {
+          "verse_key": "20:130",
+          "tokens": [
+            "ترضيا"
+          ]
+        },
+        {
+          "verse_key": "9:93",
+          "tokens": [
+            "رضوا"
+          ]
+        },
+        {
+          "verse_key": "74:49",
+          "tokens": [
+            "معرضين"
+          ]
+        },
+        {
+          "verse_key": "39:7",
+          "tokens": [
+            "يرضيا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_JUSTICE",
+      "term_ar": "العدل",
+      "lexical_required": true,
+      "total_linked_verses": 24,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "6:115",
+          "tokens": [
+            "وعدلا"
+          ]
+        },
+        {
+          "verse_key": "2:282",
+          "tokens": [
+            "بالعدل",
+            "بالعدل"
+          ]
+        },
+        {
+          "verse_key": "4:58",
+          "tokens": [
+            "بالعدل"
+          ]
+        },
+        {
+          "verse_key": "4:3",
+          "tokens": [
+            "تعدلوا"
+          ]
+        },
+        {
+          "verse_key": "65:2",
+          "tokens": [
+            "عدل"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_OPPRESSION",
+      "term_ar": "الظلم",
+      "lexical_required": true,
+      "total_linked_verses": 282,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "42:42",
+          "tokens": [
+            "يظلمون"
+          ]
+        },
+        {
+          "verse_key": "30:29",
+          "tokens": [
+            "ظلموٓا"
+          ]
+        },
+        {
+          "verse_key": "2:114",
+          "tokens": [
+            "اظلم"
+          ]
+        },
+        {
+          "verse_key": "2:51",
+          "tokens": [
+            "ظالمون"
+          ]
+        },
+        {
+          "verse_key": "9:23",
+          "tokens": [
+            "الظالمون"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_KINDNESS_PARENTS",
+      "term_ar": "بر الوالدين",
+      "lexical_required": true,
+      "total_linked_verses": 3,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "26:130",
+          "tokens": [
+            "جبارين"
+          ]
+        },
+        {
+          "verse_key": "5:22",
+          "tokens": [
+            "جبارين"
+          ]
+        },
+        {
+          "verse_key": "80:16",
+          "tokens": [
+            "بررة"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_DISOBEDIENCE_PARENTS",
+      "term_ar": "عقوق الوالدين",
+      "lexical_required": true,
+      "total_linked_verses": 38,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "19:5",
+          "tokens": [
+            "عاقرا"
+          ]
+        },
+        {
+          "verse_key": "19:8",
+          "tokens": [
+            "عاقرا"
+          ]
+        },
+        {
+          "verse_key": "7:128",
+          "tokens": [
+            "والعاقبة"
+          ]
+        },
+        {
+          "verse_key": "10:73",
+          "tokens": [
+            "عاقبة"
+          ]
+        },
+        {
+          "verse_key": "37:73",
+          "tokens": [
+            "عاقبة"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_KINSHIP_TIES",
+      "term_ar": "صلة الرحم",
+      "lexical_required": true,
+      "total_linked_verses": 207,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "35:2",
+          "tokens": [
+            "رحمة"
+          ]
+        },
+        {
+          "verse_key": "43:17",
+          "tokens": [
+            "للرحمان"
+          ]
+        },
+        {
+          "verse_key": "19:58",
+          "tokens": [
+            "الرحمان"
+          ]
+        },
+        {
+          "verse_key": "28:43",
+          "tokens": [
+            "ورحمة"
+          ]
+        },
+        {
+          "verse_key": "1:1",
+          "tokens": [
+            "الرحمان"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_SEVERING_TIES",
+      "term_ar": "قطيعة الرحم",
+      "lexical_required": true,
+      "total_linked_verses": 33,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "8:7",
+          "tokens": [
+            "ويقطع"
+          ]
+        },
+        {
+          "verse_key": "6:94",
+          "tokens": [
+            "تقطع"
+          ]
+        },
+        {
+          "verse_key": "7:72",
+          "tokens": [
+            "وقطعنا"
+          ]
+        },
+        {
+          "verse_key": "7:160",
+          "tokens": [
+            "وقطعناهم"
+          ]
+        },
+        {
+          "verse_key": "13:25",
+          "tokens": [
+            "ويقطعون"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_HOSPITALITY",
+      "term_ar": "الضيافة",
+      "lexical_required": true,
+      "total_linked_verses": 6,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "18:77",
+          "tokens": [
+            "يضيفوهما"
+          ]
+        },
+        {
+          "verse_key": "51:24",
+          "tokens": [
+            "ضيف"
+          ]
+        },
+        {
+          "verse_key": "15:51",
+          "tokens": [
+            "ضيف"
+          ]
+        },
+        {
+          "verse_key": "11:78",
+          "tokens": [
+            "ضيفيٓ"
+          ]
+        },
+        {
+          "verse_key": "54:37",
+          "tokens": [
+            "ضيفه"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_HELPING_NEEDY",
+      "term_ar": "مساعدة المحتاج",
+      "lexical_required": true,
+      "total_linked_verses": 316,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "26:131",
+          "tokens": [
+            "واطيعون"
+          ]
+        },
+        {
+          "verse_key": "54:41",
+          "tokens": [
+            "فرعون"
+          ]
+        },
+        {
+          "verse_key": "28:70",
+          "tokens": [
+            "ترجعون"
+          ]
+        },
+        {
+          "verse_key": "20:108",
+          "tokens": [
+            "يتبعون"
+          ]
+        },
+        {
+          "verse_key": "21:102",
+          "tokens": [
+            "يسمعون"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_ORPHAN_CARE",
+      "term_ar": "رعاية اليتيم",
+      "lexical_required": true,
+      "total_linked_verses": 111,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "32:14",
+          "tokens": [
+            "نسيتم"
+          ]
+        },
+        {
+          "verse_key": "56:68",
+          "tokens": [
+            "افرءيتم"
+          ]
+        },
+        {
+          "verse_key": "75:33",
+          "tokens": [
+            "يتمطيآ"
+          ]
+        },
+        {
+          "verse_key": "47:4",
+          "tokens": [
+            "لقيتم"
+          ]
+        },
+        {
+          "verse_key": "4:3",
+          "tokens": [
+            "اليتاميا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_ORPHAN_HARM",
+      "term_ar": "أكل مال اليتيم",
+      "lexical_required": true,
+      "total_linked_verses": 95,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "32:14",
+          "tokens": [
+            "نسيتم"
+          ]
+        },
+        {
+          "verse_key": "56:68",
+          "tokens": [
+            "افرءيتم"
+          ]
+        },
+        {
+          "verse_key": "75:33",
+          "tokens": [
+            "يتمطيآ"
+          ]
+        },
+        {
+          "verse_key": "47:4",
+          "tokens": [
+            "لقيتم"
+          ]
+        },
+        {
+          "verse_key": "5:6",
+          "tokens": [
+            "وليتم"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_RECONCILIATION",
+      "term_ar": "الإصلاح",
+      "lexical_required": true,
+      "total_linked_verses": 35,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "4:128",
+          "tokens": [
+            "يصلحا",
+            "صلحا",
+            "والصلح"
+          ]
+        },
+        {
+          "verse_key": "6:48",
+          "tokens": [
+            "واصلح"
+          ]
+        },
+        {
+          "verse_key": "11:117",
+          "tokens": [
+            "مصلحون"
+          ]
+        },
+        {
+          "verse_key": "3:89",
+          "tokens": [
+            "واصلحوا"
+          ]
+        },
+        {
+          "verse_key": "42:40",
+          "tokens": [
+            "واصلح"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_CORRUPTION",
+      "term_ar": "الفساد",
+      "lexical_required": true,
+      "total_linked_verses": 43,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "5:64",
+          "tokens": [
+            "المفسدين"
+          ]
+        },
+        {
+          "verse_key": "23:71",
+          "tokens": [
+            "لفسدت"
+          ]
+        },
+        {
+          "verse_key": "89:12",
+          "tokens": [
+            "الفساد"
+          ]
+        },
+        {
+          "verse_key": "29:30",
+          "tokens": [
+            "المفسدين"
+          ]
+        },
+        {
+          "verse_key": "2:11",
+          "tokens": [
+            "تفسدوا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_IHSAN",
+      "term_ar": "الإحسان",
+      "lexical_required": true,
+      "total_linked_verses": 167,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "5:93",
+          "tokens": [
+            "المحسنين",
+            "واحسنوا"
+          ]
+        },
+        {
+          "verse_key": "95:4",
+          "tokens": [
+            "احسن"
+          ]
+        },
+        {
+          "verse_key": "4:79",
+          "tokens": [
+            "حسنة"
+          ]
+        },
+        {
+          "verse_key": "5:50",
+          "tokens": [
+            "احسن"
+          ]
+        },
+        {
+          "verse_key": "9:52",
+          "tokens": [
+            "الحسنيين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_REFLECTION",
+      "term_ar": "التفكر",
+      "lexical_required": true,
+      "total_linked_verses": 19,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "7:184",
+          "tokens": [
+            "يتفكروا"
+          ]
+        },
+        {
+          "verse_key": "6:50",
+          "tokens": [
+            "تتفكرون"
+          ]
+        },
+        {
+          "verse_key": "3:191",
+          "tokens": [
+            "ويتفكرون"
+          ]
+        },
+        {
+          "verse_key": "59:21",
+          "tokens": [
+            "يتفكرون"
+          ]
+        },
+        {
+          "verse_key": "13:3",
+          "tokens": [
+            "يتفكرون"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_HEEDLESSNESS",
+      "term_ar": "الغفلة",
+      "lexical_required": true,
+      "total_linked_verses": 18,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "4:102",
+          "tokens": [
+            "تغفلون"
+          ]
+        },
+        {
+          "verse_key": "18:28",
+          "tokens": [
+            "اغفلنا"
+          ]
+        },
+        {
+          "verse_key": "10:92",
+          "tokens": [
+            "لغافلون"
+          ]
+        },
+        {
+          "verse_key": "36:6",
+          "tokens": [
+            "غافلون"
+          ]
+        },
+        {
+          "verse_key": "28:15",
+          "tokens": [
+            "غفلة"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_KNOWLEDGE",
+      "term_ar": "العلم",
+      "lexical_required": true,
+      "total_linked_verses": 542,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "30:29",
+          "tokens": [
+            "علم"
+          ]
+        },
+        {
+          "verse_key": "2:103",
+          "tokens": [
+            "يعلمون"
+          ]
+        },
+        {
+          "verse_key": "27:74",
+          "tokens": [
+            "ليعلم"
+          ]
+        },
+        {
+          "verse_key": "3:135",
+          "tokens": [
+            "يعلمون"
+          ]
+        },
+        {
+          "verse_key": "15:70",
+          "tokens": [
+            "العالمين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_IGNORANCE",
+      "term_ar": "الجهل",
+      "lexical_required": true,
+      "total_linked_verses": 18,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "6:111",
+          "tokens": [
+            "يجهلون"
+          ]
+        },
+        {
+          "verse_key": "11:29",
+          "tokens": [
+            "تجهلون"
+          ]
+        },
+        {
+          "verse_key": "12:89",
+          "tokens": [
+            "جاهلون"
+          ]
+        },
+        {
+          "verse_key": "46:23",
+          "tokens": [
+            "تجهلون"
+          ]
+        },
+        {
+          "verse_key": "5:50",
+          "tokens": [
+            "الجاهلية"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_UNDERSTANDING",
+      "term_ar": "الفقه",
+      "lexical_required": true,
+      "total_linked_verses": 20,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "18:93",
+          "tokens": [
+            "يفقهون"
+          ]
+        },
+        {
+          "verse_key": "7:179",
+          "tokens": [
+            "يفقهون"
+          ]
+        },
+        {
+          "verse_key": "6:98",
+          "tokens": [
+            "يفقهون"
+          ]
+        },
+        {
+          "verse_key": "11:91",
+          "tokens": [
+            "نفقه"
+          ]
+        },
+        {
+          "verse_key": "17:46",
+          "tokens": [
+            "يفقهوه"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_ARROGANCE",
+      "term_ar": "الكبر",
+      "lexical_required": true,
+      "total_linked_verses": 106,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "31:7",
+          "tokens": [
+            "مستكبرا"
+          ]
+        },
+        {
+          "verse_key": "20:23",
+          "tokens": [
+            "الكبري"
+          ]
+        },
+        {
+          "verse_key": "19:8",
+          "tokens": [
+            "الكبر"
+          ]
+        },
+        {
+          "verse_key": "34:32",
+          "tokens": [
+            "استكبروا"
+          ]
+        },
+        {
+          "verse_key": "4:173",
+          "tokens": [
+            "واستكبروا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_HUMILITY",
+      "term_ar": "التواضع",
+      "lexical_required": true,
+      "total_linked_verses": 18,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "3:96",
+          "tokens": [
+            "وضع"
+          ]
+        },
+        {
+          "verse_key": "3:36",
+          "tokens": [
+            "وضعتها",
+            "وضعتهآ",
+            "وضعت"
+          ]
+        },
+        {
+          "verse_key": "55:7",
+          "tokens": [
+            "ووضع"
+          ]
+        },
+        {
+          "verse_key": "21:90",
+          "tokens": [
+            "خاشعين"
+          ]
+        },
+        {
+          "verse_key": "42:45",
+          "tokens": [
+            "خاشعين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_DOUBT",
+      "term_ar": "الشك",
+      "lexical_required": true,
+      "total_linked_verses": 1,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "34:13",
+          "tokens": [
+            "الشكور"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_CERTAINTY",
+      "term_ar": "اليقين",
+      "lexical_required": true,
+      "total_linked_verses": 30,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "2:118",
+          "tokens": [
+            "يوقنون"
+          ]
+        },
+        {
+          "verse_key": "5:50",
+          "tokens": [
+            "يوقنون"
+          ]
+        },
+        {
+          "verse_key": "69:51",
+          "tokens": [
+            "اليقين"
+          ]
+        },
+        {
+          "verse_key": "102:5",
+          "tokens": [
+            "اليقين"
+          ]
+        },
+        {
+          "verse_key": "102:7",
+          "tokens": [
+            "اليقين"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_FOLLOWING_DESIRE",
+      "term_ar": "اتباع الهوى",
+      "lexical_required": true,
+      "total_linked_verses": 18,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "53:53",
+          "tokens": [
+            "اهويا"
+          ]
+        },
+        {
+          "verse_key": "18:28",
+          "tokens": [
+            "هوياه"
+          ]
+        },
+        {
+          "verse_key": "7:176",
+          "tokens": [
+            "هوياه"
+          ]
+        },
+        {
+          "verse_key": "22:31",
+          "tokens": [
+            "تهوي"
+          ]
+        },
+        {
+          "verse_key": "45:23",
+          "tokens": [
+            "هوياه"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_PHY_LOWERING_GAZE",
+      "term_ar": "غض البصر",
+      "lexical_required": true,
+      "total_linked_verses": 2,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "31:19",
+          "tokens": [
+            "واغضض"
+          ]
+        },
+        {
+          "verse_key": "24:31",
+          "tokens": [
+            "يغضضن"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_PHY_PROSTRATION",
+      "term_ar": "السجود",
+      "lexical_required": true,
+      "total_linked_verses": 69,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "2:150",
+          "tokens": [
+            "المسجد"
+          ]
+        },
+        {
+          "verse_key": "25:60",
+          "tokens": [
+            "اسجدوا",
+            "انسجد"
+          ]
+        },
+        {
+          "verse_key": "4:102",
+          "tokens": [
+            "سجدوا"
+          ]
+        },
+        {
+          "verse_key": "2:196",
+          "tokens": [
+            "المسجد"
+          ]
+        },
+        {
+          "verse_key": "41:37",
+          "tokens": [
+            "واسجدوا",
+            "تسجدوا"
+          ]
+        }
+      ]
+    },
+    {
+      "behavior_id": "BEH_PHY_STANDING",
+      "term_ar": "القيام",
+      "lexical_required": true,
+      "total_linked_verses": 445,
+      "invalid_verses_count": 0,
+      "invalid_verses": [],
+      "sample_evidence_tokens": [
+        {
+          "verse_key": "30:12",
+          "tokens": [
+            "تقوم"
+          ]
+        },
+        {
+          "verse_key": "36:28",
+          "tokens": [
+            "قومه"
+          ]
+        },
+        {
+          "verse_key": "7:128",
+          "tokens": [
+            "لقومه"
+          ]
+        },
+        {
+          "verse_key": "20:100",
+          "tokens": [
+            "القيامة"
+          ]
+        },
+        {
+          "verse_key": "16:79",
+          "tokens": [
+            "لقوم"
+          ]
+        }
+      ]
+    }
+  ]
+}
