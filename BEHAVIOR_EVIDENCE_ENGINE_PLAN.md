@@ -1315,10 +1315,10 @@ def build_semantic_edges(relations_db) -> List[GraphEdge]:
 ```
 
 ### Acceptance Criteria
-- [ ] Graph nodes use canonical IDs (BEH_EMO_PATIENCE, not BHV_0)
-- [ ] Graph nodes have labelAr and labelEn
-- [ ] For any behavior with verses, graph traversal returns non-zero edges
-- [ ] Edge provenance is traceable
+- [x] Graph nodes use canonical IDs (BEH_EMO_PATIENCE, not BHV_0)
+- [x] Graph nodes have labelAr and labelEn
+- [x] For any behavior with verses, graph traversal returns non-zero edges
+- [x] Edge provenance is traceable
 
 ### Deliverables
 | File | Description |
@@ -1577,7 +1577,7 @@ Re-enable advanced features ONLY after foundation is correct.
 - [x] `data/index/lexeme_index.json`
 - [x] `data/behaviors/behavior_registry.json`
 - [x] `data/evidence/concept_index_v3.jsonl`
-- [ ] `data/graph/graph_v3.json`
+- [x] `data/graph/graph_v3.json`
 
 ### Source Files (Must Exist)
 - [x] `src/text/ar_normalize.py`
@@ -1585,7 +1585,7 @@ Re-enable advanced features ONLY after foundation is correct.
 - [x] `src/data/lexeme_search.py`
 - [x] `src/data/behavior_registry.py`
 - [x] `src/models/evidence_policy.py`
-- [ ] `src/models/graph_schema.py`
+- [x] `src/models/graph_schema.py`
 
 ### Scripts (Must Exist)
 - [x] `scripts/audit_quran_schema.py`
@@ -1596,7 +1596,7 @@ Re-enable advanced features ONLY after foundation is correct.
 - [x] `scripts/rebuild_concept_index_v3.py`
 - [x] `scripts/validate_concept_index_v3.py`
 - [x] `scripts/audit_tafsir_coverage.py`
-- [ ] `scripts/build_graph_from_evidence.py`
+- [x] `scripts/build_graph_from_evidence.py`
 
 ### Tests (Must Pass)
 - [ ] `tests/test_behavior_patience_retrieval.py`

@@ -1,0 +1,114 @@
+{
+  "phase": 7,
+  "description": "Graph Build Report",
+  "statistics": {
+    "total_nodes": 3941,
+    "total_edges": 8078,
+    "nodes_by_type": {
+      "behavior": 73,
+      "verse": 3868
+    },
+    "edges_by_type": {
+      "MENTIONED_IN": 8078
+    }
+  },
+  "sources": {
+    "behavior_registry": 73,
+    "concept_index_entries": 73,
+    "unique_verses": 3868
+  },
+  "sample_nodes": [
+    {
+      "id": "BEH_COG_ARROGANCE",
+      "type": "behavior",
+      "labelAr": "الكبر",
+      "labelEn": "Arrogance",
+      "metadata": {
+        "category": "cognitive"
+      }
+    },
+    {
+      "id": "BEH_COG_CERTAINTY",
+      "type": "behavior",
+      "labelAr": "اليقين",
+      "labelEn": "Certainty",
+      "metadata": {
+        "category": "cognitive"
+      }
+    },
+    {
+      "id": "BEH_COG_DOUBT",
+      "type": "behavior",
+      "labelAr": "الشك",
+      "labelEn": "Doubt",
+      "metadata": {
+        "category": "cognitive"
+      }
+    },
+    {
+      "id": "BEH_COG_FOLLOWING_DESIRE",
+      "type": "behavior",
+      "labelAr": "اتباع الهوى",
+      "labelEn": "Following Desire",
+      "metadata": {
+        "category": "cognitive"
+      }
+    },
+    {
+      "id": "BEH_COG_HEEDLESSNESS",
+      "type": "behavior",
+      "labelAr": "الغفلة",
+      "labelEn": "Heedlessness",
+      "metadata": {
+        "category": "cognitive"
+      }
+    }
+  ],
+  "sample_edges": [
+    {
+      "source": "BEH_COG_ARROGANCE",
+      "target": "VERSE_2_34",
+      "type": "MENTIONED_IN",
+      "evidenceType": "lexical",
+      "weight": 1.0,
+      "provenance": "concept_index_v3",
+      "metadata": {}
+    },
+    {
+      "source": "BEH_COG_ARROGANCE",
+      "target": "VERSE_2_87",
+      "type": "MENTIONED_IN",
+      "evidenceType": "lexical",
+      "weight": 1.0,
+      "provenance": "concept_index_v3",
+      "metadata": {}
+    },
+    {
+      "source": "BEH_COG_ARROGANCE",
+      "target": "VERSE_2_185",
+      "type": "MENTIONED_IN",
+      "evidenceType": "lexical",
+      "weight": 1.0,
+      "provenance": "concept_index_v3",
+      "metadata": {}
+    },
+    {
+      "source": "BEH_COG_ARROGANCE",
+      "target": "VERSE_2_217",
+      "type": "MENTIONED_IN",
+      "evidenceType": "lexical",
+      "weight": 1.0,
+      "provenance": "concept_index_v3",
+      "metadata": {}
+    },
+    {
+      "source": "BEH_COG_ARROGANCE",
+      "target": "VERSE_2_219",
+      "type": "MENTIONED_IN",
+      "evidenceType": "lexical",
+      "weight": 1.0,
+      "provenance": "concept_index_v3",
+      "metadata": {}
+    }
+  ]
+}
