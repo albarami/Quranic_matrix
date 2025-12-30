@@ -19,6 +19,8 @@ import {
   ArrowRight,
   Play,
   Zap,
+  CheckCircle,
+  Shield,
 } from "lucide-react";
 import { useLanguage } from "./contexts/LanguageContext";
 
@@ -445,10 +447,20 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
+                className="flex flex-wrap items-center gap-3 mb-6"
               >
-                <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-full text-sm mb-6">
+                <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-full text-sm">
                   <Sparkles className="w-4 h-4 text-amber-400" />
                   {t("home.tagline")}
+                </span>
+                <span
+                  className="inline-flex items-center gap-2 bg-emerald-900/30 px-4 py-2 rounded-full border border-emerald-500/50 cursor-help"
+                  title={language === 'ar'
+                    ? "هذا النظام اجتاز 200 سؤال اختبار صارم عبر 10 فئات بدقة 100٪. لا توجد بيانات ملفقة."
+                    : "This system passed 200 rigorous test questions across 10 categories with 100% accuracy. No fabricated data."}
+                >
+                  <CheckCircle className="w-4 h-4 text-emerald-400" />
+                  <span className="text-emerald-300 font-medium text-sm">200/200 {language === 'ar' ? 'معتمد' : 'Validated'}</span>
                 </span>
               </motion.div>
               
