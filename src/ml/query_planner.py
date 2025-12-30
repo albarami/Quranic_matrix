@@ -161,36 +161,43 @@ class QueryPlanner:
         self._loaded = True
     
     def _build_term_to_entity(self) -> None:
-        """Build term to entity mapping from canonical entities."""
+        """Build term to entity mapping from canonical entities (includes synonyms)."""
         if not self.canonical_entities:
             return
-        
+
+        def add_term(term: str, entity_id: str):
+            """Helper to add a term and its variants."""
+            if term:
+                self._term_to_entity[term] = entity_id
+                if term.startswith("ال"):
+                    self._term_to_entity[term[2:]] = entity_id
+
         for behavior in self.canonical_entities.get("behaviors", []):
-            ar_term = behavior.get("ar", "")
-            if ar_term:
-                self._term_to_entity[ar_term] = behavior["id"]
-                if ar_term.startswith("ال"):
-                    self._term_to_entity[ar_term[2:]] = behavior["id"]
-        
+            entity_id = behavior["id"]
+            add_term(behavior.get("ar", ""), entity_id)
+            add_term(behavior.get("en", "").lower(), entity_id)
+            for syn in behavior.get("synonyms", []):
+                add_term(syn, entity_id)
+
         for agent in self.canonical_entities.get("agents", []):
-            ar_term = agent.get("ar", "")
-            if ar_term:
-                self._term_to_entity[ar_term] = agent["id"]
-        
+            entity_id = agent["id"]
+            add_term(agent.get("ar", ""), entity_id)
+            add_term(agent.get("ar_plural", ""), entity_id)
+
         for organ in self.canonical_entities.get("organs", []):
-            ar_term = organ.get("ar", "")
-            if ar_term:
-                self._term_to_entity[ar_term] = organ["id"]
-        
+            entity_id = organ["id"]
+            add_term(organ.get("ar", ""), entity_id)
+            add_term(organ.get("ar_plural", ""), entity_id)
+            for syn in organ.get("synonyms", []):
+                add_term(syn, entity_id)
+
         for state in self.canonical_entities.get("heart_states", []):
-            ar_term = state.get("ar", "")
-            if ar_term:
-                self._term_to_entity[ar_term] = state["id"]
-        
+            entity_id = state["id"]
+            add_term(state.get("ar", ""), entity_id)
+
         for consequence in self.canonical_entities.get("consequences", []):
-            ar_term = consequence.get("ar", "")
-            if ar_term:
-                self._term_to_entity[ar_term] = consequence["id"]
+            entity_id = consequence["id"]
+            add_term(consequence.get("ar", ""), entity_id)
     
     def resolve_entity(self, term: str) -> Optional[str]:
         """Resolve Arabic term to canonical entity ID."""

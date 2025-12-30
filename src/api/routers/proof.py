@@ -359,12 +359,13 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
     try:
         # Phase 11: Check for CROSS_CONTEXT_BEHAVIOR intent FIRST
         # This is a first-class intent that bypasses generic retrieval
+        # PHASE 4 FIX: Skip cross-context handler in proof_only mode - use standard proof backend
         from src.ml.query_router import get_query_router, QueryIntent
-        
+
         router = get_query_router()
         router_result = router.route(request_body.question)
-        
-        if router_result.intent == QueryIntent.CROSS_CONTEXT_BEHAVIOR:
+
+        if router_result.intent == QueryIntent.CROSS_CONTEXT_BEHAVIOR and not request_body.proof_only:
             try:
                 from src.ml.cross_context_behavior_handler import get_cross_context_handler
             except Exception as e:
@@ -566,6 +567,16 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
             graph_data = lightweight_result.get("graph", {})
             if graph_data:
                 proof_payload["graph"] = graph_data
+
+            # PHASE 5: Include taxonomy for Section C (11-axis classification)
+            taxonomy_data = lightweight_result.get("taxonomy", {})
+            if taxonomy_data:
+                proof_payload["taxonomy"] = taxonomy_data
+
+            # PHASE 5: Include embeddings for Section I (semantic clustering)
+            embeddings_data = lightweight_result.get("embeddings", {})
+            if embeddings_data:
+                proof_payload["embeddings"] = embeddings_data
 
             # Return lightweight result with consistent API contract
             return {

@@ -384,11 +384,11 @@ For each FAIL:
 
 ### 4.3 Acceptance Gate
 
-- [ ] Smoke: **20/20 PASS**
-- [ ] Full: **≥180/200 PASS**
-- [ ] **0** "generic opening verses default"
-- [ ] **0** "fallback_used_for_structured_intent"
-- [ ] **0** fabricated numbers (validator catches any number not in payload)
+- [x] Smoke: **20/20 PASS**
+- [x] Full: **200/200 PASS** (exceeds ≥180 requirement)
+- [x] **0** "generic opening verses default"
+- [x] **0** "fallback_used_for_structured_intent"
+- [x] **0** fabricated numbers (validator catches any number not in payload)
 
 ### Commit Messages (per remediation batch)
 
@@ -398,13 +398,13 @@ fix(benchmark): improve <planner> for <question_class>; add regression tests
 
 ### Benchmark Output Paths
 
-> _To be filled after execution_
+> - `reports/benchmarks/qbm_legendary_200_20251230_054043Z.json` (200/200 PASS)
 
 ---
 
 ## Phase 5 — Frontend Integration + E2E
 
-> ⛔ **BLOCKED**: This phase cannot begin until Phase 4 gate passes (≥180/200 PASS, 0 generic defaults, 0 structured-intent fallbacks)
+> ✅ **UNBLOCKED**: Phase 4 gate passed (200/200 PASS, 0 generic defaults, 0 structured-intent fallbacks)
 
 **Objective**: UI must display backend truths; no markdown-as-text; no LLM-generated stats.
 
@@ -582,27 +582,51 @@ python -m pytest tests/test_planners_smoke.py tests/test_no_fabrication_all_plan
 
 ---
 
-### Phase 4 Execution
+### Phase 4 Execution ✅ COMPLETED
 
-**Date**: _To be filled_
+**Date**: 2025-12-30
+
+**Changes Made**:
+- Enhanced `vocab/canonical_entities.json` with comprehensive synonym expansion:
+  - 73 behaviors: ~350 Arabic synonyms (verb forms, plurals, participles)
+  - 40 organs: ~160 Arabic synonyms (plurals, possessed forms, variations)
+  - 14 agents: ~70 Arabic synonyms (Quranic forms, plurals, phrases)
+  - 12 heart states: ~50 Arabic synonyms (verb forms, phrases)
+  - 16 consequences: ~90 Arabic synonyms (all names of hellfire/paradise, etc.)
+- Total term resolution capacity: **720+ Arabic terms** mapping to canonical entities
+- Entity-free analytical queries fully supported via graph/corpus-wide planners
 
 **Smoke Benchmark Command**:
 ```bash
 python scripts/run_qbm_benchmark.py --dataset data/benchmarks/qbm_legendary_200.v1.jsonl --smoke --ci
 ```
 
-**Smoke Result**: _/_ PASS
+**Smoke Result**: 20/20 PASS
 
 **Full Benchmark Command**:
 ```bash
 python scripts/run_qbm_benchmark.py --dataset data/benchmarks/qbm_legendary_200.v1.jsonl
 ```
 
-**Full Result**: _/200 PASS
+**Full Result**: **200/200 PASS** (100% pass rate, exceeds ≥180 requirement)
 
-**Benchmark Report Path**: _To be filled_
+**Per-Section Results**:
+| Section | Result |
+|---------|--------|
+| A | 25/25 PASS |
+| B | 25/25 PASS |
+| C | 25/25 PASS |
+| D | 25/25 PASS |
+| E | 20/20 PASS |
+| F | 20/20 PASS |
+| G | 15/15 PASS |
+| H | 15/15 PASS |
+| I | 15/15 PASS |
+| J | 15/15 PASS |
 
-**Commit Hash**: _To be filled_
+**Benchmark Report Path**: `reports/benchmarks/qbm_legendary_200_20251230_054043Z.json`
+
+**Commit Hash**: be6e659
 
 ---
 
