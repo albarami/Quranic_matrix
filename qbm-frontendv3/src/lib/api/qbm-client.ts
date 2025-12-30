@@ -17,6 +17,8 @@ import type {
   MetricsResponse,
   RecentSpansResponse,
   DashboardStatsResponse,
+  BehaviorListResponse,
+  BehaviorProfileResponse,
 } from "./types";
 
 const QBM_BACKEND_URL =
@@ -206,6 +208,20 @@ export class QBMClient {
       method: "POST",
       body: JSON.stringify(data),
     });
+  }
+
+  // =========================================================================
+  // BEHAVIOR PROFILE
+  // =========================================================================
+
+  async getBehaviorList(): Promise<BehaviorListResponse> {
+    return this.fetch<BehaviorListResponse>("/api/behavior/list");
+  }
+
+  async getBehaviorProfile(behavior: string): Promise<BehaviorProfileResponse> {
+    return this.fetch<BehaviorProfileResponse>(
+      `/api/behavior/profile/${encodeURIComponent(behavior)}`
+    );
   }
 
   // =========================================================================

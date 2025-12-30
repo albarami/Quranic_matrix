@@ -26,6 +26,8 @@ import type {
   MetricsResponse,
   RecentSpansResponse,
   DashboardStatsResponse,
+  BehaviorListResponse,
+  BehaviorProfileResponse,
 } from "./types";
 
 // ============================================================================
@@ -53,6 +55,8 @@ export const queryKeys = {
     ["annotations", "search", params] as const,
   similar: (behaviorId: string, topK: number) =>
     ["similar", behaviorId, topK] as const,
+  behaviorList: ["behaviorList"] as const,
+  behaviorProfile: (behavior: string) => ["behaviorProfile", behavior] as const,
 } as const;
 
 // ============================================================================
@@ -315,6 +319,40 @@ export function useComputeSimilarity() {
       behavior1: string;
       behavior2: string;
     }) => qbmClient.computeSimilarity(behavior1, behavior2),
+  });
+}
+
+// ============================================================================
+// BEHAVIOR PROFILE
+// ============================================================================
+
+export function useBehaviorList(
+  options?: Omit<UseQueryOptions<BehaviorListResponse>, "queryKey" | "queryFn">
+) {
+  return useQuery({
+    queryKey: queryKeys.behaviorList,
+    queryFn: () => qbmClient.getBehaviorList(),
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    ...options,
+  });
+}
+
+export function useBehaviorProfile(
+  behavior: string,
+  options?: Omit<UseQueryOptions<BehaviorProfileResponse>, "queryKey" | "queryFn">
+) {
+  return useQuery({
+    queryKey: queryKeys.behaviorProfile(behavior),
+    queryFn: () => qbmClient.getBehaviorProfile(behavior),
+    enabled: !!behavior && behavior.trim().length > 0,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    ...options,
+  });
+}
+
+export function useBehaviorProfileMutation() {
+  return useMutation({
+    mutationFn: (behavior: string) => qbmClient.getBehaviorProfile(behavior),
   });
 }
 

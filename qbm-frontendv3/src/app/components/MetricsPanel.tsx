@@ -1,48 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts";
 import { Loader2, AlertCircle, Database } from "lucide-react";
-
-interface MetricItem {
-  key: string;
-  label_ar: string;
-  count: number;
-  percentage: number;
-}
-
-interface MetricsData {
-  schema_version: string;
-  generated_at: string;
-  build_version: string;
-  source_files: string[];
-  status: string;
-  metrics: {
-    totals: {
-      spans: number;
-      unique_verse_keys: number;
-      tafsir_sources_count: number;
-    };
-    agent_distribution: {
-      total: number;
-      unique_values: number;
-      items: MetricItem[];
-      percentage_sum: number;
-    };
-    behavior_forms: {
-      total: number;
-      unique_values: number;
-      items: MetricItem[];
-      percentage_sum: number;
-    };
-    evaluations: {
-      total: number;
-      unique_values: number;
-      items: MetricItem[];
-      percentage_sum: number;
-    };
-  };
-}
+import { useMetrics } from "@/lib/api/hooks";
 
 const COLORS = [
   "#059669", // emerald-600
@@ -54,36 +14,14 @@ const COLORS = [
   "#4f46e5", // indigo-600
 ];
 
-interface MetricsPanelProps {
-  backendUrl?: string;
-}
+export function MetricsPanel() {
+  const { data: metrics, isLoading: loading, error: queryError } = useMetrics();
 
-export function MetricsPanel({ backendUrl = "http://localhost:8000" }: MetricsPanelProps) {
-  const [metrics, setMetrics] = useState<MetricsData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function fetchMetrics() {
-      try {
-        const res = await fetch(`${backendUrl}/api/metrics/overview`);
-        if (!res.ok) {
-          throw new Error(`HTTP ${res.status}: Failed to fetch metrics`);
-        }
-        const data = await res.json();
-        if (data.status !== "ready") {
-          throw new Error("Metrics not ready. Run: python scripts/build_truth_metrics_v1.py");
-        }
-        setMetrics(data);
-        setError(null);
-      } catch (e) {
-        setError(e instanceof Error ? e.message : "Failed to load metrics");
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchMetrics();
-  }, [backendUrl]);
+  // Check if metrics are ready
+  const error = queryError?.message ||
+    (metrics && metrics.status !== "ready"
+      ? "Metrics not ready. Run: python scripts/build_truth_metrics_v1.py"
+      : null);
 
   if (loading) {
     return (

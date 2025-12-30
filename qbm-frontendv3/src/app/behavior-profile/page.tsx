@@ -1,24 +1,23 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, 
-  ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, 
-  PolarRadiusAxis, Radar, Legend
+  BarChart, Bar, XAxis, YAxis, Tooltip,
+  ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis,
+  PolarRadiusAxis, Radar
 } from "recharts";
 import {
   Search, BookOpen, Network, Layers, FileText, Hash, Brain,
-  ChevronRight, Loader2, AlertCircle, TrendingUp, Users,
-  Heart, Clock, MapPin, Scale, ArrowRight, ExternalLink,
-  BarChart3, Globe, Sparkles
+  Loader2, AlertCircle, TrendingUp,
+  ArrowRight, Globe
 } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useBehaviorList, useBehaviorProfileMutation } from "@/lib/api/hooks";
+import type { BehaviorProfileResponse } from "@/lib/api/types";
 import dynamic from "next/dynamic";
 
 const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), { ssr: false });
-
-const BACKEND_URL = process.env.NEXT_PUBLIC_QBM_BACKEND_URL || "http://localhost:8000";
 
 const COLORS = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444', '#14b8a6', '#ec4899', '#6366f1'];
 
@@ -46,50 +45,6 @@ const BEHAVIOR_NAMES: Record<string, { ar: string; en: string }> = {
   trait_disposition: { ar: 'السمة والاستعداد', en: 'Trait/Disposition' },
 };
 
-interface BehaviorProfile {
-  behavior: string;
-  arabic_name: string;
-  summary: {
-    total_verses: number;
-    total_spans: number;
-    total_tafsir: number;
-    total_surahs: number;
-    coverage_percentage: number;
-  };
-  verses: Array<{
-    surah: number;
-    surah_name: string;
-    ayah: number;
-    text: string;
-    agent: string;
-    agent_referent: string;
-    evaluation: string;
-    deontic: string;
-    behavior_form: string;
-  }>;
-  tafsir: Record<string, Array<{ surah: number; ayah: number; text: string }>>;
-  graph: {
-    related_behaviors: string[];
-    verses: any[];
-    connections: any[];
-  };
-  dimensions: Record<string, Record<string, number>>;
-  surah_distribution: Array<{ surah: string; count: number }>;
-  vocabulary: {
-    primary_term: string;
-    roots: string[];
-    derivatives: string[];
-    related_concepts: string[];
-  };
-  similar_behaviors: Array<{ behavior: string; similarity: number }>;
-  processing_time_ms: number;
-}
-
-interface BehaviorListItem {
-  name: string;
-  count: number;
-}
-
 type TabId = 'verses' | 'tafsir' | 'graph' | 'dimensions' | 'surahs' | 'vocabulary' | 'embeddings';
 
 const TABS: Array<{ id: TabId; labelAr: string; labelEn: string; icon: any }> = [
@@ -105,51 +60,33 @@ const TABS: Array<{ id: TabId; labelAr: string; labelEn: string; icon: any }> = 
 export default function BehaviorProfilePage() {
   const { language, isRTL } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
-  const [profile, setProfile] = useState<BehaviorProfile | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [profile, setProfile] = useState<BehaviorProfileResponse | null>(null);
   const [activeTab, setActiveTab] = useState<TabId>('verses');
-  const [behaviorList, setBehaviorList] = useState<BehaviorListItem[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [activeTafsir, setActiveTafsir] = useState('ibn_kathir');
 
-  // Load behavior list on mount
-  useEffect(() => {
-    const loadBehaviors = async () => {
-      try {
-        const res = await fetch(`${BACKEND_URL}/api/behavior/list`);
-        if (res.ok) {
-          const data = await res.json();
-          setBehaviorList(data.behaviors || []);
-        }
-      } catch (e) {
-        console.error("Failed to load behaviors:", e);
-      }
-    };
-    loadBehaviors();
-  }, []);
+  // Load behavior list using React Query hook
+  const { data: behaviorListData } = useBehaviorList();
+  const behaviorList = behaviorListData?.behaviors || [];
 
-  const loadProfile = useCallback(async (behavior: string) => {
-    if (!behavior.trim()) return;
-    
-    setLoading(true);
-    setError(null);
-    setShowSuggestions(false);
-    
-    try {
-      const res = await fetch(`${BACKEND_URL}/api/behavior/profile/${encodeURIComponent(behavior)}`);
-      if (!res.ok) throw new Error(`Failed to load profile: ${res.status}`);
-      
-      const data = await res.json();
-      setProfile(data);
+  // Mutation for loading behavior profile
+  const profileMutation = useBehaviorProfileMutation();
+  const loading = profileMutation.isPending;
+  const error = profileMutation.error?.message || null;
+
+  // Sync profile data from mutation
+  useEffect(() => {
+    if (profileMutation.data) {
+      setProfile(profileMutation.data);
       setActiveTab('verses');
-    } catch (e: any) {
-      setError(e.message || "Failed to load behavior profile");
-      setProfile(null);
-    } finally {
-      setLoading(false);
     }
-  }, []);
+  }, [profileMutation.data]);
+
+  const loadProfile = (behavior: string) => {
+    if (!behavior.trim()) return;
+    setShowSuggestions(false);
+    profileMutation.mutate(behavior);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

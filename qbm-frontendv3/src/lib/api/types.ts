@@ -359,6 +359,10 @@ export interface StatsResponse {
 // ============================================================================
 
 export interface MetricsResponse {
+  schema_version: string;
+  generated_at: string;
+  build_version: string;
+  source_files: string[];
   status: "ready" | "pending" | "error";
   metrics: {
     totals: {
@@ -366,18 +370,22 @@ export interface MetricsResponse {
       unique_verse_keys: number;
       tafsir_sources_count: number;
     };
-    agent_distribution: {
-      items: AgentDistributionItem[];
-    };
+    agent_distribution: MetricsDistribution;
+    behavior_forms: MetricsDistribution;
+    evaluations: MetricsDistribution;
   };
-  source_files: string[];
-  build_version: string;
 }
 
-export interface AgentDistributionItem {
+export interface MetricsDistribution {
+  total: number;
+  unique_values: number;
+  items: MetricsDistributionItem[];
+  percentage_sum: number;
+}
+
+export interface MetricsDistributionItem {
   key: string;
   label_ar: string;
-  label_en: string;
   count: number;
   percentage: number;
 }
@@ -420,4 +428,64 @@ export interface DashboardStatsResponse {
   agent_types?: Record<string, number>;
   evaluations?: Record<string, number>;
   top_surahs?: Array<{ surah: number; spans: number }>;
+}
+
+// ============================================================================
+// BEHAVIOR PROFILE TYPES
+// ============================================================================
+
+export interface BehaviorListItem {
+  name: string;
+  count: number;
+}
+
+export interface BehaviorListResponse {
+  behaviors: BehaviorListItem[];
+}
+
+export interface BehaviorProfileResponse {
+  behavior: string;
+  arabic_name: string;
+  summary: {
+    total_verses: number;
+    total_spans: number;
+    total_tafsir: number;
+    total_surahs: number;
+    coverage_percentage: number;
+  };
+  verses: BehaviorVerse[];
+  tafsir: Record<string, BehaviorTafsirEntry[]>;
+  graph: {
+    related_behaviors: string[];
+    verses: unknown[];
+    connections: unknown[];
+  };
+  dimensions: Record<string, Record<string, number>>;
+  surah_distribution: Array<{ surah: string; count: number }>;
+  vocabulary: {
+    primary_term: string;
+    roots: string[];
+    derivatives: string[];
+    related_concepts: string[];
+  };
+  similar_behaviors: Array<{ behavior: string; similarity: number }>;
+  processing_time_ms: number;
+}
+
+export interface BehaviorVerse {
+  surah: number;
+  surah_name: string;
+  ayah: number;
+  text: string;
+  agent: string;
+  agent_referent: string;
+  evaluation: string;
+  deontic: string;
+  behavior_form: string;
+}
+
+export interface BehaviorTafsirEntry {
+  surah: number;
+  ayah: number;
+  text: string;
 }

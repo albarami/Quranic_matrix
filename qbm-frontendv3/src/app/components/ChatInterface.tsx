@@ -157,7 +157,7 @@ export function ChatInterface({ apiUrl, agentName = "Assistant", placeholder = "
                 <Bot className="w-5 h-5 text-emerald-600" />
               </div>
               <div className="flex-1 max-w-[90%]">
-                <MetricsPanel backendUrl={process.env.NEXT_PUBLIC_QBM_BACKEND_URL || "http://localhost:8000"} />
+                <MetricsPanel />
               </div>
             </div>
           ) : (
