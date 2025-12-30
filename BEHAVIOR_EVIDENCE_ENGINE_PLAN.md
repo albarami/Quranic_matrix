@@ -934,10 +934,10 @@ def main():
 ```
 
 ### Acceptance Criteria
-- [ ] `data/evidence/concept_index_v3.jsonl` created
-- [ ] Every verse has `evidence` array with `type` and `provenance`
-- [ ] Statistics show lexical vs annotation breakdown
-- [ ] For الصبر: ~100 verses (not 291 with 79% invalid)
+- [x] `data/evidence/concept_index_v3.jsonl` created
+- [x] Every verse has `evidence` array with `type` and `provenance`
+- [x] Statistics show lexical vs annotation breakdown
+- [x] For الصبر: 84 verses (not 291 with 79% invalid)
 
 ### Deliverables
 | File | Description |
@@ -1576,7 +1576,7 @@ Re-enable advanced features ONLY after foundation is correct.
 ### Data Files (Must Exist)
 - [x] `data/index/lexeme_index.json`
 - [x] `data/behaviors/behavior_registry.json`
-- [ ] `data/evidence/concept_index_v3.jsonl`
+- [x] `data/evidence/concept_index_v3.jsonl`
 - [ ] `data/graph/graph_v3.json`
 
 ### Source Files (Must Exist)
@@ -1593,7 +1593,7 @@ Re-enable advanced features ONLY after foundation is correct.
 - [x] `scripts/build_lexeme_index.py`
 - [ ] `scripts/count_root_mentions.py`
 - [x] `scripts/build_behavior_registry.py`
-- [ ] `scripts/rebuild_concept_index_v3.py`
+- [x] `scripts/rebuild_concept_index_v3.py`
 - [ ] `scripts/validate_concept_index_v3.py`
 - [ ] `scripts/audit_tafsir_coverage.py`
 - [ ] `scripts/build_graph_from_evidence.py`

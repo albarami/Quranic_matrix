@@ -1,0 +1,81 @@
+{
+  "phase": 4,
+  "description": "Concept Index v3 Build Report",
+  "statistics": {
+    "total_behaviors": 73,
+    "total_verses_indexed": 8078,
+    "total_validation_errors": 0,
+    "by_mode": {
+      "lexical": 73,
+      "annotation": 0,
+      "hybrid": 0
+    },
+    "average_verses_per_behavior": 110.7
+  },
+  "validation": {
+    "all_passed": true,
+    "behaviors_with_errors": []
+  },
+  "sample_entries": [
+    {
+      "concept_id": "BEH_COG_ARROGANCE",
+      "term": "الكبر",
+      "total_verses": 106,
+      "validation_passed": true
+    },
+    {
+      "concept_id": "BEH_COG_CERTAINTY",
+      "term": "اليقين",
+      "total_verses": 30,
+      "validation_passed": true
+    },
+    {
+      "concept_id": "BEH_COG_DOUBT",
+      "term": "الشك",
+      "total_verses": 1,
+      "validation_passed": true
+    },
+    {
+      "concept_id": "BEH_COG_FOLLOWING_DESIRE",
+      "term": "اتباع الهوى",
+      "total_verses": 18,
+      "validation_passed": true
+    },
+    {
+      "concept_id": "BEH_COG_HEEDLESSNESS",
+      "term": "الغفلة",
+      "total_verses": 18,
+      "validation_passed": true
+    },
+    {
+      "concept_id": "BEH_COG_HUMILITY",
+      "term": "التواضع",
+      "total_verses": 18,
+      "validation_passed": true
+    },
+    {
+      "concept_id": "BEH_COG_IGNORANCE",
+      "term": "الجهل",
+      "total_verses": 18,
+      "validation_passed": true
+    },
+    {
+      "concept_id": "BEH_COG_KNOWLEDGE",
+      "term": "العلم",
+      "total_verses": 542,
+      "validation_passed": true
+    },
+    {
+      "concept_id": "BEH_COG_REFLECTION",
+      "term": "التفكر",
+      "total_verses": 19,
+      "validation_passed": true
+    },
+    {
+      "concept_id": "BEH_COG_UNDERSTANDING",
+      "term": "الفقه",
+      "total_verses": 20,
+      "validation_passed": true
+    }
+  ]
+}
