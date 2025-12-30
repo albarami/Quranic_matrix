@@ -1117,10 +1117,10 @@ if __name__ == "__main__":
 ```
 
 ### Acceptance Criteria
-- [ ] Script exits with code 1 if ANY behavior has invalid verses
-- [ ] For الصبر (BEH_EMO_PATIENCE): `invalid_count == 0`
-- [ ] Report shows detailed breakdown per behavior
-- [ ] Invalid samples include verse_key and reason
+- [x] Script exits with code 1 if ANY behavior has invalid verses
+- [x] For الصبر (BEH_EMO_PATIENCE): `invalid_count == 0`
+- [x] Report shows detailed breakdown per behavior
+- [x] Invalid samples include verse_key and reason
 
 ### Deliverables
 | File | Description |
@@ -1570,7 +1570,7 @@ Re-enable advanced features ONLY after foundation is correct.
 - [x] `artifacts/normalization_validation.json`
 - [x] `artifacts/lexeme_index_report.json`
 - [ ] `artifacts/root_sabr_counts.json`
-- [ ] `artifacts/concept_index_v3_validation.json`
+- [x] `artifacts/concept_index_v3_validation.json`
 - [ ] `artifacts/tafsir_coverage_report.json`
 
 ### Data Files (Must Exist)
@@ -1594,7 +1594,7 @@ Re-enable advanced features ONLY after foundation is correct.
 - [ ] `scripts/count_root_mentions.py`
 - [x] `scripts/build_behavior_registry.py`
 - [x] `scripts/rebuild_concept_index_v3.py`
-- [ ] `scripts/validate_concept_index_v3.py`
+- [x] `scripts/validate_concept_index_v3.py`
 - [ ] `scripts/audit_tafsir_coverage.py`
 - [ ] `scripts/build_graph_from_evidence.py`
 
