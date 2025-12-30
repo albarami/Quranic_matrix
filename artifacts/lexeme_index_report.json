@@ -1,0 +1,267 @@
+{
+  "phase": 2,
+  "description": "Universal Lexeme Index",
+  "statistics": {
+    "total_unique_tokens": 15336,
+    "total_postings": 77433,
+    "processed_tokens": 77433,
+    "empty_tokens_skipped": 4379
+  },
+  "validation": {
+    "valid": true,
+    "checks": {
+      "has_version": true,
+      "has_total_unique_tokens": true,
+      "has_total_postings": true,
+      "has_index": true,
+      "unique_tokens_reasonable": true,
+      "sabr_findable": true,
+      "allah_findable": true,
+      "posting_structure_valid": true
+    }
+  },
+  "top_20_tokens": [
+    {
+      "token": "من",
+      "frequency": 2763
+    },
+    {
+      "token": "الله",
+      "frequency": 2153
+    },
+    {
+      "token": "ان",
+      "frequency": 1604
+    },
+    {
+      "token": "في",
+      "frequency": 1099
+    },
+    {
+      "token": "ما",
+      "frequency": 876
+    },
+    {
+      "token": "الذين",
+      "frequency": 811
+    },
+    {
+      "token": "لا",
+      "frequency": 749
+    },
+    {
+      "token": "الا",
+      "frequency": 639
+    },
+    {
+      "token": "ولا",
+      "frequency": 605
+    },
+    {
+      "token": "وما",
+      "frequency": 512
+    },
+    {
+      "token": "قال",
+      "frequency": 416
+    },
+    {
+      "token": "لهم",
+      "frequency": 373
+    },
+    {
+      "token": "عليا",
+      "frequency": 350
+    },
+    {
+      "token": "ومن",
+      "frequency": 342
+    },
+    {
+      "token": "ثم",
+      "frequency": 340
+    },
+    {
+      "token": "لكم",
+      "frequency": 337
+    },
+    {
+      "token": "كان",
+      "frequency": 333
+    },
+    {
+      "token": "وان",
+      "frequency": 322
+    },
+    {
+      "token": "قل",
+      "frequency": 294
+    },
+    {
+      "token": "به",
+      "frequency": 288
+    }
+  ],
+  "sabr_family_tokens": [
+    {
+      "token": "بالصبر",
+      "frequency": 4
+    },
+    {
+      "token": "نصبر",
+      "frequency": 1
+    },
+    {
+      "token": "الصابرين",
+      "frequency": 10
+    },
+    {
+      "token": "اصبرهم",
+      "frequency": 1
+    },
+    {
+      "token": "والصابرين",
+      "frequency": 4
+    },
+    {
+      "token": "صبرا",
+      "frequency": 8
+    },
+    {
+      "token": "تصبروا",
+      "frequency": 5
+    },
+    {
+      "token": "اصبروا",
+      "frequency": 1
+    },
+    {
+      "token": "وصابروا",
+      "frequency": 1
+    },
+    {
+      "token": "فصبروا",
+      "frequency": 1
+    },
+    {
+      "token": "فاصبروا",
+      "frequency": 1
+    },
+    {
+      "token": "واصبروٓا",
+      "frequency": 2
+    },
+    {
+      "token": "صبروا",
+      "frequency": 11
+    },
+    {
+      "token": "صابرون",
+      "frequency": 1
+    },
+    {
+      "token": "صابرة",
+      "frequency": 1
+    },
+    {
+      "token": "واصبر",
+      "frequency": 7
+    },
+    {
+      "token": "فاصبر",
+      "frequency": 11
+    },
+    {
+      "token": "فصبر",
+      "frequency": 2
+    },
+    {
+      "token": "ويصبر",
+      "frequency": 1
+    },
+    {
+      "token": "صبرتم",
+      "frequency": 2
+    },
+    {
+      "token": "ولنصبرن",
+      "frequency": 1
+    },
+    {
+      "token": "صبرنا",
+      "frequency": 2
+    },
+    {
+      "token": "صبروٓا",
+      "frequency": 2
+    },
+    {
+      "token": "وصبروٓا",
+      "frequency": 1
+    },
+    {
+      "token": "للصابرين",
+      "frequency": 1
+    },
+    {
+      "token": "صبرك",
+      "frequency": 1
+    },
+    {
+      "token": "تصبر",
+      "frequency": 1
+    },
+    {
+      "token": "صابرا",
+      "frequency": 2
+    },
+    {
+      "token": "اتصبرون",
+      "frequency": 1
+    },
+    {
+      "token": "الصابرون",
+      "frequency": 2
+    },
+    {
+      "token": "والصابرات",
+      "frequency": 1
+    },
+    {
+      "token": "واصبروا",
+      "frequency": 1
+    },
+    {
+      "token": "اصبر",
+      "frequency": 1
+    },
+    {
+      "token": "يصبروا",
+      "frequency": 1
+    },
+    {
+      "token": "صبر",
+      "frequency": 2
+    },
+    {
+      "token": "فاصبروٓا",
+      "frequency": 1
+    }
+  ],
+  "sample_postings": {
+    "الله": [
+      {
+        "verse_key": "1:1",
+        "token_index": 1
+      },
+      {
+        "verse_key": "2:7",
+        "token_index": 1
+      },
+      {
+        "verse_key": "2:9",
+        "token_index": 1
+      }
+    ]
+  }
+}
