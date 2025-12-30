@@ -54,8 +54,17 @@ The following tables already exist. **SSOT status is defined in the SSOT Decisio
 -- Extensions to existing tables + new tables
 -- NOTE: We extend existing SSOT tables, not create duplicates
 
--- 1. behaviors table (normalized view of entities WHERE entity_type='BEHAVIOR')
--- This is a MATERIALIZED VIEW, not a duplicate table
+-- 1. Add evidence policy columns to entities table (the SSOT)
+-- Store as proper columns, not in metadata JSONB (faster, validated)
+ALTER TABLE entities ADD COLUMN IF NOT EXISTS evidence_mode VARCHAR(20) 
+    CHECK (evidence_mode IN ('lexical', 'annotation', 'hybrid')) DEFAULT 'hybrid';
+ALTER TABLE entities ADD COLUMN IF NOT EXISTS lexical_required BOOLEAN DEFAULT false;
+ALTER TABLE entities ADD COLUMN IF NOT EXISTS allowed_evidence_types TEXT[] 
+    DEFAULT ARRAY['EXPLICIT', 'IMPLICIT', 'CONTEXTUAL', 'TAFSIR_DERIVED'];
+ALTER TABLE entities ADD COLUMN IF NOT EXISTS roots TEXT[];  -- Arabic roots as proper array
+ALTER TABLE entities ADD COLUMN IF NOT EXISTS synonyms TEXT[];  -- Synonyms as proper array
+
+-- Materialized view for convenience queries (reads from columns, not metadata)
 CREATE MATERIALIZED VIEW behaviors AS
 SELECT 
     entity_id as behavior_id,
@@ -63,22 +72,19 @@ SELECT
     label_en,
     category,
     polarity,
-    metadata->>'roots' as roots,
-    metadata->>'synonyms' as synonyms,
-    COALESCE(metadata->>'evidence_mode', 'hybrid') as evidence_mode,
-    COALESCE((metadata->>'lexical_required')::boolean, false) as lexical_required,
-    COALESCE(metadata->'allowed_evidence_types', '["EXPLICIT","IMPLICIT","CONTEXTUAL","TAFSIR_DERIVED"]'::jsonb) as allowed_evidence_types
+    roots,
+    synonyms,
+    evidence_mode,
+    lexical_required,
+    allowed_evidence_types
 FROM entities
 WHERE entity_type = 'BEHAVIOR';
 
--- Add evidence policy columns to entities table (the SSOT)
-ALTER TABLE entities ADD COLUMN IF NOT EXISTS evidence_mode VARCHAR(20) 
-    CHECK (evidence_mode IN ('lexical', 'annotation', 'hybrid')) DEFAULT 'hybrid';
-ALTER TABLE entities ADD COLUMN IF NOT EXISTS lexical_required BOOLEAN DEFAULT false;
-ALTER TABLE entities ADD COLUMN IF NOT EXISTS allowed_evidence_types TEXT[] 
-    DEFAULT ARRAY['EXPLICIT', 'IMPLICIT', 'CONTEXTUAL', 'TAFSIR_DERIVED'];
+CREATE UNIQUE INDEX idx_behaviors_id ON behaviors(behavior_id);
 
 -- 2. behavior_verse_links (explicit behavior→verse evidence)
+-- NOTE: FK references entities(entity_id), NOT the materialized view
+-- Postgres cannot enforce FK against materialized views
 CREATE TABLE behavior_verse_links (
     id SERIAL PRIMARY KEY,
     behavior_id VARCHAR(50) NOT NULL,
@@ -93,10 +99,29 @@ CREATE TABLE behavior_verse_links (
     confidence REAL DEFAULT 1.0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
-    FOREIGN KEY (behavior_id) REFERENCES behaviors(behavior_id),
-    FOREIGN KEY (surah, ayah) REFERENCES verses(surah, ayah),
+    -- FK to entities table (SSOT), not materialized view
+    FOREIGN KEY (behavior_id) REFERENCES entities(entity_id) ON DELETE CASCADE,
+    FOREIGN KEY (surah, ayah) REFERENCES verses(surah, ayah) ON DELETE CASCADE,
     UNIQUE(behavior_id, surah, ayah, evidence_type)
 );
+
+-- Trigger to enforce behavior_id references only BEHAVIOR entities
+CREATE OR REPLACE FUNCTION check_behavior_entity_type()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM entities 
+        WHERE entity_id = NEW.behavior_id AND entity_type = 'BEHAVIOR'
+    ) THEN
+        RAISE EXCEPTION 'behavior_id must reference an entity with entity_type=BEHAVIOR';
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER enforce_behavior_type
+    BEFORE INSERT OR UPDATE ON behavior_verse_links
+    FOR EACH ROW EXECUTE FUNCTION check_behavior_entity_type();
 
 -- 3. Extend tafsir_chunks (SSOT) with entry_type - DO NOT create tafsir_entries duplicate
 ALTER TABLE tafsir_chunks ADD COLUMN IF NOT EXISTS entry_type VARCHAR(20) 
@@ -136,13 +161,81 @@ CREATE TABLE verse_lexemes (
 -- semantic_edges is the SSOT for all typed relationships
 ALTER TABLE semantic_edges ADD COLUMN IF NOT EXISTS from_entity_type VARCHAR(30);
 ALTER TABLE semantic_edges ADD COLUMN IF NOT EXISTS to_entity_type VARCHAR(30);
+
+-- provenance column = HIGH-LEVEL SUMMARY (counts, sources list)
+-- edge_evidence table = DETAILED EVIDENCE ROWS (verse_keys, tafsir refs, spans)
+-- Both are SSOT but serve different purposes
 ALTER TABLE semantic_edges ADD COLUMN IF NOT EXISTS provenance JSONB;
+COMMENT ON COLUMN semantic_edges.provenance IS 
+    'High-level provenance summary: {sources_list, evidence_count, confidence}. Detailed evidence in edge_evidence table.';
 
 -- Update entity types from entities table
 UPDATE semantic_edges se SET 
     from_entity_type = (SELECT entity_type FROM entities WHERE entity_id = se.from_entity_id),
     to_entity_type = (SELECT entity_type FROM entities WHERE entity_id = se.to_entity_id)
 WHERE from_entity_type IS NULL OR to_entity_type IS NULL;
+
+-- 7. pgvector extension for embeddings (required for Section I benchmark)
+CREATE EXTENSION IF NOT EXISTS vector;
+
+-- 8. Embedding registry (model provenance for zero-hallucination)
+CREATE TABLE IF NOT EXISTS embedding_registry (
+    id SERIAL PRIMARY KEY,
+    model_id VARCHAR(100) UNIQUE NOT NULL,
+    model_name VARCHAR(200) NOT NULL,
+    dimensions INTEGER NOT NULL,
+    normalization VARCHAR(20) CHECK (normalization IN ('l2', 'cosine', 'none')) DEFAULT 'l2',
+    training_date DATE,
+    base_model VARCHAR(200),
+    fine_tuned_on VARCHAR(200),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 9. Behavior embeddings table
+CREATE TABLE IF NOT EXISTS behavior_embeddings (
+    id SERIAL PRIMARY KEY,
+    behavior_id VARCHAR(50) NOT NULL,
+    model_id VARCHAR(100) NOT NULL,
+    embedding vector(768),  -- AraBERT default; adjust per model
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (behavior_id) REFERENCES entities(entity_id) ON DELETE CASCADE,
+    FOREIGN KEY (model_id) REFERENCES embedding_registry(model_id) ON DELETE CASCADE,
+    UNIQUE(behavior_id, model_id)
+);
+
+-- 10. Verse embeddings table
+CREATE TABLE IF NOT EXISTS verse_embeddings (
+    id SERIAL PRIMARY KEY,
+    surah INTEGER NOT NULL,
+    ayah INTEGER NOT NULL,
+    verse_key VARCHAR(10) GENERATED ALWAYS AS (surah || ':' || ayah) STORED,
+    model_id VARCHAR(100) NOT NULL,
+    embedding vector(768),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (surah, ayah) REFERENCES verses(surah, ayah) ON DELETE CASCADE,
+    FOREIGN KEY (model_id) REFERENCES embedding_registry(model_id) ON DELETE CASCADE,
+    UNIQUE(surah, ayah, model_id)
+);
+
+-- 11. Tafsir chunk embeddings table
+CREATE TABLE IF NOT EXISTS tafsir_embeddings (
+    id SERIAL PRIMARY KEY,
+    chunk_id VARCHAR(100) NOT NULL,
+    model_id VARCHAR(100) NOT NULL,
+    embedding vector(768),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (chunk_id) REFERENCES tafsir_chunks(chunk_id) ON DELETE CASCADE,
+    FOREIGN KEY (model_id) REFERENCES embedding_registry(model_id) ON DELETE CASCADE,
+    UNIQUE(chunk_id, model_id)
+);
+
+-- Indexes for vector similarity search
+CREATE INDEX IF NOT EXISTS idx_behavior_emb_vector ON behavior_embeddings USING ivfflat (embedding vector_cosine_ops);
+CREATE INDEX IF NOT EXISTS idx_verse_emb_vector ON verse_embeddings USING ivfflat (embedding vector_cosine_ops);
+CREATE INDEX IF NOT EXISTS idx_tafsir_emb_vector ON tafsir_embeddings USING ivfflat (embedding vector_cosine_ops);
 ```
 
 ### Arabic Normalization
@@ -188,7 +281,7 @@ NORMALIZATION_PROFILES = {
 |-----------|--------|-------|
 | BEHAVIOR | vocab/canonical_entities.json | 87 (reconciled in Phase 1) |
 | VERSE | verses table | 6236 |
-| TAFSIR_ENTRY | tafsir_entries table | ~31,180 (5 sources × 6236) |
+| TAFSIR_CHUNK | tafsir_chunks table (SSOT) | ~31,180 (5 sources × 6236) |
 | AGENT | vocab/canonical_entities.json | 14 |
 | ORGAN | vocab/canonical_entities.json | 40 |
 | HEART_STATE | vocab/canonical_entities.json | 12 |
@@ -200,7 +293,7 @@ NORMALIZATION_PROFILES = {
 | Edge Type | From → To | Description |
 |-----------|-----------|-------------|
 | MENTIONED_IN | BEHAVIOR → VERSE | Behavior appears in verse (with evidence_type, directness) |
-| EXPLAINED_BY | VERSE → TAFSIR_ENTRY | Verse explained by tafsir (with source) |
+| EXPLAINED_BY | VERSE → TAFSIR_CHUNK | Verse explained by tafsir (with source) |
 | CAUSES | BEHAVIOR → BEHAVIOR | Causal relationship |
 | LEADS_TO | BEHAVIOR → BEHAVIOR | Sequential relationship |
 | PREVENTS | BEHAVIOR → BEHAVIOR | Preventive relationship |
@@ -445,8 +538,10 @@ DISALLOW_PATTERNS = [
 | Quran text | data/quran/*.jsonl | SHA256 |
 | Tafsir sources | data/tafsir/*.jsonl | SHA256 |
 | Canonical entities | vocab/canonical_entities.json | SHA256 |
-| Semantic graph | data/graph/semantic_graph_v2.json | SHA256 |
-| Concept index | data/evidence/concept_index_v2.jsonl | SHA256 |
+| Postgres schema | schemas/postgres_truth_layer.sql | SHA256 |
+| Embedding registry | embedding_registry table dump | SHA256 |
+
+**NOTE**: `concept_index_v2.jsonl` and `semantic_graph_v2.json` are DEPRECATED and excluded from build inputs. They are historical artifacts only.
 
 ### Output Hashes
 
@@ -475,8 +570,8 @@ DISALLOW_PATTERNS = [
 
 ```json
 {
-  "total_behaviors": 73,
-  "behaviors_with_verse_evidence": 73,
+  "total_behaviors": 87,
+  "behaviors_with_verse_evidence": 87,
   "total_edges": 736,
   "edges_with_provenance": 736,
   "tafsir_coverage": {
@@ -697,6 +792,10 @@ This appendix defines the authoritative status of every artifact/table to preven
 | `verse_lexemes` | **SSOT** | Phase 1 migration | FK to verses + lexemes | No |
 | `behaviors` (view) | **Derived** | Materialized view from `entities` | Refresh on entities change | No |
 | `graph_metrics` | **Derived** | `build_kb.py` (igraph offline) | Rebuild on semantic_edges change | No |
+| `embedding_registry` | **SSOT** | Phase 1 migration | Model provenance for embeddings | No |
+| `behavior_embeddings` | **SSOT** | `build_kb.py` (GPU) | FK to entities + embedding_registry | No |
+| `verse_embeddings` | **SSOT** | `build_kb.py` (GPU) | FK to verses + embedding_registry | No |
+| `tafsir_embeddings` | **SSOT** | `build_kb.py` (GPU) | FK to tafsir_chunks + embedding_registry | No |
 
 ### File Artifacts
 
@@ -737,4 +836,23 @@ This appendix defines the authoritative status of every artifact/table to preven
 
 ---
 
-**Document Status**: Ready for Phase 0 commit gate (with 7 mandatory fixes applied)
+**Document Status**: Ready for Phase 0 commit gate (with 7 + 6 = 13 mandatory fixes applied)
+
+### Fixes Applied
+
+**Round 1 (7 fixes)**:
+1. Removed corrupt `concept_index_v2.jsonl` from truth assets
+2. No duplicate tables - extend existing SSOT tables
+3. Per-behavior evidence policy (lexical/annotation/hybrid)
+4. Arabic normalization STRICT/LOOSE profiles
+5. Structured engine output validation (not text length)
+6. igraph/graph-tool for offline graph metrics
+7. 87 behaviors reconciliation task
+
+**Round 2 (6 fixes)**:
+1. FK to `entities(entity_id)` not materialized view + trigger enforcement
+2. Node types reference `tafsir_chunks` (not removed `tafsir_entries`)
+3. Proper column types for roots/synonyms (TEXT[], not metadata->>'')
+4. Clarified provenance (summary) vs edge_evidence (detailed rows)
+5. Removed deprecated assets from audit pack input hashes
+6. Added pgvector + embedding_registry + embedding tables
