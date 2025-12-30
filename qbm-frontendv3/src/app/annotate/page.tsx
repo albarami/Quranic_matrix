@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { BookOpen, Edit3, CheckCircle, BarChart3 } from "lucide-react";
+import { BookOpen, Edit3, CheckCircle, BarChart3, Loader2 } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import {
   AyahNavigator,
@@ -12,12 +12,16 @@ import {
   ExistingAnnotations,
   SURAH_DATA
 } from "../components/annotate";
+import { useStats } from "@/lib/api/hooks";
 
 export default function AnnotatePage() {
   const { language, isRTL } = useLanguage();
   const [currentSurah, setCurrentSurah] = useState(2);
   const [currentAyah, setCurrentAyah] = useState(255);
   const [activeTafsir, setActiveTafsir] = useState("ibn_kathir");
+
+  // Fetch real stats from API
+  const { data: statsData, isLoading: statsLoading } = useStats();
 
   const handleNavigate = (surah: number, ayah: number) => {
     setCurrentSurah(surah);
@@ -34,10 +38,10 @@ export default function AnnotatePage() {
     }
   };
 
-  // Stats for the header
+  // Stats for the header - use API data when available
   const stats = {
-    totalAnnotations: 6236,
-    todayAnnotations: 0,
+    totalAnnotations: statsData?.total_annotations || 0,
+    annotatedAyat: statsData?.annotated_ayat || 0,
     currentProgress: `${currentSurah}:${currentAyah}`
   };
 
@@ -76,12 +80,20 @@ export default function AnnotatePage() {
             <div className="flex items-center gap-2 text-sm">
               <BarChart3 className="w-4 h-4 text-emerald-400" />
               <span className="text-slate-400">{isRTL ? "إجمالي التعليقات:" : "Total Annotations:"}</span>
-              <span className="text-white font-semibold">{stats.totalAnnotations.toLocaleString()}</span>
+              {statsLoading ? (
+                <Loader2 className="w-4 h-4 animate-spin text-slate-400" />
+              ) : (
+                <span className="text-white font-semibold">{stats.totalAnnotations.toLocaleString()}</span>
+              )}
             </div>
             <div className="flex items-center gap-2 text-sm">
               <CheckCircle className="w-4 h-4 text-blue-400" />
-              <span className="text-slate-400">{isRTL ? "اليوم:" : "Today:"}</span>
-              <span className="text-white font-semibold">{stats.todayAnnotations}</span>
+              <span className="text-slate-400">{isRTL ? "آيات معلقة:" : "Annotated Ayat:"}</span>
+              {statsLoading ? (
+                <Loader2 className="w-4 h-4 animate-spin text-slate-400" />
+              ) : (
+                <span className="text-white font-semibold">{stats.annotatedAyat.toLocaleString()}</span>
+              )}
             </div>
             <div className="flex items-center gap-2 text-sm">
               <BookOpen className="w-4 h-4 text-purple-400" />
@@ -134,9 +146,10 @@ export default function AnnotatePage() {
             ayah={currentAyah}
             language={language}
             onSkip={handleSkipToNext}
-            onSave={(annotation) => {
-              console.log("Annotation saved:", annotation);
-              // In production, this would call the API
+            onSave={() => {
+              // Annotation saved successfully via API - form handles everything
+              // Optionally move to next ayah after save
+              handleSkipToNext();
             }}
           />
         </motion.div>

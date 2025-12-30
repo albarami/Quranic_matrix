@@ -1,14 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { Edit2, Trash2, ChevronDown, ChevronUp, Sparkles, Users, Hand, Award } from "lucide-react";
+import { Edit2, Trash2, ChevronDown, ChevronUp, Sparkles, Users, Hand, Award, Heart, AlertCircle, RefreshCw, Loader2 } from "lucide-react";
 import { AXES_11 } from "./AnnotationForm";
+import { useAnnotations } from "@/lib/api/hooks";
+import type { Annotation as APIAnnotation } from "@/lib/api/types";
 
+// Extended annotation type for compatibility with UI
 interface Annotation {
-  id: number;
+  id: string;
   behavior: { id: string; ar: string; en: string };
-  agent: { id: string; ar: string; en: string };
-  organ: { id: string; ar: string; en: string };
+  agent?: { id: string; ar: string; en: string };
+  organ?: { id: string; ar: string; en: string };
+  heart_state?: { id: string; ar: string; en: string };
   consequence?: { id: string; ar: string; en: string };
   axes: Record<number, string>;
   notes?: string;
@@ -20,50 +24,44 @@ interface ExistingAnnotationsProps {
   ayah: number;
   language: string;
   onEdit?: (annotation: Annotation) => void;
-  onDelete?: (id: number) => void;
+  onDelete?: (id: string) => void;
 }
 
-// Sample annotations for demo
-const SAMPLE_ANNOTATIONS: Record<string, Annotation[]> = {
-  "2:255": [
-    {
-      id: 1,
-      behavior: { id: "BEH_SPI_FAITH", ar: "الإيمان", en: "Faith" },
-      agent: { id: "AGT_BELIEVER", ar: "المؤمن", en: "Believer" },
-      organ: { id: "ORG_HEART", ar: "القلب", en: "Heart" },
-      consequence: { id: "CSQ_GUIDANCE", ar: "الهداية", en: "Guidance" },
-      axes: { 1: "heart", 5: "both", 8: "wajib", 9: "purifies", 10: "reward" },
-      notes: "آية الكرسي - أعظم آية في القرآن",
-      createdAt: "2024-12-28"
-    },
-    {
-      id: 2,
-      behavior: { id: "BEH_SPI_TAQWA", ar: "التقوى", en: "God-Consciousness" },
-      agent: { id: "AGT_BELIEVER", ar: "المؤمن", en: "Believer" },
-      organ: { id: "ORG_HEART", ar: "القلب", en: "Heart" },
-      axes: { 1: "heart", 8: "mustahab", 9: "purifies" },
-      createdAt: "2024-12-28"
-    }
-  ],
-  "1:5": [
-    {
-      id: 3,
-      behavior: { id: "BEH_SPI_PRAYER", ar: "الصلاة", en: "Prayer" },
-      agent: { id: "AGT_BELIEVER", ar: "المؤمن", en: "Believer" },
-      organ: { id: "ORG_HEART", ar: "القلب", en: "Heart" },
-      consequence: { id: "CSQ_GUIDANCE", ar: "الهداية", en: "Guidance" },
-      axes: { 1: "heart", 2: "creator", 8: "wajib" },
-      createdAt: "2024-12-27"
-    }
-  ]
-};
+// Transform API annotation to local format
+function transformAnnotation(apiAnn: APIAnnotation): Annotation {
+  // Convert axes_11 to numbered axes
+  const axes: Record<number, string> = {};
+  if (apiAnn.axes_11) {
+    Object.entries(apiAnn.axes_11).forEach(([key, value]) => {
+      // Extract axis number from key (e.g., "axis_1" -> 1)
+      const match = key.match(/axis_(\d+)/);
+      if (match) {
+        axes[parseInt(match[1])] = value;
+      }
+    });
+  }
+
+  return {
+    id: apiAnn.id,
+    behavior: apiAnn.behavior,
+    agent: apiAnn.agent,
+    organ: apiAnn.organ,
+    heart_state: apiAnn.heart_state,
+    consequence: apiAnn.consequence,
+    axes,
+    notes: apiAnn.notes,
+    createdAt: apiAnn.created_at?.split("T")[0], // Format date
+  };
+}
 
 export function ExistingAnnotations({ surah, ayah, language, onEdit, onDelete }: ExistingAnnotationsProps) {
   const isRTL = language === "ar";
-  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const key = `${surah}:${ayah}`;
-  const annotations = SAMPLE_ANNOTATIONS[key] || [];
+  const { data: annotationsData, isLoading, error, refetch } = useAnnotations(surah, ayah);
+
+  // Transform API annotations to local format
+  const annotations: Annotation[] = (annotationsData?.annotations || []).map(transformAnnotation);
 
   const getAxisLabel = (axisId: number, value: string): string => {
     const axis = AXES_11.find(a => a.id === axisId);
@@ -72,6 +70,38 @@ export function ExistingAnnotations({ surah, ayah, language, onEdit, onDelete }:
     return option ? (isRTL ? option.ar : option.en) : value;
   };
 
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="bg-slate-800/50 rounded-xl border border-slate-700 p-8 text-center">
+        <div className="flex items-center justify-center gap-3 text-slate-400">
+          <Loader2 className="w-6 h-6 animate-spin" />
+          <span>{isRTL ? "جاري تحميل التعليقات..." : "Loading annotations..."}</span>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <div className="bg-slate-800/50 rounded-xl border border-red-700/50 p-8 text-center">
+        <div className="flex flex-col items-center gap-3">
+          <AlertCircle className="w-8 h-8 text-red-400" />
+          <span className="text-red-400">{isRTL ? "فشل تحميل التعليقات" : "Failed to load annotations"}</span>
+          <button
+            onClick={() => refetch()}
+            className="flex items-center gap-2 px-4 py-2 bg-red-900/30 hover:bg-red-900/50 rounded-lg text-red-400 transition-colors"
+          >
+            <RefreshCw className="w-4 h-4" />
+            {isRTL ? "إعادة المحاولة" : "Retry"}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Empty state
   if (annotations.length === 0) {
     return (
       <div className="bg-slate-800/50 rounded-xl border border-slate-700 p-8 text-center">
@@ -128,16 +158,33 @@ export function ExistingAnnotations({ surah, ayah, language, onEdit, onDelete }:
                       <Sparkles className="w-3.5 h-3.5" />
                       <span className="font-arabic">{ann.behavior.ar}</span>
                     </span>
-                    <span className="text-slate-500">→</span>
-                    <span className="flex items-center gap-1.5 px-2.5 py-1 bg-blue-900/50 text-blue-300 rounded-lg text-sm">
-                      <Users className="w-3.5 h-3.5" />
-                      <span className="font-arabic">{ann.agent.ar}</span>
-                    </span>
-                    <span className="text-slate-500">→</span>
-                    <span className="flex items-center gap-1.5 px-2.5 py-1 bg-purple-900/50 text-purple-300 rounded-lg text-sm">
-                      <Hand className="w-3.5 h-3.5" />
-                      <span className="font-arabic">{ann.organ.ar}</span>
-                    </span>
+                    {ann.agent && (
+                      <>
+                        <span className="text-slate-500">→</span>
+                        <span className="flex items-center gap-1.5 px-2.5 py-1 bg-blue-900/50 text-blue-300 rounded-lg text-sm">
+                          <Users className="w-3.5 h-3.5" />
+                          <span className="font-arabic">{ann.agent.ar}</span>
+                        </span>
+                      </>
+                    )}
+                    {ann.organ && (
+                      <>
+                        <span className="text-slate-500">→</span>
+                        <span className="flex items-center gap-1.5 px-2.5 py-1 bg-purple-900/50 text-purple-300 rounded-lg text-sm">
+                          <Hand className="w-3.5 h-3.5" />
+                          <span className="font-arabic">{ann.organ.ar}</span>
+                        </span>
+                      </>
+                    )}
+                    {ann.heart_state && (
+                      <>
+                        <span className="text-slate-500">→</span>
+                        <span className="flex items-center gap-1.5 px-2.5 py-1 bg-pink-900/50 text-pink-300 rounded-lg text-sm">
+                          <Heart className="w-3.5 h-3.5" />
+                          <span className="font-arabic">{ann.heart_state.ar}</span>
+                        </span>
+                      </>
+                    )}
                     {ann.consequence && (
                       <>
                         <span className="text-slate-500">→</span>
@@ -223,10 +270,24 @@ export function ExistingAnnotations({ surah, ayah, language, onEdit, onDelete }:
                 <div className="mt-4 pt-4 border-t border-slate-700">
                   <div className="flex flex-wrap gap-2 text-xs text-slate-500 font-mono">
                     <span>behavior: {ann.behavior.id}</span>
-                    <span>|</span>
-                    <span>agent: {ann.agent.id}</span>
-                    <span>|</span>
-                    <span>organ: {ann.organ.id}</span>
+                    {ann.agent && (
+                      <>
+                        <span>|</span>
+                        <span>agent: {ann.agent.id}</span>
+                      </>
+                    )}
+                    {ann.organ && (
+                      <>
+                        <span>|</span>
+                        <span>organ: {ann.organ.id}</span>
+                      </>
+                    )}
+                    {ann.heart_state && (
+                      <>
+                        <span>|</span>
+                        <span>heart_state: {ann.heart_state.id}</span>
+                      </>
+                    )}
                     {ann.consequence && (
                       <>
                         <span>|</span>

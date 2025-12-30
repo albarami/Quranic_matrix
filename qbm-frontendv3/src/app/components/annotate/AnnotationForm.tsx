@@ -1,13 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Save, Trash2, ChevronRight, Sparkles, Users, Hand, Award, Layers } from "lucide-react";
-import {
-  SAMPLE_BEHAVIORS,
-  SAMPLE_AGENTS,
-  SAMPLE_ORGANS,
-  SAMPLE_CONSEQUENCES,
-} from "@/lib/canonical-entities";
+import { useState, useMemo } from "react";
+import { Save, Trash2, ChevronRight, Sparkles, Users, Hand, Award, Layers, Heart, Loader2 } from "lucide-react";
+import { useCanonicalEntities, useCreateAnnotation } from "@/lib/api/hooks";
 
 // 11-Axis Classification Options
 const AXES_11 = [
@@ -147,6 +142,7 @@ interface AnnotationData {
   behavior: string;
   agent: string;
   organ: string;
+  heart_state: string;
   consequence: string;
   axes: Record<number, string>;
   notes: string;
@@ -154,35 +150,81 @@ interface AnnotationData {
 
 export function AnnotationForm({ surah, ayah, language, onSave, onSkip }: AnnotationFormProps) {
   const isRTL = language === "ar";
+
+  // Fetch entities from API
+  const { data: entitiesData, isLoading: entitiesLoading } = useCanonicalEntities();
+  const createAnnotation = useCreateAnnotation();
+
+  // Extract entity lists from API response
+  const behaviors = useMemo(() => entitiesData?.behaviors || [], [entitiesData]);
+  const agents = useMemo(() => entitiesData?.agents || [], [entitiesData]);
+  const organs = useMemo(() => entitiesData?.organs || [], [entitiesData]);
+  const heartStates = useMemo(() => entitiesData?.heart_states || [], [entitiesData]);
+  const consequences = useMemo(() => entitiesData?.consequences || [], [entitiesData]);
+
   const [annotation, setAnnotation] = useState<AnnotationData>({
     surah,
     ayah,
     behavior: "",
     agent: "",
     organ: "",
+    heart_state: "",
     consequence: "",
     axes: {},
     notes: ""
   });
 
-  const handleSave = () => {
+  const [isSaving, setIsSaving] = useState(false);
+
+  const handleSave = async () => {
     if (!annotation.behavior) {
       alert(isRTL ? "يرجى اختيار سلوك" : "Please select a behavior");
       return;
     }
-    console.log("Saving annotation:", annotation);
-    if (onSave) onSave(annotation);
-    // Clear form after save
-    setAnnotation({
-      surah,
-      ayah,
-      behavior: "",
-      agent: "",
-      organ: "",
-      consequence: "",
-      axes: {},
-      notes: ""
-    });
+
+    setIsSaving(true);
+    try {
+      // Convert axes to API format (axis_1, axis_2, etc.)
+      const axes11: Record<string, string> = {};
+      Object.entries(annotation.axes).forEach(([key, value]) => {
+        if (value) {
+          axes11[`axis_${key}`] = value;
+        }
+      });
+
+      await createAnnotation.mutateAsync({
+        surah,
+        ayah,
+        data: {
+          behavior_id: annotation.behavior,
+          agent_id: annotation.agent || undefined,
+          organ_id: annotation.organ || undefined,
+          axes_11: Object.keys(axes11).length > 0 ? axes11 : undefined,
+          notes: annotation.notes || undefined,
+        }
+      });
+
+      // Call onSave callback if provided
+      if (onSave) onSave(annotation);
+
+      // Clear form after save
+      setAnnotation({
+        surah,
+        ayah,
+        behavior: "",
+        agent: "",
+        organ: "",
+        heart_state: "",
+        consequence: "",
+        axes: {},
+        notes: ""
+      });
+    } catch (error) {
+      console.error("Failed to save annotation:", error);
+      alert(isRTL ? "فشل في حفظ التعليق" : "Failed to save annotation");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const handleClear = () => {
@@ -192,6 +234,7 @@ export function AnnotationForm({ surah, ayah, language, onSave, onSkip }: Annota
       behavior: "",
       agent: "",
       organ: "",
+      heart_state: "",
       consequence: "",
       axes: {},
       notes: ""
@@ -214,79 +257,104 @@ export function AnnotationForm({ surah, ayah, language, onSave, onSkip }: Annota
       </div>
 
       {/* Primary Selectors */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        {/* Behavior */}
-        <div>
-          <label className="flex items-center gap-2 text-sm text-slate-400 mb-2">
-            <Sparkles className="w-4 h-4 text-emerald-400" />
-            {isRTL ? "السلوك" : "Behavior"}
-          </label>
-          <select
-            className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            value={annotation.behavior}
-            onChange={(e) => setAnnotation({ ...annotation, behavior: e.target.value })}
-          >
-            <option value="">{isRTL ? "اختر السلوك..." : "Select behavior..."}</option>
-            {SAMPLE_BEHAVIORS.map((b) => (
-              <option key={b.id} value={b.id}>{b.ar} ({b.en})</option>
-            ))}
-          </select>
+      {entitiesLoading ? (
+        <div className="flex items-center justify-center gap-3 py-8 text-slate-400">
+          <Loader2 className="w-5 h-5 animate-spin" />
+          <span>{isRTL ? "جاري تحميل الكيانات..." : "Loading entities..."}</span>
         </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+          {/* Behavior */}
+          <div>
+            <label className="flex items-center gap-2 text-sm text-slate-400 mb-2">
+              <Sparkles className="w-4 h-4 text-emerald-400" />
+              {isRTL ? "السلوك" : "Behavior"} *
+            </label>
+            <select
+              className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              value={annotation.behavior}
+              onChange={(e) => setAnnotation({ ...annotation, behavior: e.target.value })}
+            >
+              <option value="">{isRTL ? "اختر السلوك..." : "Select behavior..."}</option>
+              {behaviors.map((b) => (
+                <option key={b.id} value={b.id}>{b.ar} ({b.en})</option>
+              ))}
+            </select>
+          </div>
 
-        {/* Agent */}
-        <div>
-          <label className="flex items-center gap-2 text-sm text-slate-400 mb-2">
-            <Users className="w-4 h-4 text-blue-400" />
-            {isRTL ? "الفاعل" : "Agent"}
-          </label>
-          <select
-            className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={annotation.agent}
-            onChange={(e) => setAnnotation({ ...annotation, agent: e.target.value })}
-          >
-            <option value="">{isRTL ? "اختر الفاعل..." : "Select agent..."}</option>
-            {SAMPLE_AGENTS.map((a) => (
-              <option key={a.id} value={a.id}>{a.ar} ({a.en})</option>
-            ))}
-          </select>
-        </div>
+          {/* Agent */}
+          <div>
+            <label className="flex items-center gap-2 text-sm text-slate-400 mb-2">
+              <Users className="w-4 h-4 text-blue-400" />
+              {isRTL ? "الفاعل" : "Agent"}
+            </label>
+            <select
+              className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={annotation.agent}
+              onChange={(e) => setAnnotation({ ...annotation, agent: e.target.value })}
+            >
+              <option value="">{isRTL ? "اختر الفاعل..." : "Select agent..."}</option>
+              {agents.map((a) => (
+                <option key={a.id} value={a.id}>{a.ar} ({a.en})</option>
+              ))}
+            </select>
+          </div>
 
-        {/* Organ */}
-        <div>
-          <label className="flex items-center gap-2 text-sm text-slate-400 mb-2">
-            <Hand className="w-4 h-4 text-purple-400" />
-            {isRTL ? "العضو" : "Organ"}
-          </label>
-          <select
-            className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
-            value={annotation.organ}
-            onChange={(e) => setAnnotation({ ...annotation, organ: e.target.value })}
-          >
-            <option value="">{isRTL ? "اختر العضو..." : "Select organ..."}</option>
-            {SAMPLE_ORGANS.map((o) => (
-              <option key={o.id} value={o.id}>{o.ar} ({o.en})</option>
-            ))}
-          </select>
-        </div>
+          {/* Organ */}
+          <div>
+            <label className="flex items-center gap-2 text-sm text-slate-400 mb-2">
+              <Hand className="w-4 h-4 text-purple-400" />
+              {isRTL ? "العضو" : "Organ"}
+            </label>
+            <select
+              className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+              value={annotation.organ}
+              onChange={(e) => setAnnotation({ ...annotation, organ: e.target.value })}
+            >
+              <option value="">{isRTL ? "اختر العضو..." : "Select organ..."}</option>
+              {organs.map((o) => (
+                <option key={o.id} value={o.id}>{o.ar} ({o.en})</option>
+              ))}
+            </select>
+          </div>
 
-        {/* Consequence */}
-        <div>
-          <label className="flex items-center gap-2 text-sm text-slate-400 mb-2">
-            <Award className="w-4 h-4 text-amber-400" />
-            {isRTL ? "العاقبة" : "Consequence"}
-          </label>
-          <select
-            className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
-            value={annotation.consequence}
-            onChange={(e) => setAnnotation({ ...annotation, consequence: e.target.value })}
-          >
-            <option value="">{isRTL ? "اختر العاقبة..." : "Select consequence..."}</option>
-            {SAMPLE_CONSEQUENCES.map((c) => (
-              <option key={c.id} value={c.id}>{c.ar} ({c.en})</option>
-            ))}
-          </select>
+          {/* Heart State */}
+          <div>
+            <label className="flex items-center gap-2 text-sm text-slate-400 mb-2">
+              <Heart className="w-4 h-4 text-pink-400" />
+              {isRTL ? "حالة القلب" : "Heart State"}
+            </label>
+            <select
+              className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
+              value={annotation.heart_state}
+              onChange={(e) => setAnnotation({ ...annotation, heart_state: e.target.value })}
+            >
+              <option value="">{isRTL ? "اختر الحالة..." : "Select state..."}</option>
+              {heartStates.map((h) => (
+                <option key={h.id} value={h.id}>{h.ar} ({h.en})</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Consequence */}
+          <div>
+            <label className="flex items-center gap-2 text-sm text-slate-400 mb-2">
+              <Award className="w-4 h-4 text-amber-400" />
+              {isRTL ? "العاقبة" : "Consequence"}
+            </label>
+            <select
+              className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+              value={annotation.consequence}
+              onChange={(e) => setAnnotation({ ...annotation, consequence: e.target.value })}
+            >
+              <option value="">{isRTL ? "اختر العاقبة..." : "Select consequence..."}</option>
+              {consequences.map((c) => (
+                <option key={c.id} value={c.id}>{c.ar} ({c.en})</option>
+              ))}
+            </select>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Divider */}
       <div className="border-t border-slate-700 my-6"></div>
@@ -360,10 +428,20 @@ export function AnnotationForm({ surah, ayah, language, onSave, onSkip }: Annota
           </button>
           <button
             onClick={handleSave}
-            className="flex items-center gap-2 px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-500 transition-colors"
+            disabled={isSaving || entitiesLoading}
+            className="flex items-center gap-2 px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <Save className="w-4 h-4" />
-            {isRTL ? "حفظ التعليق" : "Save Annotation"}
+            {isSaving ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                {isRTL ? "جاري الحفظ..." : "Saving..."}
+              </>
+            ) : (
+              <>
+                <Save className="w-4 h-4" />
+                {isRTL ? "حفظ التعليق" : "Save Annotation"}
+              </>
+            )}
           </button>
         </div>
       </div>
