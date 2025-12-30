@@ -1,3 +1,5 @@
+"use client";
+
 // QBM API Module
 // Re-exports all API-related functionality
 

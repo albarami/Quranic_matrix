@@ -1,38 +1,90 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Network, Info, ZoomIn, ZoomOut, Maximize2 } from "lucide-react";
+import { Network, Info, ZoomIn, Maximize2, AlertCircle, RefreshCw } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { SemanticGraph, EdgeTypeFilter, ALL_EDGE_TYPES } from "../components/graph";
 import {
   EdgeType,
   EDGE_COLORS,
-  EDGE_COUNTS,
   NODE_COLORS,
   NODE_TYPE_LABELS,
-  GRAPH_TOTALS,
 } from "@/lib/semantic-graph";
-import {
-  SAMPLE_NODES,
-  SAMPLE_EDGES,
-  SAMPLE_STATS,
-  getNodeById,
-  getConnectedEdges,
-} from "@/lib/semantic-graph-data";
+import { useGraph } from "@/lib/api/hooks";
 
 export default function GraphPage() {
   const { language, isRTL } = useLanguage();
   const [selectedEdgeTypes, setSelectedEdgeTypes] = useState<EdgeType[]>(ALL_EDGE_TYPES);
   const [selectedNode, setSelectedNode] = useState<string | null>(null);
 
-  const selectedNodeData = selectedNode ? getNodeById(selectedNode) : null;
-  const connectedEdges = selectedNode ? getConnectedEdges(selectedNode) : [];
+  // Fetch graph data from API
+  const { data: graphData, isLoading, error, refetch } = useGraph();
+
+  // Extract nodes and edges from API response
+  const nodes = useMemo(() => graphData?.nodes || [], [graphData]);
+  const edges = useMemo(() => graphData?.edges || [], [graphData]);
+  const stats = useMemo(() => graphData?.statistics || {
+    total_nodes: 0,
+    total_edges: 0,
+    edges_by_type: {}
+  }, [graphData]);
+
+  // Get selected node data
+  const selectedNodeData = useMemo(() => {
+    if (!selectedNode || !nodes.length) return null;
+    return nodes.find(n => n.id === selectedNode) || null;
+  }, [selectedNode, nodes]);
+
+  // Get connected edges for selected node
+  const connectedEdges = useMemo(() => {
+    if (!selectedNode || !edges.length) return [];
+    return edges.filter(e => e.source === selectedNode || e.target === selectedNode);
+  }, [selectedNode, edges]);
 
   // Filter connected edges by selected types
-  const filteredConnectedEdges = connectedEdges.filter((e) =>
-    selectedEdgeTypes.includes(e.type)
+  const filteredConnectedEdges = useMemo(() =>
+    connectedEdges.filter((e) => selectedEdgeTypes.includes(e.type as EdgeType)),
+    [connectedEdges, selectedEdgeTypes]
   );
+
+  // Get node by ID helper
+  const getNodeById = (id: string) => nodes.find(n => n.id === id);
+
+  // Calculate node counts by type
+  const nodesByType = useMemo(() => {
+    const counts: Record<string, number> = {};
+    nodes.forEach(n => {
+      counts[n.type] = (counts[n.type] || 0) + 1;
+    });
+    return counts;
+  }, [nodes]);
+
+  // Error state
+  if (error) {
+    return (
+      <div className={`min-h-screen bg-slate-900 text-white flex items-center justify-center ${isRTL ? "rtl" : "ltr"}`}>
+        <div className="text-center max-w-md mx-auto p-8">
+          <AlertCircle className="w-16 h-16 text-red-400 mx-auto mb-4" />
+          <h2 className="text-xl font-bold text-white mb-2">
+            {isRTL ? "خطأ في تحميل الشبكة" : "Failed to Load Graph"}
+          </h2>
+          <p className="text-slate-400 mb-6">
+            {isRTL
+              ? "تأكد من تشغيل الخادم الخلفي على المنفذ 8000"
+              : "Make sure the backend server is running on port 8000"}
+          </p>
+          <button
+            onClick={() => refetch()}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
+          >
+            <RefreshCw className="w-4 h-4" />
+            {isRTL ? "إعادة المحاولة" : "Retry"}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`min-h-screen bg-slate-900 text-white ${isRTL ? "rtl" : "ltr"}`}>
@@ -51,8 +103,8 @@ export default function GraphPage() {
                 </h1>
                 <p className="text-slate-400 text-sm">
                   {isRTL
-                    ? "تصور 4,460 علاقة سلوكية عبر 7 أنواع روابط"
-                    : "Visualizing 4,460 behavioral relationships across 7 edge types"}
+                    ? `تصور ${stats.total_edges.toLocaleString()} علاقة سلوكية عبر 7 أنواع روابط`
+                    : `Visualizing ${stats.total_edges.toLocaleString()} behavioral relationships across 7 edge types`}
                 </p>
               </div>
             </div>
@@ -61,7 +113,7 @@ export default function GraphPage() {
             <div className="flex items-center gap-6">
               <div className="text-center">
                 <div className="text-2xl font-bold text-emerald-400">
-                  {GRAPH_TOTALS.totalNodes}
+                  {isLoading ? "..." : stats.total_nodes.toLocaleString()}
                 </div>
                 <div className="text-xs text-slate-400">
                   {isRTL ? "عقد" : "Nodes"}
@@ -69,7 +121,7 @@ export default function GraphPage() {
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-blue-400">
-                  {GRAPH_TOTALS.totalEdges.toLocaleString()}
+                  {isLoading ? "..." : stats.total_edges.toLocaleString()}
                 </div>
                 <div className="text-xs text-slate-400">
                   {isRTL ? "روابط" : "Edges"}
@@ -77,7 +129,7 @@ export default function GraphPage() {
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-purple-400">
-                  {GRAPH_TOTALS.edgeTypes}
+                  {Object.keys(stats.edges_by_type || {}).length || 7}
                 </div>
                 <div className="text-xs text-slate-400">
                   {isRTL ? "أنواع" : "Types"}
@@ -86,12 +138,18 @@ export default function GraphPage() {
             </div>
           </div>
 
-          {/* Sample indicator */}
-          <div className="mt-4 flex items-center gap-2 text-xs text-amber-400 bg-amber-900/30 px-3 py-2 rounded-lg border border-amber-700/50 w-fit">
+          {/* Data source indicator */}
+          <div className={`mt-4 flex items-center gap-2 text-xs px-3 py-2 rounded-lg border w-fit ${
+            isLoading
+              ? "text-amber-400 bg-amber-900/30 border-amber-700/50"
+              : "text-emerald-400 bg-emerald-900/30 border-emerald-700/50"
+          }`}>
             <Info className="w-4 h-4" />
-            {isRTL
-              ? `عرض عينة تمثيلية: ${SAMPLE_STATS.totalNodes} عقدة، ${SAMPLE_STATS.totalEdges} رابط`
-              : `Showing representative sample: ${SAMPLE_STATS.totalNodes} nodes, ${SAMPLE_STATS.totalEdges} edges`}
+            {isLoading
+              ? (isRTL ? "جاري تحميل البيانات من الخادم..." : "Loading data from backend...")
+              : (isRTL
+                  ? `متصل بالخادم: ${stats.total_nodes} عقدة، ${stats.total_edges.toLocaleString()} رابط`
+                  : `Connected to backend: ${stats.total_nodes} nodes, ${stats.total_edges.toLocaleString()} edges`)}
           </div>
         </div>
       </header>
@@ -106,6 +164,7 @@ export default function GraphPage() {
               selected={selectedEdgeTypes}
               onChange={setSelectedEdgeTypes}
               language={language}
+              counts={stats.edges_by_type}
             />
 
             {/* Selected Node Info */}
@@ -118,7 +177,7 @@ export default function GraphPage() {
                 <h3 className="text-sm font-medium text-slate-300 mb-3 flex items-center gap-2">
                   <span
                     className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: NODE_COLORS[selectedNodeData.type] }}
+                    style={{ backgroundColor: NODE_COLORS[selectedNodeData.type] || "#64748b" }}
                   />
                   {isRTL ? "العقدة المحددة" : "Selected Node"}
                 </h3>
@@ -126,9 +185,11 @@ export default function GraphPage() {
                 <div className="space-y-3">
                   <div>
                     <div className="text-2xl font-arabic text-white" dir="rtl">
-                      {selectedNodeData.labelAr}
+                      {selectedNodeData.labelAr || selectedNodeData.label_ar || selectedNodeData.id}
                     </div>
-                    <div className="text-slate-300">{selectedNodeData.label}</div>
+                    <div className="text-slate-300">
+                      {selectedNodeData.label || selectedNodeData.label_en || selectedNodeData.id}
+                    </div>
                     <div className="text-xs text-slate-500 font-mono mt-1">
                       {selectedNodeData.id}
                     </div>
@@ -138,13 +199,13 @@ export default function GraphPage() {
                     <span
                       className="px-2 py-1 rounded text-xs"
                       style={{
-                        backgroundColor: NODE_COLORS[selectedNodeData.type] + "30",
-                        color: NODE_COLORS[selectedNodeData.type],
+                        backgroundColor: (NODE_COLORS[selectedNodeData.type] || "#64748b") + "30",
+                        color: NODE_COLORS[selectedNodeData.type] || "#64748b",
                       }}
                     >
-                      {isRTL
-                        ? NODE_TYPE_LABELS[selectedNodeData.type].ar
-                        : NODE_TYPE_LABELS[selectedNodeData.type].en}
+                      {NODE_TYPE_LABELS[selectedNodeData.type]
+                        ? (isRTL ? NODE_TYPE_LABELS[selectedNodeData.type].ar : NODE_TYPE_LABELS[selectedNodeData.type].en)
+                        : selectedNodeData.type}
                     </span>
                   </div>
 
@@ -167,13 +228,13 @@ export default function GraphPage() {
                           >
                             <span
                               className="w-2 h-2 rounded-full flex-shrink-0"
-                              style={{ backgroundColor: EDGE_COLORS[edge.type] }}
+                              style={{ backgroundColor: EDGE_COLORS[edge.type as EdgeType] || "#64748b" }}
                             />
                             <span className="text-slate-400 truncate flex-1">
                               {edge.type.replace("_", " ")}
                             </span>
                             <span className="text-slate-300 truncate">
-                              {otherNode?.label}
+                              {otherNode?.label || otherNode?.label_en || otherNodeId}
                             </span>
                           </div>
                         );
@@ -217,7 +278,7 @@ export default function GraphPage() {
                       {isRTL ? labels.ar : labels.en}
                     </span>
                     <span className="text-slate-500 text-xs ml-auto">
-                      {SAMPLE_STATS.nodesByType[type]}
+                      {nodesByType[type] || 0}
                     </span>
                   </div>
                 ))}
@@ -238,8 +299,9 @@ export default function GraphPage() {
                 selectedNode={selectedNode}
                 onNodeClick={setSelectedNode}
                 filterEdgeTypes={selectedEdgeTypes}
-                nodes={SAMPLE_NODES}
-                edges={SAMPLE_EDGES}
+                nodes={nodes}
+                edges={edges}
+                isLoading={isLoading}
               />
             </motion.div>
 
@@ -262,8 +324,9 @@ export default function GraphPage() {
 
         {/* Edge Statistics */}
         <div className="mt-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-          {(Object.entries(EDGE_COUNTS) as [EdgeType, number][]).map(
-            ([type, count]) => (
+          {ALL_EDGE_TYPES.map((type) => {
+            const count = stats.edges_by_type?.[type] || 0;
+            return (
               <div
                 key={type}
                 className={`bg-slate-800 rounded-lg p-4 border border-slate-700 ${
@@ -280,11 +343,11 @@ export default function GraphPage() {
                   </span>
                 </div>
                 <div className="text-xl font-bold text-white">
-                  {count.toLocaleString()}
+                  {isLoading ? "..." : count.toLocaleString()}
                 </div>
               </div>
-            )
-          )}
+            );
+          })}
         </div>
       </main>
 
@@ -295,17 +358,17 @@ export default function GraphPage() {
             <div className="flex items-center gap-2">
               <span>{isRTL ? "QBM الشبكة الدلالية" : "QBM Semantic Graph"}</span>
               <span className="px-2 py-0.5 bg-blue-900/50 text-blue-400 rounded text-xs">
-                v1.0
+                v2.0
               </span>
             </div>
             <div className="flex items-center gap-4">
               <span>
-                {GRAPH_TOTALS.totalEdges.toLocaleString()}{" "}
+                {stats.total_edges.toLocaleString()}{" "}
                 {isRTL ? "رابط إجمالي" : "total edges"}
               </span>
               <span>•</span>
               <span>
-                7 {isRTL ? "أنواع علاقات" : "relationship types"}
+                {Object.keys(stats.edges_by_type || {}).length || 7} {isRTL ? "أنواع علاقات" : "relationship types"}
               </span>
             </div>
           </div>

@@ -6,6 +6,7 @@ interface EdgeTypeFilterProps {
   selected: EdgeType[];
   onChange: (types: EdgeType[]) => void;
   language?: string;
+  counts?: Record<string, number>;  // Dynamic counts from API
 }
 
 const ALL_EDGE_TYPES: EdgeType[] = [
@@ -18,8 +19,16 @@ const ALL_EDGE_TYPES: EdgeType[] = [
   "LEADS_TO",
 ];
 
-export function EdgeTypeFilter({ selected, onChange, language = "en" }: EdgeTypeFilterProps) {
+export function EdgeTypeFilter({ selected, onChange, language = "en", counts }: EdgeTypeFilterProps) {
   const isRTL = language === "ar";
+
+  // Use API counts if provided, otherwise fall back to static counts
+  const getCount = (type: EdgeType): number => {
+    if (counts && counts[type] !== undefined) {
+      return counts[type];
+    }
+    return EDGE_COUNTS[type];
+  };
 
   const toggleType = (type: EdgeType) => {
     if (selected.includes(type)) {
@@ -43,7 +52,7 @@ export function EdgeTypeFilter({ selected, onChange, language = "en" }: EdgeType
         {ALL_EDGE_TYPES.map((type) => {
           const isActive = selected.includes(type);
           const label = EDGE_LABELS[type];
-          const count = EDGE_COUNTS[type];
+          const count = getCount(type);
 
           return (
             <label
@@ -102,7 +111,7 @@ export function EdgeTypeFilter({ selected, onChange, language = "en" }: EdgeType
           {isRTL ? "إجمالي الروابط:" : "Total edges:"}{" "}
           <span className="text-emerald-400 font-medium">
             {selected
-              .reduce((sum, type) => sum + EDGE_COUNTS[type], 0)
+              .reduce((sum, type) => sum + getCount(type), 0)
               .toLocaleString()}
           </span>
         </div>

@@ -1,7 +1,7 @@
+"use client";
+
 // React Query Hooks for QBM Backend API
 // Provides caching, error handling, and loading states
-
-"use client";
 
 import {
   useQuery,

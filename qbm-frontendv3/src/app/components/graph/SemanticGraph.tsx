@@ -2,8 +2,7 @@
 
 import { useCallback, useRef, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { GraphNode, GraphEdge, EdgeType, NODE_COLORS, EDGE_COLORS } from "@/lib/semantic-graph";
-import { SAMPLE_NODES, SAMPLE_EDGES } from "@/lib/semantic-graph-data";
+import { EdgeType, NODE_COLORS, EDGE_COLORS, NodeType } from "@/lib/semantic-graph";
 
 // Dynamic import to avoid SSR issues with canvas-based library
 const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), {
@@ -15,14 +14,34 @@ const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), {
   ),
 });
 
+// Flexible node type that handles both API format and legacy format
+interface FlexibleGraphNode {
+  id: string;
+  label?: string;
+  label_en?: string;
+  labelAr?: string;
+  label_ar?: string;
+  type: NodeType;
+  group?: number;
+}
+
+// Flexible edge type
+interface FlexibleGraphEdge {
+  source: string;
+  target: string;
+  type: EdgeType;
+  weight?: number;
+}
+
 interface SemanticGraphProps {
   width?: number;
   height?: number;
   selectedNode?: string | null;
   onNodeClick?: (nodeId: string) => void;
   filterEdgeTypes?: EdgeType[];
-  nodes?: GraphNode[];
-  edges?: GraphEdge[];
+  nodes: FlexibleGraphNode[];
+  edges: FlexibleGraphEdge[];
+  isLoading?: boolean;
 }
 
 export function SemanticGraph({
@@ -31,8 +50,9 @@ export function SemanticGraph({
   selectedNode,
   onNodeClick,
   filterEdgeTypes,
-  nodes = SAMPLE_NODES,
-  edges = SAMPLE_EDGES,
+  nodes,
+  edges,
+  isLoading = false,
 }: SemanticGraphProps) {
   const graphRef = useRef<any>();
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
@@ -55,26 +75,34 @@ export function SemanticGraph({
 
   const filteredNodes = nodes.filter((n) => connectedNodeIds.has(n.id));
 
+  // Normalize node data (handle both API and legacy formats)
+  const normalizeNode = (n: FlexibleGraphNode) => ({
+    id: n.id,
+    label: n.label || n.label_en || n.id,
+    labelAr: n.labelAr || n.label_ar || n.id,
+    type: n.type,
+    group: n.group ?? 0,
+  });
+
   // Graph data format for react-force-graph
   const graphData = {
-    nodes: filteredNodes.map((n) => ({
-      id: n.id,
-      label: n.label,
-      labelAr: n.labelAr,
-      type: n.type,
-      group: n.group,
-      color:
-        selectedNode === n.id
-          ? "#10b981"
-          : hoveredNode === n.id
-          ? "#fbbf24"
-          : NODE_COLORS[n.type],
-    })),
+    nodes: filteredNodes.map((n) => {
+      const normalized = normalizeNode(n);
+      return {
+        ...normalized,
+        color:
+          selectedNode === n.id
+            ? "#10b981"
+            : hoveredNode === n.id
+            ? "#fbbf24"
+            : NODE_COLORS[n.type] || "#64748b",
+      };
+    }),
     links: filteredEdges.map((e) => ({
       source: e.source,
       target: e.target,
       type: e.type,
-      color: EDGE_COLORS[e.type],
+      color: EDGE_COLORS[e.type] || "#64748b",
     })),
   };
 
@@ -94,13 +122,17 @@ export function SemanticGraph({
     setHoveredNode(node?.id || null);
   }, []);
 
-  if (!isClient) {
+  // Show loading state
+  if (!isClient || isLoading || !nodes.length) {
     return (
       <div
-        className="bg-slate-900 rounded-xl border border-slate-700 flex items-center justify-center"
+        className="bg-slate-900 rounded-xl border border-slate-700 flex items-center justify-center flex-col gap-3"
         style={{ width, height }}
       >
-        <div className="text-slate-400 animate-pulse">Loading graph...</div>
+        <div className="w-8 h-8 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+        <div className="text-slate-400">
+          {isLoading ? "Loading semantic graph..." : "Preparing visualization..."}
+        </div>
       </div>
     );
   }
