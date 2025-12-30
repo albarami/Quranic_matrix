@@ -1,0 +1,66 @@
+{
+  "phase": 3,
+  "description": "Behavior Registry with Evidence Policy",
+  "statistics": {
+    "total_behaviors": 73,
+    "by_category": {
+      "cognitive": 10,
+      "emotional": 12,
+      "financial": 8,
+      "physical": 3,
+      "social": 13,
+      "communication": 10,
+      "spiritual": 17
+    },
+    "by_evidence_mode": {
+      "lexical": 73
+    }
+  },
+  "validation": {
+    "valid": true,
+    "checks": {
+      "has_behaviors": true,
+      "all_have_required_fields": true,
+      "all_valid_evidence_policies": true,
+      "has_patience_behavior": true,
+      "patience_has_lexical_spec": true
+    }
+  },
+  "sample_behaviors": [
+    {
+      "behavior_id": "BEH_COG_ARROGANCE",
+      "label_ar": "الكبر",
+      "label_en": "Arrogance",
+      "mode": "lexical",
+      "forms_count": 2
+    },
+    {
+      "behavior_id": "BEH_COG_CERTAINTY",
+      "label_ar": "اليقين",
+      "label_en": "Certainty",
+      "mode": "lexical",
+      "forms_count": 2
+    },
+    {
+      "behavior_id": "BEH_COG_DOUBT",
+      "label_ar": "الشك",
+      "label_en": "Doubt",
+      "mode": "lexical",
+      "forms_count": 2
+    },
+    {
+      "behavior_id": "BEH_COG_FOLLOWING_DESIRE",
+      "label_ar": "اتباع الهوى",
+      "label_en": "Following Desire",
+      "mode": "lexical",
+      "forms_count": 2
+    },
+    {
+      "behavior_id": "BEH_COG_HEEDLESSNESS",
+      "label_ar": "الغفلة",
+      "label_en": "Heedlessness",
+      "mode": "lexical",
+      "forms_count": 2
+    }
+  ]
+}

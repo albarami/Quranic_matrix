@@ -1,0 +1,2390 @@
+{
+  "version": "3.0",
+  "description": "Behavior registry with evidence policies",
+  "total_behaviors": 73,
+  "lexical_behaviors": 73,
+  "annotation_behaviors": 0,
+  "behaviors": [
+    {
+      "behavior_id": "BEH_COG_ARROGANCE",
+      "label_ar": "الكبر",
+      "label_en": "Arrogance",
+      "category": "cognitive",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ك-ب-ر"
+          ],
+          "forms": [
+            "كبر",
+            "الكبر"
+          ],
+          "synonyms": [
+            "تكبروا",
+            "يتكبرون",
+            "المتكبرين",
+            "المتكبرون",
+            "مستكبرين",
+            "الكبرياء"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_COG_CERTAINTY",
+      "label_ar": "اليقين",
+      "label_en": "Certainty",
+      "category": "cognitive",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ي-ق-ن"
+          ],
+          "forms": [
+            "يقن",
+            "اليقين"
+          ],
+          "synonyms": [
+            "يوقنون",
+            "الموقنين",
+            "موقنين",
+            "علم اليقين"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_COG_DOUBT",
+      "label_ar": "الشك",
+      "label_en": "Doubt",
+      "category": "cognitive",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ش-ك-ك"
+          ],
+          "forms": [
+            "شكك",
+            "الشك"
+          ],
+          "synonyms": [
+            "يشكون",
+            "شاكين",
+            "الريبة",
+            "مرتابين"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_COG_FOLLOWING_DESIRE",
+      "label_ar": "اتباع الهوى",
+      "label_en": "Following Desire",
+      "category": "cognitive",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ه-و-ي"
+          ],
+          "forms": [
+            "هوي",
+            "اتباع الهوي"
+          ],
+          "synonyms": [
+            "يتبعون اهواءهم",
+            "هواه",
+            "الهوي",
+            "هوي النفس"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_COG_HEEDLESSNESS",
+      "label_ar": "الغفلة",
+      "label_en": "Heedlessness",
+      "category": "cognitive",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "غ-ف-ل"
+          ],
+          "forms": [
+            "غفل",
+            "الغفلة"
+          ],
+          "synonyms": [
+            "غافلون",
+            "يغفلون",
+            "الغافلين",
+            "غفلة"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_COG_HUMILITY",
+      "label_ar": "التواضع",
+      "label_en": "Humility",
+      "category": "cognitive",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "و-ض-ع",
+            "خ-ش-ع"
+          ],
+          "forms": [
+            "وضع",
+            "خشع",
+            "التواضع"
+          ],
+          "synonyms": [
+            "خاشعين",
+            "الخاشعين",
+            "متواضعين",
+            "اخبتوا"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_COG_IGNORANCE",
+      "label_ar": "الجهل",
+      "label_en": "Ignorance",
+      "category": "cognitive",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ج-ه-ل"
+          ],
+          "forms": [
+            "جهل",
+            "الجهل"
+          ],
+          "synonyms": [
+            "جاهلون",
+            "يجهلون",
+            "الجاهلين",
+            "الجاهلية"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_COG_KNOWLEDGE",
+      "label_ar": "العلم",
+      "label_en": "Knowledge",
+      "category": "cognitive",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ع-ل-م"
+          ],
+          "forms": [
+            "علم",
+            "العلم"
+          ],
+          "synonyms": [
+            "علموا",
+            "يعلمون",
+            "العالمين",
+            "العلماء",
+            "اولو العلم"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_COG_REFLECTION",
+      "label_ar": "التفكر",
+      "label_en": "Reflection",
+      "category": "cognitive",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ف-ك-ر"
+          ],
+          "forms": [
+            "فكر",
+            "التفكر"
+          ],
+          "synonyms": [
+            "تفكروا",
+            "يتفكرون",
+            "المتفكرين",
+            "فكر",
+            "تفكير"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_COG_UNDERSTANDING",
+      "label_ar": "الفقه",
+      "label_en": "Understanding",
+      "category": "cognitive",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ف-ق-ه"
+          ],
+          "forms": [
+            "فقه",
+            "الفقه"
+          ],
+          "synonyms": [
+            "يفقهون",
+            "فقهوا",
+            "لا يفقهون",
+            "تفقهوا"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_EMO_ANGER",
+      "label_ar": "الغضب",
+      "label_en": "Anger",
+      "category": "emotional",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "غ-ض-ب"
+          ],
+          "forms": [
+            "غضب",
+            "الغضب"
+          ],
+          "synonyms": [
+            "غضبان",
+            "يغضبون",
+            "غاضب",
+            "مغضوب"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_EMO_ENVY",
+      "label_ar": "الحسد",
+      "label_en": "Envy",
+      "category": "emotional",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ح-س-د"
+          ],
+          "forms": [
+            "حسد",
+            "الحسد"
+          ],
+          "synonyms": [
+            "حاسد",
+            "يحسدون",
+            "حسدا",
+            "الحاسدين"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_EMO_FEAR_ALLAH",
+      "label_ar": "الخشية",
+      "label_en": "Fear of Allah",
+      "category": "emotional",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "خ-ش-ي",
+            "خ-و-ف"
+          ],
+          "forms": [
+            "خشي",
+            "خوف",
+            "الخشية"
+          ],
+          "synonyms": [
+            "الخوف",
+            "خوف الله",
+            "خوف",
+            "يخشون",
+            "يخافون",
+            "خايفين"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_EMO_GRATITUDE",
+      "label_ar": "الشكر",
+      "label_en": "Gratitude",
+      "category": "emotional",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ش-ك-ر"
+          ],
+          "forms": [
+            "شكر",
+            "الشكر"
+          ],
+          "synonyms": [
+            "شاكرين",
+            "شاكرون",
+            "الشاكرين",
+            "الشاكرون",
+            "يشكرون",
+            "اشكروا"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_EMO_GRIEF",
+      "label_ar": "الحزن",
+      "label_en": "Grief",
+      "category": "emotional",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ح-ز-ن"
+          ],
+          "forms": [
+            "حزن",
+            "الحزن"
+          ],
+          "synonyms": [
+            "حزين",
+            "يحزنون",
+            "حزنا",
+            "محزونين",
+            "الاسي"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_EMO_HATRED",
+      "label_ar": "البغض",
+      "label_en": "Hatred",
+      "category": "emotional",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ب-غ-ض"
+          ],
+          "forms": [
+            "بغض",
+            "البغض"
+          ],
+          "synonyms": [
+            "يبغضون",
+            "بغضاء",
+            "المبغضين",
+            "كره",
+            "الكراهية"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_EMO_HOPE",
+      "label_ar": "الرجاء",
+      "label_en": "Hope",
+      "category": "emotional",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ر-ج-و"
+          ],
+          "forms": [
+            "رجو",
+            "الرجاء"
+          ],
+          "synonyms": [
+            "يرجون",
+            "راجين",
+            "رجاء",
+            "امل",
+            "الامل"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_EMO_IMPATIENCE",
+      "label_ar": "الجزع",
+      "label_en": "Impatience",
+      "category": "emotional",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ج-ز-ع"
+          ],
+          "forms": [
+            "جزع",
+            "الجزع"
+          ],
+          "synonyms": [
+            "جزوعا",
+            "يجزع",
+            "الهلع",
+            "هلوعا"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_EMO_INGRATITUDE",
+      "label_ar": "الكفران",
+      "label_en": "Ingratitude",
+      "category": "emotional",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ك-ف-ر"
+          ],
+          "forms": [
+            "كفر",
+            "الكفران"
+          ],
+          "synonyms": [
+            "كفور",
+            "كفورا",
+            "جحود",
+            "الجحود"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_EMO_JOY",
+      "label_ar": "الفرح",
+      "label_en": "Joy",
+      "category": "emotional",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ف-ر-ح"
+          ],
+          "forms": [
+            "فرح",
+            "الفرح"
+          ],
+          "synonyms": [
+            "فرحين",
+            "يفرحون",
+            "فرح",
+            "فرحوا",
+            "السرور"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_EMO_LOVE",
+      "label_ar": "المحبة",
+      "label_en": "Love",
+      "category": "emotional",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ح-ب-ب"
+          ],
+          "forms": [
+            "حبب",
+            "المحبة"
+          ],
+          "synonyms": [
+            "يحبون",
+            "يحبهم",
+            "احب",
+            "حب",
+            "المحبين",
+            "الحب"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_EMO_PATIENCE",
+      "label_ar": "الصبر",
+      "label_en": "Patience",
+      "category": "emotional",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ص-ب-ر"
+          ],
+          "forms": [
+            "صبر",
+            "الصبر"
+          ],
+          "synonyms": [
+            "صابرين",
+            "صابرون",
+            "الصابرين",
+            "الصابرون",
+            "اصبر",
+            "يصبرون"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_FIN_BRIBERY",
+      "label_ar": "الرشوة",
+      "label_en": "Bribery",
+      "category": "financial",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ر-ش-و"
+          ],
+          "forms": [
+            "رشو",
+            "الرشوة"
+          ],
+          "synonyms": [
+            "سحت",
+            "السحت",
+            "اكل السحت"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_FIN_CHARITY",
+      "label_ar": "الصدقة",
+      "label_en": "Charity",
+      "category": "financial",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ص-د-ق"
+          ],
+          "forms": [
+            "صدق",
+            "الصدقة"
+          ],
+          "synonyms": [
+            "صدقات",
+            "المتصدقين",
+            "المتصدقون",
+            "تصدقوا",
+            "يتصدقون"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_FIN_FAIR_TRADE",
+      "label_ar": "التجارة العادلة",
+      "label_en": "Fair Trade",
+      "category": "financial",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ت-ج-ر"
+          ],
+          "forms": [
+            "تجر",
+            "التجارة العادلة"
+          ],
+          "synonyms": [
+            "تجارة",
+            "يتاجرون",
+            "التجار"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_FIN_FRAUD",
+      "label_ar": "الغش",
+      "label_en": "Fraud",
+      "category": "financial",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ط-ف-ف"
+          ],
+          "forms": [
+            "طفف",
+            "الغش"
+          ],
+          "synonyms": [
+            "المطففين",
+            "يطففون",
+            "التطفيف",
+            "طفف"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_FIN_HOARDING",
+      "label_ar": "البخل",
+      "label_en": "Hoarding/Miserliness",
+      "category": "financial",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ب-خ-ل",
+            "ك-ن-ز"
+          ],
+          "forms": [
+            "بخل",
+            "كنز",
+            "البخل"
+          ],
+          "synonyms": [
+            "بخلوا",
+            "يبخلون",
+            "البخلاء",
+            "الكنز",
+            "يكنزون"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_FIN_SPENDING",
+      "label_ar": "الإنفاق",
+      "label_en": "Spending in Allah's Way",
+      "category": "financial",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ن-ف-ق"
+          ],
+          "forms": [
+            "نفق",
+            "الانفاق"
+          ],
+          "synonyms": [
+            "انفقوا",
+            "ينفقون",
+            "المنفقين",
+            "المنفقون",
+            "انفق",
+            "انفاق"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_FIN_USURY",
+      "label_ar": "الربا",
+      "label_en": "Usury",
+      "category": "financial",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ر-ب-و"
+          ],
+          "forms": [
+            "ربو",
+            "الربا"
+          ],
+          "synonyms": [
+            "ربا",
+            "ياكلون الربا",
+            "اكل الربا"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_FIN_ZAKAT",
+      "label_ar": "الزكاة",
+      "label_en": "Zakat",
+      "category": "financial",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ز-ك-و"
+          ],
+          "forms": [
+            "زكو",
+            "الزكاة"
+          ],
+          "synonyms": [
+            "اتوا الزكاة",
+            "يوتون الزكاة",
+            "زكاة"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_PHY_LOWERING_GAZE",
+      "label_ar": "غض البصر",
+      "label_en": "Lowering Gaze",
+      "category": "physical",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "غ-ض-ض"
+          ],
+          "forms": [
+            "غضض",
+            "غض البصر"
+          ],
+          "synonyms": [
+            "يغضوا من ابصارهم",
+            "غض الابصار",
+            "غاضين ابصارهم"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_PHY_PROSTRATION",
+      "label_ar": "السجود",
+      "label_en": "Prostration",
+      "category": "physical",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "س-ج-د"
+          ],
+          "forms": [
+            "سجد",
+            "السجود"
+          ],
+          "synonyms": [
+            "اسجدوا",
+            "يسجدون",
+            "الساجدين",
+            "الساجدون",
+            "سجود"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_PHY_STANDING",
+      "label_ar": "القيام",
+      "label_en": "Standing",
+      "category": "physical",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ق-و-م"
+          ],
+          "forms": [
+            "قوم",
+            "القيام"
+          ],
+          "synonyms": [
+            "قوموا",
+            "يقومون",
+            "القايمين",
+            "قيام الليل"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_CORRUPTION",
+      "label_ar": "الفساد",
+      "label_en": "Corruption",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ف-س-د"
+          ],
+          "forms": [
+            "فسد",
+            "الفساد"
+          ],
+          "synonyms": [
+            "افسدوا",
+            "يفسدون",
+            "المفسدين",
+            "المفسدون",
+            "الافساد"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_DISOBEDIENCE_PARENTS",
+      "label_ar": "عقوق الوالدين",
+      "label_en": "Disobedience to Parents",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ع-ق-ق"
+          ],
+          "forms": [
+            "عقق",
+            "عقوق الوالدين"
+          ],
+          "synonyms": [
+            "عاق",
+            "عاقين",
+            "لا تقل لهما اف"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_HELPING_NEEDY",
+      "label_ar": "مساعدة المحتاج",
+      "label_en": "Helping the Needy",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ع-و-ن"
+          ],
+          "forms": [
+            "عون",
+            "مساعدة المحتاج"
+          ],
+          "synonyms": [
+            "وتعاونوا",
+            "المعاونين",
+            "اطعام المسكين",
+            "يطعمون المسكين"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_HOSPITALITY",
+      "label_ar": "الضيافة",
+      "label_en": "Hospitality",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ض-ي-ف"
+          ],
+          "forms": [
+            "ضيف",
+            "الضيافة"
+          ],
+          "synonyms": [
+            "الضيف",
+            "ضيفان",
+            "اكرام الضيف"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_IHSAN",
+      "label_ar": "الإحسان",
+      "label_en": "Excellence/Ihsan",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ح-س-ن"
+          ],
+          "forms": [
+            "حسن",
+            "الاحسان"
+          ],
+          "synonyms": [
+            "احسنوا",
+            "يحسنون",
+            "المحسنين",
+            "المحسنون",
+            "احسن",
+            "محسن"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_JUSTICE",
+      "label_ar": "العدل",
+      "label_en": "Justice",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ع-د-ل"
+          ],
+          "forms": [
+            "عدل",
+            "العدل"
+          ],
+          "synonyms": [
+            "عدلوا",
+            "يعدلون",
+            "العادلين",
+            "اعدلوا",
+            "بالعدل"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_KINDNESS_PARENTS",
+      "label_ar": "بر الوالدين",
+      "label_en": "Kindness to Parents",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ب-ر-ر"
+          ],
+          "forms": [
+            "برر",
+            "بر الوالدين"
+          ],
+          "synonyms": [
+            "وبالوالدين احسانا",
+            "بارين",
+            "البر بالوالدين"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_KINSHIP_TIES",
+      "label_ar": "صلة الرحم",
+      "label_en": "Maintaining Kinship",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ر-ح-م",
+            "و-ص-ل"
+          ],
+          "forms": [
+            "رحم",
+            "وصل",
+            "صلة الرحم"
+          ],
+          "synonyms": [
+            "يصلون الارحام",
+            "واصلون",
+            "صلة الارحام"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_OPPRESSION",
+      "label_ar": "الظلم",
+      "label_en": "Oppression",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ظ-ل-م"
+          ],
+          "forms": [
+            "ظلم",
+            "الظلم"
+          ],
+          "synonyms": [
+            "ظلموا",
+            "يظلمون",
+            "الظالمين",
+            "الظالمون",
+            "ظالمين",
+            "ظالم"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_ORPHAN_CARE",
+      "label_ar": "رعاية اليتيم",
+      "label_en": "Orphan Care",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ي-ت-م"
+          ],
+          "forms": [
+            "يتم",
+            "رعاية اليتيم"
+          ],
+          "synonyms": [
+            "اليتيم",
+            "اليتامي",
+            "كافل اليتيم"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_ORPHAN_HARM",
+      "label_ar": "أكل مال اليتيم",
+      "label_en": "Harming Orphan",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ي-ت-م"
+          ],
+          "forms": [
+            "يتم",
+            "اكل مال اليتيم"
+          ],
+          "synonyms": [
+            "ياكلون اموال اليتامي",
+            "قهر اليتيم",
+            "تقهر اليتيم"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_RECONCILIATION",
+      "label_ar": "الإصلاح",
+      "label_en": "Reconciliation",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ص-ل-ح"
+          ],
+          "forms": [
+            "صلح",
+            "الاصلاح"
+          ],
+          "synonyms": [
+            "اصلحوا",
+            "يصلحون",
+            "المصلحين",
+            "المصلحون",
+            "اصلاح ذات البين"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_SEVERING_TIES",
+      "label_ar": "قطيعة الرحم",
+      "label_en": "Severing Ties",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ق-ط-ع"
+          ],
+          "forms": [
+            "قطع",
+            "قطيعة الرحم"
+          ],
+          "synonyms": [
+            "يقطعون",
+            "قاطعين",
+            "قطع الارحام"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPEECH_BACKBITING",
+      "label_ar": "الغيبة",
+      "label_en": "Backbiting",
+      "category": "communication",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "غ-ي-ب"
+          ],
+          "forms": [
+            "غيب",
+            "الغيبة"
+          ],
+          "synonyms": [
+            "يغتاب",
+            "اغتاب",
+            "ياكل لحم اخيه"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPEECH_GOOD_WORD",
+      "label_ar": "الكلمة الطيبة",
+      "label_en": "Good Word",
+      "category": "communication",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ط-ي-ب"
+          ],
+          "forms": [
+            "طيب",
+            "الكلمة الطيبة"
+          ],
+          "synonyms": [
+            "قول معروف",
+            "قولا سديدا",
+            "قولا كريما",
+            "كلمة طيبة"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPEECH_HARSH_WORD",
+      "label_ar": "الفظاظة",
+      "label_en": "Harsh Word",
+      "category": "communication",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ف-ظ-ظ"
+          ],
+          "forms": [
+            "فظظ",
+            "الفظاظة"
+          ],
+          "synonyms": [
+            "فظ",
+            "غليظ القلب",
+            "اف",
+            "تقل لهما اف"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPEECH_LYING",
+      "label_ar": "الكذب",
+      "label_en": "Lying",
+      "category": "communication",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ك-ذ-ب"
+          ],
+          "forms": [
+            "كذب",
+            "الكذب"
+          ],
+          "synonyms": [
+            "كاذبين",
+            "الكاذبين",
+            "الكاذبون",
+            "كذبوا",
+            "يكذبون",
+            "كذب",
+            "افتراء"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPEECH_REMEMBRANCE",
+      "label_ar": "ذكر الله",
+      "label_en": "Verbal Remembrance",
+      "category": "communication",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ذ-ك-ر"
+          ],
+          "forms": [
+            "ذكر",
+            "ذكر الله"
+          ],
+          "synonyms": [
+            "يذكرون",
+            "الذاكرين",
+            "الذاكرون",
+            "اذكروا",
+            "ذكروا"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPEECH_SLANDER",
+      "label_ar": "البهتان",
+      "label_en": "Slander",
+      "category": "communication",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ب-ه-ت",
+            "ن-م-م"
+          ],
+          "forms": [
+            "بهت",
+            "نمم",
+            "البهتان"
+          ],
+          "synonyms": [
+            "النميمة",
+            "نمام",
+            "همزة لمزة",
+            "الهمز",
+            "اللمز"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPEECH_SUPPLICATION",
+      "label_ar": "الدعاء",
+      "label_en": "Supplication",
+      "category": "communication",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "د-ع-و"
+          ],
+          "forms": [
+            "دعو",
+            "الدعاء"
+          ],
+          "synonyms": [
+            "ادعوا",
+            "يدعون",
+            "دعاء",
+            "دعوة",
+            "داعين"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPEECH_TESTIMONY",
+      "label_ar": "الشهادة",
+      "label_en": "Testimony",
+      "category": "communication",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ش-ه-د"
+          ],
+          "forms": [
+            "شهد",
+            "الشهادة"
+          ],
+          "synonyms": [
+            "اشهدوا",
+            "يشهدون",
+            "شاهدين",
+            "الشاهدين",
+            "شهيد",
+            "شهداء"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPEECH_TRUTHFULNESS",
+      "label_ar": "الصدق",
+      "label_en": "Truthfulness",
+      "category": "communication",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ص-د-ق"
+          ],
+          "forms": [
+            "صدق",
+            "الصدق"
+          ],
+          "synonyms": [
+            "صادقين",
+            "الصادقين",
+            "الصادقون",
+            "صدقوا",
+            "يصدقون",
+            "صدق"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPEECH_VAIN_TALK",
+      "label_ar": "اللغو",
+      "label_en": "Vain Talk",
+      "category": "communication",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ل-غ-و"
+          ],
+          "forms": [
+            "لغو",
+            "اللغو"
+          ],
+          "synonyms": [
+            "لاغون",
+            "يلغون",
+            "لهو الحديث"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_CONTEMPLATION",
+      "label_ar": "التدبر",
+      "label_en": "Contemplation",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "د-ب-ر"
+          ],
+          "forms": [
+            "دبر",
+            "التدبر"
+          ],
+          "synonyms": [
+            "يتدبرون",
+            "تدبروا",
+            "افلا يتدبرون"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_CONTENTMENT",
+      "label_ar": "الرضا",
+      "label_en": "Contentment",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ر-ض-ي"
+          ],
+          "forms": [
+            "رضي",
+            "الرضا"
+          ],
+          "synonyms": [
+            "رضوا",
+            "يرضون",
+            "راضين",
+            "رضي الله عنهم"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_DISBELIEF",
+      "label_ar": "الكفر",
+      "label_en": "Disbelief",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ك-ف-ر"
+          ],
+          "forms": [
+            "كفر",
+            "الكفر"
+          ],
+          "synonyms": [
+            "كفروا",
+            "يكفرون",
+            "كافرين",
+            "الكافرين",
+            "الكافرون",
+            "كفر"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_FAITH",
+      "label_ar": "الإيمان",
+      "label_en": "Faith",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "أ-م-ن"
+          ],
+          "forms": [
+            "امن",
+            "الايمان"
+          ],
+          "synonyms": [
+            "امنوا",
+            "يومنون",
+            "مومنين",
+            "المومنين",
+            "المومنون",
+            "امن"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_FASTING",
+      "label_ar": "الصيام",
+      "label_en": "Fasting",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ص-و-م"
+          ],
+          "forms": [
+            "صوم",
+            "الصيام"
+          ],
+          "synonyms": [
+            "صوموا",
+            "يصومون",
+            "الصايمين",
+            "الصايمون",
+            "صيام"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_HAJJ",
+      "label_ar": "الحج",
+      "label_en": "Pilgrimage",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ح-ج-ج"
+          ],
+          "forms": [
+            "حجج",
+            "الحج"
+          ],
+          "synonyms": [
+            "حج",
+            "الحاج",
+            "الحجاج",
+            "يحجون"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_HYPOCRISY",
+      "label_ar": "النفاق",
+      "label_en": "Hypocrisy",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ن-ف-ق"
+          ],
+          "forms": [
+            "نفق",
+            "النفاق"
+          ],
+          "synonyms": [
+            "نافقوا",
+            "منافقين",
+            "المنافقين",
+            "المنافقون",
+            "ينافقون"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_JIHAD",
+      "label_ar": "الجهاد",
+      "label_en": "Striving",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ج-ه-د"
+          ],
+          "forms": [
+            "جهد",
+            "الجهاد"
+          ],
+          "synonyms": [
+            "جاهدوا",
+            "يجاهدون",
+            "المجاهدين",
+            "المجاهدون",
+            "جهاد"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_PRAYER",
+      "label_ar": "الصلاة",
+      "label_en": "Prayer",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ص-ل-و"
+          ],
+          "forms": [
+            "صلو",
+            "الصلاة"
+          ],
+          "synonyms": [
+            "صلوا",
+            "يصلون",
+            "المصلين",
+            "المصلون",
+            "صل",
+            "صلاة"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_RECITATION",
+      "label_ar": "التلاوة",
+      "label_en": "Recitation",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ت-ل-و"
+          ],
+          "forms": [
+            "تلو",
+            "التلاوة"
+          ],
+          "synonyms": [
+            "يتلون",
+            "تلا",
+            "التالين",
+            "قراءة القران"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_REMEMBRANCE",
+      "label_ar": "الذكر",
+      "label_en": "Remembrance",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ذ-ك-ر"
+          ],
+          "forms": [
+            "ذكر",
+            "الذكر"
+          ],
+          "synonyms": [
+            "يذكرون الله",
+            "ذاكرين",
+            "الذاكرين"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_REPENTANCE",
+      "label_ar": "التوبة",
+      "label_en": "Repentance",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ت-و-ب"
+          ],
+          "forms": [
+            "توب",
+            "التوبة"
+          ],
+          "synonyms": [
+            "تابوا",
+            "يتوبون",
+            "التايبين",
+            "التايبون",
+            "تاب",
+            "توبوا"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_SHOWING_OFF",
+      "label_ar": "الرياء",
+      "label_en": "Showing Off",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ر-أ-ي"
+          ],
+          "forms": [
+            "راي",
+            "الرياء"
+          ],
+          "synonyms": [
+            "يراءون",
+            "رياء الناس",
+            "مراءاة"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_SINCERITY",
+      "label_ar": "الإخلاص",
+      "label_en": "Sincerity",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "خ-ل-ص"
+          ],
+          "forms": [
+            "خلص",
+            "الاخلاص"
+          ],
+          "synonyms": [
+            "مخلصين",
+            "المخلصين",
+            "اخلص",
+            "يخلصون"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_TAQWA",
+      "label_ar": "التقوى",
+      "label_en": "God-Consciousness",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "و-ق-ي"
+          ],
+          "forms": [
+            "وقي",
+            "التقوي"
+          ],
+          "synonyms": [
+            "اتقوا",
+            "يتقون",
+            "المتقين",
+            "المتقون",
+            "تقوي",
+            "اتقي"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_TAWAKKUL",
+      "label_ar": "التوكل",
+      "label_en": "Trust in Allah",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "و-ك-ل"
+          ],
+          "forms": [
+            "وكل",
+            "التوكل"
+          ],
+          "synonyms": [
+            "توكلوا",
+            "يتوكلون",
+            "المتوكلين",
+            "توكل علي الله"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_WORSHIP",
+      "label_ar": "العبادة",
+      "label_en": "Worship",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ع-ب-د"
+          ],
+          "forms": [
+            "عبد",
+            "العبادة"
+          ],
+          "synonyms": [
+            "اعبدوا",
+            "يعبدون",
+            "العابدين",
+            "العابدون",
+            "عبادة"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    }
+  ]
+}
