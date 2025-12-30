@@ -8,27 +8,38 @@ import {
   Heart,
   Users,
   Hand,
-  Brain,
   Award,
-  ChevronRight,
   Hash,
   Globe,
   Sparkles,
-  Filter,
+  AlertCircle,
+  RefreshCw,
+  Loader2,
 } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
-import {
-  EntityType,
-  CanonicalEntity,
-  ENTITY_COUNTS,
-  ENTITY_TYPE_LABELS,
-  ALL_ENTITIES,
-  getEntitiesByType,
-  searchEntities,
-} from "@/lib/canonical-entities";
+import { useCanonicalEntities } from "@/lib/api/hooks";
+import type { CanonicalEntity as APICanonicalEntity } from "@/lib/api/types";
+
+// Extended entity type with frontend-specific fields
+type EntityType = "behavior" | "agent" | "organ" | "heart_state" | "consequence";
+
+interface CanonicalEntity extends APICanonicalEntity {
+  type: EntityType;
+  category?: string;
+}
+
+// Entity type labels for UI
+const ENTITY_TYPE_LABELS: Record<EntityType | "all", { en: string; ar: string; color: string }> = {
+  all: { en: "All", ar: "الكل", color: "slate" },
+  behavior: { en: "Behaviors", ar: "السلوكيات", color: "emerald" },
+  agent: { en: "Agents", ar: "الفاعلون", color: "blue" },
+  organ: { en: "Organs", ar: "الأعضاء", color: "purple" },
+  heart_state: { en: "Heart States", ar: "أحوال القلب", color: "pink" },
+  consequence: { en: "Consequences", ar: "العواقب", color: "amber" },
+};
 
 // Icon mapping for entity types
-const ENTITY_ICONS: Record<EntityType, any> = {
+const ENTITY_ICONS: Record<EntityType, typeof Sparkles> = {
   behavior: Sparkles,
   agent: Users,
   organ: Hand,
@@ -46,24 +57,80 @@ const ENTITY_COLORS: Record<EntityType, { bg: string; text: string; border: stri
 };
 
 export default function SynonymsPage() {
-  const { language, isRTL, t } = useLanguage();
+  const { language, isRTL } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState<EntityType | "all">("all");
 
+  // Fetch entities from API
+  const { data: entitiesData, isLoading, error, refetch } = useCanonicalEntities();
+
+  // Transform API data to flat list with types
+  const allEntities = useMemo<CanonicalEntity[]>(() => {
+    if (!entitiesData) return [];
+    return [
+      ...(entitiesData.behaviors || []).map(e => ({ ...e, type: "behavior" as EntityType })),
+      ...(entitiesData.agents || []).map(e => ({ ...e, type: "agent" as EntityType })),
+      ...(entitiesData.organs || []).map(e => ({ ...e, type: "organ" as EntityType })),
+      ...(entitiesData.heart_states || []).map(e => ({ ...e, type: "heart_state" as EntityType })),
+      ...(entitiesData.consequences || []).map(e => ({ ...e, type: "consequence" as EntityType })),
+    ];
+  }, [entitiesData]);
+
+  // Calculate entity counts from API data
+  const entityCounts = useMemo(() => ({
+    total: entitiesData?.total_entities || 0,
+    totalSynonyms: entitiesData?.total_synonyms || 0,
+    behavior: entitiesData?.behaviors?.length || 0,
+    agent: entitiesData?.agents?.length || 0,
+    organ: entitiesData?.organs?.length || 0,
+    heart_state: entitiesData?.heart_states?.length || 0,
+    consequence: entitiesData?.consequences?.length || 0,
+  }), [entitiesData]);
+
   // Filter entities based on search and active tab
   const filteredEntities = useMemo(() => {
-    return searchEntities(searchQuery, activeTab);
-  }, [searchQuery, activeTab]);
+    let entities = activeTab === "all" ? allEntities : allEntities.filter(e => e.type === activeTab);
+    if (!searchQuery.trim()) return entities;
+    const lowerQuery = searchQuery.toLowerCase();
+    return entities.filter(entity =>
+      entity.ar.includes(searchQuery) ||
+      entity.en.toLowerCase().includes(lowerQuery) ||
+      entity.id.toLowerCase().includes(lowerQuery) ||
+      entity.synonyms.some(s => s.includes(searchQuery)) ||
+      entity.roots.some(r => r.includes(searchQuery))
+    );
+  }, [allEntities, searchQuery, activeTab]);
 
-  // Tab data
+  // Tab data with dynamic counts
   const tabs: { id: EntityType | "all"; count: number }[] = [
-    { id: "all", count: ENTITY_COUNTS.total },
-    { id: "behavior", count: ENTITY_COUNTS.behavior },
-    { id: "agent", count: ENTITY_COUNTS.agent },
-    { id: "organ", count: ENTITY_COUNTS.organ },
-    { id: "heart_state", count: ENTITY_COUNTS.heart_state },
-    { id: "consequence", count: ENTITY_COUNTS.consequence },
+    { id: "all", count: entityCounts.total },
+    { id: "behavior", count: entityCounts.behavior },
+    { id: "agent", count: entityCounts.agent },
+    { id: "organ", count: entityCounts.organ },
+    { id: "heart_state", count: entityCounts.heart_state },
+    { id: "consequence", count: entityCounts.consequence },
   ];
+
+  // Error state
+  if (error) {
+    return (
+      <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50 flex items-center justify-center ${isRTL ? "rtl" : "ltr"}`}>
+        <div className="text-center max-w-md mx-auto p-8">
+          <AlertCircle className="w-16 h-16 text-red-400 mx-auto mb-4" />
+          <h2 className="text-xl font-bold text-slate-800 mb-2">
+            {isRTL ? "خطأ في تحميل الكيانات" : "Failed to Load Entities"}
+          </h2>
+          <p className="text-slate-600 mb-6">
+            {isRTL ? "تأكد من تشغيل الخادم الخلفي على المنفذ 8000" : "Make sure the backend server is running on port 8000"}
+          </p>
+          <button onClick={() => refetch()} className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors">
+            <RefreshCw className="w-4 h-4" />
+            {isRTL ? "إعادة المحاولة" : "Retry"}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50 ${isRTL ? 'rtl' : 'ltr'}`}>
@@ -98,8 +165,8 @@ export default function SynonymsPage() {
               className="text-emerald-100 max-w-2xl mx-auto text-lg"
             >
               {language === "ar"
-                ? "اكتشف 720+ مرادفاً عربياً عبر 155 كياناً قرآنياً"
-                : "Explore 720+ Arabic synonyms across 155 Quranic entities"}
+                ? `اكتشف ${entityCounts.totalSynonyms}+ مرادفاً عربياً عبر ${entityCounts.total} كياناً قرآنياً`
+                : `Explore ${entityCounts.totalSynonyms}+ Arabic synonyms across ${entityCounts.total} Quranic entities`}
             </motion.p>
           </div>
 
@@ -111,37 +178,37 @@ export default function SynonymsPage() {
             className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-8"
           >
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
-              <div className="text-3xl font-bold">{ENTITY_COUNTS.total}</div>
+              <div className="text-3xl font-bold">{entityCounts.total}</div>
               <div className="text-emerald-200 text-sm">
                 {language === "ar" ? "كيانات" : "Entities"}
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
-              <div className="text-3xl font-bold">{ENTITY_COUNTS.totalSynonyms}+</div>
+              <div className="text-3xl font-bold">{entityCounts.totalSynonyms}+</div>
               <div className="text-emerald-200 text-sm">
                 {language === "ar" ? "مرادفات" : "Synonyms"}
               </div>
             </div>
             <div className="bg-emerald-600/30 backdrop-blur-sm rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold">{ENTITY_COUNTS.behavior}</div>
+              <div className="text-2xl font-bold">{entityCounts.behavior}</div>
               <div className="text-emerald-200 text-sm">
                 {language === "ar" ? "سلوكيات" : "Behaviors"}
               </div>
             </div>
             <div className="bg-blue-600/30 backdrop-blur-sm rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold">{ENTITY_COUNTS.agent}</div>
+              <div className="text-2xl font-bold">{entityCounts.agent}</div>
               <div className="text-emerald-200 text-sm">
                 {language === "ar" ? "فاعلون" : "Agents"}
               </div>
             </div>
             <div className="bg-purple-600/30 backdrop-blur-sm rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold">{ENTITY_COUNTS.organ}</div>
+              <div className="text-2xl font-bold">{entityCounts.organ}</div>
               <div className="text-emerald-200 text-sm">
                 {language === "ar" ? "أعضاء" : "Organs"}
               </div>
             </div>
             <div className="bg-pink-600/30 backdrop-blur-sm rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold">{ENTITY_COUNTS.heart_state + ENTITY_COUNTS.consequence}</div>
+              <div className="text-2xl font-bold">{entityCounts.heart_state + entityCounts.consequence}</div>
               <div className="text-emerald-200 text-sm">
                 {language === "ar" ? "أحوال وعواقب" : "States & Outcomes"}
               </div>
@@ -218,8 +285,8 @@ export default function SynonymsPage() {
         {/* Results Count */}
         <div className="mb-6 text-slate-600">
           {language === "ar"
-            ? `عرض ${filteredEntities.length} من ${activeTab === "all" ? ENTITY_COUNTS.total : tabs.find(t => t.id === activeTab)?.count} كيان`
-            : `Showing ${filteredEntities.length} of ${activeTab === "all" ? ENTITY_COUNTS.total : tabs.find(t => t.id === activeTab)?.count} entities`}
+            ? `عرض ${filteredEntities.length} من ${activeTab === "all" ? entityCounts.total : tabs.find(t => t.id === activeTab)?.count} كيان`
+            : `Showing ${filteredEntities.length} of ${activeTab === "all" ? entityCounts.total : tabs.find(t => t.id === activeTab)?.count} entities`}
         </div>
 
         {/* Entity Cards Grid */}
@@ -356,7 +423,7 @@ function EntityCard({
         </div>
 
         {/* Occurrences */}
-        {entity.occurrences && (
+        {entity.occurrences !== undefined && entity.occurrences > 0 && (
           <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
             <span className="text-xs text-slate-500">
               {language === "ar" ? "الورود في القرآن" : "Quranic Occurrences"}
