@@ -612,20 +612,20 @@ DISALLOW_PATTERNS = [
 
 **Commit**: `a8d759b` - `feat(ssot): Phase 1 - Postgres schema extensions + Arabic normalization profiles`
 
-### Phase 2: Graph Projection in Postgres
+### Phase 2: Graph Projection in Postgres ✅
 
 **Deliverables**:
-- [ ] `semantic_edges` table extended with from/to entity_type + provenance JSONB
-- [ ] `behavior_verse_links` populated from validated sources
-- [ ] Indexes for efficient traversal
-- [ ] Edge provenance populated for all edges
+- [x] `semantic_edges` table extended with from/to entity_type + provenance JSONB (in 001_ssot_extensions.sql)
+- [x] `behavior_verse_links` populated from validated sources (scripts/populate_behavior_verse_links.py)
+- [x] Indexes for efficient traversal (idx_bvl_behavior, idx_bvl_verse_key)
+- [x] Edge provenance populated for all edges (22,195 links, 4,460 edges updated)
 
-**Tests**:
-- [ ] `test_graph_min_edges`: behavior→verse edges exist in `behavior_verse_links`
-- [ ] `test_no_surah_intro_as_behavior_evidence`: surah_intro filtered
-- [ ] `test_subset_contract`: tafsir ⊆ verse evidence
+**Tests** (25 passing in `tests/test_graph_phase2.py`):
+- [x] `test_graph_min_edges`: behavior→verse edges exist (22,195 links created)
+- [x] `test_no_surah_intro_as_behavior_evidence`: surah_intro filtering implemented
+- [x] `test_subset_contract`: tafsir sources validated, verse refs valid
 
-**Commit**: `feat(graph): postgres graph projection + integrity tests`
+**Commit**: `feat(graph): Phase 2 - graph projection + behavior_verse_links + integrity tests`
 
 ### Phase 3: Precomputed Knowledge Base Build
 
