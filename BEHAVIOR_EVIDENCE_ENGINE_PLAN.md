@@ -1535,7 +1535,7 @@ Re-enable advanced features ONLY after foundation is correct.
 
 ### Prerequisites (Gates)
 - [x] Phase 0-8 complete
-- [x] All tests pass (661 tests)
+- [x] All tests pass (685 tests)
 - [x] concept_index_v3 validation: 0 failures
 
 ### Tasks
@@ -1544,21 +1544,26 @@ Re-enable advanced features ONLY after foundation is correct.
 
 **File**: `src/ml/mandatory_proof_system.py`
 
-- Load `concept_index_v3.jsonl` instead of v2
-- Use canonical verse_keys with provenance
-- Return evidence_type in response
+- [x] Load `concept_index_v3.jsonl` instead of v2
+- [x] Use canonical verse_keys with provenance
+- [x] Return evidence_type in response
 
 #### 9.2 Update Graph Queries
 
-- Use graph_v3.json
-- Return labelAr for nodes
-- Return non-empty edges
+- [x] Use graph_v3.json
+- [x] Return labelAr for nodes
+- [x] Return non-empty edges
 
 #### 9.3 Update LegendaryPlanner
 
-- Cite only validated verses
-- Include evidence_type in citations
-- Never show verse without provenance
+- [x] Cite only validated verses
+- [x] Include evidence_type in citations
+- [x] Never show verse without provenance
+
+### Acceptance Criteria
+- [x] Backend uses concept_index_v3.jsonl (24 tests pass)
+- [x] LegendaryPlanner uses graph_v3.json
+- [x] All 685 tests pass across 9 phases
 
 ---
 
@@ -1601,6 +1606,7 @@ Re-enable advanced features ONLY after foundation is correct.
 ### Tests (Must Pass)
 - [x] `tests/phase8/test_behavior_patience_retrieval.py`
 - [x] `tests/phase8/test_all_behaviors_contract.py`
+- [x] `tests/phase9/test_integration_v3.py`
 
 ---
 

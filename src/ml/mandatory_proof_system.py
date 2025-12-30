@@ -14,7 +14,7 @@ Components:
 9. GRAPH PATHS - Multi-hop chains
 10. EMBEDDINGS - Similarity scores
 11. RAG - Retrieved documents
-12. TAXONOMY - 87 behaviors, 11 dimensions
+12. TAXONOMY - 73 behaviors, 11 dimensions
 13. STATISTICS - Exact numbers, percentages
 """
 
@@ -27,7 +27,56 @@ import logging
 from pydantic import BaseModel, Field
 
 # Phase 10.2: Deterministic Quran evidence paths
-CONCEPT_INDEX_FILE = Path("data/evidence/concept_index_v2.jsonl")
+# Phase 9: Updated to use validated concept_index_v3
+CONCEPT_INDEX_FILE = Path("data/evidence/concept_index_v3.jsonl")
+
+# Surah name to number mapping (Arabic names)
+SURAH_NAME_TO_NUMBER = {
+    "الفاتحة": 1, "البقرة": 2, "آل عمران": 3, "النساء": 4, "المائدة": 5,
+    "الأنعام": 6, "الأعراف": 7, "الأنفال": 8, "التوبة": 9, "يونس": 10,
+    "هود": 11, "يوسف": 12, "الرعد": 13, "إبراهيم": 14, "الحجر": 15,
+    "النحل": 16, "الإسراء": 17, "الكهف": 18, "مريم": 19, "طه": 20,
+    "الأنبياء": 21, "الحج": 22, "المؤمنون": 23, "النور": 24, "الفرقان": 25,
+    "الشعراء": 26, "النمل": 27, "القصص": 28, "العنكبوت": 29, "الروم": 30,
+    "لقمان": 31, "السجدة": 32, "الأحزاب": 33, "سبأ": 34, "فاطر": 35,
+    "يس": 36, "الصافات": 37, "ص": 38, "الزمر": 39, "غافر": 40,
+    "فصلت": 41, "الشورى": 42, "الزخرف": 43, "الدخان": 44, "الجاثية": 45,
+    "الأحقاف": 46, "محمد": 47, "الفتح": 48, "الحجرات": 49, "ق": 50,
+    "الذاريات": 51, "الطور": 52, "النجم": 53, "القمر": 54, "الرحمن": 55,
+    "الواقعة": 56, "الحديد": 57, "المجادلة": 58, "الحشر": 59, "الممتحنة": 60,
+    "الصف": 61, "الجمعة": 62, "المنافقون": 63, "التغابن": 64, "الطلاق": 65,
+    "التحريم": 66, "الملك": 67, "القلم": 68, "الحاقة": 69, "المعارج": 70,
+    "نوح": 71, "الجن": 72, "المزمل": 73, "المدثر": 74, "القيامة": 75,
+    "الإنسان": 76, "المرسلات": 77, "النبأ": 78, "النازعات": 79, "عبس": 80,
+    "التكوير": 81, "الانفطار": 82, "المطففين": 83, "الانشقاق": 84, "البروج": 85,
+    "الطارق": 86, "الأعلى": 87, "الغاشية": 88, "الفجر": 89, "البلد": 90,
+    "الشمس": 91, "الليل": 92, "الضحى": 93, "الشرح": 94, "التين": 95,
+    "العلق": 96, "القدر": 97, "البينة": 98, "الزلزلة": 99, "العاديات": 100,
+    "القارعة": 101, "التكاثر": 102, "العصر": 103, "الهمزة": 104, "الفيل": 105,
+    "قريش": 106, "الماعون": 107, "الكوثر": 108, "الكافرون": 109, "النصر": 110,
+    "المسد": 111, "الإخلاص": 112, "الفلق": 113, "الناس": 114,
+}
+
+def resolve_surah_number(surah_ref: Any) -> Optional[int]:
+    """Resolve surah reference to number - handles both int and Arabic name."""
+    if surah_ref is None:
+        return None
+    # Already a number
+    if isinstance(surah_ref, int):
+        return surah_ref
+    # Try to parse as string number
+    surah_str = str(surah_ref).strip()
+    if surah_str.isdigit():
+        return int(surah_str)
+    # Look up Arabic name
+    if surah_str in SURAH_NAME_TO_NUMBER:
+        return SURAH_NAME_TO_NUMBER[surah_str]
+    # Try without "سورة " prefix
+    if surah_str.startswith("سورة "):
+        name = surah_str[5:].strip()
+        if name in SURAH_NAME_TO_NUMBER:
+            return SURAH_NAME_TO_NUMBER[name]
+    return None
 
 # =============================================================================
 # PROOF DEBUG SCHEMA - Phase 0 Instrumentation
@@ -101,7 +150,7 @@ MANDATORY_COMPONENTS = [
     "graph_paths",     # 9. Multi-hop paths
     "embeddings",      # 10. Vector similarity scores
     "rag_retrieval",   # 11. RAG retrieved documents
-    "taxonomy",        # 12. 87 behaviors, 11 dimensions
+    "taxonomy",        # 12. 73 behaviors, 11 dimensions
     "statistics",      # 13. Exact numbers and percentages
 ]
 
@@ -514,7 +563,7 @@ SYSTEM_PROMPT_WITH_PROOF = """أنت نظام QBM للتحليل السلوكي 
 9. مسارات الشبكة (سلاسل سببية)
 10. التشابه الدلالي (نسب التشابه)
 11. الاسترجاع RAG (المستندات المسترجعة)
-12. التصنيف السلوكي (87 سلوك، 11 بُعد)
+12. التصنيف السلوكي (73 سلوك، 11 بُعد)
 13. الإحصائيات (أرقام دقيقة ونسب مئوية)
 
 ❌ لا تقل "تقريباً" - أعط أرقاماً دقيقة
@@ -798,7 +847,10 @@ class MandatoryProofSystem:
                     surah = v.get("surah")
                     ayah = v.get("ayah")
                     if surah and ayah and hasattr(self.system, 'quran_verses'):
-                        surah_data = self.system.quran_verses.get(int(surah), {})
+                        surah_num = resolve_surah_number(surah)
+                        if surah_num is None:
+                            continue
+                        surah_data = self.system.quran_verses.get(surah_num, {})
                         verse_text = surah_data.get('verses', {}).get(int(ayah), "")
                         if not verse_text:
                             verse_text = surah_data.get('verses', {}).get(str(ayah), "")
@@ -872,9 +924,10 @@ class MandatoryProofSystem:
             logging.info(f"[PROOF] {intent}: {len(quran_results)} verses from {len(all_terms)} extracted entities")
         
         elif intent == "SURAH_REF":
-            surah_num = route_result.get("surah")
+            surah_ref = route_result.get("surah")
+            surah_num = resolve_surah_number(surah_ref)
             if surah_num and hasattr(self.system, 'quran_verses'):
-                surah_data = self.system.quran_verses.get(int(surah_num), {})
+                surah_data = self.system.quran_verses.get(surah_num, {})
                 verses = surah_data.get('verses', {})
                 for ayah_num, verse_text in list(verses.items())[:top_k]:
                     quran_results.append({
@@ -885,13 +938,14 @@ class MandatoryProofSystem:
                         "relevance": 1.0,
                         "source": "surah_ref",
                     })
-                logging.info(f"[PROOF] SURAH_REF {surah_num}: {len(quran_results)} verses")
-        
+                logging.info(f"[PROOF] SURAH_REF {surah_ref}->{surah_num}: {len(quran_results)} verses")
+
         elif intent == "AYAH_REF":
-            surah_num = route_result.get("surah")
+            surah_ref = route_result.get("surah")
+            surah_num = resolve_surah_number(surah_ref)
             ayah_num = route_result.get("ayah")
             if surah_num and ayah_num and hasattr(self.system, 'quran_verses'):
-                surah_data = self.system.quran_verses.get(int(surah_num), {})
+                surah_data = self.system.quran_verses.get(surah_num, {})
                 verse_text = surah_data.get('verses', {}).get(int(ayah_num), "")
                 if not verse_text:
                     verse_text = surah_data.get('verses', {}).get(str(ayah_num), "")
@@ -904,9 +958,19 @@ class MandatoryProofSystem:
                         "relevance": 1.0,
                         "source": "ayah_ref",
                     })
-                logging.info(f"[PROOF] AYAH_REF {surah_num}:{ayah_num}: {len(quran_results)} verses")
+                logging.info(f"[PROOF] AYAH_REF {surah_ref}->{surah_num}:{ayah_num}: {len(quran_results)} verses")
         
-        # FREE_TEXT returns empty - caller should use RAG
+        # Check if concept was extracted for analytical question_class (even with FREE_TEXT intent)
+        # This handles cases like "حلل سلوك الصبر" where intent=FREE_TEXT but question_class=behavior_profile_11axis
+        question_class = route_result.get("question_class", "free_text")
+        concept_term = route_result.get("concept")
+
+        if not quran_results and concept_term and question_class != "free_text":
+            concept_verses = get_verses_from_concept(concept_term)
+            quran_results.extend(concept_verses)
+            logging.info(f"[PROOF] Analytical question_class={question_class} with concept='{concept_term}': {len(quran_results)} verses from concept index")
+
+        # FREE_TEXT without concept returns empty - caller should use RAG
         return quran_results
     
     def answer_with_full_proof(self, question: str, proof_only: bool = False) -> Dict[str, Any]:
@@ -939,15 +1003,26 @@ class MandatoryProofSystem:
             "HEART_STATE", "AGENT_ANALYSIS", "TEMPORAL_SPATIAL", "CONSEQUENCE_ANALYSIS",
             "EMBEDDINGS_ANALYSIS", "INTEGRATION_E2E",
         }
-        
+
+        # Analytical question classes that should also trigger LegendaryPlanner
+        # (even when intent is FREE_TEXT)
+        analytical_question_classes = {
+            "behavior_profile_11axis", "causal_chain", "cross_tafsir",
+            "graph_metrics", "heart_state_analysis", "agent_behavior",
+            "temporal_spatial", "consequence_analysis",
+        }
+
+        question_class = route_result.get("question_class", "free_text")
+
         planner_results = None
         planner_debug = None
-        if intent in benchmark_intents:
+        if intent in benchmark_intents or question_class in analytical_question_classes:
             from src.ml.legendary_planner import get_legendary_planner
             planner = get_legendary_planner()
             planner_results, planner_debug = planner.query(question)
             debug.retrieval_mode = "legendary_planner"
-            logging.info(f"[PROOF] Using LegendaryPlanner for {intent}")
+            trigger_reason = f"intent={intent}" if intent in benchmark_intents else f"question_class={question_class}"
+            logging.info(f"[PROOF] Using LegendaryPlanner ({trigger_reason})")
         
         # Phase 10.2: Get deterministic Quran evidence for structured queries
         quran_results = self._get_deterministic_quran_evidence(route_result, top_k=20)
@@ -958,15 +1033,16 @@ class MandatoryProofSystem:
                 for vk in ev.get("verse_keys", []):
                     parts = vk.split(":")
                     if len(parts) == 2:
-                        surah_num, ayah_num = parts
+                        surah_ref, ayah_ref = parts
+                        surah_num = resolve_surah_number(surah_ref)
                         # Get verse text
-                        if hasattr(self.system, 'quran_verses'):
-                            surah_data = self.system.quran_verses.get(int(surah_num), {})
-                            verse_text = surah_data.get('verses', {}).get(int(ayah_num), "")
+                        if surah_num and hasattr(self.system, 'quran_verses'):
+                            surah_data = self.system.quran_verses.get(surah_num, {})
+                            verse_text = surah_data.get('verses', {}).get(int(ayah_ref), "")
                             if verse_text:
                                 quran_results.append({
-                                    "surah": surah_num,
-                                    "ayah": ayah_num,
+                                    "surah": str(surah_num),
+                                    "ayah": ayah_ref,
                                     "verse_key": vk,
                                     "text": verse_text,
                                     "relevance": 1.0,
@@ -1152,12 +1228,17 @@ class MandatoryProofSystem:
         # First: try to get nodes from behavior_results
         if self.system.graph:
             for b in behavior_results[:10]:
-                behavior = b.get("behavior_ar", b.get("behavior", ""))
-                if behavior:
+                behavior_ar = b.get("behavior_ar", b.get("behavior", ""))
+                behavior_en = b.get("behavior_en", b.get("behavior_name", behavior_ar))
+                if behavior_ar:
                     graph_nodes.append({
                         "type": "behavior",
-                        "name": behavior,
                         "id": f"BHV_{len(graph_nodes)}",
+                        "label": behavior_en,       # English label (or Arabic fallback)
+                        "labelAr": behavior_ar,     # Arabic label
+                        "label_ar": behavior_ar,    # Alias for compatibility
+                        "label_en": behavior_en,    # Alias for compatibility
+                        "name": behavior_ar,        # Keep for backward compatibility
                     })
             
             # Get REAL edges from graph - NO SYNTHETIC EDGES

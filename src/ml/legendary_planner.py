@@ -29,9 +29,10 @@ import time
 logger = logging.getLogger(__name__)
 
 # Data paths
+# Phase 9: Updated to use validated v3 data
 CANONICAL_ENTITIES_FILE = Path("vocab/canonical_entities.json")
-CONCEPT_INDEX_FILE = Path("data/evidence/concept_index_v2.jsonl")
-SEMANTIC_GRAPH_FILE = Path("data/graph/semantic_graph_v2.json")
+CONCEPT_INDEX_FILE = Path("data/evidence/concept_index_v3.jsonl")
+SEMANTIC_GRAPH_FILE = Path("data/graph/graph_v3.json")
 COOCCURRENCE_GRAPH_FILE = Path("data/graph/cooccurrence_graph_v1.json")
 TAFSIR_SOURCES_FILE = Path("vocab/tafsir_sources.json")
 
