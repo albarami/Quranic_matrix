@@ -16,6 +16,7 @@ import {
   Database,
   ClipboardCheck,
   Book,
+  Edit3,
 } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -26,6 +27,7 @@ const navItems = [
   { href: "/proof", labelKey: "nav.proof", icon: FileCheck },
   { href: "/explorer", labelKey: "nav.explorer", icon: Globe },
   { href: "/synonyms", labelKey: "nav.synonyms", icon: Book },
+  { href: "/annotate", labelKey: "nav.annotate", icon: Edit3 },
   { href: "/genome", labelKey: "nav.genome", icon: Database },
   { href: "/reviews", labelKey: "nav.reviews", icon: ClipboardCheck },
   { href: "/discovery", labelKey: "nav.discovery", icon: Search },
