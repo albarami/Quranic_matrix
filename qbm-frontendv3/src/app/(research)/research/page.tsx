@@ -1,19 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { motion } from "framer-motion";
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import {
   Brain,
   BookOpen,
   BarChart3,
   GitCompare,
-  Sparkles,
   MessageSquare,
-  Lightbulb,
-  ArrowRight,
   Zap,
   Search,
   Send,
@@ -24,13 +19,11 @@ import {
   Layers,
   ExternalLink,
   Database,
-  AlertCircle,
   CheckCircle,
-  Shield,
 } from "lucide-react";
 import { useLanguage } from "../../contexts/LanguageContext";
-
-const BACKEND_URL = process.env.NEXT_PUBLIC_QBM_BACKEND_URL || "http://localhost:8000";
+import { useQBMQuery, useMetrics } from "@/lib/api/hooks";
+import type { MetricsResponse } from "@/lib/api/types";
 
 // Detect if query is asking for statistics/metrics (agent distribution, pie chart, etc.)
 function isMetricIntentQuery(text: string): boolean {
@@ -47,31 +40,6 @@ function isMetricIntentQuery(text: string): boolean {
   ];
   return patterns.some(p => p.test(text));
 }
-
-// Fetch deterministic metrics from backend truth layer
-async function fetchTruthMetrics(): Promise<any | null> {
-  try {
-    const res = await fetch(`${BACKEND_URL}/api/metrics/overview`);
-    if (!res.ok) return null;
-    const data = await res.json();
-    if (data.status !== "ready") return null;
-    return data;
-  } catch (e) {
-    console.error("Failed to fetch truth metrics:", e);
-    return null;
-  }
-}
-
-// Color palette for charts
-const COLORS = {
-  ibn_kathir: '#10b981',
-  tabari: '#3b82f6',
-  qurtubi: '#8b5cf6',
-  saadi: '#f59e0b',
-  jalalayn: '#ef4444',
-  quran: '#059669',
-  graph: '#6366f1',
-};
 
 // Predefined example queries organized by category
 const EXAMPLE_QUERIES = [
@@ -181,25 +149,23 @@ const PLANNER_NAMES: Record<string, { en: string; ar: string }> = {
 };
 
 export default function ResearchPage() {
-  const { t, isRTL, language } = useLanguage();
+  const { isRTL, language } = useLanguage();
   const [query, setQuery] = useState('');
-  const [result, setResult] = useState<ProofResult | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(['answer']));
   const [activeTafsir, setActiveTafsir] = useState('ibn_kathir');
   const [expandedVerses, setExpandedVerses] = useState<Set<number>>(new Set());
-  const [chatHistory, setChatHistory] = useState<Array<{role: 'user' | 'assistant', content: string, result?: ProofResult, metricsData?: any}>>([]);
+  const [chatHistory, setChatHistory] = useState<Array<{role: 'user' | 'assistant', content: string, result?: ProofResult, metricsData?: MetricsResponse}>>([]);
+
+  // API hooks
+  const qbmQuery = useQBMQuery();
+  const { refetch: refetchMetrics } = useMetrics({ enabled: false });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!query.trim()) return;
+    if (!query.trim() || qbmQuery.isPending) return;
 
     const userQuery = query;
     setQuery('');
-    setLoading(true);
-    setError(null);
-    
+
     // Add user message to chat
     setChatHistory(prev => [...prev, { role: 'user', content: userQuery }]);
 
@@ -207,56 +173,31 @@ export default function ResearchPage() {
       // CRITICAL: For metric-intent queries, fetch from deterministic truth layer
       // Do NOT send to LLM - numbers must come from /api/metrics/overview only
       if (isMetricIntentQuery(userQuery)) {
-        const metricsData = await fetchTruthMetrics();
-        if (metricsData) {
+        const { data: freshMetrics } = await refetchMetrics();
+        if (freshMetrics && freshMetrics.status === "ready") {
           // Return deterministic metrics - NO LLM involved
-          setChatHistory(prev => [...prev, { 
-            role: 'assistant', 
+          setChatHistory(prev => [...prev, {
+            role: 'assistant',
             content: '', // Content is empty - we render MetricsPanel instead
-            metricsData: metricsData 
+            metricsData: freshMetrics
           }]);
-          setLoading(false);
           return;
         }
         // If metrics unavailable, fall through to regular query with warning
       }
 
-      // Non-metric queries go to proof system
-      const response = await fetch(`${BACKEND_URL}/api/proof/query`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: userQuery, include_proof: true }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Backend error: ${response.status}`);
-      }
-
-      const data = await response.json();
-      setResult(data);
+      // Non-metric queries go to proof system via useQBMQuery mutation
+      const data = await qbmQuery.mutateAsync({ question: userQuery, includeProof: true });
       // Add assistant response to chat
-      setChatHistory(prev => [...prev, { role: 'assistant', content: data.answer, result: data }]);
+      setChatHistory(prev => [...prev, { role: 'assistant', content: data.answer, result: data as unknown as ProofResult }]);
     } catch (err: any) {
-      setError(err.message || 'Failed to get response');
-      setChatHistory(prev => [...prev, { role: 'assistant', content: `Error: ${err.message}` }]);
-    } finally {
-      setLoading(false);
+      setChatHistory(prev => [...prev, { role: 'assistant', content: `Error: ${err.message || 'Failed to get response'}` }]);
     }
   };
 
   const handleExampleClick = (exampleQuery: { ar: string; en: string }) => {
     const queryText = language === 'ar' ? exampleQuery.ar : exampleQuery.en;
     setQuery(queryText);
-  };
-
-  const toggleSection = (section: string) => {
-    const newExpanded = new Set(expandedSections);
-    if (newExpanded.has(section)) {
-      newExpanded.delete(section);
-    } else {
-      newExpanded.add(section);
-    }
-    setExpandedSections(newExpanded);
   };
 
   return (
@@ -714,7 +655,7 @@ export default function ResearchPage() {
           ))}
 
           {/* Loading */}
-          {loading && (
+          {qbmQuery.isPending && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -743,10 +684,10 @@ export default function ResearchPage() {
             />
             <button
               type="submit"
-              disabled={loading || !query.trim()}
+              disabled={qbmQuery.isPending || !query.trim()}
               className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white rounded-lg font-bold hover:from-emerald-700 hover:to-emerald-800 disabled:opacity-50 disabled:cursor-not-allowed transition flex items-center gap-2"
             >
-              {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
+              {qbmQuery.isPending ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
               {language === 'ar' ? 'إرسال' : 'Send'}
             </button>
           </div>

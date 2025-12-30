@@ -23,6 +23,7 @@ import type {
   SearchParams,
   SearchResponse,
   SurahMetadata,
+  MetricsResponse,
 } from "./types";
 
 // ============================================================================
@@ -32,6 +33,7 @@ import type {
 
 export const queryKeys = {
   stats: ["stats"] as const,
+  metrics: ["metrics"] as const,
   graph: ["graph"] as const,
   graphSubset: (nodeIds: string[], depth: number) =>
     ["graph", "subset", nodeIds.join(","), depth] as const,
@@ -59,6 +61,17 @@ export function useStats(
   return useQuery({
     queryKey: queryKeys.stats,
     queryFn: () => qbmClient.getStats(),
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    ...options,
+  });
+}
+
+export function useMetrics(
+  options?: Omit<UseQueryOptions<MetricsResponse>, "queryKey" | "queryFn">
+) {
+  return useQuery({
+    queryKey: queryKeys.metrics,
+    queryFn: () => qbmClient.getMetrics(),
     staleTime: 5 * 60 * 1000, // 5 minutes
     ...options,
   });

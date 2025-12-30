@@ -14,6 +14,7 @@ import type {
   SearchResponse,
   SimilarityResponse,
   SurahMetadata,
+  MetricsResponse,
 } from "./types";
 
 const QBM_BACKEND_URL =
@@ -84,6 +85,10 @@ export class QBMClient {
 
   async getStats(): Promise<StatsResponse> {
     return this.fetch<StatsResponse>("/api/stats");
+  }
+
+  async getMetrics(): Promise<MetricsResponse> {
+    return this.fetch<MetricsResponse>("/api/metrics/overview");
   }
 
   // =========================================================================

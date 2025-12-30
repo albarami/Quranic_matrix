@@ -353,3 +353,31 @@ export interface StatsResponse {
   synonyms_count: number;
   benchmark_score: string;  // "200/200"
 }
+
+// ============================================================================
+// METRICS TYPES (Truth Layer)
+// ============================================================================
+
+export interface MetricsResponse {
+  status: "ready" | "pending" | "error";
+  metrics: {
+    totals: {
+      spans: number;
+      unique_verse_keys: number;
+      tafsir_sources_count: number;
+    };
+    agent_distribution: {
+      items: AgentDistributionItem[];
+    };
+  };
+  source_files: string[];
+  build_version: string;
+}
+
+export interface AgentDistributionItem {
+  key: string;
+  label_ar: string;
+  label_en: string;
+  count: number;
+  percentage: number;
+}
