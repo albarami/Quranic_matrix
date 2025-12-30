@@ -1,6 +1,32 @@
 {
-  "version": "1.0",
-  "built_at": "2025-12-30T18:34:13.594952Z",
+  "version": "2.0",
+  "built_at": "2025-12-30T20:30:39.106813Z",
+  "git_commit": "e59d5f021b23d884cdb60d55b8dd0995b315282c",
+  "build_args": {
+    "full": true,
+    "seed": 42,
+    "device": "cuda",
+    "skip_embeddings": true
+  },
+  "input_hashes": {
+    "data\\quran\\uthmani_hafs_v1.tok_v1.json": "78e19cfcc3d4497864fee137319bfdade5b2824cb182fc0edeea6cf8a3ae7ebf",
+    "data\\evidence\\concept_index_v3.jsonl": "2dd368461d75b13c401a67b0bf1881ceaa3de16b2e8791960e81170a0d3bc8e0",
+    "vocab\\canonical_entities.json": "8f9fffba0c80b2866abda096a0d2e7f3015885c56a34c75402fea8767d20e8c4"
+  },
+  "output_hashes": {
+    "data\\kb\\verses.jsonl": "1319c0d1b61b03b76119fcee2da133094fbcb4835e262555a60107561f1030cd",
+    "data\\kb\\tafsir_entries.jsonl": "ab8f035087bccbf9fa31375fc6bf5dccb46383c9823e92163cbcee52307bed32",
+    "data\\kb\\behaviors.jsonl": "758b89e90583dd2e64c4017d55be48e3bcb12a5e19892a5453c98ba7d5787f25",
+    "data\\kb\\behavior_verse_links.jsonl": "d70089a7a7e9c59df64d87e8fbd3f995c8ed44809f2c64cb83cf700410246fad",
+    "data\\kb\\behavior_dossiers.jsonl": "e143cca571da36bbe75cb005ccb2501d5bf95d05b4a725deb1afadbb77cfe5ed"
+  },
+  "record_counts": {
+    "verses.jsonl": 6236,
+    "tafsir_entries.jsonl": 43652,
+    "behaviors.jsonl": 73,
+    "behavior_verse_links.jsonl": 8078,
+    "behavior_dossiers.jsonl": 73
+  },
   "counts": {
     "verses": 6236,
     "tafsir_entries": 43652,

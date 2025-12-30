@@ -627,18 +627,20 @@ DISALLOW_PATTERNS = [
 
 **Commit**: `feat(graph): Phase 2 - graph projection + behavior_verse_links + integrity tests`
 
-### Phase 3: Precomputed Knowledge Base Build
+### Phase 3: Precomputed Knowledge Base Build ✅
 
 **Deliverables**:
-- [ ] `scripts/build_kb.py` (extend existing)
-- [ ] `data/kb/behavior_dossiers.jsonl`
-- [ ] `artifacts/kb_manifest.json` with SHA256 hashes
+- [x] `scripts/build_kb.py` - enhanced with SHA256 manifest generation (v2.0)
+- [x] `data/kb/behavior_dossiers.jsonl` - 73 dossiers with verses, tafsir, relations
+- [x] `data/kb/manifest.json` with SHA256 hashes (input + output files)
 
-**Tests**:
-- [ ] `test_kb_build_reproducible`: same inputs → same hashes
-- [ ] `test_patience_anchor`: الصبر returns expected anchors
+**Tests** (23 passing in `tests/test_kb_phase3.py`):
+- [x] `test_kb_build_reproducible`: manifest v2.0, input/output hashes, git commit
+- [x] `test_patience_anchor`: الصبر dossier exists with key verses (2:45, 2:153, 3:200, 103:3)
+- [x] `test_dossier_completeness`: all 73 dossiers have required fields
+- [x] `test_kb_file_integrity`: 6236 verses, 73 behaviors, valid JSONL
 
-**Commit**: `feat(kb): offline KB build + manifest + reproducibility tests`
+**Commit**: `feat(kb): Phase 3 - KB build with SHA256 manifest + reproducibility tests`
 
 ### Phase 4: Capability Engines
 
