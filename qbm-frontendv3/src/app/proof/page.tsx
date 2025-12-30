@@ -1,8 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { CheckCircle, Shield, Zap, Search } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { ExportButtons, CitationPreview } from '../components/export';
+import { ProofExportData } from '@/lib/export-utils';
 
 // Complete 11-Axis Bouzidani Framework
 const BOUZIDANI_11_AXES = [
@@ -80,6 +82,44 @@ export default function ProofPage() {
   const [activeTafsir, setActiveTafsir] = useState('ibn_kathir');
   const [showAllQuran, setShowAllQuran] = useState(false);
   const [showAllTafsir, setShowAllTafsir] = useState(false);
+
+  // Prepare export data from result
+  const exportData: ProofExportData | undefined = useMemo(() => {
+    if (!result) return undefined;
+
+    const firstQuranVerse = result.proof.quran?.[0];
+    const primaryBehavior = result.proof.taxonomy?.behaviors?.[0];
+
+    return {
+      query: result.question,
+      timestamp: new Date().toISOString(),
+      surah: firstQuranVerse ? parseInt(firstQuranVerse.surah) : 1,
+      ayah: firstQuranVerse ? parseInt(firstQuranVerse.ayah) : 1,
+      behavior: {
+        id: primaryBehavior?.id || 'behavior_unknown',
+        ar: primaryBehavior?.name || primaryBehavior || 'غير محدد',
+        en: primaryBehavior?.name_en || primaryBehavior || 'Unknown',
+      },
+      agent: undefined,
+      organ: undefined,
+      axes11: Object.fromEntries(
+        BOUZIDANI_11_AXES.map(axis => [
+          axis.en,
+          result.proof.taxonomy?.dimensions?.[axis.en.toLowerCase()] ||
+          result.proof.taxonomy?.dimensions?.[axis.ar] || '—'
+        ])
+      ),
+      tafsirSources: ['Ibn Kathir', 'Tabari', 'Qurtubi', 'Saadi', 'Jalalayn', 'Baghawi', 'Muyassar'],
+      graphContext: {
+        connectedNodes: result.proof.graph?.nodes?.length || 0,
+        edgeTypes: result.proof.graph?.edges?.map((e: any) => e.type).filter((v: string, i: number, a: string[]) => a.indexOf(v) === i) || [],
+      },
+      validation: {
+        score: result.validation.score,
+        benchmark: '200/200 QBM Benchmark',
+      },
+    };
+  }, [result]);
 
   const toggleSection = (section: string) => {
     const newExpanded = new Set(expandedSections);
@@ -336,6 +376,14 @@ export default function ProofPage() {
                   ))}
                 </div>
               </div>
+
+              {/* Export Buttons */}
+              <div className="mt-4 pt-4 border-t border-emerald-100 flex items-center justify-between no-print">
+                <span className="text-sm text-gray-500">
+                  {isRTL ? 'تصدير النتائج:' : 'Export results:'}
+                </span>
+                <ExportButtons proofData={exportData} disabled={!result} />
+              </div>
             </div>
 
             {/* Planner Selection & Entity Resolution */}
@@ -558,6 +606,21 @@ export default function ProofPage() {
                 </div>
               )}
             </CollapsibleSection>
+
+            {/* Citation Preview */}
+            {exportData && (
+              <div className="mt-8 no-print">
+                <h3 className="text-xl font-bold text-gray-700 mb-4 flex items-center gap-2">
+                  📑 {isRTL ? 'اقتبس هذا البحث' : 'Cite This Research'}
+                </h3>
+                <CitationPreview
+                  surah={exportData.surah}
+                  ayah={exportData.ayah}
+                  behavior={exportData.behavior}
+                  validationScore={exportData.validation.score}
+                />
+              </div>
+            )}
           </div>
         )}
 

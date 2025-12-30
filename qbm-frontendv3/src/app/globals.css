@@ -436,3 +436,197 @@ html[dir="rtl"] .lucide-chevron-right {
 html[dir="rtl"] .lucide-arrow-right {
   transform: scaleX(-1);
 }
+
+/* ============================================
+   PRINT STYLES FOR PDF EXPORT
+   ============================================ */
+
+@media print {
+  /* Hide non-essential elements */
+  nav,
+  .no-print,
+  button:not(.print-visible),
+  .mobile-menu,
+  footer,
+  .search-form,
+  .export-buttons {
+    display: none !important;
+  }
+
+  /* Page setup */
+  @page {
+    size: A4;
+    margin: 2cm;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #000;
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Proof container styling */
+  .proof-container {
+    page-break-inside: avoid;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Section headers */
+  .proof-section-title {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #065f46;
+    border-bottom: 2px solid #065f46;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    page-break-after: avoid;
+  }
+
+  /* Quran text */
+  .quran-text {
+    font-size: 16pt;
+    line-height: 2;
+    direction: rtl;
+    text-align: right;
+    page-break-inside: avoid;
+  }
+
+  /* Arabic font preservation */
+  .font-arabic,
+  .quran-text,
+  [dir="rtl"] {
+    font-family: 'Amiri', 'Scheherazade New', serif !important;
+  }
+
+  /* Tables for structured data */
+  .print-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+  }
+
+  .print-table th,
+  .print-table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: right;
+  }
+
+  .print-table th {
+    background: #f5f5f5;
+    font-weight: bold;
+  }
+
+  /* Validation badge */
+  .validation-badge {
+    border: 2px solid #065f46;
+    padding: 1rem;
+    text-align: center;
+    page-break-inside: avoid;
+  }
+
+  .validation-score {
+    font-size: 24pt;
+    font-weight: bold;
+    color: #065f46;
+  }
+
+  /* Citation box */
+  .citation-box {
+    background: #f9fafb !important;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    font-family: monospace;
+    font-size: 10pt;
+    white-space: pre-wrap;
+    page-break-inside: avoid;
+  }
+
+  /* Force page breaks */
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  .page-break-after {
+    page-break-after: always;
+  }
+
+  /* Keep items together */
+  .keep-together {
+    page-break-inside: avoid;
+  }
+
+  /* Links */
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+  }
+
+  /* QBM Header for print */
+  .print-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #065f46;
+    padding-bottom: 1rem;
+  }
+
+  .print-header h1 {
+    font-size: 20pt;
+    color: #065f46;
+    margin: 0;
+  }
+
+  .print-header p {
+    font-size: 10pt;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+
+  /* Footer for print */
+  .print-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 9pt;
+    color: #666;
+    border-top: 1px solid #ccc;
+    padding-top: 0.5rem;
+  }
+
+  /* Collapsible sections should be expanded */
+  .collapsible-content {
+    display: block !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Remove shadows and gradients */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Background colors that should print */
+  .bg-emerald-50,
+  .bg-emerald-100 {
+    background-color: #ecfdf5 !important;
+  }
+
+  .bg-amber-50,
+  .bg-amber-100 {
+    background-color: #fffbeb !important;
+  }
+}
