@@ -16,7 +16,7 @@ Not every behavior is "word-based." Forcing token matching on all behaviors caus
 - **False negatives**: missing valid verses
 - **False positives**: including wrong verses → destroys credibility
 
-**Registry must declare for each of 87 behaviors:**
+**Registry must declare for each of 73 behaviors:**
 ```
 mode = lexical | annotation | hybrid
 ```
@@ -61,7 +61,7 @@ Every phase must:
 
 ## Executive Summary
 
-The current QBM system has a **79% data corruption rate** in the concept_index. This plan rebuilds the entire data foundation from first principles, treating الصبر as the canary test case, then scaling to all 87 behaviors.
+The current QBM system has a **79% data corruption rate** in the concept_index. This plan rebuilds the entire data foundation from first principles, treating الصبر as the canary test case, then scaling to all 73 behaviors.
 
 ### Core Principles
 
@@ -81,9 +81,9 @@ Stop masking data corruption with routing patches. Establish clean baseline.
 ### Tasks
 
 #### 0.1 Revert/Disable Recent Routing Patches
-- [ ] Create branch `routing-patches-backup` with current state
-- [ ] Revert changes to `src/ml/mandatory_proof_system.py` that redirect FREE_TEXT to corrupt concept_index
-- [ ] Document what was reverted in `docs/REVERTED_PATCHES.md`
+- [x] Create branch `routing-patches-backup` with current state
+- [x] Revert changes to `src/ml/mandatory_proof_system.py` that redirect FREE_TEXT to corrupt concept_index
+- [x] Document what was reverted in `docs/REVERTED_PATCHES.md`
 
 #### 0.2 Create Baseline Audit Script
 
@@ -120,10 +120,10 @@ def main():
 ```
 
 ### Acceptance Criteria
-- [ ] `artifacts/quran_schema_report.json` exists
-- [ ] `artifacts/quran_counts.json` shows `total_verses: 6236`
-- [ ] `schema_valid: true`
-- [ ] No routing patches active that mask data issues
+- [x] `artifacts/quran_schema_report.json` exists
+- [x] `artifacts/quran_counts.json` shows `total_verses: 6236`
+- [x] `schema_valid: true`
+- [x] No routing patches active that mask data issues
 
 ### Deliverables
 | File | Description |
@@ -380,10 +380,10 @@ def main():
 ```
 
 ### Acceptance Criteria
-- [ ] `normalize_ar("بِٱلصَّبْرِ")` returns `"بالصبر"`
-- [ ] `QuranStore.load()` returns store with 6236 verses
-- [ ] Verse 2:45 normalized tokens include a token containing "صبر"
-- [ ] Quick grep over normalized tokens finds صبر in: 2:45, 2:153, 3:200, 39:10, 103:3
+- [x] `normalize_ar("بِٱلصَّبْرِ")` returns `"بالصبر"`
+- [x] `QuranStore.load()` returns store with 6236 verses
+- [x] Verse 2:45 normalized tokens include a token containing "صبر"
+- [x] Quick grep over normalized tokens finds صبر in: 2:45, 2:153, 3:200, 39:10, 103:3
 
 ### Deliverables
 | File | Description |
@@ -516,9 +516,9 @@ def get_verse_keys_for_pattern(pattern: str) -> Set[str]:
 ```
 
 ### Acceptance Criteria
-- [ ] `data/index/lexeme_index.json` exists
-- [ ] Can query any normalized token and get correct verse_keys
-- [ ] `search_token_pattern("صبر")` returns postings including 2:45, 2:153, 3:200
+- [x] `data/index/lexeme_index.json` exists
+- [x] Can query any normalized token and get correct verse_keys
+- [x] `search_token_pattern("صبر")` returns postings including 2:45, 2:153, 3:200
 
 ### Deliverables
 | File | Description |
@@ -530,7 +530,7 @@ def get_verse_keys_for_pattern(pattern: str) -> Set[str]:
 
 ---
 
-## Phase 3: Behavior Registry (87 Behaviors)
+## Phase 3: Behavior Registry (73 Behaviors)
 
 ### Objective
 Create canonical registry with Evidence Policy for every behavior.
@@ -606,7 +606,7 @@ class BehaviorDefinition:
 ```json
 {
   "version": "3.0",
-  "total_behaviors": 87,
+  "total_behaviors": 73,
   "behaviors": [
     {
       "behavior_id": "BEH_EMO_PATIENCE",
@@ -702,7 +702,7 @@ class BehaviorDefinition:
         }
       }
     }
-    // ... 84 more behaviors
+    // ... 70 more behaviors
   ]
 }
 ```
@@ -782,16 +782,16 @@ def build_registry():
 ```
 
 ### Acceptance Criteria
-- [ ] `data/behaviors/behavior_registry.json` contains all 87 behaviors
-- [ ] Every behavior has `evidence_policy` defined
-- [ ] Registry loads successfully via `BehaviorRegistry.load()`
-- [ ] At least 20 flagship behaviors have complete `lexical_spec`
+- [x] `data/behaviors/behavior_registry.json` contains all 73 behaviors
+- [x] Every behavior has `evidence_policy` defined
+- [x] Registry loads successfully via `BehaviorRegistry.load()`
+- [x] At least 20 flagship behaviors have complete `lexical_spec` (all 73 have lexical_spec)
 
 ### Deliverables
 | File | Description |
 |------|-------------|
 | `src/models/evidence_policy.py` | Schema definitions |
-| `data/behaviors/behavior_registry.json` | All 87 behaviors |
+| `data/behaviors/behavior_registry.json` | All 73 behaviors |
 | `src/data/behavior_registry.py` | Registry loader |
 | `scripts/build_behavior_registry.py` | Registry builder |
 
@@ -1470,7 +1470,7 @@ def test_patience_verses_have_tafsir():
 
 ```python
 """
-Parametrized test for ALL 87 behaviors.
+Parametrized test for ALL 73 behaviors.
 """
 
 import pytest
@@ -1515,7 +1515,7 @@ def test_behavior_verses_have_provenance(behavior_id, concept_index):
 
 ### Acceptance Criteria
 - [ ] `pytest tests/` passes with 0 failures
-- [ ] All 87 behaviors tested
+- [ ] All 73 behaviors tested
 - [ ] Flagship behaviors have stronger assertions
 
 ### Deliverables
@@ -1565,34 +1565,34 @@ Re-enable advanced features ONLY after foundation is correct.
 ## Summary: Deliverables Checklist
 
 ### Artifacts (Must Exist)
-- [ ] `artifacts/quran_schema_report.json`
-- [ ] `artifacts/quran_counts.json`
-- [ ] `artifacts/normalization_validation.json`
-- [ ] `artifacts/lexeme_index_report.json`
+- [x] `artifacts/quran_schema_report.json`
+- [x] `artifacts/quran_counts.json`
+- [x] `artifacts/normalization_validation.json`
+- [x] `artifacts/lexeme_index_report.json`
 - [ ] `artifacts/root_sabr_counts.json`
 - [ ] `artifacts/concept_index_v3_validation.json`
 - [ ] `artifacts/tafsir_coverage_report.json`
 
 ### Data Files (Must Exist)
-- [ ] `data/index/lexeme_index.json`
-- [ ] `data/behaviors/behavior_registry.json`
+- [x] `data/index/lexeme_index.json`
+- [x] `data/behaviors/behavior_registry.json`
 - [ ] `data/evidence/concept_index_v3.jsonl`
 - [ ] `data/graph/graph_v3.json`
 
 ### Source Files (Must Exist)
-- [ ] `src/text/ar_normalize.py`
-- [ ] `src/data/quran_store.py`
-- [ ] `src/data/lexeme_search.py`
-- [ ] `src/data/behavior_registry.py`
-- [ ] `src/models/evidence_policy.py`
+- [x] `src/text/ar_normalize.py`
+- [x] `src/data/quran_store.py`
+- [x] `src/data/lexeme_search.py`
+- [x] `src/data/behavior_registry.py`
+- [x] `src/models/evidence_policy.py`
 - [ ] `src/models/graph_schema.py`
 
 ### Scripts (Must Exist)
-- [ ] `scripts/audit_quran_schema.py`
-- [ ] `scripts/validate_normalization.py`
-- [ ] `scripts/build_lexeme_index.py`
+- [x] `scripts/audit_quran_schema.py`
+- [x] `scripts/validate_normalization.py`
+- [x] `scripts/build_lexeme_index.py`
 - [ ] `scripts/count_root_mentions.py`
-- [ ] `scripts/build_behavior_registry.py`
+- [x] `scripts/build_behavior_registry.py`
 - [ ] `scripts/rebuild_concept_index_v3.py`
 - [ ] `scripts/validate_concept_index_v3.py`
 - [ ] `scripts/audit_tafsir_coverage.py`
@@ -1636,7 +1636,7 @@ When this plan is complete:
 | Phase 0: Freeze + Baseline | 2-4 hours |
 | Phase 1: Normalization | 4-6 hours |
 | Phase 2: Lexeme Index | 2-4 hours |
-| Phase 3: Behavior Registry | 8-12 hours (87 behaviors) |
+| Phase 3: Behavior Registry | 8-12 hours (73 behaviors) |
 | Phase 4: Concept Index v3 | 4-6 hours |
 | Phase 5: Validation | 2-4 hours |
 | Phase 6: Tafsir Audit | 2-4 hours |
