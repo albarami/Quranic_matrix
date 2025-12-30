@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "@crayonai/react-ui/styles/index.css";
 import { Navigation } from "./components/Navigation";
-import { LanguageProvider } from "./contexts/LanguageContext";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "QBM - Quranic Behavioral Matrix",
@@ -32,10 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-gray-50 antialiased">
-        <LanguageProvider>
+        <Providers>
           <Navigation />
           {children}
-        </LanguageProvider>
+        </Providers>
       </body>
     </html>
   );
