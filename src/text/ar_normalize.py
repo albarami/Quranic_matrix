@@ -21,7 +21,39 @@ Version: 1.0.0
 import re
 from typing import List
 
-__version__ = "1.0.0"
+__version__ = "2.0.0"
+
+# ============================================================================
+# Normalization Profiles (Phase 1 Enterprise QBM Brain)
+# ============================================================================
+
+NORMALIZATION_PROFILES = {
+    'STRICT': {
+        # Used for evidence validation - safe transforms only
+        'remove_tashkeel': True,
+        'normalize_alef': True,
+        'normalize_yaa': True,
+        'remove_tatweel': True,
+        'normalize_taa_marbuta': False,  # RISKY - disabled
+        'normalize_hamza': True,         # Safe: ؤ→و, ئ→ي
+        'convert_superscript_alef': True,
+        'strip_quranic_marks': True,
+    },
+    'LOOSE': {
+        # Used ONLY for fallback discovery, NEVER for evidence validation
+        'remove_tashkeel': True,
+        'normalize_alef': True,
+        'normalize_yaa': True,
+        'remove_tatweel': True,
+        'normalize_taa_marbuta': True,   # ة → ه (fallback only)
+        'normalize_hamza': True,
+        'convert_superscript_alef': True,
+        'strip_quranic_marks': True,
+    }
+}
+
+# Default profile for backward compatibility
+DEFAULT_PROFILE = 'STRICT'
 
 # ============================================================================
 # Unicode Patterns for Arabic Text
@@ -161,7 +193,7 @@ def normalize_alif_maqsura(text: str) -> str:
 
 def normalize_ar(text: str, normalize_ta: bool = False) -> str:
     """
-    Full Arabic normalization pipeline.
+    Full Arabic normalization pipeline (backward compatible).
 
     Order matters - each step depends on previous:
     1. Strip Qur'anic marks first (they can interfere with other processing)
@@ -212,6 +244,73 @@ def normalize_ar(text: str, normalize_ta: bool = False) -> str:
         text = normalize_ta_marbuta(text)
 
     return text
+
+
+def normalize_with_profile(text: str, profile: str = 'STRICT') -> str:
+    """
+    Normalize Arabic text using a named profile.
+    
+    STRICT profile: Safe transforms only, used for evidence validation.
+    LOOSE profile: Aggressive transforms, used for fallback discovery only.
+    
+    Args:
+        text: Arabic text to normalize
+        profile: 'STRICT' or 'LOOSE' (default: 'STRICT')
+    
+    Returns:
+        Normalized Arabic text
+    
+    Example:
+        >>> normalize_with_profile("بِٱلصَّبْرِ", 'STRICT')
+        'بالصبر'
+        >>> normalize_with_profile("الرحمة", 'LOOSE')  # ة → ه
+        'الرحمه'
+    
+    IMPORTANT:
+        - Evidence validation MUST use STRICT profile
+        - LOOSE profile results must be re-validated before becoming evidence
+    """
+    if profile not in NORMALIZATION_PROFILES:
+        raise ValueError(f"Unknown profile: {profile}. Use 'STRICT' or 'LOOSE'.")
+    
+    config = NORMALIZATION_PROFILES[profile]
+    
+    # Apply transforms based on profile
+    if config.get('strip_quranic_marks', True):
+        text = strip_quranic_marks(text)
+    
+    if config.get('convert_superscript_alef', True):
+        text = convert_superscript_alef(text)
+    
+    if config.get('remove_tashkeel', True):
+        text = strip_diacritics(text)
+    
+    if config.get('normalize_alef', True):
+        text = normalize_alifs(text)
+    
+    if config.get('normalize_hamza', True):
+        text = normalize_hamza(text)
+    
+    if config.get('remove_tatweel', True):
+        text = remove_tatweel(text)
+    
+    if config.get('normalize_yaa', True):
+        text = normalize_alif_maqsura(text)
+    
+    if config.get('normalize_taa_marbuta', False):
+        text = normalize_ta_marbuta(text)
+    
+    return text
+
+
+def normalize_strict(text: str) -> str:
+    """Shorthand for STRICT profile normalization (evidence validation)."""
+    return normalize_with_profile(text, 'STRICT')
+
+
+def normalize_loose(text: str) -> str:
+    """Shorthand for LOOSE profile normalization (fallback discovery only)."""
+    return normalize_with_profile(text, 'LOOSE')
 
 
 def normalize_tokens(tokens: List[str], normalize_ta: bool = False) -> List[str]:
