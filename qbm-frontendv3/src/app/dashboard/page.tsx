@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, RadialBarChart, RadialBar, Legend } from "recharts";
+import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import {
   RefreshCw,
   Download,
-  Calendar,
   TrendingUp,
   BarChart3,
   Activity,
@@ -18,19 +17,9 @@ import {
   BookOpen,
 } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useDashboardStats, useRecentSpans } from "@/lib/api/hooks";
 
 const CHART_COLORS = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444', '#14b8a6', '#ec4899', '#6366f1'];
-
-const BACKEND_URL = process.env.NEXT_PUBLIC_QBM_BACKEND_URL || "http://localhost:8000";
-
-type SpanSummary = {
-  span_id?: string;
-  reference?: { surah?: number; ayah?: number; surah_name?: string };
-  behavior_form?: string;
-  agent?: { type?: string };
-  annotator?: string;
-  annotated_at?: string;
-};
 
 // Stats will be loaded from real backend
 interface QuickStat {
@@ -158,83 +147,61 @@ export default function DashboardPage() {
   const { t, isRTL, language } = useLanguage();
   const txt = DASHBOARD_TEXT[language as 'en' | 'ar'] || DASHBOARD_TEXT.en;
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
-  const [quickStats, setQuickStats] = useState<QuickStat[]>(DEFAULT_STATS);
-  const [backendStats, setBackendStats] = useState<any>(null);
-  const [recentSpans, setRecentSpans] = useState<SpanSummary[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
 
-  // Load real stats from backend on mount
-  useEffect(() => {
-    loadRealStats();
-  }, []);
+  // Load data via hooks
+  const { data: backendStats, isLoading: statsLoading, refetch: refetchStats } = useDashboardStats();
+  const { data: recentData, isLoading: spansLoading, refetch: refetchSpans } = useRecentSpans(5);
 
-  const loadRealStats = async () => {
-    try {
-      const [statsRes, recentRes] = await Promise.all([
-        fetch(`${BACKEND_URL}/stats`),
-        fetch(`${BACKEND_URL}/spans/recent?limit=5`),
-      ]);
+  const isLoading = statsLoading || spansLoading;
+  const recentSpans = recentData?.spans || [];
 
-      if (statsRes.ok) {
-        const data = await statsRes.json();
-        const totalAyat = data.total_ayat ?? data.unique_ayat ?? 0;
-        const uniqueAyat = data.unique_ayat ?? 0;
-        const coveragePct =
-          data.coverage_pct ??
-          (totalAyat ? Math.round((uniqueAyat / totalAyat) * 1000) / 10 : 0);
+  // Build quickStats from API data
+  const totalAyat = backendStats?.total_ayat ?? backendStats?.unique_ayat ?? 0;
+  const uniqueAyat = backendStats?.unique_ayat ?? 0;
+  const coveragePct = backendStats?.coverage_pct ?? (totalAyat ? Math.round((uniqueAyat / totalAyat) * 1000) / 10 : 0);
+  const coverageValue = totalAyat ? `${coveragePct}%` : "--";
+  const coverageSubtext = totalAyat
+    ? `${uniqueAyat.toLocaleString()} of ${totalAyat.toLocaleString()} ayat`
+    : `${uniqueAyat.toLocaleString()} ayat`;
 
-        const coverageValue = totalAyat ? `${coveragePct}%` : "--";
-        const coverageSubtext = totalAyat
-          ? `${uniqueAyat.toLocaleString()} of ${totalAyat.toLocaleString()} ayat`
-          : `${uniqueAyat.toLocaleString()} ayat`;
+  const quickStats: QuickStat[] = backendStats ? [
+    {
+      label: "quranCoverage",
+      value: coverageValue,
+      subtext: coverageSubtext,
+      icon: CheckCircle2,
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50",
+    },
+    {
+      label: "totalSpans",
+      value: (backendStats.total_spans || 0).toLocaleString(),
+      subtext: "behavioralAnnotations",
+      icon: Brain,
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
+    },
+    {
+      label: "uniqueSurahs",
+      value: (backendStats.unique_surahs || 0).toString(),
+      subtext: "withAnnotations",
+      icon: Activity,
+      color: "text-amber-600",
+      bgColor: "bg-amber-50",
+    },
+    {
+      label: "uniqueAyat",
+      value: (uniqueAyat || 0).toLocaleString(),
+      subtext: "annotatedVerses",
+      icon: TrendingUp,
+      color: "text-purple-600",
+      bgColor: "bg-purple-50",
+    },
+  ] : DEFAULT_STATS;
 
-        setQuickStats([
-          {
-            label: "quranCoverage",
-            value: coverageValue,
-            subtext: coverageSubtext,
-            icon: CheckCircle2,
-            color: "text-emerald-600",
-            bgColor: "bg-emerald-50",
-          },
-          {
-            label: "totalSpans",
-            value: (data.total_spans || 0).toLocaleString(),
-            subtext: "behavioralAnnotations",
-            icon: Brain,
-            color: "text-blue-600",
-            bgColor: "bg-blue-50",
-          },
-          {
-            label: "uniqueSurahs",
-            value: (data.unique_surahs || 0).toString(),
-            subtext: "withAnnotations",
-            icon: Activity,
-            color: "text-amber-600",
-            bgColor: "bg-amber-50",
-          },
-          {
-            label: "uniqueAyat",
-            value: (uniqueAyat || 0).toLocaleString(),
-            subtext: "annotatedVerses",
-            icon: TrendingUp,
-            color: "text-purple-600",
-            bgColor: "bg-purple-50",
-          },
-        ]);
-        setBackendStats(data);
-      }
-
-      if (recentRes.ok) {
-        const recentData = await recentRes.json();
-        setRecentSpans(recentData.spans || []);
-      }
-      setLastUpdated(new Date());
-    } catch (error) {
-      console.error("Failed to load stats:", error);
-    } finally {
-      setIsLoading(false);
-    }
+  const handleRefresh = async () => {
+    await Promise.all([refetchStats(), refetchSpans()]);
+    setLastUpdated(new Date());
   };
 
   // Prepare chart data from backend stats
@@ -265,11 +232,6 @@ export default function DashboardPage() {
       }))
     : [];
 
-  const coveragePct = backendStats
-    ? backendStats.coverage_pct ?? 
-      (backendStats.total_ayat ? Math.round((backendStats.unique_ayat / backendStats.total_ayat) * 100) : 0)
-    : 0;
-
   const tierLabel = backendStats?.dataset_tier
     ? String(backendStats.dataset_tier).toUpperCase()
     : "--";
@@ -297,7 +259,7 @@ export default function DashboardPage() {
                   </div>
                 )}
                 <button
-                  onClick={loadRealStats}
+                  onClick={handleRefresh}
                   disabled={isLoading}
                   className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 px-4 py-2 rounded-lg transition-colors"
                 >

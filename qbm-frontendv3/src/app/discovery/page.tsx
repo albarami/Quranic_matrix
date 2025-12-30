@@ -1,16 +1,15 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
-import { Search, Send, Loader2, BookOpen, Brain, Layers, TrendingUp, Network, GitBranch, Sparkles, BarChart3 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Search, Loader2, BookOpen, Brain, Layers, TrendingUp, Network, BarChart3 } from "lucide-react";
+import { motion } from "framer-motion";
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import dynamic from "next/dynamic";
+import { useDashboardStats, useQBMQuery } from "@/lib/api/hooks";
 
 // Dynamically import ForceGraph2D to avoid SSR issues
 const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), { ssr: false });
-
-const BACKEND_URL = process.env.NEXT_PUBLIC_QBM_BACKEND_URL || "http://localhost:8000";
 
 const COLORS = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444', '#14b8a6', '#ec4899', '#6366f1'];
 
@@ -84,13 +83,24 @@ export default function DiscoveryPage() {
   const queries = language === "ar" ? DISCOVERY_QUERIES.ar : DISCOVERY_QUERIES.en;
   const [searchQuery, setSearchQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [stats, setStats] = useState<Stats | null>(null);
   const [hasSearched, setHasSearched] = useState(false);
   const [graphData, setGraphData] = useState<GraphData | null>(null);
   const [activeView, setActiveView] = useState<'overview' | 'graph' | 'search'>('overview');
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
   const graphRef = useRef<any>(null);
+
+  // Load stats via hook
+  const { data: backendStats } = useDashboardStats();
+  const stats: Stats | null = backendStats ? {
+    totalSpans: backendStats.total_spans || 0,
+    uniqueAyat: backendStats.unique_ayat || 0,
+    behaviorForms: backendStats.behavior_forms || {},
+    agentTypes: backendStats.agent_types || {},
+  } : null;
+
+  // Query mutation for search
+  const searchMutation = useQBMQuery();
+  const loading = searchMutation.isPending;
 
   // Build graph data from stats
   const buildGraphFromStats = useCallback((statsData: Stats) => {
@@ -165,88 +175,62 @@ export default function DiscoveryPage() {
     setGraphData({ nodes, links });
   }, []);
 
-  // Load stats on mount and build graph
+  // Build graph when stats are loaded
   useEffect(() => {
-    const loadStats = async () => {
-      try {
-        const res = await fetch(`${BACKEND_URL}/stats`);
-        if (res.ok) {
-          const data = await res.json();
-          const statsData = {
-            totalSpans: data.total_spans || 0,
-            uniqueAyat: data.unique_ayat || 0,
-            behaviorForms: data.behavior_forms || {},
-            agentTypes: data.agent_types || {},
-          };
-          setStats(statsData);
-          buildGraphFromStats(statsData);
-        }
-      } catch (e) {
-        console.error("Failed to load stats:", e);
-      }
-    };
-    loadStats();
-  }, [buildGraphFromStats]);
+    if (stats) {
+      buildGraphFromStats(stats);
+    }
+  }, [stats, buildGraphFromStats]);
 
   // Handle node click
   const handleNodeClick = useCallback((node: any) => {
     setSelectedNode(node);
   }, []);
 
-  const handleSearch = async (query: string) => {
+  const handleSearch = (query: string) => {
     if (!query.trim()) return;
-    
-    setLoading(true);
+
     setHasSearched(true);
     setSearchQuery(query);
 
-    try {
-      // Use the proof endpoint for semantic search
-      const response = await fetch(`${BACKEND_URL}/api/proof/query`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: query, include_proof: true }),
-      });
+    searchMutation.mutate(
+      { question: query, includeProof: true },
+      {
+        onSuccess: (data: any) => {
+          // Extract results from proof data
+          const searchResults: SearchResult[] = [];
 
-      if (response.ok) {
-        const data = await response.json();
-        // Extract results from proof data
-        const searchResults: SearchResult[] = [];
-        
-        // Add Quran verses
-        if (data.proof?.quran) {
-          data.proof.quran.forEach((v: any) => {
-            searchResults.push({
-              text: v.text,
-              surah: v.surah,
-              ayah: v.ayah,
-              source: 'quran',
-              score: v.relevance,
-            });
-          });
-        }
-        
-        // Add tafsir entries
-        ['ibn_kathir', 'tabari', 'qurtubi', 'saadi', 'jalalayn'].forEach(source => {
-          if (data.proof?.[source]) {
-            data.proof[source].slice(0, 3).forEach((t: any) => {
+          // Add Quran verses
+          if (data.proof?.quran) {
+            data.proof.quran.forEach((v: any) => {
               searchResults.push({
-                text: t.text?.slice(0, 200) + '...',
-                surah: t.surah,
-                ayah: t.ayah,
-                source: source,
+                text: v.text,
+                surah: v.surah,
+                ayah: v.ayah,
+                source: 'quran',
+                score: v.relevance,
               });
             });
           }
-        });
 
-        setResults(searchResults);
+          // Add tafsir entries
+          ['ibn_kathir', 'tabari', 'qurtubi', 'saadi', 'jalalayn'].forEach(source => {
+            if (data.proof?.[source]) {
+              data.proof[source].slice(0, 3).forEach((t: any) => {
+                searchResults.push({
+                  text: t.text?.slice(0, 200) + '...',
+                  surah: t.surah,
+                  ayah: t.ayah,
+                  source: source,
+                });
+              });
+            }
+          });
+
+          setResults(searchResults);
+        },
       }
-    } catch (e) {
-      console.error("Search failed:", e);
-    } finally {
-      setLoading(false);
-    }
+    );
   };
 
   const handleSubmit = (e: React.FormEvent) => {

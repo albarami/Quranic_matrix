@@ -15,6 +15,8 @@ import type {
   SimilarityResponse,
   SurahMetadata,
   MetricsResponse,
+  RecentSpansResponse,
+  DashboardStatsResponse,
 } from "./types";
 
 const QBM_BACKEND_URL =
@@ -91,6 +93,14 @@ export class QBMClient {
     return this.fetch<MetricsResponse>("/api/metrics/overview");
   }
 
+  async getDashboardStats(): Promise<DashboardStatsResponse> {
+    return this.fetch<DashboardStatsResponse>("/stats");
+  }
+
+  async getRecentSpans(limit: number = 5): Promise<RecentSpansResponse> {
+    return this.fetch<RecentSpansResponse>(`/spans/recent?limit=${limit}`);
+  }
+
   // =========================================================================
   // GRAPH
   // =========================================================================
@@ -157,6 +167,10 @@ export class QBMClient {
       ? `/api/tafsir/${surah}/${ayah}?source=${source}`
       : `/api/tafsir/${surah}/${ayah}`;
     return this.fetch<TafsirResponse>(endpoint);
+  }
+
+  async getTafsirComparison(surah: number, ayah: number): Promise<any> {
+    return this.fetch<any>(`/tafsir/compare/${surah}/${ayah}`);
   }
 
   // =========================================================================

@@ -5,6 +5,7 @@ import { CheckCircle, Shield, Zap, Search } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ExportButtons, CitationPreview } from '../components/export';
 import { ProofExportData } from '@/lib/export-utils';
+import { useQBMQuery } from '@/lib/api/hooks';
 
 // Complete 11-Axis Bouzidani Framework
 const BOUZIDANI_11_AXES = [
@@ -38,8 +39,6 @@ const PLANNER_NAMES: Record<string, { en: string; ar: string }> = {
   'CONCEPT_REF': { en: 'Concept Reference Planner', ar: 'مخطط مرجع المفهوم' },
   'FREE_TEXT': { en: 'General Query Planner', ar: 'مخطط الاستعلام العام' },
 };
-
-const BACKEND_URL = process.env.NEXT_PUBLIC_QBM_BACKEND_URL || 'http://localhost:8000';
 
 interface ProofResult {
   question: string;
@@ -76,12 +75,15 @@ export default function ProofPage() {
   const { isRTL } = useLanguage();
   const [query, setQuery] = useState('');
   const [result, setResult] = useState<ProofResult | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(['answer', 'quran']));
   const [activeTafsir, setActiveTafsir] = useState('ibn_kathir');
   const [showAllQuran, setShowAllQuran] = useState(false);
   const [showAllTafsir, setShowAllTafsir] = useState(false);
+
+  // Use the QBM Query mutation hook
+  const queryMutation = useQBMQuery();
+  const loading = queryMutation.isPending;
+  const error = queryMutation.error?.message || null;
 
   // Prepare export data from result
   const exportData: ProofExportData | undefined = useMemo(() => {
@@ -135,29 +137,15 @@ export default function ProofPage() {
     e.preventDefault();
     if (!query.trim()) return;
 
-    setLoading(true);
-    setError(null);
-
-    try {
-      const response = await fetch(`${BACKEND_URL}/api/proof/query`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: query, include_proof: true }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.detail || `Backend error: ${response.status}`);
+    queryMutation.mutate(
+      { question: query, includeProof: true },
+      {
+        onSuccess: (data) => {
+          setResult(data as ProofResult);
+          setExpandedSections(new Set(['answer', 'quran', 'tafsir']));
+        },
       }
-
-      const data = await response.json();
-      setResult(data);
-      setExpandedSections(new Set(['answer', 'quran', 'tafsir']));
-    } catch (err: any) {
-      setError(err.message || 'Failed to get proof');
-    } finally {
-      setLoading(false);
-    }
+    );
   };
 
   const CollapsibleSection = ({ 

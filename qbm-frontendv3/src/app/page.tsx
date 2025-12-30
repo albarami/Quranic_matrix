@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, type ReactNode } from "react";
+import { useState, useEffect, useMemo, type ReactNode } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -23,8 +23,8 @@ import {
   Shield,
 } from "lucide-react";
 import { useLanguage } from "./contexts/LanguageContext";
-
-const BACKEND_URL = process.env.NEXT_PUBLIC_QBM_BACKEND_URL || "http://localhost:8000";
+import { useDashboardStats, useRecentSpans } from "@/lib/api/hooks";
+import { qbmClient } from "@/lib/api/qbm-client";
 
 // Comprehensive translations for HomePage
 const HOME_TEXT = {
@@ -251,12 +251,30 @@ export default function HomePage() {
   const { t, isRTL, language } = useLanguage();
   const txt = HOME_TEXT[language as keyof typeof HOME_TEXT] || HOME_TEXT.en;
   const [activeTab, setActiveTab] = useState<'chart' | 'table' | 'comparison'>('chart');
-  const [stats, setStats] = useState<StatsState | null>(null);
-  const [recentSpans, setRecentSpans] = useState<SpanSummary[]>([]);
-  const [featuredSpan, setFeaturedSpan] = useState<SpanSummary | null>(null);
   const [tafsirComparison, setTafsirComparison] = useState<any | null>(null);
   const [exampleQueries, setExampleQueries] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+
+  // Load data via hooks
+  const { data: backendStats, isLoading: statsLoading } = useDashboardStats();
+  const { data: recentData, isLoading: spansLoading } = useRecentSpans(6);
+
+  const isLoading = statsLoading || spansLoading;
+  const recentSpans = recentData?.spans || [];
+  const featuredSpan = recentSpans[0] || null;
+
+  // Derive stats from backend data
+  const stats: StatsState | null = useMemo(() => {
+    if (!backendStats) return null;
+    return {
+      totalSpans: backendStats.total_spans || 0,
+      uniqueAyat: backendStats.unique_ayat || 0,
+      behaviorForms: backendStats.behavior_forms || {},
+      agentTypes: backendStats.agent_types || {},
+      tafsirSources: [],
+      datasetTier: backendStats.dataset_tier || "",
+      topSurahs: backendStats.top_surahs || [],
+    };
+  }, [backendStats]);
 
   // Behavior name translations for example queries
   const behaviorNamesAr: Record<string, string> = {
@@ -266,7 +284,7 @@ export default function HomePage() {
     'physical_act': 'الفعل الجسدي',
     'trait_disposition': 'السمة',
   };
-  
+
   // Agent name translations for example queries
   const agentNamesAr: Record<string, string> = {
     'AGT_ALLAH': 'الله',
@@ -277,49 +295,6 @@ export default function HomePage() {
     'AGT_HYPOCRITE': 'المنافق',
     'AGT_WRONGDOER': 'الظالم',
   };
-
-  // Load real stats and recent spans from backend on mount
-  useEffect(() => {
-    let active = true;
-    const loadData = async () => {
-      try {
-        const [statsRes, recentRes] = await Promise.all([
-          fetch(`${BACKEND_URL}/stats`),
-          fetch(`${BACKEND_URL}/spans/recent?limit=6`),
-        ]);
-
-        if (active && statsRes.ok) {
-          const data = await statsRes.json();
-          setStats({
-            totalSpans: data.total_spans || 0,
-            uniqueAyat: data.unique_ayat || 0,
-            behaviorForms: data.behavior_forms || {},
-            agentTypes: data.agent_types || {},
-            tafsirSources: data.tafsir_sources || [],
-            datasetTier: data.dataset_tier || "",
-            topSurahs: data.top_surahs || [],
-          });
-        }
-
-        if (active && recentRes.ok) {
-          const data = await recentRes.json();
-          const spans = data.spans || [];
-          setRecentSpans(spans);
-          setFeaturedSpan(spans[0] || null);
-        }
-      } catch (error) {
-        console.error("Failed to load stats:", error);
-      } finally {
-        if (active) {
-          setIsLoading(false);
-        }
-      }
-    };
-    loadData();
-    return () => {
-      active = false;
-    };
-  }, []);
 
   useEffect(() => {
     const buildQueries = () => {
@@ -381,13 +356,8 @@ export default function HomePage() {
     const loadTafsir = async () => {
       // Load tafsir for the static featured verse An-Nahl 16:97
       try {
-        const res = await fetch(
-          `${BACKEND_URL}/tafsir/compare/16/97`
-        );
-        if (res.ok) {
-          const data = await res.json();
-          setTafsirComparison(data);
-        }
+        const data = await qbmClient.getTafsirComparison(16, 97);
+        setTafsirComparison(data);
       } catch (error) {
         console.error("Failed to load tafsir comparison:", error);
       }

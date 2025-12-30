@@ -1,13 +1,12 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import dynamic from "next/dynamic";
 import {
   BookOpen,
   Search,
-  Filter,
   Grid,
   List,
   ChevronRight,
@@ -15,15 +14,12 @@ import {
   BarChart3,
   Eye,
   Brain,
-  MessageSquare,
   Sparkles,
   FileText,
-  ArrowRight,
   Network,
-  Send,
-  Loader2,
 } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useDashboardStats, useSurahs, useQBMQuery } from "@/lib/api/hooks";
 
 // Dynamically import ForceGraph2D to avoid SSR issues
 const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), { ssr: false });
@@ -58,7 +54,6 @@ interface GraphData {
   links: GraphLink[];
 }
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_QBM_BACKEND_URL || "http://localhost:8000";
 
 // Surah interface for type safety
 interface SurahData {
@@ -92,19 +87,56 @@ export default function ExplorerPage() {
   const [view, setView] = useState<"grid" | "list" | "graph">("grid");
   const [selectedSurah, setSelectedSurah] = useState<SurahData | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const [graphData, setGraphData] = useState<GraphData | null>(null);
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
   const graphRef = useRef<any>(null);
   const [filterBehavior, setFilterBehavior] = useState<string | null>(null);
-  const [surahs, setSurahs] = useState<SurahData[]>([]);
-  const [behaviors, setBehaviors] = useState<BehaviorData[]>([]);
-  const [stats, setStats] = useState({
-    totalSpans: 0,
-    uniqueAyat: 0,
-    totalSurahs: 0,
-    avgCoverage: 0,
-  });
+
+  // Load data via hooks
+  const { data: backendStats } = useDashboardStats();
+  const { data: surahsData } = useSurahs();
+  const surahDetailsMutation = useQBMQuery();
+  const isLoading = surahDetailsMutation.isPending;
+
+  // Derive behaviors from backend stats
+  const behaviors: BehaviorData[] = backendStats?.behavior_forms
+    ? Object.entries(backendStats.behavior_forms)
+        .map(([key, count], i) => ({
+          id: key,
+          label: key.replace(/_/g, " "),
+          count: count as number,
+          color: BEHAVIOR_COLORS[i % BEHAVIOR_COLORS.length],
+        }))
+        .sort((a, b) => b.count - a.count)
+    : [];
+
+  // Derive surahs list from API data
+  const surahs: SurahData[] = surahsData
+    ? surahsData.map((s: any) => {
+        const totalAyat = s.total_ayat || s.ayat_count || 0;
+        const coverage = s.coverage_pct ?? 0;
+        return {
+          number: s.number || s.surah,
+          name: s.name_arabic || s.surah_name || `Surah ${s.number}`,
+          nameEn: s.name_english || s.name || `Surah ${s.number}`,
+          ayat: totalAyat,
+          spans: s.spans || 0,
+          coverage,
+        };
+      })
+    : [];
+
+  // Derive stats
+  const avgCoverage = surahs.length
+    ? Math.round(surahs.reduce((sum, s) => sum + (s.coverage || 0), 0) / surahs.length)
+    : 0;
+
+  const stats = {
+    totalSpans: backendStats?.total_spans || 0,
+    uniqueAyat: backendStats?.unique_ayat || 0,
+    totalSurahs: surahs.length,
+    avgCoverage,
+  };
 
   // Build graph data from stats - meaningful behavior-agent relationships
   const buildGraphFromStats = useCallback((behaviorForms: Record<string, number>, agentTypes: Record<string, number>) => {
@@ -184,72 +216,12 @@ export default function ExplorerPage() {
     setGraphData({ nodes, links });
   }, []);
 
-  // Load real data from backend on mount
+  // Build graph when stats are loaded
   useEffect(() => {
-    loadRealData();
-  }, []);
-
-  const loadRealData = async () => {
-    try {
-      const [statsRes, surahsRes] = await Promise.all([
-        fetch(`${BACKEND_URL}/stats`),
-        fetch(`${BACKEND_URL}/surahs`),
-      ]);
-
-      if (statsRes.ok) {
-        const statsData = await statsRes.json();
-        const forms = statsData.behavior_forms || {};
-        const agents = statsData.agent_types || {};
-        const behaviorList: BehaviorData[] = Object.entries(forms).map(([key, count], i) => ({
-          id: key,
-          label: key.replace(/_/g, " "),
-          count: count as number,
-          color: BEHAVIOR_COLORS[i % BEHAVIOR_COLORS.length],
-        }));
-        setBehaviors(behaviorList.sort((a, b) => b.count - a.count));
-        setStats((prev) => ({
-          ...prev,
-          totalSpans: statsData.total_spans || 0,
-          uniqueAyat: statsData.unique_ayat || 0,
-        }));
-        // Build graph data
-        buildGraphFromStats(forms, agents);
-      }
-
-      if (surahsRes.ok) {
-        const surahData = await surahsRes.json();
-        const surahList: SurahData[] = (surahData.surahs || []).map((s: any) => {
-          const totalAyat = s.total_ayat || s.unique_ayat || 0;
-          const coverage =
-            s.coverage_pct ?? (totalAyat ? Math.round((s.unique_ayat / totalAyat) * 100) : 0);
-          const name = s.surah_name || `Surah ${s.surah}`;
-          return {
-            number: s.surah,
-            name,
-            nameEn: `Surah ${s.surah}`,
-            ayat: totalAyat,
-            spans: s.spans || 0,
-            coverage,
-          };
-        });
-
-        const avgCoverage = surahList.length
-          ? Math.round(
-              surahList.reduce((sum, s) => sum + (s.coverage || 0), 0) / surahList.length
-            )
-          : 0;
-
-        setSurahs(surahList);
-        setStats((prev) => ({
-          ...prev,
-          totalSurahs: surahData.total_surahs || surahList.length,
-          avgCoverage,
-        }));
-      }
-    } catch (error) {
-      console.error("Failed to load data:", error);
+    if (backendStats?.behavior_forms && backendStats?.agent_types) {
+      buildGraphFromStats(backendStats.behavior_forms, backendStats.agent_types);
     }
-  };
+  }, [backendStats, buildGraphFromStats]);
 
   const filteredSurahs = surahs.filter(
     (s) =>
@@ -265,64 +237,50 @@ export default function ExplorerPage() {
     ayat: Array<{ surah: number; ayah: number; text: string; behaviors: string[] }>;
   } | null>(null);
 
-  const loadSurahDetails = async (surah: SurahData) => {
+  const loadSurahDetails = (surah: SurahData) => {
     setSelectedSurah(surah);
-    setIsLoading(true);
     setSurahDetails(null);
 
-    try {
-      // Load surah-specific data from backend
-      const response = await fetch(`${BACKEND_URL}/api/proof/query`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          question: `Analyze behaviors in Surah ${surah.number}`,
-          include_proof: true 
-        }),
-      });
+    surahDetailsMutation.mutate(
+      { question: `Analyze behaviors in Surah ${surah.number}`, includeProof: true },
+      {
+        onSuccess: (data: any) => {
+          // Extract behavior distribution from proof data
+          const behaviorCounts: Record<string, number> = {};
+          const agentCounts: Record<string, number> = {};
 
-      if (response.ok) {
-        const data = await response.json();
-        
-        // Extract behavior distribution from proof data
-        const behaviorCounts: Record<string, number> = {};
-        const agentCounts: Record<string, number> = {};
-        
-        // Count behaviors from taxonomy if available
-        if (data.proof?.taxonomy?.behaviors) {
-          data.proof.taxonomy.behaviors.forEach((b: any) => {
-            const form = b.behavior_form || b.form || 'unknown';
-            behaviorCounts[form] = (behaviorCounts[form] || 0) + 1;
-            const agent = b.agent_type || b.agent || 'unknown';
-            agentCounts[agent] = (agentCounts[agent] || 0) + 1;
+          // Count behaviors from taxonomy if available
+          if (data.proof?.taxonomy?.behaviors) {
+            data.proof.taxonomy.behaviors.forEach((b: any) => {
+              const form = b.behavior_form || b.form || 'unknown';
+              behaviorCounts[form] = (behaviorCounts[form] || 0) + 1;
+              const agent = b.agent_type || b.agent || 'unknown';
+              agentCounts[agent] = (agentCounts[agent] || 0) + 1;
+            });
+          }
+
+          // Extract sample ayat from Quran results
+          const sampleAyat = (data.proof?.quran || []).slice(0, 4).map((v: any) => ({
+            surah: v.surah,
+            ayah: v.ayah,
+            text: v.text,
+            behaviors: v.behaviors || [],
+          }));
+
+          setSurahDetails({
+            behaviors: Object.entries(behaviorCounts)
+              .map(([name, count]) => ({ name, count }))
+              .sort((a, b) => b.count - a.count)
+              .slice(0, 8),
+            agents: Object.entries(agentCounts)
+              .map(([name, count]) => ({ name, count }))
+              .sort((a, b) => b.count - a.count)
+              .slice(0, 6),
+            ayat: sampleAyat,
           });
-        }
-
-        // Extract sample ayat from Quran results
-        const sampleAyat = (data.proof?.quran || []).slice(0, 4).map((v: any) => ({
-          surah: v.surah,
-          ayah: v.ayah,
-          text: v.text,
-          behaviors: v.behaviors || [],
-        }));
-
-        setSurahDetails({
-          behaviors: Object.entries(behaviorCounts)
-            .map(([name, count]) => ({ name, count }))
-            .sort((a, b) => b.count - a.count)
-            .slice(0, 8),
-          agents: Object.entries(agentCounts)
-            .map(([name, count]) => ({ name, count }))
-            .sort((a, b) => b.count - a.count)
-            .slice(0, 6),
-          ayat: sampleAyat,
-        });
+        },
       }
-    } catch (error) {
-      console.error("Failed to load surah details:", error);
-    } finally {
-      setIsLoading(false);
-    }
+    );
   };
 
   return (

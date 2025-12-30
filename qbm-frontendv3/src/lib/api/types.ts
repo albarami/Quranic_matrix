@@ -381,3 +381,43 @@ export interface AgentDistributionItem {
   count: number;
   percentage: number;
 }
+
+// ============================================================================
+// RECENT SPANS TYPES
+// ============================================================================
+
+export interface RecentSpansResponse {
+  spans: SpanSummary[];
+}
+
+export interface SpanSummary {
+  span_id?: string;
+  reference?: {
+    surah?: number;
+    ayah?: number;
+    surah_name?: string;
+  };
+  behavior_form?: string;
+  agent?: {
+    type?: string;
+  };
+  annotator?: string;
+  annotated_at?: string;
+}
+
+// ============================================================================
+// EXTENDED STATS TYPES (Dashboard format)
+// ============================================================================
+
+export interface DashboardStatsResponse {
+  total_ayat?: number;
+  unique_ayat?: number;
+  total_spans?: number;
+  unique_surahs?: number;
+  coverage_pct?: number;
+  dataset_tier?: string;
+  behavior_forms?: Record<string, number>;
+  agent_types?: Record<string, number>;
+  evaluations?: Record<string, number>;
+  top_surahs?: Array<{ surah: number; spans: number }>;
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import {
@@ -17,10 +17,9 @@ import {
   X,
 } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useDashboardStats } from "@/lib/api/hooks";
 
 const CHART_COLORS = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444', '#14b8a6', '#ec4899', '#6366f1'];
-
-const BACKEND_URL = process.env.NEXT_PUBLIC_QBM_BACKEND_URL || "http://localhost:8000";
 
 // Insights will be generated from real backend data
 interface InsightData {
@@ -99,96 +98,86 @@ export default function InsightsPage() {
   const { language, isRTL } = useLanguage();
   const txt = INSIGHTS_TEXT[language as 'en' | 'ar'] || INSIGHTS_TEXT.en;
   const [selectedInsight, setSelectedInsight] = useState<InsightData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [insights, setInsights] = useState<InsightData[]>([]);
-  const [stats, setStats] = useState({ totalSpans: 0, patterns: 0, datasetTier: "" });
-  const [backendStats, setBackendStats] = useState<any>(null);
 
-  // Load real data from backend
-  useEffect(() => {
-    const loadRealData = async () => {
-      try {
-        const res = await fetch(`${BACKEND_URL}/stats`);
-        if (res.ok) {
-          const data = await res.json();
-          const totalSpans = data.total_spans || 0;
-          const agentTypes = data.agent_types || {};
-          const behaviorForms = data.behavior_forms || {};
-          const pct = (count: number) =>
-            totalSpans ? ((count / totalSpans) * 100).toFixed(1) : "0.0";
+  // Load stats via hook
+  const { data: backendStats, isLoading } = useDashboardStats();
 
-          const innerStateCount = behaviorForms["inner_state"] || 0;
-          const speechActCount = behaviorForms["speech_act"] || 0;
-          const relationalActCount = behaviorForms["relational_act"] || 0;
-          const divineCount = agentTypes["AGT_ALLAH"] || 0;
-          const believerCount = agentTypes["AGT_BELIEVER"] || 0;
-          const disbelieverCount = agentTypes["AGT_DISBELIEVER"] || 0;
+  // Derive insights from backend stats
+  const { insights, stats } = useMemo(() => {
+    if (!backendStats) {
+      return { insights: [] as InsightData[], stats: { totalSpans: 0, patterns: 0, datasetTier: "" } };
+    }
 
-          // Generate insights from REAL data - will be translated in render
-          const realInsights: InsightData[] = [
-            {
-              id: "inner-states",
-              title: "inner-states",
-              description: `${pct(innerStateCount)}%`,
-              icon: Brain,
-              color: "from-rose-500 to-pink-600",
-              metric: `${innerStateCount.toLocaleString()}`,
-              category: "behavior-forms",
-            },
-            {
-              id: "speech-acts",
-              title: "speech-acts",
-              description: `${pct(speechActCount)}%`,
-              icon: TrendingUp,
-              color: "from-blue-500 to-cyan-600",
-              metric: `${speechActCount.toLocaleString()}`,
-              category: "behavior-forms",
-            },
-            {
-              id: "divine-agency",
-              title: "divine-agency",
-              description: `${pct(divineCount)}%`,
-              icon: Target,
-              color: "from-amber-500 to-orange-600",
-              metric: `${pct(divineCount)}%`,
-              category: "agent-analysis",
-            },
-            {
-              id: "believer-disbeliever",
-              title: "believer-disbeliever",
-              description: `${believerCount.toLocaleString()}|${disbelieverCount.toLocaleString()}`,
-              icon: GitCompare,
-              color: "from-purple-500 to-indigo-600",
-              metric: `${(believerCount + disbelieverCount).toLocaleString()}`,
-              category: "agent-comparison",
-            },
-            {
-              id: "relational-acts",
-              title: "relational-acts",
-              description: `${pct(relationalActCount)}%`,
-              icon: Network,
-              color: "from-emerald-500 to-teal-600",
-              metric: `${relationalActCount.toLocaleString()}`,
-              category: "behavior-forms",
-            },
-          ];
+    const totalSpans = backendStats.total_spans || 0;
+    const agentTypes = backendStats.agent_types || {};
+    const behaviorForms = backendStats.behavior_forms || {};
+    const pct = (count: number) =>
+      totalSpans ? ((count / totalSpans) * 100).toFixed(1) : "0.0";
 
-          setInsights(realInsights);
-          setStats({
-            totalSpans,
-            patterns: Object.keys(behaviorForms).length,
-            datasetTier: data.dataset_tier || "",
-          });
-          setBackendStats(data);
-        }
-      } catch (error) {
-        console.error("Failed to load insights data:", error);
-      } finally {
-        setIsLoading(false);
-      }
+    const innerStateCount = behaviorForms["inner_state"] || 0;
+    const speechActCount = behaviorForms["speech_act"] || 0;
+    const relationalActCount = behaviorForms["relational_act"] || 0;
+    const divineCount = agentTypes["AGT_ALLAH"] || 0;
+    const believerCount = agentTypes["AGT_BELIEVER"] || 0;
+    const disbelieverCount = agentTypes["AGT_DISBELIEVER"] || 0;
+
+    const realInsights: InsightData[] = [
+      {
+        id: "inner-states",
+        title: "inner-states",
+        description: `${pct(innerStateCount)}%`,
+        icon: Brain,
+        color: "from-rose-500 to-pink-600",
+        metric: `${innerStateCount.toLocaleString()}`,
+        category: "behavior-forms",
+      },
+      {
+        id: "speech-acts",
+        title: "speech-acts",
+        description: `${pct(speechActCount)}%`,
+        icon: TrendingUp,
+        color: "from-blue-500 to-cyan-600",
+        metric: `${speechActCount.toLocaleString()}`,
+        category: "behavior-forms",
+      },
+      {
+        id: "divine-agency",
+        title: "divine-agency",
+        description: `${pct(divineCount)}%`,
+        icon: Target,
+        color: "from-amber-500 to-orange-600",
+        metric: `${pct(divineCount)}%`,
+        category: "agent-analysis",
+      },
+      {
+        id: "believer-disbeliever",
+        title: "believer-disbeliever",
+        description: `${believerCount.toLocaleString()}|${disbelieverCount.toLocaleString()}`,
+        icon: GitCompare,
+        color: "from-purple-500 to-indigo-600",
+        metric: `${(believerCount + disbelieverCount).toLocaleString()}`,
+        category: "agent-comparison",
+      },
+      {
+        id: "relational-acts",
+        title: "relational-acts",
+        description: `${pct(relationalActCount)}%`,
+        icon: Network,
+        color: "from-emerald-500 to-teal-600",
+        metric: `${relationalActCount.toLocaleString()}`,
+        category: "behavior-forms",
+      },
+    ];
+
+    return {
+      insights: realInsights,
+      stats: {
+        totalSpans,
+        patterns: Object.keys(behaviorForms).length,
+        datasetTier: backendStats.dataset_tier || "",
+      },
     };
-    loadRealData();
-  }, []);
+  }, [backendStats]);
 
   // Prepare chart data for selected insight
   const getInsightChartData = (insight: InsightData | null) => {

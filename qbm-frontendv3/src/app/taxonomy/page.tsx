@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts";
@@ -40,8 +40,7 @@ import {
   Building,
 } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
-
-const BACKEND_URL = process.env.NEXT_PUBLIC_QBM_BACKEND_URL || "http://localhost:8000";
+import { useDashboardStats } from "@/lib/api/hooks";
 
 const CHART_COLORS = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444', '#14b8a6', '#ec4899', '#6366f1'];
 
@@ -261,26 +260,9 @@ export default function TaxonomyPage() {
   const { language, isRTL } = useLanguage();
   const [selectedAxis, setSelectedAxis] = useState<TaxonomyAxis | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<TaxonomyCategory | null>(null);
-  const [stats, setStats] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
 
-  // Load stats from backend
-  useEffect(() => {
-    const loadStats = async () => {
-      try {
-        const res = await fetch(`${BACKEND_URL}/stats`);
-        if (res.ok) {
-          const data = await res.json();
-          setStats(data);
-        }
-      } catch (e) {
-        console.error("Failed to load stats:", e);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    loadStats();
-  }, []);
+  // Load stats via hook
+  const { data: stats, isLoading } = useDashboardStats();
 
   // Prepare radar chart data for 11-axis taxonomy overview
   // Static example values representing typical behavior distribution across axes

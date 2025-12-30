@@ -24,6 +24,8 @@ import type {
   SearchResponse,
   SurahMetadata,
   MetricsResponse,
+  RecentSpansResponse,
+  DashboardStatsResponse,
 } from "./types";
 
 // ============================================================================
@@ -34,6 +36,8 @@ import type {
 export const queryKeys = {
   stats: ["stats"] as const,
   metrics: ["metrics"] as const,
+  dashboardStats: ["dashboardStats"] as const,
+  recentSpans: (limit: number) => ["recentSpans", limit] as const,
   graph: ["graph"] as const,
   graphSubset: (nodeIds: string[], depth: number) =>
     ["graph", "subset", nodeIds.join(","), depth] as const,
@@ -73,6 +77,29 @@ export function useMetrics(
     queryKey: queryKeys.metrics,
     queryFn: () => qbmClient.getMetrics(),
     staleTime: 5 * 60 * 1000, // 5 minutes
+    ...options,
+  });
+}
+
+export function useDashboardStats(
+  options?: Omit<UseQueryOptions<DashboardStatsResponse>, "queryKey" | "queryFn">
+) {
+  return useQuery({
+    queryKey: queryKeys.dashboardStats,
+    queryFn: () => qbmClient.getDashboardStats(),
+    staleTime: 2 * 60 * 1000, // 2 minutes
+    ...options,
+  });
+}
+
+export function useRecentSpans(
+  limit: number = 5,
+  options?: Omit<UseQueryOptions<RecentSpansResponse>, "queryKey" | "queryFn">
+) {
+  return useQuery({
+    queryKey: queryKeys.recentSpans(limit),
+    queryFn: () => qbmClient.getRecentSpans(limit),
+    staleTime: 60 * 1000, // 1 minute
     ...options,
   });
 }
