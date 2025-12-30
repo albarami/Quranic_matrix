@@ -1211,9 +1211,9 @@ def main():
 ```
 
 ### Acceptance Criteria
-- [ ] Coverage report exists
-- [ ] Average coverage >= 95% (or missing explicitly documented)
-- [ ] For patience verses (2:45, 2:153, 3:200): all 7 sources present
+- [x] Coverage report exists
+- [x] Average coverage >= 95% (actual: 100%)
+- [x] For patience verses (2:45, 2:153, 3:200): all 7 sources present
 
 ### Deliverables
 | File | Description |
@@ -1571,7 +1571,7 @@ Re-enable advanced features ONLY after foundation is correct.
 - [x] `artifacts/lexeme_index_report.json`
 - [ ] `artifacts/root_sabr_counts.json`
 - [x] `artifacts/concept_index_v3_validation.json`
-- [ ] `artifacts/tafsir_coverage_report.json`
+- [x] `artifacts/tafsir_coverage_report.json`
 
 ### Data Files (Must Exist)
 - [x] `data/index/lexeme_index.json`
@@ -1595,7 +1595,7 @@ Re-enable advanced features ONLY after foundation is correct.
 - [x] `scripts/build_behavior_registry.py`
 - [x] `scripts/rebuild_concept_index_v3.py`
 - [x] `scripts/validate_concept_index_v3.py`
-- [ ] `scripts/audit_tafsir_coverage.py`
+- [x] `scripts/audit_tafsir_coverage.py`
 - [ ] `scripts/build_graph_from_evidence.py`
 
 ### Tests (Must Pass)
