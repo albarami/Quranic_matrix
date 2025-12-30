@@ -1,0 +1,650 @@
+{
+  "schema_valid": true,
+  "total_surahs": 114,
+  "total_verses": 6236,
+  "verses_with_tokens": 6236,
+  "total_tokens": 81812,
+  "expected_verse_count": 6236,
+  "expected_surah_count": 114,
+  "errors": [],
+  "warnings": [],
+  "surah_counts": [
+    {
+      "surah": 1,
+      "name_ar": "الفاتحة",
+      "verse_count": 7
+    },
+    {
+      "surah": 2,
+      "name_ar": "البقرة",
+      "verse_count": 286
+    },
+    {
+      "surah": 3,
+      "name_ar": "آل عمران",
+      "verse_count": 200
+    },
+    {
+      "surah": 4,
+      "name_ar": "النساء",
+      "verse_count": 176
+    },
+    {
+      "surah": 5,
+      "name_ar": "المائدة",
+      "verse_count": 120
+    },
+    {
+      "surah": 6,
+      "name_ar": "الأنعام",
+      "verse_count": 165
+    },
+    {
+      "surah": 7,
+      "name_ar": "الأعراف",
+      "verse_count": 206
+    },
+    {
+      "surah": 8,
+      "name_ar": "الأنفال",
+      "verse_count": 75
+    },
+    {
+      "surah": 9,
+      "name_ar": "التوبة",
+      "verse_count": 129
+    },
+    {
+      "surah": 10,
+      "name_ar": "يونس",
+      "verse_count": 109
+    },
+    {
+      "surah": 11,
+      "name_ar": "هود",
+      "verse_count": 123
+    },
+    {
+      "surah": 12,
+      "name_ar": "يوسف",
+      "verse_count": 111
+    },
+    {
+      "surah": 13,
+      "name_ar": "الرعد",
+      "verse_count": 43
+    },
+    {
+      "surah": 14,
+      "name_ar": "ابراهيم",
+      "verse_count": 52
+    },
+    {
+      "surah": 15,
+      "name_ar": "الحجر",
+      "verse_count": 99
+    },
+    {
+      "surah": 16,
+      "name_ar": "النحل",
+      "verse_count": 128
+    },
+    {
+      "surah": 17,
+      "name_ar": "الإسراء",
+      "verse_count": 111
+    },
+    {
+      "surah": 18,
+      "name_ar": "الكهف",
+      "verse_count": 110
+    },
+    {
+      "surah": 19,
+      "name_ar": "مريم",
+      "verse_count": 98
+    },
+    {
+      "surah": 20,
+      "name_ar": "طه",
+      "verse_count": 135
+    },
+    {
+      "surah": 21,
+      "name_ar": "الأنبياء",
+      "verse_count": 112
+    },
+    {
+      "surah": 22,
+      "name_ar": "الحج",
+      "verse_count": 78
+    },
+    {
+      "surah": 23,
+      "name_ar": "المؤمنون",
+      "verse_count": 118
+    },
+    {
+      "surah": 24,
+      "name_ar": "النور",
+      "verse_count": 64
+    },
+    {
+      "surah": 25,
+      "name_ar": "الفرقان",
+      "verse_count": 77
+    },
+    {
+      "surah": 26,
+      "name_ar": "الشعراء",
+      "verse_count": 227
+    },
+    {
+      "surah": 27,
+      "name_ar": "النمل",
+      "verse_count": 93
+    },
+    {
+      "surah": 28,
+      "name_ar": "القصص",
+      "verse_count": 88
+    },
+    {
+      "surah": 29,
+      "name_ar": "العنكبوت",
+      "verse_count": 69
+    },
+    {
+      "surah": 30,
+      "name_ar": "الروم",
+      "verse_count": 60
+    },
+    {
+      "surah": 31,
+      "name_ar": "لقمان",
+      "verse_count": 34
+    },
+    {
+      "surah": 32,
+      "name_ar": "السجدة",
+      "verse_count": 30
+    },
+    {
+      "surah": 33,
+      "name_ar": "الأحزاب",
+      "verse_count": 73
+    },
+    {
+      "surah": 34,
+      "name_ar": "سبإ",
+      "verse_count": 54
+    },
+    {
+      "surah": 35,
+      "name_ar": "فاطر",
+      "verse_count": 45
+    },
+    {
+      "surah": 36,
+      "name_ar": "يس",
+      "verse_count": 83
+    },
+    {
+      "surah": 37,
+      "name_ar": "الصافات",
+      "verse_count": 182
+    },
+    {
+      "surah": 38,
+      "name_ar": "ص",
+      "verse_count": 88
+    },
+    {
+      "surah": 39,
+      "name_ar": "الزمر",
+      "verse_count": 75
+    },
+    {
+      "surah": 40,
+      "name_ar": "غافر",
+      "verse_count": 85
+    },
+    {
+      "surah": 41,
+      "name_ar": "فصلت",
+      "verse_count": 54
+    },
+    {
+      "surah": 42,
+      "name_ar": "الشورى",
+      "verse_count": 53
+    },
+    {
+      "surah": 43,
+      "name_ar": "الزخرف",
+      "verse_count": 89
+    },
+    {
+      "surah": 44,
+      "name_ar": "الدخان",
+      "verse_count": 59
+    },
+    {
+      "surah": 45,
+      "name_ar": "الجاثية",
+      "verse_count": 37
+    },
+    {
+      "surah": 46,
+      "name_ar": "الأحقاف",
+      "verse_count": 35
+    },
+    {
+      "surah": 47,
+      "name_ar": "محمد",
+      "verse_count": 38
+    },
+    {
+      "surah": 48,
+      "name_ar": "الفتح",
+      "verse_count": 29
+    },
+    {
+      "surah": 49,
+      "name_ar": "الحجرات",
+      "verse_count": 18
+    },
+    {
+      "surah": 50,
+      "name_ar": "ق",
+      "verse_count": 45
+    },
+    {
+      "surah": 51,
+      "name_ar": "الذاريات",
+      "verse_count": 60
+    },
+    {
+      "surah": 52,
+      "name_ar": "الطور",
+      "verse_count": 49
+    },
+    {
+      "surah": 53,
+      "name_ar": "النجم",
+      "verse_count": 62
+    },
+    {
+      "surah": 54,
+      "name_ar": "القمر",
+      "verse_count": 55
+    },
+    {
+      "surah": 55,
+      "name_ar": "الرحمن",
+      "verse_count": 78
+    },
+    {
+      "surah": 56,
+      "name_ar": "الواقعة",
+      "verse_count": 96
+    },
+    {
+      "surah": 57,
+      "name_ar": "الحديد",
+      "verse_count": 29
+    },
+    {
+      "surah": 58,
+      "name_ar": "المجادلة",
+      "verse_count": 22
+    },
+    {
+      "surah": 59,
+      "name_ar": "الحشر",
+      "verse_count": 24
+    },
+    {
+      "surah": 60,
+      "name_ar": "الممتحنة",
+      "verse_count": 13
+    },
+    {
+      "surah": 61,
+      "name_ar": "الصف",
+      "verse_count": 14
+    },
+    {
+      "surah": 62,
+      "name_ar": "الجمعة",
+      "verse_count": 11
+    },
+    {
+      "surah": 63,
+      "name_ar": "المنافقون",
+      "verse_count": 11
+    },
+    {
+      "surah": 64,
+      "name_ar": "التغابن",
+      "verse_count": 18
+    },
+    {
+      "surah": 65,
+      "name_ar": "الطلاق",
+      "verse_count": 12
+    },
+    {
+      "surah": 66,
+      "name_ar": "التحريم",
+      "verse_count": 12
+    },
+    {
+      "surah": 67,
+      "name_ar": "الملك",
+      "verse_count": 30
+    },
+    {
+      "surah": 68,
+      "name_ar": "القلم",
+      "verse_count": 52
+    },
+    {
+      "surah": 69,
+      "name_ar": "الحاقة",
+      "verse_count": 52
+    },
+    {
+      "surah": 70,
+      "name_ar": "المعارج",
+      "verse_count": 44
+    },
+    {
+      "surah": 71,
+      "name_ar": "نوح",
+      "verse_count": 28
+    },
+    {
+      "surah": 72,
+      "name_ar": "الجن",
+      "verse_count": 28
+    },
+    {
+      "surah": 73,
+      "name_ar": "المزمل",
+      "verse_count": 20
+    },
+    {
+      "surah": 74,
+      "name_ar": "المدثر",
+      "verse_count": 56
+    },
+    {
+      "surah": 75,
+      "name_ar": "القيامة",
+      "verse_count": 40
+    },
+    {
+      "surah": 76,
+      "name_ar": "الانسان",
+      "verse_count": 31
+    },
+    {
+      "surah": 77,
+      "name_ar": "المرسلات",
+      "verse_count": 50
+    },
+    {
+      "surah": 78,
+      "name_ar": "النبإ",
+      "verse_count": 40
+    },
+    {
+      "surah": 79,
+      "name_ar": "النازعات",
+      "verse_count": 46
+    },
+    {
+      "surah": 80,
+      "name_ar": "عبس",
+      "verse_count": 42
+    },
+    {
+      "surah": 81,
+      "name_ar": "التكوير",
+      "verse_count": 29
+    },
+    {
+      "surah": 82,
+      "name_ar": "الإنفطار",
+      "verse_count": 19
+    },
+    {
+      "surah": 83,
+      "name_ar": "المطففين",
+      "verse_count": 36
+    },
+    {
+      "surah": 84,
+      "name_ar": "الإنشقاق",
+      "verse_count": 25
+    },
+    {
+      "surah": 85,
+      "name_ar": "البروج",
+      "verse_count": 22
+    },
+    {
+      "surah": 86,
+      "name_ar": "الطارق",
+      "verse_count": 17
+    },
+    {
+      "surah": 87,
+      "name_ar": "الأعلى",
+      "verse_count": 19
+    },
+    {
+      "surah": 88,
+      "name_ar": "الغاشية",
+      "verse_count": 26
+    },
+    {
+      "surah": 89,
+      "name_ar": "الفجر",
+      "verse_count": 30
+    },
+    {
+      "surah": 90,
+      "name_ar": "البلد",
+      "verse_count": 20
+    },
+    {
+      "surah": 91,
+      "name_ar": "الشمس",
+      "verse_count": 15
+    },
+    {
+      "surah": 92,
+      "name_ar": "الليل",
+      "verse_count": 21
+    },
+    {
+      "surah": 93,
+      "name_ar": "الضحى",
+      "verse_count": 11
+    },
+    {
+      "surah": 94,
+      "name_ar": "الشرح",
+      "verse_count": 8
+    },
+    {
+      "surah": 95,
+      "name_ar": "التين",
+      "verse_count": 8
+    },
+    {
+      "surah": 96,
+      "name_ar": "العلق",
+      "verse_count": 19
+    },
+    {
+      "surah": 97,
+      "name_ar": "القدر",
+      "verse_count": 5
+    },
+    {
+      "surah": 98,
+      "name_ar": "البينة",
+      "verse_count": 8
+    },
+    {
+      "surah": 99,
+      "name_ar": "الزلزلة",
+      "verse_count": 8
+    },
+    {
+      "surah": 100,
+      "name_ar": "العاديات",
+      "verse_count": 11
+    },
+    {
+      "surah": 101,
+      "name_ar": "القارعة",
+      "verse_count": 11
+    },
+    {
+      "surah": 102,
+      "name_ar": "التكاثر",
+      "verse_count": 8
+    },
+    {
+      "surah": 103,
+      "name_ar": "العصر",
+      "verse_count": 3
+    },
+    {
+      "surah": 104,
+      "name_ar": "الهمزة",
+      "verse_count": 9
+    },
+    {
+      "surah": 105,
+      "name_ar": "الفيل",
+      "verse_count": 5
+    },
+    {
+      "surah": 106,
+      "name_ar": "قريش",
+      "verse_count": 4
+    },
+    {
+      "surah": 107,
+      "name_ar": "الماعون",
+      "verse_count": 7
+    },
+    {
+      "surah": 108,
+      "name_ar": "الكوثر",
+      "verse_count": 3
+    },
+    {
+      "surah": 109,
+      "name_ar": "الكافرون",
+      "verse_count": 6
+    },
+    {
+      "surah": 110,
+      "name_ar": "النصر",
+      "verse_count": 3
+    },
+    {
+      "surah": 111,
+      "name_ar": "المسد",
+      "verse_count": 5
+    },
+    {
+      "surah": 112,
+      "name_ar": "الإخلاص",
+      "verse_count": 4
+    },
+    {
+      "surah": 113,
+      "name_ar": "الفلق",
+      "verse_count": 5
+    },
+    {
+      "surah": 114,
+      "name_ar": "الناس",
+      "verse_count": 6
+    }
+  ],
+  "sample_verses": [
+    {
+      "verse_key": "1:1",
+      "text_preview": "بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ...",
+      "token_count": 4
+    },
+    {
+      "verse_key": "1:2",
+      "text_preview": "ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ...",
+      "token_count": 4
+    },
+    {
+      "verse_key": "1:3",
+      "text_preview": "ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ...",
+      "token_count": 2
+    },
+    {
+      "verse_key": "1:4",
+      "text_preview": "مَـٰلِكِ يَوْمِ ٱلدِّينِ...",
+      "token_count": 3
+    },
+    {
+      "verse_key": "1:5",
+      "text_preview": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ...",
+      "token_count": 4
+    },
+    {
+      "verse_key": "1:6",
+      "text_preview": "ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ...",
+      "token_count": 3
+    },
+    {
+      "verse_key": "1:7",
+      "text_preview": "صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْ...",
+      "token_count": 9
+    },
+    {
+      "verse_key": "2:1",
+      "text_preview": "الٓمٓ...",
+      "token_count": 1
+    },
+    {
+      "verse_key": "2:2",
+      "text_preview": "ذَٰلِكَ ٱلْكِتَـٰبُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّ...",
+      "token_count": 9
+    },
+    {
+      "verse_key": "2:3",
+      "text_preview": "ٱلَّذِينَ يُؤْمِنُونَ بِٱلْغَيْبِ وَيُقِيمُونَ ٱلص...",
+      "token_count": 8
+    }
+  ],
+  "metadata": {
+    "source": "Tanzil Project",
+    "version": "1.1",
+    "text_type": "Uthmani",
+    "license": "Creative Commons Attribution 3.0",
+    "url": "https://tanzil.net",
+    "processed_date": "2025-12-20",
+    "tokenization_id": "tok_v1",
+    "tokenization_method": "whitespace_split",
+    "total_surahs": 114,
+    "total_ayat": 6236,
+    "total_tokens": 81812
+  },
+  "quran_text_version": "uthmani_hafs_v1",
+  "tokenization_id": "tok_v1"
+}
