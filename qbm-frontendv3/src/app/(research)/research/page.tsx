@@ -147,6 +147,21 @@ interface ProofResult {
   };
 }
 
+// Complete 11-Axis Bouzidani Framework
+const BOUZIDANI_11_AXES = [
+  { id: 1, ar: "العضوي", en: "Organic", color: "bg-rose-500" },
+  { id: 2, ar: "الموقفي", en: "Situational", color: "bg-blue-500" },
+  { id: 3, ar: "النسقي", en: "Systemic", color: "bg-purple-500" },
+  { id: 4, ar: "المكاني", en: "Spatial", color: "bg-cyan-500" },
+  { id: 5, ar: "الزماني", en: "Temporal", color: "bg-amber-500" },
+  { id: 6, ar: "الفاعلي", en: "Agent", color: "bg-indigo-500" },
+  { id: 7, ar: "المصدري", en: "Source", color: "bg-yellow-500" },
+  { id: 8, ar: "التقييمي", en: "Evaluation", color: "bg-emerald-500" },
+  { id: 9, ar: "تأثير القلب", en: "Heart Impact", color: "bg-pink-500" },
+  { id: 10, ar: "العاقبة", en: "Consequence", color: "bg-orange-500" },
+  { id: 11, ar: "العلاقات", en: "Relationships", color: "bg-violet-500" },
+];
+
 // Map intent codes to human-readable planner names
 const PLANNER_NAMES: Record<string, { en: string; ar: string }> = {
   'GRAPH_CAUSAL': { en: 'Causal Chain Planner', ar: 'مخطط السلسلة السببية' },
@@ -631,6 +646,39 @@ export default function ResearchPage() {
                                   </span>
                                 )}
                               </div>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* 11-Axis Behavioral Profile */}
+                        {msg.result.proof.taxonomy && (
+                          <div className="bg-gradient-to-br from-indigo-50 to-white rounded-xl border border-indigo-200 overflow-hidden">
+                            <div className="bg-indigo-600 px-4 py-3">
+                              <h3 className="text-white font-bold flex items-center gap-2">
+                                <BarChart3 className="w-5 h-5" />
+                                {language === 'ar' ? 'الملف الشخصي 11 بُعد' : '11-Axis Behavioral Profile'}
+                              </h3>
+                            </div>
+                            <div className="p-4 space-y-2">
+                              {BOUZIDANI_11_AXES.map((axis) => {
+                                const value = msg.result?.proof?.taxonomy?.dimensions?.[axis.en.toLowerCase()] ||
+                                              msg.result?.proof?.taxonomy?.dimensions?.[axis.ar] || null;
+                                return (
+                                  <div key={axis.id} className="flex items-center gap-2">
+                                    <span className="w-6 text-[10px] text-gray-400 font-mono">#{axis.id}</span>
+                                    <span className="w-20 text-xs text-gray-600 truncate">{axis.ar}</span>
+                                    <div className="flex-1 bg-gray-100 rounded-full h-1.5">
+                                      <div
+                                        className={`${axis.color} h-1.5 rounded-full`}
+                                        style={{ width: value ? '100%' : '0%', opacity: value ? 1 : 0.2 }}
+                                      />
+                                    </div>
+                                    <span className="w-20 text-right text-[10px] text-gray-600 truncate">
+                                      {value || '—'}
+                                    </span>
+                                  </div>
+                                );
+                              })}
                             </div>
                           </div>
                         )}

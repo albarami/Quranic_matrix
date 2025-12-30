@@ -4,6 +4,21 @@ import { useState } from 'react';
 import { CheckCircle, Shield, Zap, Search } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
+// Complete 11-Axis Bouzidani Framework
+const BOUZIDANI_11_AXES = [
+  { id: 1, ar: "العضوي", en: "Organic", color: "bg-rose-500" },
+  { id: 2, ar: "الموقفي", en: "Situational", color: "bg-blue-500" },
+  { id: 3, ar: "النسقي", en: "Systemic", color: "bg-purple-500" },
+  { id: 4, ar: "المكاني", en: "Spatial", color: "bg-cyan-500" },
+  { id: 5, ar: "الزماني", en: "Temporal", color: "bg-amber-500" },
+  { id: 6, ar: "الفاعلي", en: "Agent", color: "bg-indigo-500" },
+  { id: 7, ar: "المصدري", en: "Source", color: "bg-yellow-500" },
+  { id: 8, ar: "التقييمي", en: "Evaluation", color: "bg-emerald-500" },
+  { id: 9, ar: "تأثير القلب", en: "Heart Impact", color: "bg-pink-500" },
+  { id: 10, ar: "العاقبة", en: "Consequence", color: "bg-orange-500" },
+  { id: 11, ar: "العلاقات", en: "Relationships", color: "bg-violet-500" },
+];
+
 // Map intent codes to human-readable planner names
 const PLANNER_NAMES: Record<string, { en: string; ar: string }> = {
   'GRAPH_CAUSAL': { en: 'Causal Chain Planner', ar: 'مخطط السلسلة السببية' },
@@ -441,16 +456,44 @@ export default function ProofPage() {
 
             {/* Taxonomy - 11 Dimensions */}
             <CollapsibleSection id="taxonomy" title="الأبعاد الإحدى عشر" icon="🏷️">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {Object.entries(result.proof.taxonomy?.dimensions || {}).map(([key, value]) => (
-                  <div key={key} className="p-3 bg-gray-50 rounded-lg">
-                    <p className="text-xs text-gray-500">{key}</p>
-                    <p className="font-medium text-gray-800">{value as string}</p>
-                  </div>
-                ))}
+              {/* 11-Axis Visual Bars */}
+              <div className="space-y-3 mb-6">
+                {BOUZIDANI_11_AXES.map((axis) => {
+                  const value = result.proof.taxonomy?.dimensions?.[axis.en.toLowerCase()] ||
+                                result.proof.taxonomy?.dimensions?.[axis.ar] || null;
+                  return (
+                    <div key={axis.id} className="flex items-center gap-3">
+                      <span className="w-8 text-xs text-gray-400 font-mono">#{axis.id}</span>
+                      <span className="w-24 text-sm text-gray-600">{axis.ar}</span>
+                      <div className="flex-1 bg-gray-100 rounded-full h-2.5">
+                        <div
+                          className={`${axis.color} h-2.5 rounded-full transition-all`}
+                          style={{ width: value ? '100%' : '0%', opacity: value ? 1 : 0.3 }}
+                        />
+                      </div>
+                      <span className="w-28 text-right text-sm text-gray-700 font-medium truncate">
+                        {value || '—'}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
+
+              {/* Legacy dimensions display */}
+              {Object.keys(result.proof.taxonomy?.dimensions || {}).length > 0 && (
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 pt-4 border-t border-gray-100">
+                  {Object.entries(result.proof.taxonomy?.dimensions || {}).map(([key, value]) => (
+                    <div key={key} className="p-3 bg-gray-50 rounded-lg">
+                      <p className="text-xs text-gray-500">{key}</p>
+                      <p className="font-medium text-gray-800">{value as string}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Detected behaviors */}
               {result.proof.taxonomy?.behaviors?.length > 0 && (
-                <div className="mt-4">
+                <div className="mt-4 pt-4 border-t border-gray-100">
                   <h4 className="font-bold text-gray-700 mb-2">السلوكيات المكتشفة:</h4>
                   <div className="flex flex-wrap gap-2">
                     {result.proof.taxonomy.behaviors.map((b: any, i: number) => (

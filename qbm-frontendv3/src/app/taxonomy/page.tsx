@@ -27,6 +27,17 @@ import {
   Search,
   ArrowRight,
   Layers,
+  MapPin,
+  Clock,
+  UserCircle,
+  Zap,
+  Shield,
+  Award,
+  Link2,
+  CheckCircle,
+  XCircle,
+  AlertTriangle,
+  Building,
 } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 
@@ -34,9 +45,10 @@ const BACKEND_URL = process.env.NEXT_PUBLIC_QBM_BACKEND_URL || "http://localhost
 
 const CHART_COLORS = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444', '#14b8a6', '#ec4899', '#6366f1'];
 
-// Bouzidani's 5-Axis Taxonomy Structure
+// Bouzidani's Complete 11-Axis Taxonomy Structure
 interface TaxonomyAxis {
   id: string;
+  axisNumber: number;
   nameAr: string;
   nameEn: string;
   descriptionAr: string;
@@ -55,85 +67,192 @@ interface TaxonomyCategory {
   examples?: string[];
 }
 
+// Complete 11-Axis Bouzidani Framework from canonical_entities.json
 const TAXONOMY_AXES: TaxonomyAxis[] = [
   {
     id: "organic",
-    nameAr: "التصنيف العضوي البيولوجي",
+    axisNumber: 1,
+    nameAr: "التصنيف العضوي",
     nameEn: "Organic Classification",
-    descriptionAr: "تصنيف السلوكيات حسب الأعضاء الجسدية والحالات الداخلية",
-    descriptionEn: "Classification of behaviors by bodily organs and internal states",
+    descriptionAr: "تصنيف السلوكيات حسب الأعضاء الجسدية",
+    descriptionEn: "Classification by bodily organs",
     icon: Heart,
     color: "text-rose-600",
     gradient: "from-rose-500 to-pink-600",
     categories: [
-      { id: "heart", nameAr: "القلب", nameEn: "Heart (Qalb)", icon: Heart, examples: ["الإيمان", "الخشوع", "الحب"] },
-      { id: "tongue", nameAr: "اللسان", nameEn: "Tongue (Lisan)", icon: MessageCircle, examples: ["الذكر", "الدعاء", "الغيبة"] },
-      { id: "eye", nameAr: "العين", nameEn: "Eye (Ayn)", icon: Eye, examples: ["النظر", "البصيرة", "غض البصر"] },
-      { id: "hand", nameAr: "اليد", nameEn: "Hand (Yad)", icon: Hand, examples: ["الصدقة", "العمل", "البطش"] },
-      { id: "internal", nameAr: "الباطن", nameEn: "Internal (Batin)", icon: Brain, examples: ["النية", "الفكر", "العاطفة"] },
+      { id: "external", nameAr: "ظاهري", nameEn: "External", icon: Hand },
+      { id: "internal", nameAr: "باطني", nameEn: "Internal", icon: Brain },
+      { id: "heart", nameAr: "قلبي", nameEn: "Heart-based", icon: Heart },
+      { id: "tongue", nameAr: "لساني", nameEn: "Tongue-based", icon: MessageCircle },
+      { id: "limbs", nameAr: "جوارحي", nameEn: "Limbs-based", icon: Hand },
     ],
   },
   {
     id: "situational",
-    nameAr: "التصنيف الموضعي",
+    axisNumber: 2,
+    nameAr: "التصنيف الموقفي",
     nameEn: "Situational Classification",
-    descriptionAr: "تصنيف السلوكيات حسب السياق والموضع",
-    descriptionEn: "Classification by context and situation",
+    descriptionAr: "تصنيف السلوكيات حسب السياق",
+    descriptionEn: "Classification by context",
     icon: Globe,
     color: "text-blue-600",
     gradient: "from-blue-500 to-cyan-600",
     categories: [
-      { id: "self", nameAr: "النفس", nameEn: "Self (Nafs)", icon: Heart, examples: ["التزكية", "المجاهدة", "الصبر"] },
-      { id: "horizons", nameAr: "الآفاق", nameEn: "Horizons (Afaq)", icon: Globe, examples: ["التفكر", "التدبر", "الاعتبار"] },
-      { id: "creator", nameAr: "الخالق", nameEn: "Creator (Khaliq)", icon: Sparkles, examples: ["العبادة", "التوكل", "الخشية"] },
-      { id: "universe", nameAr: "الكون", nameEn: "Universe (Kawn)", icon: Sun, examples: ["الاستخلاف", "الإعمار", "الحفظ"] },
-      { id: "life", nameAr: "الحياة", nameEn: "Life (Hayat)", icon: Layers, examples: ["الإحسان", "العدل", "الرحمة"] },
+      { id: "self", nameAr: "النفس", nameEn: "Self", icon: UserCircle },
+      { id: "horizons", nameAr: "الآفاق", nameEn: "Horizons", icon: Globe },
+      { id: "creator", nameAr: "الخالق", nameEn: "Creator", icon: Sparkles },
+      { id: "universe", nameAr: "الكون", nameEn: "Universe", icon: Sun },
+      { id: "life", nameAr: "الحياة", nameEn: "Life", icon: Layers },
     ],
   },
   {
     id: "systemic",
+    axisNumber: 3,
     nameAr: "التصنيف النسقي",
     nameEn: "Systemic Classification",
     descriptionAr: "تصنيف السلوكيات حسب النظام الاجتماعي",
-    descriptionEn: "Classification by social system context",
+    descriptionEn: "Classification by social system",
     icon: Users,
     color: "text-purple-600",
     gradient: "from-purple-500 to-indigo-600",
     categories: [
-      { id: "home", nameAr: "البيت", nameEn: "Home (Bayt)", icon: Home, examples: ["بر الوالدين", "صلة الرحم", "التربية"] },
-      { id: "work", nameAr: "العمل", nameEn: "Work (Amal)", icon: Briefcase, examples: ["الإتقان", "الأمانة", "الصدق"] },
-      { id: "public", nameAr: "المجتمع", nameEn: "Public (Mujtama)", icon: Users, examples: ["الأمر بالمعروف", "النهي عن المنكر", "التعاون"] },
+      { id: "home", nameAr: "البيت", nameEn: "Home", icon: Home },
+      { id: "work", nameAr: "العمل", nameEn: "Work", icon: Briefcase },
+      { id: "public", nameAr: "مكان عام", nameEn: "Public", icon: Users },
+      { id: "mosque", nameAr: "المسجد", nameEn: "Mosque", icon: Building },
+    ],
+  },
+  {
+    id: "spatial",
+    axisNumber: 4,
+    nameAr: "التصنيف المكاني",
+    nameEn: "Spatial Classification",
+    descriptionAr: "تصنيف السلوكيات حسب المكان",
+    descriptionEn: "Classification by place type",
+    icon: MapPin,
+    color: "text-cyan-600",
+    gradient: "from-cyan-500 to-teal-600",
+    categories: [
+      { id: "sacred", nameAr: "مقدس", nameEn: "Sacred", icon: Sparkles },
+      { id: "ordinary", nameAr: "عادي", nameEn: "Ordinary", icon: Home },
+      { id: "private", nameAr: "خاص", nameEn: "Private", icon: Shield },
+      { id: "public", nameAr: "عام", nameEn: "Public", icon: Globe },
     ],
   },
   {
     id: "temporal",
+    axisNumber: 5,
     nameAr: "التصنيف الزماني",
     nameEn: "Temporal Classification",
-    descriptionAr: "تصنيف السلوكيات حسب الوقت",
-    descriptionEn: "Classification by time of day",
-    icon: Sun,
+    descriptionAr: "تصنيف السلوكيات حسب الزمن",
+    descriptionEn: "Classification by time dimension",
+    icon: Clock,
     color: "text-amber-600",
     gradient: "from-amber-500 to-orange-600",
     categories: [
-      { id: "morning", nameAr: "الصباح", nameEn: "Morning (Sabah)", icon: Sunrise, examples: ["صلاة الفجر", "أذكار الصباح"] },
-      { id: "noon", nameAr: "الظهر", nameEn: "Noon (Zuhr)", icon: Sun, examples: ["صلاة الظهر", "القيلولة"] },
-      { id: "afternoon", nameAr: "العصر", nameEn: "Afternoon (Asr)", icon: Sunset, examples: ["صلاة العصر", "الاستغفار"] },
-      { id: "night", nameAr: "الليل", nameEn: "Night (Layl)", icon: Moon, examples: ["قيام الليل", "التهجد", "أذكار النوم"] },
+      { id: "dunya", nameAr: "الدنيا", nameEn: "This World", icon: Sun },
+      { id: "akhira", nameAr: "الآخرة", nameEn: "Hereafter", icon: Moon },
+      { id: "both", nameAr: "كلاهما", nameEn: "Both", icon: Clock },
+    ],
+  },
+  {
+    id: "agent",
+    axisNumber: 6,
+    nameAr: "التصنيف الفاعلي",
+    nameEn: "Agent Classification",
+    descriptionAr: "تصنيف السلوكيات حسب الفاعل",
+    descriptionEn: "Classification by actor type",
+    icon: UserCircle,
+    color: "text-indigo-600",
+    gradient: "from-indigo-500 to-violet-600",
+    categories: [
+      { id: "individual", nameAr: "فردي", nameEn: "Individual", icon: UserCircle },
+      { id: "collective", nameAr: "جماعي", nameEn: "Collective", icon: Users },
+      { id: "divine", nameAr: "إلهي", nameEn: "Divine", icon: Sparkles },
+    ],
+  },
+  {
+    id: "source",
+    axisNumber: 7,
+    nameAr: "التصنيف المصدري",
+    nameEn: "Source Classification",
+    descriptionAr: "تصنيف السلوكيات حسب المصدر",
+    descriptionEn: "Classification by behavior source",
+    icon: Zap,
+    color: "text-yellow-600",
+    gradient: "from-yellow-500 to-amber-600",
+    categories: [
+      { id: "nafs", nameAr: "النفس", nameEn: "Self/Nafs", icon: Heart },
+      { id: "shaytan", nameAr: "الشيطان", nameEn: "Satan", icon: AlertTriangle },
+      { id: "divine", nameAr: "إلهي", nameEn: "Divine Inspiration", icon: Sparkles },
     ],
   },
   {
     id: "evaluation",
+    axisNumber: 8,
     nameAr: "التصنيف التقييمي",
     nameEn: "Evaluation Classification",
     descriptionAr: "تصنيف السلوكيات حسب الحكم الشرعي",
-    descriptionEn: "Classification by moral/religious evaluation",
+    descriptionEn: "Classification by religious ruling",
     icon: Scale,
     color: "text-emerald-600",
     gradient: "from-emerald-500 to-teal-600",
     categories: [
-      { id: "praise", nameAr: "مدح", nameEn: "Praise (Madh)", icon: ThumbsUp, examples: ["الصدق", "الأمانة", "الإحسان"] },
-      { id: "blame", nameAr: "ذم", nameEn: "Blame (Dhamm)", icon: ThumbsDown, examples: ["الكذب", "الخيانة", "الظلم"] },
-      { id: "neutral", nameAr: "سواء", nameEn: "Neutral (Sawa)", icon: Scale, examples: ["المباحات", "العادات"] },
+      { id: "wajib", nameAr: "واجب", nameEn: "Obligatory", icon: CheckCircle },
+      { id: "mustahab", nameAr: "مستحب", nameEn: "Recommended", icon: ThumbsUp },
+      { id: "mubah", nameAr: "مباح", nameEn: "Permissible", icon: Scale },
+      { id: "makruh", nameAr: "مكروه", nameEn: "Disliked", icon: ThumbsDown },
+      { id: "haram", nameAr: "حرام", nameEn: "Forbidden", icon: XCircle },
+    ],
+  },
+  {
+    id: "heart_impact",
+    axisNumber: 9,
+    nameAr: "تأثير القلب",
+    nameEn: "Heart Impact",
+    descriptionAr: "تأثير السلوك على القلب",
+    descriptionEn: "Impact of behavior on the heart",
+    icon: Heart,
+    color: "text-pink-600",
+    gradient: "from-pink-500 to-rose-600",
+    categories: [
+      { id: "purifies", nameAr: "يزكي", nameEn: "Purifies", icon: Sparkles },
+      { id: "hardens", nameAr: "يقسي", nameEn: "Hardens", icon: Shield },
+      { id: "softens", nameAr: "يلين", nameEn: "Softens", icon: Heart },
+      { id: "seals", nameAr: "يختم", nameEn: "Seals", icon: XCircle },
+    ],
+  },
+  {
+    id: "consequence",
+    axisNumber: 10,
+    nameAr: "العاقبة",
+    nameEn: "Consequence",
+    descriptionAr: "عواقب السلوك",
+    descriptionEn: "Outcomes of behavior",
+    icon: Award,
+    color: "text-orange-600",
+    gradient: "from-orange-500 to-red-600",
+    categories: [
+      { id: "reward", nameAr: "ثواب", nameEn: "Reward", icon: Award },
+      { id: "punishment", nameAr: "عقاب", nameEn: "Punishment", icon: AlertTriangle },
+      { id: "neutral", nameAr: "محايد", nameEn: "Neutral", icon: Scale },
+    ],
+  },
+  {
+    id: "relationships",
+    axisNumber: 11,
+    nameAr: "العلاقات",
+    nameEn: "Relationships",
+    descriptionAr: "علاقات السلوك بالسلوكيات الأخرى",
+    descriptionEn: "Behavior relationships",
+    icon: Link2,
+    color: "text-violet-600",
+    gradient: "from-violet-500 to-purple-600",
+    categories: [
+      { id: "causal", nameAr: "سببية", nameEn: "Causal", icon: ArrowRight },
+      { id: "opposite", nameAr: "تضادية", nameEn: "Opposite", icon: XCircle },
+      { id: "strengthens", nameAr: "تعزيزية", nameEn: "Strengthening", icon: ThumbsUp },
+      { id: "conditional", nameAr: "شرطية", nameEn: "Conditional", icon: AlertTriangle },
     ],
   },
 ];
@@ -163,10 +282,26 @@ export default function TaxonomyPage() {
     loadStats();
   }, []);
 
-  // Prepare radar chart data for taxonomy overview
-  const radarData = TAXONOMY_AXES.map((axis, i) => ({
-    axis: language === "ar" ? axis.nameAr.split(" ")[1] : axis.nameEn.split(" ")[0],
-    value: (5 - i) * 20 + Math.random() * 20, // Simulated - would come from real data
+  // Prepare radar chart data for 11-axis taxonomy overview
+  // Static example values representing typical behavior distribution across axes
+  const AXIS_EXAMPLE_VALUES: Record<string, number> = {
+    organic: 85,
+    situational: 72,
+    systemic: 65,
+    spatial: 58,
+    temporal: 90,
+    agent: 78,
+    source: 45,
+    evaluation: 95,
+    heart_impact: 82,
+    consequence: 88,
+    relationships: 70,
+  };
+
+  const radarData = TAXONOMY_AXES.map((axis) => ({
+    axis: language === "ar" ? axis.nameAr.replace("التصنيف ", "").replace("تأثير ", "") : axis.nameEn.split(" ")[0],
+    axisAr: axis.nameAr,
+    value: AXIS_EXAMPLE_VALUES[axis.id] || 50,
     fullMark: 100,
   }));
 
@@ -191,29 +326,30 @@ export default function TaxonomyPage() {
           </h1>
           
           <p className="text-emerald-200 max-w-3xl text-lg leading-relaxed">
-            {language === "ar" 
-              ? "إطار علمي شامل لتصنيف السلوكيات البشرية في القرآن الكريم عبر خمسة محاور رئيسية: العضوي، الموضعي، النسقي، الزماني، والتقييمي."
-              : "A comprehensive scholarly framework for classifying human behaviors in the Holy Quran across five main axes: Organic, Situational, Systemic, Temporal, and Evaluative."}
+            {language === "ar"
+              ? "إطار علمي شامل لتصنيف السلوكيات البشرية في القرآن الكريم عبر إحدى عشر محوراً: العضوي، الموقفي، النسقي، المكاني، الزماني، الفاعلي، المصدري، التقييمي، تأثير القلب، العاقبة، والعلاقات."
+              : "A comprehensive scholarly framework for classifying human behaviors in the Holy Quran across 11 axes: Organic, Situational, Systemic, Spatial, Temporal, Agent, Source, Evaluation, Heart Impact, Consequence, and Relationships."}
           </p>
 
-          {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
+          {/* Quick Stats - 11 Axes Grid */}
+          <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-11 gap-3 mt-8">
             {TAXONOMY_AXES.map((axis, i) => (
               <motion.button
                 key={axis.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: i * 0.05 }}
                 onClick={() => setSelectedAxis(axis)}
-                className={`bg-white/10 backdrop-blur rounded-xl p-4 text-center hover:bg-white/20 transition-all ${
+                className={`bg-white/10 backdrop-blur rounded-xl p-3 text-center hover:bg-white/20 transition-all ${
                   selectedAxis?.id === axis.id ? 'ring-2 ring-white' : ''
                 }`}
               >
-                <axis.icon className="w-6 h-6 mx-auto mb-2 text-emerald-300" />
-                <div className="text-lg font-bold">{axis.categories.length}</div>
-                <div className="text-xs text-emerald-200">
-                  {language === "ar" ? axis.nameAr.split(" ")[1] : axis.nameEn.split(" ")[0]}
+                <axis.icon className="w-5 h-5 mx-auto mb-1 text-emerald-300" />
+                <div className="text-sm font-bold">{axis.categories.length}</div>
+                <div className="text-[10px] text-emerald-200 truncate">
+                  {language === "ar" ? axis.nameAr.replace("التصنيف ", "") : axis.nameEn.split(" ")[0]}
                 </div>
+                <div className="text-[9px] text-emerald-400 font-mono">#{axis.axisNumber}</div>
               </motion.button>
             ))}
           </div>
@@ -235,19 +371,35 @@ export default function TaxonomyPage() {
                   <Layers className="w-5 h-5 text-emerald-600" />
                   {language === "ar" ? "نظرة عامة على المحاور" : "Axes Overview"}
                 </h2>
-                <ResponsiveContainer width="100%" height={300}>
-                  <RadarChart data={radarData}>
+                <ResponsiveContainer width="100%" height={400}>
+                  <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="65%">
                     <PolarGrid stroke="#e5e7eb" />
-                    <PolarAngleAxis dataKey="axis" tick={{ fontSize: 12 }} />
-                    <PolarRadiusAxis angle={30} domain={[0, 100]} />
+                    <PolarAngleAxis
+                      dataKey="axis"
+                      tick={{ fontSize: 10, fill: '#4b5563' }}
+                      tickLine={false}
+                    />
+                    <PolarRadiusAxis
+                      angle={90}
+                      domain={[0, 100]}
+                      tick={{ fontSize: 9, fill: '#9ca3af' }}
+                    />
                     <Radar
-                      name="Coverage"
+                      name={language === "ar" ? "التغطية" : "Coverage"}
                       dataKey="value"
                       stroke="#10b981"
                       fill="#10b981"
-                      fillOpacity={0.5}
+                      fillOpacity={0.4}
+                      strokeWidth={2}
                     />
-                    <Tooltip />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: '#1e293b',
+                        border: '1px solid #334155',
+                        borderRadius: '8px',
+                        color: '#fff'
+                      }}
+                    />
                   </RadarChart>
                 </ResponsiveContainer>
               </div>
