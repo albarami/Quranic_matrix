@@ -17,6 +17,7 @@ import {
   ClipboardCheck,
   Book,
   Edit3,
+  Network,
 } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -28,6 +29,7 @@ const navItems = [
   { href: "/explorer", labelKey: "nav.explorer", icon: Globe },
   { href: "/synonyms", labelKey: "nav.synonyms", icon: Book },
   { href: "/annotate", labelKey: "nav.annotate", icon: Edit3 },
+  { href: "/graph", labelKey: "nav.graph", icon: Network },
   { href: "/genome", labelKey: "nav.genome", icon: Database },
   { href: "/reviews", labelKey: "nav.reviews", icon: ClipboardCheck },
   { href: "/discovery", labelKey: "nav.discovery", icon: Search },

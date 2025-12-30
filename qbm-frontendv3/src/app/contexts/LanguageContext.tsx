@@ -23,6 +23,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.proof": "Proof",
     "nav.synonyms": "Synonyms",
     "nav.annotate": "Annotate",
+    "nav.graph": "Graph",
     "nav.genome": "Genome",
     "nav.reviews": "Reviews",
     
@@ -152,6 +153,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.proof": "الإثبات",
     "nav.synonyms": "المرادفات",
     "nav.annotate": "التعليق",
+    "nav.graph": "الشبكة",
     "nav.genome": "الجينوم",
     "nav.reviews": "المراجعات",
     
