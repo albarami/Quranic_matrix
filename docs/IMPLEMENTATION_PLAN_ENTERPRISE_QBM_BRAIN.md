@@ -642,19 +642,19 @@ DISALLOW_PATTERNS = [
 
 **Commit**: `feat(kb): Phase 3 - KB build with SHA256 manifest + reproducibility tests`
 
-### Phase 4: Capability Engines
+### Phase 4: Capability Engines ✅
 
 **Deliverables**:
-- [ ] `capabilities/` module with 10 engines (A-J)
-- [ ] Unit tests for each engine
-- [ ] Regression tests for disallow patterns
+- [x] `src/capabilities/` module with 16 engines mapped to A-J sections
+- [x] Unit tests for each engine (32 tests)
+- [x] Regression tests for disallow patterns (generic opening verses filtered)
 
-**Tests**:
-- [ ] `test_engine_*`: deterministic tests per engine
-- [ ] `test_no_generic_opening_verses`: disallow check
-- [ ] `test_must_include_provenance`: provenance check
+**Tests** (32 passing in `tests/test_capabilities_phase4.py`):
+- [x] `test_engine_*`: deterministic tests per engine (GRAPH_CAUSAL, MULTIHOP, TAFSIR, etc.)
+- [x] `test_no_generic_opening_verses`: Fatiha + early Baqarah filtered
+- [x] `test_must_include_provenance`: all engines return provenance
 
-**Commit**: `feat(engines): capability engines A-J + unit tests`
+**Commit**: `feat(engines): Phase 4 - capability engines A-J + 32 unit tests`
 
 ### Phase 5: Evaluation Harness
 
