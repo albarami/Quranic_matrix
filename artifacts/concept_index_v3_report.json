@@ -1,81 +1,95 @@
 {
-  "phase": 4,
-  "description": "Concept Index v3 Build Report",
-  "statistics": {
-    "total_behaviors": 73,
-    "total_verses_indexed": 8078,
-    "total_validation_errors": 0,
-    "by_mode": {
-      "lexical": 73,
-      "annotation": 0,
-      "hybrid": 0
-    },
-    "average_verses_per_behavior": 110.7
-  },
-  "validation": {
-    "all_passed": true,
-    "behaviors_with_errors": []
-  },
-  "sample_entries": [
-    {
-      "concept_id": "BEH_COG_ARROGANCE",
-      "term": "الكبر",
-      "total_verses": 106,
-      "validation_passed": true
-    },
-    {
-      "concept_id": "BEH_COG_CERTAINTY",
-      "term": "اليقين",
-      "total_verses": 30,
-      "validation_passed": true
-    },
-    {
-      "concept_id": "BEH_COG_DOUBT",
-      "term": "الشك",
-      "total_verses": 1,
-      "validation_passed": true
-    },
-    {
-      "concept_id": "BEH_COG_FOLLOWING_DESIRE",
-      "term": "اتباع الهوى",
-      "total_verses": 18,
-      "validation_passed": true
-    },
-    {
-      "concept_id": "BEH_COG_HEEDLESSNESS",
-      "term": "الغفلة",
-      "total_verses": 18,
-      "validation_passed": true
-    },
-    {
-      "concept_id": "BEH_COG_HUMILITY",
-      "term": "التواضع",
-      "total_verses": 18,
-      "validation_passed": true
-    },
-    {
-      "concept_id": "BEH_COG_IGNORANCE",
-      "term": "الجهل",
-      "total_verses": 18,
-      "validation_passed": true
-    },
-    {
-      "concept_id": "BEH_COG_KNOWLEDGE",
-      "term": "العلم",
-      "total_verses": 542,
-      "validation_passed": true
-    },
-    {
-      "concept_id": "BEH_COG_REFLECTION",
-      "term": "التفكر",
-      "total_verses": 19,
-      "validation_passed": true
-    },
-    {
-      "concept_id": "BEH_COG_UNDERSTANDING",
-      "term": "الفقه",
-      "total_verses": 20,
-      "validation_passed": true
-    }
+  "generated_at": "2025-12-31T14:28:34.967048+00:00",
+  "fixture_mode": true,
+  "behavior_count": 87,
+  "canonical_behavior_count": 87,
+  "behaviors": [
+    "BEH_COG_ARROGANCE",
+    "BEH_COG_CERTAINTY",
+    "BEH_COG_DOUBT",
+    "BEH_COG_FOLLOWING_DESIRE",
+    "BEH_COG_HEEDLESSNESS",
+    "BEH_COG_HUMILITY",
+    "BEH_COG_IGNORANCE",
+    "BEH_COG_KNOWLEDGE",
+    "BEH_COG_REFLECTION",
+    "BEH_COG_UNDERSTANDING",
+    "BEH_EMO_ANGER",
+    "BEH_EMO_ENVY",
+    "BEH_EMO_FEAR_ALLAH",
+    "BEH_EMO_GRATITUDE",
+    "BEH_EMO_GRIEF",
+    "BEH_EMO_HATRED",
+    "BEH_EMO_HOPE",
+    "BEH_EMO_IMPATIENCE",
+    "BEH_EMO_INGRATITUDE",
+    "BEH_EMO_JOY",
+    "BEH_EMO_LOVE",
+    "BEH_EMO_PATIENCE",
+    "BEH_FIN_BRIBERY",
+    "BEH_FIN_CHARITY",
+    "BEH_FIN_FAIR_TRADE",
+    "BEH_FIN_FRAUD",
+    "BEH_FIN_HOARDING",
+    "BEH_FIN_SPENDING",
+    "BEH_FIN_USURY",
+    "BEH_FIN_ZAKAT",
+    "BEH_PHY_LOWERING_GAZE",
+    "BEH_PHY_PROSTRATION",
+    "BEH_PHY_STANDING",
+    "BEH_SOC_CORRUPTION",
+    "BEH_SOC_DISOBEDIENCE_PARENTS",
+    "BEH_SOC_HELPING_NEEDY",
+    "BEH_SOC_HOSPITALITY",
+    "BEH_SOC_IHSAN",
+    "BEH_SOC_JUSTICE",
+    "BEH_SOC_KINDNESS_PARENTS",
+    "BEH_SOC_KINSHIP_TIES",
+    "BEH_SOC_OPPRESSION",
+    "BEH_SOC_ORPHAN_CARE",
+    "BEH_SOC_ORPHAN_HARM",
+    "BEH_SOC_RECONCILIATION",
+    "BEH_SOC_SEVERING_TIES",
+    "BEH_SPEECH_BACKBITING",
+    "BEH_SPEECH_GOOD_WORD",
+    "BEH_SPEECH_HARSH_WORD",
+    "BEH_SPEECH_LYING",
+    "BEH_SPEECH_REMEMBRANCE",
+    "BEH_SPEECH_SLANDER",
+    "BEH_SPEECH_SUPPLICATION",
+    "BEH_SPEECH_TESTIMONY",
+    "BEH_SPEECH_TRUTHFULNESS",
+    "BEH_SPEECH_VAIN_TALK",
+    "BEH_SPI_CONTEMPLATION",
+    "BEH_SPI_CONTENTMENT",
+    "BEH_SPI_DISBELIEF",
+    "BEH_SPI_FAITH",
+    "BEH_SPI_FASTING",
+    "BEH_SPI_HAJJ",
+    "BEH_SPI_HYPOCRISY",
+    "BEH_SPI_JIHAD",
+    "BEH_SPI_PRAYER",
+    "BEH_SPI_RECITATION",
+    "BEH_SPI_REMEMBRANCE",
+    "BEH_SPI_REPENTANCE",
+    "BEH_SPI_SHOWING_OFF",
+    "BEH_SPI_SINCERITY",
+    "BEH_SPI_TAQWA",
+    "BEH_SPI_TAWAKKUL",
+    "BEH_SPI_WORSHIP",
+    "BEH_SOC_TRUSTWORTHINESS",
+    "BEH_SOC_MERCY",
+    "BEH_PHY_WALKING",
+    "BEH_FIN_ASCETICISM",
+    "BEH_SPI_KHUSHU",
+    "BEH_SOC_TRANSGRESSION",
+    "BEH_PHY_LOOKING",
+    "BEH_SPI_SHIRK",
+    "BEH_SOC_BETRAYAL",
+    "BEH_PHY_DRINKING",
+    "BEH_COG_SUPERFICIAL_KNOWING",
+    "BEH_PHY_EATING",
+    "BEH_PHY_SLEEPING",
+    "BEH_PHY_MODESTY"
   ]
 }
