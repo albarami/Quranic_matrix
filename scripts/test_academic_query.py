@@ -78,7 +78,8 @@ def test_causal_chain_query():
             print(f"  Evidence items: {len(evidence)}")
             
             # Show tafsir quotes from Ibn Kathir and Qurtubi
-            for ev in evidence[:3]:
+            evidence_list = list(evidence) if isinstance(evidence, set) else evidence
+            for ev in evidence_list[:3]:
                 source = ev.get("source", "")
                 verse_key = ev.get("verse_key", "")
                 quote = ev.get("quote", "")
