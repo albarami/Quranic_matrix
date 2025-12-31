@@ -521,19 +521,27 @@ def build_embeddings(
         
         start_time = time.time()
 
-        # Build embeddings for each dossier
-        for behavior_id, dossier in dossiers.items():
-            # Create concept text for embedding
+        # Prepare all texts for batch encoding (better GPU utilization)
+        behavior_ids = list(dossiers.keys())
+        texts = []
+        for behavior_id in behavior_ids:
+            dossier = dossiers[behavior_id]
             concept_text = f"{dossier.term_ar} {dossier.term_en}"
-
-            # Add sample verses
             sample_verses = [v["text_uthmani"] for v in dossier.verses[:5]]
             if sample_verses:
                 concept_text += " " + " ".join(sample_verses)
-
-            # Generate embedding
-            embedding = model.encode(concept_text, convert_to_numpy=True)
-            dossier.embedding = embedding.tolist()
+            texts.append(concept_text)
+        
+        # Batch encode for better GPU utilization
+        batch_size = 32  # Optimal for GPU utilization
+        result["batch_size"] = batch_size
+        logger.info(f"[GPU] Encoding {len(texts)} texts with batch_size={batch_size}")
+        
+        embeddings = model.encode(texts, batch_size=batch_size, convert_to_numpy=True, show_progress_bar=True)
+        
+        # Assign embeddings back to dossiers
+        for i, behavior_id in enumerate(behavior_ids):
+            dossiers[behavior_id].embedding = embeddings[i].tolist()
             result["total_vectors"] += 1
 
         elapsed = time.time() - start_time
@@ -546,7 +554,7 @@ def build_embeddings(
                 model_id=result["model_id"],
                 vector_dims=result["vector_dims"],
                 total_vectors=result["total_vectors"],
-                batch_size=1,  # We're doing one at a time
+                batch_size=batch_size,
                 elapsed_seconds=elapsed
             )
             gpu_collector.stop()
