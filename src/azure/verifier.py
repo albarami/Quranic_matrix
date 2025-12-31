@@ -1,5 +1,5 @@
 """
-Citation Verifier for QBM System (v2.0 - Zero Hallucination)
+Citation Verifier for QBM System (v2.1 - Zero Hallucination)
 
 Phase 6: Verifier gate for citation validity.
 Ensures all claims have valid verse_key references and proper provenance.
@@ -12,7 +12,8 @@ STRICT Verification Rules:
 5. No generic opening verses as primary evidence
 6. SUBSET CONTRACT: All tafsir verse_keys must be in behavior's verse list
 7. NO SURAH_INTRO: entry_type="surah_intro" cannot appear in behavior evidence
-8. CLAIM-EVIDENCE ALIGNMENT: Each claim must list supporting verse_keys
+8. CLAIM-EVIDENCE ALIGNMENT: Each claim/paragraph must have supporting verse_keys
+9. Long answers (>200 chars) must have at least one verse_key citation
 """
 
 import json
@@ -273,6 +274,69 @@ class CitationVerifier:
         self._find_unprovenanced_numbers(response, violations, path="")
         return violations
     
+    def verify_claim_evidence_alignment(self, response: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """
+        Verify CLAIM-EVIDENCE ALIGNMENT: Each claim must have supporting verse_keys.
+        
+        For academic-grade outputs, every claim/paragraph in the response
+        must be explicitly linked to supporting evidence (verse_keys + tafsir sources).
+        
+        Args:
+            response: Response to check
+            
+        Returns:
+            List of claims without proper evidence mapping
+        """
+        violations = []
+        
+        # Check for claims field with evidence mapping
+        claims = response.get("claims", [])
+        if claims:
+            for i, claim in enumerate(claims):
+                if not isinstance(claim, dict):
+                    continue
+                
+                claim_text = claim.get("text", claim.get("claim", ""))
+                verse_keys = claim.get("verse_keys", claim.get("evidence", []))
+                
+                if claim_text and not verse_keys:
+                    violations.append({
+                        "claim_index": i,
+                        "claim_text": claim_text[:100] + "..." if len(claim_text) > 100 else claim_text,
+                        "message": "Claim has no supporting verse_keys"
+                    })
+        
+        # Check for paragraphs/sections without evidence
+        paragraphs = response.get("paragraphs", response.get("sections", []))
+        if paragraphs:
+            for i, para in enumerate(paragraphs):
+                if not isinstance(para, dict):
+                    continue
+                
+                content = para.get("content", para.get("text", ""))
+                evidence = para.get("verse_keys", para.get("evidence", para.get("citations", [])))
+                
+                if content and not evidence:
+                    violations.append({
+                        "paragraph_index": i,
+                        "content_preview": content[:100] + "..." if len(content) > 100 else content,
+                        "message": "Paragraph has no supporting evidence"
+                    })
+        
+        # Check answer field for structured responses
+        answer = response.get("answer", "")
+        if isinstance(answer, str) and len(answer) > 200:
+            # Long answer should have evidence
+            all_verse_keys = self._extract_verse_keys(response)
+            if not all_verse_keys:
+                violations.append({
+                    "field": "answer",
+                    "length": len(answer),
+                    "message": "Long answer has no verse_key citations"
+                })
+        
+        return violations
+    
     def _find_unprovenanced_numbers(
         self, 
         data: Any, 
@@ -404,6 +468,11 @@ class CitationVerifier:
             numbers_violations = self.verify_numbers_provenance(response)
             for v in numbers_violations:
                 result.add_warning("unprovenanced_statistic", v)
+            
+            # 9. CLAIM-EVIDENCE ALIGNMENT: each claim needs supporting verse_keys
+            claim_violations = self.verify_claim_evidence_alignment(response)
+            for v in claim_violations:
+                result.add_violation("claim_without_evidence", v)
         
         return result
     

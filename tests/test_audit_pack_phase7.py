@@ -356,6 +356,73 @@ class TestAuditPackCompleteness:
 # INTEGRATION TESTS
 # =============================================================================
 
+class TestAuditPackCommitConsistency:
+    """Test audit pack commit hash matches HEAD - HARD GATE."""
+    
+    def test_audit_pack_commit_matches_head(self):
+        """
+        HARD GATE: Audit pack git_commit MUST match current HEAD.
+        
+        This ensures the audit pack was generated from the same commit
+        that contains it, making it reproducible and auditable.
+        """
+        import subprocess
+        
+        pack_path = AUDIT_PACK_DIR / "audit_pack.json"
+        if not pack_path.exists():
+            pytest.skip("Audit pack not found")
+        
+        # Get current HEAD commit
+        result = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            capture_output=True,
+            text=True,
+            cwd=PROJECT_ROOT,
+            timeout=10
+        )
+        assert result.returncode == 0, "Could not get git HEAD"
+        head_commit = result.stdout.strip()
+        
+        # Get audit pack commit
+        with open(pack_path, "r", encoding="utf-8") as f:
+            pack = json.load(f)
+        
+        pack_commit = pack.get("git_commit")
+        assert pack_commit is not None, "Audit pack missing git_commit field"
+        
+        # HARD GATE: Must match
+        assert pack_commit == head_commit, (
+            f"AUDIT PACK STALE: git_commit mismatch!\n"
+            f"  Audit pack commit: {pack_commit}\n"
+            f"  Current HEAD:      {head_commit}\n"
+            f"  Regenerate with: python scripts/generate_audit_pack.py --strict"
+        )
+    
+    def test_audit_pack_clean_tree(self):
+        """
+        Audit pack should be generated from a clean working tree.
+        
+        has_uncommitted_changes should be False for reproducibility.
+        """
+        pack_path = AUDIT_PACK_DIR / "audit_pack.json"
+        if not pack_path.exists():
+            pytest.skip("Audit pack not found")
+        
+        with open(pack_path, "r", encoding="utf-8") as f:
+            pack = json.load(f)
+        
+        system_info = pack.get("system_info", {})
+        has_uncommitted = system_info.get("has_uncommitted_changes", True)
+        
+        # This is a warning, not a hard failure, but should be addressed
+        if has_uncommitted:
+            uncommitted_count = system_info.get("uncommitted_files_count", "unknown")
+            pytest.fail(
+                f"Audit pack generated from dirty tree ({uncommitted_count} uncommitted files). "
+                f"Commit all changes before regenerating audit pack."
+            )
+
+
 class TestIntegration:
     """Integration tests for audit pack."""
     

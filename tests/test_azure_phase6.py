@@ -562,6 +562,53 @@ class TestZeroHallucinationContracts:
         # Non-strict mode should not check surah_intro
         result = verifier.verify_response(response, strict=False)
         assert not any(v["type"] == "surah_intro_in_evidence" for v in result.violations)
+    
+    def test_claim_evidence_alignment_valid(self, verifier):
+        """Test claim-evidence alignment with proper evidence."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "claims": [
+                {
+                    "text": "Patience is commanded in the Quran",
+                    "verse_keys": ["2:45", "2:153"]
+                }
+            ],
+            "provenance": {"source": "test"}
+        }
+        
+        violations = verifier.verify_claim_evidence_alignment(response)
+        assert len(violations) == 0
+    
+    def test_claim_evidence_alignment_violation(self, verifier):
+        """Test claim-evidence alignment catches claims without evidence."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "claims": [
+                {
+                    "text": "Patience is commanded in the Quran",
+                    # Missing verse_keys!
+                }
+            ],
+            "provenance": {"source": "test"}
+        }
+        
+        violations = verifier.verify_claim_evidence_alignment(response)
+        assert len(violations) > 0
+        assert violations[0]["message"] == "Claim has no supporting verse_keys"
+    
+    def test_long_answer_needs_evidence(self, verifier):
+        """Test long answers must have verse_key citations."""
+        long_text = "This is a very long answer about patience in the Quran. " * 10
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "answer": long_text,
+            # No verse_keys anywhere!
+            "provenance": {"source": "test"}
+        }
+        
+        violations = verifier.verify_claim_evidence_alignment(response)
+        assert len(violations) > 0
+        assert any(v.get("field") == "answer" for v in violations)
 
 
 # =============================================================================
