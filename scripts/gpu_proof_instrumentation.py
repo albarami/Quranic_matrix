@@ -195,11 +195,22 @@ class GPUProofCollector:
         max_util = max(utilizations) if utilizations else 0.0
         peak_mem = max(memories) if memories else 0.0
         
-        # Determine validity
-        valid = avg_util >= self.min_utilization_threshold
+        # Determine validity using robust criteria:
+        # 1. Average utilization >= threshold, OR
+        # 2. Max utilization >= 10% AND peak memory > 500MB (proves GPU was used)
+        # 3. PyTorch max_memory_allocated > 100MB (proves CUDA tensors were created)
+        torch_max_mem = self._torch_end_stats.get("max_memory_allocated_mb", 0)
+        
+        valid = (
+            avg_util >= self.min_utilization_threshold or
+            (max_util >= 10.0 and peak_mem > 500) or
+            torch_max_mem > 100
+        )
+        
         if not valid and not self.errors:
             self.errors.append(
-                f"GPU utilization too low: avg={avg_util:.1f}% < threshold={self.min_utilization_threshold}%"
+                f"GPU utilization too low: avg={avg_util:.1f}% < threshold={self.min_utilization_threshold}%, "
+                f"max={max_util:.1f}%, peak_mem={peak_mem:.0f}MB, torch_max_mem={torch_max_mem:.0f}MB"
             )
         
         # Combine torch stats

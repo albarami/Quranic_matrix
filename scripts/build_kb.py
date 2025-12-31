@@ -512,12 +512,18 @@ def build_embeddings(
         gpu_collector = None
         if gpu_proof_dir and device == "cuda":
             try:
-                from scripts.gpu_proof_instrumentation import GPUProofCollector
+                # Try relative import first (when running as module)
+                try:
+                    from scripts.gpu_proof_instrumentation import GPUProofCollector
+                except ImportError:
+                    # Fall back to direct import (when running as script)
+                    from gpu_proof_instrumentation import GPUProofCollector
+                
                 gpu_collector = GPUProofCollector(output_dir=gpu_proof_dir)
                 gpu_collector.start()
                 logger.info(f"[GPU] GPU proof collection started -> {gpu_proof_dir}")
-            except ImportError:
-                logger.warning("[GPU] GPU proof instrumentation not available")
+            except Exception as e:
+                logger.warning(f"[GPU] GPU proof instrumentation not available: {e}")
         
         start_time = time.time()
 
