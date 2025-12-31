@@ -119,7 +119,7 @@ class TestConceptIndexCompleteness:
         
         assert len(concept_index) == len(all_ids), \
             f"Expected {len(all_ids)} entries, got {len(concept_index)}"
-        assert len(concept_index) == 126, f"Expected 126 entries, got {len(concept_index)}"
+        assert len(concept_index) == 168, f"Expected 168 entries, got {len(concept_index)}"
 
 
 @pytest.mark.unit
@@ -220,9 +220,9 @@ class TestMetadataIntegrity:
         assert "coverage_rate" in completeness
         
         # Verify counts match
-        assert completeness["total_canonical_entities"] == 126
-        assert completeness["entities_in_index"] == 126
-        assert completeness["entities_with_evidence"] + completeness["entities_without_evidence"] == 126
+        assert completeness["total_canonical_entities"] == 168
+        assert completeness["entities_in_index"] == 168
+        assert completeness["entities_with_evidence"] + completeness["entities_without_evidence"] == 168
     
     def test_metadata_entity_type_counts(self, concept_metadata):
         """Metadata must have correct entity type counts."""
@@ -230,7 +230,7 @@ class TestMetadataIntegrity:
         
         assert by_type.get("BEHAVIOR") == 87, f"Expected 87 behaviors, got {by_type.get('BEHAVIOR')}"
         assert by_type.get("AGENT") == 14, f"Expected 14 agents, got {by_type.get('AGENT')}"
-        assert by_type.get("ORGAN") == 11, f"Expected 11 organs, got {by_type.get('ORGAN')}"
+        assert by_type.get("ORGAN") == 39, f"Expected 39 organs, got {by_type.get('ORGAN')}"
         assert by_type.get("HEART_STATE") == 12, f"Expected 12 heart states, got {by_type.get('HEART_STATE')}"
         assert by_type.get("CONSEQUENCE") == 16, f"Expected 16 consequences, got {by_type.get('CONSEQUENCE')}"
 

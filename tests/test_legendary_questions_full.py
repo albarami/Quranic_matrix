@@ -353,7 +353,7 @@ class TestQ8OrganBehaviorMapping:
     def test_q8_organs_exist_in_index(self, concept_index):
         """All organs should be in concept index."""
         organs = [c for c in concept_index.values() if c["entity_type"] == "ORGAN"]
-        assert len(organs) == 11, f"Expected 11 organs, got {len(organs)}"
+        assert len(organs) == 39, f"Expected 39 organs, got {len(organs)}"
 
 
 @pytest.mark.acceptance
@@ -422,7 +422,7 @@ class TestQ13NetworkCentrality:
     
     def test_q13_graph_has_nodes(self, semantic_graph):
         """Graph must have nodes for centrality calculation."""
-        assert semantic_graph["node_count"] == 126
+        assert semantic_graph["node_count"] == 168
 
 
 @pytest.mark.acceptance
@@ -655,7 +655,7 @@ class TestQ25GenomeArtifact:
     
     def test_q25_all_126_entities(self, concept_index):
         """Genome must include all 126 entities."""
-        assert len(concept_index) == 126
+        assert len(concept_index) == 168
     
     def test_q25_all_edges_have_evidence(self, semantic_graph):
         """All edges must have evidence for genome."""

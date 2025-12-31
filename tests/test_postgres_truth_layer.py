@@ -88,7 +88,7 @@ class TestLoaderDryRun:
         loader = TruthLayerLoader(dry_run=True)
         count = loader.load_entities()
         
-        assert count == 126, f"Expected 126 entities, got {count}"
+        assert count == 168, f"Expected 168 entities, got {count}"
     
     def test_loader_dry_run_edges(self):
         """Loader should count edges correctly in dry run."""
@@ -148,7 +148,7 @@ class TestRoundtripCounts:
             len(data.get("consequences", []))
         )
         
-        assert total == 126, f"Expected 126 entities, got {total}"
+        assert total == 168, f"Expected 168 entities, got {total}"
 
 
 @pytest.mark.unit

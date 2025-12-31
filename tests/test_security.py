@@ -97,7 +97,7 @@ class TestRateLimiting:
     
     def test_proof_endpoint_has_limit(self):
         """Proof endpoint should have rate limit decorator"""
-        from src.api.main import proof_query
+        from src.api.routers.proof import proof_query
         
         # Check that the function has rate limit metadata
         # slowapi adds __wrapped__ or similar attributes

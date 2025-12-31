@@ -187,7 +187,7 @@ class TestGraphStructure:
     
     def test_graph_has_all_126_nodes(self, semantic_graph):
         """Graph must have all 126 canonical nodes."""
-        assert semantic_graph.get("node_count") == 126
+        assert semantic_graph.get("node_count") == 168
     
     def test_graph_has_hard_rules(self, semantic_graph):
         """Graph must document hard rules."""
