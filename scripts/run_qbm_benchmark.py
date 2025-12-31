@@ -382,6 +382,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             "proof_only": bool(args.proof_only),
             "default_mode": args.default_mode,
             "selected_items": len(selected),
+            "total_questions": len(selected),  # Explicit count for CI validation
+            "smoke_mode": args.smoke,
             "python": sys.version,
             "cwd": os.getcwd(),
         },
@@ -396,6 +398,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     _write_json(json_path, run)
     _write_text(md_path, build_markdown_report(run))
+    
+    # Write to known path for CI validation
+    eval_dir = REPO_ROOT / "reports" / "eval"
+    _mkdir(eval_dir)
+    latest_path = eval_dir / "latest_eval_report.json"
+    _write_json(latest_path, run)
 
     with csv_path.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(

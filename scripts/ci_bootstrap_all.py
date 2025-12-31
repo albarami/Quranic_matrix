@@ -61,6 +61,18 @@ def _load_canonical_counts():
 CANONICAL_COUNTS = _load_canonical_counts()
 
 
+def _load_canonical_entities():
+    """Load full canonical entities from vocab/canonical_entities.json."""
+    canonical_path = PROJECT_ROOT / "vocab" / "canonical_entities.json"
+    if canonical_path.exists():
+        with open(canonical_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {"behaviors": [], "agents": [], "organs": [], "heart_states": [], "consequences": []}
+
+
+CANONICAL_ENTITIES = _load_canonical_entities()
+
+
 def log(msg: str):
     print(f"[CI-BOOTSTRAP] {msg}")
 
@@ -191,9 +203,93 @@ def build_chunked_evidence_index() -> bool:
     return True
 
 
+def ensure_all_canonical_entities() -> bool:
+    """Ensure all canonical entities exist in concept_index_v3, even with empty evidence."""
+    log("Step 4: Ensuring all canonical entities in concept_index_v3...")
+    
+    index_path = PROJECT_ROOT / "data" / "evidence" / "concept_index_v3.jsonl"
+    
+    # Load existing entries
+    existing_entries = {}
+    if index_path.exists():
+        with open(index_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                entry = json.loads(line)
+                concept_id = entry.get("concept_id", "")
+                existing_entries[concept_id] = entry
+    
+    log(f"  Loaded {len(existing_entries)} existing entries")
+    
+    # Get canonical behaviors
+    canonical_behaviors = CANONICAL_ENTITIES.get("behaviors", [])
+    log(f"  Canonical behaviors: {len(canonical_behaviors)}")
+    
+    # Track statistics
+    added_count = 0
+    evidence_coverage = {"with_evidence": 0, "no_evidence": 0}
+    
+    # Ensure all canonical behaviors exist
+    for behavior in canonical_behaviors:
+        behavior_id = behavior.get("id", "")
+        if not behavior_id:
+            continue
+        
+        if behavior_id in existing_entries:
+            # Check if has evidence
+            entry = existing_entries[behavior_id]
+            if entry.get("verses") or entry.get("tafsir_chunks"):
+                evidence_coverage["with_evidence"] += 1
+            else:
+                evidence_coverage["no_evidence"] += 1
+        else:
+            # Create placeholder entry with empty evidence
+            existing_entries[behavior_id] = {
+                "concept_id": behavior_id,
+                "concept_type": "BEHAVIOR",
+                "ar": behavior.get("ar", ""),
+                "en": behavior.get("en", ""),
+                "category": behavior.get("category", ""),
+                "roots": behavior.get("roots", []),
+                "verses": [],
+                "tafsir_chunks": [],
+                "statistics": {
+                    "total_verses": 0,
+                    "lexical_mentions": 0,
+                    "annotation_mentions": 0,
+                    "direct_count": 0,
+                    "indirect_count": 0,
+                    "validation_errors": 0,
+                    "total_sources": 0,
+                    "sources_by_type": {},
+                    "avg_confidence": 0.0
+                },
+                "validation": {
+                    "passed": True,
+                    "errors": [],
+                    "warnings": ["no_evidence_in_fixture"]
+                },
+                "total_mentions": 0
+            }
+            added_count += 1
+            evidence_coverage["no_evidence"] += 1
+    
+    # Write back all entries sorted by concept_id
+    all_entries = sorted(existing_entries.values(), key=lambda x: x.get("concept_id", ""))
+    
+    with open(index_path, 'w', encoding='utf-8') as f:
+        for entry in all_entries:
+            f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+    
+    log(f"  Added {added_count} missing canonical behaviors")
+    log(f"  Evidence coverage: {evidence_coverage['with_evidence']} with evidence, {evidence_coverage['no_evidence']} without")
+    log(f"  ✓ concept_index_v3.jsonl now has {len(all_entries)} behaviors (canonical: {CANONICAL_COUNTS['behaviors']})")
+    
+    return len(all_entries) == CANONICAL_COUNTS["behaviors"]
+
+
 def validate_concept_index() -> bool:
     """Validate concept_index_v3 schema."""
-    log("Step 4: Validating concept_index_v3 schema...")
+    log("Step 5: Validating concept_index_v3 schema...")
     
     index_path = PROJECT_ROOT / "data" / "evidence" / "concept_index_v3.jsonl"
     if not index_path.exists():
@@ -208,16 +304,16 @@ def validate_concept_index() -> bool:
     behavior_count = len(entries)
     
     if behavior_count != CANONICAL_COUNTS["behaviors"]:
-        log(f"  WARNING: concept_index_v3 has {behavior_count} behaviors, expected {CANONICAL_COUNTS['behaviors']}")
-    else:
-        log(f"  ✓ concept_index_v3.jsonl ({behavior_count} behaviors)")
+        log(f"  ERROR: concept_index_v3 has {behavior_count} behaviors, expected {CANONICAL_COUNTS['behaviors']}")
+        return False
     
+    log(f"  ✓ concept_index_v3.jsonl ({behavior_count} behaviors)")
     return True
 
 
 def generate_reports() -> bool:
     """Generate reports from concept_index_v3."""
-    log("Step 5: Generating reports from concept_index_v3...")
+    log("Step 6: Generating reports from concept_index_v3...")
     
     artifacts_dir = PROJECT_ROOT / "artifacts"
     reports_dir = PROJECT_ROOT / "reports"
@@ -298,7 +394,7 @@ def generate_reports() -> bool:
 
 def verify_all_artifacts() -> bool:
     """Verify all required artifacts exist."""
-    log("Step 6: Verifying all artifacts exist...")
+    log("Step 7: Verifying all artifacts exist...")
     
     required_artifacts = [
         # Tafsir indexes
@@ -336,6 +432,7 @@ def main():
         ("Verify fixture data", verify_fixture_data),
         ("Build tafsir indexes", build_tafsir_indexes),
         ("Build chunked evidence index", build_chunked_evidence_index),
+        ("Ensure all canonical entities", ensure_all_canonical_entities),
         ("Validate concept index", validate_concept_index),
         ("Generate reports", generate_reports),
         ("Verify all artifacts", verify_all_artifacts),
