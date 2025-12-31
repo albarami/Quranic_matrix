@@ -301,14 +301,30 @@ class TestBenchmarkResults:
 # =============================================================================
 
 class TestAuditPackCompleteness:
-    """Test audit pack is complete."""
+    """
+    Test audit pack completeness.
+    
+    NOTE: Audit pack is a BUILD ARTIFACT, not committed to git.
+    These tests will skip if the audit pack doesn't exist.
+    Generate with: python scripts/generate_audit_pack.py --strict
+    """
     
     def test_audit_pack_exists(self):
-        """Test audit pack directory exists."""
-        assert AUDIT_PACK_DIR.exists()
+        """Test audit pack directory exists (skip if not generated)."""
+        if not AUDIT_PACK_DIR.exists():
+            pytest.skip(
+                "Audit pack not found - this is expected. "
+                "Generate with: python scripts/generate_audit_pack.py --strict"
+            )
     
     def test_all_files_present(self):
         """Test all required files are present."""
+        if not AUDIT_PACK_DIR.exists():
+            pytest.skip(
+                "Audit pack not found - this is expected. "
+                "Generate with: python scripts/generate_audit_pack.py --strict"
+            )
+        
         required_files = [
             "audit_pack.json",
             "input_hashes.json",
@@ -326,6 +342,8 @@ class TestAuditPackCompleteness:
     def test_audit_pack_valid_json(self):
         """Test audit pack is valid JSON."""
         pack_path = AUDIT_PACK_DIR / "audit_pack.json"
+        if not pack_path.exists():
+            pytest.skip("Audit pack not found")
         
         with open(pack_path, "r", encoding="utf-8") as f:
             pack = json.load(f)
@@ -357,24 +375,29 @@ class TestAuditPackCompleteness:
 # =============================================================================
 
 class TestAuditPackCommitConsistency:
-    """Test audit pack commit hash matches HEAD - HARD GATE."""
+    """
+    Test audit pack commit hash matches HEAD - HARD GATE.
     
-    def test_audit_pack_commit_matches_head_or_parent(self):
+    ENTERPRISE MODEL (Option A):
+    - Audit pack is a BUILD ARTIFACT, not committed to git
+    - Generated only on clean tree (0 uncommitted files)
+    - git_commit MUST equal HEAD exactly
+    - Stored as release artifact, not in repo
+    """
+    
+    def test_audit_pack_commit_matches_head_exactly(self):
         """
-        HARD GATE: Audit pack git_commit MUST match HEAD or its parent.
+        HARD GATE: Audit pack git_commit MUST match HEAD exactly.
         
-        The audit pack is generated from a commit, then committed itself.
-        So the pack's git_commit will be either:
-        - HEAD (if no changes since generation)
-        - HEAD^ (if the pack was just committed)
-        
-        This ensures the audit pack is current and reproducible.
+        The audit pack is a build artifact generated from a clean tree.
+        It is NOT committed to git - it's stored as a release artifact.
+        Therefore git_commit must equal HEAD at generation time.
         """
         import subprocess
         
         pack_path = AUDIT_PACK_DIR / "audit_pack.json"
         if not pack_path.exists():
-            pytest.skip("Audit pack not found")
+            pytest.skip("Audit pack not found - generate with: python scripts/generate_audit_pack.py --strict")
         
         # Get current HEAD commit
         result = subprocess.run(
@@ -387,16 +410,6 @@ class TestAuditPackCommitConsistency:
         assert result.returncode == 0, "Could not get git HEAD"
         head_commit = result.stdout.strip()
         
-        # Get HEAD^ (parent commit)
-        result = subprocess.run(
-            ["git", "rev-parse", "HEAD^"],
-            capture_output=True,
-            text=True,
-            cwd=PROJECT_ROOT,
-            timeout=10
-        )
-        parent_commit = result.stdout.strip() if result.returncode == 0 else None
-        
         # Get audit pack commit
         with open(pack_path, "r", encoding="utf-8") as f:
             pack = json.load(f)
@@ -404,25 +417,23 @@ class TestAuditPackCommitConsistency:
         pack_commit = pack.get("git_commit")
         assert pack_commit is not None, "Audit pack missing git_commit field"
         
-        # HARD GATE: Must match HEAD or parent
-        valid_commits = {head_commit}
-        if parent_commit:
-            valid_commits.add(parent_commit)
-        
-        assert pack_commit in valid_commits, (
+        # HARD GATE: Must match HEAD exactly
+        assert pack_commit == head_commit, (
             f"AUDIT PACK STALE: git_commit mismatch!\n"
             f"  Audit pack commit: {pack_commit}\n"
             f"  Current HEAD:      {head_commit}\n"
-            f"  HEAD parent:       {parent_commit}\n"
             f"  Regenerate with: python scripts/generate_audit_pack.py --strict"
         )
     
-    def test_audit_pack_minimal_uncommitted(self):
+    def test_audit_pack_clean_tree(self):
         """
-        Audit pack should be generated with minimal uncommitted changes.
+        HARD GATE: Audit pack MUST be generated from a clean tree.
         
-        The audit pack files themselves will be uncommitted at generation time,
-        so we allow a small number. But large numbers indicate a dirty tree.
+        has_uncommitted_changes must be False.
+        uncommitted_files_count must be 0.
+        
+        This ensures the audit pack is reproducible and represents
+        an exact, verifiable state of the codebase.
         """
         pack_path = AUDIT_PACK_DIR / "audit_pack.json"
         if not pack_path.exists():
@@ -432,15 +443,19 @@ class TestAuditPackCommitConsistency:
             pack = json.load(f)
         
         system_info = pack.get("system_info", {})
-        uncommitted_count = system_info.get("uncommitted_files_count", 0)
+        has_uncommitted = system_info.get("has_uncommitted_changes", True)
+        uncommitted_count = system_info.get("uncommitted_files_count", -1)
         
-        # Allow up to 10 uncommitted files (audit pack files + a few temp files)
-        # More than that indicates the tree wasn't properly cleaned
-        max_allowed = 10
-        assert uncommitted_count <= max_allowed, (
-            f"Audit pack generated from dirty tree ({uncommitted_count} uncommitted files). "
-            f"Maximum allowed: {max_allowed}. "
-            f"Commit all changes before regenerating audit pack."
+        # STRICT: Must be clean tree
+        assert not has_uncommitted, (
+            f"Audit pack generated from dirty tree. "
+            f"Uncommitted files: {uncommitted_count}. "
+            f"Commit ALL changes before regenerating audit pack."
+        )
+        
+        assert uncommitted_count == 0, (
+            f"Audit pack has {uncommitted_count} uncommitted files. "
+            f"Must be 0 for reproducibility."
         )
 
 
@@ -450,6 +465,8 @@ class TestIntegration:
     def test_full_audit_pack_valid(self):
         """Test complete audit pack is valid."""
         pack_path = AUDIT_PACK_DIR / "audit_pack.json"
+        if not pack_path.exists():
+            pytest.skip("Audit pack not found")
         
         with open(pack_path, "r", encoding="utf-8") as f:
             pack = json.load(f)
@@ -466,6 +483,8 @@ class TestIntegration:
     def test_input_output_hash_counts(self):
         """Test input and output file counts."""
         pack_path = AUDIT_PACK_DIR / "audit_pack.json"
+        if not pack_path.exists():
+            pytest.skip("Audit pack not found")
         
         with open(pack_path, "r", encoding="utf-8") as f:
             pack = json.load(f)

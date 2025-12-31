@@ -470,13 +470,47 @@ def get_latest_benchmark_results() -> Dict[str, Any]:
 # MAIN GENERATOR
 # =============================================================================
 
+def check_clean_tree() -> Tuple[bool, int, str]:
+    """
+    Check if the git working tree is clean.
+    
+    Returns:
+        Tuple of (is_clean, uncommitted_count, details)
+    """
+    try:
+        result = subprocess.run(
+            ["git", "status", "--porcelain"],
+            capture_output=True,
+            text=True,
+            cwd=PROJECT_ROOT,
+            timeout=10
+        )
+        if result.returncode == 0:
+            output = result.stdout.strip()
+            if not output:
+                return True, 0, "Clean tree"
+            
+            lines = output.split('\n')
+            return False, len(lines), output
+    except Exception as e:
+        return False, -1, str(e)
+    
+    return False, -1, "Unknown error"
+
+
 def generate_audit_pack(output_dir: Path, strict: bool = True) -> Tuple[Dict[str, Any], List[str]]:
     """
     Generate complete audit pack.
     
+    ENTERPRISE MODEL (Option A):
+    - Audit pack is a BUILD ARTIFACT, not committed to git
+    - Generated only on clean tree (0 uncommitted files)
+    - git_commit MUST equal HEAD exactly
+    - Stored as release artifact, not in repo
+    
     Args:
         output_dir: Directory to save audit pack files
-        strict: If True, fail on any missing SSOT files
+        strict: If True, fail on any missing SSOT files AND require clean tree
         
     Returns:
         Tuple of (audit_pack_dict, list_of_errors)
@@ -486,8 +520,22 @@ def generate_audit_pack(output_dir: Path, strict: bool = True) -> Tuple[Dict[str
     errors = []
     
     print("=" * 70)
-    print("QBM AUDIT PACK GENERATOR (v2.0 - Strict Mode)")
+    print("QBM AUDIT PACK GENERATOR (v3.0 - Enterprise Mode)")
     print("=" * 70)
+    
+    # STRICT MODE: Check for clean tree FIRST
+    if strict:
+        is_clean, uncommitted_count, details = check_clean_tree()
+        if not is_clean:
+            print(f"\n❌ FATAL: Working tree is not clean!")
+            print(f"   Uncommitted files: {uncommitted_count}")
+            if uncommitted_count > 0 and uncommitted_count <= 20:
+                print(f"   Details:\n{details}")
+            print(f"\n   Commit ALL changes before generating audit pack.")
+            print(f"   Run: git status")
+            errors.append(f"DIRTY_TREE: {uncommitted_count} uncommitted files")
+            # In strict mode, fail immediately
+            return {"error": "dirty_tree", "uncommitted_count": uncommitted_count}, errors
     
     # Get current git commit FIRST - this is the commit we're auditing
     current_commit = get_current_git_commit()
@@ -495,7 +543,7 @@ def generate_audit_pack(output_dir: Path, strict: bool = True) -> Tuple[Dict[str
         errors.append("CRITICAL: Cannot determine git commit")
     
     audit_pack = {
-        "version": "2.0.0",
+        "version": "3.0.0",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "generator": "scripts/generate_audit_pack.py",
         "git_commit": current_commit,

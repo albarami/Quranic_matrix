@@ -569,8 +569,9 @@ class TestZeroHallucinationContracts:
             "behavior_id": "BEH_EMO_PATIENCE",
             "claims": [
                 {
+                    "claim_id": "C1",
                     "text": "Patience is commanded in the Quran",
-                    "verse_keys": ["2:45", "2:153"]
+                    "supporting_verse_keys": ["2:45", "2:153"]
                 }
             ],
             "provenance": {"source": "test"}
@@ -579,14 +580,15 @@ class TestZeroHallucinationContracts:
         violations = verifier.verify_claim_evidence_alignment(response)
         assert len(violations) == 0
     
-    def test_claim_evidence_alignment_violation(self, verifier):
+    def test_claim_evidence_alignment_missing_verse_keys(self, verifier):
         """Test claim-evidence alignment catches claims without evidence."""
         response = {
             "behavior_id": "BEH_EMO_PATIENCE",
             "claims": [
                 {
+                    "claim_id": "C1",
                     "text": "Patience is commanded in the Quran",
-                    # Missing verse_keys!
+                    # Missing supporting_verse_keys!
                 }
             ],
             "provenance": {"source": "test"}
@@ -594,7 +596,43 @@ class TestZeroHallucinationContracts:
         
         violations = verifier.verify_claim_evidence_alignment(response)
         assert len(violations) > 0
-        assert violations[0]["message"] == "Claim has no supporting verse_keys"
+        assert any("supporting_verse_keys" in v.get("message", "") for v in violations)
+    
+    def test_claim_evidence_alignment_missing_claim_id(self, verifier):
+        """Test claim-evidence alignment requires claim_id for traceability."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "claims": [
+                {
+                    # Missing claim_id!
+                    "text": "Patience is commanded in the Quran",
+                    "supporting_verse_keys": ["2:45"]
+                }
+            ],
+            "provenance": {"source": "test"}
+        }
+        
+        violations = verifier.verify_claim_evidence_alignment(response)
+        assert len(violations) > 0
+        assert any("claim_id" in v.get("message", "") for v in violations)
+    
+    def test_claim_evidence_alignment_invalid_verse_key(self, verifier):
+        """Test claim-evidence alignment catches invalid verse_keys in claims."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "claims": [
+                {
+                    "claim_id": "C1",
+                    "text": "Patience is commanded in the Quran",
+                    "supporting_verse_keys": ["999:999"]  # Invalid!
+                }
+            ],
+            "provenance": {"source": "test"}
+        }
+        
+        violations = verifier.verify_claim_evidence_alignment(response)
+        assert len(violations) > 0
+        assert any("invalid verse_key" in v.get("message", "") for v in violations)
     
     def test_long_answer_needs_evidence(self, verifier):
         """Test long answers must have verse_key citations."""

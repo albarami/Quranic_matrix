@@ -278,8 +278,10 @@ class CitationVerifier:
         """
         Verify CLAIM-EVIDENCE ALIGNMENT: Each claim must have supporting verse_keys.
         
-        For academic-grade outputs, every claim/paragraph in the response
-        must be explicitly linked to supporting evidence (verse_keys + tafsir sources).
+        ENTERPRISE REQUIREMENT:
+        Engine outputs MUST include per-claim evidence mapping:
+        - claims[] each with claim_id, text, supporting_verse_keys[], supporting_tafsir_refs[]
+        - The narrative composer is forbidden from adding claims not in the validated set
         
         Args:
             response: Response to check
@@ -289,22 +291,49 @@ class CitationVerifier:
         """
         violations = []
         
-        # Check for claims field with evidence mapping
+        # Check for claims field with FULL evidence mapping
         claims = response.get("claims", [])
         if claims:
             for i, claim in enumerate(claims):
                 if not isinstance(claim, dict):
+                    violations.append({
+                        "claim_index": i,
+                        "message": "Claim must be a dict with claim_id, text, supporting_verse_keys"
+                    })
                     continue
                 
+                claim_id = claim.get("claim_id", claim.get("id"))
                 claim_text = claim.get("text", claim.get("claim", ""))
-                verse_keys = claim.get("verse_keys", claim.get("evidence", []))
+                verse_keys = claim.get("supporting_verse_keys", claim.get("verse_keys", claim.get("evidence", [])))
+                tafsir_refs = claim.get("supporting_tafsir_refs", claim.get("tafsir_refs", []))
                 
-                if claim_text and not verse_keys:
+                # Claim must have ID
+                if claim_text and not claim_id:
                     violations.append({
                         "claim_index": i,
                         "claim_text": claim_text[:100] + "..." if len(claim_text) > 100 else claim_text,
-                        "message": "Claim has no supporting verse_keys"
+                        "message": "Claim missing claim_id for traceability"
                     })
+                
+                # Claim must have supporting verse_keys
+                if claim_text and not verse_keys:
+                    violations.append({
+                        "claim_index": i,
+                        "claim_id": claim_id,
+                        "claim_text": claim_text[:100] + "..." if len(claim_text) > 100 else claim_text,
+                        "message": "Claim has no supporting_verse_keys"
+                    })
+                
+                # Verify verse_keys are valid
+                if verse_keys:
+                    for vk in verse_keys:
+                        if isinstance(vk, str) and not self.verify_verse_key(vk):
+                            violations.append({
+                                "claim_index": i,
+                                "claim_id": claim_id,
+                                "invalid_verse_key": vk,
+                                "message": f"Claim references invalid verse_key: {vk}"
+                            })
         
         # Check for paragraphs/sections without evidence
         paragraphs = response.get("paragraphs", response.get("sections", []))
@@ -315,12 +344,14 @@ class CitationVerifier:
                 
                 content = para.get("content", para.get("text", ""))
                 evidence = para.get("verse_keys", para.get("evidence", para.get("citations", [])))
+                claim_refs = para.get("claim_refs", para.get("claims", []))
                 
-                if content and not evidence:
+                # Paragraph must have either direct evidence OR reference to validated claims
+                if content and not evidence and not claim_refs:
                     violations.append({
                         "paragraph_index": i,
                         "content_preview": content[:100] + "..." if len(content) > 100 else content,
-                        "message": "Paragraph has no supporting evidence"
+                        "message": "Paragraph has no supporting evidence or claim_refs"
                     })
         
         # Check answer field for structured responses
@@ -334,6 +365,21 @@ class CitationVerifier:
                     "length": len(answer),
                     "message": "Long answer has no verse_key citations"
                 })
+        
+        # Check for narrative that references non-existent claims
+        narrative = response.get("narrative", response.get("response_text", ""))
+        if narrative and claims:
+            claim_ids = {c.get("claim_id", c.get("id")) for c in claims if isinstance(c, dict)}
+            # Look for claim references in narrative (e.g., [claim:1], [C1], etc.)
+            import re
+            narrative_refs = set(re.findall(r'\[(?:claim[:\s]*)?(\w+)\]', str(narrative), re.IGNORECASE))
+            for ref in narrative_refs:
+                if ref not in claim_ids and not ref.isdigit():
+                    violations.append({
+                        "field": "narrative",
+                        "referenced_claim": ref,
+                        "message": f"Narrative references non-existent claim: {ref}"
+                    })
         
         return violations
     
