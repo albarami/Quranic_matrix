@@ -1,5 +1,5 @@
 """
-Phase 7 Tests: Audit Pack Generator (v2.0 - Strict Mode)
+Phase 7 Tests: Audit Pack Generator (v3.0 - Enterprise Mode)
 
 Tests for:
 1. Input/output hash generation with SSOT validation
@@ -7,11 +7,44 @@ Tests for:
 3. Provenance completeness report
 4. Audit pack completeness with git commit
 5. Strict mode SSOT enforcement
+6. Clean tree requirement
+
+ENTERPRISE MODEL (Option A):
+- Audit pack is a BUILD ARTIFACT, not committed to git
+- Generated only on clean tree (0 uncommitted files)
+- git_commit MUST equal HEAD exactly
+
+CI ENFORCEMENT:
+- Set QBM_REQUIRE_AUDIT_PACK=1 to fail (not skip) when pack is missing
+- Local/dev: skip if audit pack is absent
+- CI/release: fail if audit pack is absent
 """
 
 import json
+import os
 import pytest
 from pathlib import Path
+
+
+def require_audit_pack() -> bool:
+    """Check if audit pack is required (CI mode)."""
+    return os.environ.get("QBM_REQUIRE_AUDIT_PACK", "").lower() in ("1", "true", "yes")
+
+
+def skip_or_fail_missing_pack(pack_path: Path, message: str = "Audit pack not found"):
+    """Skip or fail based on QBM_REQUIRE_AUDIT_PACK setting."""
+    if not pack_path.exists():
+        if require_audit_pack():
+            pytest.fail(
+                f"{message}. "
+                f"QBM_REQUIRE_AUDIT_PACK=1 requires audit pack to exist. "
+                f"Generate with: python scripts/generate_audit_pack.py --strict"
+            )
+        else:
+            pytest.skip(
+                f"{message} - this is expected in dev mode. "
+                f"Generate with: python scripts/generate_audit_pack.py --strict"
+            )
 
 # Import Phase 7 components
 import sys
@@ -310,20 +343,14 @@ class TestAuditPackCompleteness:
     """
     
     def test_audit_pack_exists(self):
-        """Test audit pack directory exists (skip if not generated)."""
-        if not AUDIT_PACK_DIR.exists():
-            pytest.skip(
-                "Audit pack not found - this is expected. "
-                "Generate with: python scripts/generate_audit_pack.py --strict"
-            )
+        """Test audit pack directory exists (skip/fail based on CI mode)."""
+        pack_path = AUDIT_PACK_DIR / "audit_pack.json"
+        skip_or_fail_missing_pack(pack_path, "Audit pack directory not found")
     
     def test_all_files_present(self):
         """Test all required files are present."""
-        if not AUDIT_PACK_DIR.exists():
-            pytest.skip(
-                "Audit pack not found - this is expected. "
-                "Generate with: python scripts/generate_audit_pack.py --strict"
-            )
+        pack_path = AUDIT_PACK_DIR / "audit_pack.json"
+        skip_or_fail_missing_pack(pack_path)
         
         required_files = [
             "audit_pack.json",
@@ -342,8 +369,7 @@ class TestAuditPackCompleteness:
     def test_audit_pack_valid_json(self):
         """Test audit pack is valid JSON."""
         pack_path = AUDIT_PACK_DIR / "audit_pack.json"
-        if not pack_path.exists():
-            pytest.skip("Audit pack not found")
+        skip_or_fail_missing_pack(pack_path)
         
         with open(pack_path, "r", encoding="utf-8") as f:
             pack = json.load(f)
@@ -396,8 +422,7 @@ class TestAuditPackCommitConsistency:
         import subprocess
         
         pack_path = AUDIT_PACK_DIR / "audit_pack.json"
-        if not pack_path.exists():
-            pytest.skip("Audit pack not found - generate with: python scripts/generate_audit_pack.py --strict")
+        skip_or_fail_missing_pack(pack_path)
         
         # Get current HEAD commit
         result = subprocess.run(
@@ -436,8 +461,7 @@ class TestAuditPackCommitConsistency:
         an exact, verifiable state of the codebase.
         """
         pack_path = AUDIT_PACK_DIR / "audit_pack.json"
-        if not pack_path.exists():
-            pytest.skip("Audit pack not found")
+        skip_or_fail_missing_pack(pack_path)
         
         with open(pack_path, "r", encoding="utf-8") as f:
             pack = json.load(f)
@@ -465,8 +489,7 @@ class TestIntegration:
     def test_full_audit_pack_valid(self):
         """Test complete audit pack is valid."""
         pack_path = AUDIT_PACK_DIR / "audit_pack.json"
-        if not pack_path.exists():
-            pytest.skip("Audit pack not found")
+        skip_or_fail_missing_pack(pack_path)
         
         with open(pack_path, "r", encoding="utf-8") as f:
             pack = json.load(f)
@@ -483,8 +506,7 @@ class TestIntegration:
     def test_input_output_hash_counts(self):
         """Test input and output file counts."""
         pack_path = AUDIT_PACK_DIR / "audit_pack.json"
-        if not pack_path.exists():
-            pytest.skip("Audit pack not found")
+        skip_or_fail_missing_pack(pack_path)
         
         with open(pack_path, "r", encoding="utf-8") as f:
             pack = json.load(f)

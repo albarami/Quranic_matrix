@@ -647,6 +647,53 @@ class TestZeroHallucinationContracts:
         violations = verifier.verify_claim_evidence_alignment(response)
         assert len(violations) > 0
         assert any(v.get("field") == "answer" for v in violations)
+    
+    def test_narrative_references_nonexistent_claim(self, verifier):
+        """Test narrative cannot reference claims that don't exist in validated claims[]."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "claims": [
+                {
+                    "claim_id": "C1",
+                    "text": "Patience is commanded in the Quran",
+                    "supporting_verse_keys": ["2:45", "2:153"]
+                }
+            ],
+            "narrative": "As stated in [claim:C1], patience is important. Also see [claim:C99] for more.",
+            "provenance": {"source": "test"}
+        }
+        
+        violations = verifier.verify_claim_evidence_alignment(response)
+        # Should catch the reference to non-existent C99
+        assert any(
+            v.get("field") == "narrative" and "C99" in str(v.get("referenced_claim", ""))
+            for v in violations
+        ), f"Should catch reference to non-existent claim C99. Violations: {violations}"
+    
+    def test_narrative_valid_claim_references(self, verifier):
+        """Test narrative with valid claim references passes."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "claims": [
+                {
+                    "claim_id": "C1",
+                    "text": "Patience is commanded in the Quran",
+                    "supporting_verse_keys": ["2:45", "2:153"]
+                },
+                {
+                    "claim_id": "C2",
+                    "text": "Prayer requires patience",
+                    "supporting_verse_keys": ["2:45"]
+                }
+            ],
+            "narrative": "As stated in [claim:C1], patience is important. See also [claim:C2].",
+            "provenance": {"source": "test"}
+        }
+        
+        violations = verifier.verify_claim_evidence_alignment(response)
+        # Should NOT have any narrative violations since C1 and C2 exist
+        narrative_violations = [v for v in violations if v.get("field") == "narrative"]
+        assert len(narrative_violations) == 0, f"Should not have narrative violations: {narrative_violations}"
 
 
 # =============================================================================
