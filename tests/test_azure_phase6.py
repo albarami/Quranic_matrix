@@ -731,6 +731,46 @@ class TestZeroHallucinationContracts:
         assert not any(
             v["type"] == "missing_structured_claims" for v in result.violations
         ), f"Should not require claims when present. Violations: {result.violations}"
+    
+    def test_claim_with_empty_verse_keys_fails(self, verifier):
+        """Test claims with empty supporting_verse_keys fail in strict mode."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "claims": [
+                {
+                    "claim_id": "C1",
+                    "text": "Patience is a fundamental virtue",
+                    "supporting_verse_keys": []  # Empty - should fail!
+                }
+            ],
+            "provenance": {"source": "test"}
+        }
+        
+        violations = verifier.verify_claim_evidence_alignment(response)
+        # Should catch the empty supporting_verse_keys
+        assert any(
+            "supporting_verse_keys" in v.get("message", "") or "no supporting" in v.get("message", "").lower()
+            for v in violations
+        ), f"Should fail on empty supporting_verse_keys. Violations: {violations}"
+    
+    def test_claim_with_all_invalid_verse_keys_fails(self, verifier):
+        """Test claims where all verse_keys are invalid fail."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "claims": [
+                {
+                    "claim_id": "C1",
+                    "text": "Patience is a fundamental virtue",
+                    "supporting_verse_keys": ["999:999", "0:0"]  # All invalid
+                }
+            ],
+            "provenance": {"source": "test"}
+        }
+        
+        violations = verifier.verify_claim_evidence_alignment(response)
+        # Should catch all invalid verse_keys
+        invalid_violations = [v for v in violations if "invalid verse_key" in v.get("message", "")]
+        assert len(invalid_violations) == 2, f"Should catch both invalid verse_keys. Violations: {violations}"
 
 
 # =============================================================================

@@ -576,6 +576,22 @@ def generate_audit_pack(output_dir: Path, strict: bool = True) -> Tuple[Dict[str
     # 3. GPU proof
     print("\n3. Generating GPU proof logs...")
     audit_pack["gpu_proof"] = generate_gpu_proof()
+    
+    # Check for GPU computation proof (generated during actual embedding job)
+    gpu_computation_proof_path = output_dir / "gpu_proof" / "gpu_computation_proof.json"
+    if gpu_computation_proof_path.exists():
+        with open(gpu_computation_proof_path, "r", encoding="utf-8") as f:
+            gpu_computation_proof = json.load(f)
+        audit_pack["gpu_proof"]["gpu_compute_claimed"] = True
+        audit_pack["gpu_proof"]["gpu_computation_proof"] = gpu_computation_proof
+        audit_pack["gpu_proof"]["gpu_proof_valid"] = gpu_computation_proof.get("valid", False)
+        print(f"   ✓ GPU computation proof found: valid={gpu_computation_proof.get('valid', False)}")
+    else:
+        audit_pack["gpu_proof"]["gpu_compute_claimed"] = False
+        audit_pack["gpu_proof"]["gpu_computation_proof"] = None
+        audit_pack["gpu_proof"]["gpu_proof_valid"] = False
+        print(f"   ⚠ No GPU computation proof (embeddings built on CPU or --gpu-proof not used)")
+    
     gpu_path = output_dir / "gpu_proof.json"
     with open(gpu_path, "w", encoding="utf-8") as f:
         json.dump(audit_pack["gpu_proof"], f, indent=2, ensure_ascii=False)
