@@ -35,15 +35,30 @@ REQUIRED_SOURCES = [
     "jalalayn", "baghawi", "muyassar"
 ]
 
-# Canonical entity counts (from canonical_entities.json)
-CANONICAL_COUNTS = {
-    "behaviors": 87,
-    "organs": 39,
-    "agents": 14,
-    "heart_states": 12,
-    "consequences": 16,
-    "total": 168
-}
+# Load canonical counts from authoritative source
+def _load_canonical_counts():
+    """Load canonical counts from vocab/canonical_entities.json."""
+    canonical_path = PROJECT_ROOT / "vocab" / "canonical_entities.json"
+    if canonical_path.exists():
+        with open(canonical_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        entity_types = data.get("entity_types", {})
+        counts = {
+            "behaviors": entity_types.get("BEHAVIOR", {}).get("count", 87),
+            "organs": entity_types.get("ORGAN", {}).get("count", 40),
+            "agents": entity_types.get("AGENT", {}).get("count", 14),
+            "heart_states": entity_types.get("HEART_STATE", {}).get("count", 12),
+            "consequences": entity_types.get("CONSEQUENCE", {}).get("count", 16),
+        }
+        counts["total"] = sum(counts.values())
+        return counts
+    # Fallback if file not found
+    return {
+        "behaviors": 87, "organs": 40, "agents": 14,
+        "heart_states": 12, "consequences": 16, "total": 169
+    }
+
+CANONICAL_COUNTS = _load_canonical_counts()
 
 
 def log(msg: str):
