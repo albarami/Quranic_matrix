@@ -59,8 +59,8 @@ class TestConceptIndexFile:
             for line in f:
                 entries.append(json.loads(line))
 
-        # Should have 73 behaviors (matches registry)
-        assert len(entries) == 73, f"Expected 73 behaviors, got {len(entries)}"
+        # Should have 87 behaviors (matches current registry)
+        assert len(entries) == 87, f"Expected 87 behaviors, got {len(entries)}"
 
     def test_all_entries_have_required_fields(self):
         """Test that all entries have required fields."""
