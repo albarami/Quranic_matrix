@@ -694,6 +694,43 @@ class TestZeroHallucinationContracts:
         # Should NOT have any narrative violations since C1 and C2 exist
         narrative_violations = [v for v in violations if v.get("field") == "narrative"]
         assert len(narrative_violations) == 0, f"Should not have narrative violations: {narrative_violations}"
+    
+    def test_strict_mode_requires_structured_claims(self, verifier):
+        """Test strict mode requires claims[] for substantive responses."""
+        # Response with substantive content but no claims[]
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "answer": "Patience is a fundamental virtue in the Quran. It is mentioned many times and is considered essential for believers. The concept of patience (sabr) encompasses endurance, perseverance, and steadfastness.",
+            # No claims[] - should fail in strict mode
+            "provenance": {"source": "test"}
+        }
+        
+        result = verifier.verify_response(response, strict=True)
+        # Should have missing_structured_claims violation
+        assert any(
+            v["type"] == "missing_structured_claims" for v in result.violations
+        ), f"Should require structured claims in strict mode. Violations: {result.violations}"
+    
+    def test_strict_mode_passes_with_claims(self, verifier):
+        """Test strict mode passes when claims[] is present."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "answer": "Patience is a fundamental virtue in the Quran.",
+            "claims": [
+                {
+                    "claim_id": "C1",
+                    "text": "Patience is a fundamental virtue",
+                    "supporting_verse_keys": ["2:45", "2:153"]
+                }
+            ],
+            "provenance": {"source": "test"}
+        }
+        
+        result = verifier.verify_response(response, strict=True)
+        # Should NOT have missing_structured_claims violation
+        assert not any(
+            v["type"] == "missing_structured_claims" for v in result.violations
+        ), f"Should not require claims when present. Violations: {result.violations}"
 
 
 # =============================================================================

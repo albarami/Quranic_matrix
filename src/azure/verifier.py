@@ -519,8 +519,36 @@ class CitationVerifier:
             claim_violations = self.verify_claim_evidence_alignment(response)
             for v in claim_violations:
                 result.add_violation("claim_without_evidence", v)
+            
+            # 10. STRUCTURED CLAIMS REQUIRED: response must include claims[] in strict mode
+            # This ensures every claim is traceable and verifiable
+            claims = response.get("claims", [])
+            if not claims and self._has_substantive_content(response):
+                result.add_violation("missing_structured_claims", {
+                    "message": "Strict mode requires structured claims[] with claim_id and supporting_verse_keys",
+                    "hint": "Add claims: [{claim_id, text, supporting_verse_keys}]"
+                })
         
         return result
+    
+    def _has_substantive_content(self, response: Dict[str, Any]) -> bool:
+        """Check if response has substantive content that requires claims."""
+        # Check for answer field with significant content
+        answer = response.get("answer", "")
+        if isinstance(answer, str) and len(answer) > 100:
+            return True
+        
+        # Check for narrative/response_text
+        narrative = response.get("narrative", response.get("response_text", ""))
+        if isinstance(narrative, str) and len(narrative) > 100:
+            return True
+        
+        # Check for paragraphs/sections
+        paragraphs = response.get("paragraphs", response.get("sections", []))
+        if paragraphs and len(paragraphs) > 0:
+            return True
+        
+        return False
     
     def _extract_tafsir_verse_keys(self, data: Any, keys: Optional[Set[str]] = None) -> Set[str]:
         """Extract verse_keys specifically from tafsir sections."""

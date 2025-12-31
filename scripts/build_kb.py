@@ -457,7 +457,11 @@ def build_behavior_dossiers(
 # GPU Embeddings (Build-time)
 # ============================================================================
 
-def build_embeddings(dossiers: Dict[str, BehaviorDossier], device: str = "cuda") -> None:
+def build_embeddings(
+    dossiers: Dict[str, BehaviorDossier], 
+    device: str = "cuda",
+    gpu_proof_dir: Optional[str] = None
+) -> Dict[str, Any]:
     """
     Build embeddings for behaviors at build-time using GPU.
 
@@ -465,7 +469,25 @@ def build_embeddings(dossiers: Dict[str, BehaviorDossier], device: str = "cuda")
     - Behavior concept embeddings
     - Representative verse embeddings
     - Tafsir chunk embeddings
+    
+    Args:
+        dossiers: Dictionary of behavior dossiers to embed
+        device: Device for GPU operations (cuda or cpu)
+        gpu_proof_dir: If provided, collect GPU proof during embedding
+        
+    Returns:
+        Dictionary with embedding job metadata and GPU proof status
     """
+    result = {
+        "embeddings_built": False,
+        "total_vectors": 0,
+        "model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+        "vector_dims": 384,
+        "device_used": device,
+        "gpu_proof_valid": False,
+        "elapsed_seconds": 0.0
+    }
+    
     try:
         import torch
         from sentence_transformers import SentenceTransformer
@@ -474,6 +496,7 @@ def build_embeddings(dossiers: Dict[str, BehaviorDossier], device: str = "cuda")
         if device == "cuda" and not torch.cuda.is_available():
             logger.warning("[GPU] CUDA requested but not available, falling back to CPU")
             device = "cpu"
+        result["device_used"] = device
         logger.info(f"[GPU] Using device: {device}")
 
         if torch.cuda.is_available():
@@ -482,8 +505,21 @@ def build_embeddings(dossiers: Dict[str, BehaviorDossier], device: str = "cuda")
             logger.info(f"[GPU] {gpu_count} GPUs available, {total_vram / 1e9:.1f} GB VRAM")
 
         # Load embedding model
-        model = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+        model = SentenceTransformer(result["model_id"])
         model = model.to(device)
+        
+        # Import GPU proof collector if proof is requested
+        gpu_collector = None
+        if gpu_proof_dir and device == "cuda":
+            try:
+                from scripts.gpu_proof_instrumentation import GPUProofCollector
+                gpu_collector = GPUProofCollector(output_dir=gpu_proof_dir)
+                gpu_collector.start()
+                logger.info(f"[GPU] GPU proof collection started -> {gpu_proof_dir}")
+            except ImportError:
+                logger.warning("[GPU] GPU proof instrumentation not available")
+        
+        start_time = time.time()
 
         # Build embeddings for each dossier
         for behavior_id, dossier in dossiers.items():
@@ -498,13 +534,34 @@ def build_embeddings(dossiers: Dict[str, BehaviorDossier], device: str = "cuda")
             # Generate embedding
             embedding = model.encode(concept_text, convert_to_numpy=True)
             dossier.embedding = embedding.tolist()
+            result["total_vectors"] += 1
 
-        logger.info(f"[GPU] Built embeddings for {len(dossiers)} dossiers")
+        elapsed = time.time() - start_time
+        result["elapsed_seconds"] = elapsed
+        result["embeddings_built"] = True
+        
+        # Stop GPU proof collection and log job metadata
+        if gpu_collector:
+            gpu_collector.log_embedding_job(
+                model_id=result["model_id"],
+                vector_dims=result["vector_dims"],
+                total_vectors=result["total_vectors"],
+                batch_size=1,  # We're doing one at a time
+                elapsed_seconds=elapsed
+            )
+            gpu_collector.stop()
+            proof_result = gpu_collector.save()
+            result["gpu_proof_valid"] = proof_result.valid
+            logger.info(f"[GPU] GPU proof saved: valid={proof_result.valid}, avg_util={proof_result.avg_utilization:.1f}%")
+
+        logger.info(f"[GPU] Built embeddings for {len(dossiers)} dossiers in {elapsed:.2f}s")
 
     except ImportError:
         logger.warning("[GPU] PyTorch/SentenceTransformers not available, skipping embeddings")
     except Exception as e:
         logger.error(f"[GPU] Error building embeddings: {e}")
+    
+    return result
 
 
 # ============================================================================
@@ -713,6 +770,14 @@ def parse_args():
         '--skip-embeddings', action='store_true',
         help='Skip embedding generation'
     )
+    parser.add_argument(
+        '--gpu-proof', action='store_true',
+        help='Collect GPU proof during embedding generation'
+    )
+    parser.add_argument(
+        '--gpu-proof-dir', type=str, default='artifacts/audit_pack/gpu_proof',
+        help='Directory for GPU proof output (default: artifacts/audit_pack/gpu_proof)'
+    )
     return parser.parse_args()
 
 
@@ -762,9 +827,13 @@ def main():
     )
 
     # Step 4: Build embeddings (GPU)
+    embedding_result = None
     if not args.skip_embeddings:
         logger.info("\n[PHASE 4] Building GPU Embeddings...")
-        build_embeddings(dossiers, device=args.device)
+        gpu_proof_dir = args.gpu_proof_dir if args.gpu_proof else None
+        embedding_result = build_embeddings(dossiers, device=args.device, gpu_proof_dir=gpu_proof_dir)
+        if args.gpu_proof:
+            logger.info(f"[GPU] Embedding result: {embedding_result}")
     else:
         logger.info("\n[PHASE 4] Skipping embeddings (--skip-embeddings)")
 
