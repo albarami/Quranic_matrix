@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "ssot_v1.1.0",
+  "description": "QBM Single Source of Truth (SSOT) Bundle Manifest",
+  "created_at": "2025-01-01T00:00:00Z",
+  "files": [
+    {
+      "path": "data/quran/quran_uthmani.xml",
+      "description": "Uthmani Quran text (6236 ayat)",
+      "sha256": "PLACEHOLDER_COMPUTE_ON_BUNDLE_CREATION",
+      "required": true
+    },
+    {
+      "path": "data/tafsir/tafsir_ibn_kathir.jsonl",
+      "description": "Tafsir Ibn Kathir",
+      "sha256": "PLACEHOLDER_COMPUTE_ON_BUNDLE_CREATION",
+      "required": true
+    },
+    {
+      "path": "data/tafsir/tafsir_tabari.jsonl",
+      "description": "Tafsir al-Tabari",
+      "sha256": "PLACEHOLDER_COMPUTE_ON_BUNDLE_CREATION",
+      "required": true
+    },
+    {
+      "path": "data/tafsir/tafsir_qurtubi.jsonl",
+      "description": "Tafsir al-Qurtubi",
+      "sha256": "PLACEHOLDER_COMPUTE_ON_BUNDLE_CREATION",
+      "required": true
+    },
+    {
+      "path": "data/tafsir/tafsir_saadi.jsonl",
+      "description": "Tafsir al-Saadi",
+      "sha256": "PLACEHOLDER_COMPUTE_ON_BUNDLE_CREATION",
+      "required": true
+    },
+    {
+      "path": "data/tafsir/tafsir_baghawi.jsonl",
+      "description": "Tafsir al-Baghawi",
+      "sha256": "PLACEHOLDER_COMPUTE_ON_BUNDLE_CREATION",
+      "required": true
+    },
+    {
+      "path": "data/tafsir/tafsir_muyassar.jsonl",
+      "description": "Tafsir al-Muyassar",
+      "sha256": "PLACEHOLDER_COMPUTE_ON_BUNDLE_CREATION",
+      "required": true
+    },
+    {
+      "path": "data/tafsir/tafsir_waseet.jsonl",
+      "description": "Tafsir al-Waseet",
+      "sha256": "PLACEHOLDER_COMPUTE_ON_BUNDLE_CREATION",
+      "required": true
+    }
+  ],
+  "expected_counts": {
+    "quran_ayat": 6236,
+    "behaviors": 87,
+    "organs": 40,
+    "agents": 14,
+    "heart_states": 12,
+    "consequences": 16,
+    "total_entities": 169,
+    "tafsir_sources": 7,
+    "benchmark_questions": 200
+  },
+  "bundle_url_template": "https://${STORAGE_ACCOUNT}.blob.core.windows.net/qbm-ssot/ssot_bundle_v1.1.0.tar.zst",
+  "notes": [
+    "SHA256 hashes must be computed when creating the actual bundle",
+    "Bundle URL requires QBM_SSOT_BUNDLE_URL secret in CI",
+    "Alternative: GitHub Release asset ssot_bundle_v1.1.0.tar.zst"
+  ]
+}

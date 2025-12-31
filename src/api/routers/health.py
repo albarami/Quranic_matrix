@@ -6,6 +6,12 @@ Phase 7.1: Modular API structure
 
 from fastapi import APIRouter
 
+from src.core.data_profile import (
+    get_dataset_mode,
+    get_mode_expectations,
+    is_fixture_mode,
+)
+
 router = APIRouter(tags=["Health"])
 
 # API metadata
@@ -23,10 +29,24 @@ async def health_check():
     except Exception:
         loaded = False
     
+    # Get dataset mode info
+    mode = get_dataset_mode()
+    expectations = get_mode_expectations(mode)
+    
     return {
         "status": "ok",
         "version": API_VERSION,
-        "dataset_loaded": loaded
+        "dataset_loaded": loaded,
+        "dataset_mode": mode.value,
+        "dataset_info": {
+            "mode": mode.value,
+            "is_fixture": expectations["is_fixture"],
+            "is_full": expectations["is_full"],
+            "expected_behaviors": expectations["behaviors"],
+            "expected_benchmark_questions": expectations["benchmark_questions"],
+            "requires_full_ssot": expectations["requires_full_ssot"],
+            "coverage_note": "partial/fixture dataset" if is_fixture_mode() else "full SSOT dataset"
+        }
     }
 
 

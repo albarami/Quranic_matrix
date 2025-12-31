@@ -13,6 +13,8 @@ from pathlib import Path
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 
+from src.core.data_profile import get_dataset_mode, get_mode_expectations, is_fixture_mode
+
 
 router = APIRouter(prefix="/api/metrics", tags=["Metrics"])
 
@@ -56,6 +58,18 @@ async def get_metrics_overview():
                     "how_to_fix": "rebuild: python scripts/build_truth_metrics_v1.py",
                 },
             )
+
+        # Add dataset mode info to response
+        mode = get_dataset_mode()
+        expectations = get_mode_expectations(mode)
+        truth_metrics["dataset_mode"] = {
+            "mode": mode.value,
+            "is_fixture": expectations["is_fixture"],
+            "is_full": expectations["is_full"],
+            "coverage_note": "partial/fixture dataset" if is_fixture_mode() else "full SSOT dataset",
+            "expected_behaviors": expectations["behaviors"],
+            "canonical_behaviors": expectations["canonical_behaviors"],
+        }
 
         return truth_metrics
 
