@@ -193,7 +193,7 @@ class TestAnalysisPayloadBuilder:
         )
 
         assert len(payload.graph_output.paths) == 1
-        assert payload.graph_output.centrality.get("total_nodes") == 73
+        assert payload.graph_output.centrality.get("total_nodes") == 87
 
     def test_get_all_numbers_includes_payload_numbers(self, sample_proof, sample_debug):
         """Test that get_all_numbers() returns all computed numbers."""

@@ -57,7 +57,7 @@ class TestValidationReport:
         summary = report["summary"]
         assert summary["behaviors_failed"] == 0, \
             f"Failed behaviors: {summary['behaviors_failed']}"
-        assert summary["behaviors_passed"] == 73
+        assert summary["behaviors_passed"] == 87
 
     def test_no_verse_errors(self, report):
         """Test that there are no verse errors."""
@@ -156,7 +156,7 @@ class TestBehaviorResults:
 
     def test_all_behaviors_have_results(self, all_results):
         """Test that all behaviors have validation results."""
-        assert len(all_results) == 73
+        assert len(all_results) == 87
 
     def test_all_behaviors_passed(self, all_results):
         """Test that all behaviors passed validation."""

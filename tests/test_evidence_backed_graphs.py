@@ -67,7 +67,7 @@ class TestGraphContainsAllNodes:
         
         assert actual_behaviors == expected_behaviors, \
             f"Expected {expected_behaviors} behaviors, got {actual_behaviors}"
-        assert actual_behaviors == 73, "Must have exactly 73 behaviors"
+        assert actual_behaviors == 87, "Must have exactly 87 behaviors"
     
     def test_graph_contains_all_entities(self):
         """Graph node counts must match canonical registry."""

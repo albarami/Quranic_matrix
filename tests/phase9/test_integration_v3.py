@@ -75,14 +75,14 @@ class TestLegendaryPlannerData:
     def test_planner_loads_concept_index(self, planner):
         """Test planner loads concept index."""
         assert planner.concept_index is not None
-        assert len(planner.concept_index) == 73, \
-            f"Expected 73 behaviors, got {len(planner.concept_index)}"
+        assert len(planner.concept_index) == 87, \
+            f"Expected 87 behaviors, got {len(planner.concept_index)}"
 
     def test_planner_loads_canonical_entities(self, planner):
         """Test planner loads canonical entities."""
         assert planner.canonical_entities is not None
         assert "behaviors" in planner.canonical_entities
-        assert len(planner.canonical_entities["behaviors"]) == 73
+        assert len(planner.canonical_entities["behaviors"]) == 87
 
     def test_planner_loads_semantic_graph(self, planner):
         """Test planner loads semantic graph (now graph_v3)."""
@@ -256,8 +256,8 @@ class TestCanonicalEntityCounts:
     def test_behavior_count(self, entities):
         """Test correct number of behaviors."""
         behaviors = entities.get("behaviors", [])
-        assert len(behaviors) == 73, \
-            f"Expected 73 behaviors, got {len(behaviors)}"
+        assert len(behaviors) == 87, \
+            f"Expected 87 behaviors, got {len(behaviors)}"
 
     def test_all_behaviors_have_ids(self, entities):
         """Test all behaviors have IDs."""

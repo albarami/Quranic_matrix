@@ -27,7 +27,7 @@ class TestGenomeCountsMatchCanonical:
         response = client.get("/api/genome/status")
         assert response.status_code == 200
         data = response.json()
-        assert data["statistics"]["canonical_behaviors"] == 73
+        assert data["statistics"]["canonical_behaviors"] == 87
     
     def test_agents_count_is_14(self, client):
         """Canonical registry defines exactly 14 agents."""
@@ -68,7 +68,7 @@ class TestGenomeCountsMatchCanonical:
         status_count = status_resp.json()["statistics"]["canonical_behaviors"]
         export_count = len(export_resp.json()["behaviors"])
         
-        assert export_count == status_count == 73
+        assert export_count == status_count == 87
 
 
 class TestGenomeEdgesHaveProvenance:
@@ -209,8 +209,8 @@ class TestGenomeEndpoints:
         response = client.get("/api/genome/behaviors")
         assert response.status_code == 200
         data = response.json()
-        assert data["total"] == 73
-        assert len(data["behaviors"]) == 73
+        assert data["total"] == 87
+        assert len(data["behaviors"]) == 87
     
     def test_behaviors_filter_by_category(self, client):
         """Behaviors can be filtered by category."""

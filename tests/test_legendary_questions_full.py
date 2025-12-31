@@ -572,7 +572,7 @@ class TestQ21SemanticLandscape:
     def test_q21_behaviors_available(self, concept_index):
         """Behaviors should be available for embedding."""
         behaviors = [c for c in concept_index.values() if c["entity_type"] == "BEHAVIOR"]
-        assert len(behaviors) == 73
+        assert len(behaviors) == 87
 
 
 @pytest.mark.acceptance

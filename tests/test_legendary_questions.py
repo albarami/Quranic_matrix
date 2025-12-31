@@ -305,8 +305,8 @@ class TestTruthLayerIntegrity:
         """Graphs must include all canonical entities as nodes."""
         nodes_by_type = cooccurrence_graph.get("nodes_by_type", {})
         
-        assert nodes_by_type.get("BEHAVIOR", 0) == 73, \
-            f"Expected 73 behaviors, got {nodes_by_type.get('BEHAVIOR', 0)}"
+        assert nodes_by_type.get("BEHAVIOR", 0) == 87, \
+            f"Expected 87 behaviors, got {nodes_by_type.get('BEHAVIOR', 0)}"
     
     def test_debug_trace_available(self, planner):
         """Every query must return debug trace for transparency."""

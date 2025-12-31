@@ -266,7 +266,7 @@ class TestKBFileIntegrity:
             for _ in f:
                 count += 1
         
-        assert count == 73, f"Expected 73 behaviors, got {count}"
+        assert count == 87, f"Expected 87 behaviors, got {count}"
     
     def test_links_count_matches_manifest(self):
         """behavior_verse_links count must match manifest."""

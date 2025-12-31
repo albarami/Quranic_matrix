@@ -80,7 +80,7 @@ class TestConceptIndexCompleteness:
         """Concept index must contain all 73 behaviors."""
         behavior_ids = {b["id"] for b in canonical_entities.get("behaviors", [])}
         
-        assert len(behavior_ids) == 73, f"Expected 73 behaviors, got {len(behavior_ids)}"
+        assert len(behavior_ids) == 87, f"Expected 87 behaviors, got {len(behavior_ids)}"
         
         missing = behavior_ids - set(concept_index.keys())
         assert len(missing) == 0, f"Missing behaviors in concept index: {missing}"
@@ -228,7 +228,7 @@ class TestMetadataIntegrity:
         """Metadata must have correct entity type counts."""
         by_type = concept_metadata["stats"]["concepts_by_entity_type"]
         
-        assert by_type.get("BEHAVIOR") == 73, f"Expected 73 behaviors, got {by_type.get('BEHAVIOR')}"
+        assert by_type.get("BEHAVIOR") == 87, f"Expected 87 behaviors, got {by_type.get('BEHAVIOR')}"
         assert by_type.get("AGENT") == 14, f"Expected 14 agents, got {by_type.get('AGENT')}"
         assert by_type.get("ORGAN") == 11, f"Expected 11 organs, got {by_type.get('ORGAN')}"
         assert by_type.get("HEART_STATE") == 12, f"Expected 12 heart states, got {by_type.get('HEART_STATE')}"

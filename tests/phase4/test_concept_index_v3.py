@@ -198,7 +198,7 @@ class TestStatistics:
 
     def test_total_behaviors_matches(self, report):
         """Test that total behaviors matches expected."""
-        assert report["statistics"]["total_behaviors"] == 73
+        assert report["statistics"]["total_behaviors"] == 87
 
     def test_validation_passed(self, report):
         """Test that validation passed for all behaviors."""
