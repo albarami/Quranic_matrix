@@ -1,9 +1,9 @@
 # Enterprise QBM Brain Implementation Plan
 
-> **Version**: 3.1  
+> **Version**: 4.0  
 > **Created**: 2025-12-30  
 > **Updated**: 2025-12-31  
-> **Status**: Phase 6-7 Remediated - Pending Final Validation  
+> **Status**: Enterprise Model Implemented - CI Enforcement Active  
 > **Goal**: Zero-hallucination, Arabic-first, academically defensible system for the 200-question benchmark
 
 ---
@@ -801,6 +801,88 @@ From now on, "done" or "enterprise-grade" requires:
 4. **Manifest hashes** - Reproducibility proof
 
 If you can't prove it, it is not done.
+
+---
+
+## Production Ready Definition (v4.0)
+
+**"Production ready" means ALL of the following are true:**
+
+### 1. Audit Pack Exists for Clean HEAD
+```
+artifacts/audit_pack.zip contains:
+├── audit_pack.json          # git_commit == HEAD, has_uncommitted_changes == false
+├── input_hashes.json         # SHA256 of all 10 SSOT inputs
+├── output_hashes.json        # SHA256 of derived files
+├── gpu_proof.json            # GPU availability
+├── gpu_computation_proof.json # GPU utilization during embedding (avg > 5%)
+├── provenance_report.json    # 87/87 behaviors, 7/7 tafsir sources
+├── system_info.json          # Platform, Python version, git commit
+└── benchmark_results.json    # 200/200 pass rate
+```
+
+### 2. Benchmark Results
+- **200/200 PASS** on qbm_legendary_200.v1.jsonl
+- All 10 sections (A-J) covered
+- Eval report committed to reports/eval/
+
+### 3. GPU Proof (if claiming GPU embeddings)
+- `avg_gpu_utilization > 5%` during embedding job
+- `torch.cuda.max_memory_allocated() > 0`
+- Time-series nvidia-smi log with non-zero utilization
+- Embedding job metadata: model_id, vector_dims, total_vectors, batch_size
+
+### 4. Verifier Policy
+- Version: v2.1 (zero-hallucination contracts)
+- SUBSET CONTRACT enforced
+- NO_SURAH_INTRO enforced
+- CLAIM-EVIDENCE ALIGNMENT enforced (claim_id + supporting_verse_keys)
+- Narrative cannot reference non-existent claim_ids
+
+### 5. CI Enforcement
+- `QBM_REQUIRE_AUDIT_PACK=1` in CI
+- Audit pack generated on clean tree
+- Audit pack uploaded as build artifact
+- Tests fail (not skip) if pack missing in CI
+
+### 6. Schema Versions
+- Postgres schema: postgres_truth_layer.sql
+- Canonical entities: vocab/canonical_entities.json (87 behaviors)
+- Graph: data/graph/semantic_graph_v3.json
+
+---
+
+## Enterprise Audit Pack Model (Option A)
+
+**Workflow:**
+```bash
+# 1. Commit all code changes
+git add . && git commit -m "feat: ..."
+
+# 2. Verify clean tree
+git status --porcelain  # Must be empty
+
+# 3. Generate audit pack (strict mode)
+python scripts/generate_audit_pack.py --strict
+
+# 4. Validate
+QBM_REQUIRE_AUDIT_PACK=1 pytest tests/test_audit_pack_phase7.py -v
+
+# 5. Package for release
+cd artifacts && zip -r audit_pack.zip audit_pack/
+```
+
+**Guarantees:**
+- `git_commit == HEAD` exactly
+- `has_uncommitted_changes == false`
+- `uncommitted_files_count == 0`
+- Reproducible and verifiable
+
+**CI Job (audit-pack):**
+- Runs after tier-a-tests and lint pass
+- Generates audit pack with --strict
+- Validates with QBM_REQUIRE_AUDIT_PACK=1
+- Uploads audit_pack.zip as build artifact (90-day retention)
 
 ---
 
