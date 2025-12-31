@@ -59,13 +59,41 @@ jobs:
         run: |
           python scripts/ci_bootstrap_fixture.py --fixture data/test_fixtures/fixture_v1 --out data/indexes/tafsir
       
-      - name: Normalize concept_index_v3 schema
+      - name: Validate concept_index_v3 schema (check-only, no rewrites)
         run: |
-          python scripts/normalize_concept_index_v3.py
+          python scripts/normalize_concept_index_v3.py --check
       
       - name: Build chunked evidence index (from fixture in CI)
         run: |
           python scripts/build_chunked_evidence_index.py
+      
+      - name: Preflight gate - verify fixture bootstrap worked
+        run: |
+          python -c "
+          import os
+          os.environ['QBM_USE_FIXTURE']='1'
+          from pathlib import Path
+          
+          # Check tafsir indexes exist
+          tafsir_dir = Path('data/indexes/tafsir')
+          sources = ['ibn_kathir', 'tabari', 'qurtubi', 'saadi', 'jalalayn', 'baghawi', 'muyassar']
+          for s in sources:
+              f = tafsir_dir / f'{s}.json'
+              assert f.exists(), f'Missing tafsir index: {f}'
+          print('✓ All 7 tafsir indexes present')
+          
+          # Check chunked evidence index exists
+          chunked = Path('data/evidence/evidence_index_v2_chunked.jsonl')
+          assert chunked.exists(), f'Missing chunked evidence index: {chunked}'
+          print(f'✓ Chunked evidence index present ({chunked.stat().st_size} bytes)')
+          
+          # Check verse index exists
+          verse_idx = tafsir_dir / 'verse_index.json'
+          assert verse_idx.exists(), f'Missing verse index: {verse_idx}'
+          print('✓ Verse index present')
+          
+          print('\\n✓ All preflight gates passed')
+          "
       
       - name: Run Tier A tests (CPU-only, no GPU, no PyG)
         run: |

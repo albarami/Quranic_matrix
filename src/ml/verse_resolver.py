@@ -8,9 +8,14 @@ Pipeline:
 2. BM25 search over Quran verse index (6,236 verses)
 3. Return top N verse keys with confidence scores
 4. If confident, use resolved verse key for tafsir retrieval
+
+CI Fixture Mode (QBM_USE_FIXTURE=1):
+- Uses QuranStore which loads from fixture verse index
+- No XML dependency in CI
 """
 
 import json
+import os
 import re
 import logging
 import xml.etree.ElementTree as ET
@@ -20,9 +25,14 @@ from dataclasses import dataclass, field
 
 import numpy as np
 
+from src.ml.quran_store import QuranStore, get_quran_store
+
 # Paths
 QURAN_XML_FILE = Path("data/quran/quran-uthmani.xml")
 QURAN_INDEX_FILE = Path("data/evidence/quran_verse_index.jsonl")
+
+# Check for fixture mode
+USE_FIXTURE = os.getenv("QBM_USE_FIXTURE", "0") == "1"
 
 logger = logging.getLogger(__name__)
 
@@ -114,10 +124,43 @@ class QuranVerseIndex:
         self._loaded = False
     
     def load(self) -> None:
-        """Load Quran verses from XML."""
+        """Load Quran verses from best available source."""
         if self._loaded:
             return
         
+        # Use QuranStore in fixture mode (no XML dependency)
+        if USE_FIXTURE:
+            self._load_from_quran_store()
+        else:
+            self._load_from_xml()
+    
+    def _load_from_quran_store(self) -> None:
+        """Load from QuranStore (fixture-aware)."""
+        logger.info("Loading Quran verses from QuranStore (fixture mode)...")
+        
+        store = get_quran_store()
+        store.load()
+        
+        for verse_data in store.get_all_verses():
+            verse_key = verse_data.get('verse_key', f"{verse_data['surah']}:{verse_data['ayah']}")
+            text = verse_data.get('text', '')
+            text_normalized = normalize_arabic(text)
+            
+            self.verses.append({
+                'verse_key': verse_key,
+                'surah': verse_data.get('surah'),
+                'ayah': verse_data.get('ayah'),
+                'surah_name': '',
+                'text': text,
+                'text_normalized': text_normalized,
+            })
+            self.by_verse_key[verse_key] = len(self.verses) - 1
+        
+        self._loaded = True
+        logger.info(f"Loaded {len(self.verses)} Quran verses from QuranStore")
+    
+    def _load_from_xml(self) -> None:
+        """Load from XML file (original behavior)."""
         if not self.xml_file.exists():
             raise FileNotFoundError(f"Quran XML not found: {self.xml_file}")
         

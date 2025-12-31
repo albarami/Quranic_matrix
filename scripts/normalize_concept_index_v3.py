@@ -127,6 +127,18 @@ def normalize_entry(entry: Dict[str, Any]) -> Dict[str, Any]:
     return normalized
 
 def main():
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Normalize concept_index_v3.jsonl to canonical schema")
+    parser.add_argument("--check", action="store_true", 
+                        help="Check-only mode (CI): fail if file needs normalization, don't modify")
+    parser.add_argument("--apply", action="store_true",
+                        help="Apply mode (dev): normalize and write changes")
+    args = parser.parse_args()
+    
+    # Default behavior: check-only (safe for CI)
+    check_only = args.check or (not args.apply)
+    
     project_root = Path(__file__).parent.parent
     index_path = project_root / "data" / "evidence" / "concept_index_v3.jsonl"
     
@@ -134,7 +146,8 @@ def main():
         print(f"ERROR: {index_path} not found")
         sys.exit(1)
     
-    print(f"Normalizing {index_path} to schema v{SCHEMA_VERSION}")
+    mode = "CHECK" if check_only else "APPLY"
+    print(f"[{mode}] Validating {index_path} against schema v{SCHEMA_VERSION}")
     
     # Load entries
     entries = []
@@ -144,29 +157,48 @@ def main():
     
     print(f"Loaded {len(entries)} entries")
     
-    # Normalize
+    # Normalize and compare
     normalized = []
-    fixed_count = 0
-    for entry in entries:
+    mismatches = []
+    for i, entry in enumerate(entries):
         original = json.dumps(entry, sort_keys=True)
         norm = normalize_entry(entry)
         normalized.append(norm)
         
         if json.dumps(norm, sort_keys=True) != original:
-            fixed_count += 1
+            mismatches.append({
+                "line": i + 1,
+                "concept_id": entry.get("concept_id", "UNKNOWN"),
+                "missing_fields": [f for f in CANONICAL_SCHEMA.keys() if f not in entry]
+            })
     
-    # Write back
+    if check_only:
+        # Check-only mode: report and fail if non-canonical
+        if mismatches:
+            print(f"\n❌ SCHEMA VALIDATION FAILED: {len(mismatches)} entries need normalization")
+            print("\nFirst 5 mismatches:")
+            for m in mismatches[:5]:
+                print(f"  Line {m['line']}: {m['concept_id']}")
+                if m['missing_fields']:
+                    print(f"    Missing: {', '.join(m['missing_fields'])}")
+            print(f"\nRun with --apply to fix: python scripts/normalize_concept_index_v3.py --apply")
+            sys.exit(1)
+        else:
+            print(f"\n✓ Schema validation passed. All {len(entries)} entries are canonical.")
+            sys.exit(0)
+    
+    # Apply mode: write changes
     with open(index_path, 'w', encoding='utf-8') as f:
         for entry in normalized:
             f.write(json.dumps(entry, ensure_ascii=False) + '\n')
     
-    print(f"Normalized {len(normalized)} entries ({fixed_count} modified)")
+    print(f"Normalized {len(normalized)} entries ({len(mismatches)} modified)")
     
     # Generate report
     report = {
         "schema_version": SCHEMA_VERSION,
         "total_entries": len(normalized),
-        "entries_modified": fixed_count,
+        "entries_modified": len(mismatches),
         "fields_enforced": list(CANONICAL_SCHEMA.keys())
     }
     
