@@ -1,0 +1,296 @@
+{
+  "question_id": "A01",
+  "section": "A",
+  "title": "The Complete Destruction Pathway",
+  "question_ar": "Trace ALL distinct causal chains (minimum 3 hops) from الغفلة (heedlessness) to الكفر (disbelief). For each chain, provide: intermediate behaviors, verse evidence for each link, and tafsir from Ibn Kathir and Qurtubi confirming the causal relationship.",
+  "question_en": "Trace ALL distinct causal chains (minimum 3 hops) from الغفلة (heedlessness) to الكفر (disbelief). For each chain, provide: intermediate behaviors, verse evidence for each link, and tafsir from Ibn Kathir and Qurtubi confirming the causal relationship.",
+  "generated_at": "2025-12-31T05:38:19.688754+00:00",
+  "capabilities": [
+    "GRAPH_CAUSAL",
+    "MULTIHOP",
+    "TAFSIR_MULTI_SOURCE",
+    "PROVENANCE"
+  ],
+  "response": {
+    "source_term": "الغفلة",
+    "source_id": "BEH_COG_HEEDLESSNESS",
+    "target_term": "الكفر",
+    "target_id": "BEH_SPI_DISBELIEF",
+    "paths_found": 20,
+    "paths": [
+      {
+        "nodes": [
+          "BEH_COG_HEEDLESSNESS",
+          "AGT_ALLAH",
+          "BEH_SPI_DISBELIEF"
+        ],
+        "edges": [
+          {
+            "source": "BEH_COG_HEEDLESSNESS",
+            "target": "AGT_ALLAH",
+            "edge_type": "CAUSES",
+            "confidence": 0.56,
+            "evidence_count": 2,
+            "sample_evidence": [
+              {
+                "source": "qurtubi",
+                "verse_key": "7:190",
+                "quote_preview": "رتب في أن المحبوس على القتل أشد حالا من المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون"
+              },
+              {
+                "source": "qurtubi",
+                "verse_key": "7:190",
+                "quote_preview": "ن المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون الموت من قبل أن تلقوه فقد رأيتموه وأنت"
+              }
+            ]
+          },
+          {
+            "source": "AGT_ALLAH",
+            "target": "BEH_SPI_DISBELIEF",
+            "edge_type": "CAUSES",
+            "confidence": 0.95,
+            "evidence_count": 5,
+            "sample_evidence": [
+              {
+                "source": "muyassar",
+                "verse_key": "2:7",
+                "quote_preview": "طبع الله على قلوب هؤلاء وعلى سمعهم، وجعل على أبصارهم غطاء; بسبب كفرهم وعنادهم مِن بعد ما تبيَّن لهم الحق، فلم يوفقهم للهدى، ولهم عذاب شديد في ن"
+              },
+              {
+                "source": "muyassar",
+                "verse_key": "2:7",
+                "quote_preview": "طبع الله على قلوب هؤلاء وعلى سمعهم، وجعل على أبصارهم غطاء; بسبب كفرهم وعنادهم مِن بعد ما تبيَّن لهم الحق، فلم يوفقهم للهدى، ولهم عذاب شديد في ن"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nodes": [
+          "BEH_COG_HEEDLESSNESS",
+          "BEH_SOC_TRANSGRESSION",
+          "BEH_SPI_DISBELIEF"
+        ],
+        "edges": [
+          {
+            "source": "BEH_COG_HEEDLESSNESS",
+            "target": "BEH_SOC_TRANSGRESSION",
+            "edge_type": "LEADS_TO",
+            "confidence": 0.85,
+            "evidence_count": 3,
+            "sample_evidence": []
+          },
+          {
+            "source": "BEH_SOC_TRANSGRESSION",
+            "target": "BEH_SPI_DISBELIEF",
+            "edge_type": "LEADS_TO",
+            "confidence": 0.85,
+            "evidence_count": 3,
+            "sample_evidence": []
+          }
+        ]
+      },
+      {
+        "nodes": [
+          "BEH_COG_HEEDLESSNESS",
+          "AGT_ALLAH",
+          "BEH_SPI_REMEMBRANCE",
+          "BEH_SPI_DISBELIEF"
+        ],
+        "edges": [
+          {
+            "source": "BEH_COG_HEEDLESSNESS",
+            "target": "AGT_ALLAH",
+            "edge_type": "CAUSES",
+            "confidence": 0.56,
+            "evidence_count": 2,
+            "sample_evidence": [
+              {
+                "source": "qurtubi",
+                "verse_key": "7:190",
+                "quote_preview": "رتب في أن المحبوس على القتل أشد حالا من المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون"
+              },
+              {
+                "source": "qurtubi",
+                "verse_key": "7:190",
+                "quote_preview": "ن المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون الموت من قبل أن تلقوه فقد رأيتموه وأنت"
+              }
+            ]
+          },
+          {
+            "source": "AGT_ALLAH",
+            "target": "BEH_SPI_REMEMBRANCE",
+            "edge_type": "STRENGTHENS",
+            "confidence": 0.95,
+            "evidence_count": 5,
+            "sample_evidence": [
+              {
+                "source": "tabari",
+                "verse_key": "1:7",
+                "quote_preview": "صديق. والكتاب الذي انزل علي نبينا محمد صلي الله عليه وسلم يحوي معاني ذلك كله , ويزيد عليه كثيرا من المعاني التي ساير الكتب غيره منها خال , وقد قدمنا ذكرها فيما مضي"
+              },
+              {
+                "source": "tabari",
+                "verse_key": "2:55",
+                "quote_preview": "ابن زيد: (حتي نري الله جهره)، حتي يطلع الينا.950 - حدثنا بشر بن معاذ قال، حدثنا يزيد قال، حدثنا سعيد , عن قتاده: (حتي نري الله جهره)، اي عيانا.فذكرهم بذلك جل ذكره ا"
+              }
+            ]
+          },
+          {
+            "source": "BEH_SPI_REMEMBRANCE",
+            "target": "BEH_SPI_DISBELIEF",
+            "edge_type": "CAUSES",
+            "confidence": 0.95,
+            "evidence_count": 5,
+            "sample_evidence": [
+              {
+                "source": "jalalayn",
+                "verse_key": "2:176",
+                "quote_preview": "«ذلك» الذي ذكر من أكلهم النار وما بعده «بأن» بسبب أن «الله نزَّل الكتاب بالحق» متعلق بنزل فاختلفوا فيه حيث آمنوا ببعضه وكفروا ببع"
+              },
+              {
+                "source": "jalalayn",
+                "verse_key": "2:176",
+                "quote_preview": "«ذلك» الذي ذكر من أكلهم النار وما بعده «بأن» بسبب أن «الله نزَّل الكتاب بالحق» متعلق بنزل فاختلفوا فيه حيث آمنوا ببعضه وكفروا ببع"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nodes": [
+          "BEH_COG_HEEDLESSNESS",
+          "AGT_ALLAH",
+          "CSQ_HIDAYA",
+          "BEH_SPI_DISBELIEF"
+        ],
+        "edges": [
+          {
+            "source": "BEH_COG_HEEDLESSNESS",
+            "target": "AGT_ALLAH",
+            "edge_type": "CAUSES",
+            "confidence": 0.56,
+            "evidence_count": 2,
+            "sample_evidence": [
+              {
+                "source": "qurtubi",
+                "verse_key": "7:190",
+                "quote_preview": "رتب في أن المحبوس على القتل أشد حالا من المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون"
+              },
+              {
+                "source": "qurtubi",
+                "verse_key": "7:190",
+                "quote_preview": "ن المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون الموت من قبل أن تلقوه فقد رأيتموه وأنت"
+              }
+            ]
+          },
+          {
+            "source": "AGT_ALLAH",
+            "target": "CSQ_HIDAYA",
+            "edge_type": "CAUSES",
+            "confidence": 0.95,
+            "evidence_count": 5,
+            "sample_evidence": [
+              {
+                "source": "saadi",
+                "verse_key": "2:2",
+                "quote_preview": "ولم يقبلوا هدي الله, فقامت عليهم به الحجه, ولم ينتفعوا به لشقايهم، واما المتقون الذين اتوا بالسبب الاكبر, لحصول الهدايه, وهو التقوي التي حقيقتها: اتخاذ ما يقي سخط"
+              },
+              {
+                "source": "jalalayn",
+                "verse_key": "2:211",
+                "quote_preview": "من والسلوى فبدَّلوها كفرا «ومن يبدِّل نعمه الله» أي ما أنعم به عليه من الآيات لأنها سبب الهداية «من بعد ما جاءته» كفرا «فإن الله شديد العقاب»"
+              }
+            ]
+          },
+          {
+            "source": "CSQ_HIDAYA",
+            "target": "BEH_SPI_DISBELIEF",
+            "edge_type": "CAUSES",
+            "confidence": 0.63,
+            "evidence_count": 2,
+            "sample_evidence": [
+              {
+                "source": "muyassar",
+                "verse_key": "30:29",
+                "quote_preview": "بائهم بغير علم، فشاركوهم في الجهل والضلالة، ولا أحد يقدر على هداية مَن أضلَّه الله بسبب تماديه في الكفر والعناد، وليس لهؤلاء مِن أنصار يُخَلِّصونهم من عذ"
+              },
+              {
+                "source": "muyassar",
+                "verse_key": "30:29",
+                "quote_preview": "ائهم بغير علم، فشاركوهم في الجهل والضلالة، ولا أحد يقدر على هداية مَن أضلَّه الله بسبب تماديه في الكفر والعناد، وليس لهؤلاء مِن أنصار يُخَلِّصونهم من عذ"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nodes": [
+          "BEH_COG_HEEDLESSNESS",
+          "AGT_ALLAH",
+          "BEH_SPI_FAITH",
+          "BEH_SPI_DISBELIEF"
+        ],
+        "edges": [
+          {
+            "source": "BEH_COG_HEEDLESSNESS",
+            "target": "AGT_ALLAH",
+            "edge_type": "CAUSES",
+            "confidence": 0.56,
+            "evidence_count": 2,
+            "sample_evidence": [
+              {
+                "source": "qurtubi",
+                "verse_key": "7:190",
+                "quote_preview": "رتب في أن المحبوس على القتل أشد حالا من المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون"
+              },
+              {
+                "source": "qurtubi",
+                "verse_key": "7:190",
+                "quote_preview": "ن المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون الموت من قبل أن تلقوه فقد رأيتموه وأنت"
+              }
+            ]
+          },
+          {
+            "source": "AGT_ALLAH",
+            "target": "BEH_SPI_FAITH",
+            "edge_type": "CAUSES",
+            "confidence": 0.95,
+            "evidence_count": 5,
+            "sample_evidence": [
+              {
+                "source": "baghawi",
+                "verse_key": "2:6",
+                "quote_preview": "لا يؤمنون ) وهذه الآية في أقوام حقت عليهم كلمة الشقاوة في سابق علم الله ثم ذكر سبب تركهم الإيمان"
+              },
+              {
+                "source": "qurtubi",
+                "verse_key": "2:29",
+                "quote_preview": "ر الإنسان ببعض ما يرى من المؤذيات ما أعد الله للكفار في النار من العقوبات فيكون سببا للإيمان وترك [ ص:"
+              }
+            ]
+          },
+          {
+            "source": "BEH_SPI_FAITH",
+            "target": "BEH_SPI_DISBELIEF",
+            "edge_type": "CAUSES",
+            "confidence": 0.94,
+            "evidence_count": 5,
+            "sample_evidence": [
+              {
+                "source": "saadi",
+                "verse_key": "2:7",
+                "quote_preview": "وهذه طرق العلم والخير, قد سدت عليهم, فلا مطمع فيهم, ولا خير يرجي عندهم، وانما منعوا ذلك, وسدت عنهم ابواب الايمان بسبب كفرهم وجحودهم ومعاندتهم بعد ما تبين لهم الحق,"
+              },
+              {
+                "source": "saadi",
+                "verse_key": "2:7",
+                "quote_preview": "وهذه طرق العلم والخير, قد سدت عليهم, فلا مطمع فيهم, ولا خير يرجي عندهم، وانما منعوا ذلك, وسدت عنهم ابواب الايمان بسبب كفرهم وجحودهم ومعاندتهم بعد ما تبين لهم الحق,"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

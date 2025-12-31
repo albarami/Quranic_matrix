@@ -1,0 +1,23 @@
+{
+  "question_id": "B11",
+  "section": "B",
+  "title": "Disputed Behaviors",
+  "question_ar": "Identify behaviors where at least 2 tafsir sources have contradictory interpretations. List all disputes with evidence.",
+  "question_en": "Identify behaviors where at least 2 tafsir sources have contradictory interpretations. List all disputes with evidence.",
+  "generated_at": "2025-12-31T05:38:20.026828+00:00",
+  "capabilities": [
+    "TAFSIR_MULTI_SOURCE",
+    "CONSENSUS",
+    "PROVENANCE"
+  ],
+  "response": {
+    "note": "Multi-source tafsir comparison",
+    "sources_compared": [
+      "ibn_kathir",
+      "tabari",
+      "qurtubi",
+      "saadi",
+      "jalalayn"
+    ]
+  }
+}
