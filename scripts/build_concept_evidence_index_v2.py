@@ -116,7 +116,7 @@ def build_all_entities_list(canonical_entities: Dict[str, Any]) -> List[Dict[str
     """
     entities = []
     
-    # Add all behaviors (73)
+    # Add all behaviors (87 canonical)
     for behavior in canonical_entities.get("behaviors", []):
         entities.append({
             "id": behavior["id"],

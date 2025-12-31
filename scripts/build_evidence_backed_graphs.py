@@ -94,7 +94,7 @@ def build_all_nodes(canonical_entities: Dict[str, Any]) -> Dict[str, Dict[str, A
     """
     nodes = {}
     
-    # Add all behaviors (73)
+    # Add all behaviors (87 canonical)
     for behavior in canonical_entities.get("behaviors", []):
         node_id = behavior["id"]
         nodes[node_id] = {

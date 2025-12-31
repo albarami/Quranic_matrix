@@ -2,8 +2,8 @@
 """
 Phase 1: Behavior Inventory Audit
 
-Reconciles the 73 behaviors in vocab/canonical_entities.json with the 
-87 behaviors in src/ml/behavioral_classifier.py.
+Reconciles the 87 behaviors in vocab/canonical_entities.json with the 
+behavioral classifier implementation.
 
 Outputs:
 - artifacts/behavior_inventory_audit.json

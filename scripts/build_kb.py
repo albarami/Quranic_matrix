@@ -608,7 +608,7 @@ def validate_kb(
     # 3. Behavior count
     behavior_count = len([b for b in behaviors.values() if b.id.startswith("BEH_")])
     if behavior_count < 70:
-        errors.append(f"CRITICAL: Only {behavior_count} behaviors loaded, expected 73")
+        errors.append(f"CRITICAL: Only {behavior_count} behaviors loaded, expected 87")
 
     # 4. Link integrity
     for link in links.values():

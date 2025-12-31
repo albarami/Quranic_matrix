@@ -93,10 +93,140 @@ def set_fixture_mode(enabled: bool = True) -> None:
     """Set fixture mode (for testing)."""
     if enabled:
         os.environ["QBM_USE_FIXTURE"] = "1"
+        os.environ["QBM_DATASET_MODE"] = "fixture"
         os.environ["QBM_DATA_PROFILE"] = "fixture"
     else:
         os.environ.pop("QBM_USE_FIXTURE", None)
+        os.environ.pop("QBM_DATASET_MODE", None)
         os.environ.pop("QBM_DATA_PROFILE", None)
+
+
+def set_full_mode() -> None:
+    """Set full mode (for testing release lane)."""
+    os.environ["QBM_USE_FIXTURE"] = "0"
+    os.environ["QBM_DATASET_MODE"] = "full"
+    os.environ["QBM_DATA_PROFILE"] = "full"
+
+
+# =============================================================================
+# Dataset Mode Contract: Expected counts by mode
+# =============================================================================
+
+# Fixture mode minimum coverage thresholds
+# These are the minimum counts that fixture data must provide
+FIXTURE_MIN_BEHAVIORS = 20  # At least 20 behaviors with evidence
+FIXTURE_MIN_BENCHMARK_QUESTIONS = 20  # 2 per section (10 sections)
+
+# Full mode canonical counts (from vocab/canonical_entities.json)
+FULL_BEHAVIOR_COUNT = 87
+FULL_ORGAN_COUNT = 40
+FULL_AGENT_COUNT = 14
+FULL_HEART_STATE_COUNT = 12
+FULL_CONSEQUENCE_COUNT = 16
+FULL_ENTITY_COUNT = 169  # Sum of above
+FULL_BENCHMARK_QUESTIONS = 200
+
+
+def expected_behavior_count(mode: Optional[DatasetMode] = None) -> int:
+    """
+    Get expected behavior count for the given mode.
+    
+    Args:
+        mode: DatasetMode (defaults to current mode)
+        
+    Returns:
+        87 for FULL mode, FIXTURE_MIN_BEHAVIORS for FIXTURE mode
+    """
+    if mode is None:
+        mode = get_dataset_mode()
+    
+    if mode == DatasetMode.FULL:
+        return FULL_BEHAVIOR_COUNT
+    else:
+        return FIXTURE_MIN_BEHAVIORS
+
+
+def expected_entity_count(mode: Optional[DatasetMode] = None) -> int:
+    """
+    Get expected total entity count for the given mode.
+    
+    Args:
+        mode: DatasetMode (defaults to current mode)
+        
+    Returns:
+        169 for FULL mode, scaled minimum for FIXTURE mode
+    """
+    if mode is None:
+        mode = get_dataset_mode()
+    
+    if mode == DatasetMode.FULL:
+        return FULL_ENTITY_COUNT
+    else:
+        # Fixture mode: proportional minimum based on behavior coverage
+        return FIXTURE_MIN_BEHAVIORS + 10  # behaviors + some organs/agents
+
+
+def expected_benchmark_questions(mode: Optional[DatasetMode] = None) -> int:
+    """
+    Get expected benchmark question count for the given mode.
+    
+    Args:
+        mode: DatasetMode (defaults to current mode)
+        
+    Returns:
+        200 for FULL mode, 20 for FIXTURE mode
+    """
+    if mode is None:
+        mode = get_dataset_mode()
+    
+    if mode == DatasetMode.FULL:
+        return FULL_BENCHMARK_QUESTIONS
+    else:
+        return FIXTURE_MIN_BENCHMARK_QUESTIONS
+
+
+def requires_full_ssot(mode: Optional[DatasetMode] = None) -> bool:
+    """
+    Check if the mode requires full SSOT data.
+    
+    Args:
+        mode: DatasetMode (defaults to current mode)
+        
+    Returns:
+        True for FULL mode, False for FIXTURE mode
+    """
+    if mode is None:
+        mode = get_dataset_mode()
+    
+    return mode == DatasetMode.FULL
+
+
+def get_mode_expectations(mode: Optional[DatasetMode] = None) -> dict:
+    """
+    Get all expectations for the given mode as a dictionary.
+    
+    Args:
+        mode: DatasetMode (defaults to current mode)
+        
+    Returns:
+        Dictionary with all expected counts and flags
+    """
+    if mode is None:
+        mode = get_dataset_mode()
+    
+    return {
+        "mode": mode.value,
+        "behaviors": expected_behavior_count(mode),
+        "entities": expected_entity_count(mode),
+        "benchmark_questions": expected_benchmark_questions(mode),
+        "requires_full_ssot": requires_full_ssot(mode),
+        "is_fixture": mode == DatasetMode.FIXTURE,
+        "is_full": mode == DatasetMode.FULL,
+        # Full mode canonical counts (for reference)
+        "canonical_behaviors": FULL_BEHAVIOR_COUNT,
+        "canonical_entities": FULL_ENTITY_COUNT,
+        "canonical_benchmark": FULL_BENCHMARK_QUESTIONS,
+    }
 
 
 # Import canonical counts from the authoritative source
