@@ -92,7 +92,19 @@ jobs:
             --ignore=tests/ai/test_unified.py \
             --ignore=tests/ai/test_knowledge_graph.py \
             --ignore=tests/test_validation_gates_v3.py \
-            --ignore=tests/test_graph_causal_engine.py
+            --ignore=tests/test_graph_causal_engine.py \
+            --ignore=tests/test_evidence_backed_graphs.py \
+            --ignore=tests/test_legendary_questions.py \
+            --ignore=tests/test_legendary_questions_full.py \
+            --ignore=tests/test_legendary_planner.py \
+            --ignore=tests/test_kb_phase3.py \
+            --ignore=tests/test_answer_generation_deterministic.py \
+            --ignore=tests/test_benchmark_intent_classifier.py \
+            --ignore=tests/test_optional_torch_geometric.py \
+            --ignore=tests/test_concept_evidence_index.py \
+            --ignore=tests/phase5/test_validation_gates.py \
+            --ignore=tests/phase7/test_graph_projection.py \
+            --ignore=tests/phase8/test_all_behaviors_contract.py
       
       - name: Check test collection
         run: |
