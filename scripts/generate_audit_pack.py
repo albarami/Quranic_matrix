@@ -600,11 +600,29 @@ def generate_audit_pack(output_dir: Path, strict: bool = True) -> Tuple[Dict[str
         audit_pack["gpu_proof"]["gpu_compute_claimed"] = True
         audit_pack["gpu_proof"]["gpu_computation_proof"] = gpu_computation_proof
         audit_pack["gpu_proof"]["gpu_proof_valid"] = gpu_computation_proof.get("valid", False)
-        print(f"   ✓ GPU computation proof found: valid={gpu_computation_proof.get('valid', False)}")
+        
+        # Extract GPU utilization details for accurate claims
+        gpus_available = gpu_computation_proof.get("gpus_available", 0)
+        gpus_utilized = gpu_computation_proof.get("gpus_utilized", [])
+        multi_gpu_used = gpu_computation_proof.get("multi_gpu_used", False)
+        
+        audit_pack["gpu_proof"]["gpus_available"] = gpus_available
+        audit_pack["gpu_proof"]["gpus_utilized"] = gpus_utilized
+        audit_pack["gpu_proof"]["multi_gpu_used"] = multi_gpu_used
+        
+        # Accurate messaging based on actual utilization
+        if multi_gpu_used:
+            print(f"   ✓ GPU computation proof found: valid={gpu_computation_proof.get('valid', False)}, multi-GPU ({len(gpus_utilized)} of {gpus_available} GPUs utilized)")
+        else:
+            gpu_idx = gpus_utilized[0] if gpus_utilized else "unknown"
+            print(f"   ✓ GPU computation proof found: valid={gpu_computation_proof.get('valid', False)}, single GPU (index {gpu_idx} of {gpus_available} available)")
     else:
         audit_pack["gpu_proof"]["gpu_compute_claimed"] = False
         audit_pack["gpu_proof"]["gpu_computation_proof"] = None
         audit_pack["gpu_proof"]["gpu_proof_valid"] = False
+        audit_pack["gpu_proof"]["gpus_available"] = 0
+        audit_pack["gpu_proof"]["gpus_utilized"] = []
+        audit_pack["gpu_proof"]["multi_gpu_used"] = False
         print(f"   ⚠ No GPU computation proof (embeddings built on CPU or --gpu-proof not used)")
     
     gpu_path = output_dir / "gpu_proof.json"

@@ -71,6 +71,8 @@ class GPUProofResult:
     torch_stats: Dict[str, Any] = field(default_factory=dict)
     embedding_job: Dict[str, Any] = field(default_factory=dict)
     errors: List[str] = field(default_factory=list)
+    gpus_available: int = 0
+    gpus_utilized: List[int] = field(default_factory=list)
     
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -82,6 +84,9 @@ class GPUProofResult:
             "avg_utilization_percent": self.avg_utilization,
             "max_utilization_percent": self.max_utilization,
             "peak_memory_mb": self.peak_memory_mb,
+            "gpus_available": self.gpus_available,
+            "gpus_utilized": self.gpus_utilized,
+            "multi_gpu_used": len(self.gpus_utilized) > 1,
             "torch_stats": self.torch_stats,
             "embedding_job": self.embedding_job,
             "errors": self.errors,
@@ -195,6 +200,18 @@ class GPUProofCollector:
         max_util = max(utilizations) if utilizations else 0.0
         peak_mem = max(memories) if memories else 0.0
         
+        # Determine which GPUs were actually utilized (utilization > 0 at least once)
+        gpu_indices_with_util = set()
+        for s in self.samples:
+            if s.utilization_percent > 0:
+                gpu_indices_with_util.add(s.gpu_index)
+        gpus_utilized = sorted(list(gpu_indices_with_util))
+        
+        # Get GPU count from torch stats or samples
+        gpus_available = self._torch_start_stats.get("device_count", 0)
+        if gpus_available == 0 and self.samples:
+            gpus_available = max(s.gpu_index for s in self.samples) + 1
+        
         # Determine validity using robust criteria:
         # 1. Average utilization >= threshold, OR
         # 2. Max utilization >= 10% AND peak memory > 500MB (proves GPU was used)
@@ -235,7 +252,9 @@ class GPUProofCollector:
             peak_memory_mb=peak_mem,
             torch_stats=torch_stats,
             embedding_job=self.embedding_job,
-            errors=self.errors
+            errors=self.errors,
+            gpus_available=gpus_available,
+            gpus_utilized=gpus_utilized
         )
     
     def save(self):
