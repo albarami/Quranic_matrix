@@ -1,16 +1,18 @@
 # Enterprise QBM Brain Implementation Plan
 
-> **Version**: 5.0  
+> **Version**: 5.1  
 > **Created**: 2025-12-30  
 > **Updated**: 2025-12-31  
-> **Status**: ✅ ENTERPRISE RELEASE COMPLETE - Academically Defensible  
+> **Status**: Release Governance Complete - CI Enforcement Active  
 > **Goal**: Zero-hallucination, Arabic-first, academically defensible system for the 200-question benchmark
+
+**Release is complete when CI artifact meets checklist below.**
 
 ---
 
 ## Release Validation Checklist
 
-A release is valid only if the CI artifact contains:
+A release is valid only if the **CI-produced artifact** (not local builds) contains:
 
 | Requirement | Field | Expected Value |
 |-------------|-------|----------------|
@@ -21,12 +23,20 @@ A release is valid only if the CI artifact contains:
 | GPU valid | `gpu_proof_valid` | `true` (if GPU claimed) |
 | GPU accuracy | `gpus_utilized` | Accurate indices (no false multi-GPU claims) |
 
+### CI Artifact Location
+
+**GitHub Actions → Artifacts:**
+- `audit-pack` job → `audit-pack-${{ github.sha }}`
+- `gpu-release-build` job → `gpu-release-${{ github.sha }}`
+
+**Important:** Local `audit_pack_gpu.zip` is for internal review only. The gold-standard proof for academic audits is the CI-produced artifact tied to a commit/tag.
+
 ### Release Artifacts
 
-| Artifact | Description |
-|----------|-------------|
-| `audit_pack.zip` | CPU release (no GPU proof) |
-| `audit_pack_gpu.zip` | GPU release with verified GPU computation proof |
+| Artifact | Description | CI Job |
+|----------|-------------|--------|
+| `audit_pack.zip` | CPU release (no GPU proof) | `audit-pack` |
+| `audit_pack_gpu.zip` | GPU release with verified GPU computation proof | `gpu-release-build` |
 
 ---
 
