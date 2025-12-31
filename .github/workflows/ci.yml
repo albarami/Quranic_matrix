@@ -386,6 +386,109 @@ jobs:
           retention-days: 90
 
   # ===========================================================================
+  # Full SSOT Release Lane (Self-Hosted Windows Runner)
+  # This is the REAL release lane that uses local D:\ SSOT data
+  # ===========================================================================
+  release-full-ssot:
+    name: Release Full SSOT (Self-Hosted Windows)
+    runs-on: [self-hosted, windows, qbm]
+    # Only run on tags or manual trigger
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
+    
+    env:
+      QBM_DATASET_MODE: "full"
+      QBM_SSOT_MODE: "full"
+      QBM_USE_FIXTURE: "0"
+      # Local SSOT directory on self-hosted runner
+      QBM_SSOT_DIR: "D:\\Quran_matrix\\ssot_full"
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Resolve SSOT from local directory
+        run: |
+          echo "Resolving SSOT from local directory..."
+          python scripts/resolve_ssot.py
+        env:
+          QBM_SSOT_DIR: ${{ env.QBM_SSOT_DIR }}
+      
+      - name: Verify SSOT manifest
+        run: |
+          echo "Verifying SSOT files against manifest..."
+          python -c "
+          import json
+          from pathlib import Path
+          manifest = json.load(open('artifacts/ssot_bundle/ssot_manifest.json'))
+          print(f'SSOT Version: {manifest.get(\"version\")}')
+          print(f'Expected files: {len(manifest.get(\"files\", []))}')
+          for f in manifest.get('files', []):
+              p = Path(f['path'])
+              if p.exists():
+                  print(f'  ✓ {f[\"path\"]} ({p.stat().st_size:,} bytes)')
+              else:
+                  print(f'  ✗ {f[\"path\"]} MISSING')
+                  exit(1)
+          "
+      
+      - name: Run full 200-question benchmark
+        run: |
+          echo "Running full benchmark (200 questions)..."
+          python scripts/run_qbm_benchmark.py --dataset data/benchmarks/qbm_legendary_200.v1.jsonl --ci
+        env:
+          QBM_DATASET_MODE: "full"
+      
+      - name: Validate benchmark results
+        run: |
+          echo "Validating benchmark used 200 questions..."
+          python -c "
+          import json
+          from pathlib import Path
+          report = json.load(open('reports/eval/latest_eval_report.json'))
+          total = report['meta']['total_questions']
+          print(f'Total questions: {total}')
+          assert total == 200, f'Expected 200 questions, got {total}'
+          print('✓ Benchmark validation passed')
+          "
+      
+      - name: Generate audit pack (strict mode)
+        run: |
+          python scripts/generate_audit_pack.py --strict
+        env:
+          QBM_DATASET_MODE: "full"
+      
+      - name: Validate audit pack
+        run: |
+          python -m pytest tests/test_audit_pack_phase7.py -v --tb=short -k "audit_pack"
+        env:
+          QBM_REQUIRE_AUDIT_PACK: "1"
+          QBM_DATASET_MODE: "full"
+      
+      - name: Package release artifacts
+        run: |
+          New-Item -ItemType Directory -Force -Path release
+          Compress-Archive -Path artifacts/audit_pack/* -DestinationPath release/audit_pack_full.zip -Force
+          Compress-Archive -Path reports/eval/* -DestinationPath release/eval_reports.zip -Force
+        shell: pwsh
+      
+      - name: Upload full SSOT release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-full-ssot-${{ github.sha }}
+          path: release/
+          retention-days: 90
+
+  # ===========================================================================
   # Frontend E2E Smoke Tests (non-blocking)
   # These tests verify basic UI functionality but don't fail CI
   # ===========================================================================
