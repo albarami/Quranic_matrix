@@ -1,0 +1,339 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2025-12-31T02:52:31.938252+00:00",
+  "generator": "scripts/generate_audit_pack.py",
+  "input_hashes": {
+    "generated_at": "2025-12-31T02:52:32.052167+00:00",
+    "file_count": 10,
+    "files": {
+      "quran_text": {
+        "exists": false,
+        "path": "D:\\Quran_matrix\\data\\quran\\quran_index.source.json"
+      },
+      "canonical_entities": {
+        "exists": true,
+        "path": "vocab\\canonical_entities.json",
+        "size_bytes": 64306,
+        "modified_at": "2025-12-30T21:10:44.741433+00:00",
+        "sha256": "838a19c081b4031ab20083fed67e2d95f3db7ad5cdb824fbceaeb3e12d2bc54d"
+      },
+      "postgres_schema": {
+        "exists": true,
+        "path": "schemas\\postgres_truth_layer.sql",
+        "size_bytes": 9055,
+        "modified_at": "2025-12-26T09:14:30.907930+00:00",
+        "sha256": "a8b5ade51e6855a9197db650b07fc651bc5247698d6378a316a6718949afa26f"
+      },
+      "tafsir_ibn_kathir": {
+        "exists": true,
+        "path": "data\\tafsir\\ibn_kathir.ar.jsonl",
+        "size_bytes": 15989113,
+        "modified_at": "2025-12-25T14:17:45.059375+00:00",
+        "sha256": "b3ba5adff487c032a00439caa4a6dcf73167613dded7f47dff4f690a95cb0bf1"
+      },
+      "tafsir_tabari": {
+        "exists": true,
+        "path": "data\\tafsir\\tabari.ar.jsonl",
+        "size_bytes": 35517667,
+        "modified_at": "2025-12-25T14:17:47.889081+00:00",
+        "sha256": "c76605ac462240ea2a8f3c6fe6bb71c01010bff6f7b23cd133846fd913e000e1"
+      },
+      "tafsir_qurtubi": {
+        "exists": true,
+        "path": "data\\tafsir\\qurtubi.ar.jsonl",
+        "size_bytes": 20476851,
+        "modified_at": "2025-12-25T14:17:48.248334+00:00",
+        "sha256": "f635c17023027b004782f5df16b44c5fb3bf7caa9c6afae420f9343224a86853"
+      },
+      "tafsir_saadi": {
+        "exists": true,
+        "path": "data\\tafsir\\saadi.ar.jsonl",
+        "size_bytes": 6742972,
+        "modified_at": "2025-12-25T14:17:48.775494+00:00",
+        "sha256": "b436644578b5a77d60720a296517288956b393c7b19b7eacc6248bdb344804f3"
+      },
+      "tafsir_jalalayn": {
+        "exists": true,
+        "path": "data\\tafsir\\jalalayn.ar.jsonl",
+        "size_bytes": 2412256,
+        "modified_at": "2025-12-25T14:17:48.879777+00:00",
+        "sha256": "be97122d920772e217a99dfd848b45a511ea6e00da48d58cfb5dcbc201f35107"
+      },
+      "tafsir_baghawi": {
+        "exists": true,
+        "path": "data\\tafsir\\baghawi.ar.jsonl",
+        "size_bytes": 8111841,
+        "modified_at": "2025-12-25T17:43:50.103509+00:00",
+        "sha256": "095f09e8bfdbc72300ca9e2136c30bcf9babcbb7e7a2bdeac71e664dfaa156be"
+      },
+      "tafsir_muyassar": {
+        "exists": true,
+        "path": "data\\tafsir\\muyassar.ar.jsonl",
+        "size_bytes": 3095538,
+        "modified_at": "2025-12-25T16:44:40.456267+00:00",
+        "sha256": "a1f28bf03b963a0806c5cee9e46ef7870895cd1209428b73d3ded649c155290f"
+      }
+    }
+  },
+  "output_hashes": {
+    "generated_at": "2025-12-31T02:52:34.737781+00:00",
+    "file_count": 9,
+    "files": {
+      "semantic_graph_v3": {
+        "exists": true,
+        "path": "data\\graph\\semantic_graph_v3.json",
+        "size_bytes": 13989095,
+        "modified_at": "2025-12-31T02:16:40.902609+00:00",
+        "sha256": "0a70c50d44e0361dd884b9019f63ad6366e9b8187bd6cc34832dac1ea69f0431"
+      },
+      "semantic_graph_v2": {
+        "exists": true,
+        "path": "data\\graph\\semantic_graph_v2.json",
+        "size_bytes": 13910044,
+        "modified_at": "2025-12-26T09:10:31.419480+00:00",
+        "sha256": "be8a19f519d1886efeab236db540c636c6434421ec94525ff3470ae28fe22553"
+      },
+      "graph_v3": {
+        "exists": true,
+        "path": "data\\graph\\graph_v3.json",
+        "size_bytes": 3542241,
+        "modified_at": "2025-12-30T16:15:24.831573+00:00",
+        "sha256": "4ed22104ee0911edb8e869139db45b33df082ec62af2514a151c42fa03712bbe"
+      },
+      "concept_index_v3": {
+        "exists": true,
+        "path": "data\\evidence\\concept_index_v3.jsonl",
+        "size_bytes": 6187952,
+        "modified_at": "2025-12-31T02:12:04.891188+00:00",
+        "sha256": "420aac64968f733266d467e9bc9f3ab64e321656026ce5dd7c3419be57dac323"
+      },
+      "evidence_index_chunked": {
+        "exists": true,
+        "path": "data\\evidence\\evidence_index_v2_chunked.jsonl",
+        "size_bytes": 119513573,
+        "modified_at": "2025-12-26T00:17:45.341751+00:00",
+        "sha256": "272747b712827eeb9184567c1e5e0c2801384e27e1c14b824d2be9943f30a1cb"
+      },
+      "gpu_index": {
+        "exists": true,
+        "path": "data\\embeddings\\gpu_index.npy",
+        "size_bytes": 992068736,
+        "modified_at": "2025-12-23T03:23:51.171296+00:00",
+        "sha256": "0d7139b89f9811930a3124dfc25df782f6d0e4e0fe9209f41d3b4761e77cf777"
+      },
+      "annotations_embeddings": {
+        "exists": true,
+        "path": "data\\embeddings\\annotations_embeddings.npy",
+        "size_bytes": 992068736,
+        "modified_at": "2025-12-23T03:23:46.570334+00:00",
+        "sha256": "92747c83a73a5d05c7619affbe805171b491626a50767e541e97cdd336080386"
+      },
+      "behavior_dossiers": {
+        "exists": true,
+        "path": "data\\kb\\behavior_dossiers.jsonl",
+        "size_bytes": 89399847,
+        "modified_at": "2025-12-30T20:30:38.099205+00:00",
+        "sha256": "e143cca571da36bbe75cb005ccb2501d5bf95d05b4a725deb1afadbb77cfe5ed"
+      },
+      "kb_manifest": {
+        "exists": true,
+        "path": "data\\kb\\manifest.json",
+        "size_bytes": 1680,
+        "modified_at": "2025-12-30T20:30:39.151634+00:00",
+        "sha256": "dafed5b5e1a8851ce1aee4dec928d36c5452cada42d687d237a17d6a8ec8f396"
+      }
+    }
+  },
+  "gpu_proof": {
+    "generated_at": "2025-12-31T02:52:34.739361+00:00",
+    "torch_available": true,
+    "cuda_available": true,
+    "device_count": 8,
+    "devices": [
+      {
+        "id": 0,
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_memory_gb": 79.55,
+        "compute_capability": "8.0",
+        "multi_processor_count": 108
+      },
+      {
+        "id": 1,
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_memory_gb": 79.55,
+        "compute_capability": "8.0",
+        "multi_processor_count": 108
+      },
+      {
+        "id": 2,
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_memory_gb": 79.55,
+        "compute_capability": "8.0",
+        "multi_processor_count": 108
+      },
+      {
+        "id": 3,
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_memory_gb": 79.55,
+        "compute_capability": "8.0",
+        "multi_processor_count": 108
+      },
+      {
+        "id": 4,
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_memory_gb": 79.55,
+        "compute_capability": "8.0",
+        "multi_processor_count": 108
+      },
+      {
+        "id": 5,
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_memory_gb": 79.55,
+        "compute_capability": "8.0",
+        "multi_processor_count": 108
+      },
+      {
+        "id": 6,
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_memory_gb": 79.55,
+        "compute_capability": "8.0",
+        "multi_processor_count": 108
+      },
+      {
+        "id": 7,
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_memory_gb": 79.55,
+        "compute_capability": "8.0",
+        "multi_processor_count": 108
+      }
+    ],
+    "torch_version": "2.6.0+cu124",
+    "cuda_version": "12.4",
+    "cudnn_version": 90100,
+    "nvidia_smi_output": "NVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14"
+  },
+  "provenance": {
+    "generated_at": "2025-12-31T02:52:38.188515+00:00",
+    "behaviors": {
+      "canonical_count": 87,
+      "agents_count": 14,
+      "organs_count": 39,
+      "heart_states_count": 12,
+      "consequences_count": 16,
+      "indexed_count": 87,
+      "total_verse_links": 9509
+    },
+    "graph": {
+      "version": "3.0",
+      "total_nodes": 140,
+      "total_edges": 4647,
+      "behavior_nodes": 87,
+      "causal_edges": 1206,
+      "edges_with_evidence": 4647
+    },
+    "tafsir": {
+      "total_chunks": 81733,
+      "sources": {
+        "baghawi": 8475,
+        "ibn_kathir": 12952,
+        "jalalayn": 6242,
+        "muyassar": 6288,
+        "qurtubi": 15474,
+        "saadi": 6860,
+        "tabari": 25442
+      },
+      "source_count": 7
+    },
+    "completeness": {
+      "behaviors_complete": true,
+      "graph_complete": true,
+      "tafsir_complete": true,
+      "all_complete": true
+    }
+  },
+  "system_info": {
+    "generated_at": "2025-12-31T02:52:39.676942+00:00",
+    "platform": {
+      "system": "Windows",
+      "release": "10",
+      "version": "10.0.20348",
+      "machine": "AMD64",
+      "processor": "AMD64 Family 23 Model 49 Stepping 0, AuthenticAMD",
+      "python_version": "3.11.8"
+    },
+    "git_commit": "0dad2d09ef0b277b42946f93098ea9d850c4aa0a",
+    "git_describe": "v2.0.1-46-g0dad2d0",
+    "environment": {}
+  },
+  "benchmark": {
+    "report_file": "reports\\eval\\eval_report_20251231_022432Z.json",
+    "timestamp": null,
+    "total_questions": 200,
+    "passed": 200,
+    "failed": 0,
+    "partial": 0,
+    "pass_rate": 100.0,
+    "per_section": {
+      "A": {
+        "total": 25,
+        "PASS": 25,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "B": {
+        "total": 25,
+        "PASS": 25,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "C": {
+        "total": 25,
+        "PASS": 25,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "D": {
+        "total": 25,
+        "PASS": 25,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "E": {
+        "total": 20,
+        "PASS": 20,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "F": {
+        "total": 20,
+        "PASS": 20,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "G": {
+        "total": 15,
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "H": {
+        "total": 15,
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "I": {
+        "total": 15,
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "J": {
+        "total": 15,
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    }
+  }
+}

@@ -143,9 +143,9 @@ from .routers.reviews import router as reviews_router
 from .routers.proof import router as proof_router
 
 app.include_router(health_router, tags=["Health"])
-app.include_router(genome_router)  # Phase 7.3 placeholder
+app.include_router(genome_router)  # Phase 7.3: Genome export endpoint
 app.include_router(metrics_router)
-app.include_router(reviews_router)  # Phase 7.4 placeholder
+app.include_router(reviews_router)  # Phase 7.4: Scholar review workflow
 app.include_router(proof_router)  # Phase 7.2 (canonical /api/proof/*)
 
 # =============================================================================
@@ -2548,8 +2548,8 @@ async def get_behavior_profile(behavior: str):
                 "connections": []
             },
 
-            # 11 Bouzidani dimensions (placeholder for now)
-            "dimensions": {
+            # 11 Bouzidani dimensions (populated from dossier if available)
+            "dimensions": dossier.get("dimensions", {
                 "organic": {},
                 "positional": {},
                 "systemic": {},
@@ -2561,7 +2561,7 @@ async def get_behavior_profile(behavior: str):
                 "heart": {},
                 "outcome": {},
                 "relations": {}
-            },
+            }),
 
             # Surah distribution (from precomputed statistics)
             "surah_distribution": [
@@ -2577,8 +2577,8 @@ async def get_behavior_profile(behavior: str):
                 "related_concepts": []
             },
 
-            # Similar behaviors (placeholder)
-            "similar_behaviors": [],
+            # Similar behaviors (from dossier relations)
+            "similar_behaviors": dossier.get("relations", {}).get("similar", []),
 
             # Processing metadata
             "processing_time_ms": round(processing_time, 2),

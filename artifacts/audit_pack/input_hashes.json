@@ -1,0 +1,73 @@
+{
+  "generated_at": "2025-12-31T02:52:32.052167+00:00",
+  "file_count": 10,
+  "files": {
+    "quran_text": {
+      "exists": false,
+      "path": "D:\\Quran_matrix\\data\\quran\\quran_index.source.json"
+    },
+    "canonical_entities": {
+      "exists": true,
+      "path": "vocab\\canonical_entities.json",
+      "size_bytes": 64306,
+      "modified_at": "2025-12-30T21:10:44.741433+00:00",
+      "sha256": "838a19c081b4031ab20083fed67e2d95f3db7ad5cdb824fbceaeb3e12d2bc54d"
+    },
+    "postgres_schema": {
+      "exists": true,
+      "path": "schemas\\postgres_truth_layer.sql",
+      "size_bytes": 9055,
+      "modified_at": "2025-12-26T09:14:30.907930+00:00",
+      "sha256": "a8b5ade51e6855a9197db650b07fc651bc5247698d6378a316a6718949afa26f"
+    },
+    "tafsir_ibn_kathir": {
+      "exists": true,
+      "path": "data\\tafsir\\ibn_kathir.ar.jsonl",
+      "size_bytes": 15989113,
+      "modified_at": "2025-12-25T14:17:45.059375+00:00",
+      "sha256": "b3ba5adff487c032a00439caa4a6dcf73167613dded7f47dff4f690a95cb0bf1"
+    },
+    "tafsir_tabari": {
+      "exists": true,
+      "path": "data\\tafsir\\tabari.ar.jsonl",
+      "size_bytes": 35517667,
+      "modified_at": "2025-12-25T14:17:47.889081+00:00",
+      "sha256": "c76605ac462240ea2a8f3c6fe6bb71c01010bff6f7b23cd133846fd913e000e1"
+    },
+    "tafsir_qurtubi": {
+      "exists": true,
+      "path": "data\\tafsir\\qurtubi.ar.jsonl",
+      "size_bytes": 20476851,
+      "modified_at": "2025-12-25T14:17:48.248334+00:00",
+      "sha256": "f635c17023027b004782f5df16b44c5fb3bf7caa9c6afae420f9343224a86853"
+    },
+    "tafsir_saadi": {
+      "exists": true,
+      "path": "data\\tafsir\\saadi.ar.jsonl",
+      "size_bytes": 6742972,
+      "modified_at": "2025-12-25T14:17:48.775494+00:00",
+      "sha256": "b436644578b5a77d60720a296517288956b393c7b19b7eacc6248bdb344804f3"
+    },
+    "tafsir_jalalayn": {
+      "exists": true,
+      "path": "data\\tafsir\\jalalayn.ar.jsonl",
+      "size_bytes": 2412256,
+      "modified_at": "2025-12-25T14:17:48.879777+00:00",
+      "sha256": "be97122d920772e217a99dfd848b45a511ea6e00da48d58cfb5dcbc201f35107"
+    },
+    "tafsir_baghawi": {
+      "exists": true,
+      "path": "data\\tafsir\\baghawi.ar.jsonl",
+      "size_bytes": 8111841,
+      "modified_at": "2025-12-25T17:43:50.103509+00:00",
+      "sha256": "095f09e8bfdbc72300ca9e2136c30bcf9babcbb7e7a2bdeac71e664dfaa156be"
+    },
+    "tafsir_muyassar": {
+      "exists": true,
+      "path": "data\\tafsir\\muyassar.ar.jsonl",
+      "size_bytes": 3095538,
+      "modified_at": "2025-12-25T16:44:40.456267+00:00",
+      "sha256": "a1f28bf03b963a0806c5cee9e46ef7870895cd1209428b73d3ded649c155290f"
+    }
+  }
+}
