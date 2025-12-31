@@ -1,11 +1,12 @@
 """
-Phase 7 Tests: Audit Pack Generator
+Phase 7 Tests: Audit Pack Generator (v2.0 - Strict Mode)
 
 Tests for:
-1. Input/output hash generation
+1. Input/output hash generation with SSOT validation
 2. GPU proof logs
 3. Provenance completeness report
-4. Audit pack completeness
+4. Audit pack completeness with git commit
+5. Strict mode SSOT enforcement
 """
 
 import json
@@ -26,6 +27,8 @@ from scripts.generate_audit_pack import (
     generate_provenance_report,
     generate_system_info,
     get_latest_benchmark_results,
+    get_current_git_commit,
+    REQUIRED_TAFSIR_SOURCES,
 )
 
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -57,19 +60,29 @@ class TestHashGeneration:
     def test_get_file_info_exists(self):
         """Test file info for existing file."""
         ce_path = PROJECT_ROOT / "vocab" / "canonical_entities.json"
-        info = get_file_info(ce_path)
+        info, is_valid = get_file_info(ce_path)
         
         assert info["exists"] is True
         assert "sha256" in info
         assert "size_bytes" in info
         assert info["size_bytes"] > 0
+        assert is_valid is True
     
     def test_get_file_info_not_exists(self):
         """Test file info for non-existing file."""
         fake_path = PROJECT_ROOT / "nonexistent_file.xyz"
-        info = get_file_info(fake_path)
+        info, is_valid = get_file_info(fake_path)
         
         assert info["exists"] is False
+        assert is_valid is True  # Non-SSOT file, so still valid
+    
+    def test_get_file_info_ssot_missing_fails(self):
+        """Test SSOT file missing returns invalid."""
+        fake_path = PROJECT_ROOT / "nonexistent_ssot.json"
+        info, is_valid = get_file_info(fake_path, is_ssot=True)
+        
+        assert info["exists"] is False
+        assert is_valid is False  # SSOT missing = invalid
 
 
 # =============================================================================
@@ -81,30 +94,35 @@ class TestInputHashes:
     
     def test_generate_input_hashes(self):
         """Test input hashes are generated."""
-        result = generate_input_hashes()
+        result, missing = generate_input_hashes()
         
         assert "generated_at" in result
         assert "file_count" in result
         assert "files" in result
         assert result["file_count"] >= 8  # At least 7 tafsir + 1 canonical
+        assert "all_ssot_present" in result
     
     def test_canonical_entities_hashed(self):
         """Test canonical_entities.json is hashed."""
-        result = generate_input_hashes()
+        result, _ = generate_input_hashes()
         
         assert "canonical_entities" in result["files"]
         assert result["files"]["canonical_entities"]["exists"] is True
     
     def test_tafsir_sources_hashed(self):
         """Test all 7 tafsir sources are hashed."""
-        result = generate_input_hashes()
+        result, _ = generate_input_hashes()
         
-        tafsir_sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", 
-                         "jalalayn", "baghawi", "muyassar"]
-        
-        for src in tafsir_sources:
+        for src in REQUIRED_TAFSIR_SOURCES:
             key = f"tafsir_{src}"
             assert key in result["files"], f"Missing tafsir source: {src}"
+    
+    def test_all_ssot_present(self):
+        """Test all SSOT files are present."""
+        result, missing = generate_input_hashes()
+        
+        assert result["all_ssot_present"] is True
+        assert len(missing) == 0
 
 
 # =============================================================================
@@ -223,7 +241,7 @@ class TestSystemInfo:
     
     def test_generate_system_info(self):
         """Test system info is generated."""
-        result = generate_system_info()
+        result, _ = generate_system_info()
         
         assert "generated_at" in result
         assert "platform" in result
@@ -231,11 +249,18 @@ class TestSystemInfo:
     
     def test_git_commit_present(self):
         """Test git commit is captured."""
-        result = generate_system_info()
+        result, _ = generate_system_info()
         
         # Git commit should be present in a git repo
         assert "git_commit" in result
         assert len(result["git_commit"]) == 40  # SHA1 hex length
+    
+    def test_get_current_git_commit(self):
+        """Test get_current_git_commit function."""
+        commit = get_current_git_commit()
+        
+        assert commit is not None
+        assert len(commit) == 40  # SHA1 hex length
 
 
 # =============================================================================
@@ -317,8 +342,8 @@ class TestAuditPackCompleteness:
     def test_hashes_reproducible(self):
         """Test hashes are reproducible (same file = same hash)."""
         # Generate hashes twice
-        result1 = generate_input_hashes()
-        result2 = generate_input_hashes()
+        result1, _ = generate_input_hashes()
+        result2, _ = generate_input_hashes()
         
         # Compare canonical_entities hash
         hash1 = result1["files"]["canonical_entities"]["sha256"]

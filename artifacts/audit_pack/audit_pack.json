@@ -1,15 +1,13 @@
 {
-  "version": "1.0.0",
-  "generated_at": "2025-12-31T02:52:31.938252+00:00",
+  "version": "2.0.0",
+  "generated_at": "2025-12-31T03:18:12.342863+00:00",
   "generator": "scripts/generate_audit_pack.py",
+  "git_commit": "776eafd0f235595399ed65f3404182cd0fcedc4e",
+  "strict_mode": true,
   "input_hashes": {
-    "generated_at": "2025-12-31T02:52:32.052167+00:00",
+    "generated_at": "2025-12-31T03:18:12.571451+00:00",
     "file_count": 10,
     "files": {
-      "quran_text": {
-        "exists": false,
-        "path": "D:\\Quran_matrix\\data\\quran\\quran_index.source.json"
-      },
       "canonical_entities": {
         "exists": true,
         "path": "vocab\\canonical_entities.json",
@@ -23,6 +21,13 @@
         "size_bytes": 9055,
         "modified_at": "2025-12-26T09:14:30.907930+00:00",
         "sha256": "a8b5ade51e6855a9197db650b07fc651bc5247698d6378a316a6718949afa26f"
+      },
+      "quran_text": {
+        "exists": true,
+        "path": "data\\quran\\uthmani_hafs_v1.tok_v1.json",
+        "size_bytes": 7253834,
+        "modified_at": "2025-12-20T09:07:12.177260+00:00",
+        "sha256": "78e19cfcc3d4497864fee137319bfdade5b2824cb182fc0edeea6cf8a3ae7ebf"
       },
       "tafsir_ibn_kathir": {
         "exists": true,
@@ -73,11 +78,13 @@
         "modified_at": "2025-12-25T16:44:40.456267+00:00",
         "sha256": "a1f28bf03b963a0806c5cee9e46ef7870895cd1209428b73d3ded649c155290f"
       }
-    }
+    },
+    "all_ssot_present": true,
+    "missing_ssot": []
   },
   "output_hashes": {
-    "generated_at": "2025-12-31T02:52:34.737781+00:00",
-    "file_count": 9,
+    "generated_at": "2025-12-31T03:18:15.161868+00:00",
+    "file_count": 6,
     "files": {
       "semantic_graph_v3": {
         "exists": true,
@@ -86,47 +93,12 @@
         "modified_at": "2025-12-31T02:16:40.902609+00:00",
         "sha256": "0a70c50d44e0361dd884b9019f63ad6366e9b8187bd6cc34832dac1ea69f0431"
       },
-      "semantic_graph_v2": {
-        "exists": true,
-        "path": "data\\graph\\semantic_graph_v2.json",
-        "size_bytes": 13910044,
-        "modified_at": "2025-12-26T09:10:31.419480+00:00",
-        "sha256": "be8a19f519d1886efeab236db540c636c6434421ec94525ff3470ae28fe22553"
-      },
-      "graph_v3": {
-        "exists": true,
-        "path": "data\\graph\\graph_v3.json",
-        "size_bytes": 3542241,
-        "modified_at": "2025-12-30T16:15:24.831573+00:00",
-        "sha256": "4ed22104ee0911edb8e869139db45b33df082ec62af2514a151c42fa03712bbe"
-      },
       "concept_index_v3": {
         "exists": true,
         "path": "data\\evidence\\concept_index_v3.jsonl",
         "size_bytes": 6187952,
         "modified_at": "2025-12-31T02:12:04.891188+00:00",
         "sha256": "420aac64968f733266d467e9bc9f3ab64e321656026ce5dd7c3419be57dac323"
-      },
-      "evidence_index_chunked": {
-        "exists": true,
-        "path": "data\\evidence\\evidence_index_v2_chunked.jsonl",
-        "size_bytes": 119513573,
-        "modified_at": "2025-12-26T00:17:45.341751+00:00",
-        "sha256": "272747b712827eeb9184567c1e5e0c2801384e27e1c14b824d2be9943f30a1cb"
-      },
-      "gpu_index": {
-        "exists": true,
-        "path": "data\\embeddings\\gpu_index.npy",
-        "size_bytes": 992068736,
-        "modified_at": "2025-12-23T03:23:51.171296+00:00",
-        "sha256": "0d7139b89f9811930a3124dfc25df782f6d0e4e0fe9209f41d3b4761e77cf777"
-      },
-      "annotations_embeddings": {
-        "exists": true,
-        "path": "data\\embeddings\\annotations_embeddings.npy",
-        "size_bytes": 992068736,
-        "modified_at": "2025-12-23T03:23:46.570334+00:00",
-        "sha256": "92747c83a73a5d05c7619affbe805171b491626a50767e541e97cdd336080386"
       },
       "behavior_dossiers": {
         "exists": true,
@@ -141,11 +113,25 @@
         "size_bytes": 1680,
         "modified_at": "2025-12-30T20:30:39.151634+00:00",
         "sha256": "dafed5b5e1a8851ce1aee4dec928d36c5452cada42d687d237a17d6a8ec8f396"
+      },
+      "gpu_index": {
+        "exists": true,
+        "path": "data\\embeddings\\gpu_index.npy",
+        "size_bytes": 992068736,
+        "modified_at": "2025-12-23T03:23:51.171296+00:00",
+        "sha256": "0d7139b89f9811930a3124dfc25df782f6d0e4e0fe9209f41d3b4761e77cf777"
+      },
+      "annotations_embeddings": {
+        "exists": true,
+        "path": "data\\embeddings\\annotations_embeddings.npy",
+        "size_bytes": 992068736,
+        "modified_at": "2025-12-23T03:23:46.570334+00:00",
+        "sha256": "92747c83a73a5d05c7619affbe805171b491626a50767e541e97cdd336080386"
       }
     }
   },
   "gpu_proof": {
-    "generated_at": "2025-12-31T02:52:34.739361+00:00",
+    "generated_at": "2025-12-31T03:18:15.163467+00:00",
     "torch_available": true,
     "cuda_available": true,
     "device_count": 8,
@@ -213,7 +199,7 @@
     "nvidia_smi_output": "NVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14"
   },
   "provenance": {
-    "generated_at": "2025-12-31T02:52:38.188515+00:00",
+    "generated_at": "2025-12-31T03:18:20.942950+00:00",
     "behaviors": {
       "canonical_count": 87,
       "agents_count": 14,
@@ -252,7 +238,7 @@
     }
   },
   "system_info": {
-    "generated_at": "2025-12-31T02:52:39.676942+00:00",
+    "generated_at": "2025-12-31T03:18:22.447274+00:00",
     "platform": {
       "system": "Windows",
       "release": "10",
@@ -261,8 +247,11 @@
       "processor": "AMD64 Family 23 Model 49 Stepping 0, AuthenticAMD",
       "python_version": "3.11.8"
     },
-    "git_commit": "0dad2d09ef0b277b42946f93098ea9d850c4aa0a",
-    "git_describe": "v2.0.1-46-g0dad2d0",
+    "git_commit": "776eafd0f235595399ed65f3404182cd0fcedc4e",
+    "git_commit_short": "776eafd",
+    "git_describe": "v2.0.1-47-g776eafd",
+    "has_uncommitted_changes": true,
+    "uncommitted_files_count": 82,
     "environment": {}
   },
   "benchmark": {
@@ -335,5 +324,12 @@
         "FAIL": 0
       }
     }
+  },
+  "validation": {
+    "is_valid": true,
+    "errors": [],
+    "ssot_complete": true,
+    "provenance_complete": true,
+    "benchmark_available": true
   }
 }

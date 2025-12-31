@@ -1,9 +1,9 @@
 # Enterprise QBM Brain Implementation Plan
 
-> **Version**: 3.0  
+> **Version**: 3.1  
 > **Created**: 2025-12-30  
 > **Updated**: 2025-12-31  
-> **Status**: ALL PHASES COMPLETE ✅ - Production Ready  
+> **Status**: Phase 6-7 Remediated - Pending Final Validation  
 > **Goal**: Zero-hallucination, Arabic-first, academically defensible system for the 200-question benchmark
 
 ---
@@ -686,57 +686,74 @@ DISALLOW_PATTERNS = [
 
 **Commit**: `feat(eval): Phase 5 - 200/200 benchmark pass + evaluation harness`
 
-### Phase 6: Azure OpenAI Integration ✅
+### Phase 6: Azure OpenAI Integration ✅ (Remediated v2.0)
 
 **Deliverables**:
 - [x] `src/azure/tools.py` - 6 function-calling tools (resolve_entity, get_behavior_dossier, get_causal_paths, get_tafsir_comparison, get_graph_metrics, get_verse_evidence)
-- [x] `src/azure/verifier.py` - CitationVerifier with fail-closed gate
+- [x] `src/azure/verifier.py` - CitationVerifier v2.0 with zero-hallucination contracts
 - [x] `src/azure/orchestrator.py` - QBMOrchestrator for tool-first LLM integration
 - [x] TOOL_DEFINITIONS in OpenAI function-calling format
 
-**Tests** (34 passing in `tests/test_azure_phase6.py`):
+**Tests** (42 passing in `tests/test_azure_phase6.py`):
 - [x] `test_tool_*`: All 6 tools return expected payloads
 - [x] `test_verifier_*`: Citation validation, verse key validation, behavior ID validation
 - [x] `test_fail_closed_*`: Invalid responses blocked, valid responses pass
 - [x] `test_integration_*`: Tool-to-verifier flow, all 87 behaviors resolvable
+- [x] `test_zero_hallucination_*`: Subset contract, no surah_intro, strict mode
 
-**Features**:
-- Tool-first approach: LLM uses tools to get data, never fabricates
-- Fail-closed verification: Invalid citations block entire response
-- Multi-turn support: Iterative tool calls until answer complete
-- 7 canonical tafsir sources enforced
-- Generic opening verses (Fatiha/early Baqarah) flagged
+**Zero-Hallucination Contracts (v2.0)**:
+- SUBSET CONTRACT: All tafsir verse_keys must be in behavior's verse list
+- NO_SURAH_INTRO: entry_type="surah_intro" cannot appear in behavior evidence
+- NUMBERS_PROVENANCE: Statistics must have derived_from trail (warning)
+- Strict mode enforces all contracts; non-strict mode for legacy compatibility
 
-**Commit**: `feat(azure): Phase 6 - tool-first orchestrator + verifier gate + 34 tests`
+**Remaining Work**:
+- [ ] Azure E2E integration test (requires live Azure credentials)
+- [ ] Claim-evidence alignment verification (each paragraph needs supporting verse_keys)
 
-### Phase 7: Audit Pack ✅
+**Commit**: `feat(azure): Phase 6 v2.0 - zero-hallucination verifier + 42 tests`
+
+### Phase 7: Audit Pack ✅ (Remediated v2.0)
 
 **Deliverables**:
-- [x] `scripts/generate_audit_pack.py` - Complete audit pack generator
-- [x] `artifacts/audit_pack/input_hashes.json` - SHA256 hashes for 10 input files
-- [x] `artifacts/audit_pack/output_hashes.json` - SHA256 hashes for 9 output files
+- [x] `scripts/generate_audit_pack.py` - Strict mode audit pack generator v2.0
+- [x] `artifacts/audit_pack/input_hashes.json` - SHA256 hashes for 10 SSOT input files
+- [x] `artifacts/audit_pack/output_hashes.json` - SHA256 hashes for 6 derived files
 - [x] `artifacts/audit_pack/gpu_proof.json` - GPU availability and configuration
 - [x] `artifacts/audit_pack/provenance_report.json` - Completeness verification
-- [x] `artifacts/audit_pack/system_info.json` - Platform and git info
+- [x] `artifacts/audit_pack/system_info.json` - Platform and git commit
 - [x] `artifacts/audit_pack/benchmark_results.json` - 200/200 pass rate
-- [x] `artifacts/audit_pack/audit_pack.json` - Complete consolidated pack
+- [x] `artifacts/audit_pack/audit_pack.json` - Complete consolidated pack with validation
 
-**Tests** (28 passing in `tests/test_audit_pack_phase7.py`):
+**Tests** (31 passing in `tests/test_audit_pack_phase7.py`):
 - [x] `test_hash_*`: SHA256 generation, file info, reproducibility
-- [x] `test_input_*`: All input files hashed including 7 tafsir sources
+- [x] `test_input_*`: All SSOT files hashed, missing SSOT fails validation
 - [x] `test_output_*`: semantic_graph_v3, concept_index_v3 hashed
 - [x] `test_gpu_*`: GPU proof with device info
 - [x] `test_provenance_*`: 87 behaviors, graph, tafsir all complete
-- [x] `test_audit_pack_*`: All 7 files present, valid JSON
+- [x] `test_audit_pack_*`: All 7 files present, valid JSON, git commit present
 - [x] `test_integration_*`: Full audit pack valid, 100% benchmark
+
+**v2.0 Improvements**:
+- All paths are repo-relative (no absolute Windows paths)
+- SSOT files MUST exist or audit pack FAILS (strict mode)
+- git_commit embedded at top level of audit_pack.json
+- validation field with is_valid, ssot_complete, errors list
+- Removed deprecated evidence_index_v2_chunked.jsonl from outputs
+
+**CI Benchmark Tests** (11 passing in `tests/test_benchmark_ci.py`):
+- [x] Benchmark dataset: 200 questions, all sections A-J present
+- [x] Eval reports: exist, valid JSON, 200 questions, 100% pass rate
+- [x] Reproducibility: timestamps and pass_rate tracked
 
 **Completeness Verified**:
 - Behaviors: 87/87 ✓
 - Graph nodes: 87/87 ✓
 - Tafsir sources: 7/7 ✓
 - Benchmark: 200/200 (100%) ✓
+- SSOT inputs: 10/10 ✓
 
-**Commit**: `feat(audit): Phase 7 - audit pack generator + 28 tests`
+**Commit**: `feat(audit): Phase 7 v2.0 - strict audit pack + 31 tests + CI benchmark`
 
 ---
 
@@ -750,8 +767,8 @@ DISALLOW_PATTERNS = [
 | 3 | KB reproducible | manifest hashes | ✅ |
 | 4 | Engine tests pass | pytest output | ✅ |
 | 5 | ≥180/200 PASS | eval_report.json | ✅ **200/200** |
-| 6 | Tools + verifier work | pytest output | ✅ **34/34** |
-| 7 | Audit pack complete | audit_pack/ contents | ✅ **28/28** |
+| 6 | Tools + verifier work | pytest output | ✅ **42/42** (v2.0) |
+| 7 | Audit pack complete | audit_pack/ contents | ✅ **31/31 + 11 CI** (v2.0) |
 
 ---
 

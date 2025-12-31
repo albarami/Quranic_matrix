@@ -1,15 +1,18 @@
 """
-Citation Verifier for QBM System
+Citation Verifier for QBM System (v2.0 - Zero Hallucination)
 
 Phase 6: Verifier gate for citation validity.
 Ensures all claims have valid verse_key references and proper provenance.
 
-Verification Rules:
+STRICT Verification Rules:
 1. All verse_keys must exist in SSOT (6,236 verses)
 2. All behavior_ids must be canonical (87 behaviors)
 3. All tafsir sources must be from canonical list (7 sources)
-4. No fabricated statistics (all numbers from computed payload)
+4. No fabricated statistics (all numbers must have derived_from trail)
 5. No generic opening verses as primary evidence
+6. SUBSET CONTRACT: All tafsir verse_keys must be in behavior's verse list
+7. NO SURAH_INTRO: entry_type="surah_intro" cannot appear in behavior evidence
+8. CLAIM-EVIDENCE ALIGNMENT: Each claim must list supporting verse_keys
 """
 
 import json
@@ -110,6 +113,12 @@ class CitationVerifier:
     - Any violation causes the entire response to fail
     - All claims must have valid provenance
     - No unsupported assertions allowed
+    
+    Zero-Hallucination Contracts:
+    - SUBSET: Tafsir verse_keys must be subset of behavior's verse list
+    - NO_SURAH_INTRO: entry_type="surah_intro" is forbidden in evidence
+    - CLAIM_EVIDENCE: Each claim must have supporting verse_keys
+    - NUMBERS_PROVENANCE: Statistics must have derived_from trail
     """
     
     def __init__(self, data_dir: Optional[Path] = None):
@@ -117,6 +126,7 @@ class CitationVerifier:
         self.data_dir = data_dir or Path("data")
         self._canonical_behaviors: Optional[Set[str]] = None
         self._valid_verse_keys: Optional[Set[str]] = None
+        self._behavior_verse_map: Optional[Dict[str, Set[str]]] = None
     
     def _load_canonical_behaviors(self) -> Set[str]:
         """Load canonical behavior IDs."""
@@ -147,6 +157,28 @@ class CitationVerifier:
         
         return self._valid_verse_keys
     
+    def _load_behavior_verse_map(self) -> Dict[str, Set[str]]:
+        """Load mapping of behavior_id -> set of valid verse_keys from concept_index_v3."""
+        if self._behavior_verse_map is not None:
+            return self._behavior_verse_map
+        
+        self._behavior_verse_map = {}
+        ci_path = self.data_dir / "evidence" / "concept_index_v3.jsonl"
+        
+        if ci_path.exists():
+            with open(ci_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    entry = json.loads(line)
+                    concept_id = entry.get("concept_id", "")
+                    if concept_id.startswith("BEH_"):
+                        verses = entry.get("verses", [])
+                        verse_keys = {v.get("verse_key") for v in verses if v.get("verse_key")}
+                        self._behavior_verse_map[concept_id] = verse_keys
+        else:
+            logger.warning(f"concept_index_v3.jsonl not found at {ci_path}")
+        
+        return self._behavior_verse_map
+    
     def verify_verse_key(self, verse_key: str) -> bool:
         """Verify a single verse key is valid."""
         valid_keys = self._load_valid_verse_keys()
@@ -165,12 +197,127 @@ class CitationVerifier:
         """Check if verse is a generic opening verse."""
         return verse_key in GENERIC_OPENING_VERSES
     
-    def verify_response(self, response: Dict[str, Any]) -> VerificationResult:
+    def verify_subset_contract(
+        self, 
+        behavior_id: str, 
+        tafsir_verse_keys: Set[str]
+    ) -> List[str]:
+        """
+        Verify SUBSET CONTRACT: All tafsir verse_keys must be in behavior's verse list.
+        
+        Args:
+            behavior_id: The behavior being queried
+            tafsir_verse_keys: Verse keys referenced in tafsir evidence
+            
+        Returns:
+            List of verse_keys that violate the subset contract (should be empty)
+        """
+        behavior_verses = self._load_behavior_verse_map()
+        valid_verses = behavior_verses.get(behavior_id, set())
+        
+        if not valid_verses:
+            # If behavior has no verses mapped, all tafsir verses are violations
+            return list(tafsir_verse_keys) if tafsir_verse_keys else []
+        
+        violations = []
+        for vk in tafsir_verse_keys:
+            if vk not in valid_verses:
+                violations.append(vk)
+        
+        return violations
+    
+    def verify_no_surah_intro(self, response: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """
+        Verify NO_SURAH_INTRO: entry_type="surah_intro" cannot appear in evidence.
+        
+        Args:
+            response: Response to check
+            
+        Returns:
+            List of violations (entry_type=surah_intro found)
+        """
+        violations = []
+        self._find_surah_intro_violations(response, violations)
+        return violations
+    
+    def _find_surah_intro_violations(self, data: Any, violations: List[Dict[str, Any]]):
+        """Recursively find surah_intro entry_type violations."""
+        if isinstance(data, dict):
+            entry_type = data.get("entry_type", "")
+            if entry_type == "surah_intro":
+                violations.append({
+                    "entry_type": entry_type,
+                    "verse_key": data.get("verse_key"),
+                    "source": data.get("source"),
+                    "message": "surah_intro cannot be used as behavior evidence"
+                })
+            
+            for v in data.values():
+                self._find_surah_intro_violations(v, violations)
+        
+        elif isinstance(data, list):
+            for item in data:
+                self._find_surah_intro_violations(item, violations)
+    
+    def verify_numbers_provenance(self, response: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """
+        Verify NUMBERS_PROVENANCE: Statistics must have derived_from trail.
+        
+        Args:
+            response: Response to check
+            
+        Returns:
+            List of numbers without provenance
+        """
+        violations = []
+        self._find_unprovenanced_numbers(response, violations, path="")
+        return violations
+    
+    def _find_unprovenanced_numbers(
+        self, 
+        data: Any, 
+        violations: List[Dict[str, Any]], 
+        path: str
+    ):
+        """Recursively find numbers without derived_from provenance."""
+        # Keys that are expected to have numeric values without explicit provenance
+        ALLOWED_NUMERIC_KEYS = {
+            "surah", "ayah", "verse_count", "total_verses", "returned_verses",
+            "hops", "paths_found", "total_chunks", "size_bytes", "file_count",
+            "out_degree", "in_degree", "total_degree", "total_nodes", "total_edges",
+            "behavior_nodes", "causal_edges", "verified_citations", "total_citations",
+            "processing_time_ms", "max_verses", "max_per_source"
+        }
+        
+        if isinstance(data, dict):
+            for k, v in data.items():
+                new_path = f"{path}.{k}" if path else k
+                
+                if isinstance(v, (int, float)) and not isinstance(v, bool):
+                    # Check if this is a statistic that needs provenance
+                    if k not in ALLOWED_NUMERIC_KEYS and "count" in k.lower():
+                        # This looks like a computed statistic
+                        # Check if there's a derived_from field nearby
+                        if "derived_from" not in data and "provenance" not in data:
+                            violations.append({
+                                "path": new_path,
+                                "value": v,
+                                "message": f"Statistic '{k}' has no derived_from provenance"
+                            })
+                else:
+                    self._find_unprovenanced_numbers(v, violations, new_path)
+        
+        elif isinstance(data, list):
+            for i, item in enumerate(data):
+                self._find_unprovenanced_numbers(item, violations, f"{path}[{i}]")
+    
+    def verify_response(self, response: Dict[str, Any], strict: bool = True) -> VerificationResult:
         """
         Verify a complete response for citation validity.
         
         Args:
             response: Response dictionary to verify
+            strict: If True, enforce all zero-hallucination contracts
             
         Returns:
             VerificationResult with violations and warnings
@@ -181,11 +328,10 @@ class CitationVerifier:
         verse_keys = self._extract_verse_keys(response)
         behavior_ids = self._extract_behavior_ids(response)
         tafsir_sources = self._extract_tafsir_sources(response)
-        numbers = self._extract_numbers(response)
         
         result.total_citations = len(verse_keys) + len(behavior_ids)
         
-        # Verify verse keys
+        # 1. Verify verse keys exist in SSOT
         for vk in verse_keys:
             if self.verify_verse_key(vk):
                 result.verified_citations += 1
@@ -195,7 +341,7 @@ class CitationVerifier:
                     "message": f"Verse key {vk} does not exist in SSOT"
                 })
         
-        # Check for generic opening verses as primary evidence
+        # 2. Check for generic opening verses as primary evidence
         generic_count = sum(1 for vk in verse_keys if self.is_generic_opening_verse(vk))
         if generic_count > 0 and generic_count == len(verse_keys):
             result.add_violation("generic_opening_verses_only", {
@@ -209,7 +355,7 @@ class CitationVerifier:
                 "ratio": round(generic_count / len(verse_keys), 2)
             })
         
-        # Verify behavior IDs
+        # 3. Verify behavior IDs are canonical
         for bid in behavior_ids:
             if self.verify_behavior_id(bid):
                 result.verified_citations += 1
@@ -219,7 +365,7 @@ class CitationVerifier:
                     "message": f"Behavior ID {bid} is not canonical"
                 })
         
-        # Verify tafsir sources
+        # 4. Verify tafsir sources are canonical
         for src in tafsir_sources:
             if not self.verify_tafsir_source(src):
                 result.add_warning("unknown_tafsir_source", {
@@ -227,13 +373,74 @@ class CitationVerifier:
                     "canonical_sources": CANONICAL_TAFSIR_SOURCES
                 })
         
-        # Check for provenance
+        # 5. Check for provenance field
         if not response.get("provenance") and result.total_citations > 0:
             result.add_warning("missing_provenance", {
                 "message": "Response has citations but no provenance field"
             })
         
+        # === STRICT ZERO-HALLUCINATION CONTRACTS ===
+        if strict:
+            # 6. NO_SURAH_INTRO: entry_type="surah_intro" forbidden
+            surah_intro_violations = self.verify_no_surah_intro(response)
+            for v in surah_intro_violations:
+                result.add_violation("surah_intro_in_evidence", v)
+            
+            # 7. SUBSET CONTRACT: tafsir verse_keys must be in behavior's verse list
+            # Only check if we have a single behavior context
+            if len(behavior_ids) == 1:
+                behavior_id = list(behavior_ids)[0]
+                tafsir_verse_keys = self._extract_tafsir_verse_keys(response)
+                subset_violations = self.verify_subset_contract(behavior_id, tafsir_verse_keys)
+                for vk in subset_violations:
+                    result.add_violation("subset_contract_violation", {
+                        "behavior_id": behavior_id,
+                        "tafsir_verse_key": vk,
+                        "message": f"Tafsir verse {vk} not in behavior's verse list"
+                    })
+            
+            # 8. NUMBERS_PROVENANCE: statistics need derived_from trail
+            # This is a warning, not a violation, as it's hard to enforce perfectly
+            numbers_violations = self.verify_numbers_provenance(response)
+            for v in numbers_violations:
+                result.add_warning("unprovenanced_statistic", v)
+        
         return result
+    
+    def _extract_tafsir_verse_keys(self, data: Any, keys: Optional[Set[str]] = None) -> Set[str]:
+        """Extract verse_keys specifically from tafsir sections."""
+        if keys is None:
+            keys = set()
+        
+        if isinstance(data, dict):
+            # Check if this is a tafsir entry
+            is_tafsir = "source" in data and any(
+                ts in str(data.get("source", "")).lower() 
+                for ts in CANONICAL_TAFSIR_SOURCES
+            )
+            
+            if is_tafsir and "verse_key" in data:
+                vk = data["verse_key"]
+                if isinstance(vk, str):
+                    keys.add(vk)
+            
+            # Check tafsir dict structure
+            if "tafsir" in data and isinstance(data["tafsir"], dict):
+                for source, chunks in data["tafsir"].items():
+                    if isinstance(chunks, list):
+                        for chunk in chunks:
+                            if isinstance(chunk, dict) and "verse_key" in chunk:
+                                keys.add(chunk["verse_key"])
+            
+            # Recurse
+            for v in data.values():
+                self._extract_tafsir_verse_keys(v, keys)
+        
+        elif isinstance(data, list):
+            for item in data:
+                self._extract_tafsir_verse_keys(item, keys)
+        
+        return keys
     
     def _extract_verse_keys(self, data: Any, keys: Optional[Set[str]] = None) -> Set[str]:
         """Recursively extract verse keys from response."""

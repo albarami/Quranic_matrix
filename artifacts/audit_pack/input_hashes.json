@@ -1,11 +1,7 @@
 {
-  "generated_at": "2025-12-31T02:52:32.052167+00:00",
+  "generated_at": "2025-12-31T03:18:12.571451+00:00",
   "file_count": 10,
   "files": {
-    "quran_text": {
-      "exists": false,
-      "path": "D:\\Quran_matrix\\data\\quran\\quran_index.source.json"
-    },
     "canonical_entities": {
       "exists": true,
       "path": "vocab\\canonical_entities.json",
@@ -19,6 +15,13 @@
       "size_bytes": 9055,
       "modified_at": "2025-12-26T09:14:30.907930+00:00",
       "sha256": "a8b5ade51e6855a9197db650b07fc651bc5247698d6378a316a6718949afa26f"
+    },
+    "quran_text": {
+      "exists": true,
+      "path": "data\\quran\\uthmani_hafs_v1.tok_v1.json",
+      "size_bytes": 7253834,
+      "modified_at": "2025-12-20T09:07:12.177260+00:00",
+      "sha256": "78e19cfcc3d4497864fee137319bfdade5b2824cb182fc0edeea6cf8a3ae7ebf"
     },
     "tafsir_ibn_kathir": {
       "exists": true,
@@ -69,5 +72,7 @@
       "modified_at": "2025-12-25T16:44:40.456267+00:00",
       "sha256": "a1f28bf03b963a0806c5cee9e46ef7870895cd1209428b73d3ded649c155290f"
     }
-  }
+  },
+  "all_ssot_present": true,
+  "missing_ssot": []
 }

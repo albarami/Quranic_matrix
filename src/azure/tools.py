@@ -486,8 +486,9 @@ class QBMTools:
             "total_chunks": sum(source_counts.values()),
             "tafsir": tafsir,
             "provenance": {
-                "source": "evidence_index_v2_chunked.jsonl",
-                "verse_keys": verse_keys
+                "source": "concept_index_v3.jsonl + tafsir/*.ar.jsonl",
+                "verse_keys": verse_keys,
+                "note": "Tafsir retrieved from canonical SSOT sources"
             }
         }
     

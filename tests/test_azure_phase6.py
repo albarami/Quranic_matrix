@@ -1,11 +1,13 @@
 """
-Phase 6 Tests: Azure OpenAI Integration
+Phase 6 Tests: Azure OpenAI Integration (v2.0 - Zero Hallucination)
 
 Tests for:
 1. Function-calling tools
-2. Citation verifier
+2. Citation verifier with strict contracts
 3. Fail-closed gate
-4. Orchestrator (without live API)
+4. Subset contract verification
+5. No surah_intro enforcement
+6. Orchestrator (without live API)
 """
 
 import json
@@ -22,7 +24,8 @@ from src.azure.verifier import (
     VerificationResult, 
     fail_closed_gate,
     GENERIC_OPENING_VERSES,
-    CANONICAL_TAFSIR_SOURCES
+    CANONICAL_TAFSIR_SOURCES,
+    MAX_AYAH_PER_SURAH
 )
 
 
@@ -456,6 +459,141 @@ class TestIntegration:
             # Test by ID
             result = tools.get_behavior_dossier(beh["id"])
             assert result["success"] is True, f"Failed for {beh['id']}"
+
+
+# =============================================================================
+# ZERO-HALLUCINATION CONTRACT TESTS (v2.0)
+# =============================================================================
+
+class TestZeroHallucinationContracts:
+    """Test strict zero-hallucination verification contracts."""
+    
+    @pytest.fixture
+    def verifier(self):
+        """Create verifier instance."""
+        return CitationVerifier()
+    
+    def test_no_surah_intro_violation(self, verifier):
+        """Test surah_intro entry_type is rejected."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "evidence": [
+                {
+                    "verse_key": "2:1",
+                    "entry_type": "surah_intro",
+                    "source": "ibn_kathir"
+                }
+            ]
+        }
+        
+        violations = verifier.verify_no_surah_intro(response)
+        assert len(violations) > 0
+        assert violations[0]["entry_type"] == "surah_intro"
+    
+    def test_no_surah_intro_clean(self, verifier):
+        """Test normal entry_type passes."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "evidence": [
+                {
+                    "verse_key": "2:45",
+                    "entry_type": "verse",
+                    "source": "ibn_kathir"
+                }
+            ]
+        }
+        
+        violations = verifier.verify_no_surah_intro(response)
+        assert len(violations) == 0
+    
+    def test_subset_contract_valid(self, verifier):
+        """Test subset contract with valid verse keys."""
+        # Get actual verses for patience
+        behavior_verses = verifier._load_behavior_verse_map()
+        patience_verses = behavior_verses.get("BEH_EMO_PATIENCE", set())
+        
+        if patience_verses:
+            # Use a subset of actual verses
+            test_verses = set(list(patience_verses)[:3])
+            violations = verifier.verify_subset_contract("BEH_EMO_PATIENCE", test_verses)
+            assert len(violations) == 0
+    
+    def test_subset_contract_violation(self, verifier):
+        """Test subset contract catches invalid verse keys."""
+        # Use verses that are NOT in patience's verse list
+        invalid_verses = {"99:1", "100:1", "101:1"}
+        
+        violations = verifier.verify_subset_contract("BEH_EMO_PATIENCE", invalid_verses)
+        # Should have violations since these verses aren't in patience's list
+        assert len(violations) > 0
+    
+    def test_strict_mode_enforces_contracts(self, verifier):
+        """Test strict mode enforces all contracts."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "evidence": [
+                {
+                    "verse_key": "2:1",
+                    "entry_type": "surah_intro",
+                    "source": "ibn_kathir"
+                }
+            ],
+            "provenance": {"source": "test"}
+        }
+        
+        # Strict mode should catch surah_intro
+        result = verifier.verify_response(response, strict=True)
+        assert any(v["type"] == "surah_intro_in_evidence" for v in result.violations)
+    
+    def test_non_strict_mode_skips_contracts(self, verifier):
+        """Test non-strict mode skips extra contracts."""
+        response = {
+            "behavior_id": "BEH_EMO_PATIENCE",
+            "evidence": [
+                {
+                    "verse_key": "2:1",
+                    "entry_type": "surah_intro",
+                    "source": "ibn_kathir"
+                }
+            ],
+            "provenance": {"source": "test"}
+        }
+        
+        # Non-strict mode should not check surah_intro
+        result = verifier.verify_response(response, strict=False)
+        assert not any(v["type"] == "surah_intro_in_evidence" for v in result.violations)
+
+
+# =============================================================================
+# AUDIT PACK COMMIT MATCH TEST
+# =============================================================================
+
+class TestAuditPackCommitMatch:
+    """Test audit pack commit hash matches HEAD."""
+    
+    def test_audit_pack_has_git_commit(self):
+        """Test audit pack contains git commit."""
+        pack_path = Path(__file__).parent.parent / "artifacts" / "audit_pack" / "audit_pack.json"
+        
+        if pack_path.exists():
+            with open(pack_path, "r", encoding="utf-8") as f:
+                pack = json.load(f)
+            
+            assert "git_commit" in pack
+            assert pack["git_commit"] is not None
+            assert len(pack["git_commit"]) == 40  # SHA1 hex length
+    
+    def test_audit_pack_validation_field(self):
+        """Test audit pack has validation field."""
+        pack_path = Path(__file__).parent.parent / "artifacts" / "audit_pack" / "audit_pack.json"
+        
+        if pack_path.exists():
+            with open(pack_path, "r", encoding="utf-8") as f:
+                pack = json.load(f)
+            
+            assert "validation" in pack
+            assert "is_valid" in pack["validation"]
+            assert "ssot_complete" in pack["validation"]
 
 
 if __name__ == "__main__":

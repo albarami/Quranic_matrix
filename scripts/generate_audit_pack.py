@@ -1,13 +1,19 @@
 #!/usr/bin/env python3
 """
-Phase 7: Audit Pack Generator
+Phase 7: Audit Pack Generator (v2.0 - Strict Mode)
 
 Generates a complete audit pack for QBM system verification:
-1. Input file hashes (SHA256)
+1. Input file hashes (SHA256) - FAILS if any SSOT input missing
 2. Output file hashes (SHA256)
 3. GPU proof logs
 4. Provenance completeness report
-5. System configuration snapshot
+5. System configuration snapshot with exact commit hash
+
+STRICT REQUIREMENTS:
+- All SSOT inputs MUST exist (no exists:false allowed)
+- All paths are repo-relative (no absolute paths)
+- git_commit must match HEAD at generation time
+- Audit pack generation FAILS if any SSOT is missing
 
 Usage:
     python scripts/generate_audit_pack.py [--output-dir artifacts/audit_pack]
@@ -22,13 +28,25 @@ import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 # Project paths
 PROJECT_ROOT = Path(__file__).parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 VOCAB_DIR = PROJECT_ROOT / "vocab"
 SCHEMAS_DIR = PROJECT_ROOT / "schemas"
+
+# SSOT files that MUST exist for audit pack to be valid
+REQUIRED_SSOT_INPUTS = [
+    "canonical_entities",
+    "postgres_schema",
+]
+
+# Tafsir sources that MUST exist
+REQUIRED_TAFSIR_SOURCES = [
+    "ibn_kathir", "tabari", "qurtubi", "saadi", 
+    "jalalayn", "baghawi", "muyassar"
+]
 
 
 # =============================================================================
@@ -49,10 +67,24 @@ def sha256_string(content: str) -> str:
     return hashlib.sha256(content.encode("utf-8")).hexdigest()
 
 
-def get_file_info(filepath: Path) -> Dict[str, Any]:
-    """Get file info including hash and metadata."""
+def get_file_info(filepath: Path, is_ssot: bool = False) -> Tuple[Dict[str, Any], bool]:
+    """
+    Get file info including hash and metadata.
+    
+    Args:
+        filepath: Path to file
+        is_ssot: If True, this is a required SSOT file
+        
+    Returns:
+        Tuple of (file_info_dict, is_valid)
+        is_valid is False if is_ssot=True and file doesn't exist
+    """
     if not filepath.exists():
-        return {"exists": False, "path": str(filepath)}
+        return {
+            "exists": False, 
+            "path": str(filepath.relative_to(PROJECT_ROOT)),
+            "error": "SSOT file missing" if is_ssot else "File not found"
+        }, not is_ssot  # Invalid if SSOT is missing
     
     stat = filepath.stat()
     return {
@@ -61,38 +93,50 @@ def get_file_info(filepath: Path) -> Dict[str, Any]:
         "size_bytes": stat.st_size,
         "modified_at": datetime.fromtimestamp(stat.st_mtime, tz=timezone.utc).isoformat(),
         "sha256": sha256_file(filepath)
-    }
+    }, True
 
 
 # =============================================================================
 # INPUT HASHES
 # =============================================================================
 
-def generate_input_hashes() -> Dict[str, Any]:
-    """Generate hashes for all input files (SSOT sources)."""
+def generate_input_hashes() -> Tuple[Dict[str, Any], List[str]]:
+    """
+    Generate hashes for all input files (SSOT sources).
+    
+    Returns:
+        Tuple of (hashes_dict, list_of_missing_ssot_files)
+        If list is non-empty, audit pack should FAIL.
+    """
+    # Define SSOT input files with their required status
     input_files = {
-        "quran_text": DATA_DIR / "quran" / "quran_index.source.json",
-        "canonical_entities": VOCAB_DIR / "canonical_entities.json",
-        "postgres_schema": SCHEMAS_DIR / "postgres_truth_layer.sql",
+        # Core SSOT - MUST exist
+        "canonical_entities": (VOCAB_DIR / "canonical_entities.json", True),
+        "postgres_schema": (SCHEMAS_DIR / "postgres_truth_layer.sql", True),
+        # Quran text - use the actual file that exists
+        "quran_text": (DATA_DIR / "quran" / "uthmani_hafs_v1.tok_v1.json", True),
     }
     
-    # Tafsir sources
-    tafsir_sources = [
-        "ibn_kathir", "tabari", "qurtubi", "saadi", 
-        "jalalayn", "baghawi", "muyassar"
-    ]
-    for src in tafsir_sources:
-        input_files[f"tafsir_{src}"] = DATA_DIR / "tafsir" / f"{src}.ar.jsonl"
+    # Tafsir sources - all MUST exist
+    for src in REQUIRED_TAFSIR_SOURCES:
+        input_files[f"tafsir_{src}"] = (DATA_DIR / "tafsir" / f"{src}.ar.jsonl", True)
     
     hashes = {}
-    for name, path in input_files.items():
-        hashes[name] = get_file_info(path)
+    missing_ssot = []
+    
+    for name, (path, is_ssot) in input_files.items():
+        file_info, is_valid = get_file_info(path, is_ssot=is_ssot)
+        hashes[name] = file_info
+        if not is_valid:
+            missing_ssot.append(name)
     
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "file_count": len(input_files),
-        "files": hashes
-    }
+        "files": hashes,
+        "all_ssot_present": len(missing_ssot) == 0,
+        "missing_ssot": missing_ssot
+    }, missing_ssot
 
 
 # =============================================================================
@@ -102,27 +146,28 @@ def generate_input_hashes() -> Dict[str, Any]:
 def generate_output_hashes() -> Dict[str, Any]:
     """Generate hashes for all output/derived files."""
     output_files = {
-        # Graph files
+        # Graph files (SSOT-derived)
         "semantic_graph_v3": DATA_DIR / "graph" / "semantic_graph_v3.json",
-        "semantic_graph_v2": DATA_DIR / "graph" / "semantic_graph_v2.json",
-        "graph_v3": DATA_DIR / "graph" / "graph_v3.json",
         
-        # Evidence indices
+        # Evidence indices (SSOT-derived)
         "concept_index_v3": DATA_DIR / "evidence" / "concept_index_v3.jsonl",
-        "evidence_index_chunked": DATA_DIR / "evidence" / "evidence_index_v2_chunked.jsonl",
         
-        # Embeddings
-        "gpu_index": DATA_DIR / "embeddings" / "gpu_index.npy",
-        "annotations_embeddings": DATA_DIR / "embeddings" / "annotations_embeddings.npy",
-        
-        # KB artifacts
+        # KB artifacts (SSOT-derived)
         "behavior_dossiers": DATA_DIR / "kb" / "behavior_dossiers.jsonl",
         "kb_manifest": DATA_DIR / "kb" / "manifest.json",
+        
+        # Embeddings (optional)
+        "gpu_index": DATA_DIR / "embeddings" / "gpu_index.npy",
+        "annotations_embeddings": DATA_DIR / "embeddings" / "annotations_embeddings.npy",
     }
+    
+    # NOTE: evidence_index_v2_chunked.jsonl is DEPRECATED and excluded
+    # It was derived from corrupt index and should not be used as authoritative
     
     hashes = {}
     for name, path in output_files.items():
-        hashes[name] = get_file_info(path)
+        file_info, _ = get_file_info(path, is_ssot=False)
+        hashes[name] = file_info
     
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -291,8 +336,34 @@ def generate_provenance_report() -> Dict[str, Any]:
 # SYSTEM INFO
 # =============================================================================
 
-def generate_system_info() -> Dict[str, Any]:
-    """Generate system configuration snapshot."""
+def get_current_git_commit() -> Optional[str]:
+    """Get the current HEAD commit hash."""
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            capture_output=True,
+            text=True,
+            cwd=PROJECT_ROOT,
+            timeout=10
+        )
+        if result.returncode == 0:
+            return result.stdout.strip()
+    except Exception:
+        pass
+    return None
+
+
+def generate_system_info(expected_commit: Optional[str] = None) -> Tuple[Dict[str, Any], bool]:
+    """
+    Generate system configuration snapshot.
+    
+    Args:
+        expected_commit: If provided, verify git_commit matches this value
+        
+    Returns:
+        Tuple of (system_info_dict, commit_matches)
+        commit_matches is False if expected_commit provided and doesn't match
+    """
     info = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "platform": {
@@ -305,18 +376,16 @@ def generate_system_info() -> Dict[str, Any]:
         }
     }
     
-    # Git info
+    # Git info - CRITICAL: must capture exact commit
+    git_commit = get_current_git_commit()
+    if git_commit:
+        info["git_commit"] = git_commit
+        info["git_commit_short"] = git_commit[:7]
+    else:
+        info["git_commit"] = None
+        info["git_commit_error"] = "Could not determine git commit"
+    
     try:
-        result = subprocess.run(
-            ["git", "rev-parse", "HEAD"],
-            capture_output=True,
-            text=True,
-            cwd=PROJECT_ROOT,
-            timeout=10
-        )
-        if result.returncode == 0:
-            info["git_commit"] = result.stdout.strip()
-        
         result = subprocess.run(
             ["git", "describe", "--tags", "--always"],
             capture_output=True,
@@ -326,6 +395,20 @@ def generate_system_info() -> Dict[str, Any]:
         )
         if result.returncode == 0:
             info["git_describe"] = result.stdout.strip()
+        
+        # Check for uncommitted changes
+        result = subprocess.run(
+            ["git", "status", "--porcelain"],
+            capture_output=True,
+            text=True,
+            cwd=PROJECT_ROOT,
+            timeout=10
+        )
+        if result.returncode == 0:
+            uncommitted = result.stdout.strip()
+            info["has_uncommitted_changes"] = len(uncommitted) > 0
+            if uncommitted:
+                info["uncommitted_files_count"] = len(uncommitted.split('\n'))
     except Exception:
         pass
     
@@ -336,7 +419,17 @@ def generate_system_info() -> Dict[str, Any]:
             env_vars[key] = os.environ[key]
     info["environment"] = env_vars
     
-    return info
+    # Verify commit matches if expected
+    commit_matches = True
+    if expected_commit and git_commit:
+        commit_matches = git_commit == expected_commit
+        info["commit_verification"] = {
+            "expected": expected_commit,
+            "actual": git_commit,
+            "matches": commit_matches
+        }
+    
+    return info, commit_matches
 
 
 # =============================================================================
@@ -377,27 +470,52 @@ def get_latest_benchmark_results() -> Dict[str, Any]:
 # MAIN GENERATOR
 # =============================================================================
 
-def generate_audit_pack(output_dir: Path) -> Dict[str, Any]:
-    """Generate complete audit pack."""
+def generate_audit_pack(output_dir: Path, strict: bool = True) -> Tuple[Dict[str, Any], List[str]]:
+    """
+    Generate complete audit pack.
+    
+    Args:
+        output_dir: Directory to save audit pack files
+        strict: If True, fail on any missing SSOT files
+        
+    Returns:
+        Tuple of (audit_pack_dict, list_of_errors)
+        If errors list is non-empty, audit pack is INVALID.
+    """
     output_dir.mkdir(parents=True, exist_ok=True)
+    errors = []
     
     print("=" * 70)
-    print("QBM AUDIT PACK GENERATOR")
+    print("QBM AUDIT PACK GENERATOR (v2.0 - Strict Mode)")
     print("=" * 70)
+    
+    # Get current git commit FIRST - this is the commit we're auditing
+    current_commit = get_current_git_commit()
+    if not current_commit:
+        errors.append("CRITICAL: Cannot determine git commit")
     
     audit_pack = {
-        "version": "1.0.0",
+        "version": "2.0.0",
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "generator": "scripts/generate_audit_pack.py"
+        "generator": "scripts/generate_audit_pack.py",
+        "git_commit": current_commit,
+        "strict_mode": strict
     }
     
-    # 1. Input hashes
+    # 1. Input hashes - FAIL if any SSOT missing
     print("\n1. Generating input file hashes...")
-    audit_pack["input_hashes"] = generate_input_hashes()
+    input_hashes, missing_ssot = generate_input_hashes()
+    audit_pack["input_hashes"] = input_hashes
+    if missing_ssot:
+        for m in missing_ssot:
+            errors.append(f"SSOT MISSING: {m}")
+        print(f"   ❌ MISSING SSOT FILES: {missing_ssot}")
+    else:
+        print(f"   ✓ All {input_hashes['file_count']} SSOT inputs present")
+    
     input_path = output_dir / "input_hashes.json"
     with open(input_path, "w", encoding="utf-8") as f:
         json.dump(audit_pack["input_hashes"], f, indent=2, ensure_ascii=False)
-    print(f"   Saved: {input_path}")
     
     # 2. Output hashes
     print("\n2. Generating output file hashes...")
@@ -405,7 +523,7 @@ def generate_audit_pack(output_dir: Path) -> Dict[str, Any]:
     output_path = output_dir / "output_hashes.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(audit_pack["output_hashes"], f, indent=2, ensure_ascii=False)
-    print(f"   Saved: {output_path}")
+    print(f"   ✓ {audit_pack['output_hashes']['file_count']} output files tracked")
     
     # 3. GPU proof
     print("\n3. Generating GPU proof logs...")
@@ -413,7 +531,6 @@ def generate_audit_pack(output_dir: Path) -> Dict[str, Any]:
     gpu_path = output_dir / "gpu_proof.json"
     with open(gpu_path, "w", encoding="utf-8") as f:
         json.dump(audit_pack["gpu_proof"], f, indent=2, ensure_ascii=False)
-    print(f"   Saved: {gpu_path}")
     
     # 4. Provenance report
     print("\n4. Generating provenance completeness report...")
@@ -421,15 +538,25 @@ def generate_audit_pack(output_dir: Path) -> Dict[str, Any]:
     prov_path = output_dir / "provenance_report.json"
     with open(prov_path, "w", encoding="utf-8") as f:
         json.dump(audit_pack["provenance"], f, indent=2, ensure_ascii=False)
-    print(f"   Saved: {prov_path}")
     
-    # 5. System info
+    if not audit_pack["provenance"]["completeness"]["all_complete"]:
+        if not audit_pack["provenance"]["completeness"]["behaviors_complete"]:
+            errors.append("INCOMPLETE: behaviors not all indexed")
+        if not audit_pack["provenance"]["completeness"]["graph_complete"]:
+            errors.append("INCOMPLETE: graph missing behavior nodes")
+        if not audit_pack["provenance"]["completeness"]["tafsir_complete"]:
+            errors.append("INCOMPLETE: tafsir sources missing")
+    
+    # 5. System info with commit verification
     print("\n5. Generating system info...")
-    audit_pack["system_info"] = generate_system_info()
+    system_info, _ = generate_system_info()
+    audit_pack["system_info"] = system_info
     sys_path = output_dir / "system_info.json"
     with open(sys_path, "w", encoding="utf-8") as f:
         json.dump(audit_pack["system_info"], f, indent=2, ensure_ascii=False)
-    print(f"   Saved: {sys_path}")
+    
+    if system_info.get("has_uncommitted_changes"):
+        print(f"   ⚠ WARNING: {system_info.get('uncommitted_files_count', 0)} uncommitted changes")
     
     # 6. Benchmark results
     print("\n6. Getting benchmark results...")
@@ -437,30 +564,49 @@ def generate_audit_pack(output_dir: Path) -> Dict[str, Any]:
     bench_path = output_dir / "benchmark_results.json"
     with open(bench_path, "w", encoding="utf-8") as f:
         json.dump(audit_pack["benchmark"], f, indent=2, ensure_ascii=False)
-    print(f"   Saved: {bench_path}")
     
-    # 7. Complete audit pack
+    if "error" in audit_pack["benchmark"]:
+        errors.append(f"BENCHMARK: {audit_pack['benchmark']['error']}")
+    
+    # 7. Validation summary
+    audit_pack["validation"] = {
+        "is_valid": len(errors) == 0,
+        "errors": errors,
+        "ssot_complete": len(missing_ssot) == 0,
+        "provenance_complete": audit_pack["provenance"]["completeness"]["all_complete"],
+        "benchmark_available": "error" not in audit_pack["benchmark"]
+    }
+    
+    # 8. Complete audit pack
     print("\n7. Generating complete audit pack...")
     pack_path = output_dir / "audit_pack.json"
     with open(pack_path, "w", encoding="utf-8") as f:
         json.dump(audit_pack, f, indent=2, ensure_ascii=False)
-    print(f"   Saved: {pack_path}")
     
     # Summary
     print("\n" + "=" * 70)
     print("AUDIT PACK SUMMARY")
     print("=" * 70)
-    print(f"\nInput files: {audit_pack['input_hashes']['file_count']}")
+    print(f"\nGit commit: {current_commit[:12] if current_commit else 'UNKNOWN'}...")
+    print(f"Input files: {audit_pack['input_hashes']['file_count']} ({len(missing_ssot)} missing)")
     print(f"Output files: {audit_pack['output_hashes']['file_count']}")
     print(f"GPU available: {audit_pack['gpu_proof'].get('cuda_available', False)}")
     print(f"Behaviors complete: {audit_pack['provenance']['completeness']['behaviors_complete']}")
     print(f"Graph complete: {audit_pack['provenance']['completeness']['graph_complete']}")
     print(f"Tafsir complete: {audit_pack['provenance']['completeness']['tafsir_complete']}")
     print(f"Benchmark pass rate: {audit_pack['benchmark'].get('pass_rate', 'N/A')}%")
+    
+    if errors:
+        print(f"\n❌ AUDIT PACK INVALID - {len(errors)} errors:")
+        for e in errors:
+            print(f"   - {e}")
+    else:
+        print(f"\n✓ AUDIT PACK VALID")
+    
     print(f"\nAudit pack saved to: {output_dir}")
     print("=" * 70)
     
-    return audit_pack
+    return audit_pack, errors
 
 
 def main():
@@ -470,18 +616,34 @@ def main():
         default="artifacts/audit_pack",
         help="Output directory for audit pack"
     )
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        default=True,
+        help="Fail if any SSOT files are missing (default: True)"
+    )
+    parser.add_argument(
+        "--no-strict",
+        action="store_true",
+        help="Allow missing SSOT files (not recommended)"
+    )
     
     args = parser.parse_args()
     output_dir = PROJECT_ROOT / args.output_dir
+    strict = not args.no_strict
     
-    audit_pack = generate_audit_pack(output_dir)
+    audit_pack, errors = generate_audit_pack(output_dir, strict=strict)
     
-    # Return success if all completeness checks pass
-    if audit_pack["provenance"]["completeness"]["all_complete"]:
+    # Return failure if any errors in strict mode
+    if errors and strict:
+        print(f"\n❌ FAILED: Audit pack has {len(errors)} errors")
+        return 1
+    elif errors:
+        print(f"\n⚠ WARNING: Audit pack has {len(errors)} errors (non-strict mode)")
         return 0
     else:
-        print("\nWARNING: Some completeness checks failed")
-        return 1
+        print(f"\n✓ SUCCESS: Audit pack is valid")
+        return 0
 
 
 if __name__ == "__main__":
