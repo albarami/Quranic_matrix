@@ -53,6 +53,10 @@ jobs:
           echo "QBM_ENABLE_PYG=$QBM_ENABLE_PYG (should be 0)"
           python -c "import os; assert os.getenv('QBM_ENABLE_PYG', '0') != '1', 'PyG should be disabled in CI'"
       
+      - name: Build chunked evidence index (required for tests)
+        run: |
+          python scripts/build_chunked_evidence_index.py
+      
       - name: Run Tier A tests (CPU-only, no GPU, no PyG)
         run: |
           python -m pytest tests/ -v --tb=short \
