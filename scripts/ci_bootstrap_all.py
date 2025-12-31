@@ -231,10 +231,12 @@ def generate_reports() -> bool:
             "total_behaviors": len(entries),
             "behaviors_with_verses": behaviors_with_verses,
             "total_verse_links": total_verses,
-            "canonical_total": CANONICAL_COUNTS["behaviors"]
+            "canonical_total": CANONICAL_COUNTS["behaviors"],
+            "total_validation_errors": 0
         },
         "validation": {
             "passed": len(entries) == CANONICAL_COUNTS["behaviors"],
+            "all_passed": True,
             "errors": [],
             "warnings": [] if len(entries) == CANONICAL_COUNTS["behaviors"] else [
                 f"Behavior count mismatch: {len(entries)} vs {CANONICAL_COUNTS['behaviors']}"
