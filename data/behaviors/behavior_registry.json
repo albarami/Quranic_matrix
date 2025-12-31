@@ -1,8 +1,8 @@
 {
   "version": "3.0",
   "description": "Behavior registry with evidence policies",
-  "total_behaviors": 73,
-  "lexical_behaviors": 73,
+  "total_behaviors": 87,
+  "lexical_behaviors": 87,
   "annotation_behaviors": 0,
   "behaviors": [
     {
@@ -292,6 +292,33 @@
             "فكر",
             "تفكير"
           ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_COG_SUPERFICIAL_KNOWING",
+      "label_ar": "المعرفة الظاهرية",
+      "label_en": "Superficial Knowing",
+      "category": "cognitive",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ظ-ه-ر"
+          ],
+          "forms": [
+            "ظهر",
+            "المعرفة الظاهرية"
+          ],
+          "synonyms": [],
           "exclude_patterns": []
         }
       },
@@ -730,6 +757,38 @@
       "description_en": ""
     },
     {
+      "behavior_id": "BEH_FIN_ASCETICISM",
+      "label_ar": "زهد",
+      "label_en": "Asceticism",
+      "category": "financial",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "?-?-?"
+          ],
+          "forms": [
+            "???",
+            "زهد"
+          ],
+          "synonyms": [
+            "???",
+            "?????",
+            "????",
+            "??????"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
       "behavior_id": "BEH_FIN_BRIBERY",
       "label_ar": "الرشوة",
       "label_en": "Bribery",
@@ -988,6 +1047,87 @@
       "description_en": ""
     },
     {
+      "behavior_id": "BEH_PHY_DRINKING",
+      "label_ar": "الشرب",
+      "label_en": "Drinking",
+      "category": "physical",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ش-ر-ب"
+          ],
+          "forms": [
+            "شرب",
+            "الشرب"
+          ],
+          "synonyms": [],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_PHY_EATING",
+      "label_ar": "الأكل",
+      "label_en": "Eating",
+      "category": "physical",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "أ-ك-ل"
+          ],
+          "forms": [
+            "اكل",
+            "الاكل"
+          ],
+          "synonyms": [],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_PHY_LOOKING",
+      "label_ar": "النظر",
+      "label_en": "Looking/Gazing",
+      "category": "physical",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ن-ظ-ر"
+          ],
+          "forms": [
+            "نظر",
+            "النظر"
+          ],
+          "synonyms": [],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
       "behavior_id": "BEH_PHY_LOWERING_GAZE",
       "label_ar": "غض البصر",
       "label_en": "Lowering Gaze",
@@ -1010,6 +1150,38 @@
             "يغضوا من ابصارهم",
             "غض الابصار",
             "غاضين ابصارهم"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_PHY_MODESTY",
+      "label_ar": "حياء",
+      "label_en": "Modesty",
+      "category": "physical",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "?-?-?"
+          ],
+          "forms": [
+            "???",
+            "حياء"
+          ],
+          "synonyms": [
+            "????",
+            "??????",
+            "?????",
+            "???????"
           ],
           "exclude_patterns": []
         }
@@ -1052,6 +1224,33 @@
       "description_en": ""
     },
     {
+      "behavior_id": "BEH_PHY_SLEEPING",
+      "label_ar": "النوم",
+      "label_en": "Sleeping",
+      "category": "physical",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "ن-و-م"
+          ],
+          "forms": [
+            "نوم",
+            "النوم"
+          ],
+          "synonyms": [],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
       "behavior_id": "BEH_PHY_STANDING",
       "label_ar": "القيام",
       "label_en": "Standing",
@@ -1075,6 +1274,65 @@
             "يقومون",
             "القايمين",
             "قيام الليل"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_PHY_WALKING",
+      "label_ar": "المشي",
+      "label_en": "Walking",
+      "category": "physical",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "م-ش-ي"
+          ],
+          "forms": [
+            "مشي",
+            "المشي"
+          ],
+          "synonyms": [],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_BETRAYAL",
+      "label_ar": "خيانة",
+      "label_en": "Betrayal",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "?-?-?"
+          ],
+          "forms": [
+            "???",
+            "خيانة"
+          ],
+          "synonyms": [
+            "?????",
+            "???????",
+            "????",
+            "??????"
           ],
           "exclude_patterns": []
         }
@@ -1342,6 +1600,37 @@
       "description_en": ""
     },
     {
+      "behavior_id": "BEH_SOC_MERCY",
+      "label_ar": "رحمة",
+      "label_en": "Mercy",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "?-?-?"
+          ],
+          "forms": [
+            "???",
+            "رحمة"
+          ],
+          "synonyms": [
+            "????",
+            "??????",
+            "???"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
       "behavior_id": "BEH_SOC_OPPRESSION",
       "label_ar": "الظلم",
       "label_en": "Oppression",
@@ -1493,6 +1782,70 @@
             "يقطعون",
             "قاطعين",
             "قطع الارحام"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_TRANSGRESSION",
+      "label_ar": "فسق",
+      "label_en": "Transgression",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "?-?-?"
+          ],
+          "forms": [
+            "???",
+            "فسق"
+          ],
+          "synonyms": [
+            "???",
+            "?????",
+            "????",
+            "??????"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SOC_TRUSTWORTHINESS",
+      "label_ar": "أمانة",
+      "label_en": "Trustworthiness",
+      "category": "social",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "?-?-?"
+          ],
+          "forms": [
+            "???",
+            "امانة"
+          ],
+          "synonyms": [
+            "?????",
+            "???????",
+            "????",
+            "????? ???????"
           ],
           "exclude_patterns": []
         }
@@ -2094,6 +2447,36 @@
       "description_en": ""
     },
     {
+      "behavior_id": "BEH_SPI_KHUSHU",
+      "label_ar": "خشوع",
+      "label_en": "Humility in Prayer",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "?-?-?"
+          ],
+          "forms": [
+            "???",
+            "خشوع"
+          ],
+          "synonyms": [
+            "????",
+            "????????"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
       "behavior_id": "BEH_SPI_PRAYER",
       "label_ar": "الصلاة",
       "label_en": "Prayer",
@@ -2216,6 +2599,39 @@
             "التايبون",
             "تاب",
             "توبوا"
+          ],
+          "exclude_patterns": []
+        }
+      },
+      "bouzidani_axes": {},
+      "description_ar": "",
+      "description_en": ""
+    },
+    {
+      "behavior_id": "BEH_SPI_SHIRK",
+      "label_ar": "شرك",
+      "label_en": "Polytheism",
+      "category": "spiritual",
+      "evidence_policy": {
+        "mode": "lexical",
+        "lexical_required": true,
+        "min_sources": [
+          "quran_tokens_norm"
+        ],
+        "lexical_spec": {
+          "roots": [
+            "?-?-?"
+          ],
+          "forms": [
+            "???",
+            "شرك"
+          ],
+          "synonyms": [
+            "???",
+            "?????",
+            "????",
+            "??????",
+            "????????"
           ],
           "exclude_patterns": []
         }

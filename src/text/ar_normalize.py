@@ -15,7 +15,7 @@ NORMALIZATION RULES (documented and versioned):
 7. Remove tatweel (kashida): ـ
 8. Preserve Arabic letters and spaces only
 
-Version: 1.0.0
+Version: 2.0.0
 """
 
 import re
@@ -35,7 +35,7 @@ NORMALIZATION_PROFILES = {
         'normalize_yaa': True,
         'remove_tatweel': True,
         'normalize_taa_marbuta': False,  # RISKY - disabled
-        'normalize_hamza': True,         # Safe: ؤ→و, ئ→ي
+        'normalize_hamza': False,        # RISKY - disabled in STRICT
         'convert_superscript_alef': True,
         'strip_quranic_marks': True,
     },

@@ -1,0 +1,5019 @@
+{
+  "summary": {
+    "timestamp": "2025-12-31T02:24:32.407669Z",
+    "totals": {
+      "total": 200,
+      "PASS": 200,
+      "PARTIAL": 0,
+      "FAIL": 0
+    },
+    "pass_rate": 100.0,
+    "per_section": {
+      "A": {
+        "total": 25,
+        "PASS": 25,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "B": {
+        "total": 25,
+        "PASS": 25,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "C": {
+        "total": 25,
+        "PASS": 25,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "D": {
+        "total": 25,
+        "PASS": 25,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "E": {
+        "total": 20,
+        "PASS": 20,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "F": {
+        "total": 20,
+        "PASS": 20,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "G": {
+        "total": 15,
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "H": {
+        "total": 15,
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "I": {
+        "total": 15,
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "J": {
+        "total": 15,
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "per_capability": {
+      "GRAPH_CAUSAL": {
+        "tested": 45,
+        "passed": 45,
+        "failed": 0
+      },
+      "MULTIHOP": {
+        "tested": 25,
+        "passed": 25,
+        "failed": 0
+      },
+      "TAFSIR_MULTI_SOURCE": {
+        "tested": 160,
+        "passed": 160,
+        "failed": 0
+      },
+      "PROVENANCE": {
+        "tested": 200,
+        "passed": 200,
+        "failed": 0
+      },
+      "CONSENSUS": {
+        "tested": 25,
+        "passed": 25,
+        "failed": 0
+      },
+      "AXES_11D": {
+        "tested": 25,
+        "passed": 25,
+        "failed": 0
+      },
+      "TAXONOMY": {
+        "tested": 25,
+        "passed": 25,
+        "failed": 0
+      },
+      "GRAPH_METRICS": {
+        "tested": 25,
+        "passed": 25,
+        "failed": 0
+      },
+      "SEMANTIC_GRAPH_V2": {
+        "tested": 25,
+        "passed": 25,
+        "failed": 0
+      },
+      "HEART_STATE": {
+        "tested": 20,
+        "passed": 20,
+        "failed": 0
+      },
+      "AGENT_MODEL": {
+        "tested": 20,
+        "passed": 20,
+        "failed": 0
+      },
+      "TEMPORAL_SPATIAL": {
+        "tested": 15,
+        "passed": 15,
+        "failed": 0
+      },
+      "CONSEQUENCE_MODEL": {
+        "tested": 15,
+        "passed": 15,
+        "failed": 0
+      },
+      "EMBEDDINGS": {
+        "tested": 15,
+        "passed": 15,
+        "failed": 0
+      },
+      "MODEL_REGISTRY": {
+        "tested": 15,
+        "passed": 15,
+        "failed": 0
+      },
+      "INTEGRATION_E2E": {
+        "tested": 15,
+        "passed": 15,
+        "failed": 0
+      }
+    },
+    "top_fail_reasons": []
+  },
+  "results": [
+    {
+      "question_id": "A01",
+      "section": "A",
+      "title": "The Complete Destruction Pathway",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 333.8150978088379,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A02",
+      "section": "A",
+      "title": "Salvation's Shortest Path",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 331.1443328857422,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A03",
+      "section": "A",
+      "title": "Circular Reinforcement Detection",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 335.53194999694824,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A04",
+      "section": "A",
+      "title": "Negative Spiral Mapping",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 327.0454406738281,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A05",
+      "section": "A",
+      "title": "Breaking Point Identification",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 342.33760833740234,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A06",
+      "section": "A",
+      "title": "Causal Density Analysis",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 327.6176452636719,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A07",
+      "section": "A",
+      "title": "Indirect Causation Detection",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 320.90115547180176,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A08",
+      "section": "A",
+      "title": "Causal Reversibility",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 339.0483856201172,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A09",
+      "section": "A",
+      "title": "The Tawbah Interrupt",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 325.5190849304199,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A10",
+      "section": "A",
+      "title": "Multi-Source Causal Validation",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 318.62735748291016,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A11",
+      "section": "A",
+      "title": "Causal Strength Quantification",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 333.7082862854004,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A12",
+      "section": "A",
+      "title": "Hidden Causal Mediators",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 321.51317596435547,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A13",
+      "section": "A",
+      "title": "Causal Chain Length Distribution",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 315.66858291625977,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A14",
+      "section": "A",
+      "title": "Parallel Causation",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 332.8845500946045,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A15",
+      "section": "A",
+      "title": "Causal Bottlenecks",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 322.2987651824951,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A16",
+      "section": "A",
+      "title": "Temporal Causation Order",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 334.13052558898926,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A17",
+      "section": "A",
+      "title": "The Iman Strengthening Network",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 325.47903060913086,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A18",
+      "section": "A",
+      "title": "Causal Distance Matrix",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 317.59071350097656,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A19",
+      "section": "A",
+      "title": "Causal Isolation",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 310.8706474304199,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A20",
+      "section": "A",
+      "title": "Bidirectional Destruction",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 324.6927261352539,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A21",
+      "section": "A",
+      "title": "Causal Hierarchy",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 318.2668685913086,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A22",
+      "section": "A",
+      "title": "Intervention Point Ranking",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 329.50472831726074,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A23",
+      "section": "A",
+      "title": "The Kibr Cascade",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 321.1395740509033,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A24",
+      "section": "A",
+      "title": "Cross-Category Causation",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 312.6184940338135,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A25",
+      "section": "A",
+      "title": "Causal Completeness Audit",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 311.88249588012695,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B01",
+      "section": "B",
+      "title": "Methodological Fingerprinting",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B02",
+      "section": "B",
+      "title": "The Riba Divergence",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B03",
+      "section": "B",
+      "title": "Narrative vs Legal Focus",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0004043579101562,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B04",
+      "section": "B",
+      "title": "Linguistic Analysis Depth",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B05",
+      "section": "B",
+      "title": "Historical Context Variance",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B06",
+      "section": "B",
+      "title": "Chain of Narration Analysis",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B07",
+      "section": "B",
+      "title": "Scholarly Citation Mapping",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B08",
+      "section": "B",
+      "title": "The Sabr Interpretation Spectrum",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.1005401611328125,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B09",
+      "section": "B",
+      "title": "Jalalayn Expansion Factor",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B10",
+      "section": "B",
+      "title": "Implicit vs Explicit Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B11",
+      "section": "B",
+      "title": "Disputed Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.6241798400878906,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B12",
+      "section": "B",
+      "title": "Unique Source Insights",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B13",
+      "section": "B",
+      "title": "Qurtubi Legal Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B14",
+      "section": "B",
+      "title": "Sa'di Spiritual Emphasis",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.6158351898193359,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B15",
+      "section": "B",
+      "title": "Cross-Source Behavioral Frequency",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B16",
+      "section": "B",
+      "title": "Tafsir Temporal Evolution",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B17",
+      "section": "B",
+      "title": "The Nifaq Analysis",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B18",
+      "section": "B",
+      "title": "Agent Identification Variance",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B19",
+      "section": "B",
+      "title": "Consequence Attribution",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9472370147705078,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B20",
+      "section": "B",
+      "title": "Behavioral Clustering by Source",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B21",
+      "section": "B",
+      "title": "The Comprehensive Verse Test",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B22",
+      "section": "B",
+      "title": "Source-Specific Vocabulary",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B23",
+      "section": "B",
+      "title": "Interpretive Confidence",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9992122650146484,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B24",
+      "section": "B",
+      "title": "Cross-Reference Density",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "B25",
+      "section": "B",
+      "title": "The Complete Behavioral Extraction Audit",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'saadi', 'tabari', 'ibn_kathir', 'qurtubi', 'jalalayn'}"
+      ],
+      "capabilities_tested": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TAFSIR_MULTI_SOURCE",
+        "CONSENSUS",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C01",
+      "section": "C",
+      "title": "Complete Hasad Profile",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 13.978958129882812,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C02",
+      "section": "C",
+      "title": "Organic Axis Dominance",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.5478134155273438,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C03",
+      "section": "C",
+      "title": "Cross-Axis Correlations",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0797977447509766,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C04",
+      "section": "C",
+      "title": "Profile Similarity Search",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9469985961914062,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C05",
+      "section": "C",
+      "title": "Dimensional Outliers",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 2.0508766174316406,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C06",
+      "section": "C",
+      "title": "The Complete 73 Profiles",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9965896606445312,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C07",
+      "section": "C",
+      "title": "Profile-Based Clustering",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 2.0029544830322266,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C08",
+      "section": "C",
+      "title": "Axis Independence Test",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0464191436767578,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C09",
+      "section": "C",
+      "title": "Profile Prediction",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.99945068359375,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C10",
+      "section": "C",
+      "title": "Situational Distribution",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 2.048015594482422,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C11",
+      "section": "C",
+      "title": "Systemic Domain Mapping",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0004043579101562,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C12",
+      "section": "C",
+      "title": "Temporal Context Analysis",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9996891021728516,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C13",
+      "section": "C",
+      "title": "Spatial Context Mapping",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.667022705078125,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C14",
+      "section": "C",
+      "title": "Agent-Behavior Matrix",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.9202232360839844,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C15",
+      "section": "C",
+      "title": "Behavioral Sources",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.2233257293701172,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C16",
+      "section": "C",
+      "title": "Evaluation Distribution",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9293556213378906,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C17",
+      "section": "C",
+      "title": "Heart-Type Correlations",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.9996166229248047,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C18",
+      "section": "C",
+      "title": "Consequence Severity Ranking",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0001659393310547,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C19",
+      "section": "C",
+      "title": "Multi-Agent Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.7008781433105469,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C20",
+      "section": "C",
+      "title": "Dimensional Completeness Score",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9474754333496094,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C21",
+      "section": "C",
+      "title": "Profile Evolution by Surah",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.9986629486083984,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C22",
+      "section": "C",
+      "title": "Dimensional Hierarchy",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.127481460571289,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C23",
+      "section": "C",
+      "title": "Profile Anomaly Detection",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.5447139739990234,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C24",
+      "section": "C",
+      "title": "Cross-Cultural Profile Comparison",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0001659393310547,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "C25",
+      "section": "C",
+      "title": "The Ultimate Profile Query",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_passed": [
+        "AXES_11D",
+        "TAXONOMY",
+        "PROVENANCE",
+        "TAFSIR_MULTI_SOURCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.6510486602783203,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D01",
+      "section": "D",
+      "title": "Global Network Statistics",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 320.73378562927246,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D02",
+      "section": "D",
+      "title": "Centrality Ranking (Degree)",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 311.3231658935547,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D03",
+      "section": "D",
+      "title": "Centrality Ranking (Betweenness)",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 325.167179107666,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D04",
+      "section": "D",
+      "title": "Centrality Ranking (Eigenvector)",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 316.5440559387207,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D05",
+      "section": "D",
+      "title": "Centrality Ranking (PageRank)",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 310.92262268066406,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D06",
+      "section": "D",
+      "title": "Centrality Comparison",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 306.43320083618164,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D07",
+      "section": "D",
+      "title": "Community Detection",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 318.79687309265137,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D08",
+      "section": "D",
+      "title": "Community Stability",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 314.70513343811035,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D09",
+      "section": "D",
+      "title": "Inter-Community Bridges",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 324.7406482696533,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D10",
+      "section": "D",
+      "title": "Community-Relationship Patterns",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 316.1580562591553,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D11",
+      "section": "D",
+      "title": "Assortativity Analysis",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 309.60988998413086,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D12",
+      "section": "D",
+      "title": "Core-Periphery Structure",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 306.2324523925781,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D13",
+      "section": "D",
+      "title": "Small World Test",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 321.7604160308838,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D14",
+      "section": "D",
+      "title": "Scale-Free Test",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 315.9000873565674,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D15",
+      "section": "D",
+      "title": "Robustness Analysis",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 324.326753616333,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D16",
+      "section": "D",
+      "title": "Shortest Path Distribution",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 315.97113609313965,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D17",
+      "section": "D",
+      "title": "Triangles and Transitivity",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 310.55688858032227,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D18",
+      "section": "D",
+      "title": "Reciprocity Analysis",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 305.85193634033203,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D19",
+      "section": "D",
+      "title": "Isolated Components",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 318.74728202819824,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D20",
+      "section": "D",
+      "title": "Temporal Network Growth",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 318.5081481933594,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D21",
+      "section": "D",
+      "title": "Minimum Spanning Tree",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 325.00457763671875,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D22",
+      "section": "D",
+      "title": "Clique Detection",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 315.2503967285156,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D23",
+      "section": "D",
+      "title": "K-Core Decomposition",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 310.7178211212158,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D24",
+      "section": "D",
+      "title": "Network Motif Analysis",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 308.9942932128906,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "D25",
+      "section": "D",
+      "title": "Predictive Link Analysis",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_METRICS",
+        "SEMANTIC_GRAPH_V2",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 318.74537467956543,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E01",
+      "section": "E",
+      "title": "Complete Heart State Inventory",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 164.10422325134277,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E02",
+      "section": "E",
+      "title": "Heart State Transition Graph",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 156.11004829406738,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E03",
+      "section": "E",
+      "title": "Behavioral Causes of Heart States",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 159.1949462890625,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E04",
+      "section": "E",
+      "title": "Behavioral Symptoms of Heart States",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 173.5236644744873,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E05",
+      "section": "E",
+      "title": "Heart State Detection",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 155.76910972595215,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E06",
+      "section": "E",
+      "title": "Heart Purification Pathway",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 166.3839817047119,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E07",
+      "section": "E",
+      "title": "Heart Corruption Pathway",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 155.46441078186035,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E08",
+      "section": "E",
+      "title": "Heart State Stability",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 160.7046127319336,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E09",
+      "section": "E",
+      "title": "Heart-Behavior Bidirectional Analysis",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 156.07333183288574,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E10",
+      "section": "E",
+      "title": "The Munafiq Heart",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 158.2787036895752,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E11",
+      "section": "E",
+      "title": "Heart State Distribution",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 169.87037658691406,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E12",
+      "section": "E",
+      "title": "Heart State Quantification",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 154.95896339416504,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E13",
+      "section": "E",
+      "title": "Cross-Tafsir Heart Analysis",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 162.63628005981445,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E14",
+      "section": "E",
+      "title": "Heart and Organ Interaction",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 155.87568283081055,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E15",
+      "section": "E",
+      "title": "Heart State Inheritance",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 156.57639503479004,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E16",
+      "section": "E",
+      "title": "Heart State Temporal Dynamics",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 176.52606964111328,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E17",
+      "section": "E",
+      "title": "Heart State and Agent Type",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 155.55834770202637,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E18",
+      "section": "E",
+      "title": "Heart State Reversibility",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 166.0599708557129,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E19",
+      "section": "E",
+      "title": "The Perfect Heart",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 157.4418544769287,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "E20",
+      "section": "E",
+      "title": "Heart State Diagnostic Protocol",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "HEART_STATE",
+        "GRAPH_CAUSAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 158.04028511047363,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F01",
+      "section": "F",
+      "title": "Complete Agent Inventory",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9999275207519531,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F02",
+      "section": "F",
+      "title": "Agent-Behavior Exclusivity",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.102447509765625,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F03",
+      "section": "F",
+      "title": "Divine Attribute Mapping",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.9409656524658203,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F04",
+      "section": "F",
+      "title": "Prophetic Behavioral Standard",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0008811950683594,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F05",
+      "section": "F",
+      "title": "Believer Behavioral Expectations",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0986328125,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F06",
+      "section": "F",
+      "title": "Disbeliever Behavioral Patterns",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9365081787109375,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F07",
+      "section": "F",
+      "title": "Munafiq Behavioral Signature",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0385513305664062,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F08",
+      "section": "F",
+      "title": "Shaytan Behavioral Influence",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9965896606445312,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F09",
+      "section": "F",
+      "title": "Angel Behavioral Nature",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9996891021728516,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F10",
+      "section": "F",
+      "title": "Agent Interaction Patterns",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0006427764892578,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F11",
+      "section": "F",
+      "title": "Agent Hierarchy",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.9998550415039062,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F12",
+      "section": "F",
+      "title": "Agent Transformation",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.03759765625,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F13",
+      "section": "F",
+      "title": "Collective Agent Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9951591491699219,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F14",
+      "section": "F",
+      "title": "Historical Agent Comparison",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0023117065429688,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F15",
+      "section": "F",
+      "title": "Agent Responsibility Levels",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.606536865234375,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F16",
+      "section": "F",
+      "title": "Agent-Consequence Mapping",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9465217590332031,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F17",
+      "section": "F",
+      "title": "Gender and Agent Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 2.0303726196289062,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F18",
+      "section": "F",
+      "title": "Age and Agent Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9951591491699219,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F19",
+      "section": "F",
+      "title": "Social Role Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0001659393310547,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "F20",
+      "section": "F",
+      "title": "The Complete Agent-Behavior Matrix",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "AGENT_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0008811950683594,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G01",
+      "section": "G",
+      "title": "Dunya Behavioral Catalog",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 19.376516342163086,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G02",
+      "section": "G",
+      "title": "Akhira Behavioral Catalog",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G03",
+      "section": "G",
+      "title": "Temporal Bridge Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9999275207519531,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G04",
+      "section": "G",
+      "title": "Behavioral Urgency Mapping",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.99945068359375,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G05",
+      "section": "G",
+      "title": "Sacred Space Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G06",
+      "section": "G",
+      "title": "Home Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0004043579101562,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G07",
+      "section": "G",
+      "title": "Marketplace Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G08",
+      "section": "G",
+      "title": "Travel Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.003265380859375,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G09",
+      "section": "G",
+      "title": "War/Conflict Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.614166259765625,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G10",
+      "section": "G",
+      "title": "Context-Sensitive Behavioral Rules",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.5562305450439453,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G11",
+      "section": "G",
+      "title": "Temporal Sequence Requirements",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.023365020751953125,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G12",
+      "section": "G",
+      "title": "Spatial Sanctity Gradient",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.5450248718261719,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G13",
+      "section": "G",
+      "title": "Day/Night Behavioral Guidance",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9980201721191406,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G14",
+      "section": "G",
+      "title": "Seasonal Behavioral Patterns",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "G15",
+      "section": "G",
+      "title": "The Universal Behaviors",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "TEMPORAL_SPATIAL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9999275207519531,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H01",
+      "section": "H",
+      "title": "Complete Consequence Inventory",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0023117065429688,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H02",
+      "section": "H",
+      "title": "Positive Consequence Catalog",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.5943775177001953,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H03",
+      "section": "H",
+      "title": "Negative Consequence Catalog",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9448528289794922,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H04",
+      "section": "H",
+      "title": "Consequence Severity Scale",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 2.052783966064453,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H05",
+      "section": "H",
+      "title": "Behavior-Consequence Proportionality",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9953975677490234,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H06",
+      "section": "H",
+      "title": "Collective Consequences",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.1060237884521484,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H07",
+      "section": "H",
+      "title": "Immediate vs Delayed Consequences",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.203298568725586,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H08",
+      "section": "H",
+      "title": "Visible vs Hidden Consequences",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9393692016601562,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H09",
+      "section": "H",
+      "title": "Consequence Reversibility",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9999275207519531,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H10",
+      "section": "H",
+      "title": "Reward Multipliers",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0004043579101562,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H11",
+      "section": "H",
+      "title": "Punishment Multipliers",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9996891021728516,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H12",
+      "section": "H",
+      "title": "Compound Consequences",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0001659393310547,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H13",
+      "section": "H",
+      "title": "Consequence Inheritance",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.6350746154785156,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H14",
+      "section": "H",
+      "title": "Intercession and Consequences",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9322166442871094,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "H15",
+      "section": "H",
+      "title": "The Ultimate Consequence Map",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "CONSEQUENCE_MODEL",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.99945068359375,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I01",
+      "section": "I",
+      "title": "Behavior Embedding Visualization",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 11633.830785751343,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I02",
+      "section": "I",
+      "title": "Nearest Neighbor Accuracy",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0001659393310547,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I03",
+      "section": "I",
+      "title": "Opposite Behavior Distance",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I04",
+      "section": "I",
+      "title": "Similar Behavior Proximity",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I05",
+      "section": "I",
+      "title": "Category Coherence",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.107931137084961,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I06",
+      "section": "I",
+      "title": "Embedding Outliers",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I07",
+      "section": "I",
+      "title": "Semantic Drift Detection",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I08",
+      "section": "I",
+      "title": "Cross-Language Consistency",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9343624114990234,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I09",
+      "section": "I",
+      "title": "Embedding-Graph Alignment",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I10",
+      "section": "I",
+      "title": "Behavioral Analogies",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I11",
+      "section": "I",
+      "title": "Cluster-Relationship Correlation",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9992122650146484,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I12",
+      "section": "I",
+      "title": "Embedding Dimensionality",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I13",
+      "section": "I",
+      "title": "Stability Across Models",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I14",
+      "section": "I",
+      "title": "Context Window Effects",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0001659393310547,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "I15",
+      "section": "I",
+      "title": "Embedding Quality Score",
+      "verdict": "PASS",
+      "reasons": [],
+      "capabilities_tested": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "EMBEDDINGS",
+        "MODEL_REGISTRY",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J01",
+      "section": "J",
+      "title": "The Complete Sabr Analysis",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0035037994384766,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J02",
+      "section": "J",
+      "title": "Behavioral Prescription Generator",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.08845329284667969,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J03",
+      "section": "J",
+      "title": "The Quranic Behavioral Genome",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J04",
+      "section": "J",
+      "title": "Comparative Surah Analysis",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9438991546630859,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J05",
+      "section": "J",
+      "title": "Prophet Behavioral Comparison",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J06",
+      "section": "J",
+      "title": "Historical Case Study: Firaun",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J07",
+      "section": "J",
+      "title": "Behavioral Q&A Accuracy Test",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 1.0447502136230469,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J08",
+      "section": "J",
+      "title": "Relationship Prediction Validation",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.05459785461425781,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J09",
+      "section": "J",
+      "title": "Cross-Component Consistency Check",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J10",
+      "section": "J",
+      "title": "Edge Case Handling",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9374618530273438,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J11",
+      "section": "J",
+      "title": "Provenance Completeness Audit",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J12",
+      "section": "J",
+      "title": "Scalability Test",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J13",
+      "section": "J",
+      "title": "Explanation Quality",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.9996891021728516,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J14",
+      "section": "J",
+      "title": "Scholar Validation Protocol",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "J15",
+      "section": "J",
+      "title": "The Ultimate Question",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "INTEGRATION_E2E",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 0.0,
+      "provenance_count": 3,
+      "verse_count": 0,
+      "has_generic_verses": false
+    }
+  ]
+}

@@ -4,93 +4,723 @@
   "frozen_date": "2025-01-01",
   "categories": {
     "speech": [
-      {"id": "BEH_SPEECH_TRUTHFULNESS", "en": "Truthfulness", "ar": "الصدق", "quranic_roots": ["ص-د-ق"]},
-      {"id": "BEH_SPEECH_LYING", "en": "Lying", "ar": "الكذب", "quranic_roots": ["ك-ذ-ب"]},
-      {"id": "BEH_SPEECH_BACKBITING", "en": "Backbiting", "ar": "الغيبة", "quranic_roots": ["غ-ي-ب"]},
-      {"id": "BEH_SPEECH_SLANDER", "en": "Slander", "ar": "البهتان/النميمة", "quranic_roots": ["ب-ه-ت", "ن-م-م"]},
-      {"id": "BEH_SPEECH_GOOD_WORD", "en": "Good Word", "ar": "الكلمة الطيبة", "quranic_roots": ["ط-ي-ب", "ق-و-ل"]},
-      {"id": "BEH_SPEECH_HARSH_WORD", "en": "Harsh Word", "ar": "الفظاظة", "quranic_roots": ["ف-ظ-ظ", "غ-ل-ظ"]},
-      {"id": "BEH_SPEECH_VAIN_TALK", "en": "Vain Talk", "ar": "اللغو", "quranic_roots": ["ل-غ-و"]},
-      {"id": "BEH_SPEECH_REMEMBRANCE", "en": "Remembrance/Dhikr", "ar": "الذكر", "quranic_roots": ["ذ-ك-ر"]},
-      {"id": "BEH_SPEECH_SUPPLICATION", "en": "Supplication/Dua", "ar": "الدعاء", "quranic_roots": ["د-ع-و"]},
-      {"id": "BEH_SPEECH_TESTIMONY", "en": "Testimony", "ar": "الشهادة", "quranic_roots": ["ش-ه-د"]}
+      {
+        "id": "BEH_SPEECH_TRUTHFULNESS",
+        "en": "Truthfulness",
+        "ar": "الصدق",
+        "quranic_roots": [
+          "ص-د-ق"
+        ]
+      },
+      {
+        "id": "BEH_SPEECH_LYING",
+        "en": "Lying",
+        "ar": "الكذب",
+        "quranic_roots": [
+          "ك-ذ-ب"
+        ]
+      },
+      {
+        "id": "BEH_SPEECH_BACKBITING",
+        "en": "Backbiting",
+        "ar": "الغيبة",
+        "quranic_roots": [
+          "غ-ي-ب"
+        ]
+      },
+      {
+        "id": "BEH_SPEECH_SLANDER",
+        "en": "Slander",
+        "ar": "البهتان/النميمة",
+        "quranic_roots": [
+          "ب-ه-ت",
+          "ن-م-م"
+        ]
+      },
+      {
+        "id": "BEH_SPEECH_GOOD_WORD",
+        "en": "Good Word",
+        "ar": "الكلمة الطيبة",
+        "quranic_roots": [
+          "ط-ي-ب",
+          "ق-و-ل"
+        ]
+      },
+      {
+        "id": "BEH_SPEECH_HARSH_WORD",
+        "en": "Harsh Word",
+        "ar": "الفظاظة",
+        "quranic_roots": [
+          "ف-ظ-ظ",
+          "غ-ل-ظ"
+        ]
+      },
+      {
+        "id": "BEH_SPEECH_VAIN_TALK",
+        "en": "Vain Talk",
+        "ar": "اللغو",
+        "quranic_roots": [
+          "ل-غ-و"
+        ]
+      },
+      {
+        "id": "BEH_SPEECH_REMEMBRANCE",
+        "en": "Remembrance/Dhikr",
+        "ar": "الذكر",
+        "quranic_roots": [
+          "ذ-ك-ر"
+        ]
+      },
+      {
+        "id": "BEH_SPEECH_SUPPLICATION",
+        "en": "Supplication/Dua",
+        "ar": "الدعاء",
+        "quranic_roots": [
+          "د-ع-و"
+        ]
+      },
+      {
+        "id": "BEH_SPEECH_TESTIMONY",
+        "en": "Testimony",
+        "ar": "الشهادة",
+        "quranic_roots": [
+          "ش-ه-د"
+        ]
+      }
     ],
     "financial": [
-      {"id": "BEH_FIN_CHARITY", "en": "Charity/Sadaqah", "ar": "الصدقة", "quranic_roots": ["ص-د-ق"]},
-      {"id": "BEH_FIN_ZAKAT", "en": "Zakat", "ar": "الزكاة", "quranic_roots": ["ز-ك-و"]},
-      {"id": "BEH_FIN_SPENDING", "en": "Spending in Allah's Way", "ar": "الإنفاق", "quranic_roots": ["ن-ف-ق"]},
-      {"id": "BEH_FIN_USURY", "en": "Usury/Riba", "ar": "الربا", "quranic_roots": ["ر-ب-و"]},
-      {"id": "BEH_FIN_HOARDING", "en": "Hoarding", "ar": "الكنز/البخل", "quranic_roots": ["ك-ن-ز", "ب-خ-ل"]},
-      {"id": "BEH_FIN_FRAUD", "en": "Fraud/Cheating", "ar": "الغش/التطفيف", "quranic_roots": ["ط-ف-ف"]},
-      {"id": "BEH_FIN_FAIR_TRADE", "en": "Fair Trade", "ar": "التجارة العادلة", "quranic_roots": ["ت-ج-ر", "ع-د-ل"]},
-      {"id": "BEH_FIN_BRIBERY", "en": "Bribery", "ar": "الرشوة", "quranic_roots": ["ر-ش-و"]}
+      {
+        "id": "BEH_FIN_CHARITY",
+        "en": "Charity/Sadaqah",
+        "ar": "الصدقة",
+        "quranic_roots": [
+          "ص-د-ق"
+        ]
+      },
+      {
+        "id": "BEH_FIN_ZAKAT",
+        "en": "Zakat",
+        "ar": "الزكاة",
+        "quranic_roots": [
+          "ز-ك-و"
+        ]
+      },
+      {
+        "id": "BEH_FIN_SPENDING",
+        "en": "Spending in Allah's Way",
+        "ar": "الإنفاق",
+        "quranic_roots": [
+          "ن-ف-ق"
+        ]
+      },
+      {
+        "id": "BEH_FIN_USURY",
+        "en": "Usury/Riba",
+        "ar": "الربا",
+        "quranic_roots": [
+          "ر-ب-و"
+        ]
+      },
+      {
+        "id": "BEH_FIN_HOARDING",
+        "en": "Hoarding",
+        "ar": "الكنز/البخل",
+        "quranic_roots": [
+          "ك-ن-ز",
+          "ب-خ-ل"
+        ]
+      },
+      {
+        "id": "BEH_FIN_FRAUD",
+        "en": "Fraud/Cheating",
+        "ar": "الغش/التطفيف",
+        "quranic_roots": [
+          "ط-ف-ف"
+        ]
+      },
+      {
+        "id": "BEH_FIN_FAIR_TRADE",
+        "en": "Fair Trade",
+        "ar": "التجارة العادلة",
+        "quranic_roots": [
+          "ت-ج-ر",
+          "ع-د-ل"
+        ]
+      },
+      {
+        "id": "BEH_FIN_BRIBERY",
+        "en": "Bribery",
+        "ar": "الرشوة",
+        "quranic_roots": [
+          "ر-ش-و"
+        ]
+      },
+      {
+        "id": "BEH_FIN_ASCETICISM",
+        "en": "Asceticism",
+        "ar": "???",
+        "quranic_roots": [
+          "?-?-?"
+        ]
+      }
     ],
     "emotional": [
-      {"id": "BEH_EMO_GRATITUDE", "en": "Gratitude", "ar": "الشكر", "quranic_roots": ["ش-ك-ر"]},
-      {"id": "BEH_EMO_INGRATITUDE", "en": "Ingratitude", "ar": "الكفران", "quranic_roots": ["ك-ف-ر"]},
-      {"id": "BEH_EMO_PATIENCE", "en": "Patience", "ar": "الصبر", "quranic_roots": ["ص-ب-ر"]},
-      {"id": "BEH_EMO_IMPATIENCE", "en": "Impatience", "ar": "الجزع", "quranic_roots": ["ج-ز-ع"]},
-      {"id": "BEH_EMO_FEAR_ALLAH", "en": "Fear of Allah", "ar": "الخوف من الله", "quranic_roots": ["خ-و-ف", "خ-ش-ي"]},
-      {"id": "BEH_EMO_HOPE", "en": "Hope", "ar": "الرجاء", "quranic_roots": ["ر-ج-و"]},
-      {"id": "BEH_EMO_LOVE", "en": "Love", "ar": "المحبة", "quranic_roots": ["ح-ب-ب"]},
-      {"id": "BEH_EMO_HATRED", "en": "Hatred", "ar": "البغض", "quranic_roots": ["ب-غ-ض"]},
-      {"id": "BEH_EMO_ENVY", "en": "Envy", "ar": "الحسد", "quranic_roots": ["ح-س-د"]},
-      {"id": "BEH_EMO_ANGER", "en": "Anger", "ar": "الغضب", "quranic_roots": ["غ-ض-ب"]},
-      {"id": "BEH_EMO_JOY", "en": "Joy", "ar": "الفرح", "quranic_roots": ["ف-ر-ح"]},
-      {"id": "BEH_EMO_GRIEF", "en": "Grief", "ar": "الحزن", "quranic_roots": ["ح-ز-ن"]}
+      {
+        "id": "BEH_EMO_GRATITUDE",
+        "en": "Gratitude",
+        "ar": "الشكر",
+        "quranic_roots": [
+          "ش-ك-ر"
+        ]
+      },
+      {
+        "id": "BEH_EMO_INGRATITUDE",
+        "en": "Ingratitude",
+        "ar": "الكفران",
+        "quranic_roots": [
+          "ك-ف-ر"
+        ]
+      },
+      {
+        "id": "BEH_EMO_PATIENCE",
+        "en": "Patience",
+        "ar": "الصبر",
+        "quranic_roots": [
+          "ص-ب-ر"
+        ]
+      },
+      {
+        "id": "BEH_EMO_IMPATIENCE",
+        "en": "Impatience",
+        "ar": "الجزع",
+        "quranic_roots": [
+          "ج-ز-ع"
+        ]
+      },
+      {
+        "id": "BEH_EMO_FEAR_ALLAH",
+        "en": "Fear of Allah",
+        "ar": "الخوف من الله",
+        "quranic_roots": [
+          "خ-و-ف",
+          "خ-ش-ي"
+        ]
+      },
+      {
+        "id": "BEH_EMO_HOPE",
+        "en": "Hope",
+        "ar": "الرجاء",
+        "quranic_roots": [
+          "ر-ج-و"
+        ]
+      },
+      {
+        "id": "BEH_EMO_LOVE",
+        "en": "Love",
+        "ar": "المحبة",
+        "quranic_roots": [
+          "ح-ب-ب"
+        ]
+      },
+      {
+        "id": "BEH_EMO_HATRED",
+        "en": "Hatred",
+        "ar": "البغض",
+        "quranic_roots": [
+          "ب-غ-ض"
+        ]
+      },
+      {
+        "id": "BEH_EMO_ENVY",
+        "en": "Envy",
+        "ar": "الحسد",
+        "quranic_roots": [
+          "ح-س-د"
+        ]
+      },
+      {
+        "id": "BEH_EMO_ANGER",
+        "en": "Anger",
+        "ar": "الغضب",
+        "quranic_roots": [
+          "غ-ض-ب"
+        ]
+      },
+      {
+        "id": "BEH_EMO_JOY",
+        "en": "Joy",
+        "ar": "الفرح",
+        "quranic_roots": [
+          "ف-ر-ح"
+        ]
+      },
+      {
+        "id": "BEH_EMO_GRIEF",
+        "en": "Grief",
+        "ar": "الحزن",
+        "quranic_roots": [
+          "ح-ز-ن"
+        ]
+      }
     ],
     "spiritual": [
-      {"id": "BEH_SPI_FAITH", "en": "Faith/Iman", "ar": "الإيمان", "quranic_roots": ["أ-م-ن"]},
-      {"id": "BEH_SPI_DISBELIEF", "en": "Disbelief/Kufr", "ar": "الكفر", "quranic_roots": ["ك-ف-ر"]},
-      {"id": "BEH_SPI_HYPOCRISY", "en": "Hypocrisy", "ar": "النفاق", "quranic_roots": ["ن-ف-ق"]},
-      {"id": "BEH_SPI_SINCERITY", "en": "Sincerity/Ikhlas", "ar": "الإخلاص", "quranic_roots": ["خ-ل-ص"]},
-      {"id": "BEH_SPI_SHOWING_OFF", "en": "Showing Off/Riya", "ar": "الرياء", "quranic_roots": ["ر-أ-ي"]},
-      {"id": "BEH_SPI_TAQWA", "en": "God-Consciousness/Taqwa", "ar": "التقوى", "quranic_roots": ["و-ق-ي"]},
-      {"id": "BEH_SPI_TAWAKKUL", "en": "Trust in Allah", "ar": "التوكل", "quranic_roots": ["و-ك-ل"]},
-      {"id": "BEH_SPI_REPENTANCE", "en": "Repentance", "ar": "التوبة", "quranic_roots": ["ت-و-ب"]},
-      {"id": "BEH_SPI_WORSHIP", "en": "Worship/Ibadah", "ar": "العبادة", "quranic_roots": ["ع-ب-د"]},
-      {"id": "BEH_SPI_PRAYER", "en": "Prayer/Salah", "ar": "الصلاة", "quranic_roots": ["ص-ل-و"]},
-      {"id": "BEH_SPI_FASTING", "en": "Fasting", "ar": "الصيام", "quranic_roots": ["ص-و-م"]},
-      {"id": "BEH_SPI_REMEMBRANCE", "en": "Remembrance", "ar": "الذكر", "quranic_roots": ["ذ-ك-ر"]}
+      {
+        "id": "BEH_SPI_FAITH",
+        "en": "Faith/Iman",
+        "ar": "الإيمان",
+        "quranic_roots": [
+          "أ-م-ن"
+        ]
+      },
+      {
+        "id": "BEH_SPI_DISBELIEF",
+        "en": "Disbelief/Kufr",
+        "ar": "الكفر",
+        "quranic_roots": [
+          "ك-ف-ر"
+        ]
+      },
+      {
+        "id": "BEH_SPI_HYPOCRISY",
+        "en": "Hypocrisy",
+        "ar": "النفاق",
+        "quranic_roots": [
+          "ن-ف-ق"
+        ]
+      },
+      {
+        "id": "BEH_SPI_SINCERITY",
+        "en": "Sincerity/Ikhlas",
+        "ar": "الإخلاص",
+        "quranic_roots": [
+          "خ-ل-ص"
+        ]
+      },
+      {
+        "id": "BEH_SPI_SHOWING_OFF",
+        "en": "Showing Off/Riya",
+        "ar": "الرياء",
+        "quranic_roots": [
+          "ر-أ-ي"
+        ]
+      },
+      {
+        "id": "BEH_SPI_TAQWA",
+        "en": "God-Consciousness/Taqwa",
+        "ar": "التقوى",
+        "quranic_roots": [
+          "و-ق-ي"
+        ]
+      },
+      {
+        "id": "BEH_SPI_TAWAKKUL",
+        "en": "Trust in Allah",
+        "ar": "التوكل",
+        "quranic_roots": [
+          "و-ك-ل"
+        ]
+      },
+      {
+        "id": "BEH_SPI_REPENTANCE",
+        "en": "Repentance",
+        "ar": "التوبة",
+        "quranic_roots": [
+          "ت-و-ب"
+        ]
+      },
+      {
+        "id": "BEH_SPI_WORSHIP",
+        "en": "Worship/Ibadah",
+        "ar": "العبادة",
+        "quranic_roots": [
+          "ع-ب-د"
+        ]
+      },
+      {
+        "id": "BEH_SPI_PRAYER",
+        "en": "Prayer/Salah",
+        "ar": "الصلاة",
+        "quranic_roots": [
+          "ص-ل-و"
+        ]
+      },
+      {
+        "id": "BEH_SPI_FASTING",
+        "en": "Fasting",
+        "ar": "الصيام",
+        "quranic_roots": [
+          "ص-و-م"
+        ]
+      },
+      {
+        "id": "BEH_SPI_REMEMBRANCE",
+        "en": "Remembrance",
+        "ar": "الذكر",
+        "quranic_roots": [
+          "ذ-ك-ر"
+        ]
+      },
+      {
+        "id": "BEH_SPI_KHUSHU",
+        "en": "Humility in Prayer",
+        "ar": "????",
+        "quranic_roots": [
+          "?-?-?"
+        ]
+      },
+      {
+        "id": "BEH_SPI_SHIRK",
+        "en": "Polytheism",
+        "ar": "???",
+        "quranic_roots": [
+          "?-?-?"
+        ]
+      },
+      {
+        "id": "BEH_SPI_CONTEMPLATION",
+        "en": "Contemplation",
+        "ar": "التدبر",
+        "quranic_roots": [
+          "د-ب-ر"
+        ]
+      },
+      {
+        "id": "BEH_SPI_CONTENTMENT",
+        "en": "Contentment",
+        "ar": "الرضا",
+        "quranic_roots": [
+          "ر-ض-ي"
+        ]
+      },
+      {
+        "id": "BEH_SPI_HAJJ",
+        "en": "Pilgrimage",
+        "ar": "الحج",
+        "quranic_roots": [
+          "ح-ج-ج"
+        ]
+      },
+      {
+        "id": "BEH_SPI_JIHAD",
+        "en": "Striving",
+        "ar": "الجهاد",
+        "quranic_roots": [
+          "ج-ه-د"
+        ]
+      },
+      {
+        "id": "BEH_SPI_RECITATION",
+        "en": "Recitation",
+        "ar": "التلاوة",
+        "quranic_roots": [
+          "ت-ل-و"
+        ]
+      }
     ],
     "social": [
-      {"id": "BEH_SOC_JUSTICE", "en": "Justice", "ar": "العدل", "quranic_roots": ["ع-د-ل"]},
-      {"id": "BEH_SOC_OPPRESSION", "en": "Oppression", "ar": "الظلم", "quranic_roots": ["ظ-ل-م"]},
-      {"id": "BEH_SOC_KINDNESS_PARENTS", "en": "Kindness to Parents", "ar": "بر الوالدين", "quranic_roots": ["ب-ر-ر"]},
-      {"id": "BEH_SOC_DISOBEDIENCE_PARENTS", "en": "Disobedience to Parents", "ar": "عقوق الوالدين", "quranic_roots": ["ع-ق-ق"]},
-      {"id": "BEH_SOC_KINSHIP_TIES", "en": "Maintaining Kinship", "ar": "صلة الرحم", "quranic_roots": ["ر-ح-م", "و-ص-ل"]},
-      {"id": "BEH_SOC_SEVERING_TIES", "en": "Severing Ties", "ar": "قطيعة الرحم", "quranic_roots": ["ق-ط-ع"]},
-      {"id": "BEH_SOC_HOSPITALITY", "en": "Hospitality", "ar": "الضيافة", "quranic_roots": ["ض-ي-ف"]},
-      {"id": "BEH_SOC_HELPING_NEEDY", "en": "Helping the Needy", "ar": "مساعدة المحتاج", "quranic_roots": ["ع-و-ن"]},
-      {"id": "BEH_SOC_ORPHAN_CARE", "en": "Orphan Care", "ar": "رعاية اليتيم", "quranic_roots": ["ي-ت-م"]},
-      {"id": "BEH_SOC_ORPHAN_HARM", "en": "Harming Orphan", "ar": "أكل مال اليتيم", "quranic_roots": ["ي-ت-م"]},
-      {"id": "BEH_SOC_RECONCILIATION", "en": "Reconciliation", "ar": "الإصلاح", "quranic_roots": ["ص-ل-ح"]},
-      {"id": "BEH_SOC_CORRUPTION", "en": "Corruption/Fasad", "ar": "الفساد", "quranic_roots": ["ف-س-د"]}
+      {
+        "id": "BEH_SOC_JUSTICE",
+        "en": "Justice",
+        "ar": "العدل",
+        "quranic_roots": [
+          "ع-د-ل"
+        ]
+      },
+      {
+        "id": "BEH_SOC_OPPRESSION",
+        "en": "Oppression",
+        "ar": "الظلم",
+        "quranic_roots": [
+          "ظ-ل-م"
+        ]
+      },
+      {
+        "id": "BEH_SOC_KINDNESS_PARENTS",
+        "en": "Kindness to Parents",
+        "ar": "بر الوالدين",
+        "quranic_roots": [
+          "ب-ر-ر"
+        ]
+      },
+      {
+        "id": "BEH_SOC_DISOBEDIENCE_PARENTS",
+        "en": "Disobedience to Parents",
+        "ar": "عقوق الوالدين",
+        "quranic_roots": [
+          "ع-ق-ق"
+        ]
+      },
+      {
+        "id": "BEH_SOC_KINSHIP_TIES",
+        "en": "Maintaining Kinship",
+        "ar": "صلة الرحم",
+        "quranic_roots": [
+          "ر-ح-م",
+          "و-ص-ل"
+        ]
+      },
+      {
+        "id": "BEH_SOC_SEVERING_TIES",
+        "en": "Severing Ties",
+        "ar": "قطيعة الرحم",
+        "quranic_roots": [
+          "ق-ط-ع"
+        ]
+      },
+      {
+        "id": "BEH_SOC_HOSPITALITY",
+        "en": "Hospitality",
+        "ar": "الضيافة",
+        "quranic_roots": [
+          "ض-ي-ف"
+        ]
+      },
+      {
+        "id": "BEH_SOC_HELPING_NEEDY",
+        "en": "Helping the Needy",
+        "ar": "مساعدة المحتاج",
+        "quranic_roots": [
+          "ع-و-ن"
+        ]
+      },
+      {
+        "id": "BEH_SOC_ORPHAN_CARE",
+        "en": "Orphan Care",
+        "ar": "رعاية اليتيم",
+        "quranic_roots": [
+          "ي-ت-م"
+        ]
+      },
+      {
+        "id": "BEH_SOC_ORPHAN_HARM",
+        "en": "Harming Orphan",
+        "ar": "أكل مال اليتيم",
+        "quranic_roots": [
+          "ي-ت-م"
+        ]
+      },
+      {
+        "id": "BEH_SOC_RECONCILIATION",
+        "en": "Reconciliation",
+        "ar": "الإصلاح",
+        "quranic_roots": [
+          "ص-ل-ح"
+        ]
+      },
+      {
+        "id": "BEH_SOC_CORRUPTION",
+        "en": "Corruption/Fasad",
+        "ar": "الفساد",
+        "quranic_roots": [
+          "ف-س-د"
+        ]
+      },
+      {
+        "id": "BEH_SOC_BETRAYAL",
+        "en": "Betrayal",
+        "ar": "?????",
+        "quranic_roots": [
+          "?-?-?"
+        ]
+      },
+      {
+        "id": "BEH_SOC_MERCY",
+        "en": "Mercy",
+        "ar": "????",
+        "quranic_roots": [
+          "?-?-?"
+        ]
+      },
+      {
+        "id": "BEH_SOC_TRANSGRESSION",
+        "en": "Transgression",
+        "ar": "???",
+        "quranic_roots": [
+          "?-?-?"
+        ]
+      },
+      {
+        "id": "BEH_SOC_TRUSTWORTHINESS",
+        "en": "Trustworthiness",
+        "ar": "?????",
+        "quranic_roots": [
+          "?-?-?"
+        ]
+      },
+      {
+        "id": "BEH_SOC_IHSAN",
+        "en": "Excellence/Ihsan",
+        "ar": "الإحسان",
+        "quranic_roots": [
+          "ح-س-ن"
+        ]
+      }
     ],
     "cognitive": [
-      {"id": "BEH_COG_REFLECTION", "en": "Reflection/Tafakkur", "ar": "التفكر", "quranic_roots": ["ف-ك-ر"]},
-      {"id": "BEH_COG_HEEDLESSNESS", "en": "Heedlessness", "ar": "الغفلة", "quranic_roots": ["غ-ف-ل"]},
-      {"id": "BEH_COG_KNOWLEDGE", "en": "Knowledge/Seeking", "ar": "العلم", "quranic_roots": ["ع-ل-م"]},
-      {"id": "BEH_COG_IGNORANCE", "en": "Ignorance", "ar": "الجهل", "quranic_roots": ["ج-ه-ل"]},
-      {"id": "BEH_COG_UNDERSTANDING", "en": "Understanding", "ar": "الفقه/الفهم", "quranic_roots": ["ف-ق-ه", "ف-ه-م"]},
-      {"id": "BEH_COG_ARROGANCE", "en": "Arrogance", "ar": "الكبر", "quranic_roots": ["ك-ب-ر"]},
-      {"id": "BEH_COG_HUMILITY", "en": "Humility", "ar": "التواضع", "quranic_roots": ["و-ض-ع", "خ-ش-ع"]},
-      {"id": "BEH_COG_DOUBT", "en": "Doubt", "ar": "الشك", "quranic_roots": ["ش-ك-ك"]},
-      {"id": "BEH_COG_CERTAINTY", "en": "Certainty", "ar": "اليقين", "quranic_roots": ["ي-ق-ن"]},
-      {"id": "BEH_COG_FOLLOWING_DESIRE", "en": "Following Desire", "ar": "اتباع الهوى", "quranic_roots": ["ه-و-ي"]},
-      {"id": "BEH_COG_SUPERFICIAL_KNOWING", "en": "Superficial Knowing", "ar": "المعرفة الظاهرية", "quranic_roots": ["ظ-ه-ر"]}
+      {
+        "id": "BEH_COG_REFLECTION",
+        "en": "Reflection/Tafakkur",
+        "ar": "التفكر",
+        "quranic_roots": [
+          "ف-ك-ر"
+        ]
+      },
+      {
+        "id": "BEH_COG_HEEDLESSNESS",
+        "en": "Heedlessness",
+        "ar": "الغفلة",
+        "quranic_roots": [
+          "غ-ف-ل"
+        ]
+      },
+      {
+        "id": "BEH_COG_KNOWLEDGE",
+        "en": "Knowledge/Seeking",
+        "ar": "العلم",
+        "quranic_roots": [
+          "ع-ل-م"
+        ]
+      },
+      {
+        "id": "BEH_COG_IGNORANCE",
+        "en": "Ignorance",
+        "ar": "الجهل",
+        "quranic_roots": [
+          "ج-ه-ل"
+        ]
+      },
+      {
+        "id": "BEH_COG_UNDERSTANDING",
+        "en": "Understanding",
+        "ar": "الفقه/الفهم",
+        "quranic_roots": [
+          "ف-ق-ه",
+          "ف-ه-م"
+        ]
+      },
+      {
+        "id": "BEH_COG_ARROGANCE",
+        "en": "Arrogance",
+        "ar": "الكبر",
+        "quranic_roots": [
+          "ك-ب-ر"
+        ]
+      },
+      {
+        "id": "BEH_COG_HUMILITY",
+        "en": "Humility",
+        "ar": "التواضع",
+        "quranic_roots": [
+          "و-ض-ع",
+          "خ-ش-ع"
+        ]
+      },
+      {
+        "id": "BEH_COG_DOUBT",
+        "en": "Doubt",
+        "ar": "الشك",
+        "quranic_roots": [
+          "ش-ك-ك"
+        ]
+      },
+      {
+        "id": "BEH_COG_CERTAINTY",
+        "en": "Certainty",
+        "ar": "اليقين",
+        "quranic_roots": [
+          "ي-ق-ن"
+        ]
+      },
+      {
+        "id": "BEH_COG_FOLLOWING_DESIRE",
+        "en": "Following Desire",
+        "ar": "اتباع الهوى",
+        "quranic_roots": [
+          "ه-و-ي"
+        ]
+      },
+      {
+        "id": "BEH_COG_SUPERFICIAL_KNOWING",
+        "en": "Superficial Knowing",
+        "ar": "المعرفة الظاهرية",
+        "quranic_roots": [
+          "ظ-ه-ر"
+        ]
+      }
     ],
     "physical": [
-      {"id": "BEH_PHY_EATING", "en": "Eating", "ar": "الأكل", "quranic_roots": ["أ-ك-ل"]},
-      {"id": "BEH_PHY_DRINKING", "en": "Drinking", "ar": "الشرب", "quranic_roots": ["ش-ر-ب"]},
-      {"id": "BEH_PHY_WALKING", "en": "Walking", "ar": "المشي", "quranic_roots": ["م-ش-ي"]},
-      {"id": "BEH_PHY_SLEEPING", "en": "Sleeping", "ar": "النوم", "quranic_roots": ["ن-و-م"]},
-      {"id": "BEH_PHY_LOOKING", "en": "Looking/Gazing", "ar": "النظر", "quranic_roots": ["ن-ظ-ر"]},
-      {"id": "BEH_PHY_LOWERING_GAZE", "en": "Lowering Gaze", "ar": "غض البصر", "quranic_roots": ["غ-ض-ض"]},
-      {"id": "BEH_PHY_PROSTRATION", "en": "Prostration", "ar": "السجود", "quranic_roots": ["س-ج-د"]},
-      {"id": "BEH_PHY_STANDING", "en": "Standing", "ar": "القيام", "quranic_roots": ["ق-و-م"]}
+      {
+        "id": "BEH_PHY_EATING",
+        "en": "Eating",
+        "ar": "الأكل",
+        "quranic_roots": [
+          "أ-ك-ل"
+        ]
+      },
+      {
+        "id": "BEH_PHY_DRINKING",
+        "en": "Drinking",
+        "ar": "الشرب",
+        "quranic_roots": [
+          "ش-ر-ب"
+        ]
+      },
+      {
+        "id": "BEH_PHY_WALKING",
+        "en": "Walking",
+        "ar": "المشي",
+        "quranic_roots": [
+          "م-ش-ي"
+        ]
+      },
+      {
+        "id": "BEH_PHY_SLEEPING",
+        "en": "Sleeping",
+        "ar": "النوم",
+        "quranic_roots": [
+          "ن-و-م"
+        ]
+      },
+      {
+        "id": "BEH_PHY_LOOKING",
+        "en": "Looking/Gazing",
+        "ar": "النظر",
+        "quranic_roots": [
+          "ن-ظ-ر"
+        ]
+      },
+      {
+        "id": "BEH_PHY_LOWERING_GAZE",
+        "en": "Lowering Gaze",
+        "ar": "غض البصر",
+        "quranic_roots": [
+          "غ-ض-ض"
+        ]
+      },
+      {
+        "id": "BEH_PHY_PROSTRATION",
+        "en": "Prostration",
+        "ar": "السجود",
+        "quranic_roots": [
+          "س-ج-د"
+        ]
+      },
+      {
+        "id": "BEH_PHY_STANDING",
+        "en": "Standing",
+        "ar": "القيام",
+        "quranic_roots": [
+          "ق-و-م"
+        ]
+      },
+      {
+        "id": "BEH_PHY_MODESTY",
+        "en": "Modesty",
+        "ar": "????",
+        "quranic_roots": [
+          "?-?-?"
+        ]
+      }
     ]
   }
 }
-
-

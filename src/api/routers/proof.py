@@ -359,13 +359,13 @@ async def proof_query(request: Request, request_body: ProofQueryRequest):
     try:
         # Phase 11: Check for CROSS_CONTEXT_BEHAVIOR intent FIRST
         # This is a first-class intent that bypasses generic retrieval
-        # PHASE 4 FIX: Skip cross-context handler in proof_only mode - use standard proof backend
+        # Hard rule: fail-closed when behavior is missing (even in proof_only mode)
         from src.ml.query_router import get_query_router, QueryIntent
 
         router = get_query_router()
         router_result = router.route(request_body.question)
 
-        if router_result.intent == QueryIntent.CROSS_CONTEXT_BEHAVIOR and not request_body.proof_only:
+        if router_result.intent == QueryIntent.CROSS_CONTEXT_BEHAVIOR:
             try:
                 from src.ml.cross_context_behavior_handler import get_cross_context_handler
             except Exception as e:

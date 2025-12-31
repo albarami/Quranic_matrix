@@ -380,7 +380,24 @@ class UnifiedBrain:
         if self.tafsir_annotator:
             return self.tafsir_annotator.search_semantic(query, top_k)
         return []
-    
+
+    def get_tafsir(self, surah: int, ayah: int, source: str) -> str:
+        """
+        Get tafsir text for a specific verse from a specific source.
+
+        Args:
+            surah: Surah number (1-114)
+            ayah: Ayah number
+            source: Tafsir source (ibn_kathir, tabari, qurtubi, saadi, jalalayn)
+
+        Returns:
+            Tafsir text or empty string if not available
+        """
+        key = f"{surah}:{ayah}"
+        if source in self.tafsir:
+            return self.tafsir[source].get(key, "")
+        return ""
+
     def get_tafsir_comparison(self, surah: int, ayah: int) -> Dict[str, Any]:
         """
         Get tafsir from ALL 5 sources and analyze agreement/disagreement.

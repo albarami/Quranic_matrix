@@ -66,7 +66,7 @@ ARABIC_TO_BEH_ID: Dict[str, str] = {
     "صبر": "BEH_EMO_PATIENCE",
     "حسد": "BEH_EMO_ENVY",
     "غضب": "BEH_EMO_ANGER",
-    "رضا": "BEH_EMO_CONTENTMENT",  # Not in vocab, add as custom
+    "رضا": "BEH_SPI_CONTENTMENT",  # Contentment (ridha)
     
     # =========================================================================
     # SPIRITUAL BEHAVIORS (BEH_SPI_*)
@@ -87,7 +87,7 @@ ARABIC_TO_BEH_ID: Dict[str, str] = {
     # =========================================================================
     "ظلم": "BEH_SOC_OPPRESSION",
     "عدل": "BEH_SOC_JUSTICE",
-    "إحسان": "BEH_SOC_EXCELLENCE",  # Ihsan
+    "إحسان": "BEH_SOC_IHSAN",  # Ihsan (canonical)
     "رحمة": "BEH_SOC_MERCY",
     "خيانة": "BEH_SOC_BETRAYAL",
     "أمانة": "BEH_SOC_TRUSTWORTHINESS",
@@ -132,7 +132,7 @@ BEH_ID_TO_FORM: Dict[str, str] = {
     "BEH_EMO_PATIENCE": "trait_disposition",
     "BEH_EMO_ENVY": "inner_state",
     "BEH_EMO_ANGER": "inner_state",
-    "BEH_EMO_CONTENTMENT": "inner_state",
+    "BEH_SPI_CONTENTMENT": "inner_state",
     
     # Inner states (spiritual)
     "BEH_SPI_FAITH": "inner_state",
@@ -150,7 +150,7 @@ BEH_ID_TO_FORM: Dict[str, str] = {
     # Relational acts (social)
     "BEH_SOC_OPPRESSION": "relational_act",
     "BEH_SOC_JUSTICE": "relational_act",
-    "BEH_SOC_EXCELLENCE": "trait_disposition",
+    "BEH_SOC_IHSAN": "trait_disposition",
     "BEH_SOC_MERCY": "trait_disposition",
     "BEH_SOC_BETRAYAL": "relational_act",
     "BEH_SOC_TRUSTWORTHINESS": "trait_disposition",
@@ -178,7 +178,7 @@ BEH_ID_TO_EVAL: Dict[str, str] = {
     "BEH_SPEECH_SUPPLICATION": "EVAL_SALIH",
     "BEH_EMO_GRATITUDE": "EVAL_SALIH",
     "BEH_EMO_PATIENCE": "EVAL_SALIH",
-    "BEH_EMO_CONTENTMENT": "EVAL_SALIH",
+    "BEH_SPI_CONTENTMENT": "EVAL_SALIH",
     "BEH_SPI_FAITH": "EVAL_SALIH",
     "BEH_SPI_TAQWA": "EVAL_SALIH",
     "BEH_SPI_TAWAKKUL": "EVAL_SALIH",
@@ -187,7 +187,7 @@ BEH_ID_TO_EVAL: Dict[str, str] = {
     "BEH_SPI_KHUSHU": "EVAL_SALIH",
     "BEH_SPI_SINCERITY": "EVAL_SALIH",
     "BEH_SOC_JUSTICE": "EVAL_SALIH",
-    "BEH_SOC_EXCELLENCE": "EVAL_SALIH",
+    "BEH_SOC_IHSAN": "EVAL_SALIH",
     "BEH_SOC_MERCY": "EVAL_SALIH",
     "BEH_SOC_TRUSTWORTHINESS": "EVAL_SALIH",
     "BEH_COG_HUMILITY": "EVAL_SALIH",
@@ -245,7 +245,7 @@ BEH_ID_TO_SYSTEMIC: Dict[str, List[str]] = {
     # Self only
     "BEH_EMO_PATIENCE": ["SYS_SELF"],
     "BEH_EMO_ANGER": ["SYS_SELF"],
-    "BEH_EMO_CONTENTMENT": ["SYS_SELF"],
+    "BEH_SPI_CONTENTMENT": ["SYS_SELF"],
     "BEH_EMO_GRATITUDE": ["SYS_SELF", "SYS_GOD"],
     "BEH_COG_ARROGANCE": ["SYS_SELF"],
     "BEH_COG_HUMILITY": ["SYS_SELF"],
@@ -253,7 +253,7 @@ BEH_ID_TO_SYSTEMIC: Dict[str, List[str]] = {
     "BEH_FIN_HOARDING": ["SYS_SELF"],
     "BEH_FIN_ASCETICISM": ["SYS_SELF", "SYS_LIFE"],
     "BEH_PHY_MODESTY": ["SYS_SELF"],
-    "BEH_SOC_EXCELLENCE": ["SYS_SELF", "SYS_GOD", "SYS_CREATION"],
+    "BEH_SOC_IHSAN": ["SYS_SELF", "SYS_GOD", "SYS_CREATION"],
     "BEH_SOC_CORRUPTION": ["SYS_SELF", "SYS_SOCIETY"],
     "BEH_SOC_TRANSGRESSION": ["SYS_SELF", "SYS_GOD"],
 }

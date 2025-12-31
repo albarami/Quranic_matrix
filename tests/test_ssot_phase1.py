@@ -47,7 +47,18 @@ class TestSSOTCounts:
             data = json.load(f)
         
         assert "behaviors" in data, "Missing 'behaviors' section"
-        assert len(data["behaviors"]) >= 73, f"Expected >=73 behaviors, got {len(data['behaviors'])}"
+        assert len(data["behaviors"]) == 87, f"Expected 87 behaviors, got {len(data['behaviors'])}"
+
+    def test_behavior_concepts_has_87(self):
+        """behavior_concepts.json must have 87 behaviors."""
+        with open(BEHAVIOR_CONCEPTS_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        total = 0
+        for _, items in data.get("categories", {}).items():
+            total += len(items)
+
+        assert total == 87, f"Expected 87 behaviors in behavior_concepts.json, got {total}"
     
     def test_canonical_entities_has_agents(self):
         """canonical_entities.json must have agents section."""
@@ -290,8 +301,9 @@ class TestBehaviorInventory:
             data = json.load(f)
         
         assert "counts" in data
-        assert "canonical_entities" in data["counts"]
-        assert "classifier_behaviors" in data["counts"]
+        assert data["counts"]["canonical_entities"] == 87
+        assert data["counts"]["behavior_concepts"] == 87
+        assert data["counts"]["classifier_behaviors"] == 87
     
     def test_audit_report_has_gaps(self):
         """Audit report must have gaps section."""
@@ -316,6 +328,19 @@ class TestBehaviorInventory:
             data = json.load(f)
         
         assert data["counts"]["target"] == 87
+
+    def test_behavior_registry_has_evidence_policies(self):
+        """Behavior registry must include evidence policies for all behaviors."""
+        registry_file = Path("data/behaviors/behavior_registry.json")
+        assert registry_file.exists(), "behavior_registry.json not found"
+
+        with open(registry_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        assert data.get("total_behaviors") == 87
+        for behavior in data.get("behaviors", []):
+            policy = behavior.get("evidence_policy")
+            assert policy and policy.get("mode"), f"Missing evidence_policy for {behavior.get('behavior_id')}"
 
 
 if __name__ == "__main__":

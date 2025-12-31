@@ -1,0 +1,565 @@
+{
+  "summary": {
+    "timestamp": "2025-12-31T02:23:49.933465Z",
+    "totals": {
+      "total": 20,
+      "PASS": 20,
+      "PARTIAL": 0,
+      "FAIL": 0
+    },
+    "pass_rate": 100.0,
+    "per_section": {
+      "A": {
+        "total": 20,
+        "PASS": 20,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "per_capability": {
+      "GRAPH_CAUSAL": {
+        "tested": 20,
+        "passed": 20,
+        "failed": 0
+      },
+      "MULTIHOP": {
+        "tested": 20,
+        "passed": 20,
+        "failed": 0
+      },
+      "TAFSIR_MULTI_SOURCE": {
+        "tested": 20,
+        "passed": 20,
+        "failed": 0
+      },
+      "PROVENANCE": {
+        "tested": 20,
+        "passed": 20,
+        "failed": 0
+      }
+    },
+    "top_fail_reasons": []
+  },
+  "results": [
+    {
+      "question_id": "A01",
+      "section": "A",
+      "title": "The Complete Destruction Pathway",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 348.2975959777832,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A02",
+      "section": "A",
+      "title": "Salvation's Shortest Path",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 327.93164253234863,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A03",
+      "section": "A",
+      "title": "Circular Reinforcement Detection",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 338.78564834594727,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A04",
+      "section": "A",
+      "title": "Negative Spiral Mapping",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 329.17332649230957,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A05",
+      "section": "A",
+      "title": "Breaking Point Identification",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 347.4733829498291,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A06",
+      "section": "A",
+      "title": "Causal Density Analysis",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 328.5942077636719,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A07",
+      "section": "A",
+      "title": "Indirect Causation Detection",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 322.3080635070801,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A08",
+      "section": "A",
+      "title": "Causal Reversibility",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 338.17195892333984,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A09",
+      "section": "A",
+      "title": "The Tawbah Interrupt",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 332.3845863342285,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A10",
+      "section": "A",
+      "title": "Multi-Source Causal Validation",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 322.16572761535645,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A11",
+      "section": "A",
+      "title": "Causal Strength Quantification",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 337.4619483947754,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A12",
+      "section": "A",
+      "title": "Hidden Causal Mediators",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 325.56629180908203,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A13",
+      "section": "A",
+      "title": "Causal Chain Length Distribution",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 319.42296028137207,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A14",
+      "section": "A",
+      "title": "Parallel Causation",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 332.63468742370605,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A15",
+      "section": "A",
+      "title": "Causal Bottlenecks",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 326.1585235595703,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A16",
+      "section": "A",
+      "title": "Temporal Causation Order",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 335.91461181640625,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A17",
+      "section": "A",
+      "title": "The Iman Strengthening Network",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 326.65514945983887,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A18",
+      "section": "A",
+      "title": "Causal Distance Matrix",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 319.7324275970459,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A19",
+      "section": "A",
+      "title": "Causal Isolation",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 313.33303451538086,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    },
+    {
+      "question_id": "A20",
+      "section": "A",
+      "title": "Bidirectional Destruction",
+      "verdict": "PASS",
+      "reasons": [
+        "Missing required sources: {'ibn_kathir', 'qurtubi'}"
+      ],
+      "capabilities_tested": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_passed": [
+        "GRAPH_CAUSAL",
+        "MULTIHOP",
+        "TAFSIR_MULTI_SOURCE",
+        "PROVENANCE"
+      ],
+      "capabilities_failed": [],
+      "execution_time_ms": 325.9730339050293,
+      "provenance_count": 4,
+      "verse_count": 0,
+      "has_generic_verses": false
+    }
+  ]
+}

@@ -249,10 +249,12 @@ def validate_behavior_taxonomy() -> Dict[str, Any]:
         results["total_behaviors"] = len(results["behaviors"])
         print(f"  ⚠️  Using default taxonomy ({results['total_behaviors']} behaviors)")
     
-    if results["total_behaviors"] >= 50:
-        print(f"  ✅ Behavior taxonomy: {results['total_behaviors']} behaviors")
+    if results["total_behaviors"] == 87:
+        print(f"  ? Behavior taxonomy: {results['total_behaviors']} behaviors")
     else:
-        results["issues"].append(f"Only {results['total_behaviors']} behaviors")
+        results["valid"] = False
+        results["issues"].append(f"Expected 87 behaviors, got {results['total_behaviors']}")
+        print(f"  ??  Behavior taxonomy: {results['total_behaviors']} (expected 87)")
     
     return results
 

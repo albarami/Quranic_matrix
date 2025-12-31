@@ -19,7 +19,7 @@ EXPECTED_VERSES = 6236
 MIN_TOKENS = 70000  # At least 70k tokens expected
 
 
-def test_artifacts_exist() -> bool:
+def check_artifacts_exist() -> bool:
     """Test that required artifacts exist."""
     artifacts = [
         Path("artifacts/quran_schema_report.json"),
@@ -37,7 +37,7 @@ def test_artifacts_exist() -> bool:
     return all_exist
 
 
-def test_quran_counts() -> bool:
+def check_quran_counts() -> bool:
     """Test that Quran counts match expected values."""
     counts_path = Path("artifacts/quran_counts.json")
 
@@ -92,7 +92,7 @@ def test_quran_counts() -> bool:
     return all_pass
 
 
-def test_schema_report_structure() -> bool:
+def check_schema_report_structure() -> bool:
     """Test that schema report has required fields."""
     report_path = Path("artifacts/quran_schema_report.json")
 
@@ -132,7 +132,7 @@ def test_schema_report_structure() -> bool:
     return all_pass
 
 
-def test_documentation_exists() -> bool:
+def check_documentation_exists() -> bool:
     """Test that required documentation exists."""
     docs = [
         Path("docs/REVERTED_PATCHES.md"),
@@ -158,19 +158,19 @@ def main() -> int:
     all_passed = True
 
     print("\n1. Testing artifacts exist...")
-    if not test_artifacts_exist():
+    if not check_artifacts_exist():
         all_passed = False
 
     print("\n2. Testing Quran counts...")
-    if not test_quran_counts():
+    if not check_quran_counts():
         all_passed = False
 
     print("\n3. Testing schema report structure...")
-    if not test_schema_report_structure():
+    if not check_schema_report_structure():
         all_passed = False
 
     print("\n4. Testing documentation exists...")
-    if not test_documentation_exists():
+    if not check_documentation_exists():
         all_passed = False
 
     print("\n" + "=" * 60)
@@ -188,3 +188,19 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+def test_artifacts_exist():
+    assert check_artifacts_exist()
+
+
+def test_quran_counts():
+    assert check_quran_counts()
+
+
+def test_schema_report_structure():
+    assert check_schema_report_structure()
+
+
+def test_documentation_exists():
+    assert check_documentation_exists()

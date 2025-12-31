@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 def _load_patience_verse_keys() -> set[str]:
-    concept_index = Path("data/evidence/concept_index_v2.jsonl")
+    concept_index = Path("data/evidence/concept_index_v3.jsonl")
     verse_keys: set[str] = set()
     with concept_index.open("r", encoding="utf-8") as f:
         for line in f:
@@ -27,7 +27,7 @@ def _load_patience_verse_keys() -> set[str]:
                 if isinstance(v, dict) and isinstance(v.get("verse_key"), str):
                     verse_keys.add(v["verse_key"])
             break
-    assert verse_keys, "Expected BEH_EMO_PATIENCE to have verse_keys in concept_index_v2.jsonl"
+    assert verse_keys, "Expected BEH_EMO_PATIENCE to have verse_keys in concept_index_v3.jsonl"
     return verse_keys
 
 
@@ -122,4 +122,3 @@ class TestCrossContextAPIContract:
         assert verse_keys, "Expected at least 1 verse for patience cross-context query"
         generic = {*(f"1:{i}" for i in range(1, 8)), *(f"2:{i}" for i in range(1, 21))}
         assert not all(vk in generic for vk in verse_keys), "Generic opening verses default detected"
-

@@ -33,6 +33,9 @@ logger = logging.getLogger(__name__)
 CANONICAL_ENTITIES_FILE = Path("vocab/canonical_entities.json")
 CONCEPT_INDEX_FILE = Path("data/evidence/concept_index_v3.jsonl")
 SEMANTIC_GRAPH_FILE = Path("data/graph/graph_v3.json")
+# NOTE: graph_v3 is the validated SSOT projection (Behavior<->Verse edges).
+# Some analytics (causal paths/cycles) still require semantic_graph_v2 until v3 includes semantic edges.
+CAUSAL_GRAPH_FILE = Path("data/graph/semantic_graph_v2.json")
 COOCCURRENCE_GRAPH_FILE = Path("data/graph/cooccurrence_graph_v1.json")
 TAFSIR_SOURCES_FILE = Path("vocab/tafsir_sources.json")
 
@@ -261,6 +264,7 @@ class LegendaryPlanner:
         self.canonical_entities = None
         self.concept_index = None
         self.semantic_graph = None
+        self.causal_graph = None
         self.cooccurrence_graph = None
         self.tafsir_sources = None
         self.term_to_entity = {}
@@ -291,6 +295,14 @@ class LegendaryPlanner:
         if SEMANTIC_GRAPH_FILE.exists():
             with open(SEMANTIC_GRAPH_FILE, "r", encoding="utf-8") as f:
                 self.semantic_graph = json.load(f)
+
+        # Load causal/semantic relations graph (v2) for path/cycle analytics
+        if CAUSAL_GRAPH_FILE.exists():
+            try:
+                with open(CAUSAL_GRAPH_FILE, "r", encoding="utf-8") as f:
+                    self.causal_graph = json.load(f)
+            except Exception as e:
+                logger.warning(f"Failed to load causal graph {CAUSAL_GRAPH_FILE}: {e}")
         
         # Load co-occurrence graph
         if COOCCURRENCE_GRAPH_FILE.exists():
@@ -412,36 +424,52 @@ class LegendaryPlanner:
     
     def get_semantic_neighbors(self, entity_id: str, edge_types: Optional[List[str]] = None) -> List[Dict[str, Any]]:
         """Get semantic graph neighbors for an entity."""
-        if not self.semantic_graph:
+        graph = self.causal_graph or self.semantic_graph
+        if not graph:
             return []
         
         neighbors = []
-        for edge in self.semantic_graph.get("edges", []):
-            if edge_types and edge["edge_type"] not in edge_types:
+        for edge in graph.get("edges", []):
+            edge_type = edge.get("edge_type") or edge.get("type")
+            if edge_types and edge_type not in edge_types:
                 continue
             
-            if edge["source"] == entity_id:
+            src = edge.get("source")
+            tgt = edge.get("target")
+            if not src or not tgt:
+                continue
+
+            confidence = edge.get("confidence")
+            if confidence is None:
+                confidence = edge.get("weight", 0.0)
+
+            evidence_count = edge.get("evidence_count")
+            if evidence_count is None:
+                evidence_count = edge.get("evidenceCount", 0)
+
+            if src == entity_id:
                 neighbors.append({
-                    "entity_id": edge["target"],
-                    "edge_type": edge["edge_type"],
+                    "entity_id": tgt,
+                    "edge_type": edge_type,
                     "direction": "outgoing",
-                    "confidence": edge["confidence"],
-                    "evidence_count": edge["evidence_count"],
+                    "confidence": confidence,
+                    "evidence_count": evidence_count,
                 })
-            elif edge["target"] == entity_id:
+            elif tgt == entity_id:
                 neighbors.append({
-                    "entity_id": edge["source"],
-                    "edge_type": edge["edge_type"],
+                    "entity_id": src,
+                    "edge_type": edge_type,
                     "direction": "incoming",
-                    "confidence": edge["confidence"],
-                    "evidence_count": edge["evidence_count"],
+                    "confidence": confidence,
+                    "evidence_count": evidence_count,
                 })
         
-        return sorted(neighbors, key=lambda x: -x["confidence"])
+        return sorted(neighbors, key=lambda x: -(x.get("confidence") or 0.0))
     
     def find_causal_paths(self, from_id: str, to_id: str, max_depth: int = 4) -> List[List[Dict[str, Any]]]:
         """Find causal paths between two entities using semantic graph."""
-        if not self.semantic_graph:
+        graph = self.causal_graph or self.semantic_graph
+        if not graph:
             return []
         
         causal_types = {"CAUSES", "LEADS_TO", "STRENGTHENS"}
@@ -450,10 +478,13 @@ class LegendaryPlanner:
         adj = {}
         edge_info = {}
         
-        for edge in self.semantic_graph.get("edges", []):
-            if edge["edge_type"] in causal_types:
-                src = edge["source"]
-                tgt = edge["target"]
+        for edge in graph.get("edges", []):
+            edge_type = edge.get("edge_type") or edge.get("type")
+            if edge_type in causal_types:
+                src = edge.get("source")
+                tgt = edge.get("target")
+                if not src or not tgt:
+                    continue
                 if src not in adj:
                     adj[src] = []
                 adj[src].append(tgt)

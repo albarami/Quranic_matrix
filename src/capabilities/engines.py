@@ -28,14 +28,14 @@ class GraphCausalEngine(CapabilityEngine):
     """
     
     capability_name = "Graph Causal Reasoning"
-    required_sources = ["semantic_graph_v2.json"]
+    required_sources = ["semantic_graph_v3.json"]
     
     def execute(self, query: str, params: Optional[Dict[str, Any]] = None) -> CapabilityResult:
         start_time = time.time()
         params = params or {}
         
         # Load graph
-        graph = self.load_graph_file("semantic_graph_v2.json")
+        graph = self.load_graph_file("semantic_graph_v3.json")
         if not graph:
             return CapabilityResult(
                 success=False,
@@ -98,7 +98,7 @@ class GraphCausalEngine(CapabilityEngine):
             result_data["sample_edges"] = edges[:10]
             provenance.append({
                 "type": "graph_file",
-                "source": "semantic_graph_v2.json",
+                "source": "semantic_graph_v3.json",
                 "edge_count": len(edges),
             })
         
@@ -562,7 +562,7 @@ class GraphMetricsEngine(CapabilityEngine):
     def execute(self, query: str, params: Optional[Dict[str, Any]] = None) -> CapabilityResult:
         start_time = time.time()
         
-        graph = self.load_graph_file("semantic_graph_v2.json")
+        graph = self.load_graph_file("semantic_graph_v3.json")
         nodes = graph.get("nodes", [])
         edges = graph.get("edges", [])
         
@@ -587,7 +587,7 @@ class GraphMetricsEngine(CapabilityEngine):
         
         provenance = [{
             "type": "graph_file",
-            "source": "semantic_graph_v2.json",
+            "source": "semantic_graph_v3.json",
         }]
         
         elapsed = (time.time() - start_time) * 1000

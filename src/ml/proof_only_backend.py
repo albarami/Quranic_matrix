@@ -9,8 +9,8 @@ This module provides a minimal proof pipeline that does NOT initialize:
 
 It uses only:
 - evidence_index_v2_chunked.jsonl (deterministic verse-key lookup)
-- concept_index_v2.jsonl (behavior -> verse mapping)
-- semantic_graph_v2.json (causal graph for path queries)
+- concept_index_v3.jsonl (validated behavior -> verse mapping)
+- semantic_graph_v3.json (enterprise causal graph for path queries)
 - canonical_entities.json (behavior term resolution)
 
 Supported intents (Benchmark Sections A-J):
@@ -246,12 +246,12 @@ class LightweightProofBackend:
         return verses.get(verse_key, f"[Verse {verse_key} - text not loaded in proof_only mode]")
     
     def _load_concept_index(self) -> Dict[str, Dict]:
-        """Load concept index (behavior_id -> verse_keys + tafsir_chunks)."""
+        """Load concept index (behavior_id -> verses with provenance)."""
         if self._concept_index is not None:
             return self._concept_index
         
         self._concept_index = {}
-        index_path = self.data_dir / "evidence" / "concept_index_v2.jsonl"
+        index_path = self.data_dir / "evidence" / "concept_index_v3.jsonl"
         if not index_path.exists():
             logging.warning(f"Concept index not found: {index_path}")
             return {}
@@ -271,7 +271,7 @@ class LightweightProofBackend:
         if self._semantic_graph is not None:
             return self._semantic_graph
         
-        graph_path = self.data_dir / "graph" / "semantic_graph_v2.json"
+        graph_path = self.data_dir / "graph" / "semantic_graph_v3.json"
         if not graph_path.exists():
             logging.warning(f"Semantic graph not found: {graph_path}")
             return {"nodes": [], "edges": []}
@@ -353,7 +353,9 @@ class LightweightProofBackend:
         
         adj: Dict[str, List[Dict]] = {}
         for edge in edges:
-            if edge.get("type") in causal_types:
+            # Check both "edge_type" (v2 format) and "type" (legacy)
+            edge_type = edge.get("edge_type") or edge.get("type")
+            if edge_type in causal_types:
                 src = edge.get("source", "")
                 if src not in adj:
                     adj[src] = []

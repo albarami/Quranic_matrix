@@ -27,6 +27,8 @@ CONCEPT_INDEX_FILE = Path("data/evidence/concept_index_v2.jsonl")
 CHUNKED_INDEX_FILE = Path("data/evidence/evidence_index_v2_chunked.jsonl")
 SEMANTIC_GRAPH_FILE = Path("data/graph/semantic_graph_v2.json")
 SCHEMA_FILE = Path("schemas/postgres_truth_layer.sql")
+QURAN_FILE = Path("data/quran/uthmani_hafs_v1.tok_v1.json")
+TAFSIR_DIR = Path("data/tafsir")
 
 # Try to import psycopg2, but make it optional
 try:
@@ -46,8 +48,10 @@ class TruthLayerLoader:
         self.dry_run = dry_run
         self.conn = None
         self.stats = {
+            "verses_loaded": 0,
             "entities_loaded": 0,
             "chunks_loaded": 0,
+            "tafsir_entries_loaded": 0,
             "mentions_loaded": 0,
             "edges_loaded": 0,
             "edge_evidence_loaded": 0,
@@ -84,6 +88,73 @@ class TruthLayerLoader:
             cur.execute(schema_sql)
         self.conn.commit()
         logger.info("Schema executed successfully")
+
+    def load_verses(self) -> int:
+        """Load Quran verses into the verses table."""
+        logger.info("Loading Quran verses...")
+
+        if not QURAN_FILE.exists():
+            logger.warning(f"Quran file not found: {QURAN_FILE}")
+            return 0
+
+        with open(QURAN_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        verses = []
+
+        if "surahs" in data:
+            for surah_data in data.get("surahs", []):
+                surah_num = surah_data.get("surah", 0)
+                for ayah_data in surah_data.get("ayat", []):
+                    ayah_num = ayah_data.get("ayah", 0)
+                    text_uthmani = ayah_data.get("text", "")
+                    tokens = ayah_data.get("tokens", [])
+                    word_count = len(tokens) if tokens else len(text_uthmani.split())
+
+                    verses.append({
+                        "surah": surah_num,
+                        "ayah": ayah_num,
+                        "text_uthmani": text_uthmani,
+                        "text_simple": ayah_data.get("text_simple", ""),
+                        "word_count": word_count,
+                    })
+        else:
+            verse_list = data if isinstance(data, list) else data.get("verses", [])
+            for v in verse_list:
+                surah = v.get("surah", v.get("sura_num", 0))
+                ayah = v.get("ayah", v.get("aya_num", 0))
+                text_uthmani = v.get("text_uthmani", v.get("text", ""))
+                word_count = len(v.get("tokens", [])) if v.get("tokens") else len(text_uthmani.split())
+
+                verses.append({
+                    "surah": surah,
+                    "ayah": ayah,
+                    "text_uthmani": text_uthmani,
+                    "text_simple": v.get("text_simple", ""),
+                    "word_count": word_count,
+                })
+
+        if self.dry_run or not self.conn:
+            logger.info(f"Would load {len(verses)} verses")
+            self.stats["verses_loaded"] = len(verses)
+            return len(verses)
+
+        insert_sql = """
+            INSERT INTO verses (surah, ayah, text_uthmani, text_simple, word_count)
+            VALUES (%(surah)s, %(ayah)s, %(text_uthmani)s, %(text_simple)s, %(word_count)s)
+            ON CONFLICT (surah, ayah) DO UPDATE SET
+                text_uthmani = EXCLUDED.text_uthmani,
+                text_simple = EXCLUDED.text_simple,
+                word_count = EXCLUDED.word_count
+        """
+
+        with self.conn.cursor() as cur:
+            execute_batch(cur, insert_sql, verses, page_size=1000)
+        self.conn.commit()
+
+        self.stats["verses_loaded"] = len(verses)
+        logger.info(f"Loaded {len(verses)} verses")
+        return len(verses)
     
     def load_entities(self) -> int:
         """Load canonical entities."""
@@ -96,6 +167,9 @@ class TruthLayerLoader:
         
         # Behaviors
         for b in data.get("behaviors", []):
+            roots = b.get("roots", [])
+            synonyms = b.get("synonyms", [])
+            evidence_mode = "lexical" if (roots or synonyms) else "annotation"
             entities.append({
                 "entity_id": b["id"],
                 "entity_type": "BEHAVIOR",
@@ -104,7 +178,11 @@ class TruthLayerLoader:
                 "category": b.get("category", ""),
                 "polarity": None,
                 "temporal": None,
-                "metadata": json.dumps({"roots": b.get("roots", [])}),
+                "roots": roots,
+                "synonyms": synonyms,
+                "evidence_mode": evidence_mode,
+                "lexical_required": bool(roots or synonyms),
+                "metadata": json.dumps({"roots": roots, "synonyms": synonyms}),
             })
         
         # Agents
@@ -117,6 +195,10 @@ class TruthLayerLoader:
                 "category": None,
                 "polarity": None,
                 "temporal": None,
+                "roots": None,
+                "synonyms": None,
+                "evidence_mode": None,
+                "lexical_required": None,
                 "metadata": None,
             })
         
@@ -130,6 +212,10 @@ class TruthLayerLoader:
                 "category": o.get("domain", ""),
                 "polarity": None,
                 "temporal": None,
+                "roots": None,
+                "synonyms": None,
+                "evidence_mode": None,
+                "lexical_required": None,
                 "metadata": None,
             })
         
@@ -143,6 +229,10 @@ class TruthLayerLoader:
                 "category": None,
                 "polarity": h.get("polarity", ""),
                 "temporal": None,
+                "roots": None,
+                "synonyms": None,
+                "evidence_mode": None,
+                "lexical_required": None,
                 "metadata": None,
             })
         
@@ -156,6 +246,10 @@ class TruthLayerLoader:
                 "category": None,
                 "polarity": c.get("polarity", ""),
                 "temporal": c.get("temporal", ""),
+                "roots": None,
+                "synonyms": None,
+                "evidence_mode": None,
+                "lexical_required": None,
                 "metadata": None,
             })
         
@@ -166,12 +260,24 @@ class TruthLayerLoader:
         
         # Insert into database
         insert_sql = """
-            INSERT INTO entities (entity_id, entity_type, label_ar, label_en, category, polarity, temporal, metadata)
-            VALUES (%(entity_id)s, %(entity_type)s, %(label_ar)s, %(label_en)s, %(category)s, %(polarity)s, %(temporal)s, %(metadata)s)
+            INSERT INTO entities (
+                entity_id, entity_type, label_ar, label_en, category,
+                polarity, temporal, roots, synonyms, evidence_mode,
+                lexical_required, metadata
+            )
+            VALUES (
+                %(entity_id)s, %(entity_type)s, %(label_ar)s, %(label_en)s, %(category)s,
+                %(polarity)s, %(temporal)s, %(roots)s, %(synonyms)s, %(evidence_mode)s,
+                %(lexical_required)s, %(metadata)s
+            )
             ON CONFLICT (entity_id) DO UPDATE SET
                 label_ar = EXCLUDED.label_ar,
                 label_en = EXCLUDED.label_en,
-                category = EXCLUDED.category
+                category = EXCLUDED.category,
+                roots = EXCLUDED.roots,
+                synonyms = EXCLUDED.synonyms,
+                evidence_mode = EXCLUDED.evidence_mode,
+                lexical_required = EXCLUDED.lexical_required
         """
         
         with self.conn.cursor() as cur:
@@ -226,6 +332,82 @@ class TruthLayerLoader:
         self.stats["chunks_loaded"] = len(chunks)
         logger.info(f"Loaded {len(chunks)} chunks")
         return len(chunks)
+
+    def load_tafsir_entries(self, sources: Optional[List[str]] = None, limit: Optional[int] = None) -> int:
+        """Load raw tafsir entries into tafsir_chunks (chunk_index=0)."""
+        logger.info("Loading raw tafsir entries...")
+
+        sources = sources or ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"]
+        entries = []
+
+        for source in sources:
+            jsonl_path = TAFSIR_DIR / f"{source}.ar.jsonl"
+            if not jsonl_path.exists():
+                logger.warning(f"Tafsir file not found: {jsonl_path}")
+                continue
+
+            with open(jsonl_path, "r", encoding="utf-8") as f:
+                for i, line in enumerate(f):
+                    if limit and i >= limit:
+                        break
+                    if not line.strip():
+                        continue
+                    try:
+                        data = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue
+
+                    ref = data.get("reference", {})
+                    surah = ref.get("surah", 0)
+                    ayah = ref.get("ayah", 0)
+                    text_ar = data.get("text_ar", "")
+                    entry_type = "surah_intro" if ayah == 0 else "verse"
+                    chunk_id = f"{source}:{surah}:{ayah}:0"
+
+                    entries.append({
+                        "chunk_id": chunk_id,
+                        "source": source,
+                        "surah": surah,
+                        "ayah": ayah,
+                        "chunk_index": 0,
+                        "text_clean": text_ar,
+                        "text_original": text_ar,
+                        "char_start": 0,
+                        "char_end": len(text_ar),
+                        "word_count": len(text_ar.split()),
+                        "entry_type": entry_type,
+                    })
+
+        if self.dry_run or not self.conn:
+            logger.info(f"Would load {len(entries)} tafsir entries")
+            self.stats["tafsir_entries_loaded"] = len(entries)
+            return len(entries)
+
+        insert_sql = """
+            INSERT INTO tafsir_chunks (
+                chunk_id, source, surah, ayah, chunk_index,
+                text_clean, text_original, char_start, char_end,
+                word_count, entry_type
+            )
+            VALUES (
+                %(chunk_id)s, %(source)s, %(surah)s, %(ayah)s, %(chunk_index)s,
+                %(text_clean)s, %(text_original)s, %(char_start)s, %(char_end)s,
+                %(word_count)s, %(entry_type)s
+            )
+            ON CONFLICT (chunk_id) DO UPDATE SET
+                text_clean = EXCLUDED.text_clean,
+                text_original = EXCLUDED.text_original,
+                word_count = EXCLUDED.word_count,
+                entry_type = EXCLUDED.entry_type
+        """
+
+        with self.conn.cursor() as cur:
+            execute_batch(cur, insert_sql, entries, page_size=1000)
+        self.conn.commit()
+
+        self.stats["tafsir_entries_loaded"] = len(entries)
+        logger.info(f"Loaded {len(entries)} tafsir entries")
+        return len(entries)
     
     def load_mentions(self) -> int:
         """Load entity mentions from concept index."""
@@ -388,7 +570,7 @@ class TruthLayerLoader:
         
         return verification
     
-    def run(self, skip_chunks: bool = False):
+    def run(self, skip_chunks: bool = False, skip_verses: bool = False, tafsir_mode: str = "chunked"):
         """Run the full load process."""
         logger.info("Starting truth layer load...")
         
@@ -396,9 +578,13 @@ class TruthLayerLoader:
         
         try:
             self.execute_schema()
+            if not skip_verses:
+                self.load_verses()
             self.load_entities()
             
-            if not skip_chunks:
+            if tafsir_mode == "raw":
+                self.load_tafsir_entries()
+            elif not skip_chunks:
                 self.load_chunks(limit=10000)  # Limit for initial load
             
             self.load_mentions()
@@ -409,8 +595,10 @@ class TruthLayerLoader:
             logger.info("\n" + "=" * 60)
             logger.info("Load Summary")
             logger.info("=" * 60)
+            logger.info(f"Verses loaded: {self.stats['verses_loaded']}")
             logger.info(f"Entities loaded: {self.stats['entities_loaded']}")
             logger.info(f"Chunks loaded: {self.stats['chunks_loaded']}")
+            logger.info(f"Tafsir entries loaded: {self.stats['tafsir_entries_loaded']}")
             logger.info(f"Mentions loaded: {self.stats['mentions_loaded']}")
             logger.info(f"Edges loaded: {self.stats['edges_loaded']}")
             logger.info(f"Edge evidence loaded: {self.stats['edge_evidence_loaded']}")
@@ -430,11 +618,18 @@ def main():
     parser.add_argument("--db-url", help="PostgreSQL connection URL")
     parser.add_argument("--dry-run", action="store_true", help="Simulate without database")
     parser.add_argument("--skip-chunks", action="store_true", help="Skip loading chunks (large)")
+    parser.add_argument("--skip-verses", action="store_true", help="Skip loading verses")
+    parser.add_argument("--tafsir-mode", choices=["chunked", "raw"], default="chunked",
+                        help="Load tafsir from chunked index or raw JSONL")
     
     args = parser.parse_args()
     
     loader = TruthLayerLoader(db_url=args.db_url, dry_run=args.dry_run)
-    stats, verification = loader.run(skip_chunks=args.skip_chunks)
+    stats, verification = loader.run(
+        skip_chunks=args.skip_chunks,
+        skip_verses=args.skip_verses,
+        tafsir_mode=args.tafsir_mode,
+    )
     
     print("\n" + "=" * 60)
     print("Truth Layer Load Complete")

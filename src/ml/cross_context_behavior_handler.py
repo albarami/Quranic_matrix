@@ -32,7 +32,8 @@ logger = logging.getLogger(__name__)
 
 # Canonical data paths
 CANONICAL_ENTITIES_FILE = Path("vocab/canonical_entities.json")
-CONCEPT_INDEX_FILE = Path("data/evidence/concept_index_v2.jsonl")
+# Phase 9 hardening: use validated v3 concept index everywhere in runtime handlers
+CONCEPT_INDEX_FILE = Path("data/evidence/concept_index_v3.jsonl")
 EVIDENCE_INDEX_FILE = Path("data/evidence/evidence_index_v2_chunked.jsonl")
 QURAN_DATA_FILE = Path("data/quran/quran_tokenized_v1.json")
 

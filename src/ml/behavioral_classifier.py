@@ -52,7 +52,21 @@ MODELS_DIR = DATA_DIR / "models"
 BASE_MODEL = "aubmindlab/bert-base-arabertv2"
 
 # 87 Behavior classes (from QBM taxonomy)
-BEHAVIOR_CLASSES = [
+def _load_behavior_classes() -> List[str]:
+    """Load behavior labels from canonical_entities.json (SSOT)."""
+    entities_path = Path(__file__).parent.parent.parent / "vocab" / "canonical_entities.json"
+    try:
+        if entities_path.exists():
+            with open(entities_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            behaviors = [b.get("ar", "") for b in data.get("behaviors", []) if b.get("ar")]
+            if behaviors:
+                return behaviors
+    except Exception as exc:
+        logger.warning(f"Failed to load canonical behaviors: {exc}")
+    return list(_FALLBACK_BEHAVIOR_CLASSES)
+
+_FALLBACK_BEHAVIOR_CLASSES = [
     # Positive behaviors (praised)
     "الإيمان", "الصبر", "الشكر", "التوبة", "التقوى", "الإحسان", "الصدق", "الأمانة",
     "العدل", "الرحمة", "التواضع", "الخشوع", "الذكر", "الدعاء", "التوكل", "الرضا",
@@ -73,6 +87,8 @@ BEHAVIOR_CLASSES = [
     # Neutral/contextual
     "السؤال", "الاستفهام", "الإخبار", "الوصف",
 ]
+
+BEHAVIOR_CLASSES = _load_behavior_classes()
 
 BEHAVIOR_TO_ID = {b: i for i, b in enumerate(BEHAVIOR_CLASSES)}
 ID_TO_BEHAVIOR = {i: b for i, b in enumerate(BEHAVIOR_CLASSES)}
