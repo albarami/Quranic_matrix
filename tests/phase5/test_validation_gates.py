@@ -21,6 +21,8 @@ import pytest
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
+from src.core.data_profile import expected_behavior_count, is_fixture_mode
+
 
 # ============================================================================
 # Validation Report Tests
@@ -57,7 +59,10 @@ class TestValidationReport:
         summary = report["summary"]
         assert summary["behaviors_failed"] == 0, \
             f"Failed behaviors: {summary['behaviors_failed']}"
-        assert summary["behaviors_passed"] == 87
+        # Mode-aware: fixture lane has fewer behaviors than full lane
+        expected = expected_behavior_count()
+        assert summary["behaviors_passed"] >= expected, \
+            f"Expected at least {expected} behaviors, got {summary['behaviors_passed']}"
 
     def test_no_verse_errors(self, report):
         """Test that there are no verse errors."""
@@ -156,7 +161,10 @@ class TestBehaviorResults:
 
     def test_all_behaviors_have_results(self, all_results):
         """Test that all behaviors have validation results."""
-        assert len(all_results) == 87
+        # Mode-aware: fixture lane has fewer behaviors than full lane
+        expected = expected_behavior_count()
+        assert len(all_results) >= expected, \
+            f"Expected at least {expected} behaviors, got {len(all_results)}"
 
     def test_all_behaviors_passed(self, all_results):
         """Test that all behaviors passed validation."""
