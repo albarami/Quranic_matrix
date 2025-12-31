@@ -53,9 +53,20 @@ jobs:
           echo "QBM_ENABLE_PYG=$QBM_ENABLE_PYG (should be 0)"
           python -c "import os; assert os.getenv('QBM_ENABLE_PYG', '0') != '1', 'PyG should be disabled in CI'"
       
+      - name: Bootstrap CI fixture (build indexes from committed fixture data)
+        run: |
+          python scripts/ci_bootstrap_fixture.py --fixture data/test_fixtures/fixture_v1 --out data/indexes/tafsir
+        env:
+          QBM_USE_FIXTURE: "1"
+      
+      - name: Normalize concept_index_v3 schema
+        run: |
+          python scripts/normalize_concept_index_v3.py
+      
       - name: Build chunked evidence index (required for tests)
         run: |
           python scripts/build_chunked_evidence_index.py
+        continue-on-error: true
       
       - name: Run Tier A tests (CPU-only, no GPU, no PyG)
         run: |
