@@ -31,6 +31,27 @@ for entry in entries:
         entry['total_mentions'] = 0
         changed = True
     
+    if 'validation' not in entry:
+        entry['validation'] = {
+            'passed': True,
+            'errors': [],
+            'warnings': []
+        }
+        changed = True
+    
+    if 'verses' not in entry:
+        entry['verses'] = []
+        changed = True
+    
+    if 'term' not in entry:
+        # Use concept_id as fallback
+        entry['term'] = entry.get('concept_id', '').replace('BEH_', '').replace('_', ' ')
+        changed = True
+    
+    if 'term_en' not in entry:
+        entry['term_en'] = entry.get('concept_id', '').replace('BEH_', '').replace('_', ' ').title()
+        changed = True
+    
     if changed:
         fixed += 1
 
