@@ -477,9 +477,12 @@ def check_clean_tree() -> Tuple[bool, int, str]:
     Returns:
         Tuple of (is_clean, uncommitted_count, details)
     """
+    # Known Windows artifacts to ignore (device names that can appear as files)
+    WINDOWS_ARTIFACTS = {"nul", "con", "prn", "aux", "com1", "lpt1"}
+    
     try:
         result = subprocess.run(
-            ["git", "status", "--porcelain"],
+            ["git", "status", "--porcelain", "--ignore-submodules"],
             capture_output=True,
             text=True,
             cwd=PROJECT_ROOT,
@@ -490,8 +493,20 @@ def check_clean_tree() -> Tuple[bool, int, str]:
             if not output:
                 return True, 0, "Clean tree"
             
+            # Filter out Windows device name artifacts
             lines = output.split('\n')
-            return False, len(lines), output
+            filtered_lines = []
+            for line in lines:
+                # Extract filename from porcelain output (format: "XY filename")
+                if len(line) >= 3:
+                    filename = line[3:].strip()
+                    if filename.lower() not in WINDOWS_ARTIFACTS:
+                        filtered_lines.append(line)
+            
+            if not filtered_lines:
+                return True, 0, "Clean tree (Windows artifacts ignored)"
+            
+            return False, len(filtered_lines), '\n'.join(filtered_lines)
     except Exception as e:
         return False, -1, str(e)
     
