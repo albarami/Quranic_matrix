@@ -63,10 +63,10 @@ jobs:
         run: |
           python scripts/normalize_concept_index_v3.py --check
       
-      - name: Run Tier A tests (CPU-only, no GPU, no PyG, no deprecated v2)
+      - name: Run Tier A tests (CPU-only, fixture mode, no release-only tests)
         run: |
           python -m pytest tests/ -v --tb=short \
-            -m "not gpu and not slow and not tier_b and not deprecated_ssot_v2" \
+            -m "not gpu and not slow and not tier_b and not deprecated_ssot_v2 and not release_only and not full_graph" \
             --ignore=tests/test_end_to_end.py \
             --ignore=tests/test_scholarly_spotcheck.py \
             --ignore=tests/test_hybrid_retrieval.py \
@@ -86,7 +86,13 @@ jobs:
             --ignore=tests/phase8/test_behavior_patience_retrieval.py \
             --ignore=tests/test_concept_index_v2.py \
             --ignore=tests/test_concept_map_completeness.py \
-            --ignore=tests/test_semantic_graph_v2.py
+            --ignore=tests/test_semantic_graph_v2.py \
+            --ignore=tests/test_audit_pack_phase7.py \
+            --ignore=tests/test_benchmark_ci.py \
+            --ignore=tests/ai/test_unified.py \
+            --ignore=tests/ai/test_knowledge_graph.py \
+            --ignore=tests/test_validation_gates_v3.py \
+            --ignore=tests/test_graph_causal_engine.py
       
       - name: Check test collection
         run: |

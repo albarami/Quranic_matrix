@@ -79,18 +79,39 @@ class GraphCausalEngine(CapabilityEngine):
             for path in paths[:5]:  # Limit to top 5 paths
                 for edge in path.get("edges", []):
                     for ev in edge.get("evidence", []):
-                        verse_key = f"{ev.get('surah')}:{ev.get('ayah')}"
+                        # Handle both dict and string evidence entries
+                        if isinstance(ev, str):
+                            # Parse "surah:ayah" string format
+                            if ":" in ev:
+                                parts = ev.split(":")
+                                try:
+                                    surah = int(parts[0])
+                                    ayah = int(parts[1])
+                                    verse_key = ev
+                                    source = None
+                                except (ValueError, IndexError):
+                                    continue
+                            else:
+                                continue
+                        elif isinstance(ev, dict):
+                            surah = ev.get("surah")
+                            ayah = ev.get("ayah")
+                            verse_key = f"{surah}:{ayah}"
+                            source = ev.get("source")
+                        else:
+                            continue
+                        
                         if verse_key not in GENERIC_OPENING_VERSES:
                             verses.append({
                                 "verse_key": verse_key,
-                                "surah": ev.get("surah"),
-                                "ayah": ev.get("ayah"),
-                                "source": ev.get("source"),
+                                "surah": surah,
+                                "ayah": ayah,
+                                "source": source,
                             })
                             provenance.append({
                                 "type": "edge_evidence",
                                 "edge": f"{edge.get('source')} -> {edge.get('target')}",
-                                "source": ev.get("source"),
+                                "source": source,
                                 "verse_key": verse_key,
                             })
         else:
