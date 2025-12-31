@@ -1,18 +1,18 @@
 {
   "version": "2.0.0",
-  "generated_at": "2025-12-31T03:18:12.342863+00:00",
+  "generated_at": "2025-12-31T03:32:32.618084+00:00",
   "generator": "scripts/generate_audit_pack.py",
-  "git_commit": "776eafd0f235595399ed65f3404182cd0fcedc4e",
+  "git_commit": "96d0aa32707c18a0a6352af2abe09777158b647c",
   "strict_mode": true,
   "input_hashes": {
-    "generated_at": "2025-12-31T03:18:12.571451+00:00",
+    "generated_at": "2025-12-31T03:32:32.738680+00:00",
     "file_count": 10,
     "files": {
       "canonical_entities": {
         "exists": true,
         "path": "vocab\\canonical_entities.json",
         "size_bytes": 64306,
-        "modified_at": "2025-12-30T21:10:44.741433+00:00",
+        "modified_at": "2025-12-31T03:25:07.399071+00:00",
         "sha256": "838a19c081b4031ab20083fed67e2d95f3db7ad5cdb824fbceaeb3e12d2bc54d"
       },
       "postgres_schema": {
@@ -83,7 +83,7 @@
     "missing_ssot": []
   },
   "output_hashes": {
-    "generated_at": "2025-12-31T03:18:15.161868+00:00",
+    "generated_at": "2025-12-31T03:32:35.206334+00:00",
     "file_count": 6,
     "files": {
       "semantic_graph_v3": {
@@ -97,14 +97,14 @@
         "exists": true,
         "path": "data\\evidence\\concept_index_v3.jsonl",
         "size_bytes": 6187952,
-        "modified_at": "2025-12-31T02:12:04.891188+00:00",
+        "modified_at": "2025-12-31T03:25:06.834568+00:00",
         "sha256": "420aac64968f733266d467e9bc9f3ab64e321656026ce5dd7c3419be57dac323"
       },
       "behavior_dossiers": {
         "exists": true,
         "path": "data\\kb\\behavior_dossiers.jsonl",
         "size_bytes": 89399847,
-        "modified_at": "2025-12-30T20:30:38.099205+00:00",
+        "modified_at": "2025-12-31T03:25:07.377299+00:00",
         "sha256": "e143cca571da36bbe75cb005ccb2501d5bf95d05b4a725deb1afadbb77cfe5ed"
       },
       "kb_manifest": {
@@ -131,7 +131,7 @@
     }
   },
   "gpu_proof": {
-    "generated_at": "2025-12-31T03:18:15.163467+00:00",
+    "generated_at": "2025-12-31T03:32:35.207335+00:00",
     "torch_available": true,
     "cuda_available": true,
     "device_count": 8,
@@ -199,7 +199,7 @@
     "nvidia_smi_output": "NVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14\nNVIDIA A100-SXM4-80GB, 81920 MiB, 531.14"
   },
   "provenance": {
-    "generated_at": "2025-12-31T03:18:20.942950+00:00",
+    "generated_at": "2025-12-31T03:32:38.729918+00:00",
     "behaviors": {
       "canonical_count": 87,
       "agents_count": 14,
@@ -238,7 +238,7 @@
     }
   },
   "system_info": {
-    "generated_at": "2025-12-31T03:18:22.447274+00:00",
+    "generated_at": "2025-12-31T03:32:40.231645+00:00",
     "platform": {
       "system": "Windows",
       "release": "10",
@@ -247,11 +247,11 @@
       "processor": "AMD64 Family 23 Model 49 Stepping 0, AuthenticAMD",
       "python_version": "3.11.8"
     },
-    "git_commit": "776eafd0f235595399ed65f3404182cd0fcedc4e",
-    "git_commit_short": "776eafd",
-    "git_describe": "v2.0.1-47-g776eafd",
+    "git_commit": "96d0aa32707c18a0a6352af2abe09777158b647c",
+    "git_commit_short": "96d0aa3",
+    "git_describe": "v2.0.1-51-g96d0aa3",
     "has_uncommitted_changes": true,
-    "uncommitted_files_count": 82,
+    "uncommitted_files_count": 8,
     "environment": {}
   },
   "benchmark": {
