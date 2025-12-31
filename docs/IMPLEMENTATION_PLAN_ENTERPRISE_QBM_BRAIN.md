@@ -1,10 +1,32 @@
 # Enterprise QBM Brain Implementation Plan
 
-> **Version**: 4.0  
+> **Version**: 5.0  
 > **Created**: 2025-12-30  
 > **Updated**: 2025-12-31  
-> **Status**: Enterprise Model Implemented - CI Enforcement Active  
+> **Status**: ✅ ENTERPRISE RELEASE COMPLETE - Academically Defensible  
 > **Goal**: Zero-hallucination, Arabic-first, academically defensible system for the 200-question benchmark
+
+---
+
+## Release Validation Checklist
+
+A release is valid only if the CI artifact contains:
+
+| Requirement | Field | Expected Value |
+|-------------|-------|----------------|
+| Clean tree | `has_uncommitted_changes` | `false` |
+| Commit match | `git_commit` | `== HEAD` |
+| Benchmark | `benchmark_results` | `200/200` |
+| GPU claimed | `gpu_compute_claimed` | `true` (if GPU release) |
+| GPU valid | `gpu_proof_valid` | `true` (if GPU claimed) |
+| GPU accuracy | `gpus_utilized` | Accurate indices (no false multi-GPU claims) |
+
+### Release Artifacts
+
+| Artifact | Description |
+|----------|-------------|
+| `audit_pack.zip` | CPU release (no GPU proof) |
+| `audit_pack_gpu.zip` | GPU release with verified GPU computation proof |
 
 ---
 
