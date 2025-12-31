@@ -48,7 +48,8 @@ def generate_causal_chain_output(backend, source_term, target_term):
     if not source_id or not target_id:
         return {"error": f"Could not resolve terms: {source_term} -> {target_term}"}
     
-    paths = backend._find_causal_paths(source_id, target_id, min_hops=2, max_hops=5)
+    # A01 requires minimum 3 hops per benchmark spec
+    paths = backend._find_causal_paths(source_id, target_id, min_hops=3, max_hops=5)
     
     output = {
         "source_term": source_term,

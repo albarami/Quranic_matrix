@@ -4,7 +4,7 @@
   "title": "The Complete Destruction Pathway",
   "question_ar": "Trace ALL distinct causal chains (minimum 3 hops) from الغفلة (heedlessness) to الكفر (disbelief). For each chain, provide: intermediate behaviors, verse evidence for each link, and tafsir from Ibn Kathir and Qurtubi confirming the causal relationship.",
   "question_en": "Trace ALL distinct causal chains (minimum 3 hops) from الغفلة (heedlessness) to الكفر (disbelief). For each chain, provide: intermediate behaviors, verse evidence for each link, and tafsir from Ibn Kathir and Qurtubi confirming the causal relationship.",
-  "generated_at": "2025-12-31T05:38:19.688754+00:00",
+  "generated_at": "2025-12-31T06:05:06.536694+00:00",
   "capabilities": [
     "GRAPH_CAUSAL",
     "MULTIHOP",
@@ -18,78 +18,6 @@
     "target_id": "BEH_SPI_DISBELIEF",
     "paths_found": 20,
     "paths": [
-      {
-        "nodes": [
-          "BEH_COG_HEEDLESSNESS",
-          "AGT_ALLAH",
-          "BEH_SPI_DISBELIEF"
-        ],
-        "edges": [
-          {
-            "source": "BEH_COG_HEEDLESSNESS",
-            "target": "AGT_ALLAH",
-            "edge_type": "CAUSES",
-            "confidence": 0.56,
-            "evidence_count": 2,
-            "sample_evidence": [
-              {
-                "source": "qurtubi",
-                "verse_key": "7:190",
-                "quote_preview": "رتب في أن المحبوس على القتل أشد حالا من المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون"
-              },
-              {
-                "source": "qurtubi",
-                "verse_key": "7:190",
-                "quote_preview": "ن المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون الموت من قبل أن تلقوه فقد رأيتموه وأنت"
-              }
-            ]
-          },
-          {
-            "source": "AGT_ALLAH",
-            "target": "BEH_SPI_DISBELIEF",
-            "edge_type": "CAUSES",
-            "confidence": 0.95,
-            "evidence_count": 5,
-            "sample_evidence": [
-              {
-                "source": "muyassar",
-                "verse_key": "2:7",
-                "quote_preview": "طبع الله على قلوب هؤلاء وعلى سمعهم، وجعل على أبصارهم غطاء; بسبب كفرهم وعنادهم مِن بعد ما تبيَّن لهم الحق، فلم يوفقهم للهدى، ولهم عذاب شديد في ن"
-              },
-              {
-                "source": "muyassar",
-                "verse_key": "2:7",
-                "quote_preview": "طبع الله على قلوب هؤلاء وعلى سمعهم، وجعل على أبصارهم غطاء; بسبب كفرهم وعنادهم مِن بعد ما تبيَّن لهم الحق، فلم يوفقهم للهدى، ولهم عذاب شديد في ن"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "nodes": [
-          "BEH_COG_HEEDLESSNESS",
-          "BEH_SOC_TRANSGRESSION",
-          "BEH_SPI_DISBELIEF"
-        ],
-        "edges": [
-          {
-            "source": "BEH_COG_HEEDLESSNESS",
-            "target": "BEH_SOC_TRANSGRESSION",
-            "edge_type": "LEADS_TO",
-            "confidence": 0.85,
-            "evidence_count": 3,
-            "sample_evidence": []
-          },
-          {
-            "source": "BEH_SOC_TRANSGRESSION",
-            "target": "BEH_SPI_DISBELIEF",
-            "edge_type": "LEADS_TO",
-            "confidence": 0.85,
-            "evidence_count": 3,
-            "sample_evidence": []
-          }
-        ]
-      },
       {
         "nodes": [
           "BEH_COG_HEEDLESSNESS",
@@ -286,6 +214,140 @@
                 "source": "saadi",
                 "verse_key": "2:7",
                 "quote_preview": "وهذه طرق العلم والخير, قد سدت عليهم, فلا مطمع فيهم, ولا خير يرجي عندهم، وانما منعوا ذلك, وسدت عنهم ابواب الايمان بسبب كفرهم وجحودهم ومعاندتهم بعد ما تبين لهم الحق,"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nodes": [
+          "BEH_COG_HEEDLESSNESS",
+          "AGT_ALLAH",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_SPI_DISBELIEF"
+        ],
+        "edges": [
+          {
+            "source": "BEH_COG_HEEDLESSNESS",
+            "target": "AGT_ALLAH",
+            "edge_type": "CAUSES",
+            "confidence": 0.56,
+            "evidence_count": 2,
+            "sample_evidence": [
+              {
+                "source": "qurtubi",
+                "verse_key": "7:190",
+                "quote_preview": "رتب في أن المحبوس على القتل أشد حالا من المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون"
+              },
+              {
+                "source": "qurtubi",
+                "verse_key": "7:190",
+                "quote_preview": "ن المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون الموت من قبل أن تلقوه فقد رأيتموه وأنت"
+              }
+            ]
+          },
+          {
+            "source": "AGT_ALLAH",
+            "target": "BEH_COG_UNDERSTANDING",
+            "edge_type": "CAUSES",
+            "confidence": 0.95,
+            "evidence_count": 5,
+            "sample_evidence": [
+              {
+                "source": "muyassar",
+                "verse_key": "2:7",
+                "quote_preview": "طبع الله على قلوب هؤلاء وعلى سمعهم، وجعل على أبصارهم غطاء; بسبب كفرهم وعنادهم مِن بعد ما تبيَّن لهم الحق، فلم يوفقهم للهدى، ولهم عذاب شديد في ن"
+              },
+              {
+                "source": "muyassar",
+                "verse_key": "2:7",
+                "quote_preview": "طبع الله على قلوب هؤلاء وعلى سمعهم، وجعل على أبصارهم غطاء; بسبب كفرهم وعنادهم مِن بعد ما تبيَّن لهم الحق، فلم يوفقهم للهدى، ولهم عذاب شديد في ن"
+              }
+            ]
+          },
+          {
+            "source": "BEH_COG_UNDERSTANDING",
+            "target": "BEH_SPI_DISBELIEF",
+            "edge_type": "CAUSES",
+            "confidence": 0.94,
+            "evidence_count": 5,
+            "sample_evidence": [
+              {
+                "source": "saadi",
+                "verse_key": "4:78",
+                "quote_preview": "ِيثًا } اي: لا يفهمون حديثا بالكليه ولا يقربون من فهمه، او لا يفهمون منه الا فهمًا ضعيفًا، وعلي كل فهو ذم لهم وتوبيخ علي عدم فهمهم وفقههم عن الله وعن رسوله، وذلك بس"
+              },
+              {
+                "source": "saadi",
+                "verse_key": "4:78",
+                "quote_preview": "يثًا } اي: لا يفهمون حديثا بالكليه ولا يقربون من فهمه، او لا يفهمون منه الا فهمًا ضعيفًا، وعلي كل فهو ذم لهم وتوبيخ علي عدم فهمهم وفقههم عن الله وعن رسوله، وذلك بس"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nodes": [
+          "BEH_COG_HEEDLESSNESS",
+          "AGT_ALLAH",
+          "CSQ_NAAR",
+          "BEH_SPI_DISBELIEF"
+        ],
+        "edges": [
+          {
+            "source": "BEH_COG_HEEDLESSNESS",
+            "target": "AGT_ALLAH",
+            "edge_type": "CAUSES",
+            "confidence": 0.56,
+            "evidence_count": 2,
+            "sample_evidence": [
+              {
+                "source": "qurtubi",
+                "verse_key": "7:190",
+                "quote_preview": "رتب في أن المحبوس على القتل أشد حالا من المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون"
+              },
+              {
+                "source": "qurtubi",
+                "verse_key": "7:190",
+                "quote_preview": "ن المريض ، وإنكار ذلك غفلة في النظر ; فإن سبب الموت موجود عندهما ، كما أن المرض سبب الموت ، قال الله تعالى : ولقد كنتم تمنون الموت من قبل أن تلقوه فقد رأيتموه وأنت"
+              }
+            ]
+          },
+          {
+            "source": "AGT_ALLAH",
+            "target": "CSQ_NAAR",
+            "edge_type": "CAUSES",
+            "confidence": 0.95,
+            "evidence_count": 5,
+            "sample_evidence": [
+              {
+                "source": "muyassar",
+                "verse_key": "2:7",
+                "quote_preview": "طبع الله على قلوب هؤلاء وعلى سمعهم، وجعل على أبصارهم غطاء; بسبب كفرهم وعنادهم مِن بعد ما تبيَّن لهم الحق، فلم يوفقهم للهدى، ولهم عذاب شديد في ن"
+              },
+              {
+                "source": "muyassar",
+                "verse_key": "2:7",
+                "quote_preview": "طبع الله على قلوب هؤلاء وعلى سمعهم، وجعل على أبصارهم غطاء; بسبب كفرهم وعنادهم مِن بعد ما تبيَّن لهم الحق، فلم يوفقهم للهدى، ولهم عذاب شديد في ن"
+              }
+            ]
+          },
+          {
+            "source": "CSQ_NAAR",
+            "target": "BEH_SPI_DISBELIEF",
+            "edge_type": "CAUSES",
+            "confidence": 0.95,
+            "evidence_count": 5,
+            "sample_evidence": [
+              {
+                "source": "jalalayn",
+                "verse_key": "2:176",
+                "quote_preview": "«ذلك» الذي ذكر من أكلهم النار وما بعده «بأن» بسبب أن «الله نزَّل الكتاب بالحق» متعلق بنزل فاختلفوا فيه حيث آمنوا ببعضه وكفروا ببع"
+              },
+              {
+                "source": "jalalayn",
+                "verse_key": "2:176",
+                "quote_preview": "«ذلك» الذي ذكر من أكلهم النار وما بعده «بأن» بسبب أن «الله نزَّل الكتاب بالحق» متعلق بنزل فاختلفوا فيه حيث آمنوا ببعضه وكفروا ببع"
               }
             ]
           }
