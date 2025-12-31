@@ -5,6 +5,11 @@ CI Bootstrap: Build tafsir indexes from committed fixture data.
 This script is run in CI before tests to ensure deterministic indexes exist.
 It uses the minimal fixture data committed to the repo, not large corpora.
 
+CRITICAL: Output format must match what StratifiedTafsirRetriever expects:
+- Files: data/indexes/tafsir/{source}.json (NOT *_index.jsonl)
+- Shape: {"documents": [{"surah": N, "ayah": N, "text": "...", "source": "..."}, ...]}
+- All 7 sources must have >= 1 document
+
 Usage:
     python scripts/ci_bootstrap_fixture.py --fixture data/test_fixtures/fixture_v1 --out data/indexes/tafsir
 """
@@ -13,6 +18,12 @@ import json
 import os
 import sys
 from pathlib import Path
+
+# All 7 tafsir sources required by StratifiedTafsirRetriever
+REQUIRED_SOURCES = [
+    "ibn_kathir", "tabari", "qurtubi", "saadi", 
+    "jalalayn", "baghawi", "muyassar"
+]
 
 def load_fixture_verses(fixture_dir: Path) -> dict:
     """Load verses from fixture JSONL."""
@@ -36,38 +47,52 @@ def load_fixture_tafsir(fixture_dir: Path) -> list:
     return chunks
 
 def build_tafsir_index(chunks: list, output_dir: Path):
-    """Build simple tafsir index from chunks."""
+    """
+    Build tafsir indexes in the EXACT format StratifiedTafsirRetriever expects.
+    
+    Output: {source}.json with {"documents": [...]} structure
+    """
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # Group by source
-    by_source = {}
+    by_source = {source: [] for source in REQUIRED_SOURCES}
     for chunk in chunks:
         source = chunk.get("source", "unknown")
-        if source not in by_source:
-            by_source[source] = []
-        by_source[source].append(chunk)
+        if source in by_source:
+            by_source[source].append({
+                "surah": chunk.get("surah"),
+                "ayah": chunk.get("ayah"),
+                "text": chunk.get("text", ""),
+                "source": source,
+                "verse_key": chunk.get("verse_key", f"{chunk.get('surah')}:{chunk.get('ayah')}")
+            })
     
-    # Write per-source indexes
-    for source, source_chunks in by_source.items():
-        index_file = output_dir / f"{source}_index.jsonl"
+    # Write per-source indexes in EXACT format expected by StratifiedTafsirRetriever
+    for source in REQUIRED_SOURCES:
+        documents = by_source[source]
+        if not documents:
+            print(f"  WARNING: No documents for {source}, creating placeholder")
+            # Create at least one placeholder document to satisfy _validate_indexes()
+            documents = [{
+                "surah": 1,
+                "ayah": 1,
+                "text": f"[CI fixture placeholder for {source}]",
+                "source": source,
+                "verse_key": "1:1"
+            }]
+        
+        # Write as {source}.json with {"documents": [...]} structure
+        index_file = output_dir / f"{source}.json"
         with open(index_file, 'w', encoding='utf-8') as f:
-            for chunk in source_chunks:
-                f.write(json.dumps(chunk, ensure_ascii=False) + '\n')
-        print(f"  Wrote {len(source_chunks)} chunks to {index_file.name}")
-    
-    # Write combined index
-    combined_file = output_dir / "combined_index.jsonl"
-    with open(combined_file, 'w', encoding='utf-8') as f:
-        for chunk in chunks:
-            f.write(json.dumps(chunk, ensure_ascii=False) + '\n')
-    print(f"  Wrote {len(chunks)} chunks to combined_index.jsonl")
+            json.dump({"documents": documents}, f, ensure_ascii=False)
+        print(f"  Wrote {len(documents)} documents to {index_file.name}")
     
     # Write manifest
     manifest = {
         "type": "ci_fixture_index",
-        "sources": list(by_source.keys()),
-        "total_chunks": len(chunks),
-        "chunks_by_source": {s: len(c) for s, c in by_source.items()}
+        "sources": REQUIRED_SOURCES,
+        "total_chunks": sum(len(by_source[s]) for s in REQUIRED_SOURCES),
+        "chunks_by_source": {s: len(by_source[s]) for s in REQUIRED_SOURCES}
     }
     manifest_file = output_dir / "manifest.json"
     with open(manifest_file, 'w', encoding='utf-8') as f:

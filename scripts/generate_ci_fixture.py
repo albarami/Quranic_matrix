@@ -105,15 +105,22 @@ def extract_fixture_verses(quran_data: Dict, key_verses: List[tuple]) -> List[Di
     return sorted(verses, key=lambda x: (x["surah"], x["ayah"]))
 
 def generate_minimal_tafsir(verses: List[Dict]) -> List[Dict]:
-    """Generate minimal tafsir chunks for fixture verses."""
+    """
+    Generate minimal tafsir chunks for fixture verses.
+    
+    CRITICAL: Must include ALL 7 sources required by StratifiedTafsirRetriever.
+    """
     tafsir_chunks = []
     
-    # Simulated tafsir sources
-    sources = ["ibn_kathir", "tabari", "qurtubi", "saadi", "baghawi"]
+    # All 7 tafsir sources required by StratifiedTafsirRetriever
+    sources = [
+        "ibn_kathir", "tabari", "qurtubi", "saadi", 
+        "jalalayn", "baghawi", "muyassar"
+    ]
     
     for verse in verses:
         key = verse["key"]
-        for source in sources[:3]:  # Use 3 sources per verse to keep small
+        for source in sources:  # ALL 7 sources for each verse
             tafsir_chunks.append({
                 "verse_key": key,
                 "surah": verse["surah"],
@@ -181,7 +188,7 @@ def main():
         "description": "Minimal CI test fixture - deterministic, committed to repo",
         "verses_count": len(verses),
         "tafsir_chunks_count": len(tafsir_chunks),
-        "tafsir_sources": ["ibn_kathir", "tabari", "qurtubi"],
+        "tafsir_sources": ["ibn_kathir", "tabari", "qurtubi", "saadi", "jalalayn", "baghawi", "muyassar"],
         "key_behaviors_covered": [
             "patience", "gratitude", "prayer", "truthfulness",
             "envy", "remembrance", "disbelief", "faith"

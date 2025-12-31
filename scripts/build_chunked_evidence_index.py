@@ -12,15 +12,24 @@ Chunking strategy:
 - Stable chunk_id derivation
 - Store offsets and cleaned text
 
+CI Fixture Mode (QBM_USE_FIXTURE=1):
+- Builds from data/test_fixtures/fixture_v1/tafsir_chunks.jsonl
+- No dependency on large data/tafsir/*.ar.jsonl files
+
 Output: data/evidence/evidence_index_v2_chunked.jsonl
 """
 
 import json
 import hashlib
+import os
 import re
 from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List, Any, Tuple
+
+# Check for CI fixture mode
+USE_FIXTURE = os.getenv("QBM_USE_FIXTURE", "0") == "1"
+FIXTURE_DIR = Path("data/test_fixtures/fixture_v1")
 
 # Version info
 BUILD_VERSION = "2.0.0"
@@ -154,8 +163,65 @@ def load_tafsir_source(source: str) -> List[Dict[str, Any]]:
     return entries
 
 
+def build_from_fixture() -> Dict[str, Any]:
+    """Build chunked evidence index from CI fixture (no large corpora needed)."""
+    print("=" * 60)
+    print("Building Chunked Evidence Index from CI Fixture")
+    print("=" * 60)
+    
+    fixture_file = FIXTURE_DIR / "tafsir_chunks.jsonl"
+    if not fixture_file.exists():
+        print(f"ERROR: Fixture file not found: {fixture_file}")
+        return {}
+    
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    created_at = datetime.now(timezone.utc).isoformat()
+    
+    all_entries = []
+    with open(fixture_file, 'r', encoding='utf-8') as f:
+        for line in f:
+            chunk = json.loads(line)
+            # Convert fixture format to evidence index format
+            entry = {
+                'verse_key': chunk.get('verse_key', f"{chunk['surah']}:{chunk['ayah']}"),
+                'surah': chunk['surah'],
+                'ayah': chunk['ayah'],
+                'source': chunk['source'],
+                'chunk_id': chunk.get('chunk_id', f"{chunk['source']}_{chunk['surah']}_{chunk['ayah']}_0"),
+                'chunk_index': 0,
+                'total_chunks': 1,
+                'char_start': chunk.get('char_start', 0),
+                'char_end': chunk.get('char_end', len(chunk.get('text', ''))),
+                'text_clean': chunk.get('text', ''),
+                'char_count': len(chunk.get('text', '')),
+                'content_hash': hashlib.md5(chunk.get('text', '').encode()).hexdigest()[:12],
+                'build_version': BUILD_VERSION,
+                'extractor_version': EXTRACTOR_VERSION,
+                'chunker_version': CHUNKER_VERSION,
+                'created_at': created_at,
+            }
+            all_entries.append(entry)
+    
+    # Sort for deterministic output
+    all_entries.sort(key=lambda x: (x['surah'], x['ayah'], x['source'], x['chunk_index']))
+    
+    # Write output
+    print(f"Writing {len(all_entries)} chunks to {OUTPUT_FILE}...")
+    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+        for entry in all_entries:
+            f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+    
+    print(f"✓ Built chunked evidence index from fixture ({len(all_entries)} entries)")
+    return {'total_chunks': len(all_entries), 'source': 'fixture'}
+
+
 def build_chunked_evidence_index() -> Dict[str, Any]:
     """Build the chunked evidence index."""
+    
+    # Use fixture mode if enabled (CI environment)
+    if USE_FIXTURE:
+        print("QBM_USE_FIXTURE=1 detected, building from fixture...")
+        return build_from_fixture()
     
     print("=" * 60)
     print("Building Chunked Evidence Index v2")
