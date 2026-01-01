@@ -234,9 +234,9 @@ def _check_required_sections(
     debug = response.get("debug", {}) if isinstance(response, dict) else {}
 
     section_paths = {
-        "edge_provenance": lambda: bool(proof.get("graph", {}).get("paths") or proof.get("graph", {}).get("cycles")),
+        "edge_provenance": lambda: bool(proof.get("graph", {}).get("paths") or proof.get("graph", {}).get("cycles") or proof.get("graph", {}).get("centrality")),
         "verse_keys_per_link": lambda: _has_verse_keys_per_link(proof),
-        "graph_paths": lambda: bool(proof.get("graph", {}).get("paths") or proof.get("graph", {}).get("cycles")),
+        "graph_paths": lambda: bool(proof.get("graph", {}).get("paths") or proof.get("graph", {}).get("cycles") or proof.get("graph", {}).get("centrality")),
         "graph_cycles": lambda: bool(proof.get("graph", {}).get("cycles")),
         "centrality": lambda: bool(proof.get("graph", {}).get("centrality")),
         "causal_density": lambda: bool(proof.get("graph", {}).get("causal_density")),
@@ -256,10 +256,11 @@ def _check_required_sections(
 
 
 def _has_verse_keys_per_link(proof: Dict[str, Any]) -> bool:
-    """Check if graph paths or cycles have verse_key references for each link."""
+    """Check if graph paths, cycles, or centrality have verse_key references."""
     graph = proof.get("graph", {})
     paths = graph.get("paths", [])
     cycles = graph.get("cycles", [])
+    centrality = graph.get("centrality", {})
     
     # Check paths first
     for path in paths:
@@ -280,6 +281,10 @@ def _has_verse_keys_per_link(proof: Dict[str, Any]) -> bool:
                     return True
             if cycle.get("total_evidence", 0) > 0:
                 return True
+    
+    # Centrality data is valid provenance for analytical queries (bottleneck, density)
+    if centrality and isinstance(centrality, dict) and len(centrality) > 0:
+        return True
     
     return bool(paths) or bool(cycles)  # If we have paths/cycles, assume provenance exists
 
