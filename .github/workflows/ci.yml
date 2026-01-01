@@ -406,10 +406,22 @@ jobs:
       QBM_USE_FIXTURE: "0"
       # Local SSOT directory on self-hosted runner
       QBM_SSOT_DIR: "D:\\Quran_matrix\\ssot_full"
+      # Python encoding for Windows compatibility
+      PYTHONUTF8: "1"
+      PYTHONIOENCODING: "utf-8"
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      
+      - name: Print runner info
+        run: |
+          echo "Runner: $env:RUNNER_NAME"
+          echo "OS: $env:RUNNER_OS"
+          echo "Labels: self-hosted, windows, qbm"
+          echo "QBM_DATASET_MODE: $env:QBM_DATASET_MODE"
+          echo "QBM_SSOT_DIR: $env:QBM_SSOT_DIR"
+        shell: pwsh
       
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -420,6 +432,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+      
+      - name: Preflight checks (fail fast)
+        run: |
+          echo "Running preflight checks..."
+          python scripts/preflight_full_release.py
+        shell: pwsh
       
       - name: Resolve SSOT from local directory
         run: |
