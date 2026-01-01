@@ -585,8 +585,9 @@ def score_benchmark_item(
         if not paths and not cycles:
             missing.append("multihop_no_paths")
         elif min_hops > 0:
-            # Check all paths meet min_hops requirement
+            # Check paths and cycles meet min_hops requirement
             qualifying_paths = 0
+            # Check paths
             for p in paths:
                 if isinstance(p, dict):
                     hops = p.get("hops", 0)
@@ -594,6 +595,16 @@ def score_benchmark_item(
                         hops = len(p["edges"])
                     if not hops and isinstance(p.get("nodes"), list):
                         hops = max(0, len(p["nodes"]) - 1)
+                    if hops >= min_hops:
+                        qualifying_paths += 1
+            # Check cycles (cycles are inherently multi-hop: A→B→C→A = 3 hops)
+            for c in cycles:
+                if isinstance(c, dict):
+                    hops = c.get("length", 0)
+                    if not hops and isinstance(c.get("edges"), list):
+                        hops = len(c["edges"])
+                    if not hops and isinstance(c.get("nodes"), list):
+                        hops = max(0, len(c["nodes"]) - 1)
                     if hops >= min_hops:
                         qualifying_paths += 1
             result.metrics["multihop_qualifying_paths"] = qualifying_paths
