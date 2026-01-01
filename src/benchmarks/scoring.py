@@ -597,8 +597,9 @@ def score_benchmark_item(
         graph = proof.get("graph", {})
         paths = graph.get("paths", [])
         cycles = graph.get("cycles", [])
-        # Accept either paths or cycles for MULTIHOP (cycles are valid multi-hop structures)
-        if not paths and not cycles:
+        centrality = graph.get("centrality", {})
+        # Accept paths, cycles, or centrality for MULTIHOP (analytical queries use centrality)
+        if not paths and not cycles and not centrality:
             missing.append("multihop_no_paths")
         elif min_hops > 0:
             # Check paths and cycles meet min_hops requirement
