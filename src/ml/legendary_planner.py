@@ -567,9 +567,14 @@ class LegendaryPlanner:
     def find_all_cycles(self, min_length: int = 3, max_length: int = 5) -> Dict[str, Any]:
         """
         Find ALL reinforcement cycles in the graph (A→B→C→A patterns).
-        Entity-free: operates over entire semantic graph.
+        Entity-free: operates over entire causal graph.
+        
+        Uses causal_graph (semantic_graph_v2.json) which has CAUSES/LEADS_TO/STRENGTHENS edges,
+        not semantic_graph (graph_v3.json) which only has MENTIONED_IN edges.
         """
-        if not self.semantic_graph:
+        # Use causal_graph for cycle detection (has CAUSES, LEADS_TO, STRENGTHENS edges)
+        graph_to_use = self.causal_graph or self.semantic_graph
+        if not graph_to_use:
             return {"status": "no_graph", "cycles": []}
         
         causal_types = {"CAUSES", "LEADS_TO", "STRENGTHENS"}
@@ -577,7 +582,7 @@ class LegendaryPlanner:
         # Build adjacency
         adj = {}
         edge_info = {}
-        for edge in self.semantic_graph.get("edges", []):
+        for edge in graph_to_use.get("edges", []):
             if edge.get("edge_type") in causal_types:
                 src = edge["source"]
                 tgt = edge["target"]
