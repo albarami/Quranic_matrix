@@ -1,0 +1,1473 @@
+{
+  "total_dossiers": 87,
+  "schema_version": "1.0.0",
+  "generated_at": "2026-01-01T20:08:50.437694Z",
+  "coverage": {
+    "behaviors_with_quran_evidence": 87,
+    "behaviors_with_tafsir_evidence": 87,
+    "behaviors_with_relationships": 66,
+    "avg_completeness_score": 0.836
+  },
+  "per_behavior": [
+    {
+      "behavior_id": "BEH_COG_ARROGANCE",
+      "label_ar": "الكبر",
+      "label_en": "Arrogance",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 104,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_CERTAINTY",
+      "label_ar": "اليقين",
+      "label_en": "Certainty",
+      "completeness_score": 0.914,
+      "quran_verse_count": 30,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 70,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_DOUBT",
+      "label_ar": "الشك",
+      "label_en": "Doubt",
+      "completeness_score": 0.592,
+      "quran_verse_count": 1,
+      "tafsir_chunk_count": 7,
+      "relationship_count": 60,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_FOLLOWING_DESIRE",
+      "label_ar": "اتباع الهوى",
+      "label_en": "Following Desire",
+      "completeness_score": 0.764,
+      "quran_verse_count": 18,
+      "tafsir_chunk_count": 126,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_HEEDLESSNESS",
+      "label_ar": "الغفلة",
+      "label_en": "Heedlessness",
+      "completeness_score": 0.914,
+      "quran_verse_count": 18,
+      "tafsir_chunk_count": 126,
+      "relationship_count": 25,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_HUMILITY",
+      "label_ar": "التواضع",
+      "label_en": "Humility",
+      "completeness_score": 0.914,
+      "quran_verse_count": 18,
+      "tafsir_chunk_count": 126,
+      "relationship_count": 10,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_IGNORANCE",
+      "label_ar": "الجهل",
+      "label_en": "Ignorance",
+      "completeness_score": 0.914,
+      "quran_verse_count": 18,
+      "tafsir_chunk_count": 126,
+      "relationship_count": 89,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_KNOWLEDGE",
+      "label_ar": "العلم",
+      "label_en": "Knowledge",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 139,
+      "relationship_count": 326,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_REFLECTION",
+      "label_ar": "التفكر",
+      "label_en": "Reflection",
+      "completeness_score": 0.914,
+      "quran_verse_count": 19,
+      "tafsir_chunk_count": 133,
+      "relationship_count": 27,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_SUPERFICIAL_KNOWING",
+      "label_ar": "المعرفة الظاهرية",
+      "label_en": "Superficial Knowing",
+      "completeness_score": 0.644,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_COG_UNDERSTANDING",
+      "label_ar": "الفقه",
+      "label_en": "Understanding",
+      "completeness_score": 0.914,
+      "quran_verse_count": 20,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 121,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_ANGER",
+      "label_ar": "الغضب",
+      "label_en": "Anger",
+      "completeness_score": 0.914,
+      "quran_verse_count": 21,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 58,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_ENVY",
+      "label_ar": "الحسد",
+      "label_en": "Envy",
+      "completeness_score": 0.764,
+      "quran_verse_count": 4,
+      "tafsir_chunk_count": 29,
+      "relationship_count": 27,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_FEAR_ALLAH",
+      "label_ar": "الخشية",
+      "label_en": "Fear of Allah",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 21,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_GRATITUDE",
+      "label_ar": "الشكر",
+      "label_en": "Gratitude",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 139,
+      "relationship_count": 73,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_GRIEF",
+      "label_ar": "الحزن",
+      "label_en": "Grief",
+      "completeness_score": 0.914,
+      "quran_verse_count": 42,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 45,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_HATRED",
+      "label_ar": "البغض",
+      "label_en": "Hatred",
+      "completeness_score": 0.914,
+      "quran_verse_count": 46,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 38,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_HOPE",
+      "label_ar": "الرجاء",
+      "label_en": "Hope",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 29,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_IMPATIENCE",
+      "label_ar": "الجزع",
+      "label_en": "Impatience",
+      "completeness_score": 0.739,
+      "quran_verse_count": 3,
+      "tafsir_chunk_count": 21,
+      "relationship_count": 13,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_INGRATITUDE",
+      "label_ar": "الكفران",
+      "label_en": "Ingratitude",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 9,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_JOY",
+      "label_ar": "الفرح",
+      "label_en": "Joy",
+      "completeness_score": 0.914,
+      "quran_verse_count": 21,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 36,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_LOVE",
+      "label_ar": "المحبة",
+      "label_en": "Love",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 24,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_EMO_PATIENCE",
+      "label_ar": "الصبر",
+      "label_en": "Patience",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 97,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_ASCETICISM",
+      "label_ar": "زهد",
+      "label_en": "Asceticism",
+      "completeness_score": 0.442,
+      "quran_verse_count": 1,
+      "tafsir_chunk_count": 7,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_BRIBERY",
+      "label_ar": "الرشوة",
+      "label_en": "Bribery",
+      "completeness_score": 0.664,
+      "quran_verse_count": 6,
+      "tafsir_chunk_count": 42,
+      "relationship_count": 1,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_CHARITY",
+      "label_ar": "الصدقة",
+      "label_en": "Charity",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 71,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_FAIR_TRADE",
+      "label_ar": "التجارة العادلة",
+      "label_en": "Fair Trade",
+      "completeness_score": 0.734,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_FRAUD",
+      "label_ar": "الغش",
+      "label_en": "Fraud",
+      "completeness_score": 0.592,
+      "quran_verse_count": 1,
+      "tafsir_chunk_count": 7,
+      "relationship_count": 8,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_HOARDING",
+      "label_ar": "البخل",
+      "label_en": "Hoarding/Miserliness",
+      "completeness_score": 0.914,
+      "quran_verse_count": 16,
+      "tafsir_chunk_count": 112,
+      "relationship_count": 115,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_SPENDING",
+      "label_ar": "الإنفاق",
+      "label_en": "Spending in Allah's Way",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 25,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_USURY",
+      "label_ar": "الربا",
+      "label_en": "Usury",
+      "completeness_score": 0.884,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 106,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_FIN_ZAKAT",
+      "label_ar": "الزكاة",
+      "label_en": "Zakat",
+      "completeness_score": 0.884,
+      "quran_verse_count": 34,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 48,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_PHY_DRINKING",
+      "label_ar": "الشرب",
+      "label_en": "Drinking",
+      "completeness_score": 0.644,
+      "quran_verse_count": 34,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_PHY_EATING",
+      "label_ar": "الأكل",
+      "label_en": "Eating",
+      "completeness_score": 0.644,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_PHY_LOOKING",
+      "label_ar": "النظر",
+      "label_en": "Looking/Gazing",
+      "completeness_score": 0.644,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_PHY_LOWERING_GAZE",
+      "label_ar": "غض البصر",
+      "label_en": "Lowering Gaze",
+      "completeness_score": 0.489,
+      "quran_verse_count": 2,
+      "tafsir_chunk_count": 14,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_PHY_MODESTY",
+      "label_ar": "حياء",
+      "label_en": "Modesty",
+      "completeness_score": 0.764,
+      "quran_verse_count": 15,
+      "tafsir_chunk_count": 105,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_PHY_PROSTRATION",
+      "label_ar": "السجود",
+      "label_en": "Prostration",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 29,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_PHY_SLEEPING",
+      "label_ar": "النوم",
+      "label_en": "Sleeping",
+      "completeness_score": 0.644,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_PHY_STANDING",
+      "label_ar": "القيام",
+      "label_en": "Standing",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 166,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_PHY_WALKING",
+      "label_ar": "المشي",
+      "label_en": "Walking",
+      "completeness_score": 0.644,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_BETRAYAL",
+      "label_ar": "خيانة",
+      "label_en": "Betrayal",
+      "completeness_score": 0.764,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_CORRUPTION",
+      "label_ar": "الفساد",
+      "label_en": "Corruption",
+      "completeness_score": 0.914,
+      "quran_verse_count": 43,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 73,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_DISOBEDIENCE_PARENTS",
+      "label_ar": "عقوق الوالدين",
+      "label_en": "Disobedience to Parents",
+      "completeness_score": 0.764,
+      "quran_verse_count": 38,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 1,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_HELPING_NEEDY",
+      "label_ar": "مساعدة المحتاج",
+      "label_en": "Helping the Needy",
+      "completeness_score": 0.764,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_HOSPITALITY",
+      "label_ar": "الضيافة",
+      "label_en": "Hospitality",
+      "completeness_score": 0.754,
+      "quran_verse_count": 6,
+      "tafsir_chunk_count": 42,
+      "relationship_count": 4,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_IHSAN",
+      "label_ar": "الإحسان",
+      "label_en": "Excellence/Ihsan",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 86,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_JUSTICE",
+      "label_ar": "العدل",
+      "label_en": "Justice",
+      "completeness_score": 0.914,
+      "quran_verse_count": 24,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 95,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_KINDNESS_PARENTS",
+      "label_ar": "بر الوالدين",
+      "label_en": "Kindness to Parents",
+      "completeness_score": 0.559,
+      "quran_verse_count": 3,
+      "tafsir_chunk_count": 21,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_KINSHIP_TIES",
+      "label_ar": "صلة الرحم",
+      "label_en": "Maintaining Kinship",
+      "completeness_score": 0.794,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 1,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_MERCY",
+      "label_ar": "رحمة",
+      "label_en": "Mercy",
+      "completeness_score": 0.764,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_OPPRESSION",
+      "label_ar": "الظلم",
+      "label_en": "Oppression",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 139,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_ORPHAN_CARE",
+      "label_ar": "رعاية اليتيم",
+      "label_en": "Orphan Care",
+      "completeness_score": 0.734,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_ORPHAN_HARM",
+      "label_ar": "أكل مال اليتيم",
+      "label_en": "Harming Orphan",
+      "completeness_score": 0.794,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 2,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_RECONCILIATION",
+      "label_ar": "الإصلاح",
+      "label_en": "Reconciliation",
+      "completeness_score": 0.914,
+      "quran_verse_count": 35,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 24,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_SEVERING_TIES",
+      "label_ar": "قطيعة الرحم",
+      "label_en": "Severing Ties",
+      "completeness_score": 0.764,
+      "quran_verse_count": 33,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 1,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_TRANSGRESSION",
+      "label_ar": "فسق",
+      "label_en": "Transgression",
+      "completeness_score": 0.764,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SOC_TRUSTWORTHINESS",
+      "label_ar": "أمانة",
+      "label_en": "Trustworthiness",
+      "completeness_score": 0.764,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_BACKBITING",
+      "label_ar": "الغيبة",
+      "label_en": "Backbiting",
+      "completeness_score": 0.884,
+      "quran_verse_count": 48,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 7,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_GOOD_WORD",
+      "label_ar": "الكلمة الطيبة",
+      "label_en": "Good Word",
+      "completeness_score": 0.764,
+      "quran_verse_count": 42,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_HARSH_WORD",
+      "label_ar": "الفظاظة",
+      "label_en": "Harsh Word",
+      "completeness_score": 0.794,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 1,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_LYING",
+      "label_ar": "الكذب",
+      "label_en": "Lying",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 160,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_REMEMBRANCE",
+      "label_ar": "ذكر الله",
+      "label_en": "Verbal Remembrance",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 48,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_SLANDER",
+      "label_ar": "البهتان",
+      "label_en": "Slander",
+      "completeness_score": 0.889,
+      "quran_verse_count": 9,
+      "tafsir_chunk_count": 63,
+      "relationship_count": 10,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_SUPPLICATION",
+      "label_ar": "الدعاء",
+      "label_en": "Supplication",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 75,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_TESTIMONY",
+      "label_ar": "الشهادة",
+      "label_en": "Testimony",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 43,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_TRUTHFULNESS",
+      "label_ar": "الصدق",
+      "label_en": "Truthfulness",
+      "completeness_score": 0.914,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 164,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPEECH_VAIN_TALK",
+      "label_ar": "اللغو",
+      "label_en": "Vain Talk",
+      "completeness_score": 0.884,
+      "quran_verse_count": 22,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 49,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "intention_niyyah",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_CONTEMPLATION",
+      "label_ar": "التدبر",
+      "label_en": "Contemplation",
+      "completeness_score": 0.899,
+      "quran_verse_count": 26,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 35,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_CONTENTMENT",
+      "label_ar": "الرضا",
+      "label_en": "Contentment",
+      "completeness_score": 0.929,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 91,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_DISBELIEF",
+      "label_ar": "الكفر",
+      "label_en": "Disbelief",
+      "completeness_score": 0.929,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 256,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_FAITH",
+      "label_ar": "الإيمان",
+      "label_en": "Faith",
+      "completeness_score": 0.929,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 139,
+      "relationship_count": 214,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_FASTING",
+      "label_ar": "الصيام",
+      "label_en": "Fasting",
+      "completeness_score": 0.904,
+      "quran_verse_count": 9,
+      "tafsir_chunk_count": 63,
+      "relationship_count": 20,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_HAJJ",
+      "label_ar": "الحج",
+      "label_en": "Pilgrimage",
+      "completeness_score": 0.929,
+      "quran_verse_count": 41,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 129,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_HYPOCRISY",
+      "label_ar": "النفاق",
+      "label_en": "Hypocrisy",
+      "completeness_score": 0.929,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 66,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_JIHAD",
+      "label_ar": "الجهاد",
+      "label_en": "Striving",
+      "completeness_score": 0.929,
+      "quran_verse_count": 29,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 78,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_KHUSHU",
+      "label_ar": "خشوع",
+      "label_en": "Humility in Prayer",
+      "completeness_score": 0.779,
+      "quran_verse_count": 16,
+      "tafsir_chunk_count": 112,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_PRAYER",
+      "label_ar": "الصلاة",
+      "label_en": "Prayer",
+      "completeness_score": 0.929,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 135,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_RECITATION",
+      "label_ar": "التلاوة",
+      "label_en": "Recitation",
+      "completeness_score": 0.929,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 14,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_REMEMBRANCE",
+      "label_ar": "الذكر",
+      "label_en": "Remembrance",
+      "completeness_score": 0.899,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 370,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_REPENTANCE",
+      "label_ar": "التوبة",
+      "label_en": "Repentance",
+      "completeness_score": 0.929,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 139,
+      "relationship_count": 74,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_SHIRK",
+      "label_ar": "شرك",
+      "label_en": "Polytheism",
+      "completeness_score": 0.779,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 0,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_SHOWING_OFF",
+      "label_ar": "الرياء",
+      "label_en": "Showing Off",
+      "completeness_score": 0.899,
+      "quran_verse_count": 18,
+      "tafsir_chunk_count": 127,
+      "relationship_count": 21,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_SINCERITY",
+      "label_ar": "الإخلاص",
+      "label_en": "Sincerity",
+      "completeness_score": 0.929,
+      "quran_verse_count": 24,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 55,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_TAQWA",
+      "label_ar": "التقوى",
+      "label_en": "God-Consciousness",
+      "completeness_score": 0.929,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 139,
+      "relationship_count": 53,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_TAWAKKUL",
+      "label_ar": "التوكل",
+      "label_en": "Trust in Allah",
+      "completeness_score": 0.929,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 22,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    },
+    {
+      "behavior_id": "BEH_SPI_WORSHIP",
+      "label_ar": "العبادة",
+      "label_en": "Worship",
+      "completeness_score": 0.929,
+      "quran_verse_count": 50,
+      "tafsir_chunk_count": 140,
+      "relationship_count": 144,
+      "missing_fields": [
+        "situational_context",
+        "systemic_context",
+        "spatial_context",
+        "temporal_context",
+        "recurrence_dawrah"
+      ]
+    }
+  ]
+}
