@@ -51,16 +51,16 @@ PROJECT_ROOT = Path(__file__).parent.parent
 # SSOT manifest path
 SSOT_MANIFEST_PATH = PROJECT_ROOT / "artifacts" / "ssot_bundle" / "ssot_manifest.json"
 
-# Required SSOT files (relative paths)
+# Required SSOT files (relative paths) - matches actual file names on disk
 REQUIRED_SSOT_FILES = {
-    "quran_text": "data/quran/quran_uthmani.xml",
-    "tafsir_ibn_kathir": "data/tafsir/tafsir_ibn_kathir.jsonl",
-    "tafsir_tabari": "data/tafsir/tafsir_tabari.jsonl",
-    "tafsir_qurtubi": "data/tafsir/tafsir_qurtubi.jsonl",
-    "tafsir_saadi": "data/tafsir/tafsir_saadi.jsonl",
-    "tafsir_baghawi": "data/tafsir/tafsir_baghawi.jsonl",
-    "tafsir_muyassar": "data/tafsir/tafsir_muyassar.jsonl",
-    "tafsir_waseet": "data/tafsir/tafsir_waseet.jsonl",
+    "quran_text": "data/quran/quran-uthmani.xml",
+    "tafsir_ibn_kathir": "data/tafsir/ibn_kathir.ar.jsonl",
+    "tafsir_tabari": "data/tafsir/tabari.ar.jsonl",
+    "tafsir_qurtubi": "data/tafsir/qurtubi.ar.jsonl",
+    "tafsir_saadi": "data/tafsir/saadi.ar.jsonl",
+    "tafsir_baghawi": "data/tafsir/baghawi.ar.jsonl",
+    "tafsir_muyassar": "data/tafsir/muyassar.ar.jsonl",
+    "tafsir_jalalayn": "data/tafsir/jalalayn.ar.jsonl",
 }
 
 # Minimum file sizes (bytes) to detect truncated files

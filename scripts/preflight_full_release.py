@@ -27,16 +27,16 @@ from pathlib import Path
 CANONICAL_BEHAVIORS = 87
 CANONICAL_AGENTS = 14
 
-# Required SSOT files (relative to QBM_SSOT_DIR)
+# Required SSOT files (relative to QBM_SSOT_DIR) - matches actual file names
 REQUIRED_SSOT_FILES = [
-    "data/quran/quran_uthmani.xml",
-    "data/tafsir/tafsir_ibn_kathir.jsonl",
-    "data/tafsir/tafsir_tabari.jsonl",
-    "data/tafsir/tafsir_qurtubi.jsonl",
-    "data/tafsir/tafsir_saadi.jsonl",
-    "data/tafsir/tafsir_jalalayn.jsonl",
-    "data/tafsir/tafsir_baghawi.jsonl",
-    "data/tafsir/tafsir_muyassar.jsonl",
+    "data/quran/quran-uthmani.xml",
+    "data/tafsir/ibn_kathir.ar.jsonl",
+    "data/tafsir/tabari.ar.jsonl",
+    "data/tafsir/qurtubi.ar.jsonl",
+    "data/tafsir/saadi.ar.jsonl",
+    "data/tafsir/jalalayn.ar.jsonl",
+    "data/tafsir/baghawi.ar.jsonl",
+    "data/tafsir/muyassar.ar.jsonl",
 ]
 
 # Project paths
