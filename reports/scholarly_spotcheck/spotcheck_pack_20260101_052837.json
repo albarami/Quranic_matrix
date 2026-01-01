@@ -1,0 +1,81 @@
+{
+  "generated_at": "2026-01-01T05:28:37.661574",
+  "total_queries": 10,
+  "successful": 0,
+  "queries": [
+    {
+      "id": "SC001",
+      "query": "ما هو الحسد وما آثاره؟",
+      "status": "error",
+      "error": "{\"detail\":\"QBM Full Power System error: 'FullPowerQBMSystem' object has no attribute 'answer_with_full_proof'\\nTraceback (most recent call last):\\n  File \\\"D:\\\\Quran_matrix\\\\src\\\\api\\\\routers\\\\proof.p"
+    },
+    {
+      "id": "SC002",
+      "query": "ما العلاقة بين الكبر والكفر؟",
+      "status": "error",
+      "error": "{\"detail\":\"QBM Full Power System error: 'FullPowerQBMSystem' object has no attribute 'answer_with_full_proof'\\nTraceback (most recent call last):\\n  File \\\"D:\\\\Quran_matrix\\\\src\\\\api\\\\routers\\\\proof.p"
+    },
+    {
+      "id": "SC003",
+      "query": "كيف يؤثر القلب السليم على السلوك؟",
+      "status": "error",
+      "error": "{\"detail\":\"QBM Full Power System error: 'FullPowerQBMSystem' object has no attribute 'answer_with_full_proof'\\nTraceback (most recent call last):\\n  File \\\"D:\\\\Quran_matrix\\\\src\\\\api\\\\routers\\\\proof.p"
+    },
+    {
+      "id": "SC004",
+      "query": "ما هي صفات المنافقين في القرآن؟",
+      "status": "error",
+      "error": "{\"detail\":\"QBM Full Power System error: 'FullPowerQBMSystem' object has no attribute 'answer_with_full_proof'\\nTraceback (most recent call last):\\n  File \\\"D:\\\\Quran_matrix\\\\src\\\\api\\\\routers\\\\proof.p"
+    },
+    {
+      "id": "SC005",
+      "query": "ما الفرق بين الصبر والرضا؟",
+      "status": "error",
+      "error": "{\"detail\":\"QBM Full Power System error: 'FullPowerQBMSystem' object has no attribute 'answer_with_full_proof'\\nTraceback (most recent call last):\\n  File \\\"D:\\\\Quran_matrix\\\\src\\\\api\\\\routers\\\\proof.p"
+    },
+    {
+      "id": "SC006",
+      "query": "ما عواقب الربا في الدنيا والآخرة؟",
+      "status": "error",
+      "error": "{\"detail\":\"QBM Full Power System error: 'FullPowerQBMSystem' object has no attribute 'answer_with_full_proof'\\nTraceback (most recent call last):\\n  File \\\"D:\\\\Quran_matrix\\\\src\\\\api\\\\routers\\\\proof.p"
+    },
+    {
+      "id": "SC007",
+      "query": "كيف يعالج القرآن الغضب؟",
+      "status": "error",
+      "error": "{\"detail\":\"QBM Full Power System error: 'FullPowerQBMSystem' object has no attribute 'answer_with_full_proof'\\nTraceback (most recent call last):\\n  File \\\"D:\\\\Quran_matrix\\\\src\\\\api\\\\routers\\\\proof.p"
+    },
+    {
+      "id": "SC008",
+      "query": "ما هي مراتب التوبة؟",
+      "status": "error",
+      "error": "{\"detail\":\"QBM Full Power System error: 'FullPowerQBMSystem' object has no attribute 'answer_with_full_proof'\\nTraceback (most recent call last):\\n  File \\\"D:\\\\Quran_matrix\\\\src\\\\api\\\\routers\\\\proof.p"
+    },
+    {
+      "id": "SC009",
+      "query": "ما دور اللسان في السلوك القرآني؟",
+      "status": "error",
+      "error": "{\"detail\":\"QBM Full Power System error: 'FullPowerQBMSystem' object has no attribute 'answer_with_full_proof'\\nTraceback (most recent call last):\\n  File \\\"D:\\\\Quran_matrix\\\\src\\\\api\\\\routers\\\\proof.p"
+    },
+    {
+      "id": "SC010",
+      "query": "ما هي علامات الإيمان الصادق؟",
+      "status": "error",
+      "error": "{\"detail\":\"QBM Full Power System error: 'FullPowerQBMSystem' object has no attribute 'answer_with_full_proof'\\nTraceback (most recent call last):\\n  File \\\"D:\\\\Quran_matrix\\\\src\\\\api\\\\routers\\\\proof.p"
+    }
+  ],
+  "instructions": {
+    "purpose": "Manual scholarly validation of QBM system outputs",
+    "process": [
+      "1. Review each query and system response",
+      "2. Check validation points for accuracy",
+      "3. Mark as PASS/FAIL with notes",
+      "4. Return completed pack for analysis"
+    ],
+    "rating_scale": {
+      "PASS": "All validation points satisfied",
+      "PARTIAL": "Some validation points satisfied",
+      "FAIL": "Critical errors or fabrications found"
+    }
+  }
+}
