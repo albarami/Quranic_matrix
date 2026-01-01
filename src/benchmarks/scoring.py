@@ -504,13 +504,16 @@ def score_benchmark_item(
         if not isinstance(graph, dict):
             missing.append("graph_missing")
         else:
-            # For causal: require paths OR cycles (cycles are valid for reinforcement loop queries)
+            # For causal: require paths OR cycles OR centrality (analytical queries use centrality)
             if "GRAPH_CAUSAL" in capabilities:
                 paths = graph.get("paths", [])
                 cycles = graph.get("cycles", [])
+                centrality = graph.get("centrality", {})
                 has_paths = isinstance(paths, list) and len(paths) > 0
                 has_cycles = isinstance(cycles, list) and len(cycles) > 0
-                if not has_paths and not has_cycles:
+                has_centrality = isinstance(centrality, dict) and len(centrality) > 0
+                # Paths, cycles, or centrality all satisfy GRAPH_CAUSAL requirement
+                if not has_paths and not has_cycles and not has_centrality:
                     missing.append("graph_paths_missing")
                 # Best-effort hop check - check both paths and cycles
                 if min_hops > 0:
