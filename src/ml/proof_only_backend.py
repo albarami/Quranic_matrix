@@ -961,6 +961,7 @@ class LightweightProofBackend:
                 IntentType.EMBEDDINGS_ANALYSIS,
                 IntentType.CONSEQUENCE_ANALYSIS,
                 IntentType.CROSS_CONTEXT_BEHAVIOR,  # PHASE 4: Cross-context also needs robust fallback
+                IntentType.AGENT_ANALYSIS,  # F16: Agent-type consequence analysis
             }
 
             if intent_result.intent in analytical_intents:
@@ -983,19 +984,19 @@ class LightweightProofBackend:
                                 if isinstance(c, dict) and c.get("id"):
                                     top_entity_ids.append(c["id"])
 
-                # For cross-tafsir, profile 11D, embeddings, consequence, cross-context: use behaviors directly
-                if intent_result.intent in {IntentType.CROSS_TAFSIR_ANALYSIS, IntentType.PROFILE_11D, IntentType.EMBEDDINGS_ANALYSIS, IntentType.CONSEQUENCE_ANALYSIS, IntentType.CROSS_CONTEXT_BEHAVIOR}:
+                # For cross-tafsir, profile 11D, embeddings, consequence, cross-context, agent: use behaviors directly
+                if intent_result.intent in {IntentType.CROSS_TAFSIR_ANALYSIS, IntentType.PROFILE_11D, IntentType.EMBEDDINGS_ANALYSIS, IntentType.CONSEQUENCE_ANALYSIS, IntentType.CROSS_CONTEXT_BEHAVIOR, IntentType.AGENT_ANALYSIS}:
                     behaviors = planner.canonical_entities.get("behaviors", [])
                     for b in behaviors[:15]:  # More for consequence mapping
                         if b.get("id"):
                             top_entity_ids.append(b["id"])
-                    # Also add consequences for CONSEQUENCE_ANALYSIS or CROSS_CONTEXT
-                    if intent_result.intent in {IntentType.CONSEQUENCE_ANALYSIS, IntentType.CROSS_CONTEXT_BEHAVIOR}:
+                    # Also add consequences for CONSEQUENCE_ANALYSIS, CROSS_CONTEXT, or AGENT_ANALYSIS
+                    if intent_result.intent in {IntentType.CONSEQUENCE_ANALYSIS, IntentType.CROSS_CONTEXT_BEHAVIOR, IntentType.AGENT_ANALYSIS}:
                         consequences = planner.canonical_entities.get("consequences", [])
                         for csq in consequences[:10]:
                             if csq.get("id"):
                                 top_entity_ids.append(csq["id"])
-                        # Also add agents for CROSS_CONTEXT (agent-type queries)
+                        # Also add agents for CROSS_CONTEXT or AGENT_ANALYSIS
                         agents = planner.canonical_entities.get("agents", [])
                         for agent in agents[:10]:
                             if agent.get("id"):
