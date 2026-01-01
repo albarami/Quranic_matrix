@@ -1,8 +1,16 @@
 # QBM Behavior Mastery Implementation Plan
 
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Date:** 2026-01-01  
 **Goal:** Transform QBM from audit-grade retrieval to **behavioral mastery brain**
+
+> **Revision 1.1.0:** Incorporated 6 critical adjustments per stakeholder review:
+> 1. Edge evidence must include full provenance (chunk_id + offsets), not just verse keys
+> 2. Exactly 87 behavior nodes (not "minimum"); total nodes can be higher
+> 3. Context assertions must cite evidence source or rule ID
+> 4. Link predictions sandboxed as hypothesis-only (never treated as facts)
+> 5. Mastery benchmark split into generated + adversarial sets with per-category PASS thresholds
+> 6. Added performance + observability gates for operational readiness
 
 ---
 
@@ -24,6 +32,8 @@ Passing 200/200 benchmark proves internal consistency, NOT scholar-level intelli
 |------|-------------|
 | **87 behaviors** | Canonical truth stays at 87. No relaxing to 73 anywhere. |
 | **No hallucinations** | Every claim must be (A) directly evidenced, or (B) deterministic derivation with rule ID |
+| **Context assertions cite source** | Any non-unknown context label must cite evidence (verse/tafsir chunk) or rule ID |
+| **Link predictions sandboxed** | Link predictions are hypothesis-only; never influence operational graph until confirmed |
 | **Single source of truth** | One registry for entity IDs and vocab mapping. No duplicates. |
 | **Test-gated changes** | Add tests before claiming completion. CI must pass. |
 
@@ -47,8 +57,8 @@ Passing 200/200 benchmark proves internal consistency, NOT scholar-level intelli
 ```python
 @dataclass
 class GraphV3:
-    nodes: List[NodeV3]  # 87 behaviors minimum
-    edges: List[EdgeV3]  # typed edges with evidence
+    nodes: List[NodeV3]  # Exactly 87 BEHAVIOR nodes; total nodes >= 87 (includes agents/organs/states)
+    edges: List[EdgeV3]  # typed edges with full provenance
     metadata: GraphMetadata
 
 @dataclass
@@ -65,16 +75,29 @@ class EdgeV3:
     target: str
     edge_type: str       # CAUSES, LEADS_TO, PREVENTS, STRENGTHENS, OPPOSITE
     evidence_count: int
-    evidence_keys: List[str]  # verse keys
+    evidence_refs: List[EvidenceRef]  # Full provenance, not just verse keys
     confidence: float
+
+@dataclass
+class EvidenceRef:
+    """Full provenance for edge evidence - auditable and traceable."""
+    verse_key: str           # e.g., "2:153"
+    source: str              # quran, ibn_kathir, tabari, etc.
+    chunk_id: Optional[str]  # For tafsir: chunk identifier
+    char_start: Optional[int]  # Character offset start
+    char_end: Optional[int]    # Character offset end
+    relevance: str           # direct, indirect, supporting
 ```
 
 ### Tests Required
 
 ```python
 # tests/test_graph_normalization.py
-def test_normalize_graph_has_87_behaviors():
-    """Normalized graph must have exactly 87 behavior nodes."""
+def test_normalize_graph_has_exactly_87_behaviors():
+    """Normalized graph must have EXACTLY 87 behavior nodes (not minimum)."""
+
+def test_normalize_graph_total_nodes_at_least_87():
+    """Total nodes >= 87 (behaviors + agents + organs + states)."""
 
 def test_normalize_graph_node_types_uppercase():
     """All node_type values must be uppercase."""
@@ -83,7 +106,10 @@ def test_normalize_graph_edge_types_valid():
     """All edge_type values must be in allowed set."""
 
 def test_normalize_graph_edges_have_evidence():
-    """All edges must have evidence_count >= 0 and evidence_keys list."""
+    """All edges must have evidence_count >= 0 and evidence_refs with full provenance."""
+
+def test_evidence_refs_have_provenance():
+    """Each EvidenceRef must have verse_key, source, and offsets (for tafsir)."""
 
 def test_normalize_graph_deterministic():
     """Same input produces identical output (hash check)."""
@@ -96,7 +122,9 @@ def test_all_graph_files_normalize_successfully():
 
 - [ ] `normalize_graph()` handles both old and new schema formats
 - [ ] All planners/engines use normalized graph (single entry point)
-- [ ] 87 behavior nodes present after normalization
+- [ ] **Exactly 87 behavior nodes** (not minimum) after normalization
+- [ ] Total nodes >= 87 (includes agents, organs, states)
+- [ ] All edges have `evidence_refs` with full provenance (chunk_id + offsets)
 - [ ] All tests pass
 - [ ] Git commit + push
 
@@ -160,27 +188,33 @@ class BehaviorDossier:
 @dataclass
 class BouzidaniContexts:
     # Axis 1: Organic/Biological
-    organ_links: List[str]           # ORG_HEART, ORG_TONGUE, etc.
-    internal_external: str           # باطن, ظاهر, both, unknown
+    organ_links: List[ContextAssertion]  # ORG_HEART, ORG_TONGUE, etc. WITH citation
+    internal_external: ContextAssertion  # باطن, ظاهر, both, unknown
     
     # Axis 2: Situational
-    situational_context: str         # النفس, الآفاق, الخالق, الكون, الحياة, unknown
+    situational_context: ContextAssertion  # النفس, الآفاق, الخالق, الكون, الحياة, unknown
     
     # Axis 3: Systemic
-    systemic_context: str            # البيت, العمل, مكان عام, unknown
+    systemic_context: ContextAssertion  # البيت, العمل, مكان عام, unknown
     
     # Axis 4: Spatial
-    spatial_context: str             # location-based or unknown
+    spatial_context: ContextAssertion  # location-based or unknown
     
     # Axis 5: Temporal
-    temporal_context: str            # صباحاً, ظهراً, عصراً, ليلاً, unknown
+    temporal_context: ContextAssertion  # صباحاً, ظهراً, عصراً, ليلاً, unknown
     
     # Additional
-    intention_niyyah: str            # with_intention, without_intention, instinctive, unknown
-    recurrence_dawrah: str           # one_time, periodic, continuous, unknown
-    
-    # Reason codes for unknowns
-    unknown_reasons: Dict[str, str]
+    intention_niyyah: ContextAssertion  # with_intention, without_intention, instinctive, unknown
+    recurrence_dawrah: ContextAssertion  # one_time, periodic, continuous, unknown
+
+@dataclass
+class ContextAssertion:
+    """Every context assertion must cite its source - no invented assignments."""
+    value: str                       # The context value or "unknown"
+    citation_type: str               # "verse", "tafsir", "rule", "unknown"
+    citation_ref: Optional[str]      # verse_key, chunk_id, or rule_id
+    confidence: float                # 0.0-1.0
+    reason_if_unknown: Optional[str] # Required if value is "unknown"
 ```
 
 ### Tests Required
@@ -198,6 +232,9 @@ def test_each_relationship_has_evidence():
 
 def test_bouzidani_context_fields_present_or_explicit_unknown():
     """All Bouzidani context fields must be populated or explicitly 'unknown' with reason."""
+
+def test_context_assertions_have_citations():
+    """Non-unknown context values must cite evidence (verse/tafsir) or rule ID."""
 
 def test_mastery_manifest_hashes_reproducible():
     """Running builder twice produces identical hashes."""
@@ -258,7 +295,15 @@ class DiscoveryEngine:
         """Find repeated subgraph patterns (triads, etc.)."""
     
     def predict_links(self, min_confidence=0.7) -> List[LinkHypothesis]:
-        """Propose candidate edges (labeled as hypotheses, not facts)."""
+        """
+        Propose candidate edges - SANDBOXED AS HYPOTHESIS-ONLY.
+        
+        CRITICAL RULES:
+        - Output stored under hypothesis_type="link_prediction"
+        - NEVER treated as fact
+        - NEVER influences operational graph
+        - Can only be promoted to fact after evidence extraction confirms
+        """
 ```
 
 ### Hypothesis Schema
@@ -273,6 +318,8 @@ class Hypothesis:
     confidence_score: float        # deterministic rubric
     confidence_factors: Dict[str, float]  # evidence_count, source_diversity, etc.
     falsification_check: FalsificationResult
+    is_confirmed: bool             # False for link_prediction until evidence confirms
+    promotion_blocked: bool        # True for link_prediction (cannot influence operational graph)
     generated_at: str
 
 @dataclass
@@ -306,6 +353,12 @@ def test_hypotheses_have_falsification_check():
 
 def test_link_predictions_labeled_as_hypotheses():
     """Link predictions must not be presented as facts."""
+
+def test_link_predictions_sandboxed():
+    """Link predictions must have promotion_blocked=True and is_confirmed=False."""
+
+def test_link_predictions_not_in_operational_graph():
+    """Operational graph must not contain any unconfirmed link predictions."""
 ```
 
 ### Acceptance Criteria
@@ -316,6 +369,8 @@ def test_link_predictions_labeled_as_hypotheses():
 - [ ] Bridge behaviors identified with centrality scores
 - [ ] Communities detected and labeled
 - [ ] Motifs found with support counts
+- [ ] **Link predictions sandboxed** (promotion_blocked=True, is_confirmed=False)
+- [ ] **Link predictions never in operational graph** until evidence confirms
 - [ ] All tests pass
 - [ ] Git commit + push
 
@@ -420,33 +475,46 @@ def test_derivation_rules_are_recorded():
 
 **Goal:** 1000+ questions testing true mastery, not just retrieval.
 
+> **CRITICAL:** Benchmark must avoid "self-fulfilling" scoring where questions simply mirror dossier fields.
+> Split into GENERATED (coverage) + ADVERSARIAL (ambiguity, counterexamples, falsification).
+
 ### Deliverables
 
 | File | Description |
 |------|-------------|
-| `data/benchmarks/qbm_mastery_1000.v1.jsonl` | Mastery benchmark |
+| `data/benchmarks/qbm_mastery_generated_600.v1.jsonl` | Template-generated coverage questions |
+| `data/benchmarks/qbm_mastery_adversarial_400.v1.jsonl` | Adversarial/falsification questions |
 | `src/benchmarks/mastery_scoring.py` | Mastery-specific scoring |
 | `scripts/run_mastery_benchmark.py` | Benchmark runner |
 | `tests/test_mastery_benchmark.py` | Benchmark tests |
 
 ### Question Categories (1000+ questions)
 
-| Category | Count | Description |
-|----------|-------|-------------|
-| Behavior Resolution | 200 | Same behavior asked in multiple forms (Arabic variants, synonyms) |
-| Context Queries | 150 | Organ/internal-external/social/spatial/temporal contexts |
-| Causal Paths | 150 | Multi-hop causal chains with evidence |
-| Prevention/Strengthening | 100 | What prevents X? What strengthens Y? |
-| Comparative | 100 | Compare behavior A vs B |
-| Discovery | 100 | Bridge behaviors, communities, motifs |
-| Falsification | 100 | Queries designed to test fail-closed behavior |
-| Edge Cases | 100 | Unknown contexts, missing evidence, ambiguous queries |
+**GENERATED SET (600 questions) - Template-based coverage:**
+
+| Category | Count | PASS Threshold | Description |
+|----------|-------|----------------|-------------|
+| Behavior Resolution | 150 | ≥95% | Same behavior asked in multiple forms (Arabic variants, synonyms) |
+| Context Queries | 120 | ≥90% | Organ/internal-external/social/spatial/temporal contexts |
+| Causal Paths | 120 | ≥90% | Multi-hop causal chains with evidence |
+| Prevention/Strengthening | 100 | ≥90% | What prevents X? What strengthens Y? |
+| Comparative | 110 | ≥85% | Compare behavior A vs B |
+
+**ADVERSARIAL SET (400 questions) - Human-written challenges:**
+
+| Category | Count | PASS Threshold | Description |
+|----------|-------|----------------|-------------|
+| Discovery Insights | 100 | ≥80% | Bridge behaviors, communities, motifs (PARTIAL acceptable) |
+| Falsification Tests | 100 | 100% no hallucination | Queries designed to test fail-closed behavior |
+| Ambiguous Queries | 100 | ≥70% | Unclear intent, multiple interpretations |
+| Counter-evidence | 100 | 100% no hallucination | Queries with known counter-evidence |
 
 ### Scoring Criteria
 
 ```python
 @dataclass
 class MasteryScore:
+    category: str                    # Which category this question belongs to
     behavior_resolution_correct: bool
     required_sections_present: bool
     provenance_complete: bool
@@ -455,13 +523,29 @@ class MasteryScore:
     derivation_rules_valid: bool
     
     def verdict(self) -> str:
+        # HARD BLOCKER: Any hallucination = immediate FAIL
         if self.no_hallucinated_claims is False:
             return "FAIL_HALLUCINATION"
+        # HARD BLOCKER: Missing provenance for non-trivial claims = FAIL
+        if not self.provenance_complete and self.required_sections_present:
+            return "FAIL_NO_PROVENANCE"
         if not all([self.behavior_resolution_correct, 
-                    self.required_sections_present,
-                    self.provenance_complete]):
+                    self.required_sections_present]):
             return "PARTIAL"
         return "PASS"
+
+# Per-category release blockers
+RELEASE_GATES = {
+    "behavior_resolution": {"min_pass_rate": 0.95, "max_hallucinations": 0},
+    "context_queries": {"min_pass_rate": 0.90, "max_hallucinations": 0},
+    "causal_paths": {"min_pass_rate": 0.90, "max_hallucinations": 0},
+    "prevention_strengthening": {"min_pass_rate": 0.90, "max_hallucinations": 0},
+    "comparative": {"min_pass_rate": 0.85, "max_hallucinations": 0},
+    "discovery_insights": {"min_pass_rate": 0.80, "max_hallucinations": 0},
+    "falsification_tests": {"min_pass_rate": 0.70, "max_hallucinations": 0},  # PARTIAL ok, hallucination not
+    "ambiguous_queries": {"min_pass_rate": 0.70, "max_hallucinations": 0},
+    "counter_evidence": {"min_pass_rate": 0.70, "max_hallucinations": 0},
+}
 ```
 
 ### Tests Required
@@ -469,7 +553,10 @@ class MasteryScore:
 ```python
 # tests/test_mastery_benchmark.py
 def test_benchmark_has_1000_plus_questions():
-    """Mastery benchmark must have >= 1000 questions."""
+    """Mastery benchmark must have >= 1000 questions (600 generated + 400 adversarial)."""
+
+def test_generated_and_adversarial_sets_separate():
+    """Generated and adversarial sets must be in separate files."""
 
 def test_all_categories_represented():
     """All question categories must have minimum count."""
@@ -477,16 +564,28 @@ def test_all_categories_represented():
 def test_scoring_detects_hallucinations():
     """Scoring must flag fabricated claims as FAIL_HALLUCINATION."""
 
+def test_scoring_detects_missing_provenance():
+    """Scoring must flag missing provenance as FAIL_NO_PROVENANCE."""
+
+def test_per_category_pass_rates():
+    """Each category must meet its minimum PASS threshold."""
+
 def test_benchmark_reproducible():
     """Same questions produce same scores."""
+
+def test_adversarial_questions_not_from_dossier_templates():
+    """Adversarial questions must not be simple dossier field lookups."""
 ```
 
 ### Acceptance Criteria
 
-- [ ] 1000+ questions across all categories
-- [ ] Scoring detects hallucinations (0 tolerance)
-- [ ] ≥95% PASS rate required for release
-- [ ] 0 FAIL_HALLUCINATION required for release
+- [ ] 1000+ questions (600 generated + 400 adversarial)
+- [ ] Generated and adversarial sets strictly separated
+- [ ] Scoring detects hallucinations (0 tolerance across ALL categories)
+- [ ] Scoring detects missing provenance for non-trivial claims
+- [ ] **Per-category PASS thresholds met** (see RELEASE_GATES)
+- [ ] 0 FAIL_HALLUCINATION across entire benchmark
+- [ ] 100% provenance completeness for non-trivial claims
 - [ ] All tests pass
 - [ ] Git commit + push
 
@@ -494,7 +593,7 @@ def test_benchmark_reproducible():
 
 ## Phase 6: Go-Live Validation + Audit Pack
 
-**Goal:** Complete operational readiness with full audit trail.
+**Goal:** Complete operational readiness with full audit trail, performance bounds, and observability.
 
 ### Deliverables
 
@@ -502,7 +601,10 @@ def test_benchmark_reproducible():
 |------|-------------|
 | `scripts/preflight_mastery_release.py` | Pre-flight checks for mastery |
 | `scripts/generate_mastery_audit_pack.py` | Generate audit artifacts |
+| `scripts/performance_benchmark.py` | Latency and memory benchmarks |
 | `artifacts/audit/mastery_audit_pack.zip` | Complete audit package |
+| `src/observability/logging.py` | Structured logging with request IDs |
+| `src/observability/tracing.py` | Provenance trace output |
 
 ### Go-Live Command Sequence
 
@@ -536,20 +638,60 @@ uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --workers 4
 
 | Gate | Requirement | Blocks Release |
 |------|-------------|----------------|
-| Graph Normalization | 87 behaviors, valid types | Yes |
-| Behavior Dossiers | 87/87 complete | Yes |
+| Graph Normalization | Exactly 87 behaviors, valid types | Yes |
+| Behavior Dossiers | 87/87 complete with provenance | Yes |
 | Discovery Report | Reproducible, evidence-backed | Yes |
 | Original Benchmark | 200/200 PASS | Yes |
-| Mastery Benchmark | ≥95% PASS | Yes |
+| Mastery Benchmark | Per-category thresholds met | Yes |
 | Hallucination Check | 0 fabricated claims | Yes |
+| Provenance Check | 100% for non-trivial claims | Yes |
+| **Performance Gate** | P99 latency ≤500ms, memory ≤4GB | Yes |
+| **Observability Gate** | Structured logs + request IDs + traces | Yes |
 | Audit Pack | All artifacts present | Yes |
+
+### Performance Requirements
+
+```python
+# Performance bounds (must be tested before release)
+PERFORMANCE_GATES = {
+    "behavior_lookup": {"p50_ms": 50, "p99_ms": 200},
+    "dossier_retrieval": {"p50_ms": 100, "p99_ms": 500},
+    "causal_path_query": {"p50_ms": 200, "p99_ms": 1000},
+    "discovery_query": {"p50_ms": 300, "p99_ms": 1500},
+    "memory_peak_mb": 4096,  # Max 4GB with full SSOT loaded
+}
+```
+
+### Observability Requirements
+
+```python
+# Every request must include:
+@dataclass
+class RequestTrace:
+    request_id: str              # UUID for correlation
+    timestamp: str               # ISO8601
+    query: str
+    intent_detected: str
+    behavior_ids_resolved: List[str]
+    dossier_versions_used: Dict[str, str]  # behavior_id -> hash
+    evidence_refs_accessed: List[str]
+    derivation_rules_fired: List[str]
+    latency_ms: float
+    memory_mb: float
+    dataset_mode: str            # "full" or "fixture"
+    mastery_version: str
+```
 
 ### Acceptance Criteria
 
 - [ ] All preflight checks pass
 - [ ] Mastery artifacts built and validated
 - [ ] Original benchmark: 200/200 PASS
-- [ ] Mastery benchmark: ≥95% PASS, 0 hallucinations
+- [ ] Mastery benchmark: per-category thresholds met, 0 hallucinations
+- [ ] **Performance gate: P99 latency ≤500ms for dossier retrieval**
+- [ ] **Performance gate: Memory ≤4GB with full SSOT**
+- [ ] **Observability gate: Structured logs with request IDs**
+- [ ] **Observability gate: Provenance traces saved for audit**
 - [ ] Audit pack generated with all artifacts
 - [ ] API serves mastery endpoints
 - [ ] All tests pass
@@ -574,15 +716,19 @@ uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --workers 4
 
 **"Super Smart" = All of the following:**
 
-1. ✅ 87/87 behavior dossiers complete with Bouzidani contexts
-2. ✅ Unified graph schema (no drift)
-3. ✅ Discovery engine produces reproducible insights
+1. ✅ **Exactly 87 behavior dossiers** complete with Bouzidani contexts (not minimum)
+2. ✅ Unified graph schema (no drift) with **full provenance on all edges**
+3. ✅ Discovery engine produces reproducible insights with **link predictions sandboxed**
 4. ✅ Mastery API serves dossiers with full provenance
-5. ✅ 200/200 original benchmark PASS
-6. ✅ ≥95% mastery benchmark PASS
-7. ✅ 0 hallucinated claims
-8. ✅ Every claim is evidence-backed or derivation-ruled
-9. ✅ Audit pack validates all artifacts
+5. ✅ **Context assertions cite evidence** (verse/tafsir) or rule ID
+6. ✅ 200/200 original benchmark PASS
+7. ✅ Mastery benchmark: **per-category thresholds met** (generated + adversarial sets)
+8. ✅ 0 hallucinated claims (hard blocker)
+9. ✅ 100% provenance completeness for non-trivial claims
+10. ✅ Every claim is evidence-backed or derivation-ruled
+11. ✅ **Performance gate: P99 ≤500ms, memory ≤4GB**
+12. ✅ **Observability gate: structured logs + request IDs + traces**
+13. ✅ Audit pack validates all artifacts
 
 ---
 
