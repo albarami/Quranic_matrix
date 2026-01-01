@@ -512,16 +512,24 @@ def score_benchmark_item(
                 has_cycles = isinstance(cycles, list) and len(cycles) > 0
                 if not has_paths and not has_cycles:
                     missing.append("graph_paths_missing")
-                # Best-effort hop check
-                if min_hops > 0 and isinstance(paths, list):
+                # Best-effort hop check - check both paths and cycles
+                if min_hops > 0:
                     longest = 0
-                    for p in paths:
+                    # Check paths
+                    for p in paths if isinstance(paths, list) else []:
                         if isinstance(p, dict):
                             hops = p.get("hops")
                             if isinstance(hops, int):
                                 longest = max(longest, hops)
                             elif isinstance(p.get("edges"), list):
                                 longest = max(longest, len(p["edges"]))
+                    # Check cycles (cycles have 'length' field)
+                    for c in cycles if isinstance(cycles, list) else []:
+                        if isinstance(c, dict):
+                            hops = c.get("length", 0)
+                            if not hops and isinstance(c.get("edges"), list):
+                                hops = len(c["edges"])
+                            longest = max(longest, hops)
                     result.metrics["graph_longest_path_hops"] = longest
                     if longest and longest < min_hops:
                         missing.append(f"min_hops:{longest}<{min_hops}")
