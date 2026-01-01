@@ -26,6 +26,7 @@ from pathlib import Path
 # Canonical counts - these are non-negotiable
 CANONICAL_BEHAVIORS = 87
 CANONICAL_AGENTS = 14
+CANONICAL_QURAN_VERSES = 6236  # Expected verse count in Quran
 
 # Required SSOT files (relative to QBM_SSOT_DIR) - matches actual file names
 REQUIRED_SSOT_FILES = [
@@ -191,6 +192,41 @@ class PreflightChecker:
         self.log(f"Concept index behaviors: {behavior_count}", "PASS")
         return True
     
+    def check_quran_verses(self) -> bool:
+        """Check that Quran verses load correctly with expected count."""
+        try:
+            # Import here to avoid circular imports
+            import sys
+            sys.path.insert(0, str(PROJECT_ROOT))
+            from src.ml.quran_store import QuranStore
+            
+            qs = QuranStore()
+            qs.load()
+            count = qs.get_verse_count()
+            source = qs.get_source()
+            
+            if count < CANONICAL_QURAN_VERSES:
+                self.errors.append(f"Quran verses: {count} (expected {CANONICAL_QURAN_VERSES})")
+                self.log(f"Quran verses: {count} (expected {CANONICAL_QURAN_VERSES}) from {source}", "ERROR")
+                return False
+            
+            # Verify specific verses load correctly
+            test_verses = ['1:1', '2:255', '112:1']
+            for verse_key in test_verses:
+                text = qs.get_verse_text(verse_key)
+                if not text:
+                    self.errors.append(f"Verse {verse_key} not found")
+                    self.log(f"Verse {verse_key} not found", "ERROR")
+                    return False
+            
+            self.log(f"Quran verses: {count} from {source}", "PASS")
+            return True
+            
+        except Exception as e:
+            self.errors.append(f"Failed to load Quran verses: {e}")
+            self.log(f"Failed to load Quran verses: {e}", "ERROR")
+            return False
+    
     def check_python_encoding(self) -> bool:
         """Check Python encoding settings for Windows compatibility."""
         pythonutf8 = os.environ.get("PYTHONUTF8", "")
@@ -222,6 +258,7 @@ class PreflightChecker:
             ("Python Encoding", self.check_python_encoding),
             ("SSOT Directory", self.check_ssot_dir_exists),
             ("SSOT Files", self.check_ssot_files),
+            ("Quran Verses", self.check_quran_verses),
             ("Canonical Entities", self.check_canonical_entities),
             ("Graph Behavior Nodes", self.check_graph_behavior_nodes),
             ("Concept Index", self.check_concept_index),

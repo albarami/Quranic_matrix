@@ -205,38 +205,49 @@ class LightweightProofBackend:
         return self._evidence_index
     
     def _load_quran_verses(self) -> Dict[str, str]:
-        """Load Quran verse texts from quran_index.source.json.
+        """Load Quran verse texts using QuranStore (unified loader).
         
         Returns dict mapping verse_key (e.g., '2:255') to Arabic text.
-        If source file is not found, returns empty dict and verses will show as placeholders.
+        Uses QuranStore which handles JSON/XML sources automatically.
         """
         if self._quran_verses is not None:
             return self._quran_verses
         
         self._quran_verses = {}
         
-        # Try to load from quran_index.source.json
-        quran_path = self.data_dir / "quran" / "_incoming" / "quran_index.source.json"
-        if quran_path.exists():
-            try:
-                with open(quran_path, "r", encoding="utf-8") as f:
-                    quran_data = json.load(f)
-                
-                # Extract verse texts from the structure
-                for surah in quran_data.get("surahs", []):
-                    surah_num = surah.get("number", 0)
-                    for ayah in surah.get("ayahs", []):
-                        ayah_num = ayah.get("number", 0)
-                        text = ayah.get("text", "")
-                        if surah_num and ayah_num and text:
-                            verse_key = f"{surah_num}:{ayah_num}"
-                            self._quran_verses[verse_key] = text
-                
-                logging.info(f"[LightweightProof] Loaded {len(self._quran_verses)} Quran verses")
-            except Exception as e:
-                logging.warning(f"[LightweightProof] Failed to load Quran verses: {e}")
-        else:
-            logging.info(f"[LightweightProof] Quran source not found at {quran_path}, verse text will be placeholders")
+        try:
+            from src.ml.quran_store import QuranStore
+            qs = QuranStore()
+            qs.load()
+            
+            for verse in qs.get_all_verses():
+                verse_key = verse.get('verse_key', '')
+                text = verse.get('text', '')
+                if verse_key and text:
+                    self._quran_verses[verse_key] = text
+            
+            logging.info(f"[LightweightProof] Loaded {len(self._quran_verses)} Quran verses from QuranStore ({qs.get_source()})")
+        except Exception as e:
+            logging.warning(f"[LightweightProof] Failed to load Quran verses from QuranStore: {e}")
+            # Fallback to legacy path for backward compatibility
+            quran_path = self.data_dir / "quran" / "_incoming" / "quran_index.source.json"
+            if quran_path.exists():
+                try:
+                    with open(quran_path, "r", encoding="utf-8") as f:
+                        quran_data = json.load(f)
+                    
+                    for surah in quran_data.get("surahs", []):
+                        surah_num = surah.get("number", 0)
+                        for ayah in surah.get("ayahs", []):
+                            ayah_num = ayah.get("number", 0)
+                            text = ayah.get("text", "")
+                            if surah_num and ayah_num and text:
+                                verse_key = f"{surah_num}:{ayah_num}"
+                                self._quran_verses[verse_key] = text
+                    
+                    logging.info(f"[LightweightProof] Loaded {len(self._quran_verses)} Quran verses from legacy path")
+                except Exception as e2:
+                    logging.warning(f"[LightweightProof] Failed to load from legacy path: {e2}")
         
         return self._quran_verses
     
