@@ -133,10 +133,14 @@ INTENT_PATTERNS: Dict[IntentType, List[tuple]] = {
         (r"rank\s+all\s+.*cause", 0.9),  # A11: "Rank all CAUSES"
         # Arabic patterns
         (r"سلاسل?\s*سببي", 1.0),
+        (r"السلسلة\s+السببية", 1.2),  # "the causal chain" with definite article
+        (r"سلسلة\s+سببية", 1.0),  # "a causal chain"
+        (r"من\s+\S+\s+إلى\s+\S+", 0.9),  # "from X to Y" pattern
         (r"يؤدي\s+إلى", 0.9),
         (r"يسبب", 0.8),
         (r"المسار\s+من", 0.8),
         (r"الغفلة.*الكفر", 0.9),
+        (r"الكبر.*الظلم", 1.0),  # "arrogance to oppression"
         (r"الكبر.*الإخلاص", 0.9),
         (r"الإيمان", 0.5),  # Faith - needs other signals
         (r"يقوي", 0.7),  # Strengthens
