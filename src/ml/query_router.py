@@ -206,15 +206,30 @@ class QueryRouter:
             r"السلوك\s+المتكرر",
         ]
         
-        # English trigger patterns
+        # English trigger patterns - must be specific to cross-context analysis
+        # Avoid matching agent-type queries like "same behavior" + "agent type"
         en_patterns = [
-            r"same\s+behavior",
+            r"same\s+behavior\s+in\s+(different|multiple|various)",  # More specific
+            r"same\s+behavior\s+across",  # More specific
             r"different\s+contexts",
             r"across\s+contexts",
             r"behavior\s+in\s+(different|multiple|various)\s+contexts",
-            r"repeated\s+behavior",
-            r"recurring\s+behavior",
+            r"repeated\s+behavior\s+in",  # More specific
+            r"recurring\s+behavior\s+in",  # More specific
         ]
+        
+        # Exclusion patterns - if these match, don't classify as CROSS_CONTEXT
+        exclusion_patterns = [
+            r"agent\s+type",
+            r"عالم.*جاهل",  # Scholar vs ignorant (agent types)
+            r"stricter\s+for",
+            r"differ\s+by\s+agent",
+        ]
+        
+        # Check exclusions first
+        for pattern in exclusion_patterns:
+            if re.search(pattern, query_lower) or re.search(pattern, query):
+                return None
         
         # Check Arabic patterns
         for pattern in ar_patterns:
