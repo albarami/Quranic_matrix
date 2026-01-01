@@ -580,7 +580,9 @@ def score_benchmark_item(
     if "MULTIHOP" in capabilities:
         graph = proof.get("graph", {})
         paths = graph.get("paths", [])
-        if not paths:
+        cycles = graph.get("cycles", [])
+        # Accept either paths or cycles for MULTIHOP (cycles are valid multi-hop structures)
+        if not paths and not cycles:
             missing.append("multihop_no_paths")
         elif min_hops > 0:
             # Check all paths meet min_hops requirement
