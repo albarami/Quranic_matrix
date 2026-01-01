@@ -413,8 +413,7 @@ def generate_system_info(expected_commit: Optional[str] = None) -> Tuple[Dict[st
                 if line.strip() and line.split()[-1].lower() not in windows_reserved
             ]
             info["has_uncommitted_changes"] = len(uncommitted_lines) > 0
-            if uncommitted_lines:
-                info["uncommitted_files_count"] = len(uncommitted_lines)
+            info["uncommitted_files_count"] = len(uncommitted_lines)
     except Exception:
         pass
     
