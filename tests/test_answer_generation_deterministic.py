@@ -55,10 +55,10 @@ def sample_proof() -> Dict[str, Any]:
                     {"source": "الغفلة", "target": "الكفر", "type": "LEADS_TO", "evidence_count": 5},
                 ]},
             ],
-            "centrality": {"total_nodes": 73, "total_edges": 156},
+            "centrality": {"total_nodes": 87, "total_edges": 156},
         },
         "statistics": {
-            "counts": {"total_behaviors": 73, "total_edges": 156},
+            "counts": {"total_behaviors": 87, "total_edges": 156},
             "percentages": {"coverage": 0.85},
         },
     }
@@ -87,7 +87,7 @@ def sample_debug() -> Dict[str, Any]:
         "derivations": {
             "quran_verse_count": 2,
             "tafsir_chunk_counts": {"ibn_kathir": 1, "qurtubi": 1},
-            "payload_numbers": [2, 45, 120, 73, 156, 0.85],
+            "payload_numbers": [2, 45, 120, 87, 156, 0.85],
         },
     }
 
@@ -206,7 +206,7 @@ class TestAnalysisPayloadBuilder:
 
         all_numbers = payload.get_all_numbers()
         assert 2.0 in all_numbers  # quran_verse_count
-        assert 73.0 in all_numbers  # total_nodes
+        assert 87.0 in all_numbers  # total_nodes
 
 
 # =============================================================================
@@ -289,7 +289,7 @@ class TestValidatorGate:
         )
 
         # Use numbers from the payload
-        llm_output = "تم العثور على 2 آيات و 73 عقدة في الشبكة"
+        llm_output = "تم العثور على 2 آيات و 87 عقدة في الشبكة"
 
         is_valid, violations = validate_no_new_claims(payload, llm_output)
 

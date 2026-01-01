@@ -2,11 +2,13 @@
 """
 Phase 8 Tests: All Behaviors Contract
 
-Parametrized tests that validate ALL 73 behaviors meet the contract:
+Parametrized tests that validate behaviors meet the contract:
 1. Every behavior is in concept index
 2. Every behavior has evidence provenance
 3. Every behavior passes validation
 4. Every behavior is in graph
+
+Note: All 87 canonical behaviors are expected in both fixture and full modes.
 
 Run with: pytest tests/phase8/test_all_behaviors_contract.py -v
 """
@@ -21,6 +23,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from src.data.behavior_registry import get_behavior_registry, clear_registry
+from src.core.data_profile import is_fixture_mode
 
 
 # ============================================================================

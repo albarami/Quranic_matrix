@@ -3,7 +3,7 @@ Test suite for QBMUnifiedSystem.
 
 Tests the unified system that links all AI components:
 - Tafsir (7 sources)
-- Behaviors (73 concepts)
+- Behaviors (87 concepts)
 - Organs (25)
 - Agents (14)
 - Knowledge Graph

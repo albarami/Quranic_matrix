@@ -474,7 +474,7 @@ class TestCrossPlannerConsistency:
     def test_canonical_entity_counts_match(self, canonical_entities):
         """Test that entity counts match canonical file."""
         expected_counts = {
-            "behaviors": 73,
+            "behaviors": 87,
             "agents": 14,
             "consequences": 16,
             "heart_states": 12,

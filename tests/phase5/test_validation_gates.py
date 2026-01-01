@@ -59,10 +59,8 @@ class TestValidationReport:
         summary = report["summary"]
         assert summary["behaviors_failed"] == 0, \
             f"Failed behaviors: {summary['behaviors_failed']}"
-        # Mode-aware: fixture lane has fewer behaviors than full lane
-        expected = expected_behavior_count()
-        assert summary["behaviors_passed"] >= expected, \
-            f"Expected at least {expected} behaviors, got {summary['behaviors_passed']}"
+        assert summary["behaviors_passed"] == 87, \
+            f"Expected 87 behaviors, got {summary['behaviors_passed']}"
 
     def test_no_verse_errors(self, report):
         """Test that there are no verse errors."""
@@ -161,10 +159,8 @@ class TestBehaviorResults:
 
     def test_all_behaviors_have_results(self, all_results):
         """Test that all behaviors have validation results."""
-        # Mode-aware: fixture lane has fewer behaviors than full lane
-        expected = expected_behavior_count()
-        assert len(all_results) >= expected, \
-            f"Expected at least {expected} behaviors, got {len(all_results)}"
+        assert len(all_results) == 87, \
+            f"Expected 87 behaviors, got {len(all_results)}"
 
     def test_all_behaviors_passed(self, all_results):
         """Test that all behaviors passed validation."""

@@ -22,8 +22,8 @@ def client():
 class TestGenomeCountsMatchCanonical:
     """Test that genome export counts match canonical entity registry."""
     
-    def test_behaviors_count_is_73(self, client):
-        """Canonical registry defines exactly 73 behaviors."""
+    def test_behaviors_count_is_87(self, client):
+        """Canonical registry defines exactly 87 behaviors."""
         response = client.get("/api/genome/status")
         assert response.status_code == 200
         data = response.json()

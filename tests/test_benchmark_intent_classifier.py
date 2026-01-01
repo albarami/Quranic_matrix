@@ -108,7 +108,7 @@ class TestSectionDGraphMetrics:
     def test_d02_centrality_ranking(self):
         """D02: Degree centrality ranking."""
         question = (
-            "Rank all 73 behaviors by degree centrality (total connections). "
+            "Rank all 87 behaviors by degree centrality (total connections). "
             "What characterizes high-degree behaviors?"
         )
         result = classify_intent(question)
@@ -146,7 +146,7 @@ class TestSectionFAgentAnalysis:
     def test_f01_agent_type_distribution(self):
         """F01: Agent types."""
         question = (
-            "For each of the 73 behaviors, identify which agent types perform them: "
+            "For each of the 87 behaviors, identify which agent types perform them: "
             "believer, disbeliever, munafiq, Prophet, Allah attribution."
         )
         result = classify_intent(question)
@@ -218,7 +218,7 @@ class TestSectionIEmbeddingsAnalysis:
     def test_i01_tsne_visualization(self):
         """I01: t-SNE visualization."""
         question = (
-            "Generate a t-SNE visualization of all 73 behaviors in embedding space. "
+            "Generate a t-SNE visualization of all 87 behaviors in embedding space. "
             "Which behaviors cluster together? Do clusters align with categories?"
         )
         result = classify_intent(question)

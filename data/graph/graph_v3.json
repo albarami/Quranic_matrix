@@ -8,15 +8,19 @@
     ]
   },
   "statistics": {
-    "total_nodes": 3941,
+    "total_nodes": 3955,
     "total_edges": 8078,
+    "behavior_nodes": 87,
+    "verse_nodes": 3868,
     "nodes_by_type": {
-      "behavior": 73,
+      "behavior": 87,
       "verse": 3868
     },
     "edges_by_type": {
       "MENTIONED_IN": 8078
-    }
+    },
+    "canonical_behaviors": 87,
+    "generated_at": "2026-01-01T04:29:47.260099+00:00"
   },
   "nodes": [
     {
@@ -47090,6 +47094,188 @@
         "surah": 113,
         "ayah": 5,
         "text_uthmani": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ"
+      }
+    },
+    {
+      "id": "BEH_COG_SUPERFICIAL_KNOWING",
+      "type": "behavior",
+      "labelAr": "المعرفة الظاهرية",
+      "labelEn": "Superficial Knowing",
+      "metadata": {
+        "category": "cognitive",
+        "roots": [
+          "ظ-ه-ر"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_PHY_EATING",
+      "type": "behavior",
+      "labelAr": "الأكل",
+      "labelEn": "Eating",
+      "metadata": {
+        "category": "physical",
+        "roots": [
+          "أ-ك-ل"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_PHY_DRINKING",
+      "type": "behavior",
+      "labelAr": "الشرب",
+      "labelEn": "Drinking",
+      "metadata": {
+        "category": "physical",
+        "roots": [
+          "ش-ر-ب"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_PHY_WALKING",
+      "type": "behavior",
+      "labelAr": "المشي",
+      "labelEn": "Walking",
+      "metadata": {
+        "category": "physical",
+        "roots": [
+          "م-ش-ي"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_PHY_SLEEPING",
+      "type": "behavior",
+      "labelAr": "النوم",
+      "labelEn": "Sleeping",
+      "metadata": {
+        "category": "physical",
+        "roots": [
+          "ن-و-م"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_PHY_LOOKING",
+      "type": "behavior",
+      "labelAr": "النظر",
+      "labelEn": "Looking/Gazing",
+      "metadata": {
+        "category": "physical",
+        "roots": [
+          "ن-ظ-ر"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_FIN_ASCETICISM",
+      "type": "behavior",
+      "labelAr": "زهد",
+      "labelEn": "Asceticism",
+      "metadata": {
+        "category": "financial",
+        "roots": [
+          "ز-ه-د"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_PHY_MODESTY",
+      "type": "behavior",
+      "labelAr": "حياء",
+      "labelEn": "Modesty",
+      "metadata": {
+        "category": "physical",
+        "roots": [
+          "ح-ي-ي"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_SOC_BETRAYAL",
+      "type": "behavior",
+      "labelAr": "خيانة",
+      "labelEn": "Betrayal",
+      "metadata": {
+        "category": "social",
+        "roots": [
+          "خ-و-ن"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_SOC_MERCY",
+      "type": "behavior",
+      "labelAr": "رحمة",
+      "labelEn": "Mercy",
+      "metadata": {
+        "category": "social",
+        "roots": [
+          "ر-ح-م"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_SOC_TRANSGRESSION",
+      "type": "behavior",
+      "labelAr": "فسق",
+      "labelEn": "Transgression",
+      "metadata": {
+        "category": "social",
+        "roots": [
+          "ف-س-ق"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_SOC_TRUSTWORTHINESS",
+      "type": "behavior",
+      "labelAr": "أمانة",
+      "labelEn": "Trustworthiness",
+      "metadata": {
+        "category": "social",
+        "roots": [
+          "أ-م-ن"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_SPI_KHUSHU",
+      "type": "behavior",
+      "labelAr": "خشوع",
+      "labelEn": "Humility in Prayer",
+      "metadata": {
+        "category": "spiritual",
+        "roots": [
+          "خ-ش-ع"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
+      }
+    },
+    {
+      "id": "BEH_SPI_SHIRK",
+      "type": "behavior",
+      "labelAr": "شرك",
+      "labelEn": "Polytheism",
+      "metadata": {
+        "category": "spiritual",
+        "roots": [
+          "ش-ر-ك"
+        ],
+        "added_by": "ci_bootstrap_canonical_fill"
       }
     }
   ],

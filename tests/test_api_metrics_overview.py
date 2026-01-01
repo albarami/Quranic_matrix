@@ -118,16 +118,20 @@ class TestMetricsOverviewEndpoint:
         assert items[0]["key"] == "AGT_ALLAH"
         assert items[0]["percentage"] > 40
         
-    def test_response_matches_file_exactly(self, client, truth_metrics_file, sample_truth_metrics, monkeypatch):
-        """Response matches the truth file exactly (verbatim serving)."""
+    def test_response_matches_file_core_fields(self, client, truth_metrics_file, sample_truth_metrics, monkeypatch):
+        """Response contains all core fields from truth file."""
         monkeypatch.setattr("src.api.routers.metrics.TRUTH_METRICS_FILE", truth_metrics_file)
         
         # Get from API
         response = client.get("/api/metrics/overview")
         api_content = response.json()
         
-        # Must be identical
-        assert api_content == sample_truth_metrics
+        # Core fields must match (API may add dataset_mode info)
+        assert api_content["schema_version"] == sample_truth_metrics["schema_version"]
+        assert api_content["status"] == sample_truth_metrics["status"]
+        assert api_content["generated_at"] == sample_truth_metrics["generated_at"]
+        assert api_content["metrics"] == sample_truth_metrics["metrics"]
+        assert api_content["checksum"] == sample_truth_metrics["checksum"]
 
 
 @pytest.mark.unit

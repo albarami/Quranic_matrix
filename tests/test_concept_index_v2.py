@@ -76,8 +76,8 @@ def get_all_canonical_ids(canonical_entities):
 class TestConceptIndexCompleteness:
     """Tests for concept index completeness."""
     
-    def test_concept_index_contains_all_73_behaviors(self, concept_index, canonical_entities):
-        """Concept index must contain all 73 behaviors."""
+    def test_concept_index_contains_all_87_behaviors(self, concept_index, canonical_entities):
+        """Concept index must contain all 87 behaviors."""
         behavior_ids = {b["id"] for b in canonical_entities.get("behaviors", [])}
         
         assert len(behavior_ids) == 87, f"Expected 87 behaviors, got {len(behavior_ids)}"

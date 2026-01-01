@@ -132,8 +132,8 @@ class TestCanonicalEntityCounts:
         assert 'behaviors' in data, "Must have behaviors"
         assert 'agents' in data, "Must have agents"
     
-    def test_behavior_count_is_73(self):
-        """Must have exactly 73 canonical behaviors."""
+    def test_behavior_count_is_87(self):
+        """Must have exactly 87 canonical behaviors."""
         import json
         canonical_path = os.path.join(
             os.path.dirname(__file__), '..', 'vocab', 'canonical_entities.json'
@@ -142,8 +142,8 @@ class TestCanonicalEntityCounts:
             data = json.load(f)
         
         behaviors = data.get('behaviors', [])
-        assert len(behaviors) == 73, \
-            f"Expected 73 behaviors, got {len(behaviors)}"
+        assert len(behaviors) == 87, \
+            f"Expected 87 behaviors, got {len(behaviors)}"
     
     def test_agent_count_is_14(self):
         """Must have exactly 14 canonical agents."""

@@ -37,9 +37,9 @@ class TestCanonicalEntityRegistry:
             assert section in registry, f"Missing section: {section}"
     
     def test_behaviors_count(self, registry):
-        """Should have 73 behaviors."""
+        """Should have 87 behaviors."""
         behaviors = registry['behaviors']
-        assert len(behaviors) >= 70, f"Expected ~73 behaviors, got {len(behaviors)}"
+        assert len(behaviors) == 87, f"Expected 87 behaviors, got {len(behaviors)}"
     
     def test_behavior_ids_unique(self, registry):
         """All behavior IDs must be unique."""

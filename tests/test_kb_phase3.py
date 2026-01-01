@@ -259,8 +259,8 @@ class TestKBFileIntegrity:
         
         assert count == 6236, f"Expected 6236 verses, got {count}"
     
-    def test_behaviors_count_is_73(self):
-        """behaviors.jsonl must have 73 behaviors."""
+    def test_behaviors_count_is_87(self):
+        """behaviors.jsonl must have 87 behaviors."""
         count = 0
         with open(BEHAVIORS_FILE, "r", encoding="utf-8") as f:
             for _ in f:

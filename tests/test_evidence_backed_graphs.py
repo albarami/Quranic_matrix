@@ -58,7 +58,7 @@ class TestGraphContainsAllNodes:
     """Tests that graphs contain ALL canonical entities as nodes."""
     
     def test_graph_contains_all_behavior_nodes(self):
-        """Graph must have exactly 73 behavior nodes."""
+        """Graph must have exactly 87 behavior nodes."""
         graph = load_cooccurrence_graph()
         canonical = load_canonical_entities()
         

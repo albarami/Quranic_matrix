@@ -39,14 +39,14 @@ class TestConceptMapCompleteness:
     """All canonical entities must have concept index entries."""
     
     def test_all_behaviors_in_concept_index(self, canonical_entities, concept_index):
-        """All 73+ behaviors must have concept index entries."""
+        """All 87 behaviors must have concept index entries."""
         behaviors = canonical_entities.get("behaviors", [])
         behavior_ids = {b.get("id") for b in behaviors}
         concept_ids = set(concept_index.keys())
         
         missing = behavior_ids - concept_ids
         assert len(missing) == 0, f"Behaviors missing from concept index: {missing}"
-        assert len(behaviors) >= 73, f"Expected 73+ behaviors, got {len(behaviors)}"
+        assert len(behaviors) == 87, f"Expected 87 behaviors, got {len(behaviors)}"
     
     def test_all_agents_in_concept_index(self, canonical_entities, concept_index):
         """All agents must have concept index entries."""

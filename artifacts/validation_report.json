@@ -1,13 +1,13 @@
 {
-  "generated_at": "2025-12-31T15:52:15.037643+00:00",
+  "generated_at": "2026-01-01T04:29:47.141342+00:00",
   "fixture_mode": true,
   "canonical_counts": {
     "behaviors": 87,
-    "organs": 39,
+    "organs": 40,
     "agents": 14,
     "heart_states": 12,
     "consequences": 16,
-    "total": 168
+    "total": 169
   },
   "actual_counts": {
     "behaviors": 87
@@ -15,7 +15,7 @@
   "validation_passed": true,
   "summary": {
     "total_behaviors": 87,
-    "total_entities": 168,
+    "total_entities": 169,
     "behaviors_validated": 87,
     "validation_rate": 1.0
   },
@@ -45,6 +45,9 @@
       "status": "valid"
     },
     "BEH_COG_REFLECTION": {
+      "status": "valid"
+    },
+    "BEH_COG_SUPERFICIAL_KNOWING": {
       "status": "valid"
     },
     "BEH_COG_UNDERSTANDING": {
@@ -86,6 +89,9 @@
     "BEH_EMO_PATIENCE": {
       "status": "valid"
     },
+    "BEH_FIN_ASCETICISM": {
+      "status": "valid"
+    },
     "BEH_FIN_BRIBERY": {
       "status": "valid"
     },
@@ -110,13 +116,34 @@
     "BEH_FIN_ZAKAT": {
       "status": "valid"
     },
+    "BEH_PHY_DRINKING": {
+      "status": "valid"
+    },
+    "BEH_PHY_EATING": {
+      "status": "valid"
+    },
+    "BEH_PHY_LOOKING": {
+      "status": "valid"
+    },
     "BEH_PHY_LOWERING_GAZE": {
+      "status": "valid"
+    },
+    "BEH_PHY_MODESTY": {
       "status": "valid"
     },
     "BEH_PHY_PROSTRATION": {
       "status": "valid"
     },
+    "BEH_PHY_SLEEPING": {
+      "status": "valid"
+    },
     "BEH_PHY_STANDING": {
+      "status": "valid"
+    },
+    "BEH_PHY_WALKING": {
+      "status": "valid"
+    },
+    "BEH_SOC_BETRAYAL": {
       "status": "valid"
     },
     "BEH_SOC_CORRUPTION": {
@@ -143,6 +170,9 @@
     "BEH_SOC_KINSHIP_TIES": {
       "status": "valid"
     },
+    "BEH_SOC_MERCY": {
+      "status": "valid"
+    },
     "BEH_SOC_OPPRESSION": {
       "status": "valid"
     },
@@ -156,6 +186,12 @@
       "status": "valid"
     },
     "BEH_SOC_SEVERING_TIES": {
+      "status": "valid"
+    },
+    "BEH_SOC_TRANSGRESSION": {
+      "status": "valid"
+    },
+    "BEH_SOC_TRUSTWORTHINESS": {
       "status": "valid"
     },
     "BEH_SPEECH_BACKBITING": {
@@ -212,6 +248,9 @@
     "BEH_SPI_JIHAD": {
       "status": "valid"
     },
+    "BEH_SPI_KHUSHU": {
+      "status": "valid"
+    },
     "BEH_SPI_PRAYER": {
       "status": "valid"
     },
@@ -222,6 +261,9 @@
       "status": "valid"
     },
     "BEH_SPI_REPENTANCE": {
+      "status": "valid"
+    },
+    "BEH_SPI_SHIRK": {
       "status": "valid"
     },
     "BEH_SPI_SHOWING_OFF": {
@@ -237,48 +279,6 @@
       "status": "valid"
     },
     "BEH_SPI_WORSHIP": {
-      "status": "valid"
-    },
-    "BEH_SOC_TRUSTWORTHINESS": {
-      "status": "valid"
-    },
-    "BEH_SOC_MERCY": {
-      "status": "valid"
-    },
-    "BEH_PHY_WALKING": {
-      "status": "valid"
-    },
-    "BEH_FIN_ASCETICISM": {
-      "status": "valid"
-    },
-    "BEH_SPI_KHUSHU": {
-      "status": "valid"
-    },
-    "BEH_SOC_TRANSGRESSION": {
-      "status": "valid"
-    },
-    "BEH_PHY_LOOKING": {
-      "status": "valid"
-    },
-    "BEH_SPI_SHIRK": {
-      "status": "valid"
-    },
-    "BEH_SOC_BETRAYAL": {
-      "status": "valid"
-    },
-    "BEH_PHY_DRINKING": {
-      "status": "valid"
-    },
-    "BEH_COG_SUPERFICIAL_KNOWING": {
-      "status": "valid"
-    },
-    "BEH_PHY_EATING": {
-      "status": "valid"
-    },
-    "BEH_PHY_SLEEPING": {
-      "status": "valid"
-    },
-    "BEH_PHY_MODESTY": {
       "status": "valid"
     }
   }
