@@ -406,9 +406,15 @@ def generate_system_info(expected_commit: Optional[str] = None) -> Tuple[Dict[st
         )
         if result.returncode == 0:
             uncommitted = result.stdout.strip()
-            info["has_uncommitted_changes"] = len(uncommitted) > 0
-            if uncommitted:
-                info["uncommitted_files_count"] = len(uncommitted.split('\n'))
+            # Filter out Windows reserved device names (nul, con, prn, etc.)
+            windows_reserved = {'nul', 'con', 'prn', 'aux', 'com1', 'com2', 'com3', 'com4', 'lpt1', 'lpt2', 'lpt3'}
+            uncommitted_lines = [
+                line for line in uncommitted.split('\n') 
+                if line.strip() and line.split()[-1].lower() not in windows_reserved
+            ]
+            info["has_uncommitted_changes"] = len(uncommitted_lines) > 0
+            if uncommitted_lines:
+                info["uncommitted_files_count"] = len(uncommitted_lines)
     except Exception:
         pass
     
