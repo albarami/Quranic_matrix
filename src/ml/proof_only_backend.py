@@ -182,14 +182,36 @@ class LightweightProofBackend:
         self._behavior_term_map: Optional[Dict[str, str]] = None  # ar/en term -> behavior_id
         
     def _load_evidence_index(self) -> Dict[str, List[Dict]]:
-        """Load chunked evidence index (verse_key -> chunks)."""
+        """Load evidence index (verse_key -> chunks).
+        
+        In FULL mode: Uses evidence_index_v1.jsonl (43K+ entries)
+        In fixture mode: Uses evidence_index_v2_chunked.jsonl (378 entries)
+        """
         if self._evidence_index is not None:
             return self._evidence_index
-            
-        index_path = self.data_dir / "evidence" / "evidence_index_v2_chunked.jsonl"
+        
+        # Determine which index to use based on dataset mode
+        dataset_mode = os.getenv("QBM_DATASET_MODE", "fixture")
+        use_fixture = os.getenv("QBM_USE_FIXTURE", "0") == "1"
+        
+        if dataset_mode == "full" and not use_fixture:
+            # FULL mode: use the comprehensive evidence index
+            index_path = self.data_dir / "evidence" / "evidence_index_v1.jsonl"
+            index_name = "full (v1)"
+        else:
+            # Fixture mode: use the smaller chunked index
+            index_path = self.data_dir / "evidence" / "evidence_index_v2_chunked.jsonl"
+            index_name = "fixture (v2_chunked)"
+        
         if not index_path.exists():
             logging.warning(f"Evidence index not found: {index_path}")
-            return {}
+            # Fallback to whatever exists
+            fallback_path = self.data_dir / "evidence" / "evidence_index_v2_chunked.jsonl"
+            if fallback_path.exists():
+                index_path = fallback_path
+                index_name = "fallback (v2_chunked)"
+            else:
+                return {}
             
         self._evidence_index = {}
         with open(index_path, "r", encoding="utf-8") as f:
@@ -201,7 +223,7 @@ class LightweightProofBackend:
                         self._evidence_index[verse_key] = []
                     self._evidence_index[verse_key].append(entry)
         
-        logging.info(f"[LightweightProof] Loaded {len(self._evidence_index)} verse keys from chunked index")
+        logging.info(f"[LightweightProof] Loaded {len(self._evidence_index)} verse keys from {index_name} index")
         return self._evidence_index
     
     def _load_quran_verses(self) -> Dict[str, str]:
