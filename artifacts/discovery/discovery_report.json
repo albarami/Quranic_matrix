@@ -1,0 +1,3137 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-01-01T20:14:34.239226Z",
+  "statistics": {
+    "total_paths": 100,
+    "total_bridges": 20,
+    "total_communities": 27,
+    "total_motifs": 3,
+    "total_link_predictions": 41,
+    "behaviors_analyzed": 87
+  },
+  "top_paths": [
+    {
+      "path_id": "PATH_BEH_PHY_STANDING_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_PHY_STANDING",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_PHY_STANDING",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 52
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 296,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_SPEECH_TRUTHFULNESS_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_SPEECH_TRUTHFULNESS",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_SPEECH_TRUTHFULNESS",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 47
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 291,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_SPI_HAJJ_BEH_SPI_REMEMBRANCE_2h",
+      "nodes": [
+        "BEH_SPI_HAJJ",
+        "BEH_COG_KNOWLEDGE",
+        "BEH_SPI_REMEMBRANCE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_SPI_HAJJ",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 40
+        },
+        {
+          "source": "BEH_COG_KNOWLEDGE",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 239
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 279,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_SOC_OPPRESSION_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_SOC_OPPRESSION",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_SOC_OPPRESSION",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 32
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 276,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_COG_ARROGANCE_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_COG_ARROGANCE",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_COG_ARROGANCE",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 30
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 274,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_EMO_PATIENCE_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_EMO_PATIENCE",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_EMO_PATIENCE",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 29
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 273,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_FIN_SPENDING_BEH_COG_KNOWLEDGE_3h",
+      "nodes": [
+        "BEH_FIN_SPENDING",
+        "BEH_COG_UNDERSTANDING",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_FIN_SPENDING",
+          "target": "BEH_COG_UNDERSTANDING",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 2
+        },
+        {
+          "source": "BEH_COG_UNDERSTANDING",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 25
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 3,
+      "total_evidence": 271,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_COG_UNDERSTANDING_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_COG_UNDERSTANDING",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_COG_UNDERSTANDING",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 25
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 269,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_SOC_OPPRESSION_BEH_SPI_REMEMBRANCE_2h",
+      "nodes": [
+        "BEH_SOC_OPPRESSION",
+        "BEH_COG_KNOWLEDGE",
+        "BEH_SPI_REMEMBRANCE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_SOC_OPPRESSION",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 27
+        },
+        {
+          "source": "BEH_COG_KNOWLEDGE",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 239
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 266,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_SPI_CONTENTMENT_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_SPI_CONTENTMENT",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_SPI_CONTENTMENT",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 20
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 264,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_SOC_JUSTICE_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_SOC_JUSTICE",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_SOC_JUSTICE",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 17
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 261,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_SPEECH_TESTIMONY_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_SPEECH_TESTIMONY",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_SPEECH_TESTIMONY",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 15
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 259,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_FIN_HOARDING_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_FIN_HOARDING",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_FIN_HOARDING",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 14
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 258,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_SPEECH_SUPPLICATION_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_SPEECH_SUPPLICATION",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_SPEECH_SUPPLICATION",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 14
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 258,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_SPI_JIHAD_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_SPI_JIHAD",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_SPI_JIHAD",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 14
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 258,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_SPEECH_TESTIMONY_BEH_SPI_REMEMBRANCE_2h",
+      "nodes": [
+        "BEH_SPEECH_TESTIMONY",
+        "BEH_COG_KNOWLEDGE",
+        "BEH_SPI_REMEMBRANCE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_SPEECH_TESTIMONY",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 18
+        },
+        {
+          "source": "BEH_COG_KNOWLEDGE",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 239
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 257,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_SPEECH_VAIN_TALK_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_SPEECH_VAIN_TALK",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_SPEECH_VAIN_TALK",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 13
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 257,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_SPI_CONTEMPLATION_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_SPI_CONTEMPLATION",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_SPI_CONTEMPLATION",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 13
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 257,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_COG_CERTAINTY_BEH_SPI_REMEMBRANCE_2h",
+      "nodes": [
+        "BEH_COG_CERTAINTY",
+        "BEH_COG_KNOWLEDGE",
+        "BEH_SPI_REMEMBRANCE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_COG_CERTAINTY",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 17
+        },
+        {
+          "source": "BEH_COG_KNOWLEDGE",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 239
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 256,
+      "confidence": 1.0
+    },
+    {
+      "path_id": "PATH_BEH_COG_CERTAINTY_BEH_COG_KNOWLEDGE_2h",
+      "nodes": [
+        "BEH_COG_CERTAINTY",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_COG_KNOWLEDGE"
+      ],
+      "edges": [
+        {
+          "source": "BEH_COG_CERTAINTY",
+          "target": "BEH_SPI_REMEMBRANCE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 12
+        },
+        {
+          "source": "BEH_SPI_REMEMBRANCE",
+          "target": "BEH_COG_KNOWLEDGE",
+          "edge_type": "COMPLEMENTS",
+          "evidence_count": 244
+        }
+      ],
+      "total_hops": 2,
+      "total_evidence": 256,
+      "confidence": 1.0
+    }
+  ],
+  "bridges": [
+    {
+      "behavior_id": "BEH_SPI_REMEMBRANCE",
+      "label_ar": "الذكر",
+      "label_en": "Remembrance",
+      "betweenness_centrality": 0.116436,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 8500
+    },
+    {
+      "behavior_id": "BEH_COG_KNOWLEDGE",
+      "label_ar": "العلم",
+      "label_en": "Knowledge",
+      "betweenness_centrality": 0.074738,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 6015
+    },
+    {
+      "behavior_id": "BEH_SPI_DISBELIEF",
+      "label_ar": "الكفر",
+      "label_en": "Disbelief",
+      "betweenness_centrality": 0.036348,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 3127
+    },
+    {
+      "behavior_id": "BEH_SPI_FAITH",
+      "label_ar": "الإيمان",
+      "label_en": "Faith",
+      "betweenness_centrality": 0.017291,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 2099
+    },
+    {
+      "behavior_id": "BEH_SPEECH_TRUTHFULNESS",
+      "label_ar": "الصدق",
+      "label_en": "Truthfulness",
+      "betweenness_centrality": 0.012463,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 1709
+    },
+    {
+      "behavior_id": "BEH_PHY_STANDING",
+      "label_ar": "القيام",
+      "label_en": "Standing",
+      "betweenness_centrality": 0.010345,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 1796
+    },
+    {
+      "behavior_id": "BEH_SPI_HAJJ",
+      "label_ar": "الحج",
+      "label_en": "Pilgrimage",
+      "betweenness_centrality": 0.010003,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 1241
+    },
+    {
+      "behavior_id": "BEH_SPEECH_LYING",
+      "label_ar": "الكذب",
+      "label_en": "Lying",
+      "betweenness_centrality": 0.009283,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 1586
+    },
+    {
+      "behavior_id": "BEH_SPI_WORSHIP",
+      "label_ar": "العبادة",
+      "label_en": "Worship",
+      "betweenness_centrality": 0.009044,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 1279
+    },
+    {
+      "behavior_id": "BEH_FIN_HOARDING",
+      "label_ar": "البخل",
+      "label_en": "Hoarding/Miserliness",
+      "betweenness_centrality": 0.008972,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 766
+    },
+    {
+      "behavior_id": "BEH_SPI_PRAYER",
+      "label_ar": "الصلاة",
+      "label_en": "Prayer",
+      "betweenness_centrality": 0.008181,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 1294
+    },
+    {
+      "behavior_id": "BEH_FIN_USURY",
+      "label_ar": "الربا",
+      "label_en": "Usury",
+      "betweenness_centrality": 0.006048,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 734
+    },
+    {
+      "behavior_id": "BEH_COG_UNDERSTANDING",
+      "label_ar": "الفقه",
+      "label_en": "Understanding",
+      "betweenness_centrality": 0.005951,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 734
+    },
+    {
+      "behavior_id": "BEH_EMO_PATIENCE",
+      "label_ar": "الصبر",
+      "label_en": "Patience",
+      "betweenness_centrality": 0.00446,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 618
+    },
+    {
+      "behavior_id": "BEH_SPI_SINCERITY",
+      "label_ar": "الإخلاص",
+      "label_en": "Sincerity",
+      "betweenness_centrality": 0.003888,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 208
+    },
+    {
+      "behavior_id": "BEH_SOC_IHSAN",
+      "label_ar": "الإحسان",
+      "label_en": "Excellence/Ihsan",
+      "betweenness_centrality": 0.003849,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 419
+    },
+    {
+      "behavior_id": "BEH_SOC_CORRUPTION",
+      "label_ar": "الفساد",
+      "label_en": "Corruption",
+      "betweenness_centrality": 0.003755,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 323
+    },
+    {
+      "behavior_id": "BEH_SOC_JUSTICE",
+      "label_ar": "العدل",
+      "label_en": "Justice",
+      "betweenness_centrality": 0.003277,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 550
+    },
+    {
+      "behavior_id": "BEH_SPI_CONTENTMENT",
+      "label_ar": "الرضا",
+      "label_en": "Contentment",
+      "betweenness_centrality": 0.002987,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 508
+    },
+    {
+      "behavior_id": "BEH_SOC_OPPRESSION",
+      "label_ar": "الظلم",
+      "label_en": "Oppression",
+      "betweenness_centrality": 0.00245,
+      "connected_clusters": [
+        "COMM_000"
+      ],
+      "evidence_count": 1145
+    }
+  ],
+  "communities": [
+    {
+      "community_id": "COMM_000",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_COG_ARROGANCE",
+        "BEH_COG_CERTAINTY",
+        "BEH_COG_DOUBT",
+        "BEH_COG_HEEDLESSNESS",
+        "BEH_COG_HUMILITY",
+        "BEH_COG_IGNORANCE",
+        "BEH_COG_KNOWLEDGE",
+        "BEH_COG_REFLECTION",
+        "BEH_COG_UNDERSTANDING",
+        "BEH_EMO_ANGER",
+        "BEH_EMO_ENVY",
+        "BEH_EMO_FEAR_ALLAH",
+        "BEH_EMO_GRATITUDE",
+        "BEH_EMO_GRIEF",
+        "BEH_EMO_HATRED",
+        "BEH_EMO_HOPE",
+        "BEH_EMO_IMPATIENCE",
+        "BEH_EMO_INGRATITUDE",
+        "BEH_EMO_JOY",
+        "BEH_EMO_LOVE",
+        "BEH_EMO_PATIENCE",
+        "BEH_FIN_CHARITY",
+        "BEH_FIN_FRAUD",
+        "BEH_FIN_HOARDING",
+        "BEH_FIN_SPENDING",
+        "BEH_FIN_USURY",
+        "BEH_FIN_ZAKAT",
+        "BEH_PHY_PROSTRATION",
+        "BEH_PHY_STANDING",
+        "BEH_SOC_CORRUPTION",
+        "BEH_SOC_HOSPITALITY",
+        "BEH_SOC_IHSAN",
+        "BEH_SOC_JUSTICE",
+        "BEH_SOC_OPPRESSION",
+        "BEH_SOC_RECONCILIATION",
+        "BEH_SPEECH_BACKBITING",
+        "BEH_SPEECH_HARSH_WORD",
+        "BEH_SPEECH_LYING",
+        "BEH_SPEECH_REMEMBRANCE",
+        "BEH_SPEECH_SLANDER",
+        "BEH_SPEECH_SUPPLICATION",
+        "BEH_SPEECH_TESTIMONY",
+        "BEH_SPEECH_TRUTHFULNESS",
+        "BEH_SPEECH_VAIN_TALK",
+        "BEH_SPI_CONTEMPLATION",
+        "BEH_SPI_CONTENTMENT",
+        "BEH_SPI_DISBELIEF",
+        "BEH_SPI_FAITH",
+        "BEH_SPI_FASTING",
+        "BEH_SPI_HAJJ",
+        "BEH_SPI_HYPOCRISY",
+        "BEH_SPI_JIHAD",
+        "BEH_SPI_PRAYER",
+        "BEH_SPI_RECITATION",
+        "BEH_SPI_REMEMBRANCE",
+        "BEH_SPI_REPENTANCE",
+        "BEH_SPI_SHOWING_OFF",
+        "BEH_SPI_SINCERITY",
+        "BEH_SPI_TAQWA",
+        "BEH_SPI_TAWAKKUL",
+        "BEH_SPI_WORSHIP"
+      ],
+      "internal_edges": 1178,
+      "external_edges": 0,
+      "cohesion_score": 0.999
+    },
+    {
+      "community_id": "COMM_001",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_COG_FOLLOWING_DESIRE"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_002",
+      "label": "cognitive_cluster",
+      "behaviors": [
+        "BEH_COG_SUPERFICIAL_KNOWING"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_003",
+      "label": "financial_cluster",
+      "behaviors": [
+        "BEH_FIN_ASCETICISM"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_004",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_FIN_BRIBERY"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_005",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_FIN_FAIR_TRADE"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_006",
+      "label": "physical_cluster",
+      "behaviors": [
+        "BEH_PHY_DRINKING"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_007",
+      "label": "physical_cluster",
+      "behaviors": [
+        "BEH_PHY_EATING"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_008",
+      "label": "physical_cluster",
+      "behaviors": [
+        "BEH_PHY_LOOKING"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_009",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_PHY_LOWERING_GAZE"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_010",
+      "label": "physical_cluster",
+      "behaviors": [
+        "BEH_PHY_MODESTY"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_011",
+      "label": "physical_cluster",
+      "behaviors": [
+        "BEH_PHY_SLEEPING"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_012",
+      "label": "physical_cluster",
+      "behaviors": [
+        "BEH_PHY_WALKING"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_013",
+      "label": "social_cluster",
+      "behaviors": [
+        "BEH_SOC_BETRAYAL"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_014",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_SOC_DISOBEDIENCE_PARENTS"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_015",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_SOC_HELPING_NEEDY"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_016",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_SOC_KINDNESS_PARENTS"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_017",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_SOC_KINSHIP_TIES"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_018",
+      "label": "social_cluster",
+      "behaviors": [
+        "BEH_SOC_MERCY"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_019",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_SOC_ORPHAN_CARE"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_020",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_SOC_ORPHAN_HARM"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_021",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_SOC_SEVERING_TIES"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_022",
+      "label": "social_cluster",
+      "behaviors": [
+        "BEH_SOC_TRANSGRESSION"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_023",
+      "label": "social_cluster",
+      "behaviors": [
+        "BEH_SOC_TRUSTWORTHINESS"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_024",
+      "label": "_cluster",
+      "behaviors": [
+        "BEH_SPEECH_GOOD_WORD"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_025",
+      "label": "spiritual_cluster",
+      "behaviors": [
+        "BEH_SPI_KHUSHU"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    },
+    {
+      "community_id": "COMM_026",
+      "label": "spiritual_cluster",
+      "behaviors": [
+        "BEH_SPI_SHIRK"
+      ],
+      "internal_edges": 0,
+      "external_edges": 0,
+      "cohesion_score": 0.0
+    }
+  ],
+  "motifs": [
+    {
+      "motif_id": "MOTIF_TRIAD_001",
+      "pattern_type": "triad",
+      "pattern_description": "A -> B -> C with A -> C (transitive closure)",
+      "instances": [
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_SPEECH_TRUTHFULNESS"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_SPEECH_TRUTHFULNESS"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_FIN_HOARDING",
+          "BEH_COG_UNDERSTANDING"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_FIN_HOARDING",
+          "BEH_SOC_JUSTICE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_FIN_HOARDING",
+          "BEH_SPEECH_TRUTHFULNESS"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_FIN_HOARDING",
+          "BEH_SPI_CONTENTMENT"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_FIN_HOARDING",
+          "BEH_SPI_CONTENTMENT"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SOC_JUSTICE",
+          "BEH_SPEECH_TRUTHFULNESS"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SOC_JUSTICE",
+          "BEH_SPEECH_TRUTHFULNESS"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SPEECH_TRUTHFULNESS",
+          "BEH_COG_UNDERSTANDING"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SPEECH_TRUTHFULNESS",
+          "BEH_COG_UNDERSTANDING"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SPEECH_TRUTHFULNESS",
+          "BEH_FIN_HOARDING"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SPEECH_TRUTHFULNESS",
+          "BEH_SOC_JUSTICE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SPEECH_TRUTHFULNESS",
+          "BEH_SPI_CONTENTMENT"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SPI_CONTENTMENT",
+          "BEH_COG_UNDERSTANDING"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SPI_CONTENTMENT",
+          "BEH_COG_UNDERSTANDING"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SPI_CONTENTMENT",
+          "BEH_SOC_JUSTICE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SPI_CONTENTMENT",
+          "BEH_SPEECH_TRUTHFULNESS"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SPI_CONTENTMENT",
+          "BEH_SPEECH_TRUTHFULNESS"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_DOUBT",
+          "BEH_COG_IGNORANCE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_DOUBT",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_DOUBT",
+          "BEH_EMO_GRATITUDE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_DOUBT",
+          "BEH_PHY_STANDING"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_DOUBT",
+          "BEH_SPI_DISBELIEF"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_DOUBT",
+          "BEH_SPI_DISBELIEF"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_DOUBT",
+          "BEH_SPI_FAITH"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_DOUBT",
+          "BEH_SPI_REMEMBRANCE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_DOUBT",
+          "BEH_SPI_WORSHIP"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_HUMILITY",
+          "BEH_SPI_REMEMBRANCE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_HUMILITY",
+          "BEH_SPI_TAQWA"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_PHY_STANDING"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_DISBELIEF"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_DISBELIEF"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_FAITH"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_HAJJ"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_REMEMBRANCE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_REMEMBRANCE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_REMEMBRANCE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_PHY_STANDING"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_DISBELIEF"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_DISBELIEF"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_FAITH"
+        ]
+      ],
+      "support_count": 26133,
+      "evidence_per_instance": [
+        8,
+        14,
+        11,
+        10,
+        13,
+        13,
+        13,
+        10,
+        15,
+        8,
+        15,
+        13,
+        12,
+        15,
+        10,
+        12,
+        12,
+        12,
+        12,
+        8,
+        13,
+        14,
+        8,
+        15,
+        12,
+        10,
+        15,
+        14,
+        9,
+        6,
+        9,
+        22,
+        9,
+        7,
+        6,
+        6,
+        9,
+        10,
+        7,
+        8,
+        22,
+        8,
+        9,
+        22,
+        9,
+        7,
+        6,
+        6,
+        9,
+        10
+      ]
+    },
+    {
+      "motif_id": "MOTIF_CHAIN_001",
+      "pattern_type": "chain",
+      "pattern_description": "A -> B -> C -> D (linear causal chain)",
+      "instances": [
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_HEEDLESSNESS"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_EMO_FEAR_ALLAH"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_PHY_STANDING"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPEECH_LYING"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPEECH_TRUTHFULNESS"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPEECH_VAIN_TALK"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_DISBELIEF"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_DISBELIEF"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_FAITH"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_HAJJ"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_REMEMBRANCE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_REMEMBRANCE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_REMEMBRANCE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_IGNORANCE",
+          "BEH_SPI_REPENTANCE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_COG_ARROGANCE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_COG_ARROGANCE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_COG_ARROGANCE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_COG_CERTAINTY"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_COG_DOUBT"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_COG_DOUBT"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_COG_HEEDLESSNESS"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_COG_HUMILITY"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_COG_IGNORANCE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_COG_IGNORANCE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_COG_REFLECTION"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_ANGER"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_ANGER"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_ENVY"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_FEAR_ALLAH"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_GRATITUDE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_GRATITUDE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_GRIEF"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_HATRED"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_HOPE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_JOY"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_LOVE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_PATIENCE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_PATIENCE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_EMO_PATIENCE"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_FIN_CHARITY"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_FIN_HOARDING"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_FIN_HOARDING"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_FIN_USURY"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_FIN_ZAKAT"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_PHY_STANDING"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE",
+          "BEH_SOC_CORRUPTION"
+        ]
+      ],
+      "support_count": 1411835,
+      "evidence_per_instance": [
+        9,
+        8,
+        21,
+        8,
+        6,
+        6,
+        6,
+        10,
+        8,
+        6,
+        6,
+        9,
+        10,
+        7,
+        6,
+        20,
+        6,
+        6,
+        7,
+        21,
+        7,
+        14,
+        10,
+        7,
+        10,
+        7,
+        25,
+        7,
+        10,
+        8,
+        13,
+        8,
+        9,
+        17,
+        7,
+        8,
+        8,
+        7,
+        7,
+        9,
+        7,
+        23,
+        7,
+        18,
+        7,
+        21,
+        23,
+        11,
+        52,
+        12
+      ]
+    },
+    {
+      "motif_id": "MOTIF_CYCLE_001",
+      "pattern_type": "cycle",
+      "pattern_description": "A <-> B (reinforcement cycle)",
+      "instances": [
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_COG_UNDERSTANDING"
+        ],
+        [
+          "BEH_FIN_SPENDING",
+          "BEH_SPI_CONTENTMENT"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_DOUBT"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_EMO_GRATITUDE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_FIN_ZAKAT"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_PHY_STANDING"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_SOC_JUSTICE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_SPI_DISBELIEF"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_SPI_DISBELIEF"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_SPI_FAITH"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_SPI_FAITH"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_SPI_PRAYER"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_SPI_REMEMBRANCE"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_SPI_SINCERITY"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_SPI_TAQWA"
+        ],
+        [
+          "BEH_SOC_IHSAN",
+          "BEH_SPI_WORSHIP"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_FIN_CHARITY"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_PHY_STANDING"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_SOC_OPPRESSION"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_SOC_OPPRESSION"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_SPEECH_LYING"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_SPEECH_TRUTHFULNESS"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_SPI_DISBELIEF"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_SPI_HAJJ"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_SPI_PRAYER"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_SPI_REMEMBRANCE"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_SPI_REMEMBRANCE"
+        ],
+        [
+          "BEH_COG_ARROGANCE",
+          "BEH_SPI_WORSHIP"
+        ],
+        [
+          "BEH_SPEECH_TESTIMONY",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SPEECH_TESTIMONY",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_SPEECH_TESTIMONY",
+          "BEH_SOC_JUSTICE"
+        ],
+        [
+          "BEH_SPEECH_TESTIMONY",
+          "BEH_SPEECH_LYING"
+        ],
+        [
+          "BEH_SPEECH_TESTIMONY",
+          "BEH_SPI_REMEMBRANCE"
+        ],
+        [
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_COG_UNDERSTANDING",
+          "BEH_COG_KNOWLEDGE"
+        ],
+        [
+          "BEH_COG_UNDERSTANDING",
+          "BEH_EMO_FEAR_ALLAH"
+        ],
+        [
+          "BEH_COG_UNDERSTANDING",
+          "BEH_FIN_CHARITY"
+        ],
+        [
+          "BEH_COG_UNDERSTANDING",
+          "BEH_FIN_USURY"
+        ],
+        [
+          "BEH_COG_UNDERSTANDING",
+          "BEH_PHY_STANDING"
+        ],
+        [
+          "BEH_COG_UNDERSTANDING",
+          "BEH_SPEECH_LYING"
+        ],
+        [
+          "BEH_COG_UNDERSTANDING",
+          "BEH_SPEECH_SUPPLICATION"
+        ],
+        [
+          "BEH_COG_UNDERSTANDING",
+          "BEH_SPEECH_TRUTHFULNESS"
+        ],
+        [
+          "BEH_COG_UNDERSTANDING",
+          "BEH_SPEECH_TRUTHFULNESS"
+        ]
+      ],
+      "support_count": 409,
+      "evidence_per_instance": [
+        4,
+        8,
+        6,
+        5,
+        17,
+        10,
+        11,
+        7,
+        5,
+        4,
+        7,
+        4,
+        4,
+        9,
+        21,
+        13,
+        4,
+        9,
+        4,
+        20,
+        4,
+        5,
+        5,
+        10,
+        5,
+        9,
+        10,
+        12,
+        17,
+        14,
+        6,
+        34,
+        6,
+        10,
+        28,
+        12,
+        12,
+        6,
+        27,
+        5,
+        28,
+        7,
+        4,
+        11,
+        8,
+        8,
+        7,
+        10,
+        4,
+        10
+      ]
+    }
+  ],
+  "link_predictions": [
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_IMPATIENCE_BEH_SOC_HOSPITALITY",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_IMPATIENCE",
+        "BEH_SOC_HOSPITALITY"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.667,
+      "confidence_factors": {
+        "common_neighbors": 2,
+        "jaccard_similarity": 0.6666666666666666
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_IMPATIENCE and BEH_SOC_HOSPITALITY based on 2 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.219461Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SOC_HOSPITALITY_BEH_EMO_IMPATIENCE",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SOC_HOSPITALITY",
+        "BEH_EMO_IMPATIENCE"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.667,
+      "confidence_factors": {
+        "common_neighbors": 2,
+        "jaccard_similarity": 0.6666666666666666
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SOC_HOSPITALITY and BEH_EMO_IMPATIENCE based on 2 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.227181Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_FIN_USURY_BEH_SPEECH_TRUTHFULNESS",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_FIN_USURY",
+        "BEH_SPEECH_TRUTHFULNESS"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.611,
+      "confidence_factors": {
+        "common_neighbors": 22,
+        "jaccard_similarity": 0.6111111111111112
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_FIN_USURY and BEH_SPEECH_TRUTHFULNESS based on 22 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.220464Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPEECH_LYING_BEH_FIN_HOARDING",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPEECH_LYING",
+        "BEH_FIN_HOARDING"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.585,
+      "confidence_factors": {
+        "common_neighbors": 24,
+        "jaccard_similarity": 0.5853658536585366
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPEECH_LYING and BEH_FIN_HOARDING based on 24 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.225104Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SOC_RECONCILIATION_BEH_COG_REFLECTION",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SOC_RECONCILIATION",
+        "BEH_COG_REFLECTION"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.571,
+      "confidence_factors": {
+        "common_neighbors": 4,
+        "jaccard_similarity": 0.5714285714285714
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SOC_RECONCILIATION and BEH_COG_REFLECTION based on 4 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.224104Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_COG_REFLECTION_BEH_SOC_RECONCILIATION",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_COG_REFLECTION",
+        "BEH_SOC_RECONCILIATION"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.571,
+      "confidence_factors": {
+        "common_neighbors": 4,
+        "jaccard_similarity": 0.5714285714285714
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_COG_REFLECTION and BEH_SOC_RECONCILIATION based on 4 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.227181Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_JOY_BEH_EMO_ENVY",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_JOY",
+        "BEH_EMO_ENVY"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.556,
+      "confidence_factors": {
+        "common_neighbors": 5,
+        "jaccard_similarity": 0.5555555555555556
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_JOY and BEH_EMO_ENVY based on 5 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.222104Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_ENVY_BEH_EMO_JOY",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_ENVY",
+        "BEH_EMO_JOY"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.556,
+      "confidence_factors": {
+        "common_neighbors": 5,
+        "jaccard_similarity": 0.5555555555555556
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_ENVY and BEH_EMO_JOY based on 5 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.225104Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_ANGER_BEH_COG_CERTAINTY",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_ANGER",
+        "BEH_COG_CERTAINTY"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.556,
+      "confidence_factors": {
+        "common_neighbors": 10,
+        "jaccard_similarity": 0.5555555555555556
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_ANGER and BEH_COG_CERTAINTY based on 10 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.227771Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_COG_CERTAINTY_BEH_EMO_ANGER",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_COG_CERTAINTY",
+        "BEH_EMO_ANGER"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.556,
+      "confidence_factors": {
+        "common_neighbors": 10,
+        "jaccard_similarity": 0.5555555555555556
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_COG_CERTAINTY and BEH_EMO_ANGER based on 10 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.235651Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPI_SHOWING_OFF_BEH_EMO_HOPE",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPI_SHOWING_OFF",
+        "BEH_EMO_HOPE"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.545,
+      "confidence_factors": {
+        "common_neighbors": 6,
+        "jaccard_similarity": 0.5454545454545454
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPI_SHOWING_OFF and BEH_EMO_HOPE based on 6 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.233283Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_HATRED_BEH_EMO_HOPE",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_HATRED",
+        "BEH_EMO_HOPE"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.545,
+      "confidence_factors": {
+        "common_neighbors": 6,
+        "jaccard_similarity": 0.5454545454545454
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_HATRED and BEH_EMO_HOPE based on 6 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.234282Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_HOPE_BEH_SPI_SHOWING_OFF",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_HOPE",
+        "BEH_SPI_SHOWING_OFF"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.545,
+      "confidence_factors": {
+        "common_neighbors": 6,
+        "jaccard_similarity": 0.5454545454545454
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_HOPE and BEH_SPI_SHOWING_OFF based on 6 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.238193Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_HOPE_BEH_EMO_HATRED",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_HOPE",
+        "BEH_EMO_HATRED"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.545,
+      "confidence_factors": {
+        "common_neighbors": 6,
+        "jaccard_similarity": 0.5454545454545454
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_HOPE and BEH_EMO_HATRED based on 6 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.238193Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_HOPE_BEH_SPI_JIHAD",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_HOPE",
+        "BEH_SPI_JIHAD"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.538,
+      "confidence_factors": {
+        "common_neighbors": 7,
+        "jaccard_similarity": 0.5384615384615384
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_HOPE and BEH_SPI_JIHAD based on 7 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.238193Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPI_JIHAD_BEH_EMO_HOPE",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPI_JIHAD",
+        "BEH_EMO_HOPE"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.538,
+      "confidence_factors": {
+        "common_neighbors": 7,
+        "jaccard_similarity": 0.5384615384615384
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPI_JIHAD and BEH_EMO_HOPE based on 7 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.239226Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_ANGER_BEH_SPEECH_VAIN_TALK",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_ANGER",
+        "BEH_SPEECH_VAIN_TALK"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.533,
+      "confidence_factors": {
+        "common_neighbors": 8,
+        "jaccard_similarity": 0.5333333333333333
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_ANGER and BEH_SPEECH_VAIN_TALK based on 8 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.227771Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPEECH_VAIN_TALK_BEH_EMO_ANGER",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPEECH_VAIN_TALK",
+        "BEH_EMO_ANGER"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.533,
+      "confidence_factors": {
+        "common_neighbors": 8,
+        "jaccard_similarity": 0.5333333333333333
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPEECH_VAIN_TALK and BEH_EMO_ANGER based on 8 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.236232Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SOC_OPPRESSION_BEH_SPI_PRAYER",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SOC_OPPRESSION",
+        "BEH_SPI_PRAYER"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.531,
+      "confidence_factors": {
+        "common_neighbors": 17,
+        "jaccard_similarity": 0.53125
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SOC_OPPRESSION and BEH_SPI_PRAYER based on 17 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.228731Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPI_PRAYER_BEH_SOC_OPPRESSION",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPI_PRAYER",
+        "BEH_SOC_OPPRESSION"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.531,
+      "confidence_factors": {
+        "common_neighbors": 17,
+        "jaccard_similarity": 0.53125
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPI_PRAYER and BEH_SOC_OPPRESSION based on 17 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.230730Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_COG_ARROGANCE_BEH_EMO_ANGER",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_COG_ARROGANCE",
+        "BEH_EMO_ANGER"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.526,
+      "confidence_factors": {
+        "common_neighbors": 10,
+        "jaccard_similarity": 0.5263157894736842
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_COG_ARROGANCE and BEH_EMO_ANGER based on 10 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.217459Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SOC_OPPRESSION_BEH_COG_CERTAINTY",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SOC_OPPRESSION",
+        "BEH_COG_CERTAINTY"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.522,
+      "confidence_factors": {
+        "common_neighbors": 12,
+        "jaccard_similarity": 0.5217391304347826
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SOC_OPPRESSION and BEH_COG_CERTAINTY based on 12 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.228731Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPI_HAJJ_BEH_FIN_HOARDING",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPI_HAJJ",
+        "BEH_FIN_HOARDING"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.514,
+      "confidence_factors": {
+        "common_neighbors": 19,
+        "jaccard_similarity": 0.5135135135135135
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPI_HAJJ and BEH_FIN_HOARDING based on 19 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.222104Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_IMPATIENCE_BEH_SPEECH_SLANDER",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_IMPATIENCE",
+        "BEH_SPEECH_SLANDER"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 2,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_IMPATIENCE and BEH_SPEECH_SLANDER based on 2 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.219461Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_JOY_BEH_EMO_GRIEF",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_JOY",
+        "BEH_EMO_GRIEF"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 5,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_JOY and BEH_EMO_GRIEF based on 5 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.222104Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SOC_HOSPITALITY_BEH_SPEECH_SLANDER",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SOC_HOSPITALITY",
+        "BEH_SPEECH_SLANDER"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 2,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SOC_HOSPITALITY and BEH_SPEECH_SLANDER based on 2 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.227771Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_ANGER_BEH_SPI_SHOWING_OFF",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_ANGER",
+        "BEH_SPI_SHOWING_OFF"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 7,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_ANGER and BEH_SPI_SHOWING_OFF based on 7 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.227771Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_ANGER_BEH_EMO_HOPE",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_ANGER",
+        "BEH_EMO_HOPE"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 7,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_ANGER and BEH_EMO_HOPE based on 7 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.227771Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SOC_OPPRESSION_BEH_SOC_CORRUPTION",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SOC_OPPRESSION",
+        "BEH_SOC_CORRUPTION"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 12,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SOC_OPPRESSION and BEH_SOC_CORRUPTION based on 12 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.228731Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_GRIEF_BEH_EMO_JOY",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_GRIEF",
+        "BEH_EMO_JOY"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 5,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_GRIEF and BEH_EMO_JOY based on 5 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.228731Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPI_SHOWING_OFF_BEH_EMO_ANGER",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPI_SHOWING_OFF",
+        "BEH_EMO_ANGER"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 7,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPI_SHOWING_OFF and BEH_EMO_ANGER based on 7 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.233283Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPI_SHOWING_OFF_BEH_FIN_ZAKAT",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPI_SHOWING_OFF",
+        "BEH_FIN_ZAKAT"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 7,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPI_SHOWING_OFF and BEH_FIN_ZAKAT based on 7 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.233283Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_FIN_ZAKAT_BEH_SPI_SHOWING_OFF",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_FIN_ZAKAT",
+        "BEH_SPI_SHOWING_OFF"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 7,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_FIN_ZAKAT and BEH_SPI_SHOWING_OFF based on 7 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.234282Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPI_HYPOCRISY_BEH_SOC_OPPRESSION",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPI_HYPOCRISY",
+        "BEH_SOC_OPPRESSION"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 11,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPI_HYPOCRISY and BEH_SOC_OPPRESSION based on 11 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.235583Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPI_HYPOCRISY_BEH_SPEECH_VAIN_TALK",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPI_HYPOCRISY",
+        "BEH_SPEECH_VAIN_TALK"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 8,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPI_HYPOCRISY and BEH_SPEECH_VAIN_TALK based on 8 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.235651Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_COG_CERTAINTY_BEH_EMO_HOPE",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_COG_CERTAINTY",
+        "BEH_EMO_HOPE"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 8,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_COG_CERTAINTY and BEH_EMO_HOPE based on 8 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.235651Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPEECH_VAIN_TALK_BEH_SPI_HYPOCRISY",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPEECH_VAIN_TALK",
+        "BEH_SPI_HYPOCRISY"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 8,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPEECH_VAIN_TALK and BEH_SPI_HYPOCRISY based on 8 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.236232Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_HOPE_BEH_EMO_ANGER",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_HOPE",
+        "BEH_EMO_ANGER"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 7,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_HOPE and BEH_EMO_ANGER based on 7 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.238193Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_EMO_HOPE_BEH_COG_CERTAINTY",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_EMO_HOPE",
+        "BEH_COG_CERTAINTY"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 8,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_EMO_HOPE and BEH_COG_CERTAINTY based on 8 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.238193Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPEECH_SLANDER_BEH_EMO_IMPATIENCE",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPEECH_SLANDER",
+        "BEH_EMO_IMPATIENCE"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 2,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPEECH_SLANDER and BEH_EMO_IMPATIENCE based on 2 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.239226Z"
+    },
+    {
+      "hypothesis_id": "LINK_PRED_BEH_SPEECH_SLANDER_BEH_SOC_HOSPITALITY",
+      "hypothesis_type": "link_prediction",
+      "involved_behaviors": [
+        "BEH_SPEECH_SLANDER",
+        "BEH_SOC_HOSPITALITY"
+      ],
+      "evidence_bundle": {
+        "verse_keys": [],
+        "tafsir_refs": [],
+        "edge_evidence_count": 0,
+        "source_diversity": 0
+      },
+      "confidence_score": 0.5,
+      "confidence_factors": {
+        "common_neighbors": 2,
+        "jaccard_similarity": 0.5
+      },
+      "falsification_check": {
+        "counter_evidence_found": false,
+        "counter_evidence": [],
+        "search_scope": "not_searched"
+      },
+      "is_confirmed": false,
+      "promotion_blocked": true,
+      "description": "Predicted link between BEH_SPEECH_SLANDER and BEH_SOC_HOSPITALITY based on 2 common neighbors",
+      "generated_at": "2026-01-01T20:14:34.239226Z"
+    }
+  ]
+}
